@@ -141,7 +141,7 @@ const ALAMAT =
   "Jl. Al Hidayah RT.06 RW.02, Pondok Jaya, Pondok Aren, Tangerang Selatan";
 
 const MAPS_HREF =
-  "https://www.google.com/maps/place/Dharmawangsa+Home+Bintaro+Jaya/@-6.273831,106.7200781,34a,90y,19.13h,88.77t/data=!3m7!1e1!3m5!1sWonZhipQn2hEPrB3eQFafA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D1.2297712428963052%26panoid%3DWonZhipQn2hEPrB3eQFafA%26yaw%3D19.13175196936661!7i16384!8i8192!4m14!1m7!3m6!1s0x2e69fbc29f43e389:0x7286b097843dd259!2sDharmawangsa+Home+Bintaro+Jaya!8m2!3d-6.2736745!4d106.720095!16s%2Fg%2F11t5pqszgn!3m5!1s0x2e69fbc29f43e389:0x7286b097843dd259!8m2!3d-6.2736745!4d106.720095!16s%2Fg%2F11t5pqszgn?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D";
+  "https://www.google.com/maps/place/Jasa+Pengaspalan+Tri+Abadi+Makmur/@-6.26941,106.718938,3a,76.8y,90t/data=!3m8!1e2!3m6!1sCIHM0ogKEICAgID8vIfQ4gE!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fgrass-cs%2FAABkmLeU-c-ojdzGX1qc673FoBPUi_RCWADNdNqTnzJwYi5eCPGLk3K6jkLQYiGmRkZwzCwVEkX_Vxw_sA__wTHnkXO1IwDyDWi6iwbmkKNUaKMOU-T_PBWwM48fgdT7ggIV2VWhlVVy_Q%3Dw114-h86-k-no!7i1032!8i774!4m7!3m6!1s0x2e69fa837518530d:0x6f054f333f762104!8m2!3d-6.26941!4d106.718938!10e5!16s%2Fg%2F11f3tjdqdc?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D";
 
 // ─────────────────────────────────────────────
 // KONFIGURASI COPYRIGHT

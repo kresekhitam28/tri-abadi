@@ -141,10 +141,10 @@ const EMAIL = "triabadimakmur@gmail.com";
 const ALAMAT = "Jl. Al Hidayah RT.06 RW.02, Pondok Jaya, Pondok Aren, Tangerang Selatan";
 
 const MAPS_HREF =
-  "https://www.google.com/maps/@-6.2709468,106.7209558,35a,75y,45.64h,75.29t/data=!3m7!1e1!3m5!1s9YjFXfD8Vr-3t-tpllNLWg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D14.70651854984466%26panoid%3D9YjFXfD8Vr-3t-tpllNLWg%26yaw%3D45.644155066999694!7i16384!8i8192?entry=ttu";
+  "https://www.google.com/maps/place/Jasa+Pengaspalan+Tri+Abadi+Makmur/@-6.26941,106.718938,3a,76.8y,90t/data=!3m8!1e2!3m6!1sCIHM0ogKEICAgID8vIfQ4gE!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fgrass-cs%2FAABkmLeU-c-ojdzGX1qc673FoBPUi_RCWADNdNqTnzJwYi5eCPGLk3K6jkLQYiGmRkZwzCwVEkX_Vxw_sA__wTHnkXO1IwDyDWi6iwbmkKNUaKMOU-T_PBWwM48fgdT7ggIV2VWhlVVy_Q%3Dw114-h86-k-no!7i1032!8i774!4m7!3m6!1s0x2e69fa837518530d:0x6f054f333f762104!8m2!3d-6.26941!4d106.718938!10e5!16s%2Fg%2F11f3tjdqdc?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D";
 
 const MAPS_EMBED_SRC =
-  "https://www.google.com/maps?q=Pondok+Jaya,+Pondok+Aren,+Tangerang+Selatan&output=embed";
+  "https://www.google.com/maps?q=Jasa+Pengaspalan+Tri+Abadi+Makmur&output=embed";
 
 const kontakInfo = [
   {
