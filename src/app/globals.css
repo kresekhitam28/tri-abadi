@@ -1,26 +1,60 @@
+/* src/app/globals.css */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ═════════════════════════════════════════════ */
+/* TAILWIND v4 THEME — konversi dari tailwind.config.js lama */
+/* ═════════════════════════════════════════════ */
+@theme {
+  --color-primary: #1f2937;
+  --color-accent: #f59e0b;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ═════════════════════════════════════════════ */
+/* MARQUEE AUTO-SCROLL — gerak ke kanan */
+/* ═════════════════════════════════════════════ */
+@keyframes servicesMarquee {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.services-marquee {
+  display: flex;
+  gap: 0.75rem;
+  width: max-content;
+  padding: 0 1.25rem 1rem;
+  animation: servicesMarquee 40s linear infinite;
+  pointer-events: none;
+  user-select: none;
+  touch-action: none;
+}
+
+/* ═════════════════════════════════════════════ */
+/* RESET DASAR */
+/* ═════════════════════════════════════════════ */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #171717;
+}
+
+/* ── Cegah scroll horizontal ── */
+html,
+body {
+  overflow-x: clip;
+}
+
+/* ── Smooth scrolling untuk anchor link ── */
+html {
+  scroll-behavior: smooth;
 }

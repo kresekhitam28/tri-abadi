@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
+  // ─── Static Export untuk Cloudflare Pages ───
+  output: "export",
+  images: {
+    unoptimized: true,
+  },
+
+  // ─── Turbopack untuk dev (hot reload Tailwind) ───
   turbopack: {
     rules: {
       "*.css": {
