@@ -486,8 +486,8 @@ export default function BlogDetail() {
   return (
     <article className="bg-white" style={{ contain: "layout style" }}>
 
-      {/* ═══ HERO ═══ */}
-      <section className="pt-10 sm:pt-12 lg:pt-16 pb-8 sm:pb-10 lg:pb-12">
+            {/* ═══ HERO ═══ */}
+      <section className="pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 lg:pb-12">
         <div className="relative max-w-3xl mx-auto px-4 sm:px-5 lg:px-8 text-center">
           <Reveal delay={0} y={14}>
             <div className="inline-flex items-center gap-3">
@@ -514,7 +514,7 @@ export default function BlogDetail() {
       </section>
 
       {/* ═══ COVER ═══ */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-5 lg:px-8 mt-2 sm:mt-4 lg:mt-6">
+        <section className="max-w-4xl mx-auto px-4 sm:px-5 lg:px-8 mt-8 sm:mt-12 lg:mt-16">
         <Reveal y={26} duration={800}>
           <figure className="relative rounded-2xl overflow-hidden bg-slate-100
                              ring-1 ring-slate-200 aspect-[16/9]">

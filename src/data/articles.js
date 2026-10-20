@@ -526,7 +526,7 @@ export const articles = [
   },
     {
     slug: "jasa-pengecoran-beton",
-    src: "/proyek/proyek-35.webp", // Ganti dengan nama file gambar cor beton Anda di folder public
+    src: "/proyek/proyek-13.webp", // Ganti dengan nama file gambar cor beton Anda di folder public
     category: { id: "Cor Beton", en: "Ready-Mix Concrete" },
     title: { id: "Jasa Pengecoran Beton", en: "Concrete Casting Services" },
     date: { id: "28 September 2026", en: "September 28, 2026" },
@@ -714,7 +714,7 @@ export const articles = [
   },
     {
     slug: "pemasangan-grass-block",
-    src: "/proyek/proyek-38.webp", // Pastikan gambar ini ada di folder public/proyek
+    src: "/proyek/proyek-39.webp", // Pastikan gambar ini ada di folder public/proyek
     category: { id: "Grass Block", en: "Grass Block" },
     title: { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide" },
     date: { id: "15 Oktober 2026", en: "October 15, 2026" },
@@ -841,7 +841,7 @@ export const articles = [
   },
     {
     slug: "pemasangan-pagar-panel",
-    src: "/proyek/proyek-33.webp", // Pastikan gambar ini ada di folder public/proyek atau ganti dengan nama file gambar Anda
+    src: "/proyek/proyek-80.webp", // Pastikan gambar ini ada di folder public/proyek atau ganti dengan nama file gambar Anda
     category: { id: "Pagar Panel", en: "Panel Fence" },
     title: { id: "Pemasangan Pagar Panel", en: "Panel Fence Installation Guide" },
     date: { id: "18 Oktober 2026", en: "October 18, 2026" },
@@ -968,7 +968,7 @@ export const articles = [
   },
     {
     slug: "pemasangan-tiang-pancang",
-    src: "/proyek/proyek-31.webp", // Pastikan gambar ini ada di folder public/proyek atau ganti dengan nama file gambar Anda
+    src: "/proyek/proyek-74.webp", // Pastikan gambar ini ada di folder public/proyek atau ganti dengan nama file gambar Anda
     category: { id: "Tiang Pancang", en: "Pile Driving" },
     title: { id: "Pemasangan Tiang Pancang", en: "Pile Driving Installation Guide" },
     date: { id: "20 Oktober 2026", en: "October 20, 2026" },
