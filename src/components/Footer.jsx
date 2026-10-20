@@ -57,14 +57,6 @@ function IconInstagram({ className = "w-4 h-4" }) {
     </svg>
   );
 }
-function IconArrowUpRight({ className = "w-3.5 h-3.5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M7 17L17 7M7 7h10v10" />
-    </svg>
-  );
-}
 
 // ─────────────────────────────────────────────
 // DATA STATIS
@@ -160,8 +152,7 @@ function SectionHeading({ children }) {
         style={{ fontSize: "clamp(0.6875rem, 1.3vw, 0.75rem)" }}>
       {children}
       <span
-        className="absolute left-0 -bottom-1.5 w-8 h-[2px] rounded-full
-                   bg-gradient-to-r from-[#4da3ff] to-transparent"
+        className="absolute left-0 -bottom-1.5 w-8 h-[2px] rounded-full bg-[#4da3ff]"
         aria-hidden="true"
       />
     </h4>
@@ -178,15 +169,12 @@ function ContactCard({ href, Icon, label, value, secondary }) {
       href={href}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
-      className="group relative flex items-start gap-3 sm:gap-4
+      className="group flex items-start gap-3 sm:gap-4
                  p-4 sm:p-5 lg:p-6
                  rounded-xl sm:rounded-2xl
                  border border-white/10 bg-white/[0.02]
                  hover:bg-white/[0.06] hover:border-[#1e88e5]/40
-                 hover:shadow-lg hover:shadow-[#1e88e5]/5
-                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4da3ff]
-                 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950
-                 transition-all duration-300"
+                 transition-colors duration-200"
       style={{ contain: "layout paint style" }}
     >
       <span
@@ -195,16 +183,14 @@ function ContactCard({ href, Icon, label, value, secondary }) {
                    flex items-center justify-center
                    bg-[#1e88e5]/15 text-[#4da3ff]
                    group-hover:bg-[#1e88e5] group-hover:text-white
-                   group-hover:scale-105 group-hover:shadow-md
-                   group-hover:shadow-[#1e88e5]/30
-                   transition-all duration-300"
+                   transition-colors duration-200"
       >
         <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
       </span>
       <div className="min-w-0 flex-1">
         <p className="text-[9.5px] sm:text-[10px] uppercase tracking-[0.22em]
                       text-slate-500 font-semibold mb-1
-                      group-hover:text-[#4da3ff] transition-colors">
+                      group-hover:text-[#4da3ff] transition-colors duration-200">
           {label}
         </p>
         <p className="text-white leading-relaxed break-words"
@@ -218,19 +204,6 @@ function ContactCard({ href, Icon, label, value, secondary }) {
           </p>
         )}
       </div>
-
-      {/* Arrow indicator saat hover */}
-      <span
-        className="shrink-0 self-start mt-1 w-6 h-6 rounded-full
-                   flex items-center justify-center
-                   bg-white/5 text-slate-500
-                   opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0
-                   group-hover:bg-[#1e88e5] group-hover:text-white
-                   transition-all duration-300"
-        aria-hidden="true"
-      >
-        <IconArrowUpRight className="w-3 h-3" />
-      </span>
     </a>
   );
 }
@@ -248,18 +221,11 @@ function LinkColumn({ title, links, t, onNavigate }) {
             <Link
               href={item.href}
               onClick={onNavigate}
-              className="group inline-flex items-center gap-2
-                         text-slate-400 hover:text-[#4da3ff]
-                         focus-visible:outline-none focus-visible:text-[#4da3ff]
-                         focus-visible:underline focus-visible:underline-offset-4
-                         transition-all duration-200"
+              className="text-slate-400 hover:text-[#4da3ff]
+                         transition-colors duration-150"
               style={{ fontSize: "clamp(0.78125rem, 1.5vw, 0.8125rem)" }}
             >
-              <span className="w-0 h-px bg-[#4da3ff]
-                               group-hover:w-3 transition-all duration-300" />
-              <span className="group-hover:translate-x-0.5 transition-transform duration-200">
-                {t(item.label)}
-              </span>
+              {t(item.label)}
             </Link>
           </li>
         ))}
@@ -278,12 +244,9 @@ function ContactRow({ href, Icon, children, external }) {
         href={href}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
-        className="flex items-start gap-3 group
-                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4da3ff]
-                   focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-md"
+        className="flex items-start gap-3 group"
       >
-        <span className="shrink-0 mt-0.5 text-[#4da3ff]
-                         group-hover:scale-110 transition-transform duration-200">
+        <span className="shrink-0 mt-0.5 text-[#4da3ff]">
           <Icon className="w-4 h-4" />
         </span>
         <span className="text-slate-400 leading-relaxed break-words
@@ -311,11 +274,7 @@ function SocialIcon({ name, href, Icon }) {
                  flex items-center justify-center rounded-lg
                  bg-white/5 text-slate-400 ring-1 ring-white/10
                  hover:bg-[#1e88e5] hover:text-white hover:ring-[#1e88e5]
-                 hover:scale-105 hover:shadow-md hover:shadow-[#1e88e5]/30
-                 active:bg-[#1e88e5] active:text-white
-                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4da3ff]
-                 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950
-                 transition-all duration-200
+                 transition-colors duration-200
                  relative z-10 cursor-pointer
                  touch-manipulation select-none"
       style={{ WebkitTapHighlightColor: "transparent" }}
@@ -349,34 +308,11 @@ export default function Footer() {
 
   return (
     <footer
-      className="relative bg-slate-950 overflow-hidden"
+      className="relative bg-slate-950"
       style={{ contain: "layout style" }}
     >
-      {/* ═══ BACKGROUND DECORATION ═══ */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        aria-hidden="true"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #ffffff 1px, transparent 1px),
-            linear-gradient(to bottom, #ffffff 1px, transparent 1px)
-          `,
-          backgroundSize: "64px 64px",
-          maskImage:
-            "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)",
-        }}
-      />
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full
-                      bg-[#1e88e5]/[0.05] blur-3xl pointer-events-none"
-           aria-hidden="true" />
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full
-                      bg-[#1e88e5]/[0.03] blur-3xl pointer-events-none"
-           aria-hidden="true" />
-
       {/* ═══════════ KONTAK CARDS ═══════════ */}
-      <div className="relative max-w-6xl md:max-w-7xl mx-auto px-4 sm:px-5 lg:px-8
+      <div className="max-w-6xl md:max-w-7xl mx-auto px-4 sm:px-5 lg:px-8
                       pt-14 sm:pt-16 lg:pt-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
                         gap-3 sm:gap-4 lg:gap-5">
@@ -404,7 +340,7 @@ export default function Footer() {
       </div>
 
       {/* ═══════════ MAIN FOOTER ═══════════ */}
-      <div className="relative max-w-6xl md:max-w-7xl mx-auto px-4 sm:px-5 lg:px-8
+      <div className="max-w-6xl md:max-w-7xl mx-auto px-4 sm:px-5 lg:px-8
                       pt-12 sm:pt-14 lg:pt-20 pb-10 sm:pb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
                         gap-10 sm:gap-8 lg:gap-12">
@@ -413,9 +349,7 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="mb-4 sm:mb-5">
               <div
-                className="font-extrabold tracking-tight leading-tight
-                           bg-gradient-to-r from-white to-[#4da3ff]
-                           bg-clip-text text-transparent"
+                className="font-extrabold tracking-tight leading-tight text-white"
                 style={{ fontSize: "clamp(1rem, 2vw, 1.0625rem)" }}
               >
                 TRI ABADI MAKMUR
@@ -477,20 +411,13 @@ export default function Footer() {
       </div>
 
       {/* ═══════════ BOTTOM BAR ═══════════ */}
-      <div className="relative border-t border-white/10">
-        {/* Gradient fade top */}
-        <div
-          className="absolute -top-px left-0 right-0 h-px
-                     bg-gradient-to-r from-transparent via-[#4da3ff]/30 to-transparent"
-          aria-hidden="true"
-        />
-
+      <div className="border-t border-white/10">
         <div className="max-w-6xl md:max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 py-5 sm:py-6">
           <p
             className="text-slate-500 text-center leading-relaxed"
             style={{ fontSize: "clamp(0.71875rem, 1.4vw, 0.75rem)" }}
           >
-            © {COMPANY_START_YEAR} - {currentYear}{" "}
+            © {currentYear}{" "}
             <span className="text-slate-300 font-medium">
               {COMPANY_LEGAL_NAME}
             </span>
@@ -506,8 +433,7 @@ export default function Footer() {
               href={WEBSITE_CREDIT_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 hover:text-[#4da3ff] transition-colors
-                         focus-visible:outline-none focus-visible:underline underline-offset-4"
+              className="text-slate-300 hover:text-[#4da3ff] transition-colors"
             >
               {WEBSITE_CREDIT_NAME}
             </a>

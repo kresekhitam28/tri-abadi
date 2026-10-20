@@ -194,40 +194,18 @@ export default function Services() {
 
   return (
     <section
-      className="relative bg-white pt-14 sm:pt-16 lg:pt-20 pb-14 sm:pb-16 lg:pb-24 overflow-hidden"
+      className="relative bg-white pt-14 sm:pt-16 lg:pt-20 pb-14 sm:pb-16 lg:pb-24"
       style={{ contain: "layout style" }}
     >
-      {!isMobile && (
-        <>
-          <div
-            className="absolute inset-0 opacity-40 pointer-events-none"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, #f3f4f6 1px, transparent 1px), linear-gradient(to bottom, #f3f4f6 1px, transparent 1px)",
-              backgroundSize: "64px 64px",
-              maskImage:
-                "radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%)",
-              WebkitMaskImage:
-                "radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%)",
-            }}
-          />
-          {/* Blob subtle */}
-          <div className="absolute top-1/3 -left-40 w-[400px] h-[400px] rounded-full
-                          bg-[#1e88e5]/[0.03] blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 -right-40 w-[400px] h-[400px] rounded-full
-                          bg-[#1e88e5]/[0.02] blur-3xl pointer-events-none" />
-        </>
-      )}
-
       <div className="relative max-w-5xl mx-auto px-4 sm:px-5 lg:px-8">
         {/* ═══ HEADER ═══ */}
         <div className="text-center mb-10 sm:mb-14 lg:mb-20">
           <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-5 sm:mb-6">
-            <span className="w-6 sm:w-12 h-px bg-gradient-to-r from-transparent to-[#1e88e5]" />
+            <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-semibold">
               {data.kicker}
             </span>
-            <span className="w-6 sm:w-12 h-px bg-gradient-to-l from-transparent to-[#1e88e5]" />
+            <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
           </div>
 
           <h2
@@ -236,25 +214,12 @@ export default function Services() {
           >
             {lang === "en" ? (
               <>
-                Our <span
-                  className="font-semibold
-                             bg-gradient-to-r from-slate-900 to-[#1e88e5]
-                             bg-clip-text text-transparent"
-                >
-                  Services
-                </span>
+                Our <span className="font-semibold">Services</span>
                 <span className="text-[#1e88e5]">.</span>
               </>
             ) : (
               <>
-                <span
-                  className="font-semibold
-                             bg-gradient-to-r from-slate-900 to-[#1e88e5]
-                             bg-clip-text text-transparent"
-                >
-                  Layanan
-                </span>{" "}
-                Kami
+                <span className="font-semibold">Layanan</span> Kami
                 <span className="text-[#1e88e5]">.</span>
               </>
             )}
@@ -281,13 +246,12 @@ export default function Services() {
               <div
                 key={title}
                 ref={(el) => (panelRefs.current[i] = el)}
-                className={`group bg-white border rounded-2xl overflow-hidden
+                className={`bg-white border rounded-2xl overflow-hidden
                             scroll-mt-20 sm:scroll-mt-24
-                            shadow-sm hover:shadow-md
-                            transition-all duration-300
+                            transition-colors duration-200
                             ${isOpen
-                              ? "border-[#1e88e5] shadow-lg shadow-[#1e88e5]/5"
-                              : "border-slate-200 hover:border-[#1e88e5]/40"}`}
+                              ? "border-[#1e88e5]"
+                              : "border-slate-200 hover:border-[#1e88e5]/50"}`}
                 style={{ contain: "layout paint style" }}
               >
                 <button
@@ -298,18 +262,15 @@ export default function Services() {
                   className={`w-full flex items-center gap-3 sm:gap-5
                               px-4 sm:px-6 py-4 sm:py-5 text-left
                               transition-colors duration-150
-                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]
-                              focus-visible:ring-offset-2
-                              ${isExpandable ? "cursor-pointer active:bg-slate-50" : "cursor-default"}`}
+                              ${isExpandable ? "cursor-pointer" : "cursor-default"}`}
                 >
                   <span
                     className={`shrink-0 w-11 h-11 sm:w-14 sm:h-14 rounded-xl
                                 flex items-center justify-center
-                                ring-1
-                                transition-all duration-300
+                                transition-colors duration-200
                                 ${isOpen
-                                  ? "bg-[#1e88e5] text-white ring-[#1e88e5] shadow-md shadow-[#1e88e5]/30 scale-105"
-                                  : "bg-[#1e88e5]/10 text-[#1e88e5] ring-[#1e88e5]/20 group-hover:bg-[#1e88e5] group-hover:text-white group-hover:scale-105 group-hover:shadow-md group-hover:shadow-[#1e88e5]/30"}`}
+                                  ? "bg-[#1e88e5] text-white"
+                                  : "bg-[#1e88e5]/10 text-[#1e88e5]"}`}
                   >
                     <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                   </span>
@@ -336,10 +297,10 @@ export default function Services() {
                                   px-2.5 sm:px-3.5 py-1.5 rounded-full border
                                   text-[9.5px] sm:text-[10.5px] font-bold uppercase
                                   tracking-[0.12em] sm:tracking-[0.15em]
-                                  transition-all duration-300
+                                  transition-colors duration-200
                                   ${isOpen
-                                    ? "bg-[#1e88e5] text-white border-[#1e88e5] shadow-sm shadow-[#1e88e5]/30"
-                                    : "bg-white text-slate-600 border-slate-300 group-hover:border-[#1e88e5] group-hover:text-[#1e88e5]"}`}
+                                    ? "bg-[#1e88e5] text-white border-[#1e88e5]"
+                                    : "bg-white text-slate-600 border-slate-300"}`}
                     >
                       {isOpen ? btnClose : btnOpen}
                       <IconChevronDown
@@ -360,7 +321,7 @@ export default function Services() {
                   >
                     <div className="overflow-hidden">
                       <div className="border-t border-slate-100
-                                      bg-gradient-to-b from-slate-50/80 to-slate-50/40
+                                      bg-slate-50
                                       px-4 sm:px-6 py-4 sm:py-6">
                         {isOpen && <PricingPanel type={pricing} />}
                       </div>

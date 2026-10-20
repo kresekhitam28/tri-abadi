@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLang } from "../context/LanguageContext";
 
 const pick = (field, lang) => {
@@ -22,9 +23,9 @@ export default function BlogCard({ item }) {
 
   return (
     <article
-      className="h-full flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden
+      className="group h-full flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden
                  transition-colors duration-200
-                 hover:border-[#1e88e5]/40"
+                 hover:border-[#1e88e5]/50"
       style={{ contain: "layout paint style" }}
     >
       {/* FOTO */}
@@ -34,17 +35,14 @@ export default function BlogCard({ item }) {
                    aspect-[16/10] overflow-hidden"
         aria-label={title}
       >
-        <img
+        <Image
           src={item.src}
           alt={title}
-          loading="lazy"
-          decoding="async"
-          width={800}
-          height={500}
-          className="absolute inset-0 w-full h-full object-cover
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover
                      transition-transform duration-300 ease-out
-                     will-change-transform
-                     hover:scale-[1.03]"
+                     group-hover:scale-[1.03]"
           onError={(e) => {
             e.currentTarget.onerror = null;
             e.currentTarget.src =
@@ -56,7 +54,7 @@ export default function BlogCard({ item }) {
       <div className="flex flex-col flex-1 p-5 sm:p-6">
         <h3
           className="font-semibold text-slate-900 leading-snug tracking-tight
-                     line-clamp-2 overflow-hidden"
+                     line-clamp-2"
           style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}
         >
           <Link href={href} className="hover:text-[#1e88e5] transition-colors duration-150">
@@ -66,7 +64,7 @@ export default function BlogCard({ item }) {
 
         <p
           className="mt-2.5 sm:mt-3 text-slate-600 leading-relaxed flex-1
-                     line-clamp-3 overflow-hidden"
+                     line-clamp-3"
           style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.84375rem)" }}
         >
           {desc}
@@ -82,7 +80,12 @@ export default function BlogCard({ item }) {
                        transition-colors duration-150"
           >
             {readMore}
-            <span aria-hidden="true" className="transition-transform duration-150">→</span>
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-200 group-hover:translate-x-0.5"
+            >
+              →
+            </span>
           </Link>
         </div>
       </div>

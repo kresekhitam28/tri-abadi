@@ -3,6 +3,7 @@
 
 import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useLang } from "../context/LanguageContext";
 import { getArticleBySlug } from "../data/articles";
@@ -309,7 +310,7 @@ function ArticleBody({ body, lang }) {
                     className="inline-block px-2.5 py-1 rounded-md
                                bg-slate-50 border border-slate-200
                                text-[11px] text-slate-600 font-medium
-                               hover:border-[#1e88e5]/40 hover:text-[#1e88e5]
+                               hover:border-[#1e88e5]/50 hover:text-[#1e88e5]
                                transition-colors"
                   />
                 ))}
@@ -332,7 +333,6 @@ export default function BlogDetail() {
   const { lang } = useLang();
   const article = getArticleBySlug(slug);
   const t = content[lang] || content.id;
-  const isMobile = useIsMobile();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -487,24 +487,7 @@ export default function BlogDetail() {
     <article className="bg-white" style={{ contain: "layout style" }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="relative pt-10 sm:pt-12 lg:pt-16 pb-8 sm:pb-10 lg:pb-12 overflow-hidden">
-        {!isMobile && (
-          <div
-            className="absolute inset-0 opacity-[0.5] pointer-events-none"
-            style={{
-              backgroundImage: `
-                linear-gradient(to right, #f1f5f9 1px, transparent 1px),
-                linear-gradient(to bottom, #f1f5f9 1px, transparent 1px)
-              `,
-              backgroundSize: "56px 56px",
-              maskImage:
-                "radial-gradient(ellipse 60% 70% at 50% 30%, black 30%, transparent 100%)",
-              WebkitMaskImage:
-                "radial-gradient(ellipse 60% 70% at 50% 30%, black 30%, transparent 100%)",
-            }}
-          />
-        )}
-
+      <section className="pt-10 sm:pt-12 lg:pt-16 pb-8 sm:pb-10 lg:pb-12">
         <div className="relative max-w-3xl mx-auto px-4 sm:px-5 lg:px-8 text-center">
           <Reveal delay={0} y={14}>
             <div className="inline-flex items-center gap-3">
@@ -533,19 +516,18 @@ export default function BlogDetail() {
       {/* ═══ COVER ═══ */}
       <section className="max-w-4xl mx-auto px-4 sm:px-5 lg:px-8 mt-2 sm:mt-4 lg:mt-6">
         <Reveal y={26} duration={800}>
-          <figure className="rounded-2xl overflow-hidden bg-slate-100
-                             ring-1 ring-slate-200/80 aspect-[16/9]">
-            <img
+          <figure className="relative rounded-2xl overflow-hidden bg-slate-100
+                             ring-1 ring-slate-200 aspect-[16/9]">
+            <Image
               src={article.src}
               alt={title}
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-              width={1200}
-              height={675}
-              className="w-full h-full object-cover"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 896px"
+              className="object-cover"
               onError={(e) => {
-                e.target.src =
+                e.currentTarget.onerror = null;
+                e.currentTarget.src =
                   "https://placehold.co/1200x675/e2e8f0/64748b?text=Blog";
               }}
             />
@@ -557,7 +539,7 @@ export default function BlogDetail() {
       <section className="max-w-3xl mx-auto px-4 sm:px-5 lg:px-8 pt-10 sm:pt-12 lg:pt-16">
         <Reveal y={18}>
           <p className="text-slate-600 leading-[1.85] italic
-                        border-l-2 border-[#1e88e5]/60 pl-4 sm:pl-5 mb-8 sm:mb-10"
+                        border-l-2 border-[#1e88e5] pl-4 sm:pl-5 mb-8 sm:mb-10"
              style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.9375rem)" }}>
             {desc}
           </p>
@@ -587,7 +569,7 @@ export default function BlogDetail() {
                       className="inline-block px-2.5 py-1 rounded-md
                                  bg-slate-50 border border-slate-200
                                  text-[11px] text-slate-600 font-medium
-                                 hover:border-[#1e88e5]/40 hover:text-[#1e88e5]
+                                 hover:border-[#1e88e5]/50 hover:text-[#1e88e5]
                                  transition-colors"
                     />
                   ))}
@@ -653,7 +635,7 @@ export default function BlogDetail() {
 
               {copied && (
                 <p className="mt-2 text-[10.5px] text-[#1e88e5] font-semibold
-                              text-right animate-pulse">
+                              text-right">
                   {t.copied}
                 </p>
               )}
@@ -666,14 +648,14 @@ export default function BlogDetail() {
           <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-200
                           flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
             {article.author?.avatar && (
-              <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden shrink-0
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden shrink-0
                               bg-slate-100 ring-1 ring-slate-200">
-                <img
+                <Image
                   src={article.author.avatar}
                   alt={article.author?.name || "Author"}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="96px"
+                  className="object-cover"
                 />
               </div>
             )}
@@ -717,8 +699,8 @@ export default function BlogDetail() {
                 onChange={(e) => setComment(e.target.value)}
                 placeholder={t.placeholderComment}
                 className="w-full px-4 py-3.5 rounded-xl border border-slate-200
-                           bg-slate-50/50 resize-none
-                           focus:bg-white focus:border-[#1e88e5] focus:ring-2 focus:ring-[#1e88e5]/15
+                           bg-slate-50 resize-none
+                           focus:bg-white focus:border-[#1e88e5] focus:ring-2 focus:ring-[#1e88e5]/20
                            outline-none text-[14px] text-slate-800 placeholder:text-slate-400
                            transition-colors duration-150"
               />
@@ -731,8 +713,8 @@ export default function BlogDetail() {
                   onChange={(e) => setName(e.target.value)}
                   placeholder={t.placeholderName}
                   className="w-full px-4 py-3.5 rounded-xl border border-slate-200
-                             bg-slate-50/50
-                             focus:bg-white focus:border-[#1e88e5] focus:ring-2 focus:ring-[#1e88e5]/15
+                             bg-slate-50
+                             focus:bg-white focus:border-[#1e88e5] focus:ring-2 focus:ring-[#1e88e5]/20
                              outline-none text-[14px] text-slate-800 placeholder:text-slate-400
                              transition-colors duration-150"
                 />
@@ -743,8 +725,8 @@ export default function BlogDetail() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={t.placeholderEmail}
                   className="w-full px-4 py-3.5 rounded-xl border border-slate-200
-                             bg-slate-50/50
-                             focus:bg-white focus:border-[#1e88e5] focus:ring-2 focus:ring-[#1e88e5]/15
+                             bg-slate-50
+                             focus:bg-white focus:border-[#1e88e5] focus:ring-2 focus:ring-[#1e88e5]/20
                              outline-none text-[14px] text-slate-800 placeholder:text-slate-400
                              transition-colors duration-150"
                 />
@@ -756,7 +738,6 @@ export default function BlogDetail() {
                 className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-xl
                            bg-[#1e88e5] hover:bg-[#1976d2] text-white
                            text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.18em]
-                           shadow-md shadow-[#1e88e5]/20 hover:shadow-lg hover:shadow-[#1e88e5]/30
                            disabled:opacity-60 disabled:cursor-not-allowed
                            transition-colors duration-150"
               >

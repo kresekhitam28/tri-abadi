@@ -86,32 +86,6 @@ const FadeUp = memo(function FadeUp({ children, delay = 0, className = "" }) {
 });
 
 // ─────────────────────────────────────────────
-// KOMPONEN: SCALE IN
-// ─────────────────────────────────────────────
-const ScaleIn = memo(function ScaleIn({ children, delay = 0, className = "" }) {
-  const isMobile = useIsMobile();
-  const enabled = !isMobile;
-  const [ref, inView] = useInView(0.08, enabled);
-
-  return (
-    <div
-      ref={ref}
-      className={`${inView ? "opacity-100 scale-100" : "opacity-0 scale-[0.98]"}
-                  ${className}`}
-      style={{
-        transitionProperty: "opacity, transform",
-        transitionDuration: "600ms",
-        transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
-        transitionDelay: `${delay}ms`,
-        contain: "layout paint style",
-      }}
-    >
-      {children}
-    </div>
-  );
-});
-
-// ─────────────────────────────────────────────
 // IKON
 // ─────────────────────────────────────────────
 function IconArrowRight({ className = "w-3.5 h-3.5" }) {
@@ -212,25 +186,18 @@ const layananPendukung = [
 const LayananCard = memo(function LayananCard({ layanan }) {
   return (
     <div
-      className="group rounded-2xl border border-slate-200 bg-white
+      className="rounded-2xl border border-slate-200 bg-white
                  hover:border-[#1e88e5]/50
-                 shadow-sm hover:shadow-lg hover:shadow-[#1e88e5]/5
-                 transition-all duration-300 overflow-hidden"
+                 transition-colors duration-200 overflow-hidden"
       style={{ contain: "layout paint style" }}
     >
       <Link
         href={layanan.to}
-        className="flex items-start gap-3.5 sm:gap-4 p-4 sm:p-5 lg:p-6
-                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]
-                   focus-visible:ring-offset-2 rounded-2xl"
+        className="flex items-start gap-3.5 sm:gap-4 p-4 sm:p-5 lg:p-6"
       >
         <span className="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl
                          bg-[#1e88e5]/10 text-[#1e88e5]
-                         group-hover:bg-[#1e88e5] group-hover:text-white
-                         flex items-center justify-center
-                         transition-all duration-300
-                         group-hover:scale-105 group-hover:shadow-md
-                         group-hover:shadow-[#1e88e5]/30">
+                         flex items-center justify-center">
           <layanan.Icon className="w-5 h-5" />
         </span>
 
@@ -242,10 +209,7 @@ const LayananCard = memo(function LayananCard({ layanan }) {
             >
               {layanan.title}
             </h3>
-            <IconArrowRight className="w-3.5 h-3.5 text-slate-400
-                                       group-hover:text-[#1e88e5]
-                                       group-hover:translate-x-1
-                                       transition-all duration-300" />
+            <IconArrowRight className="w-3.5 h-3.5 text-slate-400" />
           </div>
           <p
             className="text-slate-500 leading-relaxed"
@@ -268,11 +232,8 @@ const LayananCard = memo(function LayananCard({ layanan }) {
                            bg-slate-50 border border-slate-200
                            text-slate-600
                            hover:bg-[#1e88e5] hover:text-white
-                           hover:border-[#1e88e5] hover:-translate-y-0.5
-                           hover:shadow-md hover:shadow-[#1e88e5]/20
-                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]
-                           focus-visible:ring-offset-1
-                           transition-all duration-200"
+                           hover:border-[#1e88e5]
+                           transition-colors duration-150"
                 style={{ fontSize: "clamp(0.71875rem, 1.4vw, 0.75rem)" }}
               >
                 <item.Icon className="w-3.5 h-3.5" />
@@ -293,34 +254,19 @@ const PendukungCard = memo(function PendukungCard({ item }) {
   return (
     <Link
       href={item.to}
-      className="group relative flex items-start gap-3.5 sm:gap-4 p-4 sm:p-5 lg:p-6 h-full
+      className="group flex items-start gap-3.5 sm:gap-4 p-4 sm:p-5 lg:p-6 h-full
                  rounded-2xl bg-white border border-slate-200
-                 hover:border-[#1e88e5]/60
-                 shadow-sm hover:shadow-lg hover:shadow-[#1e88e5]/5
-                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]
-                 focus-visible:ring-offset-2
-                 transition-all duration-300 overflow-hidden"
+                 hover:border-[#1e88e5]/50
+                 transition-colors duration-200 overflow-hidden"
       style={{ contain: "layout paint style" }}
     >
-      {/* Gradient subtle saat hover */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-0
-                   group-hover:opacity-100 transition-opacity duration-300
-                   bg-gradient-to-br from-[#1e88e5]/[0.03] via-transparent to-transparent"
-      />
-
-      <div className="relative shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl
+      <div className="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl
                       bg-[#1e88e5]/10 text-[#1e88e5]
-                      group-hover:bg-[#1e88e5] group-hover:text-white
-                      flex items-center justify-center
-                      transition-all duration-300
-                      group-hover:scale-105 group-hover:shadow-md
-                      group-hover:shadow-[#1e88e5]/30">
+                      flex items-center justify-center">
         <item.Icon className="w-5 h-5" />
       </div>
 
-      <div className="relative min-w-0 flex-1">
+      <div className="min-w-0 flex-1">
         <div className="flex items-center justify-between gap-3 mb-1.5">
           <h3
             className="font-semibold text-slate-900"
@@ -330,7 +276,7 @@ const PendukungCard = memo(function PendukungCard({ item }) {
           </h3>
           <span
             className="shrink-0 uppercase tracking-[0.15em] font-bold
-                       text-[#1e88e5] px-2 py-1 rounded-md bg-[#1e88e5]/8"
+                       text-[#1e88e5] px-2 py-1 rounded-md bg-[#1e88e5]/10"
             style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
           >
             {item.count}
@@ -349,9 +295,7 @@ const PendukungCard = memo(function PendukungCard({ item }) {
                          text-[#1e88e5]"
               style={{ fontSize: "clamp(0.625rem, 1.2vw, 0.6875rem)" }}>
           Lihat Selengkapnya
-          <IconArrowRight className="w-3 h-3
-                                     group-hover:translate-x-1
-                                     transition-transform duration-300" />
+          <IconArrowRight className="w-3 h-3" />
         </span>
       </div>
     </Link>
@@ -365,13 +309,13 @@ const SectionHeader = memo(function SectionHeader({ badge, title, subtitle }) {
   return (
     <div className="text-center mb-8 sm:mb-10">
       <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-3">
-        <span className="w-6 sm:w-12 h-px bg-gradient-to-r from-transparent to-[#1e88e5]" />
+        <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
         <span className="text-[10px] sm:text-[11px] uppercase
                          tracking-[0.25em] sm:tracking-[0.3em]
                          text-[#1e88e5] font-semibold">
           {badge}
         </span>
-        <span className="w-6 sm:w-12 h-px bg-gradient-to-l from-transparent to-[#1e88e5]" />
+        <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
       </div>
 
       <h2
@@ -397,35 +341,22 @@ const SectionHeader = memo(function SectionHeader({ badge, title, subtitle }) {
 // HALAMAN
 // ─────────────────────────────────────────────
 export default function Layanan() {
-  const isMobile = useIsMobile();
-
   return (
     <div className="bg-white">
 
       {/* ═══ HERO SECTION ═══ */}
-      <section className="relative pt-28 lg:pt-36 pb-12 lg:pb-16 overflow-hidden
-                          bg-gradient-to-b from-slate-50 via-white to-white">
-        {!isMobile && (
-          <>
-            <div className="absolute -right-40 -top-40 w-[600px] h-[600px] rounded-full
-                            bg-[#1e88e5]/[0.04] blur-3xl pointer-events-none" />
-            <div className="absolute -left-40 -bottom-20 w-[500px] h-[500px] rounded-full
-                            bg-[#1e88e5]/[0.03] blur-3xl pointer-events-none" />
-            <div className="absolute left-1/2 top-1/3 -translate-x-1/2 w-[400px] h-[400px]
-                            rounded-full bg-[#1e88e5]/[0.02] blur-3xl pointer-events-none" />
-          </>
-        )}
-
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-5 lg:px-8 text-center">
+      <section className="pt-28 lg:pt-36 pb-12 lg:pb-16
+                          bg-gradient-to-b from-slate-50 to-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-5 lg:px-8 text-center">
           <FadeUp>
             <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-5">
-              <span className="w-6 sm:w-12 h-px bg-gradient-to-r from-transparent to-[#1e88e5]" />
+              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
               <span className="text-[10px] sm:text-[11px] uppercase
                                tracking-[0.25em] sm:tracking-[0.3em]
                                text-[#1e88e5] font-semibold">
                 Layanan Kami
               </span>
-              <span className="w-6 sm:w-12 h-px bg-gradient-to-l from-transparent to-[#1e88e5]" />
+              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
             </div>
           </FadeUp>
 
@@ -474,7 +405,7 @@ export default function Layanan() {
       </section>
 
       {/* ═══ LAYANAN PENDUKUNG ═══ */}
-      <section className="bg-slate-50/70 border-y border-slate-200/70">
+      <section className="bg-slate-50 border-y border-slate-200">
         <div className="max-w-5xl md:max-w-6xl mx-auto px-4 sm:px-5 lg:px-8 py-14 sm:py-16 lg:py-20">
 
           <FadeUp>
@@ -495,74 +426,52 @@ export default function Layanan() {
         </div>
       </section>
 
-      {/* ═══ CTA ═══ */}
+      {/* ═══ CTA (simpel, terang) ═══ */}
       <section className="pb-16 lg:pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-5 lg:px-8">
-          <ScaleIn delay={80}>
-            <div className="mt-14 sm:mt-16 p-6 sm:p-8 lg:p-9 rounded-3xl bg-slate-900
-                            text-center relative overflow-hidden
-                            ring-1 ring-white/10">
-              {!isMobile && (
-                <>
-                  <div className="absolute -right-24 -top-24 w-56 h-56 rounded-full
-                                  bg-[#1e88e5]/25 blur-3xl pointer-events-none" />
-                  <div className="absolute -left-24 -bottom-24 w-56 h-56 rounded-full
-                                  bg-[#1e88e5]/15 blur-3xl pointer-events-none" />
-                </>
-              )}
+          <FadeUp delay={80}>
+            <div className="mt-14 sm:mt-16 text-center max-w-2xl mx-auto">
+              <p className="text-[#1e88e5] text-[10px] uppercase tracking-[0.3em]
+                            font-semibold mb-3">
+                Konsultasi Gratis
+              </p>
+              <h3
+                className="text-slate-900 font-light tracking-tight mb-6"
+                style={{ fontSize: "clamp(1.25rem, 3vw, 1.5rem)" }}
+              >
+                Punya proyek yang ingin dikerjakan?{" "}
+                <span className="font-semibold">Kami siap membantu.</span>
+              </h3>
 
-              <div className="relative">
-                <p className="text-[#4da3ff] text-[10px] uppercase tracking-[0.3em]
-                              font-semibold mb-3">
-                  Konsultasi Gratis
-                </p>
-                <h3
-                  className="text-white font-light tracking-tight mb-5"
-                  style={{ fontSize: "clamp(1.125rem, 2.8vw, 1.5rem)" }}
+              <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+                <Link
+                  href="/kontak"
+                  className="inline-flex items-center justify-center gap-2
+                             px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl
+                             bg-slate-900 text-white
+                             hover:bg-[#1e88e5]
+                             font-semibold uppercase tracking-[0.15em]
+                             transition-colors duration-300"
+                  style={{ fontSize: "clamp(0.6875rem, 1.3vw, 0.75rem)" }}
                 >
-                  Punya proyek yang ingin dikerjakan?{" "}
-                  <span className="font-semibold">Kami siap membantu.</span>
-                </h3>
-
-                <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
-                  <Link
-                    href="/kontak"
-                    className="group inline-flex items-center justify-center gap-2
-                               px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl
-                               bg-white text-slate-900
-                               font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em]
-                               hover:bg-[#1e88e5] hover:text-white
-                               hover:-translate-y-0.5
-                               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white
-                               focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900
-                               transition-all duration-300
-                               shadow-lg shadow-black/20"
-                    style={{ fontSize: "clamp(0.6875rem, 1.3vw, 0.75rem)" }}
-                  >
-                    Hubungi Kami
-                    <IconArrowRight className="w-3.5 h-3.5
-                                               transition-transform duration-300
-                                               group-hover:translate-x-1" />
-                  </Link>
-                  <Link
-                    href="/proyek"
-                    className="inline-flex items-center justify-center gap-2
-                               px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl
-                               bg-white/5 text-white border border-white/15
-                               font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em]
-                               hover:bg-white/10 hover:border-white/30
-                               hover:-translate-y-0.5
-                               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white
-                               focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900
-                               transition-all duration-300"
-                    style={{ fontSize: "clamp(0.6875rem, 1.3vw, 0.75rem)" }}
-                  >
-                    Lihat Proyek
-                  </Link>
-                </div>
+                  Hubungi Kami
+                  <IconArrowRight className="w-3.5 h-3.5" />
+                </Link>
+                <Link
+                  href="/proyek"
+                  className="inline-flex items-center justify-center gap-2
+                             px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl
+                             bg-white text-slate-700 border border-slate-300
+                             hover:border-[#1e88e5] hover:text-[#1e88e5]
+                             font-semibold uppercase tracking-[0.15em]
+                             transition-colors duration-300"
+                  style={{ fontSize: "clamp(0.6875rem, 1.3vw, 0.75rem)" }}
+                >
+                  Lihat Proyek
+                </Link>
               </div>
             </div>
-          </ScaleIn>
+          </FadeUp>
         </div>
       </section>
 

@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useLang } from "../context/LanguageContext";
 import NavLink from "./NavLink";
@@ -13,6 +14,8 @@ const BRAND = {
   name: "TRI ABADI MAKMUR",
   tagline: "GENERAL CONTRACTOR & SUPPLIER",
   logo: "/logo.webp",
+  logoWidth: 224,
+  logoHeight: 168,
   homeTo: "/",
 };
 
@@ -271,6 +274,8 @@ function LanguageToggleMobile({ lang, setLang }) {
 // LOGO BRAND
 // ─────────────────────────────────────────────
 function BrandLogo() {
+  const [imgError, setImgError] = useState(false);
+
   return (
     <Link
       href={BRAND.homeTo}
@@ -279,17 +284,21 @@ function BrandLogo() {
                  focus-visible:ring-offset-2 rounded-lg"
       aria-label={BRAND.name}
     >
-      <img
-        src={BRAND.logo}
-        alt={BRAND.name}
-        draggable={false}
-        className="h-11 sm:h-13 lg:h-15 w-auto object-contain"
-        style={{
-          imageRendering: "-webkit-optimize-contrast",
-          filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.08))",
-        }}
-        onError={(e) => { e.target.style.display = "none"; }}
-      />
+      {!imgError && (
+        <Image
+          src={BRAND.logo}
+          alt={BRAND.name}
+          width={BRAND.logoWidth}
+          height={BRAND.logoHeight}
+          priority
+          draggable={false}
+          className="h-11 sm:h-13 lg:h-15 w-auto object-contain"
+          style={{
+            imageRendering: "-webkit-optimize-contrast",
+          }}
+          onError={() => setImgError(true)}
+        />
+      )}
 
       <div className="leading-tight">
         <div className="text-[13px] sm:text-[14.5px] lg:text-[15.5px] font-extrabold tracking-tight text-slate-900">
@@ -464,7 +473,7 @@ function ParentMenuButton({ item, lang }) {
                    before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3
                    ${isRight ? "right-0" : "left-0"}`}
       >
-        {/* Arrow indicator — posisi menyesuaikan align panel */}
+        {/* Arrow indicator */}
         <span
           className={`absolute -top-1.5 w-3 h-3 bg-white border-l border-t border-slate-100
                       rotate-45 rounded-tl-sm

@@ -150,41 +150,20 @@ export default function Clients() {
 
   return (
     <section
-      className="relative bg-white pt-10 sm:pt-12 lg:pt-14 pb-16 sm:pb-20 lg:pb-24 overflow-hidden"
+      className="relative bg-white pt-10 sm:pt-12 lg:pt-14 pb-16 sm:pb-20 lg:pb-24"
       style={{ contain: "layout style" }}
     >
-      {/* Background decoration */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.04]"
-        aria-hidden="true"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, #1e88e5 1px, transparent 0)",
-          backgroundSize: "32px 32px",
-          maskImage:
-            "radial-gradient(ellipse 70% 50% at 50% 30%, black 30%, transparent 100%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 70% 50% at 50% 30%, black 30%, transparent 100%)",
-        }}
-      />
-      <div className="absolute top-10 -right-40 w-[500px] h-[500px] rounded-full
-                      bg-[#1e88e5]/[0.04] blur-3xl pointer-events-none"
-           aria-hidden="true" />
-      <div className="absolute bottom-0 -left-40 w-[400px] h-[400px] rounded-full
-                      bg-[#1e88e5]/[0.03] blur-3xl pointer-events-none"
-           aria-hidden="true" />
-
       <div className="relative max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
         {/* ── HEADER ── */}
         <div className="text-center mb-10 sm:mb-14 lg:mb-20">
           <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-5">
-            <span className="w-6 sm:w-12 h-px bg-gradient-to-r from-transparent to-[#1e88e5]" />
+            <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
             <span className="text-[10px] sm:text-xs uppercase
                              tracking-[0.25em] sm:tracking-[0.3em]
                              text-[#1e88e5] font-semibold">
               {data.kicker}
             </span>
-            <span className="w-6 sm:w-12 h-px bg-gradient-to-l from-transparent to-[#1e88e5]" />
+            <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
           </div>
 
           <h2
@@ -192,13 +171,7 @@ export default function Clients() {
             style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}
           >
             {data.titleLight}
-            <span
-              className="font-semibold
-                         bg-gradient-to-r from-slate-900 to-[#1e88e5]
-                         bg-clip-text text-transparent"
-            >
-              {data.titleBold}
-            </span>
+            <span className="font-semibold">{data.titleBold}</span>
             {data.titleAfter}
             <span className="text-[#1e88e5]">.</span>
           </h2>
@@ -223,8 +196,7 @@ export default function Clients() {
                            bg-white border border-slate-200
                            hover:border-[#1e88e5]/60
                            rounded-xl aspect-[4/3] p-3 sm:p-4
-                           shadow-sm hover:shadow-md hover:shadow-[#1e88e5]/5
-                           transition-all duration-300"
+                           transition-colors duration-200"
                 style={{ contain: "layout paint style" }}
               >
                 <img
@@ -248,15 +220,15 @@ export default function Clients() {
         <div className="relative w-full">
           {/* Fade edge kiri */}
           <div
-            className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 lg:w-40 z-10
-                       bg-gradient-to-r from-white via-white/90 to-transparent
+            className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 z-10
+                       bg-gradient-to-r from-white to-transparent
                        pointer-events-none"
             aria-hidden="true"
           />
           {/* Fade edge kanan */}
           <div
-            className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 lg:w-40 z-10
-                       bg-gradient-to-l from-white via-white/90 to-transparent
+            className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 z-10
+                       bg-gradient-to-l from-white to-transparent
                        pointer-events-none"
             aria-hidden="true"
           />
@@ -277,8 +249,7 @@ export default function Clients() {
                              hover:border-[#1e88e5]/60
                              rounded-xl
                              p-5 sm:p-6
-                             shadow-sm hover:shadow-lg hover:shadow-[#1e88e5]/10
-                             transition-all duration-300"
+                             transition-colors duration-200"
                   style={{ contain: "layout paint style" }}
                 >
                   <img
@@ -287,9 +258,8 @@ export default function Clients() {
                     loading="lazy"
                     decoding="async"
                     className="max-w-full max-h-full object-contain
-                               opacity-85 group-hover:opacity-100
-                               group-hover:scale-105
-                               transition-all duration-300"
+                               opacity-80 group-hover:opacity-100
+                               transition-opacity duration-300"
                     onError={(e) => (e.currentTarget.style.display = "none")}
                   />
                 </div>

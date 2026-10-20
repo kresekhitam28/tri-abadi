@@ -201,16 +201,13 @@ const AccordionItem = memo(function AccordionItem({ title, defaultOpen = false, 
     <div
       className={`border rounded-xl overflow-hidden bg-white
                   transition-colors duration-200
-                  ${open ? "border-[#1e88e5]/40" : "border-slate-200"}`}
+                  ${open ? "border-[#1e88e5]/50" : "border-slate-200"}`}
       style={{ contain: "layout paint style" }}
     >
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between gap-3 sm:gap-4
-                   px-4 sm:px-5 py-3.5 sm:py-4 text-left
-                   hover:bg-slate-50/70 transition-colors duration-150
-                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]
-                   focus-visible:ring-offset-1"
+                   px-4 sm:px-5 py-3.5 sm:py-4 text-left"
         aria-expanded={open}
       >
         <h4
@@ -222,12 +219,15 @@ const AccordionItem = memo(function AccordionItem({ title, defaultOpen = false, 
         </h4>
         <span
           className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center
-                      transition-all duration-300
+                      transition-colors duration-200
                       ${open
-                        ? "bg-[#1e88e5] text-white rotate-180"
+                        ? "bg-[#1e88e5] text-white"
                         : "bg-slate-100 text-slate-400"}`}
         >
-          <IconChevronDown className="w-4 h-4" />
+          <IconChevronDown
+            className={`w-4 h-4 transition-transform duration-300
+                        ${open ? "rotate-180" : ""}`}
+          />
         </span>
       </button>
 
@@ -249,34 +249,21 @@ const FoundationCard = memo(function FoundationCard({
 }) {
   return (
     <div
-      className={`group relative bg-white border border-slate-200 rounded-2xl
+      className={`relative bg-white border border-slate-200 rounded-2xl
                   p-5 sm:p-6 lg:p-8 h-full
                   hover:border-[#1e88e5]/50
-                  shadow-sm hover:shadow-lg hover:shadow-[#1e88e5]/5
                   ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
       style={{
-        transitionProperty: "opacity, transform, box-shadow, border-color",
+        transitionProperty: "opacity, transform, border-color",
         transitionDuration: "500ms",
         transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
         transitionDelay: `${delay}ms`,
         contain: "layout paint style",
       }}
     >
-      {/* Background blob subtle saat hover */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 rounded-2xl opacity-0
-                   group-hover:opacity-100 transition-opacity duration-500
-                   bg-gradient-to-br from-[#1e88e5]/[0.03] via-transparent to-transparent"
-      />
-
       <div className="relative w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mb-4 sm:mb-5 lg:mb-6">
         <div className="w-full h-full flex items-center justify-center
-                        bg-[#1e88e5]/10 text-[#1e88e5] rounded-xl
-                        group-hover:bg-[#1e88e5] group-hover:text-white
-                        group-hover:scale-105 group-hover:shadow-md
-                        group-hover:shadow-[#1e88e5]/30
-                        transition-all duration-300">
+                        bg-[#1e88e5]/10 text-[#1e88e5] rounded-xl">
           <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
         </div>
       </div>
@@ -312,8 +299,7 @@ const ListItem = memo(function ListItem({ item, delay = 0, visible }) {
       }}
     >
       <span className="shrink-0 w-4 h-4 flex items-center justify-center
-                       bg-[#1e88e5]/10 text-[#1e88e5] rounded-full mt-0.5
-                       ring-1 ring-[#1e88e5]/20">
+                       bg-[#1e88e5]/10 text-[#1e88e5] rounded-full mt-0.5">
         <IconCheck className="w-2.5 h-2.5" />
       </span>
       <span
@@ -344,8 +330,7 @@ export default function About() {
       <section
         ref={heroRef}
         className="relative bg-slate-950
-                   pt-32 pb-10 sm:pt-36 sm:pb-12 lg:pt-40 lg:pb-14
-                   overflow-hidden"
+                   pt-32 pb-10 sm:pt-36 sm:pb-12 lg:pt-40 lg:pb-14"
         style={{ contain: "layout style" }}
       >
         {!isMobile && (
@@ -359,32 +344,8 @@ export default function About() {
           />
         )}
 
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-slate-950/85" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/70" />
-
-        {/* Vignette */}
-        <div
-          className="absolute inset-0
-                     bg-[radial-gradient(ellipse_at_center,transparent_0%,transparent_50%,rgba(2,6,23,0.6)_100%)]"
-          aria-hidden="true"
-        />
-
-        {/* Decorative diagonal */}
-        {!isMobile && (
-          <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-            <div className="absolute -right-32 top-0 h-full w-1/2 bg-white rotate-12 origin-top-right" />
-            <div className="absolute -left-32 bottom-0 h-full w-1/3 bg-white -rotate-12 origin-bottom-left" />
-          </div>
-        )}
-
-        {/* Blob subtle */}
-        {!isMobile && (
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute -left-20 top-1/4 w-[400px] h-[400px] rounded-full
-                            bg-[#1e88e5]/[0.08] blur-3xl" />
-          </div>
-        )}
+        {/* Overlay solid */}
+        <div className="absolute inset-0 bg-slate-950/80" />
 
         <div className="relative w-full max-w-3xl mx-auto px-4 sm:px-5 lg:px-8 text-center">
           <div
@@ -397,13 +358,13 @@ export default function About() {
               transitionDelay: "100ms",
             }}
           >
-            <span className="w-6 sm:w-12 h-px bg-gradient-to-r from-transparent to-[#4da3ff]" />
+            <span className="w-6 sm:w-10 h-px bg-[#4da3ff]" />
             <span className="text-[10px] sm:text-xs uppercase
                              tracking-[0.25em] sm:tracking-[0.3em]
                              text-[#4da3ff] font-semibold">
               {data.heroKicker}
             </span>
-            <span className="w-6 sm:w-12 h-px bg-gradient-to-l from-transparent to-[#4da3ff]" />
+            <span className="w-6 sm:w-10 h-px bg-[#4da3ff]" />
           </div>
 
           <h1
@@ -415,18 +376,13 @@ export default function About() {
               transitionDuration: "600ms",
               transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
               transitionDelay: "200ms",
-              textShadow: "0 2px 30px rgba(0,0,0,0.3)",
             }}
           >
             {data.heroTitleLight}
-            <span
-              className="font-semibold
-                         bg-gradient-to-r from-white via-[#4da3ff] to-[#1e88e5]
-                         bg-clip-text text-transparent"
-            >
+            <span className="font-semibold text-white">
               {data.heroTitleBold}
             </span>
-            <span className="text-white">.</span>
+            <span className="text-[#4da3ff]">.</span>
           </h1>
 
           <div
@@ -496,13 +452,13 @@ export default function About() {
                 transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
               }}
             >
-              <span className="w-6 sm:w-12 h-px bg-gradient-to-r from-transparent to-[#1e88e5]" />
+              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
               <span className="text-[10px] sm:text-xs uppercase
                                tracking-[0.25em] sm:tracking-[0.3em]
                                text-[#1e88e5] font-semibold">
                 {data.sectionKicker}
               </span>
-              <span className="w-6 sm:w-12 h-px bg-gradient-to-l from-transparent to-[#1e88e5]" />
+              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
             </div>
 
             <h2

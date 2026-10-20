@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
+import Image from "next/image";
 import { useLang } from "../context/LanguageContext";
 import GrassBlockPricingPanel from "./GrassBlockPricingPanel";
 
@@ -702,24 +703,21 @@ export default function PasangGrassBlock() {
           {/* Foto utama */}
           <Reveal y={40} duration={800}>
             <figure className="relative rounded-2xl overflow-hidden bg-slate-100 mb-10
-                              ring-1 ring-slate-200"
+                              ring-1 ring-slate-200 aspect-[16/10]"
                     style={{ contain: "layout paint style" }}>
-              <div className="aspect-[16/10]">
-                <img
-                  src="/proyek/proyek-38.webp"
-                  alt={data.figAlt}
-                  loading="eager"
-                  decoding="async"
-                  width={1200}
-                  height={750}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.onerror = null;
-                    e.currentTarget.src = "/proyek/proyek-38.webp";
-                  }}
-                />
-              </div>
-              <figcaption className="absolute bottom-0 inset-x-0
+              <Image
+                src="/proyek/proyek-38.webp"
+                alt={data.figAlt}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 896px"
+                className="object-cover"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "/proyek/proyek-38.webp";
+                }}
+              />
+              <figcaption className="absolute bottom-0 inset-x-0 z-10
                                      bg-gradient-to-t from-slate-950/70 to-transparent
                                      px-4 sm:px-6 py-3 sm:py-4 pt-10 sm:pt-12">
                 <p className="text-white font-medium"

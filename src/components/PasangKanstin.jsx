@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
+import Image from "next/image";
 import { useLang } from "../context/LanguageContext";
 import KanstinPricingPanel from "./KanstinPricingPanel";
 
@@ -69,12 +70,13 @@ function useReveal(options = {}) {
 }
 
 // ─────────────────────────────────────────────
-// KOMPONEN: REVEAL WRAPPER (memoized)
+// REVEAL WRAPPER (memoized)
 // ─────────────────────────────────────────────
 const Reveal = memo(function Reveal({
   children,
   delay = 0,
   y = 28,
+  x = 0,
   duration = 700,
   as: Tag = "div",
   className = "",
@@ -93,11 +95,11 @@ const Reveal = memo(function Reveal({
       transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
       transitionDelay: `${delay}ms`,
       opacity: visible ? 1 : 0,
-      transform: visible ? "translateY(0)" : `translateY(${y}px)`,
+      transform: visible ? "translate3d(0,0,0)" : `translate3d(${x}px, ${y}px, 0)`,
       willChange: visible ? "auto" : "opacity, transform",
       contain: "layout paint style",
     };
-  }, [enabled, visible, duration, delay, y]);
+  }, [enabled, visible, duration, delay, x, y]);
 
   return (
     <Tag ref={ref} style={style} className={className}>
@@ -145,8 +147,7 @@ const Accordion = memo(function Accordion({ title, children, defaultOpen = false
   return (
     <div
       className={`border rounded-xl overflow-hidden mb-2.5 bg-white
-                  shadow-sm hover:shadow-md
-                  transition-all duration-200
+                  transition-colors duration-200
                   ${open ? "border-[#1e88e5]" : "border-slate-200"}`}
       style={{ contain: "layout paint style" }}
     >
@@ -154,16 +155,13 @@ const Accordion = memo(function Accordion({ title, children, defaultOpen = false
         type="button"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
-        className="group w-full flex items-center gap-3 sm:gap-4
+        className="w-full flex items-center gap-3 sm:gap-4
                    px-4 sm:px-5 py-3.5 sm:py-4
-                   text-left cursor-pointer transition-colors duration-150
-                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]
-                   focus-visible:ring-offset-2"
+                   text-left cursor-pointer transition-colors duration-150"
       >
         <span
           className={`flex-1 font-semibold uppercase tracking-[0.12em]
-                      transition-colors duration-200
-                      ${open ? "text-[#1e88e5]" : "text-slate-800 group-hover:text-[#1e88e5]"}`}
+                      ${open ? "text-[#1e88e5]" : "text-slate-800"}`}
           style={{ fontSize: "clamp(0.75rem, 1.5vw, 0.84375rem)" }}
         >
           {title}
@@ -171,10 +169,10 @@ const Accordion = memo(function Accordion({ title, children, defaultOpen = false
         <span
           className={`shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-full border
                       font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]
-                      transition-all duration-300
+                      transition-colors duration-150
                       ${open
-                        ? "bg-[#1e88e5] text-white border-[#1e88e5] shadow-sm shadow-[#1e88e5]/30"
-                        : "bg-white text-slate-500 border-slate-300 group-hover:border-[#1e88e5] group-hover:text-[#1e88e5]"}`}
+                        ? "bg-[#1e88e5] text-white border-[#1e88e5]"
+                        : "bg-white text-slate-500 border-slate-300"}`}
           style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
         >
           {open ? btnClose : btnOpen}
@@ -348,18 +346,18 @@ const areaJangkauan = [
 ];
 
 // ─────────────────────────────────────────────
-// SECTION KICKER
+// SECTION KICKER (simpel, tanpa gradasi)
 // ─────────────────────────────────────────────
 function SectionKicker({ children }) {
   return (
     <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-3">
-      <span className="w-6 sm:w-12 h-px bg-gradient-to-r from-transparent to-[#1e88e5]" />
+      <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
       <span className="text-[10px] sm:text-[11px] uppercase
                        tracking-[0.25em] sm:tracking-[0.3em]
                        text-[#1e88e5] font-semibold">
         {children}
       </span>
-      <span className="w-6 sm:w-12 h-px bg-gradient-to-l from-transparent to-[#1e88e5]" />
+      <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
     </div>
   );
 }
@@ -443,11 +441,9 @@ const FungsiItem = memo(function FungsiItem({ item, t }) {
   return (
     <li className="group" style={{ contain: "layout paint style" }}>
       <div className="flex items-center gap-2 mb-1.5">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#1e88e5] shrink-0
-                         group-hover:scale-150 transition-transform duration-300" />
+        <span className="w-1.5 h-1.5 rounded-full bg-[#1e88e5] shrink-0" />
         <h4
-          className="font-semibold text-slate-900 group-hover:text-[#1e88e5]
-                     transition-colors duration-200"
+          className="font-semibold text-slate-900"
           style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.84375rem)" }}
         >
           {t(item.title)}
@@ -468,20 +464,18 @@ const FungsiItem = memo(function FungsiItem({ item, t }) {
 // ─────────────────────────────────────────────
 const LayananCard = memo(function LayananCard({ item, t }) {
   return (
-    <div className="group flex items-start gap-3.5 p-3 rounded-xl
-                    hover:bg-slate-50 transition-colors duration-200"
-         style={{ contain: "layout paint style" }}>
+    <div
+      className="flex items-start gap-3.5 p-3 rounded-xl"
+      style={{ contain: "layout paint style" }}
+    >
       <span className="shrink-0 w-9 h-9 rounded-lg
                        bg-[#1e88e5]/10 text-[#1e88e5]
-                       flex items-center justify-center
-                       group-hover:bg-[#1e88e5] group-hover:text-white
-                       group-hover:scale-105 transition-all duration-300">
+                       flex items-center justify-center">
         <IconCheck className="w-4 h-4" />
       </span>
       <div className="min-w-0">
         <div
-          className="text-slate-900 font-semibold leading-snug
-                     group-hover:text-[#1e88e5] transition-colors duration-200"
+          className="text-slate-900 font-semibold leading-snug"
           style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.84375rem)" }}
         >
           {t(item.title)}
@@ -510,7 +504,7 @@ const AreaRow = memo(function AreaRow({ area, data }) {
                        text-[#1e88e5] font-bold">
           {area.region}
         </h3>
-        <span className="flex-1 h-px bg-gradient-to-r from-slate-200 to-transparent" />
+        <span className="flex-1 h-px bg-slate-200" />
       </div>
 
       <div className="space-y-3 pl-1">
@@ -525,9 +519,7 @@ const AreaRow = memo(function AreaRow({ area, data }) {
                 <span key={i}
                   className="inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md
                              bg-[#1e88e5]/5 border border-[#1e88e5]/20
-                             text-[10.5px] sm:text-[11px] text-[#1565c0] font-medium
-                             hover:bg-[#1e88e5] hover:text-white hover:border-[#1e88e5]
-                             transition-colors duration-200 cursor-default">
+                             text-[10.5px] sm:text-[11px] text-[#1565c0] font-medium">
                   {k}
                 </span>
               ))}
@@ -546,9 +538,7 @@ const AreaRow = memo(function AreaRow({ area, data }) {
                 <span key={i}
                   className="inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md
                              bg-white border border-slate-200
-                             text-[10.5px] sm:text-[11px] text-slate-600
-                             hover:border-[#1e88e5]/40 hover:text-[#1e88e5]
-                             transition-colors duration-200 cursor-default">
+                             text-[10.5px] sm:text-[11px] text-slate-600">
                   {k}
                 </span>
               ))}
@@ -578,38 +568,19 @@ export default function PasangKanstin() {
   return (
     <div className="bg-white">
 
-      {/* ═══════ HERO ═══════ */}
-      <section className="relative pt-28 lg:pt-36 pb-16 lg:pb-24
-                          bg-gradient-to-b from-slate-50 to-white overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
-             aria-hidden="true"
-             style={{
-               backgroundImage:
-                 "radial-gradient(circle at 1px 1px, #1e88e5 1px, transparent 0)",
-               backgroundSize: "32px 32px",
-               maskImage:
-                 "radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 100%)",
-               WebkitMaskImage:
-                 "radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 100%)",
-             }} />
-        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full
-                        bg-[#1e88e5]/[0.04] blur-3xl pointer-events-none"
-             aria-hidden="true" />
-        <div className="absolute -bottom-20 -left-40 w-[400px] h-[400px] rounded-full
-                        bg-[#1e88e5]/[0.03] blur-3xl pointer-events-none"
-             aria-hidden="true" />
-
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-5 lg:px-8 text-center">
+      {/* ═══════ HERO (simpel, tanpa dekorasi) ═══════ */}
+      <section className="pt-28 lg:pt-36 pb-16 lg:pb-24
+                          bg-gradient-to-b from-slate-50 to-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-5 lg:px-8 text-center">
           <Reveal delay={0} y={20}>
             <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-5">
-              <span className="w-6 sm:w-12 h-px bg-gradient-to-r from-transparent to-[#1e88e5]" />
+              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
               <span className="text-[10px] sm:text-[11px] uppercase
                                tracking-[0.25em] sm:tracking-[0.3em]
                                text-[#1e88e5] font-semibold">
                 {data.heroKicker}
               </span>
-              <span className="w-6 sm:w-12 h-px bg-gradient-to-l from-transparent to-[#1e88e5]" />
+              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
             </div>
           </Reveal>
 
@@ -618,14 +589,7 @@ export default function PasangKanstin() {
               className="font-light tracking-tight text-slate-900 leading-[1.05] mb-5"
               style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}
             >
-              <span
-                className="font-semibold
-                           bg-gradient-to-r from-slate-900 to-[#1e88e5]
-                           bg-clip-text text-transparent"
-              >
-                {data.heroTitle}
-              </span>
-              <span className="text-[#1e88e5]">.</span>
+              {data.heroTitle}<span className="text-[#1e88e5]">.</span>
             </h1>
           </Reveal>
 
@@ -646,30 +610,23 @@ export default function PasangKanstin() {
 
           {/* Foto utama */}
           <Reveal y={40} duration={800}>
-            <figure className="group relative rounded-2xl overflow-hidden bg-slate-100 mb-10
-                              ring-1 ring-slate-200
-                              hover:ring-[#1e88e5]/30 hover:shadow-xl hover:shadow-[#1e88e5]/5
-                              transition-all duration-500"
+            <figure className="relative rounded-2xl overflow-hidden bg-slate-100 mb-10
+                              ring-1 ring-slate-200 aspect-[16/10]"
                     style={{ contain: "layout paint style" }}>
-              <div className="aspect-[16/10] overflow-hidden">
-                <img
-                  src="/proyek/pasang-kanstin.webp"
-                  alt={data.figAlt}
-                  loading="eager"
-                  decoding="async"
-                  width={1200}
-                  height={750}
-                  className="w-full h-full object-cover
-                             group-hover:scale-[1.03] transition-transform duration-700"
-                  onError={(e) => {
-                    e.currentTarget.onerror = null;
-                    e.currentTarget.src = "/proyek/pasang-kanstin.webp";
-                  }}
-                />
-              </div>
-
-              <figcaption className="absolute bottom-0 inset-x-0
-                                     bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent
+              <Image
+                src="/proyek/pasang-kanstin.webp"
+                alt={data.figAlt}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 896px"
+                className="object-cover"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "/proyek/pasang-kanstin.webp";
+                }}
+              />
+              <figcaption className="absolute bottom-0 inset-x-0 z-10
+                                     bg-gradient-to-t from-slate-950/70 to-transparent
                                      px-4 sm:px-6 py-3 sm:py-4 pt-10 sm:pt-12">
                 <p className="text-white font-medium"
                    style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.78125rem)" }}>
@@ -814,16 +771,13 @@ export default function PasangKanstin() {
                 onClick={() => setShowArea(!showArea)}
                 aria-expanded={showArea}
                 aria-label={data.areaToggle}
-                className="group w-full flex items-center gap-4 text-left cursor-pointer
+                className="w-full flex items-center gap-4 text-left cursor-pointer
                            pb-5 border-b border-slate-200
-                           transition-colors duration-200
-                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]
-                           focus-visible:ring-offset-2 rounded-md"
+                           transition-colors duration-200"
               >
                 <span
                   className={`flex-1 font-bold uppercase tracking-[0.2em]
-                              transition-colors duration-200
-                              ${showArea ? "text-[#1e88e5]" : "text-slate-600 group-hover:text-[#1e88e5]"}`}
+                              ${showArea ? "text-[#1e88e5]" : "text-slate-600"}`}
                   style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.8125rem)" }}
                 >
                   {data.areaToggle}
@@ -831,10 +785,10 @@ export default function PasangKanstin() {
                 <span
                   className={`shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-full border
                               font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]
-                              transition-all duration-300
+                              transition-colors duration-150
                               ${showArea
-                                ? "bg-[#1e88e5] text-white border-[#1e88e5] shadow-sm shadow-[#1e88e5]/30"
-                                : "bg-white text-slate-500 border-slate-300 group-hover:border-[#1e88e5] group-hover:text-[#1e88e5]"}`}
+                                ? "bg-[#1e88e5] text-white border-[#1e88e5]"
+                                : "bg-white text-slate-500 border-slate-300"}`}
                   style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
                 >
                   {showArea
@@ -855,56 +809,39 @@ export default function PasangKanstin() {
             </Reveal>
           </div>
 
-          {/* ═══════ CTA ═══════ */}
+          {/* ═══════ CTA (simpel) ═══════ */}
           <Reveal y={34}>
-            <div className="mt-16 mb-16 p-6 sm:p-8 rounded-3xl bg-slate-950
-                            text-center max-w-2xl mx-auto
-                            relative overflow-hidden">
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute -right-24 -top-24 w-56 h-56 rounded-full
-                                bg-[#1e88e5]/25 blur-3xl" />
-                <div className="absolute -left-24 -bottom-24 w-56 h-56 rounded-full
-                                bg-[#1e88e5]/15 blur-3xl" />
-              </div>
+            <div className="mt-16 pb-16 text-center max-w-2xl mx-auto">
+              <p
+                className="text-[#1e88e5] uppercase tracking-[0.3em] font-semibold mb-3"
+                style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
+              >
+                {data.ctaKicker}
+              </p>
+              <h3
+                className="text-slate-900 font-light tracking-tight mb-6"
+                style={{ fontSize: "clamp(1.25rem, 3vw, 1.5rem)" }}
+              >
+                {data.ctaTitleLight}
+                <span className="font-semibold">{data.ctaTitleBold}</span>
+              </h3>
 
-              <div className="relative">
-                <p
-                  className="text-[#4da3ff] uppercase tracking-[0.3em] font-semibold mb-3"
-                  style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
-                >
-                  {data.ctaKicker}
-                </p>
-                <h3
-                  className="text-white font-light tracking-tight mb-6"
-                  style={{ fontSize: "clamp(1.25rem, 3vw, 1.5rem)" }}
-                >
-                  {data.ctaTitleLight}
-                  <span className="font-semibold">{data.ctaTitleBold}</span>
-                </h3>
-
-                <a
-                  href={`https://wa.me/6282258089367?text=${encodeURIComponent(data.ctaWaMessage)}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group inline-flex items-center justify-center gap-2
-                             px-6 sm:px-7 py-3.5 rounded-xl
-                             bg-white text-slate-900
-                             hover:bg-[#1e88e5] hover:text-white
-                             hover:-translate-y-0.5
-                             font-semibold uppercase tracking-[0.15em]
-                             shadow-lg shadow-black/20
-                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white
-                             focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950
-                             transition-all duration-300"
-                  style={{ fontSize: "clamp(0.6875rem, 1.2vw, 0.75rem)" }}
-                >
-                  <IconWhatsApp className="w-4 h-4" />
-                  {data.ctaBtn}
-                  <IconArrowRight className="w-3.5 h-3.5
-                                             transition-transform duration-200
-                                             group-hover:translate-x-1" />
-                </a>
-              </div>
+              <a
+                href={`https://wa.me/6282258089367?text=${encodeURIComponent(data.ctaWaMessage)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2
+                           px-6 sm:px-7 py-3.5 rounded-xl
+                           bg-slate-900 text-white
+                           hover:bg-[#1e88e5]
+                           font-semibold uppercase tracking-[0.15em]
+                           transition-colors duration-300"
+                style={{ fontSize: "clamp(0.6875rem, 1.2vw, 0.75rem)" }}
+              >
+                <IconWhatsApp className="w-4 h-4" />
+                {data.ctaBtn}
+                <IconArrowRight className="w-3.5 h-3.5" />
+              </a>
             </div>
           </Reveal>
 
