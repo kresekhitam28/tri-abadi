@@ -95,7 +95,7 @@ const content = {
     visitUs: "Kunjungi Kami",
     emailUs: "Email Kami",
     callUs: "Telepon Kami",
-    cityLine: "JL. Al-Hidayah, Pondok Aren, Tangerang Selatan",
+    cityLine: "Jl. Al Hidayah RT.06 RW.02, Pondok Jaya, Pondok Aren, Tangerang Selatan",
     brandTagline: "KONTRAKTOR UMUM",
     brandDesc:
       "Perusahaan yang bergerak di bidang konstruksi dengan pengalaman bertahun-tahun. Mengedepankan kualitas & kehati-hatian untuk kepuasan client.",
@@ -107,8 +107,7 @@ const content = {
     visitUs: "Visit Us",
     emailUs: "Email Us",
     callUs: "Call Us",
-    cityLine: "Pondok Aren, South Tangerang",
-    streetLine: "Jl. Al-Hidayah",
+    cityLine: "Jl. Al Hidayah RT.06 RW.02, Pondok Jaya, Pondok Aren, South Tangerang",
     brandTagline: "GENERAL CONTRACTOR",
     brandDesc:
       "A construction company with years of experience. We prioritize quality & carefulness to ensure client satisfaction.",
