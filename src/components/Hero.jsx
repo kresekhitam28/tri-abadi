@@ -217,13 +217,13 @@ export default function Hero() {
                      bg-gradient-to-b from-slate-950/70 via-slate-950/55 to-slate-950/90"
           aria-hidden="true"
         />
-        {/* Vignette kiri-kanan untuk mobile readability */}
+        {/* Vignette */}
         <div
           className="absolute inset-0
                      bg-[radial-gradient(ellipse_at_center,transparent_0%,transparent_50%,rgba(2,6,23,0.55)_100%)]"
           aria-hidden="true"
         />
-        {/* Grain halus — bikin foto tidak flat */}
+        {/* Grain halus */}
         <div
           className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none"
           aria-hidden="true"
@@ -238,7 +238,7 @@ export default function Hero() {
         {/* ═══ CONTENT ═══ */}
         <div className="relative z-10 w-full max-w-5xl md:max-w-6xl mx-auto
                         px-5 sm:px-8 lg:px-12
-                        py-16 sm:py-20 lg:py-28 text-center">
+                        py-12 sm:py-16 lg:py-24 text-center">
 
           {/* ─── LABEL ROTATOR ─── */}
           <div
@@ -248,15 +248,15 @@ export default function Hero() {
             style={{ transitionDelay: "180ms" }}
           >
             <span className="hero-line w-6 sm:w-12 h-px bg-gradient-to-r from-transparent to-[#1e88e5]" />
-            <span className="relative inline-flex items-center justify-center h-7
-                             min-w-[200px] xs:min-w-[240px] sm:min-w-[340px]">
+            <span className="relative inline-flex items-center justify-center h-6 sm:h-7
+                             min-w-[180px] xs:min-w-[220px] sm:min-w-[300px]">
               {data.labels.map((text, i) => (
                 <span
                   key={text}
                   className={`absolute inset-0 flex items-center justify-center
                               text-[10px] sm:text-xs md:text-[13px]
                               text-[#1e88e5] font-semibold
-                              tracking-[0.22em] sm:tracking-[0.35em] uppercase
+                              tracking-[0.25em] sm:tracking-[0.35em] uppercase
                               whitespace-nowrap px-1
                               transition-all duration-500 ease-out
                               ${i === labelIdx
@@ -272,7 +272,7 @@ export default function Hero() {
 
           {/* ─── JUDUL ─── */}
           <h1
-            className={`text-white leading-[0.95] mb-6 sm:mb-8
+            className={`text-white leading-[0.95] mb-5 sm:mb-8
                         transition-all duration-1000 ease-out
                         ${mounted
                           ? "opacity-100 translate-y-0"
@@ -285,9 +285,7 @@ export default function Hero() {
           >
             <span
               className="block font-light tracking-tight"
-              style={{
-                textShadow: "0 2px 30px rgba(0,0,0,0.35)",
-              }}
+              style={{ textShadow: "0 2px 30px rgba(0,0,0,0.35)" }}
             >
               PT. TAM
             </span>
@@ -295,9 +293,7 @@ export default function Hero() {
               className="block font-bold tracking-tight mt-1 sm:mt-2
                          bg-gradient-to-r from-white via-[#60a5fa] to-[#1e88e5]
                          bg-clip-text text-transparent"
-              style={{
-                filter: "drop-shadow(0 4px 24px rgba(30,136,229,0.35))",
-              }}
+              style={{ filter: "drop-shadow(0 4px 24px rgba(30,136,229,0.35))" }}
             >
               Indonesia
             </span>
@@ -317,6 +313,7 @@ export default function Hero() {
           >
             {data.tagline}
           </p>
+
         </div>
       </section>
     </>

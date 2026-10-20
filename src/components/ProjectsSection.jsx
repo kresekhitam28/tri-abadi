@@ -23,7 +23,6 @@ const ALL_PROJECTS = [
   { src: "/proyek/proyek-15.webp" },
 ];
 
-// Beranda tampilkan 8 saja biar ringkas
 const projects = ALL_PROJECTS.slice(0, 8);
 
 // ─────────────────────────────────────────────
@@ -67,6 +66,15 @@ function IconClose({ className = "w-5 h-5" }) {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
       strokeLinecap="round" strokeLinejoin="round" className={className}>
       <path d="M18 6L6 18M6 6l12 12" />
+    </svg>
+  );
+}
+function IconZoom({ className = "w-5 h-5" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
+      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
     </svg>
   );
 }
@@ -117,16 +125,34 @@ function Lightbox({ selectedIndex, setSelectedIndex, lang, goPrev, goNext }) {
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex flex-col"
-      style={{ background: "rgba(2, 6, 23, 0.96)" }}
+      className="fixed inset-0 z-[9999] flex flex-col
+                 bg-slate-950/95 backdrop-blur-md
+                 animate-[fadeIn_200ms_ease-out]"
       onClick={() => setSelectedIndex(null)}
+      style={{
+        animation: "fadeIn 200ms ease-out",
+      }}
     >
-      <div className="flex items-center justify-end p-3 sm:p-5 z-10 shrink-0">
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        @keyframes scaleIn {
+          from { opacity: 0; transform: scale(0.96); }
+          to   { opacity: 1; transform: scale(1); }
+        }
+      `}</style>
+
+      <div className="flex items-center justify-end p-3 sm:p-5 z-10 shrink-0
+                      border-b border-white/5">
         <button
           onClick={(e) => { e.stopPropagation(); setSelectedIndex(null); }}
           className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center
-                     text-white/70 hover:text-white bg-white/10 hover:bg-white/20
-                     rounded-full transition-colors cursor-pointer"
+                     text-white/70 hover:text-white bg-white/5 hover:bg-white/15
+                     rounded-full transition-all duration-200 cursor-pointer
+                     hover:scale-105
+                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
           aria-label={lang === "en" ? "Close" : "Tutup"}
         >
           <IconClose />
@@ -140,7 +166,9 @@ function Lightbox({ selectedIndex, setSelectedIndex, lang, goPrev, goNext }) {
           className="absolute left-2 sm:left-6 z-10 w-10 h-10 sm:w-12 sm:h-12
                      flex items-center justify-center
                      text-white/70 hover:text-white bg-white/10 hover:bg-white/20
-                     rounded-full transition-colors cursor-pointer"
+                     rounded-full transition-all duration-200 cursor-pointer
+                     hover:scale-105
+                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
           aria-label={lang === "en" ? "Previous" : "Sebelumnya"}
         >
           <IconChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -151,12 +179,14 @@ function Lightbox({ selectedIndex, setSelectedIndex, lang, goPrev, goNext }) {
           onClick={(e) => e.stopPropagation()}
         >
           <img
+            key={selectedIndex}
             src={selected.src}
             alt=""
             decoding="async"
             className="w-full h-auto max-h-[72vh] object-contain mx-auto
-                       select-none"
+                       select-none rounded-lg shadow-2xl shadow-black/50"
             draggable={false}
+            style={{ animation: "scaleIn 250ms ease-out" }}
           />
         </div>
 
@@ -165,7 +195,9 @@ function Lightbox({ selectedIndex, setSelectedIndex, lang, goPrev, goNext }) {
           className="absolute right-2 sm:right-6 z-10 w-10 h-10 sm:w-12 sm:h-12
                      flex items-center justify-center
                      text-white/70 hover:text-white bg-white/10 hover:bg-white/20
-                     rounded-full transition-colors cursor-pointer"
+                     rounded-full transition-all duration-200 cursor-pointer
+                     hover:scale-105
+                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
           aria-label={lang === "en" ? "Next" : "Berikutnya"}
         >
           <IconChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -173,7 +205,7 @@ function Lightbox({ selectedIndex, setSelectedIndex, lang, goPrev, goNext }) {
       </div>
 
       <div
-        className="shrink-0 p-3 sm:p-4 overflow-x-auto"
+        className="shrink-0 p-3 sm:p-4 overflow-x-auto border-t border-white/5"
         onClick={(e) => e.stopPropagation()}
         style={{
           WebkitOverflowScrolling: "touch",
@@ -187,10 +219,11 @@ function Lightbox({ selectedIndex, setSelectedIndex, lang, goPrev, goNext }) {
               key={i}
               onClick={() => setSelectedIndex(i)}
               className={`shrink-0 w-12 h-12 sm:w-16 sm:h-16 overflow-hidden rounded-md
-                          transition-opacity duration-150 cursor-pointer
+                          transition-all duration-200 cursor-pointer
+                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]
                           ${i === selectedIndex
-                            ? "ring-2 ring-[#1e88e5] opacity-100"
-                            : "opacity-40 hover:opacity-80"}`}
+                            ? "ring-2 ring-[#1e88e5] opacity-100 shadow-lg shadow-[#1e88e5]/30"
+                            : "opacity-40 hover:opacity-90 hover:scale-105"}`}
               style={{ scrollSnapAlign: "center" }}
               aria-label={lang === "en" ? `Photo ${i + 1}` : `Foto ${i + 1}`}
             >
@@ -271,21 +304,35 @@ export default function ProjectsSection() {
   return (
     <>
       <section
-        className="bg-white pt-4 sm:pt-6 lg:pt-8 pb-16 sm:pb-20 lg:pb-28"
+        className="relative bg-white pt-4 sm:pt-6 lg:pt-8 pb-16 sm:pb-20 lg:pb-28 overflow-hidden"
         style={{ contain: "layout style" }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
+        {/* Background decoration */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.04]"
+          aria-hidden="true"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, #1e88e5 1px, transparent 0)`,
+            backgroundSize: "32px 32px",
+            maskImage:
+              "radial-gradient(ellipse 60% 50% at 50% 50%, black 30%, transparent 100%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 60% 50% at 50% 50%, black 30%, transparent 100%)",
+          }}
+        />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
 
           {/* ═══ HEADER ═══ */}
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <div className="inline-flex items-center gap-3 mb-4 sm:mb-5">
-              <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
+            <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-5">
+              <span className="w-6 sm:w-12 h-px bg-gradient-to-r from-transparent to-[#1e88e5]" />
               <span className="text-[10px] sm:text-xs uppercase
                                tracking-[0.25em] sm:tracking-[0.3em]
                                text-[#1e88e5] font-semibold">
                 {labels.kicker}
               </span>
-              <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
+              <span className="w-6 sm:w-12 h-px bg-gradient-to-l from-transparent to-[#1e88e5]" />
             </div>
 
             <h2
@@ -293,7 +340,13 @@ export default function ProjectsSection() {
               style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}
             >
               {labels.light}
-              <span className="font-semibold">{labels.bold}</span>
+              <span
+                className="font-semibold
+                           bg-gradient-to-r from-slate-900 to-[#1e88e5]
+                           bg-clip-text text-transparent"
+              >
+                {labels.bold}
+              </span>
               {labels.after}
               <span className="text-[#1e88e5]">.</span>
             </h2>
@@ -308,10 +361,14 @@ export default function ProjectsSection() {
               <button
                 key={i}
                 onClick={() => setSelectedIndex(i)}
-                className="group relative overflow-hidden rounded-lg bg-slate-100
+                className="group relative overflow-hidden rounded-xl bg-slate-100
                            aspect-square cursor-pointer
-                           border border-slate-200 hover:border-[#1e88e5]
-                           transition-colors duration-200"
+                           border border-slate-200
+                           hover:border-[#1e88e5]
+                           shadow-sm hover:shadow-xl hover:shadow-[#1e88e5]/10
+                           transition-all duration-300
+                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]
+                           focus-visible:ring-offset-2"
                 aria-label={`Buka proyek ${i + 1}`}
               >
                 <img
@@ -320,10 +377,39 @@ export default function ProjectsSection() {
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover
-                             transition-transform duration-300 ease-out
+                             transition-transform duration-500 ease-out
                              will-change-transform
-                             group-hover:scale-[1.04]"
+                             group-hover:scale-[1.08]"
                 />
+
+                {/* Overlay gradient saat hover */}
+                <div
+                  className="absolute inset-0 bg-gradient-to-t
+                             from-slate-950/60 via-slate-950/10 to-transparent
+                             opacity-0 group-hover:opacity-100
+                             transition-opacity duration-300"
+                  aria-hidden="true"
+                />
+
+                {/* Zoom icon saat hover */}
+                <div
+                  className="absolute inset-0 flex items-center justify-center
+                             opacity-0 group-hover:opacity-100
+                             transition-opacity duration-300"
+                  aria-hidden="true"
+                >
+                  <span
+                    className="w-11 h-11 sm:w-12 sm:h-12 rounded-full
+                               bg-white/20 backdrop-blur-md
+                               border border-white/30
+                               flex items-center justify-center
+                               text-white
+                               scale-90 group-hover:scale-100
+                               transition-transform duration-300"
+                  >
+                    <IconZoom className="w-5 h-5" />
+                  </span>
+                </div>
               </button>
             ))}
           </div>
