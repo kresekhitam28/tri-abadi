@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- HALAMAN UTAMA -->
   <url>
     <loc>https://spesialisaspal.com/</loc>
     <priority>1.0</priority>
@@ -28,6 +29,8 @@
     <loc>https://spesialisaspal.com/blog</loc>
     <priority>0.7</priority>
   </url>
+
+  <!-- HALAMAN LAYANAN -->
   <url>
     <loc>https://spesialisaspal.com/layanan/infrastruktur/pengaspalan</loc>
     <priority>0.9</priority>
@@ -64,6 +67,8 @@
     <loc>https://spesialisaspal.com/layanan/arsitektur</loc>
     <priority>0.7</priority>
   </url>
+
+  <!-- HALAMAN SUPPLIER -->
   <url>
     <loc>https://spesialisaspal.com/supplier/abu-batu</loc>
     <priority>0.6</priority>
@@ -104,6 +109,8 @@
     <loc>https://spesialisaspal.com/supplier/tanah-urug</loc>
     <priority>0.6</priority>
   </url>
+
+  <!-- HALAMAN ALAT BERAT -->
   <url>
     <loc>https://spesialisaspal.com/heavy-equipment/dozer</loc>
     <priority>0.6</priority>
@@ -139,5 +146,79 @@
   <url>
     <loc>https://spesialisaspal.com/heavy-equipment/tronton-dump-truck</loc>
     <priority>0.6</priority>
+  </url>
+
+  <!-- ========================================== -->
+  <!-- HALAMAN ARTIKEL BLOG (DARI articles.js)    -->
+  <!-- ========================================== -->
+  <url>
+    <loc>https://spesialisaspal.com/blog/aspal-jalan-murah</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://spesialisaspal.com/blog/pekerjaan-aspal-hotmix</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://spesialisaspal.com/blog/distributor-aspal</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://spesialisaspal.com/blog/perbaikan-jalan-aspal</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://spesialisaspal.com/blog/pemasangan-kansteen</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://spesialisaspal.com/blog/aspal-jalan-murah-2</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://spesialisaspal.com/blog/pekerjaan-aspal-hotmix-2</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://spesialisaspal.com/blog/distributor-aspal-2</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://spesialisaspal.com/blog/perbaikan-jalan-aspal-2</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://spesialisaspal.com/blog/pemasangan-paving-block</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://spesialisaspal.com/blog/pengaspalan-jalan-perumahan</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://spesialisaspal.com/blog/hotmix-untuk-jalan-perkantoran</loc>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Artikel Baru Ditambahkan Di Sini -->
+  <url>
+    <loc>https://spesialisaspal.com/blog/jasa-pengecoran-beton</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://spesialisaspal.com/blog/biaya-aspal-per-meter</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://spesialisaspal.com/blog/pemasangan-grass-block</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://spesialisaspal.com/blog/pemasangan-pagar-panel</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://spesialisaspal.com/blog/pemasangan-tiang-pancang</loc>
+    <priority>0.7</priority>
   </url>
 </urlset>
