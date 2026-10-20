@@ -620,7 +620,7 @@ export const articles = [
   },
   {
     slug: "biaya-aspal-per-meter",
-    src: "/proyek/proyek-10.webp",
+    src: "/proyek/proyek-22.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
     title: { id: "Biaya Aspal Per Meter", en: "Asphalt Cost Per Meter" },
     date: { id: "28 September 2026", en: "September 28, 2026" },
@@ -830,7 +830,7 @@ export const articles = [
   },
   {
     slug: "pemasangan-pagar-panel",
-    src: "/proyek/proyek-80.webp",
+    src: "/proyek/proyek-83.webp",
     category: { id: "Pagar Panel", en: "Panel Fence" },
     title: { id: "Pemasangan Pagar Panel", en: "Panel Fence Installation Guide" },
     date: { id: "18 Oktober 2026", en: "October 18, 2026" },
@@ -957,7 +957,7 @@ export const articles = [
   },
   {
     slug: "pemasangan-tiang-pancang",
-    src: "/proyek/proyek-74.webp",
+    src: "/proyek/proyek-80.webp",
     category: { id: "Tiang Pancang", en: "Pile Driving" },
     title: { id: "Pemasangan Tiang Pancang", en: "Pile Driving Installation Guide" },
     date: { id: "20 Oktober 2026", en: "October 20, 2026" },

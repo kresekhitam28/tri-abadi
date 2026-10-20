@@ -42,7 +42,7 @@ const HOMEPAGE_SLUGS = [
   "pemasangan-kansteen",  // Kartu 2 (Tengah) - Ganti dengan slug kanstin Anda
   "pemasangan-paving-block",
   "jasa-pengecoran-beton",  
-  "pemasangan-grass-block",
+  "pemasangan-tiang-pancang",
   "pemasangan-pagar-panel",  // Kartu 3 (Kanan) - Ganti dengan slug cor beton Anda
 ];
 
