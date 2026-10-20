@@ -51,7 +51,6 @@ export const articles = [
       { type: "paragraph", text: { id: "Pengerjaan aspal menggunakan alat berat yang canggih dapat menghemat biaya operasional dan waktu. Pengerjaan jalan aspal yang tepat akan membuat hasil lebih halus dan lebih cepat. Pengerjaan aspal di lapangan berbeda-beda tergantung kondisi jalan dan luas area yang akan diproses.", en: "Asphalt work using sophisticated heavy equipment can save operational costs and time. Proper asphalt road work will produce smoother and faster results. Asphalt work in the field varies depending on road conditions and the area to be processed." } },
     ],
   },
-
   {
     slug: "pekerjaan-aspal-hotmix",
     src: "/proyek/proyek-17.webp",
@@ -99,7 +98,6 @@ export const articles = [
       { type: "paragraph", text: { id: "Jenis aspal hotmix memang berbeda-beda sesuai dengan kebutuhan Anda. Anda bisa memakai aspal hotmix dengan bahan material yang sesuai dengan kebutuhan Anda. Harga aspal hotmix juga sangat bervariasi tergantung jenis yang dipakai. Untuk itu Anda harus menyadari hal tersebut. Namun, semuanya tetap terjangkau dengan kualitas yang baik. Perusahaan Anda juga kami harap bisa menghubungi nomor kami untuk mendapatkan konsultasi.", en: "Types of hotmix asphalt do vary according to your needs. You can use hotmix asphalt with materials that suit your needs. The price of hotmix asphalt also varies greatly depending on the type used. Therefore you must be aware of this. However, everything remains affordable with good quality. For your company, we hope you can contact our number to get a consultation." } },
     ],
   },
-
   {
     slug: "distributor-aspal",
     src: "/proyek/proyek-15.webp",
@@ -147,7 +145,6 @@ export const articles = [
       { type: "paragraph", text: { id: "Itulah beberapa tips memilih distributor aspal terbaik. Pastikan anda memilih distributor aspal terbaik untuk kebutuhan anda. Itu juga membuat perusahaan anda lebih mudah mendapat kepercayaan dari klien. Jadi, pastikan untuk memilih distributor aspal yang tepat untuk kebutuhan anda. Nah, untuk memenuhi kebutuhan distributor aspal yang terbaik dan terpercaya, anda bisa menghubungi kami. Tidak hanya menyediakan distributor aspal, kami juga melayani berbagai kebutuhan yang berhubungan dengan aspal seperti jasa pengaspalan dan juga jual aspal. Kami melayani seluruh Indonesia dengan tim yang profesional dan berpengalaman.", en: "Those are several tips for choosing the best asphalt distributor. Make sure you choose the best one for your needs. It also makes it easier for your company to gain clients' trust. So, make sure to choose the right asphalt distributor for your needs. To fulfill your need for the best and most trusted asphalt distributor, you can contact us. Not only do we provide an asphalt distributor, we also serve various asphalt-related needs such as paving services and asphalt sales. We serve all of Indonesia with a professional and experienced team." } },
     ],
   },
-
   {
     slug: "perbaikan-jalan-aspal",
     src: "/proyek/proyek-2.webp",
@@ -196,7 +193,6 @@ export const articles = [
       { type: "paragraph", text: { id: "Itulah beberapa area perbaikan jalan aspal hotmix yang perlu diperhatikan. Semoga bermanfaat dan menambah wawasan anda. Untuk memenuhi kebutuhan perbaikan jalan aspal hotmix yang berkualitas dan terpercaya, anda bisa menghubungi kami. Kami melayani berbagai kebutuhan aspal hotmix seperti jasa pengaspalan, jual aspal hotmix, dan lain sebagainya. Kami melayani seluruh Indonesia dengan tim yang profesional dan berpengalaman.", en: "Those are several hotmix asphalt road repair areas that need attention. We hope this is useful and expands your insight. To meet your need for quality and trusted hotmix asphalt road repair, you can contact us. We serve various hotmix asphalt needs such as paving services, hotmix asphalt sales, and more. We serve all of Indonesia with a professional and experienced team." } },
     ],
   },
-
   {
     slug: "pemasangan-kansteen",
     src: "/proyek/pasang-kanstin.webp",
@@ -244,7 +240,6 @@ export const articles = [
       { type: "paragraph", text: { id: "Jasa pemasangan kansteen memang paling banyak digunakan untuk pengerjaan proyek konstruksi. Sementara itu, kansteen untuk kebutuhan pribadi sebenarnya juga bisa dipesan melalui penyedia jasa pemasangan kansteen yang kamu percaya. Di zaman sekarang ini, tidak ada salahnya jika kamu mencari penyedia jasa pemasangan kansteen yang terbaik. Untuk itu kamu bisa menghubungi kami. Kami adalah penyedia jasa pemasangan kansteen yang terbaik dan terpercaya di Indonesia. Kami juga melayani berbagai kebutuhan pemasangan kansteen seperti kansteen taman, kansteen trotoar, kansteen jalan, dan masih banyak lagi.", en: "Curbs installation services are indeed most widely used for construction projects. Meanwhile, curbs for personal needs can also be ordered through a curbs installation service provider you trust. Nowadays, there is nothing wrong with looking for the best curbs installation service provider. For that, you can contact us. We are the best and most trusted curbs installation service provider in Indonesia. We also serve various curb installation needs such as garden curbs, sidewalk curbs, road curbs, and many more." } },
     ],
   },
-
   {
     slug: "aspal-jalan-murah-2",
     src: "/proyek/proyek-30.webp",
@@ -292,7 +287,6 @@ export const articles = [
       { type: "paragraph", text: { id: "Pengerjaan aspal menggunakan alat berat yang canggih dapat menghemat biaya operasional dan waktu. Pengerjaan jalan aspal yang tepat akan membuat hasil lebih halus dan lebih cepat. Pengerjaan aspal di lapangan berbeda-beda tergantung kondisi jalan dan luas area yang akan diproses.", en: "Asphalt work using sophisticated heavy equipment can save operational costs and time. Proper asphalt road work will produce smoother and faster results. Asphalt work in the field varies depending on road conditions and the area to be processed." } },
     ],
   },
-
   {
     slug: "pekerjaan-aspal-hotmix-2",
     src: "/proyek/proyek-31.webp",
@@ -340,7 +334,6 @@ export const articles = [
       { type: "paragraph", text: { id: "Jenis aspal hotmix memang berbeda-beda sesuai dengan kebutuhan Anda. Anda bisa memakai aspal hotmix dengan bahan material yang sesuai dengan kebutuhan Anda. Harga aspal hotmix juga sangat bervariasi tergantung jenis yang dipakai. Untuk itu Anda harus menyadari hal tersebut. Namun, semuanya tetap terjangkau dengan kualitas yang baik. Perusahaan Anda juga kami harap bisa menghubungi nomor kami untuk mendapatkan konsultasi.", en: "Types of hotmix asphalt do vary according to your needs. You can use hotmix asphalt with materials that suit your needs. The price of hotmix asphalt also varies greatly depending on the type used. Therefore you must be aware of this. However, everything remains affordable with good quality. For your company, we hope you can contact our number to get a consultation." } },
     ],
   },
-
   {
     slug: "distributor-aspal-2",
     src: "/proyek/proyek-55.webp",
@@ -388,7 +381,6 @@ export const articles = [
       { type: "paragraph", text: { id: "Itulah beberapa tips memilih distributor aspal terbaik. Pastikan anda memilih distributor aspal terbaik untuk kebutuhan anda. Itu juga membuat perusahaan anda lebih mudah mendapat kepercayaan dari klien. Jadi, pastikan untuk memilih distributor aspal yang tepat untuk kebutuhan anda. Nah, untuk memenuhi kebutuhan distributor aspal yang terbaik dan terpercaya, anda bisa menghubungi kami. Tidak hanya menyediakan distributor aspal, kami juga melayani berbagai kebutuhan yang berhubungan dengan aspal seperti jasa pengaspalan dan juga jual aspal. Kami melayani seluruh Indonesia dengan tim yang profesional dan berpengalaman.", en: "Those are several tips for choosing the best asphalt distributor. Make sure you choose the best one for your needs. It also makes it easier for your company to gain clients' trust. So, make sure to choose the right asphalt distributor for your needs. To fulfill your need for the best and most trusted asphalt distributor, you can contact us. Not only do we provide an asphalt distributor, we also serve various asphalt-related needs such as paving services and asphalt sales. We serve all of Indonesia with a professional and experienced team." } },
     ],
   },
-
   {
     slug: "perbaikan-jalan-aspal-2",
     src: "/proyek/proyek-21.webp",
@@ -437,7 +429,6 @@ export const articles = [
       { type: "paragraph", text: { id: "Itulah beberapa area perbaikan jalan aspal hotmix yang perlu diperhatikan. Semoga bermanfaat dan menambah wawasan anda. Untuk memenuhi kebutuhan perbaikan jalan aspal hotmix yang berkualitas dan terpercaya, anda bisa menghubungi kami. Kami melayani berbagai kebutuhan aspal hotmix seperti jasa pengaspalan, jual aspal hotmix, dan lain sebagainya. Kami melayani seluruh Indonesia dengan tim yang profesional dan berpengalaman.", en: "Those are several hotmix asphalt road repair areas that need attention. We hope this is useful and expands your insight. To meet your need for quality and trusted hotmix asphalt road repair, you can contact us. We serve various hotmix asphalt needs such as paving services, hotmix asphalt sales, and more. We serve all of Indonesia with a professional and experienced team." } },
     ],
   },
-
   {
     slug: "pemasangan-paving-block",
     src: "/proyek/proyek-36.webp",
@@ -466,7 +457,6 @@ export const articles = [
       { type: "paragraph", text: { id: "Paving block adalah pilihan tepat untuk halaman, area parkir, dan trotoar. Selain rapi, paving block juga mudah dipasang dan tahan lama.", en: "Paving block is the right choice for yards, parking areas, and sidewalks. Besides looking neat, paving blocks are also easy to install and durable." } },
     ],
   },
-
   {
     slug: "pengaspalan-jalan-perumahan",
     src: "/proyek/proyek-56.webp",
@@ -495,7 +485,6 @@ export const articles = [
       { type: "paragraph", text: { id: "Jalan perumahan yang mulus akan meningkatkan kenyamanan penghuni dan nilai properti. Kami melayani pengaspalan jalan perumahan dengan material hotmix berkualitas dan pengerjaan yang rapi.", en: "Smooth residential roads will increase residents' comfort and property value. We provide residential road paving with quality hotmix material and neat workmanship." } },
     ],
   },
-
   {
     slug: "hotmix-untuk-jalan-perkantoran",
     src: "/proyek/proyek-57.webp",
@@ -524,9 +513,9 @@ export const articles = [
       { type: "paragraph", text: { id: "Area perkantoran dan komersial membutuhkan jalan yang rapi dan tahan lama. Kami menyediakan pekerjaan aspal hotmix untuk kebutuhan tersebut dengan hasil yang cepat kering dan rapi.", en: "Office and commercial areas require neat and durable roads. We provide hotmix asphalt works for such needs with quick-drying and neat results." } },
     ],
   },
-    {
+  {
     slug: "jasa-pengecoran-beton",
-    src: "/proyek/proyek-13.webp", // Ganti dengan nama file gambar cor beton Anda di folder public
+    src: "/proyek/proyek-13.webp",
     category: { id: "Cor Beton", en: "Ready-Mix Concrete" },
     title: { id: "Jasa Pengecoran Beton", en: "Concrete Casting Services" },
     date: { id: "28 September 2026", en: "September 28, 2026" },
@@ -629,9 +618,9 @@ export const articles = [
       }
     ],
   },
-    {
+  {
     slug: "biaya-aspal-per-meter",
-    src: "/proyek/proyek-10.webp", // Ganti dengan nama file gambar Anda di folder public/proyek
+    src: "/proyek/proyek-10.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
     title: { id: "Biaya Aspal Per Meter", en: "Asphalt Cost Per Meter" },
     date: { id: "28 September 2026", en: "September 28, 2026" },
@@ -712,9 +701,9 @@ export const articles = [
       }
     ],
   },
-    {
+  {
     slug: "pemasangan-grass-block",
-    src: "/proyek/proyek-39.webp", // Pastikan gambar ini ada di folder public/proyek
+    src: "/proyek/proyek-39.webp",
     category: { id: "Grass Block", en: "Grass Block" },
     title: { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide" },
     date: { id: "15 Oktober 2026", en: "October 15, 2026" },
@@ -839,9 +828,9 @@ export const articles = [
       }
     ],
   },
-    {
+  {
     slug: "pemasangan-pagar-panel",
-    src: "/proyek/proyek-80.webp", // Pastikan gambar ini ada di folder public/proyek atau ganti dengan nama file gambar Anda
+    src: "/proyek/proyek-80.webp",
     category: { id: "Pagar Panel", en: "Panel Fence" },
     title: { id: "Pemasangan Pagar Panel", en: "Panel Fence Installation Guide" },
     date: { id: "18 Oktober 2026", en: "October 18, 2026" },
@@ -966,9 +955,9 @@ export const articles = [
       }
     ],
   },
-    {
+  {
     slug: "pemasangan-tiang-pancang",
-    src: "/proyek/proyek-74.webp", // Pastikan gambar ini ada di folder public/proyek atau ganti dengan nama file gambar Anda
+    src: "/proyek/proyek-74.webp",
     category: { id: "Tiang Pancang", en: "Pile Driving" },
     title: { id: "Pemasangan Tiang Pancang", en: "Pile Driving Installation Guide" },
     date: { id: "20 Oktober 2026", en: "October 20, 2026" },
