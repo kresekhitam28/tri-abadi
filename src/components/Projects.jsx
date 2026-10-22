@@ -90,7 +90,7 @@ const projects = [
 function IconChevronLeft({ className = "w-6 h-6" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M15 18l-6-6 6-6" />
     </svg>
   );
@@ -98,7 +98,7 @@ function IconChevronLeft({ className = "w-6 h-6" }) {
 function IconChevronRight({ className = "w-6 h-6" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M9 18l6-6-6-6" />
     </svg>
   );
@@ -106,7 +106,7 @@ function IconChevronRight({ className = "w-6 h-6" }) {
 function IconClose({ className = "w-5 h-5" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M18 6L6 18M6 6l12 12" />
     </svg>
   );
@@ -114,7 +114,7 @@ function IconClose({ className = "w-5 h-5" }) {
 function IconArrowRight({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M5 12h14M13 5l7 7-7 7" />
     </svg>
   );
@@ -200,7 +200,7 @@ function Reveal({
 
   const style = useMemo(() => {
     if (!enabled) {
-      return { contain: "layout paint style" };
+      return { contain: "layout" };
     }
     return {
       transitionProperty: "opacity, transform",
@@ -210,7 +210,7 @@ function Reveal({
       opacity: visible ? 1 : 0,
       transform: visible ? "translateY(0)" : `translateY(${y}px)`,
       willChange: visible ? "auto" : "opacity, transform",
-      contain: "layout paint style",
+      contain: "layout",
     };
   }, [enabled, visible, duration, delay, y]);
 
@@ -273,19 +273,18 @@ function Lightbox({
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Penampil foto pengerjaan"
       className="fixed inset-0 z-[100] flex flex-col"
       style={{ background: "rgba(2, 6, 23, 0.97)" }}
       onClick={onClose}
     >
       {/* Topbar */}
-      <div className="flex items-center justify-end px-4 sm:px-5 py-3 sm:py-4 z-10
-                      border-b border-white/10 shrink-0">
+      <div className="flex items-center justify-end px-4 sm:px-5 py-3 sm:py-4 z-10 border-b border-white/10 shrink-0">
         <button
           onClick={(e) => { e.stopPropagation(); onClose(); }}
-          className="w-10 h-10 flex items-center justify-center
-                     text-white/70 hover:text-white
-                     bg-white/5 hover:bg-white/15
-                     rounded-full transition-colors duration-150 cursor-pointer"
+          className="w-10 h-10 flex items-center justify-center text-white/80 hover:text-white bg-white/5 hover:bg-white/15 backdrop-blur-sm rounded-full transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           aria-label="Tutup"
         >
           <IconClose />
@@ -293,15 +292,10 @@ function Lightbox({
       </div>
 
       {/* Main image */}
-      <div className="flex-1 flex items-center justify-center
-                      px-3 sm:px-20 relative min-h-0">
+      <div className="flex-1 flex items-center justify-center px-3 sm:px-20 relative min-h-0">
         <button
           onClick={(e) => { e.stopPropagation(); goPrev(); }}
-          className="absolute left-2 sm:left-6 z-10 w-10 h-10 sm:w-11 sm:h-11
-                     flex items-center justify-center
-                     text-white/70 hover:text-white
-                     bg-white/10 hover:bg-white/20
-                     rounded-full transition-colors duration-150 cursor-pointer"
+          className="absolute left-1.5 sm:left-6 z-10 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           aria-label="Sebelumnya"
         >
           <IconChevronLeft className="w-5 h-5" />
@@ -313,18 +307,13 @@ function Lightbox({
             alt=""
             decoding="async"
             draggable={false}
-            className="w-full h-auto max-h-[72vh] object-contain mx-auto rounded-lg
-                       select-none"
+            className="w-full h-auto max-h-[72vh] object-contain mx-auto rounded-lg select-none"
           />
         </div>
 
         <button
           onClick={(e) => { e.stopPropagation(); goNext(); }}
-          className="absolute right-2 sm:right-6 z-10 w-10 h-10 sm:w-11 sm:h-11
-                     flex items-center justify-center
-                     text-white/70 hover:text-white
-                     bg-white/10 hover:bg-white/20
-                     rounded-full transition-colors duration-150 cursor-pointer"
+          className="absolute right-1.5 sm:right-6 z-10 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           aria-label="Berikutnya"
         >
           <IconChevronRight className="w-5 h-5" />
@@ -333,7 +322,7 @@ function Lightbox({
 
       {/* Thumbnail strip */}
       <div
-        className="px-3 sm:px-4 py-3 sm:py-4 overflow-x-auto border-t border-white/10 shrink-0"
+        className="px-3 sm:px-4 py-3 sm:py-4 overflow-x-auto border-t border-white/10 shrink-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         onClick={(e) => e.stopPropagation()}
         style={{
           WebkitOverflowScrolling: "touch",
@@ -341,29 +330,32 @@ function Lightbox({
         }}
       >
         <div className="flex items-center justify-start sm:justify-center gap-1.5 min-w-max mx-auto px-1">
-          {projects.map((thumb, i) => (
-            <button
-              key={i}
-              onClick={() => setSelectedIndex(i)}
-              className={`shrink-0 w-11 h-11 sm:w-14 sm:h-14 overflow-hidden rounded-md
-                          transition-opacity duration-150 cursor-pointer
-                          ${i === selectedIndex
-                            ? "ring-2 ring-[#1e88e5] opacity-100"
-                            : "opacity-30 hover:opacity-80"}`}
-              style={{ scrollSnapAlign: "center" }}
-              aria-label={`Foto ${i + 1}`}
-            >
-              <img
-                src={thumb.src}
-                alt=""
-                loading="lazy"
-                decoding="async"
-                width={56}
-                height={56}
-                className="w-full h-full object-cover"
-              />
-            </button>
-          ))}
+          {projects.map((thumb, i) => {
+            const isActive = i === selectedIndex;
+            return (
+              <button
+                key={i}
+                onClick={() => setSelectedIndex(i)}
+                aria-label={`Foto ${i + 1}`}
+                aria-current={isActive ? "true" : undefined}
+                className={`shrink-0 w-11 h-11 sm:w-14 sm:h-14 overflow-hidden rounded-md cursor-pointer transition-opacity duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950
+                  ${isActive
+                    ? "ring-2 ring-[#1e88e5] opacity-100"
+                    : "opacity-30 hover:opacity-80"}`}
+                style={{ scrollSnapAlign: "center" }}
+              >
+                <img
+                  src={thumb.src}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  width={56}
+                  height={56}
+                  className="w-full h-full object-cover"
+                />
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -428,10 +420,7 @@ export default function Projects() {
 
   return (
     <>
-      <section
-        className="relative bg-white pt-12 sm:pt-14 lg:pt-20 pb-16 sm:pb-20 lg:pb-28 overflow-hidden"
-        style={{ contain: "layout style" }}
-      >
+      <section className="relative bg-white pt-12 sm:pt-14 lg:pt-20 pb-16 sm:pb-20 lg:pb-28 overflow-hidden">
         {!isMobile && (
           <>
             <div
@@ -447,8 +436,9 @@ export default function Projects() {
                 WebkitMaskImage:
                   "radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 100%)",
               }}
+              aria-hidden="true"
             />
-            <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
+            <div className="absolute inset-0 opacity-[0.05] pointer-events-none" aria-hidden="true">
               <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[600px] h-[600px] rounded-full bg-[#1e88e5] blur-3xl" />
             </div>
           </>
@@ -460,13 +450,11 @@ export default function Projects() {
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 lg:mb-16">
             <Reveal delay={0} y={20}>
               <div className="inline-flex items-center gap-3 mb-4">
-                <span className="w-6 sm:w-8 h-px bg-[#1e88e5]/60" />
-                <span className="text-[10px] sm:text-[11px] uppercase
-                                 tracking-[0.25em] sm:tracking-[0.3em]
-                                 text-[#1e88e5] font-semibold">
+                <span className="w-6 sm:w-8 h-px bg-[#1e88e5]/60" aria-hidden="true" />
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-semibold">
                   What We Have Done
                 </span>
-                <span className="w-6 sm:w-8 h-px bg-[#1e88e5]/60" />
+                <span className="w-6 sm:w-8 h-px bg-[#1e88e5]/60" aria-hidden="true" />
               </div>
             </Reveal>
 
@@ -492,11 +480,7 @@ export default function Projects() {
           </div>
 
           {/* ═══ GRID GALERI ═══ */}
-          <div
-            className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-2.5 lg:gap-3
-                       [grid-auto-rows:130px] sm:[grid-auto-rows:150px] lg:[grid-auto-rows:190px]"
-            style={{ contain: "layout paint style" }}
-          >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-2.5 lg:gap-3 [grid-auto-rows:130px] sm:[grid-auto-rows:150px] lg:[grid-auto-rows:190px]">
             {projects.map((item, i) => (
               <Reveal
                 key={i}
@@ -509,12 +493,7 @@ export default function Projects() {
                   type="button"
                   onClick={() => setSelectedIndex(i)}
                   aria-label={`Buka proyek ${i + 1}`}
-                  className="group relative w-full h-full overflow-hidden rounded-xl bg-slate-100
-                             cursor-pointer border border-slate-200/80
-                             hover:border-[#1e88e5]/60
-                             hover:shadow-lg hover:shadow-slate-900/5
-                             transition-colors duration-300"
-                  style={{ contain: "layout paint style" }}
+                  className="group relative w-full h-full overflow-hidden rounded-xl bg-slate-100 cursor-pointer border border-slate-200/80 hover:border-[#1e88e5]/60 hover:shadow-lg hover:shadow-slate-900/5 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
                 >
                   <img
                     src={item.src}
@@ -523,14 +502,13 @@ export default function Projects() {
                     decoding="async"
                     width={600}
                     height={600}
-                    className="w-full h-full object-cover
-                               transition-transform duration-500 ease-out
-                               group-hover:scale-[1.06]"
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent
-                                  opacity-0 group-hover:opacity-100
-                                  transition-opacity duration-300" />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    aria-hidden="true"
+                  />
                 </button>
               </Reveal>
             ))}
@@ -538,8 +516,7 @@ export default function Projects() {
 
           {/* ═══ CTA ═══ */}
           <Reveal y={34}>
-            <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-10 border-t border-slate-200
-                            flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
+            <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-10 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
               <p
                 className="text-slate-600 leading-relaxed text-center sm:text-left max-w-xl"
                 style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.9375rem)" }}
@@ -553,13 +530,7 @@ export default function Projects() {
 
               <Link
                 href="/kontak"
-                className="group shrink-0 inline-flex items-center justify-center gap-2
-                           px-5 sm:px-6 py-3 rounded-xl
-                           bg-slate-900 text-white
-                           hover:bg-[#1e88e5]
-                           font-semibold text-[10.5px] sm:text-[11px] uppercase tracking-[0.15em] sm:tracking-[0.18em]
-                           transition-colors duration-200
-                           shadow-md shadow-slate-900/10 hover:shadow-lg hover:shadow-[#1e88e5]/20"
+                className="group shrink-0 inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 min-h-[44px] rounded-xl bg-slate-900 text-white hover:bg-[#1e88e5] font-semibold text-[11px] sm:text-[11.5px] uppercase tracking-[0.15em] sm:tracking-[0.18em] transition-colors duration-200 shadow-md shadow-slate-900/10 hover:shadow-lg hover:shadow-[#1e88e5]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
               >
                 Konsultasi Gratis
                 <IconArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-1" />

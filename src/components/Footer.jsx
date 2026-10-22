@@ -11,7 +11,7 @@ import { useMemo } from "react";
 function IconMap({ className = "w-5 h-5" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
       <circle cx="12" cy="10" r="3" />
     </svg>
@@ -20,7 +20,7 @@ function IconMap({ className = "w-5 h-5" }) {
 function IconMail({ className = "w-5 h-5" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <rect x="2" y="4" width="20" height="16" rx="2" />
       <path d="M22 6l-10 7L2 6" />
     </svg>
@@ -29,21 +29,21 @@ function IconMail({ className = "w-5 h-5" }) {
 function IconPhone({ className = "w-5 h-5" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
     </svg>
   );
 }
 function IconYouTube({ className = "w-4 h-4" }) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
       <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.5v-7l6.5 3.5-6.5 3.5z" />
     </svg>
   );
 }
 function IconTikTok({ className = "w-4 h-4" }) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
       <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.87a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.3z" />
     </svg>
   );
@@ -51,7 +51,7 @@ function IconTikTok({ className = "w-4 h-4" }) {
 function IconInstagram({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <rect x="2" y="2" width="20" height="20" rx="5" />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01" />
     </svg>
@@ -147,8 +147,10 @@ const WEBSITE_CREDIT_URL = "https://spesialisaspal.com";
 // ─────────────────────────────────────────────
 function SectionHeading({ children }) {
   return (
-    <h4 className="relative inline-block text-white font-bold mb-5 uppercase tracking-[0.22em]"
-        style={{ fontSize: "clamp(0.6875rem, 1.3vw, 0.75rem)" }}>
+    <h4
+      className="relative inline-block text-white font-bold mb-5 uppercase tracking-[0.22em]"
+      style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.8125rem)" }}
+    >
       {children}
       <span
         className="absolute left-0 -bottom-1.5 w-8 h-[2px] rounded-full bg-[#4da3ff]"
@@ -168,37 +170,28 @@ function ContactCard({ href, Icon, label, value, secondary }) {
       href={href}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
-      className="group flex items-start gap-3 sm:gap-4
-                 p-4 sm:p-5 lg:p-6
-                 rounded-xl sm:rounded-2xl
-                 border border-white/10 bg-white/[0.02]
-                 hover:bg-white/[0.06] hover:border-[#1e88e5]/40
-                 transition-colors duration-200"
-      style={{ contain: "layout paint style" }}
+      className="group flex items-start gap-3 sm:gap-4 p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.06] hover:border-[#1e88e5]/40 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4da3ff] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
     >
       <span
-        className="shrink-0 w-10 h-10 sm:w-11 sm:h-11
-                   rounded-lg sm:rounded-xl
-                   flex items-center justify-center
-                   bg-[#1e88e5]/15 text-[#4da3ff]
-                   group-hover:bg-[#1e88e5] group-hover:text-white
-                   transition-colors duration-200"
+        className="shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl flex items-center justify-center bg-[#1e88e5]/15 text-[#4da3ff] group-hover:bg-[#1e88e5] group-hover:text-white transition-colors duration-200"
       >
         <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
       </span>
       <div className="min-w-0 flex-1">
-        <p className="text-[9.5px] sm:text-[10px] uppercase tracking-[0.22em]
-                      text-slate-500 font-semibold mb-1
-                      group-hover:text-[#4da3ff] transition-colors duration-200">
+        <p className="text-[10.5px] sm:text-[10px] uppercase tracking-[0.22em] text-slate-500 font-semibold mb-1 group-hover:text-[#4da3ff] transition-colors duration-200">
           {label}
         </p>
-        <p className="text-white leading-relaxed break-words"
-           style={{ fontSize: "clamp(0.78125rem, 1.5vw, 0.84375rem)" }}>
+        <p
+          className="text-white leading-relaxed break-words"
+          style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
+        >
           {value}
         </p>
         {secondary && (
-          <p className="text-slate-400 leading-relaxed mt-0.5 break-words"
-             style={{ fontSize: "clamp(0.71875rem, 1.4vw, 0.75rem)" }}>
+          <p
+            className="text-slate-400 leading-relaxed mt-0.5 break-words"
+            style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.8125rem)" }}
+          >
             {secondary}
           </p>
         )}
@@ -212,7 +205,7 @@ function ContactCard({ href, Icon, label, value, secondary }) {
 // ─────────────────────────────────────────────
 function LinkColumn({ title, links, t, onNavigate }) {
   return (
-    <div style={{ contain: "layout paint style" }}>
+    <div>
       <SectionHeading>{title}</SectionHeading>
       <ul className="space-y-2.5 sm:space-y-3">
         {links.map((item, i) => (
@@ -220,9 +213,8 @@ function LinkColumn({ title, links, t, onNavigate }) {
             <Link
               href={item.href}
               onClick={onNavigate}
-              className="text-slate-400 hover:text-[#4da3ff]
-                         transition-colors duration-150"
-              style={{ fontSize: "clamp(0.78125rem, 1.5vw, 0.8125rem)" }}
+              className="inline-block py-1 -my-1 text-slate-400 hover:text-[#4da3ff] transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4da3ff] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
             >
               {t(item.label)}
             </Link>
@@ -243,14 +235,15 @@ function ContactRow({ href, Icon, children, external }) {
         href={href}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
-        className="flex items-start gap-3 group"
+        className="flex items-start gap-3 group rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4da3ff] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
       >
         <span className="shrink-0 mt-0.5 text-[#4da3ff]">
           <Icon className="w-4 h-4" />
         </span>
-        <span className="text-slate-400 leading-relaxed break-words
-                         group-hover:text-[#4da3ff] transition-colors duration-150"
-              style={{ fontSize: "clamp(0.78125rem, 1.5vw, 0.8125rem)" }}>
+        <span
+          className="text-slate-400 leading-relaxed break-words group-hover:text-[#4da3ff] transition-colors duration-150"
+          style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
+        >
           {children}
         </span>
       </a>
@@ -269,13 +262,7 @@ function SocialIcon({ name, href, Icon }) {
       rel="noopener noreferrer"
       aria-label={name}
       title={name}
-      className="w-10 h-10 sm:w-9 sm:h-9
-                 flex items-center justify-center rounded-lg
-                 bg-white/5 text-slate-400 ring-1 ring-white/10
-                 hover:bg-[#1e88e5] hover:text-white hover:ring-[#1e88e5]
-                 transition-colors duration-200
-                 relative z-10 cursor-pointer
-                 touch-manipulation select-none"
+      className="w-10 h-10 sm:w-9 sm:h-9 flex items-center justify-center rounded-lg bg-white/5 text-slate-400 ring-1 ring-white/10 hover:bg-[#1e88e5] hover:text-white hover:ring-[#1e88e5] transition-colors duration-200 relative z-10 cursor-pointer touch-manipulation select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4da3ff] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
       style={{ WebkitTapHighlightColor: "transparent" }}
     >
       <Icon className="w-4 h-4 pointer-events-none" />
@@ -306,16 +293,10 @@ export default function Footer() {
   );
 
   return (
-    <footer
-      className="relative bg-slate-950"
-      style={{ contain: "layout style" }}
-    >
+    <footer className="relative bg-slate-950">
       {/* ═══════════ KONTAK CARDS ═══════════ */}
-      <div className="max-w-6xl md:max-w-7xl mx-auto px-4 sm:px-5 lg:px-8
-                      pt-14 sm:pt-16 lg:pt-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
-                        gap-3 sm:gap-4 lg:gap-5">
-
+      <div className="max-w-6xl md:max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 pt-14 sm:pt-16 lg:pt-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
           <ContactCard
             href={MAPS_HREF}
             Icon={IconMap}
@@ -339,10 +320,8 @@ export default function Footer() {
       </div>
 
       {/* ═══════════ MAIN FOOTER ═══════════ */}
-      <div className="max-w-6xl md:max-w-7xl mx-auto px-4 sm:px-5 lg:px-8
-                      pt-12 sm:pt-14 lg:pt-20 pb-10 sm:pb-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
-                        gap-10 sm:gap-8 lg:gap-12">
+      <div className="max-w-6xl md:max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 pt-12 sm:pt-14 lg:pt-20 pb-10 sm:pb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-8 lg:gap-12">
 
           {/* Kolom 1 — Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
@@ -353,14 +332,15 @@ export default function Footer() {
               >
                 TRI ABADI MAKMUR
               </div>
-              <div className="text-[10px] tracking-[0.22em] text-[#4da3ff]
-                              font-semibold mt-1.5">
+              <div className="text-[10px] tracking-[0.22em] text-[#4da3ff] font-semibold mt-1.5">
                 {data.brandTagline}
               </div>
             </div>
 
-            <p className="text-slate-400 leading-[1.8] max-w-md"
-               style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.8125rem)" }}>
+            <p
+              className="text-slate-400 leading-[1.8] max-w-md"
+              style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
+            >
               {data.brandDesc}
             </p>
 
@@ -414,7 +394,7 @@ export default function Footer() {
         <div className="max-w-6xl md:max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 py-5 sm:py-6">
           <p
             className="text-slate-500 text-center leading-relaxed"
-            style={{ fontSize: "clamp(0.71875rem, 1.4vw, 0.75rem)" }}
+            style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.8125rem)" }}
           >
             © {currentYear}{" "}
             <span className="text-slate-300 font-medium">
@@ -425,14 +405,14 @@ export default function Footer() {
 
           <p
             className="text-slate-500 text-center leading-relaxed mt-1.5"
-            style={{ fontSize: "clamp(0.71875rem, 1.4vw, 0.75rem)" }}
+            style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.8125rem)" }}
           >
             Website by{" "}
             <a
               href={WEBSITE_CREDIT_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 hover:text-[#4da3ff] transition-colors"
+              className="text-slate-300 hover:text-[#4da3ff] transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4da3ff] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
             >
               {WEBSITE_CREDIT_NAME}
             </a>

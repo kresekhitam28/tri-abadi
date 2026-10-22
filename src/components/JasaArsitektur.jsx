@@ -1,7 +1,7 @@
 // src/components/JasaArsitektur.jsx
 "use client";
 
-import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo, memo, useId } from "react";
 import { useLang } from "../context/LanguageContext";
 
 // ─────────────────────────────────────────────
@@ -85,7 +85,7 @@ const AnimBase = memo(function AnimBase({
 
   const style = useMemo(() => {
     if (!enabled) {
-      return { contain: "layout paint style" };
+      return { contain: "layout" };
     }
     const active = inView;
     return {
@@ -98,7 +98,7 @@ const AnimBase = memo(function AnimBase({
         ? "translate3d(0,0,0) scale(1)"
         : `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
       willChange: active ? "auto" : "opacity, transform",
-      contain: "layout paint style",
+      contain: "layout",
     };
   }, [enabled, inView, duration, delay, x, y, scale]);
 
@@ -118,7 +118,7 @@ const FadeLeft = (p) => <AnimBase {...p} x={p.x ?? -28} y={p.y ?? 0} />;
 // ─────────────────────────────────────────────
 function IconWhatsApp({ className = "w-4 h-4" }) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
     </svg>
   );
@@ -126,7 +126,7 @@ function IconWhatsApp({ className = "w-4 h-4" }) {
 function IconArrowRight({ className = "w-3.5 h-3.5" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M5 12h14M13 5l7 7-7 7" />
     </svg>
   );
@@ -134,7 +134,7 @@ function IconArrowRight({ className = "w-3.5 h-3.5" }) {
 function IconCheck({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.6}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M20 6L9 17l-5-5" />
     </svg>
   );
@@ -142,7 +142,7 @@ function IconCheck({ className = "w-4 h-4" }) {
 function IconHome({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
       <path d="M9 22V12h6v10" />
     </svg>
@@ -151,7 +151,7 @@ function IconHome({ className = "w-4 h-4" }) {
 function IconBuilding({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <rect x="4" y="2" width="16" height="20" rx="1" />
       <path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01" />
     </svg>
@@ -160,7 +160,7 @@ function IconBuilding({ className = "w-4 h-4" }) {
 function IconCompass({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <circle cx="12" cy="12" r="10" />
       <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
     </svg>
@@ -169,7 +169,7 @@ function IconCompass({ className = "w-4 h-4" }) {
 function IconPencil({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z" />
     </svg>
   );
@@ -177,7 +177,7 @@ function IconPencil({ className = "w-4 h-4" }) {
 function IconCube({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
       <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" />
     </svg>
@@ -186,7 +186,7 @@ function IconCube({ className = "w-4 h-4" }) {
 function IconSparkles({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" />
     </svg>
   );
@@ -403,26 +403,20 @@ const content = {
 const LayananCard = memo(function LayananCard({ item, lang }) {
   const { Icon, title, desc } = item;
   return (
-    <div
-      className="flex items-start gap-3 sm:gap-3.5 p-3.5 sm:p-4 h-full
-                 border border-slate-200 rounded-xl bg-white"
-      style={{ contain: "layout paint style" }}
-    >
-      <span className="shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-lg
-                       bg-[#1e88e5]/10 text-[#1e88e5]
-                       flex items-center justify-center">
+    <div className="flex items-start gap-3 sm:gap-3.5 p-3.5 sm:p-4 h-full border border-slate-200 rounded-xl bg-white">
+      <span className="shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#1e88e5]/10 text-[#1e88e5] flex items-center justify-center">
         <Icon className="w-4 h-4" />
       </span>
       <div className="min-w-0">
         <div
           className="text-slate-900 font-semibold leading-snug"
-          style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.84375rem)" }}
+          style={{ fontSize: "clamp(0.8125rem, 1.4vw, 0.875rem)" }}
         >
           {pick(title, lang)}
         </div>
         <div
           className="text-slate-500 leading-snug mt-1"
-          style={{ fontSize: "clamp(0.71875rem, 1.3vw, 0.75rem)" }}
+          style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.8125rem)" }}
         >
           {pick(desc, lang)}
         </div>
@@ -437,36 +431,35 @@ const LayananCard = memo(function LayananCard({ item, lang }) {
 const StepItem = memo(function StepItem({ step, lang, isLast }) {
   const { Icon } = step;
   return (
-    <div
-      className="relative flex gap-3 sm:gap-4"
-      style={{ contain: "layout paint style" }}
-    >
+    <div className="relative flex gap-3 sm:gap-4">
       {!isLast && (
-        <span className="absolute left-4 top-9 bottom-[-20px] w-px bg-slate-200" />
+        <span
+          className="absolute left-4 top-9 bottom-[-20px] w-px bg-slate-200"
+          aria-hidden="true"
+        />
       )}
 
       <div className="relative shrink-0">
-        <div className="w-8 h-8 rounded-full flex items-center justify-center
-                        bg-[#1e88e5]/10 text-[#1e88e5]">
+        <div className="w-8 h-8 rounded-full flex items-center justify-center bg-[#1e88e5]/10 text-[#1e88e5]">
           <Icon className="w-3.5 h-3.5" />
         </div>
       </div>
 
       <div className="min-w-0 pb-1">
         <div className="flex items-center gap-2 mb-1 flex-wrap">
-          <span className="text-[10px] font-bold font-mono text-slate-400">
+          <span className="text-[10.5px] sm:text-[10px] font-bold font-mono text-slate-400">
             {step.no}
           </span>
           <h4
             className="font-semibold text-slate-900"
-            style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.84375rem)" }}
+            style={{ fontSize: "clamp(0.8125rem, 1.4vw, 0.875rem)" }}
           >
             {pick(step.title, lang)}
           </h4>
         </div>
         <p
           className="text-slate-600 leading-relaxed"
-          style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.78125rem)" }}
+          style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.8125rem)" }}
         >
           {pick(step.desc, lang)}
         </p>
@@ -480,30 +473,27 @@ const StepItem = memo(function StepItem({ step, lang, isLast }) {
 // ─────────────────────────────────────────────
 const AreaRow = memo(function AreaRow({ area, data }) {
   return (
-    <div style={{ contain: "layout paint style" }}>
+    <div>
       <div className="flex items-center gap-3 mb-4">
-        <span className="w-4 h-px bg-[#1e88e5]" />
-        <h3 className="text-[11.5px] sm:text-[12.5px] uppercase
-                       tracking-[0.2em] sm:tracking-[0.22em]
-                       text-[#1e88e5] font-bold">
+        <span className="w-4 h-px bg-[#1e88e5]" aria-hidden="true" />
+        <h3 className="text-[11.5px] sm:text-[12.5px] uppercase tracking-[0.2em] sm:tracking-[0.22em] text-[#1e88e5] font-bold">
           {area.region}
         </h3>
-        <span className="flex-1 h-px bg-slate-200" />
+        <span className="flex-1 h-px bg-slate-200" aria-hidden="true" />
       </div>
 
       <div className="space-y-3 pl-1">
         {area.kota && area.kota.length > 0 && (
           <div className="flex items-start gap-2.5 sm:gap-3">
-            <span className="shrink-0 mt-[3px] text-[9.5px] sm:text-[10px] uppercase
-                             tracking-wider font-bold text-slate-400 w-[50px] sm:w-[60px]">
+            <span className="shrink-0 mt-[3px] text-[10.5px] sm:text-[10px] uppercase tracking-wider font-bold text-slate-400 w-[50px] sm:w-[60px]">
               {data.areaCity}
             </span>
             <div className="flex flex-wrap gap-1.5 flex-1">
               {area.kota.map((k, i) => (
-                <span key={i}
-                  className="inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md
-                             bg-[#1e88e5]/5 border border-[#1e88e5]/20
-                             text-[10.5px] sm:text-[11px] text-[#1565c0] font-medium">
+                <span
+                  key={i}
+                  className="inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-[#1e88e5]/5 border border-[#1e88e5]/20 text-[11px] text-[#1565c0] font-medium"
+                >
                   {k}
                 </span>
               ))}
@@ -513,16 +503,15 @@ const AreaRow = memo(function AreaRow({ area, data }) {
 
         {area.kabupaten && area.kabupaten.length > 0 && (
           <div className="flex items-start gap-2.5 sm:gap-3">
-            <span className="shrink-0 mt-[3px] text-[9.5px] sm:text-[10px] uppercase
-                             tracking-wider font-bold text-slate-400 w-[50px] sm:w-[60px]">
+            <span className="shrink-0 mt-[3px] text-[10.5px] sm:text-[10px] uppercase tracking-wider font-bold text-slate-400 w-[50px] sm:w-[60px]">
               {data.areaRegency}
             </span>
             <div className="flex flex-wrap gap-1.5 flex-1">
               {area.kabupaten.map((k, i) => (
-                <span key={i}
-                  className="inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md
-                             bg-white border border-slate-200
-                             text-[10.5px] sm:text-[11px] text-slate-600">
+                <span
+                  key={i}
+                  className="inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-white border border-slate-200 text-[11px] text-slate-600"
+                >
                   {k}
                 </span>
               ))}
@@ -540,13 +529,11 @@ const AreaRow = memo(function AreaRow({ area, data }) {
 const SectionKicker = memo(function SectionKicker({ children }) {
   return (
     <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-3">
-      <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
-      <span className="text-[10px] sm:text-[11px] uppercase
-                       tracking-[0.25em] sm:tracking-[0.3em]
-                       text-[#1e88e5] font-semibold">
+      <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" aria-hidden="true" />
+      <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-semibold">
         {children}
       </span>
-      <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
+      <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" aria-hidden="true" />
     </div>
   );
 });
@@ -559,13 +546,13 @@ export default function JasaArsitektur() {
   const t = content[lang] || content.id;
 
   const [showArea, setShowArea] = useState(false);
+  const areaPanelId = useId();
 
   return (
     <div className="bg-white">
 
       {/* ═══════ HERO ═══════ */}
-      <section className="relative pt-28 lg:pt-36 pb-12 lg:pb-16 overflow-hidden
-                          bg-gradient-to-b from-slate-50 via-white to-white">
+      <section className="relative pt-28 lg:pt-36 pb-12 lg:pb-16 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-white">
         <div
           aria-hidden="true"
           className="absolute -right-40 -top-40 w-[600px] h-[600px] pointer-events-none"
@@ -612,10 +599,7 @@ export default function JasaArsitektur() {
 
           {/* Foto utama */}
           <ScaleIn>
-            <figure className="relative rounded-2xl sm:rounded-3xl overflow-hidden
-                              bg-slate-100 mb-8 ring-1 ring-slate-200
-                              shadow-xl shadow-slate-900/[0.06]"
-                    style={{ contain: "layout paint style" }}>
+            <figure className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-100 mb-8 ring-1 ring-slate-200 shadow-xl shadow-slate-900/[0.06]">
               <div className="aspect-[16/10]">
                 <img
                   src="/proyek/proyek-45.webp"
@@ -632,19 +616,16 @@ export default function JasaArsitektur() {
                 />
               </div>
 
-              <figcaption className="absolute bottom-0 inset-x-0
-                                     bg-gradient-to-t from-slate-950/80 to-transparent
-                                     px-4 sm:px-6 py-3 sm:py-5 pt-12 sm:pt-16">
+              <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/80 to-transparent px-4 sm:px-6 py-3 sm:py-5 pt-12 sm:pt-16">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="w-5 sm:w-6 h-px bg-[#4da3ff]" />
-                  <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.24em] sm:tracking-[0.28em]
-                                   text-[#4da3ff] font-semibold">
+                  <span className="w-5 sm:w-6 h-px bg-[#4da3ff]" aria-hidden="true" />
+                  <span className="text-[10px] sm:text-[10px] uppercase tracking-[0.24em] sm:tracking-[0.28em] text-[#4da3ff] font-semibold">
                     {t.figcaption}
                   </span>
                 </div>
                 <p
                   className="text-white font-medium"
-                  style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.8125rem)" }}
+                  style={{ fontSize: "clamp(0.8125rem, 1.4vw, 0.875rem)" }}
                 >
                   {t.figcaptionText}
                 </p>
@@ -715,12 +696,10 @@ export default function JasaArsitektur() {
 
             {/* Tahapan pengerjaan */}
             <FadeUp>
-              <div className="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-slate-200"
-                   style={{ contain: "layout paint style" }}>
+              <div className="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-slate-200">
                 <div className="flex items-center gap-2 mb-6">
-                  <span className="w-6 h-px bg-[#1e88e5]" />
-                  <h3 className="text-[10.5px] sm:text-[11px] uppercase tracking-[0.25em]
-                                 text-slate-500 font-semibold">
+                  <span className="w-6 h-px bg-[#1e88e5]" aria-hidden="true" />
+                  <h3 className="text-[10.5px] sm:text-[11px] uppercase tracking-[0.25em] text-slate-500 font-semibold">
                     {t.tahapanTitle}
                   </h3>
                 </div>
@@ -756,7 +735,7 @@ export default function JasaArsitektur() {
                 </h2>
                 <p
                   className="text-slate-500 mt-3 max-w-xl mx-auto"
-                  style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.8125rem)" }}
+                  style={{ fontSize: "clamp(0.8125rem, 1.4vw, 0.875rem)" }}
                 >
                   {t.areaDesc}
                 </p>
@@ -768,26 +747,22 @@ export default function JasaArsitektur() {
                 type="button"
                 onClick={() => setShowArea(!showArea)}
                 aria-expanded={showArea}
-                aria-label={t.areaToggle}
-                className="w-full flex items-center gap-4 text-left cursor-pointer
-                           pb-5 border-b border-slate-200
-                           transition-colors duration-200"
+                aria-controls={areaPanelId}
+                className="w-full flex items-center gap-4 text-left cursor-pointer pb-5 border-b border-slate-200 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1e88e5]"
               >
                 <span
                   className={`flex-1 font-bold uppercase tracking-[0.2em]
-                              ${showArea ? "text-[#1e88e5]" : "text-slate-600"}`}
-                  style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.8125rem)" }}
+                    ${showArea ? "text-[#1e88e5]" : "text-slate-600"}`}
+                  style={{ fontSize: "clamp(0.8125rem, 1.4vw, 0.875rem)" }}
                 >
                   {t.areaToggle}
                 </span>
                 <span
-                  className={`shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-full border
-                              font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]
-                              transition-colors duration-150
-                              ${showArea
-                                ? "bg-[#1e88e5] text-white border-[#1e88e5]"
-                                : "bg-white text-slate-500 border-slate-300"}`}
-                  style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
+                  className={`shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-full border font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-colors duration-150
+                    ${showArea
+                      ? "bg-[#1e88e5] text-white border-[#1e88e5]"
+                      : "bg-white text-slate-500 border-slate-300"}`}
+                  style={{ fontSize: "clamp(0.625rem, 1vw, 0.6875rem)" }}
                 >
                   {showArea
                     ? (lang === "en" ? "Close" : "Tutup")
@@ -796,7 +771,7 @@ export default function JasaArsitektur() {
               </button>
 
               {showArea && (
-                <div className="mt-8 space-y-8">
+                <div id={areaPanelId} className="mt-8 space-y-8">
                   {areaJangkauan.map((area, idx) => (
                     <FadeUp key={idx} delay={idx * 80} y={16}>
                       <AreaRow area={area} data={t} />
@@ -809,9 +784,7 @@ export default function JasaArsitektur() {
 
           {/* ═══════ CTA BANNER ═══════ */}
           <ScaleIn delay={100}>
-            <div className="mt-10 p-5 sm:p-7 lg:p-9 rounded-3xl bg-slate-900
-                            text-center relative overflow-hidden"
-                 style={{ contain: "layout paint style" }}>
+            <div className="mt-10 p-5 sm:p-7 lg:p-9 rounded-3xl bg-slate-900 text-center relative overflow-hidden">
               <div
                 aria-hidden="true"
                 className="absolute -right-24 -top-24 w-56 h-56 pointer-events-none"
@@ -830,7 +803,7 @@ export default function JasaArsitektur() {
               <div className="relative">
                 <p
                   className="text-[#4da3ff] uppercase tracking-[0.3em] font-semibold mb-3"
-                  style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
+                  style={{ fontSize: "clamp(0.625rem, 1vw, 0.6875rem)" }}
                 >
                   {t.ctaBadge}
                 </p>
@@ -846,14 +819,8 @@ export default function JasaArsitektur() {
                   href={`https://wa.me/6282258089367?text=${encodeURIComponent(t.ctaWaMessage)}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2
-                             px-6 sm:px-7 py-3.5 rounded-xl
-                             bg-white text-slate-900
-                             hover:bg-[#4da3ff] hover:text-white
-                             font-semibold uppercase tracking-[0.15em]
-                             shadow-lg shadow-black/20
-                             transition-colors duration-300"
-                  style={{ fontSize: "clamp(0.6875rem, 1.2vw, 0.75rem)" }}
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 min-h-[44px] rounded-xl bg-white text-slate-900 hover:bg-[#4da3ff] hover:text-white font-semibold uppercase tracking-[0.15em] shadow-lg shadow-black/20 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                  style={{ fontSize: "clamp(0.6875rem, 1.2vw, 0.8125rem)" }}
                 >
                   <IconWhatsApp className="w-4 h-4" />
                   {t.ctaButton}

@@ -11,7 +11,7 @@ import { useLang } from "../context/LanguageContext";
 function IconPlus({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M12 5v14M5 12h14" />
     </svg>
   );
@@ -19,7 +19,7 @@ function IconPlus({ className = "w-4 h-4" }) {
 function IconMinus({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M5 12h14" />
     </svg>
   );
@@ -27,7 +27,7 @@ function IconMinus({ className = "w-4 h-4" }) {
 function IconArrowRight({ className = "w-3.5 h-3.5" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M5 12h14M13 6l6 6-6 6" />
     </svg>
   );
@@ -35,7 +35,7 @@ function IconArrowRight({ className = "w-3.5 h-3.5" }) {
 function IconChevron({ className = "w-3 h-3" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M9 18l6-6-6-6" />
     </svg>
   );
@@ -86,19 +86,17 @@ const AccordionItem = memo(function AccordionItem({
   item, index, isOpen, onToggle,
 }) {
   return (
-    <div style={{ contain: "layout paint style" }}>
+    <div>
       <button
         type="button"
         onClick={() => onToggle(index)}
         aria-expanded={isOpen}
-        className={`w-full flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3.5 sm:py-4
-                    text-left transition-colors duration-150
-                    ${isOpen ? "bg-[#1e88e5]/[0.03]" : "hover:bg-slate-50"}`}
+        className={`w-full flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3.5 sm:py-4 text-left transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1e88e5]
+          ${isOpen ? "bg-[#1e88e5]/[0.03]" : "hover:bg-slate-50"}`}
       >
         <span
-          className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center
-                      transition-colors duration-150
-                      ${isOpen ? "bg-[#1e88e5] text-white" : "bg-slate-100 text-slate-600"}`}
+          className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors duration-150
+            ${isOpen ? "bg-[#1e88e5] text-white" : "bg-slate-100 text-slate-600"}`}
         >
           {isOpen ? <IconMinus className="w-3.5 h-3.5" /> : <IconPlus className="w-3.5 h-3.5" />}
         </span>
@@ -106,7 +104,7 @@ const AccordionItem = memo(function AccordionItem({
         <span className="flex-1 min-w-0">
           <span
             className={`block font-semibold leading-snug transition-colors duration-150
-                        ${isOpen ? "text-[#1e88e5]" : "text-slate-800"}`}
+              ${isOpen ? "text-[#1e88e5]" : "text-slate-800"}`}
             style={{ fontSize: "clamp(0.8125rem, 1.7vw, 0.84375rem)" }}
           >
             {item.title}
@@ -118,7 +116,7 @@ const AccordionItem = memo(function AccordionItem({
       </button>
 
       {isOpen && (
-        <div className="px-4 sm:px-6 pb-5 sm:pb-6 pl-[60px] sm:pl-[72px]">
+        <div className="px-4 sm:px-6 sm:pl-[72px] pb-5 sm:pb-6">
           {item.content}
         </div>
       )}
@@ -146,12 +144,12 @@ export default function TiangPancangPricingPanel({ hideCta = false }) {
         content: (
           <div className="space-y-3">
             <div className="rounded-lg border border-slate-200 divide-y divide-dashed divide-slate-200">
-              <div className="flex items-center justify-between gap-3 px-4 py-3">
-                <span className="text-[12.5px] text-slate-700">
+              <div className="flex items-start sm:items-center justify-between gap-3 px-4 py-3">
+                <span className="text-[12.5px] text-slate-700 min-w-0">
                   {t.rowLabel}{" "}
                   <span className="text-slate-400">{t.rowLabelHint}</span>
                 </span>
-                <span className="text-[13px] font-semibold text-slate-900 whitespace-nowrap">
+                <span className="text-[13px] font-semibold text-slate-900 whitespace-nowrap shrink-0">
                   {t.rowPrice}
                   <span className="text-[11px] text-slate-500">{t.rowUnit}</span>
                 </span>
@@ -159,11 +157,11 @@ export default function TiangPancangPricingPanel({ hideCta = false }) {
             </div>
             <ul className="space-y-1 text-[11px] text-slate-500">
               <li className="flex gap-2">
-                <span className="text-slate-300">•</span>
+                <span className="text-slate-300" aria-hidden="true">•</span>
                 {t.note1}
               </li>
               <li className="flex gap-2">
-                <span className="text-slate-300">•</span>
+                <span className="text-slate-300" aria-hidden="true">•</span>
                 {t.note2}
               </li>
             </ul>
@@ -175,22 +173,25 @@ export default function TiangPancangPricingPanel({ hideCta = false }) {
   );
 
   return (
-    <div
+    <section
       className="w-full bg-white border border-slate-200 rounded-2xl overflow-hidden"
-      style={{ contain: "layout paint style" }}
+      aria-labelledby="tiang-pancang-panel-title"
     >
-      <div className="px-4 sm:px-6 py-4 sm:py-5 border-b border-slate-200
-                      bg-gradient-to-r from-slate-50 to-white">
+      {/* Header */}
+      <div className="px-4 sm:px-6 py-4 sm:py-5 border-b border-slate-200 bg-gradient-to-r from-slate-50 to-white">
         <div className="flex items-start gap-3">
-          <span className="mt-1.5 w-1 h-10 rounded-full bg-[#1e88e5] shrink-0" />
+          <span
+            className="mt-1 w-1 h-9 rounded-full bg-[#1e88e5] shrink-0"
+            aria-hidden="true"
+          />
           <div className="min-w-0">
-            <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em]
-                            text-[#1e88e5] font-semibold mb-1">
+            <div className="flex items-center gap-1.5 text-[10px] sm:text-[10.5px] uppercase tracking-[0.18em] text-[#1e88e5] font-semibold mb-1">
               <span>{t.headerBadge1}</span>
               <IconChevron className="w-2.5 h-2.5" />
               <span>{t.headerBadge2}</span>
             </div>
             <h3
+              id="tiang-pancang-panel-title"
               className="text-slate-900 font-semibold leading-snug"
               style={{ fontSize: "clamp(1rem, 2.2vw, 1.1875rem)" }}
             >
@@ -203,6 +204,7 @@ export default function TiangPancangPricingPanel({ hideCta = false }) {
         </div>
       </div>
 
+      {/* Accordion */}
       <div className="divide-y divide-slate-100">
         {items.map((it, i) => (
           <AccordionItem
@@ -215,6 +217,7 @@ export default function TiangPancangPricingPanel({ hideCta = false }) {
         ))}
       </div>
 
+      {/* Footer */}
       <div
         className={`px-4 sm:px-6 py-4 border-t border-slate-200 bg-slate-50/60 ${
           hideCta
@@ -230,17 +233,13 @@ export default function TiangPancangPricingPanel({ hideCta = false }) {
           <Link
             href="/layanan/infrastruktur/pasang-tiang-pancang"
             aria-label={t.ctaLabel}
-            className="inline-flex items-center justify-center gap-2
-                       px-4 py-2 rounded-lg shrink-0
-                       bg-slate-900 text-white text-[12px] font-semibold
-                       hover:bg-[#1e88e5]
-                       transition-colors duration-150"
+            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 min-h-[44px] sm:min-h-0 rounded-lg shrink-0 bg-slate-900 text-white text-[12px] font-semibold hover:bg-[#1e88e5] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
           >
             {t.ctaLabel}
             <IconArrowRight className="w-3.5 h-3.5" />
           </Link>
         )}
       </div>
-    </div>
+    </section>
   );
 }

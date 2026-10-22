@@ -1,7 +1,7 @@
 // src/components/Pengaspalan.jsx
 "use client";
 
-import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo, memo, useId } from "react";
 import { useLang } from "../context/LanguageContext";
 import ServicePricingPanel from "./ServicePricingPanel";
 
@@ -85,7 +85,7 @@ const Reveal = memo(function Reveal({
 
   const style = useMemo(() => {
     if (!enabled) {
-      return { contain: "layout paint style" };
+      return { contain: "layout" };
     }
     return {
       transitionProperty: "opacity, transform",
@@ -95,7 +95,7 @@ const Reveal = memo(function Reveal({
       opacity: visible ? 1 : 0,
       transform: visible ? "translateY(0)" : `translateY(${y}px)`,
       willChange: visible ? "auto" : "opacity, transform",
-      contain: "layout paint style",
+      contain: "layout",
     };
   }, [enabled, visible, duration, delay, y]);
 
@@ -110,37 +110,37 @@ const Reveal = memo(function Reveal({
 // IKON
 // ─────────────────────────────────────────────
 function IconWhatsApp({ className = "w-4 h-4" }) {
-  return (<svg viewBox="0 0 24 24" fill="currentColor" className={className}><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>);
+  return (<svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>);
 }
 function IconArrowRight({ className = "w-3.5 h-3.5" }) {
-  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M5 12h14M13 5l7 7-7 7" /></svg>);
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" /></svg>);
 }
 function IconPaving({ className = "w-5 h-5" }) {
-  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className={className}><rect x="3" y="3" width="8" height="8" rx="1" /><rect x="13" y="3" width="8" height="8" rx="1" /><rect x="3" y="13" width="8" height="8" rx="1" /><rect x="13" y="13" width="8" height="8" rx="1" /></svg>);
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1" /><rect x="13" y="3" width="8" height="8" rx="1" /><rect x="3" y="13" width="8" height="8" rx="1" /><rect x="13" y="13" width="8" height="8" rx="1" /></svg>);
 }
 function IconCurb({ className = "w-5 h-5" }) {
-  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M3 16h18" /><path d="M5 16l3-8h8l3 8" /><path d="M9 12h6" /></svg>);
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M3 16h18" /><path d="M5 16l3-8h8l3 8" /><path d="M9 12h6" /></svg>);
 }
 function IconMixer({ className = "w-5 h-5" }) {
-  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M3 10l9-3 9 3-9 3-9-3z" /><path d="M3 10v6l9 3 9-3v-6" /><path d="M12 13v6" /></svg>);
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M3 10l9-3 9 3-9 3-9-3z" /><path d="M3 10v6l9 3 9-3v-6" /><path d="M12 13v6" /></svg>);
 }
 function IconGrass({ className = "w-5 h-5" }) {
-  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className={className}><rect x="3" y="12" width="18" height="8" rx="1" /><path d="M7 12V8M12 12V5M17 12V8" /></svg>);
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><rect x="3" y="12" width="18" height="8" rx="1" /><path d="M7 12V8M12 12V5M17 12V8" /></svg>);
 }
 function IconSidewalk({ className = "w-5 h-5" }) {
-  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M3 18h18" /><path d="M6 18V9M12 18V9M18 18V9" /><path d="M3 9h18" /></svg>);
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M3 18h18" /><path d="M6 18V9M12 18V9M18 18V9" /><path d="M3 9h18" /></svg>);
 }
 function IconRuler({ className = "w-4 h-4" }) {
-  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M21.3 8.7l-9-9a1 1 0 0 0-1.4 0l-9 9a1 1 0 0 0 0 1.4l9 9a1 1 0 0 0 1.4 0l9-9a1 1 0 0 0 0-1.4z" /><path d="M7.5 10.5l2-2M10.5 13.5l2-2M13.5 16.5l2-2" /></svg>);
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M21.3 8.7l-9-9a1 1 0 0 0-1.4 0l-9 9a1 1 0 0 0 0 1.4l9 9a1 1 0 0 0 1.4 0l9-9a1 1 0 0 0 0-1.4z" /><path d="M7.5 10.5l2-2M10.5 13.5l2-2M13.5 16.5l2-2" /></svg>);
 }
 function IconLayers({ className = "w-4 h-4" }) {
-  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5M2 12l10 5 10-5" /></svg>);
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5M2 12l10 5 10-5" /></svg>);
 }
 function IconHammer({ className = "w-4 h-4" }) {
-  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M15 12l-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9" /><path d="M17.64 15L22 10.64" /><path d="M20.91 11.7l-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91" /></svg>);
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M15 12l-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9" /><path d="M17.64 15L22 10.64" /><path d="M20.91 11.7l-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91" /></svg>);
 }
 function IconSparkles({ className = "w-4 h-4" }) {
-  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" /></svg>);
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" /></svg>);
 }
 
 // ─────────────────────────────────────────────
@@ -149,49 +149,46 @@ function IconSparkles({ className = "w-4 h-4" }) {
 const Accordion = memo(function Accordion({ title, children, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
   const { lang } = useLang();
+  const panelId = useId();
   const btnOpen  = lang === "en" ? "Open"  : "Buka";
   const btnClose = lang === "en" ? "Close" : "Tutup";
 
   return (
     <div
-      className={`border rounded-xl overflow-hidden mb-2.5 bg-white
-                  transition-colors duration-200
-                  ${open ? "border-[#1e88e5]" : "border-slate-200"}`}
-      style={{ contain: "layout paint style" }}
+      className={`border rounded-xl overflow-hidden mb-2.5 bg-white transition-colors duration-200
+        ${open ? "border-[#1e88e5]" : "border-slate-200"}`}
     >
       <button
         type="button"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
-        className="w-full flex items-center gap-3 sm:gap-4
-                   px-4 sm:px-5 py-3.5 sm:py-4
-                   text-left cursor-pointer transition-colors duration-150"
+        aria-controls={panelId}
+        className="w-full flex items-center gap-3 sm:gap-4 px-4 sm:px-5 py-3.5 sm:py-4 text-left cursor-pointer transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1e88e5]"
       >
         <span
           className={`flex-1 font-semibold uppercase tracking-[0.12em]
-                      ${open ? "text-[#1e88e5]" : "text-slate-800"}`}
-          style={{ fontSize: "clamp(0.75rem, 1.5vw, 0.84375rem)" }}
+            ${open ? "text-[#1e88e5]" : "text-slate-800"}`}
+          style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
         >
           {title}
         </span>
         <span
-          className={`shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-full border
-                      font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]
-                      transition-colors duration-150
-                      ${open
-                        ? "bg-[#1e88e5] text-white border-[#1e88e5]"
-                        : "bg-white text-slate-500 border-slate-300"}`}
-          style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
+          className={`shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-full border font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-colors duration-150
+            ${open
+              ? "bg-[#1e88e5] text-white border-[#1e88e5]"
+              : "bg-white text-slate-500 border-slate-300"}`}
+          style={{ fontSize: "clamp(0.625rem, 1vw, 0.6875rem)" }}
         >
           {open ? btnClose : btnOpen}
         </span>
       </button>
 
       {open && (
-        <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-1
-                        text-slate-700 leading-[1.85]
-                        border-t border-slate-100 space-y-3.5"
-             style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
+        <div
+          id={panelId}
+          className="px-4 sm:px-5 pb-4 sm:pb-5 pt-1 text-slate-700 leading-[1.85] border-t border-slate-100 space-y-3.5"
+          style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
+        >
           {children}
         </div>
       )}
@@ -293,13 +290,11 @@ const areaJangkauan = [
 function SectionKicker({ children }) {
   return (
     <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-3">
-      <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
-      <span className="text-[10px] sm:text-[11px] uppercase
-                       tracking-[0.25em] sm:tracking-[0.3em]
-                       text-[#1e88e5] font-semibold">
+      <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" aria-hidden="true" />
+      <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-semibold">
         {children}
       </span>
-      <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
+      <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" aria-hidden="true" />
     </div>
   );
 }
@@ -457,25 +452,26 @@ const content = {
 // ─────────────────────────────────────────────
 const TahapanCard = memo(function TahapanCard({ item, t }) {
   return (
-    <div className="relative" style={{ contain: "layout paint style" }}>
-      <span className="absolute top-0 right-0 font-bold leading-none
-                       text-[#1e88e5]/10 font-mono select-none"
-            style={{ fontSize: "clamp(1.75rem, 4vw, 2rem)" }}>
+    <div className="relative">
+      <span
+        className="absolute top-0 right-0 font-bold leading-none text-[#1e88e5]/10 font-mono select-none pointer-events-none"
+        style={{ fontSize: "clamp(1.75rem, 4vw, 2rem)" }}
+        aria-hidden="true"
+      >
         {item.no}
       </span>
-      <span className="relative w-9 h-9 rounded-lg bg-[#1e88e5]/10 text-[#1e88e5]
-                       flex items-center justify-center mb-3">
+      <span className="relative w-9 h-9 rounded-lg bg-[#1e88e5]/10 text-[#1e88e5] flex items-center justify-center mb-3">
         <item.Icon className="w-4 h-4" />
       </span>
       <h4
         className="font-semibold text-slate-900 mb-1.5 leading-snug"
-        style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.84375rem)" }}
+        style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
       >
         {t(item.title)}
       </h4>
       <p
         className="text-slate-500 leading-relaxed"
-        style={{ fontSize: "clamp(0.71875rem, 1.4vw, 0.75rem)" }}
+        style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.8125rem)" }}
       >
         {t(item.desc)}
       </p>
@@ -488,21 +484,20 @@ const TahapanCard = memo(function TahapanCard({ item, t }) {
 // ─────────────────────────────────────────────
 const KontruksiCard = memo(function KontruksiCard({ item, t }) {
   return (
-    <div className="flex items-start gap-3.5" style={{ contain: "layout paint style" }}>
-      <span className="shrink-0 w-10 h-10 rounded-lg bg-[#1e88e5]/10 text-[#1e88e5]
-                       flex items-center justify-center">
+    <div className="flex items-start gap-3.5">
+      <span className="shrink-0 w-10 h-10 rounded-lg bg-[#1e88e5]/10 text-[#1e88e5] flex items-center justify-center">
         <item.Icon className="w-5 h-5" />
       </span>
       <div className="min-w-0 flex-1">
         <div
           className="text-slate-900 font-semibold leading-snug"
-          style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.84375rem)" }}
+          style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
         >
           {t(item.label)}
         </div>
         <div
           className="text-slate-500 leading-snug mt-0.5"
-          style={{ fontSize: "clamp(0.6875rem, 1.3vw, 0.71875rem)" }}
+          style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.8125rem)" }}
         >
           {t(item.desc)}
         </div>
@@ -516,30 +511,27 @@ const KontruksiCard = memo(function KontruksiCard({ item, t }) {
 // ─────────────────────────────────────────────
 const AreaRow = memo(function AreaRow({ area, data }) {
   return (
-    <div style={{ contain: "layout paint style" }}>
+    <div>
       <div className="flex items-center gap-3 mb-4">
-        <span className="w-4 h-px bg-[#1e88e5]" />
-        <h3 className="text-[11.5px] sm:text-[12.5px] uppercase
-                       tracking-[0.2em] sm:tracking-[0.22em]
-                       text-[#1e88e5] font-bold">
+        <span className="w-4 h-px bg-[#1e88e5]" aria-hidden="true" />
+        <h3 className="text-[11.5px] sm:text-[12.5px] uppercase tracking-[0.2em] sm:tracking-[0.22em] text-[#1e88e5] font-bold">
           {area.region}
         </h3>
-        <span className="flex-1 h-px bg-slate-200" />
+        <span className="flex-1 h-px bg-slate-200" aria-hidden="true" />
       </div>
 
       <div className="space-y-3 pl-1">
         {area.kota && area.kota.length > 0 && (
           <div className="flex items-start gap-2.5 sm:gap-3">
-            <span className="shrink-0 mt-[3px] text-[9.5px] sm:text-[10px] uppercase
-                             tracking-wider font-bold text-slate-400 w-[50px] sm:w-[60px]">
+            <span className="shrink-0 mt-[3px] text-[10.5px] sm:text-[10px] uppercase tracking-wider font-bold text-slate-400 w-[50px] sm:w-[60px]">
               {data.areaCity}
             </span>
             <div className="flex flex-wrap gap-1.5 flex-1">
               {area.kota.map((k, i) => (
-                <span key={i}
-                  className="inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md
-                             bg-[#1e88e5]/5 border border-[#1e88e5]/20
-                             text-[10.5px] sm:text-[11px] text-[#1565c0] font-medium">
+                <span
+                  key={i}
+                  className="inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-[#1e88e5]/5 border border-[#1e88e5]/20 text-[11px] text-[#1565c0] font-medium"
+                >
                   {k}
                 </span>
               ))}
@@ -549,16 +541,15 @@ const AreaRow = memo(function AreaRow({ area, data }) {
 
         {area.kabupaten && area.kabupaten.length > 0 && (
           <div className="flex items-start gap-2.5 sm:gap-3">
-            <span className="shrink-0 mt-[3px] text-[9.5px] sm:text-[10px] uppercase
-                             tracking-wider font-bold text-slate-400 w-[50px] sm:w-[60px]">
+            <span className="shrink-0 mt-[3px] text-[10.5px] sm:text-[10px] uppercase tracking-wider font-bold text-slate-400 w-[50px] sm:w-[60px]">
               {data.areaRegency}
             </span>
             <div className="flex flex-wrap gap-1.5 flex-1">
               {area.kabupaten.map((k, i) => (
-                <span key={i}
-                  className="inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md
-                             bg-white border border-slate-200
-                             text-[10.5px] sm:text-[11px] text-slate-600">
+                <span
+                  key={i}
+                  className="inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-white border border-slate-200 text-[11px] text-slate-600"
+                >
                   {k}
                 </span>
               ))}
@@ -584,23 +575,21 @@ export default function Pengaspalan() {
   }, [lang]);
 
   const [showArea, setShowArea] = useState(false);
+  const areaPanelId = useId();
 
   return (
     <div className="bg-white">
 
       {/* ═══════ HERO (Simpel) ═══════ */}
-      <section className="pt-28 lg:pt-36 pb-16 lg:pb-24
-                          bg-gradient-to-b from-slate-50 to-white">
+      <section className="pt-28 lg:pt-36 pb-16 lg:pb-24 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-5 lg:px-8 text-center">
           <Reveal delay={0} y={20}>
             <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-5">
-              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
-              <span className="text-[10px] sm:text-[11px] uppercase
-                               tracking-[0.25em] sm:tracking-[0.3em]
-                               text-[#1e88e5] font-semibold">
+              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" aria-hidden="true" />
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-semibold">
                 {data.heroKicker}
               </span>
-              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
+              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" aria-hidden="true" />
             </div>
           </Reveal>
 
@@ -630,8 +619,7 @@ export default function Pengaspalan() {
 
           {/* Foto utama */}
           <Reveal y={40} duration={800}>
-            <figure className="relative rounded-2xl overflow-hidden bg-slate-100 mb-8 ring-1 ring-slate-200"
-                    style={{ contain: "layout paint style" }}>
+            <figure className="relative rounded-2xl overflow-hidden bg-slate-100 mb-8 ring-1 ring-slate-200">
               <div className="aspect-[16/10]">
                 <img
                   src="/proyek/proyek-1.webp"
@@ -647,19 +635,17 @@ export default function Pengaspalan() {
                   }}
                 />
               </div>
-              <figcaption className="absolute bottom-0 inset-x-0
-                                     bg-gradient-to-t from-slate-950/80 to-transparent
-                                     px-4 sm:px-6 py-4 sm:py-5 pt-12 sm:pt-16">
+              <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/80 to-transparent px-4 sm:px-6 py-4 sm:py-5 pt-12 sm:pt-16">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="w-5 sm:w-6 h-px bg-[#4da3ff]" />
-                  <span className="text-[9.5px] sm:text-[10px] uppercase
-                                   tracking-[0.25em] sm:tracking-[0.28em]
-                                   text-[#4da3ff] font-semibold">
+                  <span className="w-5 sm:w-6 h-px bg-[#4da3ff]" aria-hidden="true" />
+                  <span className="text-[10.5px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.28em] text-[#4da3ff] font-semibold">
                     {data.figKicker}
                   </span>
                 </div>
-                <p className="text-white font-medium"
-                   style={{ fontSize: "clamp(0.78125rem, 1.5vw, 0.8125rem)" }}>
+                <p
+                  className="text-white font-medium"
+                  style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
+                >
                   {data.figCaption}
                 </p>
               </figcaption>
@@ -669,15 +655,19 @@ export default function Pengaspalan() {
           {/* Paragraf pengantar */}
           <Reveal delay={100} y={24}>
             <div className="max-w-3xl mb-10">
-              <p className="text-slate-700 leading-[1.85] mb-4"
-                 style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}>
+              <p
+                className="text-slate-700 leading-[1.85] mb-4"
+                style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}
+              >
                 <span className="font-semibold text-slate-900">
                   {data.introTitle}
                 </span>{" "}
                 {data.introP1}
               </p>
-              <p className="text-slate-700 leading-[1.85]"
-                 style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}>
+              <p
+                className="text-slate-700 leading-[1.85]"
+                style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}
+              >
                 {data.introP2Prefix}
                 <span className="font-medium text-slate-900">Tri Abadi Makmur</span>
                 {data.introP2Mid}
@@ -689,17 +679,14 @@ export default function Pengaspalan() {
           <div className="mb-12">
             <Reveal y={26}>
               <div className="flex items-center gap-2.5 sm:gap-3 mb-5">
-                <span className="w-5 sm:w-6 h-px bg-[#1e88e5]" />
-                <h3 className="text-[10px] sm:text-[11px] uppercase
-                               tracking-[0.25em] sm:tracking-[0.28em]
-                               text-slate-500 font-semibold">
+                <span className="w-5 sm:w-6 h-px bg-[#1e88e5]" aria-hidden="true" />
+                <h3 className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.28em] text-slate-500 font-semibold">
                   {data.otherKicker}
                 </h3>
               </div>
             </Reveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
-                            gap-x-6 gap-y-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-5">
               {kontruksiLain.map((item, i) => (
                 <Reveal key={i} delay={i * 60} y={24}>
                   <KontruksiCard item={item} t={t} />
@@ -710,8 +697,10 @@ export default function Pengaspalan() {
 
           {/* Paragraf penutup atas accordion */}
           <Reveal delay={100} y={22}>
-            <p className="text-slate-700 leading-[1.85] mb-6"
-               style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}>
+            <p
+              className="text-slate-700 leading-[1.85] mb-6"
+              style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}
+            >
               {data.contactP1}
               <span className="font-medium text-slate-900">{data.contactEmail}</span>
               {data.contactP2}
@@ -779,15 +768,16 @@ export default function Pengaspalan() {
 
             <Reveal delay={100} y={22}>
               <div className="max-w-3xl mx-auto text-center mb-8">
-                <p className="text-slate-700 leading-[1.85]"
-                   style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}>
+                <p
+                  className="text-slate-700 leading-[1.85]"
+                  style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}
+                >
                   {data.methodDesc}
                 </p>
               </div>
             </Reveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
-                            gap-x-6 gap-y-8 mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 mb-12">
               {tahapanPengerjaan.map((tp, i) => (
                 <Reveal key={i} delay={i * 80} y={24}>
                   <TahapanCard item={tp} t={t} />
@@ -796,8 +786,7 @@ export default function Pengaspalan() {
             </div>
 
             <Reveal delay={200} y={34}>
-              <figure className="relative rounded-2xl overflow-hidden bg-slate-100 ring-1 ring-slate-200"
-                      style={{ contain: "layout paint style" }}>
+              <figure className="relative rounded-2xl overflow-hidden bg-slate-100 ring-1 ring-slate-200">
                 <div className="aspect-[16/9]">
                   <img
                     src="/proyek/proyek-2.webp"
@@ -813,19 +802,17 @@ export default function Pengaspalan() {
                     }}
                   />
                 </div>
-                <figcaption className="absolute bottom-0 inset-x-0
-                                       bg-gradient-to-t from-slate-950/80 to-transparent
-                                       px-4 sm:px-6 py-4 sm:py-5 pt-12 sm:pt-16">
+                <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/80 to-transparent px-4 sm:px-6 py-4 sm:py-5 pt-12 sm:pt-16">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="w-5 sm:w-6 h-px bg-[#4da3ff]" />
-                    <span className="text-[9.5px] sm:text-[10px] uppercase
-                                     tracking-[0.25em] sm:tracking-[0.28em]
-                                     text-[#4da3ff] font-semibold">
+                    <span className="w-5 sm:w-6 h-px bg-[#4da3ff]" aria-hidden="true" />
+                    <span className="text-[10.5px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.28em] text-[#4da3ff] font-semibold">
                       {data.figWorkKicker}
                     </span>
                   </div>
-                  <p className="text-white font-medium"
-                     style={{ fontSize: "clamp(0.78125rem, 1.5vw, 0.8125rem)" }}>
+                  <p
+                    className="text-white font-medium"
+                    style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
+                  >
                     {data.figWorkCaption}
                   </p>
                 </figcaption>
@@ -850,12 +837,16 @@ export default function Pengaspalan() {
 
             <Reveal delay={100} y={22}>
               <div className="max-w-3xl mx-auto text-center">
-                <p className="text-slate-700 leading-[1.85] mb-4"
-                   style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}>
+                <p
+                  className="text-slate-700 leading-[1.85] mb-4"
+                  style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}
+                >
                   {data.infoP1}
                 </p>
-                <p className="text-slate-700 leading-[1.85]"
-                   style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}>
+                <p
+                  className="text-slate-700 leading-[1.85]"
+                  style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}
+                >
                   {data.infoP2}
                 </p>
               </div>
@@ -889,8 +880,10 @@ export default function Pengaspalan() {
                   {data.areaTitleLight}
                   <span className="font-semibold">{data.areaTitleBold}</span>
                 </h2>
-                <p className="text-slate-500 mt-3 max-w-xl mx-auto"
-                   style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.8125rem)" }}>
+                <p
+                  className="text-slate-500 mt-3 max-w-xl mx-auto"
+                  style={{ fontSize: "clamp(0.8125rem, 1.4vw, 0.875rem)" }}
+                >
                   {data.areaDesc}
                 </p>
               </div>
@@ -901,26 +894,22 @@ export default function Pengaspalan() {
                 type="button"
                 onClick={() => setShowArea(!showArea)}
                 aria-expanded={showArea}
-                className="w-full flex items-center gap-3 sm:gap-4 text-left cursor-pointer
-                           pb-5 border-b border-slate-200
-                           transition-colors duration-150"
+                aria-controls={areaPanelId}
+                className="w-full flex items-center gap-3 sm:gap-4 text-left cursor-pointer pb-5 border-b border-slate-200 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1e88e5]"
               >
                 <span
-                  className={`flex-1 font-bold uppercase
-                              tracking-[0.18em] sm:tracking-[0.2em]
-                              ${showArea ? "text-[#1e88e5]" : "text-slate-600"}`}
-                  style={{ fontSize: "clamp(0.78125rem, 1.5vw, 0.8125rem)" }}
+                  className={`flex-1 font-bold uppercase tracking-[0.18em] sm:tracking-[0.2em]
+                    ${showArea ? "text-[#1e88e5]" : "text-slate-600"}`}
+                  style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
                 >
                   {data.areaToggle}
                 </span>
                 <span
-                  className={`shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-full border
-                              font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]
-                              transition-colors duration-150
-                              ${showArea
-                                ? "bg-[#1e88e5] text-white border-[#1e88e5]"
-                                : "bg-white text-slate-500 border-slate-300"}`}
-                  style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
+                  className={`shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-full border font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-colors duration-150
+                    ${showArea
+                      ? "bg-[#1e88e5] text-white border-[#1e88e5]"
+                      : "bg-white text-slate-500 border-slate-300"}`}
+                  style={{ fontSize: "clamp(0.625rem, 1vw, 0.6875rem)" }}
                 >
                   {showArea
                     ? (lang === "en" ? "Close" : "Tutup")
@@ -929,7 +918,7 @@ export default function Pengaspalan() {
               </button>
 
               {showArea && (
-                <div className="mt-8 space-y-8">
+                <div id={areaPanelId} className="mt-8 space-y-8">
                   {areaJangkauan.map((area, idx) => (
                     <Reveal key={idx} delay={idx * 40} y={16}>
                       <AreaRow area={area} data={data} />
@@ -943,8 +932,7 @@ export default function Pengaspalan() {
           {/* ═══════ CTA (Simpel) ═══════ */}
           <Reveal y={34}>
             <div className="mt-12 sm:mt-16 pb-12 sm:pb-16 text-center max-w-2xl mx-auto">
-              <p className="text-[#1e88e5] text-[10px] uppercase tracking-[0.3em]
-                            font-semibold mb-3">
+              <p className="text-[#1e88e5] text-[10px] uppercase tracking-[0.3em] font-semibold mb-3">
                 {data.ctaKicker}
               </p>
               <h3
@@ -959,14 +947,8 @@ export default function Pengaspalan() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={data.ctaBtn}
-                className="inline-flex items-center justify-center gap-2
-                           px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl
-                           bg-slate-900 text-white
-                           hover:bg-[#1e88e5]
-                           font-semibold uppercase
-                           tracking-[0.12em] sm:tracking-[0.15em]
-                           transition-colors duration-200"
-                style={{ fontSize: "clamp(0.6875rem, 1.3vw, 0.75rem)" }}
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3.5 sm:py-3.5 min-h-[44px] rounded-xl bg-slate-900 text-white hover:bg-[#1e88e5] font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
+                style={{ fontSize: "clamp(0.6875rem, 1.3vw, 0.8125rem)" }}
               >
                 <IconWhatsApp className="w-4 h-4 shrink-0" />
                 {data.ctaBtn}

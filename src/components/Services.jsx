@@ -29,7 +29,7 @@ const iconProps = {
 
 function IconRoad({ className = "w-6 h-6" }) {
   return (
-    <svg viewBox="0 0 24 24" {...iconProps} className={className}>
+    <svg viewBox="0 0 24 24" {...iconProps} className={className} aria-hidden="true">
       <path d="M4 20L8 4" /><path d="M20 20l-4-16" />
       <path d="M12 4v3M12 11v3M12 18v3" />
     </svg>
@@ -37,14 +37,14 @@ function IconRoad({ className = "w-6 h-6" }) {
 }
 function IconCurb({ className = "w-6 h-6" }) {
   return (
-    <svg viewBox="0 0 24 24" {...iconProps} className={className}>
+    <svg viewBox="0 0 24 24" {...iconProps} className={className} aria-hidden="true">
       <path d="M3 16h18" /><path d="M5 16l3-8h8l3 8" /><path d="M9 12h6" />
     </svg>
   );
 }
 function IconMixer({ className = "w-6 h-6" }) {
   return (
-    <svg viewBox="0 0 24 24" {...iconProps} className={className}>
+    <svg viewBox="0 0 24 24" {...iconProps} className={className} aria-hidden="true">
       <path d="M3 10l9-3 9 3-9 3-9-3z" />
       <path d="M3 10v6l9 3 9-3v-6" /><path d="M12 13v6" />
     </svg>
@@ -52,7 +52,7 @@ function IconMixer({ className = "w-6 h-6" }) {
 }
 function IconGrass({ className = "w-6 h-6" }) {
   return (
-    <svg viewBox="0 0 24 24" {...iconProps} className={className}>
+    <svg viewBox="0 0 24 24" {...iconProps} className={className} aria-hidden="true">
       <rect x="3" y="12" width="18" height="8" rx="1" />
       <path d="M7 12V8M12 12V5M17 12V8" /><path d="M5 20v2M19 20v2" />
     </svg>
@@ -60,7 +60,7 @@ function IconGrass({ className = "w-6 h-6" }) {
 }
 function IconBlocks({ className = "w-6 h-6" }) {
   return (
-    <svg viewBox="0 0 24 24" {...iconProps} className={className}>
+    <svg viewBox="0 0 24 24" {...iconProps} className={className} aria-hidden="true">
       <rect x="3" y="3" width="8" height="8" rx="1" />
       <rect x="13" y="3" width="8" height="8" rx="1" />
       <rect x="3" y="13" width="8" height="8" rx="1" />
@@ -70,7 +70,7 @@ function IconBlocks({ className = "w-6 h-6" }) {
 }
 function IconPanel({ className = "w-6 h-6" }) {
   return (
-    <svg viewBox="0 0 24 24" {...iconProps} className={className}>
+    <svg viewBox="0 0 24 24" {...iconProps} className={className} aria-hidden="true">
       <rect x="3" y="6" width="5" height="12" />
       <rect x="9.5" y="6" width="5" height="12" />
       <rect x="16" y="6" width="5" height="12" />
@@ -79,7 +79,7 @@ function IconPanel({ className = "w-6 h-6" }) {
 }
 function IconPancang({ className = "w-6 h-6" }) {
   return (
-    <svg viewBox="0 0 24 24" {...iconProps} className={className}>
+    <svg viewBox="0 0 24 24" {...iconProps} className={className} aria-hidden="true">
       <path d="M12 2v20" /><path d="M8 6l4-4 4 4" />
       <path d="M5 12h14" /><path d="M7 18h10" />
     </svg>
@@ -88,7 +88,7 @@ function IconPancang({ className = "w-6 h-6" }) {
 function IconChevronDown({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M6 9l6 6 6-6" />
     </svg>
   );
@@ -193,19 +193,16 @@ export default function Services() {
   const services = useMemo(() => data.services, [data.services]);
 
   return (
-    <section
-      className="relative bg-white pt-14 sm:pt-16 lg:pt-20 pb-14 sm:pb-16 lg:pb-24"
-      style={{ contain: "layout style" }}
-    >
+    <section className="relative bg-white pt-14 sm:pt-16 lg:pt-20 pb-14 sm:pb-16 lg:pb-24">
       <div className="relative max-w-5xl mx-auto px-4 sm:px-5 lg:px-8">
         {/* ═══ HEADER ═══ */}
         <div className="text-center mb-10 sm:mb-14 lg:mb-20">
           <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-5 sm:mb-6">
-            <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
+            <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" aria-hidden="true" />
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-semibold">
               {data.kicker}
             </span>
-            <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
+            <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" aria-hidden="true" />
           </div>
 
           <h2
@@ -234,10 +231,7 @@ export default function Services() {
         </div>
 
         {/* ═══ DAFTAR LAYANAN ═══ */}
-        <div
-          className="space-y-2.5 sm:space-y-3"
-          style={{ contain: "layout paint style" }}
-        >
+        <div className="space-y-3 sm:space-y-3.5">
           {services.map(({ Icon, title, desc, pricing }, i) => {
             const isOpen = openIndex === i;
             const isExpandable = Boolean(pricing);
@@ -246,66 +240,51 @@ export default function Services() {
               <div
                 key={title}
                 ref={(el) => (panelRefs.current[i] = el)}
-                className={`bg-white border rounded-2xl overflow-hidden
-                            scroll-mt-20 sm:scroll-mt-24
-                            transition-colors duration-200
-                            ${isOpen
-                              ? "border-[#1e88e5]"
-                              : "border-slate-200 hover:border-[#1e88e5]/50"}`}
-                style={{ contain: "layout paint style" }}
+                className={`bg-white border rounded-2xl overflow-hidden scroll-mt-20 sm:scroll-mt-24 transition-colors duration-200
+                  ${isOpen
+                    ? "border-[#1e88e5]"
+                    : "border-slate-200 hover:border-[#1e88e5]/50"}`}
               >
                 <button
                   type="button"
                   onClick={() => isExpandable && toggle(i)}
                   disabled={!isExpandable}
                   aria-expanded={isOpen}
-                  className={`w-full flex items-center gap-3 sm:gap-5
-                              px-4 sm:px-6 py-4 sm:py-5 text-left
-                              transition-colors duration-150
-                              ${isExpandable ? "cursor-pointer" : "cursor-default"}`}
+                  aria-controls={`service-panel-${i}`}
+                  className={`w-full flex items-center gap-3 sm:gap-5 px-4 sm:px-6 py-4 sm:py-5 text-left transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1e88e5]
+                    ${isExpandable ? "cursor-pointer" : "cursor-default"}`}
                 >
                   <span
-                    className={`shrink-0 w-11 h-11 sm:w-14 sm:h-14 rounded-xl
-                                flex items-center justify-center
-                                transition-colors duration-200
-                                ${isOpen
-                                  ? "bg-[#1e88e5] text-white"
-                                  : "bg-[#1e88e5]/10 text-[#1e88e5]"}`}
+                    className={`shrink-0 w-11 h-11 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-colors duration-200
+                      ${isOpen
+                        ? "bg-[#1e88e5] text-white"
+                        : "bg-[#1e88e5]/10 text-[#1e88e5]"}`}
                   >
                     <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                   </span>
 
                   <span className="flex-1 min-w-0">
                     <span
-                      className={`block font-semibold leading-snug
-                                  transition-colors duration-200
-                                  text-[14px] sm:text-[16px]
-                                  ${isOpen ? "text-[#1e88e5]" : "text-slate-900"}`}
+                      className={`block font-semibold leading-snug transition-colors duration-200 text-[15px] sm:text-[16px]
+                        ${isOpen ? "text-[#1e88e5]" : "text-slate-900"}`}
                     >
                       {title}
                     </span>
-                    <span className="block text-[11.5px] sm:text-[12px]
-                                     text-slate-500 leading-relaxed mt-0.5 sm:mt-1
-                                     line-clamp-2">
+                    <span className="block text-[12px] sm:text-[12px] text-slate-500 leading-relaxed mt-0.5 sm:mt-1 line-clamp-2">
                       {desc}
                     </span>
                   </span>
 
                   {isExpandable && (
                     <span
-                      className={`shrink-0 flex items-center gap-1.5
-                                  px-2.5 sm:px-3.5 py-1.5 rounded-full border
-                                  text-[9.5px] sm:text-[10.5px] font-bold uppercase
-                                  tracking-[0.12em] sm:tracking-[0.15em]
-                                  transition-colors duration-200
-                                  ${isOpen
-                                    ? "bg-[#1e88e5] text-white border-[#1e88e5]"
-                                    : "bg-white text-slate-600 border-slate-300"}`}
+                      className={`shrink-0 flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-full border text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] transition-colors duration-200
+                        ${isOpen
+                          ? "bg-[#1e88e5] text-white border-[#1e88e5]"
+                          : "bg-white text-slate-600 border-slate-300"}`}
                     >
                       {isOpen ? btnClose : btnOpen}
                       <IconChevronDown
-                        className={`w-3 h-3 transition-transform duration-300
-                                    ${isOpen ? "rotate-180" : ""}`}
+                        className={`w-3 h-3 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                       />
                     </span>
                   )}
@@ -313,6 +292,7 @@ export default function Services() {
 
                 {isExpandable && (
                   <div
+                    id={`service-panel-${i}`}
                     className="grid transition-[grid-template-rows,opacity] duration-300 ease-out"
                     style={{
                       gridTemplateRows: isOpen ? "1fr" : "0fr",
@@ -320,9 +300,7 @@ export default function Services() {
                     }}
                   >
                     <div className="overflow-hidden">
-                      <div className="border-t border-slate-100
-                                      bg-slate-50
-                                      px-4 sm:px-6 py-4 sm:py-6">
+                      <div className="border-t border-slate-100 bg-slate-50 px-3 sm:px-6 py-4 sm:py-6">
                         {isOpen && <PricingPanel type={pricing} />}
                       </div>
                     </div>

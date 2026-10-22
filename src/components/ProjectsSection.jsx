@@ -49,7 +49,7 @@ const content = {
 function IconChevronLeft({ className = "w-6 h-6" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M15 18l-6-6 6-6" />
     </svg>
   );
@@ -57,7 +57,7 @@ function IconChevronLeft({ className = "w-6 h-6" }) {
 function IconChevronRight({ className = "w-6 h-6" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M9 18l6-6-6-6" />
     </svg>
   );
@@ -65,7 +65,7 @@ function IconChevronRight({ className = "w-6 h-6" }) {
 function IconClose({ className = "w-5 h-5" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M18 6L6 18M6 6l12 12" />
     </svg>
   );
@@ -73,7 +73,7 @@ function IconClose({ className = "w-5 h-5" }) {
 function IconZoom({ className = "w-5 h-5" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <circle cx="11" cy="11" r="8" />
       <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
     </svg>
@@ -126,30 +126,28 @@ function Lightbox({ selectedIndex, setSelectedIndex, lang, goPrev, goNext }) {
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={lang === "en" ? "Project photo viewer" : "Penampil foto proyek"}
       className="fixed inset-0 z-[9999] flex flex-col bg-slate-950/95"
       onClick={() => setSelectedIndex(null)}
     >
-      <div className="flex items-center justify-end p-3 sm:p-5 z-10 shrink-0
-                      border-b border-white/10">
+      {/* Top bar */}
+      <div className="flex items-center justify-end p-3 sm:p-5 z-10 shrink-0 border-b border-white/10">
         <button
           onClick={(e) => { e.stopPropagation(); setSelectedIndex(null); }}
-          className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center
-                     text-white/70 hover:text-white bg-white/10 hover:bg-white/20
-                     rounded-full transition-colors duration-200 cursor-pointer"
+          className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           aria-label={lang === "en" ? "Close" : "Tutup"}
         >
           <IconClose />
         </button>
       </div>
 
-      <div className="flex-1 flex items-center justify-center px-3 sm:px-20
-                      relative min-h-0">
+      {/* Main image */}
+      <div className="flex-1 flex items-center justify-center px-3 sm:px-20 relative min-h-0">
         <button
           onClick={(e) => { e.stopPropagation(); goPrev(); }}
-          className="absolute left-2 sm:left-6 z-10 w-10 h-10 sm:w-12 sm:h-12
-                     flex items-center justify-center
-                     text-white/70 hover:text-white bg-white/10 hover:bg-white/20
-                     rounded-full transition-colors duration-200 cursor-pointer"
+          className="absolute left-1.5 sm:left-6 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           aria-label={lang === "en" ? "Previous" : "Sebelumnya"}
         >
           <IconChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -171,36 +169,31 @@ function Lightbox({ selectedIndex, setSelectedIndex, lang, goPrev, goNext }) {
 
         <button
           onClick={(e) => { e.stopPropagation(); goNext(); }}
-          className="absolute right-2 sm:right-6 z-10 w-10 h-10 sm:w-12 sm:h-12
-                     flex items-center justify-center
-                     text-white/70 hover:text-white bg-white/10 hover:bg-white/20
-                     rounded-full transition-colors duration-200 cursor-pointer"
+          className="absolute right-1.5 sm:right-6 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           aria-label={lang === "en" ? "Next" : "Berikutnya"}
         >
           <IconChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
       </div>
 
+      {/* Thumbnails */}
       <div
-        className="shrink-0 p-3 sm:p-4 overflow-x-auto border-t border-white/10"
+        className="shrink-0 p-3 sm:p-4 overflow-x-auto border-t border-white/10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         onClick={(e) => e.stopPropagation()}
         style={{
           WebkitOverflowScrolling: "touch",
           scrollSnapType: "x mandatory",
         }}
       >
-        <div className="flex items-center justify-start sm:justify-center gap-2
-                        min-w-max mx-auto px-1">
+        <div className="flex items-center justify-start sm:justify-center gap-2 min-w-max mx-auto px-1">
           {projects.map((thumb, i) => (
             <button
               key={i}
               onClick={() => setSelectedIndex(i)}
-              className={`relative shrink-0 w-12 h-12 sm:w-16 sm:h-16
-                          overflow-hidden rounded-md cursor-pointer
-                          transition-opacity duration-200
-                          ${i === selectedIndex
-                            ? "ring-2 ring-[#1e88e5] opacity-100"
-                            : "opacity-40 hover:opacity-90"}`}
+              className={`relative shrink-0 w-12 h-12 sm:w-16 sm:h-16 overflow-hidden rounded-md cursor-pointer transition-opacity duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950
+                ${i === selectedIndex
+                  ? "ring-2 ring-[#1e88e5] opacity-100"
+                  : "opacity-40 hover:opacity-90"}`}
               style={{ scrollSnapAlign: "center" }}
               aria-label={lang === "en" ? `Photo ${i + 1}` : `Foto ${i + 1}`}
             >
@@ -268,24 +261,21 @@ export default function ProjectsSection() {
     [data]
   );
 
+  const openProjectLabel = lang === "en" ? "Open project" : "Buka proyek";
+
   return (
     <>
-      <section
-        className="relative bg-white pt-4 sm:pt-6 lg:pt-8 pb-16 sm:pb-20 lg:pb-28"
-        style={{ contain: "layout style" }}
-      >
+      <section className="relative bg-white pt-4 sm:pt-6 lg:pt-8 pb-16 sm:pb-20 lg:pb-28">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
 
           {/* ═══ HEADER ═══ */}
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-5">
-              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
-              <span className="text-[10px] sm:text-xs uppercase
-                               tracking-[0.25em] sm:tracking-[0.3em]
-                               text-[#1e88e5] font-semibold">
+              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" aria-hidden="true" />
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-semibold">
                 {labels.kicker}
               </span>
-              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
+              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" aria-hidden="true" />
             </div>
 
             <h2
@@ -300,20 +290,13 @@ export default function ProjectsSection() {
           </div>
 
           {/* ═══ GRID PROYEK ═══ */}
-          <div
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3 lg:gap-4"
-            style={{ contain: "layout paint style" }}
-          >
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3 lg:gap-4">
             {projects.map((item, i) => (
               <button
                 key={i}
                 onClick={() => setSelectedIndex(i)}
-                className="group relative overflow-hidden rounded-xl bg-slate-100
-                           aspect-square cursor-pointer
-                           border border-slate-200
-                           hover:border-[#1e88e5]
-                           transition-colors duration-200"
-                aria-label={`Buka proyek ${i + 1}`}
+                className="group relative overflow-hidden rounded-xl bg-slate-100 aspect-square cursor-pointer border border-slate-200 hover:border-[#1e88e5] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
+                aria-label={`${openProjectLabel} ${i + 1}`}
               >
                 <Image
                   src={item.src}
@@ -321,32 +304,21 @@ export default function ProjectsSection() {
                   fill
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   priority={i < 4}
-                  className="object-cover
-                             transition-transform duration-500 ease-out
-                             group-hover:scale-[1.05]"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
                 />
 
                 {/* Overlay tipis saat hover */}
                 <div
-                  className="absolute inset-0 bg-slate-950/40
-                             opacity-0 group-hover:opacity-100
-                             transition-opacity duration-300"
+                  className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   aria-hidden="true"
                 />
 
                 {/* Zoom icon */}
                 <div
-                  className="absolute inset-0 flex items-center justify-center
-                             opacity-0 group-hover:opacity-100
-                             transition-opacity duration-300"
+                  className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   aria-hidden="true"
                 >
-                  <span
-                    className="w-11 h-11 sm:w-12 sm:h-12 rounded-full
-                               bg-white/20 border border-white/40
-                               flex items-center justify-center
-                               text-white"
-                  >
+                  <span className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/20 border border-white/40 flex items-center justify-center text-white">
                     <IconZoom className="w-5 h-5" />
                   </span>
                 </div>

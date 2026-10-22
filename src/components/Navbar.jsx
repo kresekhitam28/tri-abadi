@@ -109,18 +109,38 @@ const translations = {
 };
 
 // ─────────────────────────────────────────────
+// LABEL AKSESIBILITAS (language-aware)
+// ─────────────────────────────────────────────
+const ariaTranslations = {
+  id: {
+    switchTo: "Ganti ke",
+    openMenu: "Buka menu",
+    closeMenu: "Tutup menu",
+    toggleSubmenu: "Buka/tutup submenu",
+    language: "Bahasa",
+  },
+  en: {
+    switchTo: "Switch to",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    toggleSubmenu: "Toggle submenu",
+    language: "Language",
+  },
+};
+
+// ─────────────────────────────────────────────
 // ICON: Chevron
 // ─────────────────────────────────────────────
 function ChevronDown({ className = "w-3.5 h-3.5" }) {
   return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.2}>
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.2} aria-hidden="true">
       <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
     </svg>
   );
 }
 function ChevronRight({ className = "w-3.5 h-3.5" }) {
   return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.2}>
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.2} aria-hidden="true">
       <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
     </svg>
   );
@@ -156,7 +176,7 @@ function IconGlobe({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
          strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round"
-         className={className}>
+         className={className} aria-hidden="true">
       <circle cx="12" cy="12" r="9" />
       <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" />
     </svg>
@@ -175,12 +195,13 @@ const LANGS = [
 // LANGUAGE SWITCHER (DESKTOP)
 // ═════════════════════════════════════════════
 function LanguageSwitcher({ lang, setLang }) {
+  const a = ariaTranslations[lang] || ariaTranslations.id;
   return (
-    <div className="inline-flex items-center gap-0.5 p-0.5
-                    rounded-full
-                    bg-slate-50
-                    border border-slate-200
-                    shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+    <div
+      role="group"
+      aria-label={a.language}
+      className="inline-flex items-center gap-0.5 p-0.5 rounded-full bg-slate-50 border border-slate-200 shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
+    >
       {LANGS.map((l) => {
         const Flag = l.Flag;
         const active = lang === l.code;
@@ -189,25 +210,21 @@ function LanguageSwitcher({ lang, setLang }) {
             key={l.code}
             type="button"
             onClick={() => setLang(l.code)}
-            aria-label={`Ganti ke ${l.label}`}
+            aria-label={`${a.switchTo} ${l.label}`}
+            aria-pressed={active}
             title={l.label}
-            className={`relative flex items-center justify-center
-                        w-9 h-7 rounded-full
-                        transition-all duration-300 cursor-pointer
-                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]
-                        ${active
-                          ? "bg-white shadow-[0_1px_3px_rgba(30,136,229,0.25)]"
-                          : "hover:bg-white/60 opacity-60 hover:opacity-100"}`}
+            className={`relative flex items-center justify-center w-9 h-7 rounded-full transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-1
+              ${active
+                ? "bg-white shadow-[0_1px_3px_rgba(30,136,229,0.25)]"
+                : "hover:bg-white/60 opacity-60 hover:opacity-100"}`}
           >
             <Flag
               className={`w-5 h-3.5 rounded-[2px] transition-all duration-300
-                          ${active ? "ring-[0.5px] ring-slate-300" : ""}`}
+                ${active ? "ring-[0.5px] ring-slate-300" : ""}`}
             />
             <span
-              className={`absolute bottom-0.5 left-1/2 -translate-x-1/2
-                          h-[2px] rounded-full
-                          transition-all duration-300
-                          ${active ? "w-4 bg-[#1e88e5]" : "w-0 bg-transparent"}`}
+              className={`absolute bottom-0.5 left-1/2 -translate-x-1/2 h-[2px] rounded-full transition-all duration-300
+                ${active ? "w-4 bg-[#1e88e5]" : "w-0 bg-transparent"}`}
               aria-hidden="true"
             />
           </button>
@@ -221,19 +238,19 @@ function LanguageSwitcher({ lang, setLang }) {
 // LANGUAGE SWITCHER (MOBILE)
 // ═════════════════════════════════════════════
 function LanguageToggleMobile({ lang, setLang }) {
+  const a = ariaTranslations[lang] || ariaTranslations.id;
   return (
-    <div className="flex items-center justify-between px-1 py-4
-                    border-t border-slate-100 mt-3">
+    <div className="flex items-center justify-between px-1 py-4 border-t border-slate-100 mt-3">
       <div className="flex items-center gap-2 text-[13px] font-semibold text-slate-600">
         <IconGlobe className="w-4 h-4" />
-        Bahasa
+        {a.language}
       </div>
 
-      <div className="inline-flex items-center gap-0.5 p-0.5
-                      rounded-full
-                      bg-slate-50
-                      border border-slate-200
-                      shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+      <div
+        role="group"
+        aria-label={a.language}
+        className="inline-flex items-center gap-0.5 p-0.5 rounded-full bg-slate-50 border border-slate-200 shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
+      >
         {LANGS.map((l) => {
           const Flag = l.Flag;
           const active = lang === l.code;
@@ -242,24 +259,20 @@ function LanguageToggleMobile({ lang, setLang }) {
               key={l.code}
               type="button"
               onClick={() => setLang(l.code)}
-              aria-label={`Ganti ke ${l.label}`}
-              className={`relative flex items-center justify-center
-                          w-10 h-8 rounded-full
-                          transition-all duration-300 cursor-pointer
-                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]
-                          ${active
-                            ? "bg-white shadow-[0_1px_3px_rgba(30,136,229,0.25)]"
-                            : "hover:bg-white/60 opacity-60 hover:opacity-100"}`}
+              aria-label={`${a.switchTo} ${l.label}`}
+              aria-pressed={active}
+              className={`relative flex items-center justify-center w-10 h-8 rounded-full transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]
+                ${active
+                  ? "bg-white shadow-[0_1px_3px_rgba(30,136,229,0.25)]"
+                  : "hover:bg-white/60 opacity-60 hover:opacity-100"}`}
             >
               <Flag
                 className={`w-6 h-4 rounded-[2px] transition-all duration-300
-                            ${active ? "ring-[0.5px] ring-slate-300" : ""}`}
+                  ${active ? "ring-[0.5px] ring-slate-300" : ""}`}
               />
               <span
-                className={`absolute bottom-0.5 left-1/2 -translate-x-1/2
-                            h-[2px] rounded-full
-                            transition-all duration-300
-                            ${active ? "w-5 bg-[#1e88e5]" : "w-0 bg-transparent"}`}
+                className={`absolute bottom-0.5 left-1/2 -translate-x-1/2 h-[2px] rounded-full transition-all duration-300
+                  ${active ? "w-5 bg-[#1e88e5]" : "w-0 bg-transparent"}`}
                 aria-hidden="true"
               />
             </button>
@@ -279,9 +292,7 @@ function BrandLogo() {
   return (
     <Link
       href={BRAND.homeTo}
-      className="flex items-center gap-2.5 sm:gap-3 shrink-0
-                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]
-                 focus-visible:ring-offset-2 rounded-lg"
+      className="flex items-center gap-2.5 sm:gap-3 min-w-0 shrink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2 rounded-lg"
       aria-label={BRAND.name}
     >
       {!imgError && (
@@ -292,19 +303,17 @@ function BrandLogo() {
           height={BRAND.logoHeight}
           priority
           draggable={false}
-          className="h-11 sm:h-13 lg:h-15 w-auto object-contain"
-          style={{
-            imageRendering: "-webkit-optimize-contrast",
-          }}
+          className="h-10 sm:h-12 lg:h-14 w-auto object-contain shrink-0"
+          style={{ imageRendering: "-webkit-optimize-contrast" }}
           onError={() => setImgError(true)}
         />
       )}
 
-      <div className="leading-tight">
-        <div className="text-[13px] sm:text-[14.5px] lg:text-[15.5px] font-extrabold tracking-tight text-slate-900">
+      <div className="leading-tight min-w-0">
+        <div className="text-[12.5px] sm:text-[14px] lg:text-[15px] font-extrabold tracking-tight text-slate-900 truncate">
           {BRAND.name}
         </div>
-        <div className="text-[8.5px] sm:text-[9px] lg:text-[9.5px] tracking-[0.18em] mt-0.5 font-semibold text-slate-500">
+        <div className="hidden min-[380px]:block text-[8px] sm:text-[9px] lg:text-[9.5px] tracking-[0.16em] mt-0.5 font-semibold text-slate-500 truncate">
           {BRAND.tagline}
         </div>
       </div>
@@ -321,41 +330,28 @@ function DropdownItem({ item }) {
       <NavLink
         to={item.to}
         className={({ isActive }) =>
-          `relative flex items-center justify-between gap-4 px-4 py-2.5 text-[13.5px]
-           text-slate-700 hover:bg-slate-50 hover:text-[#1e88e5]
-           transition-all duration-200 whitespace-nowrap
-           focus-visible:outline-none focus-visible:bg-slate-50
+          `relative flex items-center justify-between gap-4 px-4 py-2.5 text-[13.5px] text-slate-700 hover:bg-slate-50 hover:text-[#1e88e5] transition-all duration-200 whitespace-nowrap focus-visible:outline-none focus-visible:bg-slate-50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1e88e5]
            ${isActive ? "text-[#1e88e5] bg-slate-50 font-semibold" : ""}`
         }
       >
-        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-0
-                         bg-[#1e88e5] rounded-r
-                         group-hover/sub:h-6 transition-all duration-300" />
+        <span
+          className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-0 bg-[#1e88e5] rounded-r group-hover/sub:h-6 group-focus-within/sub:h-6 transition-all duration-300"
+          aria-hidden="true"
+        />
 
-        <span className="flex items-center gap-2.5
-                         transition-transform duration-300
-                         group-hover/sub:translate-x-0.5">
-          <span className="w-1 h-1 rounded-full bg-slate-300
-                           group-hover/sub:bg-[#1e88e5] transition-colors" />
+        <span className="flex items-center gap-2.5 transition-transform duration-300 group-hover/sub:translate-x-0.5">
+          <span className="w-1 h-1 rounded-full bg-slate-300 group-hover/sub:bg-[#1e88e5] transition-colors" aria-hidden="true" />
           {item.label}
         </span>
 
         {item.children && (
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400 flex-shrink-0
-                                   transition-all duration-300
-                                   group-hover/sub:translate-x-0.5
-                                   group-hover/sub:text-[#1e88e5]" />
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400 flex-shrink-0 transition-all duration-300 group-hover/sub:translate-x-0.5 group-hover/sub:text-[#1e88e5]" />
         )}
       </NavLink>
 
       {item.children && (
         <ul
-          className="absolute left-full top-0 ml-1 min-w-[220px]
-                     bg-white border border-slate-100 rounded-xl
-                     shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] py-2
-                     opacity-0 invisible translate-x-1
-                     group-hover/sub:opacity-100 group-hover/sub:visible group-hover/sub:translate-x-0
-                     transition-all duration-200 ease-out"
+          className="absolute left-full top-0 ml-1 min-w-[220px] bg-white border border-slate-100 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] py-2 opacity-0 invisible translate-x-1 group-hover/sub:opacity-100 group-hover/sub:visible group-hover/sub:translate-x-0 group-focus-within/sub:opacity-100 group-focus-within/sub:visible group-focus-within/sub:translate-x-0 transition-all duration-200 ease-out"
         >
           {item.children.map((child) => (
             <DropdownItem key={child.label} item={child} />
@@ -369,8 +365,9 @@ function DropdownItem({ item }) {
 // ─────────────────────────────────────────────
 // EXPANDABLE ITEM — SUBMENU KE BAWAH
 // ─────────────────────────────────────────────
-function ExpandableItem({ item }) {
+function ExpandableItem({ item, lang }) {
   const [open, setOpen] = useState(true);
+  const a = ariaTranslations[lang] || ariaTranslations.id;
 
   return (
     <li className="relative">
@@ -378,54 +375,50 @@ function ExpandableItem({ item }) {
         <button
           type="button"
           onClick={() => setOpen(!open)}
-          className="relative flex-1 flex items-center gap-2.5 px-4 py-2.5 text-[13.5px]
-                     text-slate-700 hover:bg-slate-50 hover:text-[#1e88e5]
-                     transition-colors duration-200 text-left cursor-pointer
-                     focus-visible:outline-none focus-visible:bg-slate-50"
+          aria-expanded={open}
+          className="relative flex-1 flex items-center gap-2.5 px-4 py-2.5 text-[13.5px] text-slate-700 hover:bg-slate-50 hover:text-[#1e88e5] transition-colors duration-200 text-left cursor-pointer focus-visible:outline-none focus-visible:bg-slate-50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1e88e5]"
         >
-          <span className="w-1 h-1 rounded-full bg-slate-300" />
+          <span className="w-1 h-1 rounded-full bg-slate-300" aria-hidden="true" />
           {item.label}
         </button>
 
         <button
           type="button"
           onClick={() => setOpen(!open)}
-          aria-label="Toggle submenu"
+          aria-label={a.toggleSubmenu}
           aria-expanded={open}
-          className="mr-2 p-1 text-slate-400 hover:text-[#1e88e5] transition-colors
-                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] rounded"
+          className="mr-2 p-1 text-slate-400 hover:text-[#1e88e5] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] rounded"
         >
           <ChevronDown
-            className={`w-3.5 h-3.5 transition-transform duration-300 ${
-              open ? "rotate-180 text-[#1e88e5]" : ""
-            }`}
+            className={`w-3.5 h-3.5 transition-transform duration-300
+              ${open ? "rotate-180 text-[#1e88e5]" : ""}`}
           />
         </button>
       </div>
 
       <div
-        className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${
-          open ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`grid transition-all duration-300 ease-in-out
+          ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
       >
-        <ul className="ml-4 mt-0.5 space-y-0.5 border-l border-slate-100 pl-3 pb-1">
-          {item.children.map((child) => (
-            <li key={child.label}>
-              <NavLink
-                to={child.to}
-                className={({ isActive }) =>
-                  `block px-3 py-2 text-[13px] rounded-md
-                   transition-all duration-200
-                   ${isActive
-                     ? "text-[#1e88e5] bg-slate-50 font-medium"
-                     : "text-slate-600 hover:text-[#1e88e5] hover:bg-slate-50 hover:translate-x-0.5"}`
-                }
-              >
-                {child.label}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+        <div className="overflow-hidden">
+          <ul className="ml-4 mt-0.5 space-y-0.5 border-l border-slate-100 pl-3 pb-1">
+            {item.children.map((child) => (
+              <li key={child.label}>
+                <NavLink
+                  to={child.to}
+                  className={({ isActive }) =>
+                    `block px-3 py-2 text-[13px] rounded-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]
+                     ${isActive
+                       ? "text-[#1e88e5] bg-slate-50 font-medium"
+                       : "text-slate-600 hover:text-[#1e88e5] hover:bg-slate-50 hover:translate-x-0.5"}`
+                  }
+                >
+                  {child.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </li>
   );
@@ -445,46 +438,41 @@ function ParentMenuButton({ item, lang }) {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="relative flex items-center gap-1.5 px-3 py-2 text-[14px] rounded-lg
-                   font-medium tracking-tight transition-all duration-300 cursor-pointer
-                   text-slate-700 hover:text-[#1e88e5] hover:bg-slate-100/70
-                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]"
+        aria-haspopup="true"
+        className="relative flex items-center gap-1.5 px-3 py-2 text-[14px] rounded-lg font-medium tracking-tight transition-all duration-300 cursor-pointer text-slate-700 hover:text-[#1e88e5] hover:bg-slate-100/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]"
       >
         {label}
         <ChevronDown
-          className="w-3 h-3 text-slate-400 transition-transform duration-300
-                     group-hover:rotate-180 group-hover:text-[#1e88e5]"
+          className={`w-3 h-3 text-slate-400 transition-transform duration-300
+            ${open ? "rotate-180 text-[#1e88e5]" : "group-hover:rotate-180 group-hover:text-[#1e88e5]"}`}
         />
 
-        <span className="absolute left-3 right-3 -bottom-0.5 h-0.5
-                         bg-[#1e88e5] scale-x-0 group-hover:scale-x-100
-                         origin-left transition-transform duration-500 rounded-full" />
+        <span
+          className={`absolute left-3 right-3 -bottom-0.5 h-0.5 bg-[#1e88e5] origin-left transition-transform duration-500 rounded-full
+            ${open ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}
+          aria-hidden="true"
+        />
       </button>
 
       {/* Dropdown panel */}
       <div
-        className={`absolute top-full mt-3 min-w-[260px]
-                   bg-white border border-slate-100 rounded-2xl
-                   shadow-[0_20px_60px_-15px_rgba(0,0,0,0.18)]
-                   py-2
-                   opacity-0 invisible translate-y-2
-                   group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
-                   transition-all duration-300 ease-out
-                   before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3
-                   ${isRight ? "right-0" : "left-0"}`}
+        className={`absolute top-full mt-3 min-w-[260px] bg-white border border-slate-100 rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.18)] py-2 transition-all duration-300 ease-out before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3
+          ${isRight ? "right-0" : "left-0"}
+          ${open
+            ? "opacity-100 visible translate-y-0"
+            : "opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0"}`}
       >
         {/* Arrow indicator */}
         <span
-          className={`absolute -top-1.5 w-3 h-3 bg-white border-l border-t border-slate-100
-                      rotate-45 rounded-tl-sm
-                      ${isRight ? "right-6" : "left-6"}`}
+          className={`absolute -top-1.5 w-3 h-3 bg-white border-l border-t border-slate-100 rotate-45 rounded-tl-sm
+            ${isRight ? "right-6" : "left-6"}`}
           aria-hidden="true"
         />
 
         <ul className="relative">
           {item.children.map((child) =>
             child.expandDown ? (
-              <ExpandableItem key={child.label} item={child} />
+              <ExpandableItem key={child.label} item={child} lang={lang} />
             ) : (
               <DropdownItem key={child.label} item={child} />
             )
@@ -502,6 +490,7 @@ function MobileItem({ item, onNavigate, lang, level = 0 }) {
   const [open, setOpen] = useState(false);
   const hasChildren = Boolean(item.children);
   const label = translations[lang]?.[item.label] || item.label;
+  const a = ariaTranslations[lang] || ariaTranslations.id;
 
   return (
     <li>
@@ -510,11 +499,11 @@ function MobileItem({ item, onNavigate, lang, level = 0 }) {
           <button
             type="button"
             onClick={() => setOpen(!open)}
-            className={`flex-1 py-3 text-left transition-colors cursor-pointer
-             focus-visible:outline-none
-             ${level === 0
-               ? "text-[15px] font-semibold text-slate-800 hover:text-[#1e88e5]"
-               : "text-[14px] text-slate-600 hover:text-[#1e88e5]"}`}
+            aria-expanded={open}
+            className={`flex-1 py-3 text-left transition-colors cursor-pointer focus-visible:outline-none focus-visible:text-[#1e88e5] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1e88e5]
+              ${level === 0
+                ? "text-[15px] font-semibold text-slate-800 hover:text-[#1e88e5]"
+                : "text-[14px] text-slate-600 hover:text-[#1e88e5]"}`}
           >
             {label}
           </button>
@@ -523,8 +512,7 @@ function MobileItem({ item, onNavigate, lang, level = 0 }) {
             to={item.to}
             onClick={onNavigate}
             className={({ isActive }) =>
-              `flex-1 py-3 transition-colors
-               focus-visible:outline-none
+              `flex-1 py-3 transition-colors focus-visible:outline-none focus-visible:text-[#1e88e5]
                ${level === 0
                  ? "text-[15px] font-semibold text-slate-800 hover:text-[#1e88e5]"
                  : "text-[14px] text-slate-600 hover:text-[#1e88e5]"}
@@ -539,15 +527,13 @@ function MobileItem({ item, onNavigate, lang, level = 0 }) {
           <button
             type="button"
             onClick={() => setOpen(!open)}
-            className="p-2 text-slate-400 hover:text-[#1e88e5] transition-colors
-                       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] rounded"
-            aria-label="Toggle submenu"
+            className="p-2 text-slate-400 hover:text-[#1e88e5] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] rounded"
+            aria-label={a.toggleSubmenu}
             aria-expanded={open}
           >
             <ChevronDown
-              className={`w-4 h-4 transition-transform duration-300 ${
-                open ? "rotate-180 text-[#1e88e5]" : ""
-              }`}
+              className={`w-4 h-4 transition-transform duration-300
+                ${open ? "rotate-180 text-[#1e88e5]" : ""}`}
             />
           </button>
         )}
@@ -555,25 +541,25 @@ function MobileItem({ item, onNavigate, lang, level = 0 }) {
 
       {hasChildren && (
         <div
-          className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${
-            open ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
-          }`}
+          className={`grid transition-all duration-300 ease-in-out
+            ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
         >
-          <ul
-            className={`mt-1 space-y-0.5 border-l-2 border-slate-100 ${
-              level === 0 ? "ml-1 pl-4" : "ml-1 pl-3"
-            }`}
-          >
-            {item.children.map((child) => (
-              <MobileItem
-                key={child.label}
-                item={child}
-                onNavigate={onNavigate}
-                lang={lang}
-                level={level + 1}
-              />
-            ))}
-          </ul>
+          <div className="overflow-hidden">
+            <ul
+              className={`mt-1 space-y-0.5 border-l-2 border-slate-100
+                ${level === 0 ? "ml-1 pl-4" : "ml-1 pl-3"}`}
+            >
+              {item.children.map((child) => (
+                <MobileItem
+                  key={child.label}
+                  item={child}
+                  onNavigate={onNavigate}
+                  lang={lang}
+                  level={level + 1}
+                />
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </li>
@@ -587,6 +573,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { lang, setLang } = useLang();
+  const a = ariaTranslations[lang] || ariaTranslations.id;
 
   // Scroll detection
   useEffect(() => {
@@ -597,32 +584,43 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Body scroll lock saat mobile menu open
+  // Body scroll lock + Escape close saat mobile menu open
   useEffect(() => {
+    if (typeof document === "undefined") return;
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    const onKey = (e) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    if (mobileOpen) document.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKey);
+    };
   }, [mobileOpen]);
+
+  // Mobile menu top mengikuti tinggi header (yang berubah saat scrolled)
+  const mobileTopClass = scrolled
+    ? "top-[68px] sm:top-[72px]"
+    : "top-[72px] sm:top-[76px]";
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50
-                    bg-white/95 backdrop-blur-md
-                    border-b transition-all duration-300
-                    ${scrolled
-                      ? "border-slate-200 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.08)]"
-                      : "border-slate-100 shadow-[0_1px_0_rgba(0,0,0,0.02)]"}`}
+        className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b transition-all duration-300
+          ${scrolled
+            ? "border-slate-200 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.08)]"
+            : "border-slate-100 shadow-[0_1px_0_rgba(0,0,0,0.02)]"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
           <div className={`flex items-center justify-between transition-all duration-300
-                          ${scrolled ? "h-[68px] sm:h-[72px]" : "h-[72px] sm:h-[76px]"}`}>
+            ${scrolled ? "h-[68px] sm:h-[72px]" : "h-[72px] sm:h-[76px]"}`}>
 
             {/* KIRI: Logo + Brand */}
             <BrandLogo />
 
             {/* KANAN: Desktop Menu + Language */}
             <div className="hidden lg:flex items-center gap-4 xl:gap-6">
-              <nav>
+              <nav aria-label="Main navigation">
                 <ul className="flex items-center gap-5 xl:gap-7">
                   {menu.map((item) =>
                     item.children ? (
@@ -634,10 +632,7 @@ export default function Navbar() {
                         <NavLink
                           to={item.to}
                           className={({ isActive }) =>
-                            `relative flex items-center gap-1.5 px-1 py-2 text-[14px]
-                             font-medium tracking-tight transition-all duration-300
-                             text-slate-700 hover:text-[#1e88e5]
-                             focus-visible:outline-none focus-visible:text-[#1e88e5]
+                            `relative flex items-center gap-1.5 px-1 py-2 text-[14px] font-medium tracking-tight transition-all duration-300 text-slate-700 hover:text-[#1e88e5] focus-visible:outline-none focus-visible:text-[#1e88e5] focus-visible:ring-2 focus-visible:ring-[#1e88e5] rounded
                              ${isActive ? "!text-[#1e88e5]" : ""}`
                           }
                         >
@@ -649,7 +644,7 @@ export default function Navbar() {
                 </ul>
               </nav>
 
-              <span className="w-px h-6 bg-slate-200" />
+              <span className="w-px h-6 bg-slate-200" aria-hidden="true" />
 
               <LanguageSwitcher lang={lang} setLang={setLang} />
             </div>
@@ -658,27 +653,23 @@ export default function Navbar() {
             <div className="lg:hidden flex items-center">
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="relative w-10 h-10 flex items-center justify-center rounded-lg
-                           text-slate-900 hover:bg-slate-100 transition-colors
-                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]"
-                aria-label="Toggle menu"
+                className="relative w-10 h-10 flex items-center justify-center rounded-lg text-slate-900 hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]"
+                aria-label={mobileOpen ? a.closeMenu : a.openMenu}
                 aria-expanded={mobileOpen}
+                aria-controls="mobile-menu"
               >
-                <div className="w-6 h-4 relative">
+                <div className="w-6 h-4 relative" aria-hidden="true">
                   <span
-                    className={`absolute left-0 w-6 h-0.5 bg-current rounded transition-all duration-300 ${
-                      mobileOpen ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"
-                    }`}
+                    className={`absolute left-0 w-6 h-0.5 bg-current rounded transition-all duration-300
+                      ${mobileOpen ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"}`}
                   />
                   <span
-                    className={`absolute left-0 top-1/2 -translate-y-1/2 w-6 h-0.5 bg-current rounded transition-all duration-200 ${
-                      mobileOpen ? "opacity-0" : "opacity-100"
-                    }`}
+                    className={`absolute left-0 top-1/2 -translate-y-1/2 w-6 h-0.5 bg-current rounded transition-all duration-200
+                      ${mobileOpen ? "opacity-0" : "opacity-100"}`}
                   />
                   <span
-                    className={`absolute left-0 w-6 h-0.5 bg-current rounded transition-all duration-300 ${
-                      mobileOpen ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-0"
-                    }`}
+                    className={`absolute left-0 w-6 h-0.5 bg-current rounded transition-all duration-300
+                      ${mobileOpen ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-0"}`}
                   />
                 </div>
               </button>
@@ -687,25 +678,25 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* ── MOBILE MENU ── */}
+      {/* MOBILE MENU */}
       <div
-        className={`lg:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
-          mobileOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`lg:hidden fixed inset-0 z-40 transition-opacity duration-300
+          ${mobileOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
       >
         <div
           className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
           onClick={() => setMobileOpen(false)}
+          aria-hidden="true"
         />
 
         <nav
-          className={`absolute top-[72px] sm:top-[76px] left-0 right-0 bottom-0
-                     bg-white overflow-y-auto
-                     shadow-[0_-10px_40px_-10px_rgba(0,0,0,0.1)]
-                     transition-transform duration-300 ease-out
-                     ${mobileOpen ? "translate-y-0" : "-translate-y-4"}`}
+          id="mobile-menu"
+          aria-label="Mobile navigation"
+          className={`absolute left-0 right-0 bottom-0 bg-white overflow-y-auto shadow-[0_-10px_40px_-10px_rgba(0,0,0,0.1)] transition-transform duration-300 ease-out
+            ${mobileTopClass}
+            ${mobileOpen ? "translate-y-0" : "-translate-y-4"}`}
         >
-          <ul className="px-6 py-6 space-y-1">
+          <ul className="px-5 sm:px-6 py-5 space-y-1">
             {menu.map((item) => (
               <MobileItem
                 key={item.label}
@@ -716,7 +707,7 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="px-6 pb-8 mb-24">
+          <div className="px-5 sm:px-6 pb-8 mb-24">
             <LanguageToggleMobile lang={lang} setLang={setLang} />
           </div>
         </nav>
