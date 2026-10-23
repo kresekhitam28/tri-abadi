@@ -72,6 +72,13 @@ function IconAward({ className = "w-6 h-6" }) {
     </svg>
   );
 }
+function IconDownload({ className = "w-5 h-5" }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className={className}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+    </svg>
+  );
+}
 
 // ─────────────────────────────────────────────
 // KONTEN BILINGUAL
@@ -115,6 +122,7 @@ const content = {
       "Harga kompetitif dengan hasil yang memuaskan dan tahan lama.",
       "Pelayanan responsif — konsultasi dan survei lokasi gratis.",
     ],
+    downloadBtn: "Download Company Profile",
   },
   en: {
     heroKicker: "About Us",
@@ -154,6 +162,7 @@ const content = {
       "Competitive prices with satisfying and long-lasting results.",
       "Responsive service — free consultation and site survey.",
     ],
+    downloadBtn: "Download Company Profile",
   },
 };
 
@@ -402,6 +411,28 @@ export default function About() {
           >
             {data.heroSubtitle}
           </p>
+
+          {/* TOMBOL DOWNLOAD DI SINI */}
+          <div
+            className={`mt-8 transition-all duration-700 ease-out
+              ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
+            style={{
+              transitionDelay: "700ms",
+            }}
+          >
+            <a
+              href="/company-profile.pdf" // Pastikan file PDF ada di folder public
+              download
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-3.5
+                         bg-[#1e88e5] hover:bg-blue-600 text-white
+                         font-medium text-sm sm:text-base rounded-full
+                         transition-all duration-300 shadow-lg shadow-blue-500/30
+                         hover:shadow-blue-500/50 hover:-translate-y-0.5"
+            >
+              <IconDownload className="w-5 h-5" />
+              {data.downloadBtn}
+            </a>
+          </div>
         </div>
       </section>
 
