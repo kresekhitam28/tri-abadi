@@ -34,6 +34,21 @@ function IconPhone({ className = "w-5 h-5" }) {
     </svg>
   );
 }
+// Ikon Telepon Klasik / Landline (solid: gagang + badan telepon + dial)
+function IconLandline({ className = "w-5 h-5" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      {/* Gagang telepon */}
+      <path d="M12 3C7.2 3 3.2 4.6 2 7.2c-.3.7.1 1.5.9 1.7l2.3.6c.7.2 1.4-.2 1.6-.9l.3-1.2c.1-.4.4-.7.8-.8C9 6.3 10.5 6.1 12 6.1s3 .2 4.1.5c.4.1.7.4.8.8l.3 1.2c.2.7.9 1.1 1.6.9l2.3-.6c.8-.2 1.2-1 .9-1.7C20.8 4.6 16.8 3 12 3z" />
+      {/* Badan telepon + lubang dial */}
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7.5 10.5h9l3.2 8.6c.3.9-.3 1.9-1.3 1.9H5.6c-1 0-1.6-1-1.3-1.9l3.2-8.6zM12 13.8a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4z"
+      />
+    </svg>
+  );
+}
 function IconYouTube({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -380,6 +395,12 @@ export default function Footer() {
               <ContactRow href="tel:+6282112999002" Icon={IconPhone}>
                 +62 821-1299-9002
               </ContactRow>
+
+              {/* Telepon kantor (landline) — pakai ikon telepon klasik */}
+              <ContactRow href="tel:+622127840353" Icon={IconLandline}>
+                +021 2784 0353
+              </ContactRow>
+
               <ContactRow href={EMAIL_HREF} Icon={IconMail}>
                 {EMAIL}
               </ContactRow>

@@ -47,6 +47,7 @@ const menu = [
     ],
   },
   { label: "Projects", to: "/proyek" },
+  { label: "Blog", to: "/blog" },
   {
     label: "Supplier",
     to: "/supplier",
@@ -91,6 +92,7 @@ const translations = {
     "About Us": "Tentang Kami",
     Services: "Layanan",
     Projects: "Proyek",
+    Blog: "Blog",
     Supplier: "Supplier",
     "Heavy Equipment": "Alat Berat",
     "Konstruksi Infrastruktur": "Konstruksi Infrastruktur",
@@ -103,6 +105,7 @@ const translations = {
     "About Us": "About Us",
     Services: "Services",
     Projects: "Projects",
+    Blog: "Blog",
     Supplier: "Supplier",
     "Heavy Equipment": "Heavy Equipment",
   },
