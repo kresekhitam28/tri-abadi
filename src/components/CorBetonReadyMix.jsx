@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
+import Link from "next/link"; // <-- TAMBAHAN: Import Link
 import { useLang } from "../context/LanguageContext";
 import BetonPricingPanel from "./BetonPricingPanel";
 
@@ -158,6 +159,15 @@ function IconTruck({ className = "w-4 h-4" }) {
       <path d="M16 8h4l3 3v5h-7z" />
       <circle cx="5.5" cy="18.5" r="2.5" />
       <circle cx="18.5" cy="18.5" r="2.5" />
+    </svg>
+  );
+}
+// TAMBAHAN: Ikon Artikel
+function IconArticle({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
     </svg>
   );
 }
@@ -390,6 +400,12 @@ const content = {
     priceTitleLight: "Harga Jasa ",
     priceTitleBold: "Cor Beton Ready Mix",
     priceDesc: "Pilih kelas beton sesuai kebutuhan — harga per meter kubik (m³).",
+    // TAMBAHAN KONTEN ARTIKEL
+    articleKicker: "Informasi & Edukasi",
+    articleTitleLight: "Butuh wawasan seputar ",
+    articleTitleBold: "Konstruksi & Aspal?",
+    articleDesc: "Jangan lewatkan artikel dan tips terbaru dari kami seputar dunia konstruksi, pengaspalan, dan perawatan jalan.",
+    articleBtn: "Lihat Semua Artikel",
     areaKicker: "Layanan",
     areaTitleLight: "Area ",
     areaTitleBold: "Jangkauan Kami",
@@ -426,6 +442,12 @@ const content = {
     priceTitleLight: "Ready-Mix Concrete ",
     priceTitleBold: "Service Pricing",
     priceDesc: "Choose the concrete class according to your needs — price per cubic meter (m³).",
+    // TAMBAHAN KONTEN ARTIKEL
+    articleKicker: "Information & Education",
+    articleTitleLight: "Need insights on ",
+    articleTitleBold: "Construction & Asphalt?",
+    articleDesc: "Don't miss our latest articles and tips about construction, asphalt paving, and road maintenance.",
+    articleBtn: "View All Articles",
     areaKicker: "Services",
     areaTitleLight: "Our ",
     areaTitleBold: "Coverage Area",
@@ -598,28 +620,25 @@ export default function CorBetonReadyMix() {
   const [showArea, setShowArea] = useState(false);
 
   return (
-    <div className="bg-white">
+    <div className="bg-slate-50/50">
 
       {/* ═══════ HERO ═══════ */}
-      <section className="pt-28 lg:pt-36 pb-16 lg:pb-24
-                          bg-gradient-to-b from-slate-50 to-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-5 lg:px-8 text-center">
+      <section className="pt-32 lg:pt-40 pb-12 lg:pb-16 bg-white border-b border-slate-100">
+        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <Reveal delay={0} y={20}>
-            <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-5">
-              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
-              <span className="text-[10px] sm:text-[11px] uppercase
-                               tracking-[0.25em] sm:tracking-[0.3em]
-                               text-[#1e88e5] font-semibold">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" aria-hidden="true" />
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-bold">
                 {data.heroKicker}
               </span>
-              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
+              <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" aria-hidden="true" />
             </div>
           </Reveal>
 
           <Reveal delay={80} y={30}>
             <h1
-              className="font-light tracking-tight text-slate-900 leading-[1.05] mb-5"
-              style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}
+              className="font-light tracking-tight text-slate-900 leading-[1.1] mb-6"
+              style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}
             >
               {data.heroTitle}<span className="text-[#1e88e5]">.</span>
             </h1>
@@ -628,7 +647,7 @@ export default function CorBetonReadyMix() {
           <Reveal delay={160} y={24}>
             <p
               className="text-slate-600 leading-relaxed max-w-2xl mx-auto"
-              style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}
+              style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1.0625rem)" }}
             >
               {data.heroDesc}
             </p>
@@ -637,14 +656,12 @@ export default function CorBetonReadyMix() {
       </section>
 
       {/* ═══════ KONTEN ═══════ */}
-      <section className="pb-16 lg:pb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-5 lg:px-8">
+      <section className="py-16 lg:py-24">
+        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
 
           {/* Foto utama */}
           <Reveal y={40} duration={800}>
-            <figure className="relative rounded-2xl overflow-hidden bg-slate-100 mb-10
-                              ring-1 ring-slate-200"
-                    style={{ contain: "layout paint style" }}>
+            <figure className="relative rounded-2xl overflow-hidden bg-slate-100 mb-10 shadow-xl shadow-slate-200/50 ring-1 ring-slate-900/5">
               <div className="aspect-[16/10]">
                 <img
                   src="/proyek/proyek-10.webp"
@@ -660,11 +677,17 @@ export default function CorBetonReadyMix() {
                   }}
                 />
               </div>
-              <figcaption className="absolute bottom-0 inset-x-0
-                                     bg-gradient-to-t from-slate-950/70 to-transparent
-                                     px-4 sm:px-6 py-3 sm:py-4 pt-10 sm:pt-12">
-                <p className="text-white font-medium"
-                   style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.78125rem)" }}>
+              <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 to-transparent px-5 sm:px-8 py-5 sm:py-8 pt-16 sm:pt-20">
+                <div className="flex items-center gap-2.5 mb-2">
+                  <span className="w-6 sm:w-8 h-px bg-[#4da3ff]" aria-hidden="true" />
+                  <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.28em] text-[#4da3ff] font-bold">
+                    {"Proyek"}
+                  </span>
+                </div>
+                <p
+                  className="text-white font-semibold text-lg sm:text-xl"
+                  style={{ fontSize: "clamp(0.9375rem, 1.5vw, 1.125rem)" }}
+                >
                   {data.figCaption}
                 </p>
               </figcaption>
@@ -673,49 +696,49 @@ export default function CorBetonReadyMix() {
 
           {/* Pengantar */}
           <Reveal delay={100} y={24}>
-            <p
-              className="text-slate-700 leading-[1.9] mb-12 max-w-3xl"
-              style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}
-            >
-              {data.intro}
-            </p>
+            <div className="max-w-3xl mb-14">
+              <p className="text-slate-700 leading-[1.9]"
+                 style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}>
+                {data.intro}
+              </p>
+            </div>
           </Reveal>
 
           {/* MENGENAL BETON READY MIX */}
-          <div className="mb-12">
+          <div className="mb-16">
             <Reveal y={26}>
-              <div className="text-center mb-8">
+              <div className="text-center mb-10">
                 <SectionKicker>{data.infoKicker}</SectionKicker>
                 <h2
                   className="font-light tracking-tight text-slate-900 leading-tight"
-                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.875rem)" }}
+                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
                 >
                   {data.infoTitleLight}
-                  <span className="font-semibold">{data.infoTitleBold}</span>
+                  <span className="font-bold">{data.infoTitleBold}</span>
                 </h2>
               </div>
             </Reveal>
 
             <Reveal delay={100} y={22}>
-              <div className="max-w-3xl mx-auto text-center mb-10">
+              <div className="max-w-3xl mx-auto text-center space-y-5 mb-12">
                 <p
-                  className="text-slate-700 leading-[1.9] mb-4"
-                  style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}
+                  className="text-slate-600 leading-[1.85]"
+                  style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}
                 >
                   {data.infoP1}
                 </p>
                 <p
-                  className="text-slate-700 leading-[1.9] mb-4"
-                  style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}
+                  className="text-slate-600 leading-[1.85]"
+                  style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}
                 >
                   {data.infoP2}
                 </p>
                 <p
-                  className="text-slate-700 leading-[1.9]"
-                  style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.90625rem)" }}
+                  className="text-slate-600 leading-[1.85]"
+                  style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}
                 >
                   {data.infoP3Prefix}
-                  <span className="font-semibold text-slate-900">{data.infoP3Bold}</span>
+                  <span className="font-bold text-slate-900">{data.infoP3Bold}</span>
                   {data.infoP3Suffix}
                 </p>
               </div>
@@ -776,20 +799,20 @@ export default function CorBetonReadyMix() {
 
         {/* ═══════ PANEL HARGA ═══════ */}
         <div className="mt-16 lg:mt-20 mb-16">
-          <div className="max-w-6xl mx-auto px-4 sm:px-5 lg:px-8">
+          <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
             <Reveal y={26}>
-              <div className="text-center mb-8">
+              <div className="text-center mb-10">
                 <SectionKicker>{data.priceKicker}</SectionKicker>
                 <h2
                   className="font-light tracking-tight text-slate-900 leading-tight max-w-2xl mx-auto"
-                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.875rem)" }}
+                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
                 >
                   {data.priceTitleLight}
-                  <span className="font-semibold">{data.priceTitleBold}</span>
+                  <span className="font-bold">{data.priceTitleBold}</span>
                 </h2>
                 <p
-                  className="text-slate-500 mt-3 max-w-xl mx-auto"
-                  style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.8125rem)" }}
+                  className="text-slate-500 mt-4 max-w-xl mx-auto"
+                  style={{ fontSize: "clamp(0.875rem, 1.4vw, 0.9375rem)" }}
                 >
                   {data.priceDesc}
                 </p>
@@ -803,23 +826,57 @@ export default function CorBetonReadyMix() {
         </div>
 
         {/* Lanjut konten */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-5 lg:px-8">
+        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
+
+          {/* ═══════ TAMBAHAN: SECTION ARTIKEL BLOG ═══════ */}
+          <Reveal y={30}>
+            <div className="mt-10 sm:mt-12 p-6 sm:p-10 bg-white border border-slate-100 rounded-2xl shadow-sm text-center max-w-3xl mx-auto relative overflow-hidden group hover:shadow-md transition-shadow duration-300">
+              <div className="relative z-10">
+                <SectionKicker>{data.articleKicker}</SectionKicker>
+                <h3 
+                  className="text-slate-900 tracking-tight mb-4" 
+                  style={{ fontSize: "clamp(1.25rem, 3vw, 1.75rem)" }}
+                >
+                  <span className="font-light">{data.articleTitleLight}</span>
+                  <span className="font-bold">{data.articleTitleBold}</span>
+                </h3>
+                <p 
+                  className="text-slate-600 mx-auto mb-8 max-w-xl leading-relaxed" 
+                  style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}
+                >
+                  {data.articleDesc}
+                </p>
+                <Link
+                  href="/blog"
+                  className="inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-[#1e88e5] text-white 
+                             font-bold tracking-wide transition-all duration-300 
+                             shadow-lg shadow-[#1e88e5]/30 hover:shadow-[#1e88e5]/50 hover:-translate-y-1 
+                             hover:bg-[#1976d2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
+                  style={{ fontSize: "clamp(0.8125rem, 1.4vw, 0.9375rem)" }}
+                >
+                  <IconArticle className="w-5 h-5" />
+                  {data.articleBtn}
+                  <IconArrowRight className="w-4 h-4 ml-1" />
+                </Link>
+              </div>
+            </div>
+          </Reveal>
 
           {/* ═══════ AREA JANGKAUAN ═══════ */}
-          <div className="mb-16">
+          <div className="mt-12 sm:mt-16 mb-16">
             <Reveal y={26}>
               <div className="text-center mb-8">
                 <SectionKicker>{data.areaKicker}</SectionKicker>
                 <h2
                   className="font-light tracking-tight text-slate-900 leading-tight"
-                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.875rem)" }}
+                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
                 >
                   {data.areaTitleLight}
-                  <span className="font-semibold">{data.areaTitleBold}</span>
+                  <span className="font-bold">{data.areaTitleBold}</span>
                 </h2>
                 <p
-                  className="text-slate-500 mt-3 max-w-xl mx-auto"
-                  style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.8125rem)" }}
+                  className="text-slate-500 mt-4 max-w-xl mx-auto"
+                  style={{ fontSize: "clamp(0.875rem, 1.4vw, 0.9375rem)" }}
                 >
                   {data.areaDesc}
                 </p>
@@ -832,25 +889,23 @@ export default function CorBetonReadyMix() {
                 onClick={() => setShowArea(!showArea)}
                 aria-expanded={showArea}
                 aria-label={data.areaToggle}
-                className="w-full flex items-center gap-4 text-left cursor-pointer
-                           pb-5 border-b border-slate-200
-                           transition-colors duration-200"
+                className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 bg-white border border-slate-200 rounded-xl cursor-pointer hover:border-[#1e88e5] hover:shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1e88e5]"
               >
                 <span
-                  className={`flex-1 font-bold uppercase tracking-[0.2em]
-                              ${showArea ? "text-[#1e88e5]" : "text-slate-600"}`}
-                  style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.8125rem)" }}
+                  className={`font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]
+                              ${showArea ? "text-[#1e88e5]" : "text-slate-700"}`}
+                  style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.9375rem)" }}
                 >
                   {data.areaToggle}
                 </span>
                 <span
-                  className={`shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-full border
+                  className={`shrink-0 px-4 py-1.5 rounded-full border
                               font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]
                               transition-colors duration-150
                               ${showArea
                                 ? "bg-[#1e88e5] text-white border-[#1e88e5]"
-                                : "bg-white text-slate-500 border-slate-300"}`}
-                  style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
+                                : "bg-slate-50 text-slate-500 border-slate-200"}`}
+                  style={{ fontSize: "clamp(0.625rem, 1vw, 0.6875rem)" }}
                 >
                   {showArea
                     ? (lang === "en" ? "Close" : "Tutup")
@@ -859,9 +914,9 @@ export default function CorBetonReadyMix() {
               </button>
 
               {showArea && (
-                <div className="mt-8 space-y-8">
+                <div className="mt-6 space-y-4">
                   {areaJangkauan.map((area, idx) => (
-                    <Reveal key={idx} delay={idx * 80} y={16}>
+                    <Reveal key={idx} delay={idx * 40} y={16}>
                       <AreaRow area={area} data={data} />
                     </Reveal>
                   ))}
@@ -870,38 +925,37 @@ export default function CorBetonReadyMix() {
             </Reveal>
           </div>
 
-          {/* ═══════ CTA ═══════ */}
+          {/* ═══════ CTA (Premium) ═══════ */}
           <Reveal y={34}>
-            <div className="mt-16 pb-16 text-center max-w-2xl mx-auto">
-              <p
-                className="text-[#1e88e5] uppercase tracking-[0.3em] font-semibold mb-3"
-                style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
-              >
-                {data.ctaKicker}
-              </p>
-              <h3
-                className="text-slate-900 font-light tracking-tight mb-6"
-                style={{ fontSize: "clamp(1.25rem, 3vw, 1.5rem)" }}
-              >
-                {data.ctaTitleLight}
-                <span className="font-semibold">{data.ctaTitleBold}</span>
-              </h3>
-              <a
-                href={`https://wa.me/6282258089367?text=${encodeURIComponent(data.ctaWaMessage)}`}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2
-                           px-6 sm:px-7 py-3.5 rounded-xl
-                           bg-slate-900 text-white
-                           hover:bg-[#1e88e5]
-                           font-semibold uppercase tracking-[0.15em]
-                           transition-colors duration-300"
-                style={{ fontSize: "clamp(0.6875rem, 1.2vw, 0.75rem)" }}
-              >
-                <IconWhatsApp className="w-4 h-4" />
-                {data.ctaBtn}
-                <IconArrowRight className="w-3.5 h-3.5" />
-              </a>
+            <div className="mt-10 sm:mt-14 p-8 sm:p-12 bg-slate-900 rounded-3xl text-center max-w-3xl mx-auto shadow-2xl shadow-slate-900/20 relative overflow-hidden">
+              {/* Efek background abstrak halus */}
+              <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-[#1e88e5] rounded-full blur-3xl opacity-20 pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-[#25D366] rounded-full blur-3xl opacity-10 pointer-events-none"></div>
+
+              <div className="relative z-10">
+                <p className="text-[#4da3ff] text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-bold mb-4">
+                  {data.ctaKicker}
+                </p>
+                <h3
+                  className="text-white font-light tracking-tight mb-8"
+                  style={{ fontSize: "clamp(1.25rem, 3vw, 1.75rem)" }}
+                >
+                  {data.ctaTitleLight}
+                  <span className="font-bold">{data.ctaTitleBold}</span>
+                </h3>
+                <a
+                  href={`https://wa.me/6282258089367?text=${encodeURIComponent(data.ctaWaMessage)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={data.ctaBtn}
+                  className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-4 min-h-[48px] rounded-xl bg-[#25D366] text-white hover:bg-[#20bd5a] font-bold uppercase tracking-[0.1em] sm:tracking-[0.15em] shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50 hover:-translate-y-0.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                  style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.875rem)" }}
+                >
+                  <IconWhatsApp className="w-5 h-5 shrink-0" />
+                  {data.ctaBtn}
+                  <IconArrowRight className="w-4 h-4 shrink-0 ml-1" />
+                </a>
+              </div>
             </div>
           </Reveal>
 

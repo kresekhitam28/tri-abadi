@@ -235,13 +235,13 @@ function ArticleBody({ body, lang }) {
   let firstParagraphDone = false;
 
   return (
-    <div className="space-y-5 sm:space-y-6">
+    <div className="space-y-6 sm:space-y-8">
       {body.map((block, i) => {
         if (block.type === "heading") {
           return (
             <Reveal key={i} y={16}>
               <h2
-                className="pt-3 sm:pt-4 font-semibold text-slate-900 leading-snug tracking-tight"
+                className="pt-4 sm:pt-6 font-semibold text-slate-900 leading-snug tracking-tight"
                 style={{ fontSize: "clamp(1.0625rem, 2.2vw, 1.375rem)" }}
               >
                 {pick(block.text, lang)}
@@ -259,18 +259,18 @@ function ArticleBody({ body, lang }) {
             <Reveal key={i} y={14}>
               {isFirst ? (
                 <p className="text-slate-700 leading-[1.9] sm:leading-[1.95]
-                              first-letter:float-left first-letter:mr-2 first-letter:mt-1
+                              first-letter:float-left first-letter:mr-3 first-letter:mt-1
                               first-letter:text-[42px] sm:first-letter:text-[46px]
                               first-letter:font-semibold
                               first-letter:leading-[0.9] first-letter:text-[#1e88e5]"
-                   style={{ fontSize: "clamp(0.9375rem, 1.8vw, 0.96875rem)" }}
+                   style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1rem)" }}
                 >
                   {text}
                 </p>
               ) : (
                 <p
                   className="text-slate-700 leading-[1.9] sm:leading-[1.95]"
-                  style={{ fontSize: "clamp(0.9375rem, 1.8vw, 0.96875rem)" }}
+                  style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1rem)" }}
                 >
                   {text}
                 </p>
@@ -285,7 +285,7 @@ function ArticleBody({ body, lang }) {
             <Reveal key={i} y={14}>
               <Tag
                 className={`${block.ordered ? "list-decimal" : "list-disc"}
-                            list-outside pl-5 sm:pl-6 space-y-2.5 sm:space-y-3
+                            list-outside pl-5 sm:pl-6 space-y-3 sm:space-y-3.5
                             text-slate-700 leading-[1.85] sm:leading-[1.9]
                             marker:text-[#1e88e5] marker:font-semibold`}
                 style={{ fontSize: "clamp(0.875rem, 1.7vw, 0.9375rem)" }}
@@ -301,15 +301,15 @@ function ArticleBody({ body, lang }) {
         if (block.type === "tags") {
           return (
             <Reveal key={i} y={14}>
-              <div className="flex flex-wrap gap-1.5 pt-2">
+              <div className="flex flex-wrap gap-2 pt-2">
                 {block.items.map((tag, j) => (
                   <TagItem
                     key={j}
                     tag={tag}
                     lang={lang}
-                    className="inline-block px-2.5 py-1 rounded-md
+                    className="inline-block px-3 py-1.5 rounded-md
                                bg-slate-50 border border-slate-200
-                               text-[11px] text-slate-600 font-medium
+                               text-[11px] sm:text-xs text-slate-600 font-medium
                                hover:border-[#1e88e5]/50 hover:text-[#1e88e5]
                                transition-colors"
                   />
@@ -486,9 +486,9 @@ export default function BlogDetail() {
   return (
     <article className="bg-white" style={{ contain: "layout style" }}>
 
-            {/* ═══ HERO ═══ */}
+      {/* ═══ HERO ═══ */}
       <section className="pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 lg:pb-12">
-        <div className="relative max-w-3xl mx-auto px-4 sm:px-5 lg:px-8 text-center">
+        <div className="relative max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <Reveal delay={0} y={14}>
             <div className="inline-flex items-center gap-3">
               <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
@@ -514,7 +514,7 @@ export default function BlogDetail() {
       </section>
 
       {/* ═══ COVER ═══ */}
-        <section className="max-w-4xl mx-auto px-4 sm:px-5 lg:px-8 mt-8 sm:mt-12 lg:mt-16">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 sm:mt-8 lg:mt-12">
         <Reveal y={26} duration={800}>
           <figure className="relative rounded-2xl overflow-hidden bg-slate-100
                              ring-1 ring-slate-200 aspect-[16/9]">
@@ -536,7 +536,7 @@ export default function BlogDetail() {
       </section>
 
       {/* ═══ BODY ═══ */}
-      <section className="max-w-3xl mx-auto px-4 sm:px-5 lg:px-8 pt-10 sm:pt-12 lg:pt-16">
+      <section className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 pt-10 sm:pt-12 lg:pt-16">
         <Reveal y={18}>
           <p className="text-slate-600 leading-[1.85] italic
                         border-l-2 border-[#1e88e5] pl-4 sm:pl-5 mb-8 sm:mb-10"
@@ -551,7 +551,7 @@ export default function BlogDetail() {
         <Reveal y={20}>
           <div className="mt-12 sm:mt-14 pt-6 sm:pt-8 border-t border-slate-200
                           flex flex-col sm:flex-row sm:items-start
-                          sm:justify-between gap-6 sm:gap-8">
+                          sm:justify-between gap-8 sm:gap-10">
             {visibleTags.length > 0 ? (
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-3 text-slate-400">
@@ -560,15 +560,15 @@ export default function BlogDetail() {
                     {t.tagsLabel}
                   </span>
                 </div>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {visibleTags.map((tag, i) => (
                     <TagItem
                       key={i}
                       tag={tag}
                       lang={lang}
-                      className="inline-block px-2.5 py-1 rounded-md
+                      className="inline-block px-3 py-1.5 rounded-md
                                  bg-slate-50 border border-slate-200
-                                 text-[11px] text-slate-600 font-medium
+                                 text-[11px] sm:text-xs text-slate-600 font-medium
                                  hover:border-[#1e88e5]/50 hover:text-[#1e88e5]
                                  transition-colors"
                     />
@@ -593,12 +593,12 @@ export default function BlogDetail() {
                   onClick={handleShare}
                   aria-label={t.share}
                   title={t.share}
-                  className="w-9 h-9 flex items-center justify-center rounded-full
+                  className="w-10 h-10 flex items-center justify-center rounded-full
                              border border-slate-200 text-slate-600
                              hover:bg-slate-900 hover:text-white hover:border-slate-900
                              transition-colors"
                 >
-                  <I.Share className="w-3.5 h-3.5" />
+                  <I.Share className="w-4 h-4" />
                 </button>
 
                 <a
@@ -607,12 +607,12 @@ export default function BlogDetail() {
                   rel="noreferrer"
                   aria-label="WhatsApp"
                   title="WhatsApp"
-                  className="w-9 h-9 flex items-center justify-center rounded-full
+                  className="w-10 h-10 flex items-center justify-center rounded-full
                              border border-slate-200 text-slate-600
                              hover:bg-slate-900 hover:text-white hover:border-slate-900
                              transition-colors"
                 >
-                  <I.WA className="w-3.5 h-3.5" />
+                  <I.WA className="w-4 h-4" />
                 </a>
 
                 <button
@@ -620,22 +620,21 @@ export default function BlogDetail() {
                   onClick={handleCopyLink}
                   aria-label={t.copyLink}
                   title={t.copyLink}
-                  className="w-9 h-9 flex items-center justify-center rounded-full
+                  className="w-10 h-10 flex items-center justify-center rounded-full
                              border border-slate-200 text-slate-600
                              hover:bg-slate-900 hover:text-white hover:border-slate-900
                              transition-colors"
                 >
                   {copied ? (
-                    <I.Check className="w-3.5 h-3.5 text-emerald-500" />
+                    <I.Check className="w-4 h-4 text-emerald-500" />
                   ) : (
-                    <I.Link className="w-3.5 h-3.5" />
+                    <I.Link className="w-4 h-4" />
                   )}
                 </button>
               </div>
 
               {copied && (
-                <p className="mt-2 text-[10.5px] text-[#1e88e5] font-semibold
-                              text-right">
+                <p className="mt-2 text-[11px] text-[#1e88e5] font-semibold text-right sm:text-right text-center">
                   {t.copied}
                 </p>
               )}
@@ -645,10 +644,10 @@ export default function BlogDetail() {
 
         {/* ═══ AUTHOR ═══ */}
         <Reveal y={22}>
-          <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-200
-                          flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
+          <div className="mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-slate-200
+                          flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 sm:gap-6">
             {article.author?.avatar && (
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden shrink-0
+              <div className="relative w-20 h-20 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden shrink-0
                               bg-slate-100 ring-1 ring-slate-200">
                 <Image
                   src={article.author.avatar}
@@ -661,17 +660,17 @@ export default function BlogDetail() {
             )}
 
             <div className="flex-1 min-w-0">
-              <h3 className="text-[15px] sm:text-[16px] lg:text-[17px] font-semibold text-slate-900 mb-2">
+              <h3 className="text-[16px] lg:text-[17px] font-semibold text-slate-900 mb-2">
                 {article.author?.name}
               </h3>
 
-              <p className="text-slate-600 leading-[1.8] mb-3"
-                 style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.84375rem)" }}>
+              <p className="text-slate-600 leading-[1.8] mb-2 sm:mb-3"
+                 style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
                 {article.author?.bio ? pick(article.author.bio, lang) : t.authorBio}
               </p>
 
               <p className="text-slate-600 leading-[1.8]"
-                 style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.84375rem)" }}>
+                 style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
                 {t.authorDesc}
               </p>
             </div>
@@ -680,18 +679,18 @@ export default function BlogDetail() {
 
         {/* ═══ COMMENTS ═══ */}
         <Reveal y={22}>
-          <div className="mt-12 sm:mt-14 pt-8 sm:pt-10 border-t border-slate-200 pb-16 sm:pb-20 lg:pb-28">
-            <div className="flex items-baseline gap-3 mb-1">
-              <h3 className="text-[16px] sm:text-[17px] font-semibold text-slate-900">
+          <div className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-slate-200 pb-16 sm:pb-20 lg:pb-28">
+            <div className="flex items-baseline gap-3 mb-2">
+              <h3 className="text-[17px] sm:text-[18px] font-semibold text-slate-900">
                 {t.commentTitle}
               </h3>
               <span className="h-px flex-1 bg-slate-100" />
             </div>
-            <p className="text-[12px] sm:text-[12.5px] text-slate-500 mb-5 sm:mb-6">
+            <p className="text-[12.5px] sm:text-[13px] text-slate-500 mb-6 sm:mb-8">
               {t.commentNote}
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <textarea
                 rows={4}
                 required
@@ -701,11 +700,11 @@ export default function BlogDetail() {
                 className="w-full px-4 py-3.5 rounded-xl border border-slate-200
                            bg-slate-50 resize-none
                            focus:bg-white focus:border-[#1e88e5] focus:ring-2 focus:ring-[#1e88e5]/20
-                           outline-none text-[14px] text-slate-800 placeholder:text-slate-400
+                           outline-none text-[14px] sm:text-[15px] text-slate-800 placeholder:text-slate-400
                            transition-colors duration-150"
               />
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input
                   type="text"
                   required
@@ -715,7 +714,7 @@ export default function BlogDetail() {
                   className="w-full px-4 py-3.5 rounded-xl border border-slate-200
                              bg-slate-50
                              focus:bg-white focus:border-[#1e88e5] focus:ring-2 focus:ring-[#1e88e5]/20
-                             outline-none text-[14px] text-slate-800 placeholder:text-slate-400
+                             outline-none text-[14px] sm:text-[15px] text-slate-800 placeholder:text-slate-400
                              transition-colors duration-150"
                 />
                 <input
@@ -727,7 +726,7 @@ export default function BlogDetail() {
                   className="w-full px-4 py-3.5 rounded-xl border border-slate-200
                              bg-slate-50
                              focus:bg-white focus:border-[#1e88e5] focus:ring-2 focus:ring-[#1e88e5]/20
-                             outline-none text-[14px] text-slate-800 placeholder:text-slate-400
+                             outline-none text-[14px] sm:text-[15px] text-slate-800 placeholder:text-slate-400
                              transition-colors duration-150"
                 />
               </div>
@@ -735,11 +734,11 @@ export default function BlogDetail() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-xl
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-3 rounded-xl
                            bg-[#1e88e5] hover:bg-[#1976d2] text-white
-                           text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.18em]
+                           text-xs sm:text-sm font-semibold tracking-wide
                            disabled:opacity-60 disabled:cursor-not-allowed
-                           transition-colors duration-150"
+                           transition-colors duration-150 mt-2"
               >
                 {status === "sending"
                   ? t.btnSending
