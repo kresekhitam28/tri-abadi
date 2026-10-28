@@ -366,8 +366,8 @@ const content = {
     // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Informasi & Edukasi",
     articleTitleLight: "Butuh wawasan seputar ",
-    articleTitleBold: "Konstruksi & Aspal?",
-    articleDesc: "Jangan lewatkan artikel dan tips terbaru dari kami seputar dunia konstruksi, pengaspalan, dan perawatan jalan.",
+    articleTitleBold: "Konstruksi & Paving Block?",
+    articleDesc: "Jangan lewatkan artikel dan tips terbaru dari kami seputar pemasangan paving block, variasi motif, dan perawatan permukaan jalan.",
     articleBtn: "Lihat Semua Artikel",
     areaKicker: "Layanan",
     areaTitleLight: "Area ",
@@ -406,8 +406,8 @@ const content = {
     // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Information & Education",
     articleTitleLight: "Need insights on ",
-    articleTitleBold: "Construction & Asphalt?",
-    articleDesc: "Don't miss our latest articles and tips about construction, asphalt paving, and road maintenance.",
+    articleTitleBold: "Construction & Paving Block?",
+    articleDesc: "Don't miss our latest articles and tips about paving block installation, pattern variations, and road surface maintenance.",
     articleBtn: "View All Articles",
     areaKicker: "Services",
     areaTitleLight: "Our ",

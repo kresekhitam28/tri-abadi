@@ -321,8 +321,8 @@ const content = {
     // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Informasi & Edukasi",
     articleTitleLight: "Butuh wawasan seputar ",
-    articleTitleBold: "Konstruksi & Aspal?",
-    articleDesc: "Jangan lewatkan artikel dan tips terbaru dari kami seputar dunia konstruksi, pengaspalan, dan perawatan jalan.",
+    articleTitleBold: "Konstruksi & Tiang Pancang?",
+    articleDesc: "Jangan lewatkan artikel dan tips terbaru dari kami seputar pondasi tiang pancang, penanganan tanah lunak, dan kekuatan struktur bangunan.",
     articleBtn: "Lihat Semua Artikel",
     areaKicker: "Layanan",
     areaTitleLight: "Area ",
@@ -362,8 +362,8 @@ const content = {
     // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Information & Education",
     articleTitleLight: "Need insights on ",
-    articleTitleBold: "Construction & Asphalt?",
-    articleDesc: "Don't miss our latest articles and tips about construction, asphalt paving, and road maintenance.",
+    articleTitleBold: "Construction & Piles?",
+    articleDesc: "Don't miss our latest articles and tips about pile foundations, soft soil handling, and building structural strength.",
     articleBtn: "View All Articles",
     areaKicker: "Services",
     areaTitleLight: "Our ",

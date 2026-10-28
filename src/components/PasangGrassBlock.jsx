@@ -453,8 +453,8 @@ const content = {
     // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Informasi & Edukasi",
     articleTitleLight: "Butuh wawasan seputar ",
-    articleTitleBold: "Konstruksi & Aspal?",
-    articleDesc: "Jangan lewatkan artikel dan tips terbaru dari kami seputar dunia konstruksi, pengaspalan, dan perawatan jalan.",
+    articleTitleBold: "Konstruksi & Grass Block?",
+    articleDesc: "Jangan lewatkan artikel dan tips terbaru dari kami seputar pemasangan grass block, sistem drainase alami, dan penataan area hijau.",
     articleBtn: "Lihat Semua Artikel",
     areaKicker: "Layanan",
     areaTitleLight: "Area ",
@@ -493,8 +493,8 @@ const content = {
     // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Information & Education",
     articleTitleLight: "Need insights on ",
-    articleTitleBold: "Construction & Asphalt?",
-    articleDesc: "Don't miss our latest articles and tips about construction, asphalt paving, and road maintenance.",
+    articleTitleBold: "Construction & Grass Block?",
+    articleDesc: "Don't miss our latest articles and tips about grass block installation, natural drainage systems, and green area landscaping.",
     articleBtn: "View All Articles",
     areaKicker: "Services",
     areaTitleLight: "Our ",

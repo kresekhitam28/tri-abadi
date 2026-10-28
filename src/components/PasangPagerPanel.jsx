@@ -365,8 +365,8 @@ const content = {
     // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Informasi & Edukasi",
     articleTitleLight: "Butuh wawasan seputar ",
-    articleTitleBold: "Konstruksi & Aspal?",
-    articleDesc: "Jangan lewatkan artikel dan tips terbaru dari kami seputar dunia konstruksi, pengaspalan, dan perawatan jalan.",
+    articleTitleBold: "Konstruksi & Pager Panel?",
+    articleDesc: "Jangan lewatkan artikel dan tips terbaru dari kami seputar pemasangan pager panel beton, keamanan lahan, dan penataan batas area.",
     articleBtn: "Lihat Semua Artikel",
     areaKicker: "Layanan",
     areaTitleLight: "Area ",
@@ -406,8 +406,8 @@ const content = {
     // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Information & Education",
     articleTitleLight: "Need insights on ",
-    articleTitleBold: "Construction & Asphalt?",
-    articleDesc: "Don't miss our latest articles and tips about construction, asphalt paving, and road maintenance.",
+    articleTitleBold: "Construction & Precast Panels?",
+    articleDesc: "Don't miss our latest articles and tips about concrete panel fence installation, land security, and area boundary arrangement.",
     articleBtn: "View All Articles",
     areaKicker: "Services",
     areaTitleLight: "Our ",

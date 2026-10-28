@@ -399,8 +399,8 @@ const content = {
     // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Informasi & Edukasi",
     articleTitleLight: "Butuh wawasan seputar ",
-    articleTitleBold: "Konstruksi & Aspal?",
-    articleDesc: "Jangan lewatkan artikel dan tips terbaru dari kami seputar dunia konstruksi, pengaspalan, dan perawatan jalan.",
+    articleTitleBold: "Konstruksi & kanstin?",
+    articleDesc: "Jangan lewatkan artikel dan tips terbaru dari kami seputar pemasangan kanstin, pembuatan trotoar, dan perawatan infrastruktur jalan.",
     articleBtn: "Lihat Semua Artikel",
     areaKicker: "Layanan",
     areaTitleLight: "Area ",
@@ -438,8 +438,8 @@ const content = {
     // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Information & Education",
     articleTitleLight: "Need insights on ",
-    articleTitleBold: "Construction & Asphalt?",
-    articleDesc: "Don't miss our latest articles and tips about construction, asphalt paving, and road maintenance.",
+    articleTitleBold: "Construction & Curb Installation?",
+    articleDesc: "Don't miss our latest articles and tips about curb installation, sidewalk construction, and road infrastructure maintenance.",
     articleBtn: "View All Articles",
     areaKicker: "Services",
     areaTitleLight: "Our ",

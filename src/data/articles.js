@@ -534,9 +534,14 @@ export const articles = [
       },
     },
     tags: [
-      { id: "Cor Beton Ready Mix", en: "Ready-Mix Concrete", slug: "cor-beton-ready-mix" },
-      { id: "Pengecoran Jalan", en: "Road Casting", slug: "pengecoran-jalan" },
-    ],
+  { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
+  { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide", slug: "pemasangan-grass-block" },
+  { id: "Pemasangan Pagar Panel", en: "Panel Fence Installation Guide", slug: "pemasangan-pagar-panel" },
+  { id: "Pemasangan Tiang Pancang", en: "Pile Driving Installation Guide", slug: "pemasangan-tiang-pancang" },
+  { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+  { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
+  { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
+],
     body: [
       { 
         type: "paragraph", 
@@ -639,11 +644,18 @@ export const articles = [
       },
     },
     tags: [
-      { id: "Biaya Aspal", en: "Asphalt Cost", slug: "biaya-aspal" },
-      { id: "Jasa Pengaspalan", en: "Paving Services", slug: "jasa-pengaspalan" },
-      { id: "Aspal Jalan Murah", en: "Affordable Asphalt Paving", slug: "aspal-jalan-murah" },
-      { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works", slug: "pekerjaan-aspal-hotmix" },
-    ],
+  { id: "Aspal Jalan Murah", en: "Affordable Asphalt Paving", slug: "aspal-jalan-murah" },
+  { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works", slug: "pekerjaan-aspal-hotmix" },
+  { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
+  { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
+  { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+  { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative", slug: "aspal-jalan-murah-2" },
+  { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative", slug: "pekerjaan-aspal-hotmix-2" },
+  { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative", slug: "distributor-aspal-2" },
+  { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative", slug: "perbaikan-jalan-aspal-2" },
+  { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
+  { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
+],
     body: [
       { 
         type: "paragraph", 
@@ -722,10 +734,14 @@ export const articles = [
       },
     },
     tags: [
-      { id: "Pasang Grass Block", en: "Grass Block Installation", slug: "pasang-grass-block" },
-      { id: "Paving Block", en: "Paving Block", slug: "pemasangan-paving-block" },
-      { id: "Jasa Konstruksi", en: "Construction Services", slug: "jasa-konstruksi" },
-    ],
+  { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
+  { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+  { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
+  { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
+  { id: "Jasa Pengecoran Beton", en: "Concrete Casting Services", slug: "jasa-pengecoran-beton" },
+  { id: "Pemasangan Pagar Panel", en: "Panel Fence Installation Guide", slug: "pemasangan-pagar-panel" },
+  { id: "Pemasangan Tiang Pancang", en: "Pile Driving Installation Guide", slug: "pemasangan-tiang-pancang" },
+],
     body: [
       { 
         type: "paragraph", 
@@ -849,10 +865,14 @@ export const articles = [
       },
     },
     tags: [
-      { id: "Pasang Pagar Panel", en: "Panel Fence Installation", slug: "pasang-pagar-panel" },
-      { id: "Pagar Beton Precast", en: "Precast Concrete Fence", slug: "pagar-beton-precast" },
-      { id: "Jasa Konstruksi", en: "Construction Services", slug: "jasa-konstruksi" },
-    ],
+  { id: "Pemasangan Tiang Pancang", en: "Pile Driving Installation Guide", slug: "pemasangan-tiang-pancang" },
+  { id: "Jasa Pengecoran Beton", en: "Concrete Casting Services", slug: "jasa-pengecoran-beton" },
+  { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide", slug: "pemasangan-grass-block" },
+  { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
+  { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+  { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
+  { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
+],
     body: [
       { 
         type: "paragraph", 
@@ -976,10 +996,14 @@ export const articles = [
       },
     },
     tags: [
-      { id: "Pasang Tiang Pancang", en: "Pile Driving", slug: "pasang-tiang-pancang" },
-      { id: "Pondasi Bangunan", en: "Building Foundation", slug: "pondasi-bangunan" },
-      { id: "Jasa Konstruksi", en: "Construction Services", slug: "jasa-konstruksi" },
-    ],
+  { id: "Pemasangan Pagar Panel", en: "Panel Fence Installation Guide", slug: "pemasangan-pagar-panel" },
+  { id: "Jasa Pengecoran Beton", en: "Concrete Casting Services", slug: "jasa-pengecoran-beton" },
+  { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide", slug: "pemasangan-grass-block" },
+  { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
+  { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+  { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
+  { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
+],
     body: [
       { 
         type: "paragraph", 
