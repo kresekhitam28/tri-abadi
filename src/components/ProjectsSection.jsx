@@ -3,7 +3,6 @@
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { createPortal } from "react-dom";
-import Image from "next/image";
 import { useLang } from "../context/LanguageContext";
 
 // ─────────────────────────────────────────────
@@ -25,6 +24,12 @@ const ALL_PROJECTS = [
 ];
 
 const projects = ALL_PROJECTS.slice(0, 8);
+
+// ─────────────────────────────────────────────
+// HELPER: src → varian ukuran / thumbs
+// ─────────────────────────────────────────────
+const toSize = (src, suffix) => src.replace(/\.webp$/, `${suffix}.webp`);
+const toThumb = (src) => src.replace("/proyek/", "/proyek/thumbs/");
 
 // ─────────────────────────────────────────────
 // KONTEN BILINGUAL
@@ -143,7 +148,7 @@ function Lightbox({ selectedIndex, setSelectedIndex, lang, goPrev, goNext }) {
         </button>
       </div>
 
-      {/* Main image */}
+      {/* Main image — pakai varian 1024w */}
       <div className="flex-1 flex items-center justify-center px-3 sm:px-20 relative min-h-0">
         <button
           onClick={(e) => { e.stopPropagation(); goPrev(); }}
@@ -157,13 +162,13 @@ function Lightbox({ selectedIndex, setSelectedIndex, lang, goPrev, goNext }) {
           className="relative max-w-4xl w-full h-[72vh] flex items-center justify-center"
           onClick={(e) => e.stopPropagation()}
         >
-          <Image
+          <img
             key={selectedIndex}
-            src={selected.src}
+            src={toSize(selected.src, "-1024")}
             alt=""
-            fill
-            sizes="(max-width: 1024px) 100vw, 896px"
-            className="object-contain select-none rounded-lg"
+            decoding="async"
+            draggable={false}
+            className="w-full h-full object-contain select-none rounded-lg"
           />
         </div>
 
@@ -176,7 +181,7 @@ function Lightbox({ selectedIndex, setSelectedIndex, lang, goPrev, goNext }) {
         </button>
       </div>
 
-      {/* Thumbnails */}
+      {/* Thumbnails — pakai versi thumbs (2-4 KB) */}
       <div
         className="shrink-0 p-3 sm:p-4 overflow-x-auto border-t border-white/10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         onClick={(e) => e.stopPropagation()}
@@ -197,12 +202,14 @@ function Lightbox({ selectedIndex, setSelectedIndex, lang, goPrev, goNext }) {
               style={{ scrollSnapAlign: "center" }}
               aria-label={lang === "en" ? `Photo ${i + 1}` : `Foto ${i + 1}`}
             >
-              <Image
-                src={thumb.src}
+              <img
+                src={toThumb(thumb.src)}
                 alt=""
-                fill
-                sizes="64px"
-                className="object-cover"
+                loading="lazy"
+                decoding="async"
+                width={64}
+                height={64}
+                className="w-full h-full object-cover"
               />
             </button>
           ))}
@@ -289,7 +296,7 @@ export default function ProjectsSection() {
             </h2>
           </div>
 
-          {/* ═══ GRID PROYEK ═══ */}
+          {/* ═══ GRID PROYEK — srcSet 320/640/1024 ═══ */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3 lg:gap-4">
             {projects.map((item, i) => (
               <button
@@ -298,13 +305,19 @@ export default function ProjectsSection() {
                 className="group relative overflow-hidden rounded-xl bg-slate-100 aspect-square cursor-pointer border border-slate-200 hover:border-[#1e88e5] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
                 aria-label={`${openProjectLabel} ${i + 1}`}
               >
-                <Image
-                  src={item.src}
-                  alt=""
-                  fill
+                <img
+                  src={toSize(item.src, "-640")}
+                  srcSet={`
+                    ${toSize(item.src, "-320")} 320w,
+                    ${toSize(item.src, "-640")} 640w,
+                    ${toSize(item.src, "-1024")} 1024w
+                  `}
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  priority={i < 4}
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+                  alt=""
+                  fetchPriority={i < 4 ? "high" : "auto"}
+                  loading={i < 4 ? "eager" : "lazy"}
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
                 />
 
                 {/* Overlay tipis saat hover */}
