@@ -3,6 +3,7 @@ import { LanguageProvider } from "../context/LanguageContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import FloatingWA from "../components/FloatingWA";
+import WATracker from "../components/WATracker"; // <-- Tambahan untuk tracking WA
 import Script from "next/script";
 
 export const metadata = {
@@ -58,10 +59,10 @@ export default function RootLayout({ children }) {
     "@type": "GeneralContractor",
     "name": "PT Tri Abadi Makmur - Spesialis Aspal",
     "url": "https://spesialisaspal.com/",
-    "telephone": "+6282258089367", // [GANTI DENGAN NOMOR TELEPON RESMI PT TAM]
+    "telephone": "+6282258089367", 
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Jl. Al Hidayah RT.06 RW.02, Pondok Jaya, Pondok Aren", // [GANTI DENGAN ALAMAT LENGKAP RESMI]
+      "streetAddress": "Jl. Al Hidayah RT.06 RW.02, Pondok Jaya, Pondok Aren", 
       "addressLocality": "Tangerang Selatan",
       "addressRegion": "Banten",
       "addressCountry": "ID"
@@ -114,6 +115,9 @@ export default function RootLayout({ children }) {
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
+
+        {/* Komponen pelacak klik WhatsApp otomatis */}
+        <WATracker />
 
         <LanguageProvider>
           <Navbar />
