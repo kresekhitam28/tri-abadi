@@ -229,7 +229,7 @@ function TagItem({ tag, lang, className }) {
 }
 
 // ─────────────────────────────────────────────
-// BODY RENDERER
+// BODY RENDERER (DIUPDATE UNTUK HTML/TABEL)
 // ─────────────────────────────────────────────
 function ArticleBody({ body, lang }) {
   let firstParagraphDone = false;
@@ -254,10 +254,13 @@ function ArticleBody({ body, lang }) {
           const isFirst = !firstParagraphDone;
           firstParagraphDone = true;
           const text = pick(block.text, lang);
+          
+          // Deteksi apakah blok ini berisi kode HTML (seperti tabel)
+          const isHtml = text.trim().startsWith("<");
 
           return (
             <Reveal key={i} y={14}>
-              {isFirst ? (
+              {isFirst && !isHtml ? (
                 <p className="text-slate-700 leading-[1.9] sm:leading-[1.95]
                               first-letter:float-left first-letter:mr-3 first-letter:mt-1
                               first-letter:text-[42px] sm:first-letter:text-[46px]
@@ -267,7 +270,15 @@ function ArticleBody({ body, lang }) {
                 >
                   {text}
                 </p>
+              ) : isHtml ? (
+                /* Render HTML (Tabel/Grid) */
+                <div
+                  className="text-slate-700 leading-[1.9] sm:leading-[1.95] prose max-w-none w-full"
+                  style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1rem)" }}
+                  dangerouslySetInnerHTML={{ __html: text }}
+                />
               ) : (
+                /* Render Teks Biasa */
                 <p
                   className="text-slate-700 leading-[1.9] sm:leading-[1.95]"
                   style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1rem)" }}

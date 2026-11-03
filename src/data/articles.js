@@ -1094,6 +1094,492 @@ export const articles = [
       }
     ],
   },
+    {
+    slug: "lapisan-aspal-hotmix",
+    src: "/proyek/proyek-31.webp",
+    category: { id: "Hotmix", en: "Hotmix" },
+    title: { id: "Lapisan Aspal Hotmix", en: "Hotmix Asphalt Layers" },
+    date: { id: "25 Oktober 2026", en: "October 25, 2026" },
+    desc: {
+      id: "Lapisan aspal hotmix — Memahami struktur dan fungsi setiap lapisan aspal hotmix sangat penting agar jalan yang dibangun kuat, rata, dan tahan lama. Berikut penjelasan lengkapnya.",
+      en: "Hotmix asphalt layers — Understanding the structure and function of each hotmix asphalt layer is essential so the road built is strong, flat, and durable. Here is the complete explanation.",
+    },
+    author: {
+      name: "PT. Tri Abadi Makmur Indonesia",
+      phone: "0858-8182-7315",
+      avatar: "/logo.webp",
+      lastUpdated: { id: "25 Oktober 2026", en: "October 25, 2026" },
+      bio: {
+        id: "Tri Abadi Makmur merupakan perusahaan yang bergerak di bidang konstruksi, dengan pengalaman yang sudah bertahun – tahun kami kembangkan, tahapan proses yang mengedepankan kualitas dan kehati-hatian, serta eksekusi pengerjaan proyek yang signifikan, demi tercapainya kepuasan client sehingga terwujudnya jalinan kerjasama yang continue dan berkelanjutan.",
+        en: "Tri Abadi Makmur is a construction company with years of experience we have developed, a process that prioritizes quality and prudence, as well as the execution of significant projects, in order to achieve client satisfaction so that continuous and long-term cooperation is realized.",
+      },
+    },
+    tags: [
+      { id: "Aspal Jalan Murah", en: "Affordable Asphalt Paving", slug: "aspal-jalan-murah" },
+      { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works", slug: "pekerjaan-aspal-hotmix" },
+      { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
+      { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
+      { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+      { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative", slug: "aspal-jalan-murah-2" },
+      { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative", slug: "pekerjaan-aspal-hotmix-2" },
+      { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative", slug: "distributor-aspal-2" },
+      { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative", slug: "perbaikan-jalan-aspal-2" },
+      { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
+      { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
+      { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
+    ],
+    body: [
+      {
+        type: "paragraph",
+        text: {
+          id: "Lapisan aspal hotmix — Jalan yang mulus, kuat, dan tahan lama tidak tercipta begitu saja. Di balik permukaan aspal yang rata, terdapat struktur lapisan aspal hotmix yang tersusun secara berlapis sesuai fungsinya masing-masing. Setiap lapisan memiliki peran penting dalam menahan beban kendaraan, menyalurkan air, serta menjaga kestabilan struktur jalan. Memahami lapisan aspal hotmix menjadi kunci bagi siapa pun yang ingin membangun atau memperbaiki jalan dengan hasil terbaik.",
+          en: "Hotmix asphalt layers — A smooth, strong, and durable road is not created just like that. Behind the flat asphalt surface, there is a hotmix asphalt layer structure arranged in layers according to their respective functions. Each layer plays an important role in bearing vehicle loads, draining water, and maintaining the stability of the road structure. Understanding hotmix asphalt layers is key for anyone who wants to build or repair roads with the best results.",
+        },
+      },
+      {
+        type: "heading",
+        text: { id: "Apa Itu Aspal Hotmix?", en: "What Is Hotmix Asphalt?" },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Aspal hotmix adalah campuran agregat (batu pecah, pasir, dan filler) dengan aspal sebagai bahan pengikat yang dipanaskan pada suhu tertentu sebelum dihampar dan dipadatkan. Proses pencampuran panas inilah yang membuat aspal hotmix memiliki daya lekat, kepadatan, dan kekuatan yang jauh lebih baik dibandingkan aspal dingin. Karena keunggulannya inilah aspal hotmix menjadi standar dalam pembangunan jalan raya, jalan tol, hingga jalan perumahan.",
+          en: "Hotmix asphalt is a mixture of aggregate (crushed stone, sand, and filler) with asphalt as a binder, heated at a certain temperature before being spread and compacted. This hot mixing process is what makes hotmix asphalt have much better adhesion, density, and strength compared to cold asphalt. Because of these advantages, hotmix asphalt has become the standard in highway, toll road, and residential road construction.",
+        },
+      },
+      {
+        type: "heading",
+        text: { id: "Struktur Lapisan Aspal Hotmix dari Bawah ke Atas", en: "Hotmix Asphalt Layer Structure from Bottom to Top" },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Secara umum, struktur perkerasan jalan dengan aspal hotmix terdiri dari beberapa lapisan yang saling menopang. Masing-masing lapisan memiliki ketebalan dan fungsi tersendiri. Berikut urutan lapisan aspal hotmix dari bawah ke atas.",
+          en: "In general, the road pavement structure with hotmix asphalt consists of several layers that support each other. Each layer has its own thickness and function. Here is the order of hotmix asphalt layers from bottom to top.",
+        },
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          {
+            id: "Lapisan Tanah Dasar (Subgrade) — Lapisan paling bawah berupa tanah asli atau tanah urug yang dipadatkan. Lapisan ini menjadi pondasi utama yang menopang seluruh beban jalan. Kualitas pemadatan tanah dasar sangat menentukan kestabilan lapisan di atasnya.",
+            en: "Subgrade Layer — The bottom-most layer consisting of compacted natural or fill soil. This layer is the main foundation that supports the entire road load. The quality of subgrade compaction greatly determines the stability of the layers above it.",
+          },
+          {
+            id: "Lapisan Pondasi Bawah (Subbase Course) — Terdiri dari material berbutir seperti batu pecah, kerikil, atau sirtu yang dipadatkan. Berfungsi menyalurkan beban dan sebagai lapisan drainase agar air tidak naik ke atas. Ketebalannya biasanya berkisar 15–30 cm.",
+            en: "Subbase Course — Consists of granular materials such as crushed stone, gravel, or sirtu that are compacted. It functions to distribute loads and acts as a drainage layer to prevent water from rising. Its thickness is usually around 15–30 cm.",
+          },
+          {
+            id: "Lapisan Pondasi Atas (Base Course) — Bisa menggunakan agregat padat atau aspal hotmix jenis ATB (Asphalt Treated Base) dengan ketebalan sekitar 5 cm. Lapisan ini berperan menahan gaya geser dan menyebarkan beban kendaraan sebelum diteruskan ke lapisan di bawahnya.",
+            en: "Base Course — Can use dense aggregate or hotmix asphalt type ATB (Asphalt Treated Base) with a thickness of about 5 cm. This layer plays a role in resisting shear forces and distributing vehicle loads before they are transferred to the layer below.",
+          },
+          {
+            id: "Lapisan Pengikat (Binder Course / AC-BC) — Menggunakan aspal hotmix jenis AC-BC dengan ketebalan 4–6 cm. Lapisan ini berfungsi sebagai pengikat antara lapisan pondasi dan lapisan permukaan. Fungsinya menambah kekuatan struktur serta menahan beban berat kendaraan.",
+            en: "Binder Course (AC-BC) — Uses hotmix asphalt type AC-BC with a thickness of 4–6 cm. This layer functions as a binder between the base course and the surface layer. It adds structural strength and bears heavy vehicle loads.",
+          },
+          {
+            id: "Lapisan Permukaan (Wearing Course / AC-WC) — Merupakan lapisan teratas aspal hotmix jenis AC-WC dengan ketebalan 4 cm. Lapisan ini bersentuhan langsung dengan ban kendaraan, sehingga harus tahan terhadap gesekan, cuaca, serta kedap air. Kualitas lapisan ini sangat menentukan kenyamanan berkendara.",
+            en: "Wearing Course (AC-WC) — This is the top layer of hotmix asphalt type AC-WC with a thickness of 4 cm. This layer is in direct contact with vehicle tires, so it must be resistant to friction, weather, and be waterproof. The quality of this layer greatly determines driving comfort.",
+          },
+          {
+            id: "Lapisan Aus atau Penutup (Sand Sheet / Hot Roll Sheet) — Lapisan finishing tipis setebal 1,5–3 cm untuk meratakan permukaan agar tampak lebih halus dan rata. Tidak semua proyek menggunakan lapisan ini, tergantung kebutuhan dan spesifikasi.",
+            en: "Wearing or Cover Layer (Sand Sheet / Hot Roll Sheet) — A thin finishing layer 1.5–3 cm thick to flatten the surface so it looks smoother and more even. Not all projects use this layer, depending on needs and specifications.",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        text: { id: "Fungsi Penting Setiap Lapisan", en: "The Important Function of Each Layer" },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Setiap lapisan aspal hotmix saling bergantung satu dengan lainnya. Jika salah satu lapisan tidak dikerjakan dengan benar, maka lapisan di atasnya akan cepat rusak. Misalnya, jika tanah dasar tidak dipadatkan dengan baik, lapisan pondasi bisa amblas dan menyebabkan permukaan jalan bergelombang. Begitu pula jika lapisan pengikat terlalu tipis, lapisan permukaan akan mudah retak ketika dilalui kendaraan berat.",
+          en: "Each hotmix asphalt layer depends on one another. If one layer is not done correctly, the layer above it will quickly deteriorate. For example, if the subgrade is not properly compacted, the base course can sink and cause the road surface to become wavy. Likewise, if the binder layer is too thin, the surface layer will easily crack when passed by heavy vehicles.",
+        },
+      },
+      {
+        type: "heading",
+        text: { id: "Tips Memastikan Lapisan Aspal Hotmix Berkualitas", en: "Tips to Ensure Quality Hotmix Asphalt Layers" },
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          {
+            id: "Gunakan Material Sesuai Standar — Pastikan agregat dan aspal yang digunakan sesuai spesifikasi, misalnya mutu aspal penetrasi 60/70 dan agregat yang bersih dari kotoran.",
+            en: "Use Materials According to Standards — Make sure the aggregate and asphalt used match the specification, for example penetration 60/70 asphalt and aggregate clean from impurities.",
+          },
+          {
+            id: "Perhatikan Suhu Pencampuran — Aspal hotmix harus dihampar pada suhu yang tepat, umumnya 130–150°C. Suhu yang terlalu rendah membuat aspal sulit dipadatkan, sementara suhu terlalu tinggi membuat aspal cepat mengeras.",
+            en: "Pay Attention to Mixing Temperature — Hotmix asphalt must be spread at the right temperature, generally 130–150°C. Too low a temperature makes asphalt difficult to compact, while too high a temperature makes asphalt harden quickly.",
+          },
+          {
+            id: "Pemadatan yang Merata — Gunakan tandem roller dan pneumatic tire roller sesuai tahapan agar setiap lapisan benar-benar padat dan tidak ada rongga udara berlebih.",
+            en: "Even Compaction — Use tandem rollers and pneumatic tire rollers according to the stages so that each layer is truly dense and has no excess air voids.",
+          },
+          {
+            id: "Pilih Kontraktor Berpengalaman — Pengerjaan aspal hotmix membutuhkan alat berat dan tenaga ahli. Pilih penyedia jasa yang sudah terbukti berpengalaman agar hasilnya rapi dan tahan lama.",
+            en: "Choose an Experienced Contractor — Hotmix asphalt work requires heavy equipment and experts. Choose a service provider that has proven experience so the results are neat and durable.",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        text: { id: "Butuh Jasa Pengaspalan Hotmix Profesional?", en: "Need Professional Hotmix Asphalt Services?" },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Pembangunan dan perbaikan jalan dengan lapisan aspal hotmix yang benar akan menghemat biaya perawatan jangka panjang. Jalan yang dibangun dengan struktur lapisan yang tepat akan jauh lebih awet dan nyaman dilalui. PT. Tri Abadi Makmur Indonesia menyediakan jasa pengaspalan hotmix untuk jalan raya, jalan perumahan, area perkantoran, hingga jalan lingkungan. Kami didukung oleh tim profesional, alat berat modern, dan material berkualitas tinggi. Kami melayani seluruh Indonesia. Hubungi kami sekarang untuk konsultasi dan penawaran terbaik.",
+          en: "Road construction and repair with the correct hotmix asphalt layers will save long-term maintenance costs. A road built with the right layer structure will be far more durable and comfortable to pass. PT. Tri Abadi Makmur Indonesia provides hotmix asphalt services for highways, residential roads, office areas, and neighborhood roads. We are supported by a professional team, modern heavy equipment, and high-quality materials. We serve all of Indonesia. Contact us now for consultation and the best offer.",
+        },
+      },
+    ],
+  },
+    {
+    slug: "harga-aspal-hotmix",
+    src: "/proyek/proyek-22.webp", 
+    category: { id: "Hotmix", en: "Hotmix" },
+    title: { id: "Harga Aspal Hotmix", en: "Hotmix Asphalt Prices" },
+    date: { id: "1 November 2026", en: "November 1, 2026" },
+    desc: {
+      id: "Daftar harga paket jasa pengaspalan dan perbaikan jalan aspal hotmix terbaru. Mulai dari pelapisan ulang, tambal sulam, hingga pembuatan jalan baru.",
+      en: "Latest price list for hotmix asphalt paving and road repair services. From resurfacing, patching, to new road construction.",
+    },
+    author: {
+      name: "PT. Tri Abadi Makmur Indonesia",
+      phone: "0858-8182-7315",
+      avatar: "/logo.webp",
+      lastUpdated: { id: "1 November 2026", en: "November 1, 2026" },
+      bio: {
+        id: "Tri Abadi Makmur merupakan perusahaan yang bergerak di bidang konstruksi, dengan pengalaman yang sudah bertahun – tahun kami kembangkan, tahapan proses yang mengedepankan kualitas dan kehati-hatian, serta eksekusi pengerjaan proyek yang signifikan, demi tercapainya kepuasan client sehingga terwujudnya jalinan kerjasama yang continue dan berkelanjutan.",
+        en: "Tri Abadi Makmur is a construction company with years of experience we have developed, a process that prioritizes quality and prudence, as well as the execution of significant projects, in order to achieve client satisfaction so that continuous and long-term cooperation is realized.",
+      },
+    },
+    tags: [
+      { id: "Aspal Jalan Murah", en: "Affordable Asphalt Paving", slug: "aspal-jalan-murah" },
+      { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works", slug: "pekerjaan-aspal-hotmix" },
+      { id: "Biaya Aspal Per Meter", en: "Asphalt Cost Per Meter", slug: "biaya-aspal-per-meter" },
+    ],
+    body: [
+      {
+        type: "paragraph",
+        text: {
+          id: "Mencari penyedia jasa pengaspalan seringkali membingungkan karena harga yang ditawarkan bisa sangat bervariasi. Agar Anda tidak salah anggaran, berikut kami tawarkan transparansi harga paket jasa perbaikan dan pengaspalan jalan menggunakan material hotmix berkualitas.",
+          en: "Finding a paving service provider is often confusing because the prices offered can vary widely. To ensure you don't miscalculate your budget, here we offer price transparency for road repair and paving service packages using quality hotmix materials.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Harga di bawah ini dihitung per meter persegi (m²) dan sudah termasuk material serta tenaga kerja. Anda bisa menyesuaikan pilihan paket dengan kondisi jalan yang akan diperbaiki.",
+          en: "The prices below are calculated per square meter (m²) and already include materials and labor. You can adjust the package choice with the condition of the road to be repaired.",
+        },
+      },
+      
+      // --- GRID KATEGORI (4 KOLOM SEJAJAR) ---
+      {
+        type: "paragraph",
+        text: {
+          id: `
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 30px 0; align-items: stretch;">
+              
+              <!-- KATEGORI A -->
+              <div style="position: relative; display: flex; flex-direction: column; background-color: #fff; border: 1px solid #e2e8f0; border-radius: 8px; border-top: 4px solid #e11d48; padding: 20px 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+                <span style="position: absolute; top: 10px; right: 10px; font-size: 64px; font-weight: 900; color: #e11d48; opacity: 0.06; line-height: 1; pointer-events: none;">A</span>
+                
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px; z-index: 1;">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #e11d48;"></span>
+                  <h3 style="font-size: 12px; font-weight: 700; color: #0f172a; margin: 0; letter-spacing: 0.05em;">KATEGORI A</h3>
+                </div>
+                <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Overlay / pelapisan ulang hotmix</p>
+                
+                <div style="margin-bottom: 4px; z-index: 1;">
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 75.000</span>
+                  <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
+                </div>
+                <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Meter²</p>
+                
+                <div style="height: 1px; background-color: #f1f5f9; margin-bottom: 16px;"></div>
+                
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: #475569; line-height: 1.4;">
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #e11d48; font-size: 14px; line-height: 1;">•</span> <span>Pembersihan badan jalan</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #e11d48; font-size: 14px; line-height: 1;">•</span> <span>Di siram cairan emulsi (lem aspal)</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #e11d48; font-size: 14px; line-height: 1;">•</span> <span>Gelar aspal hotmix</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #e11d48; font-size: 14px; line-height: 1;">•</span> <span>Di padatkan dengan mesin wales / BB roller</span></li>
+                </ul>
+              </div>
+
+              <!-- KATEGORI B -->
+              <div style="position: relative; display: flex; flex-direction: column; background-color: #fff; border: 1px solid #e2e8f0; border-radius: 8px; border-top: 4px solid #16a34a; padding: 20px 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+                <span style="position: absolute; top: 10px; right: 10px; font-size: 64px; font-weight: 900; color: #16a34a; opacity: 0.06; line-height: 1; pointer-events: none;">B</span>
+                
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px; z-index: 1;">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #16a34a;"></span>
+                  <h3 style="font-size: 12px; font-weight: 700; color: #0f172a; margin: 0; letter-spacing: 0.05em;">KATEGORI B</h3>
+                </div>
+                <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Pecingan / tambal sulam batu split / makadam dan hotmix</p>
+                
+                <div style="margin-bottom: 4px; z-index: 1;">
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 95.000</span>
+                  <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
+                </div>
+                <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Meter²</p>
+                
+                <div style="height: 1px; background-color: #f1f5f9; margin-bottom: 16px;"></div>
+                
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: #475569; line-height: 1.4;">
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #16a34a; font-size: 14px; line-height: 1;">•</span> <span>Pembersihan lokasi pekerjaan</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #16a34a; font-size: 14px; line-height: 1;">•</span> <span>Gelar batu split / batu makadam pada yang berlubang</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #16a34a; font-size: 14px; line-height: 1;">•</span> <span>Pemadatan dengan mesin giling / Koting aspal</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #16a34a; font-size: 14px; line-height: 1;">•</span> <span>Gelar aspal hotmix</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #16a34a; font-size: 14px; line-height: 1;">•</span> <span>Pemadatan finising sampai rapi</span></li>
+                </ul>
+              </div>
+
+              <!-- KATEGORI C -->
+              <div style="position: relative; display: flex; flex-direction: column; background-color: #fff; border: 1px solid #e2e8f0; border-radius: 8px; border-top: 4px solid #eab308; padding: 20px 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+                <span style="position: absolute; top: 10px; right: 10px; font-size: 64px; font-weight: 900; color: #eab308; opacity: 0.06; line-height: 1; pointer-events: none;">C</span>
+                
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px; z-index: 1;">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #eab308;"></span>
+                  <h3 style="font-size: 12px; font-weight: 700; color: #0f172a; margin: 0; letter-spacing: 0.05em;">KATEGORI C</h3>
+                </div>
+                <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Pengaspalan penetrasi</p>
+                
+                <div style="margin-bottom: 4px; z-index: 1;">
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 100.000</span>
+                  <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
+                </div>
+                <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Meter²</p>
+                
+                <div style="height: 1px; background-color: #f1f5f9; margin-bottom: 16px;"></div>
+                
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: #475569; line-height: 1.4;">
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #eab308; font-size: 14px; line-height: 1;">•</span> <span>Pemadatan tanah dengan mesin giling</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #eab308; font-size: 14px; line-height: 1;">•</span> <span>Gelar batu makadam 15 cm</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #eab308; font-size: 14px; line-height: 1;">•</span> <span>Koting aspal bakar (lem aspal)</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #eab308; font-size: 14px; line-height: 1;">•</span> <span>Gelar batu split 3 cm</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #eab308; font-size: 14px; line-height: 1;">•</span> <span>Di siram aspal bakar (lem aspal)</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #eab308; font-size: 14px; line-height: 1;">•</span> <span>Gelar abu batu</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #eab308; font-size: 14px; line-height: 1;">•</span> <span>Pemadatan finising pekerjaan</span></li>
+                </ul>
+              </div>
+
+              <!-- KATEGORI D -->
+              <div style="position: relative; display: flex; flex-direction: column; background-color: #fff; border: 1px solid #e2e8f0; border-radius: 8px; border-top: 4px solid #f97316; padding: 20px 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+                <span style="position: absolute; top: 10px; right: 10px; font-size: 64px; font-weight: 900; color: #f97316; opacity: 0.06; line-height: 1; pointer-events: none;">D</span>
+                
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px; z-index: 1;">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #f97316;"></span>
+                  <h3 style="font-size: 12px; font-weight: 700; color: #0f172a; margin: 0; letter-spacing: 0.05em;">KATEGORI D</h3>
+                </div>
+                <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Tahap dasar bikin baru dari pemadatan tanah / 0%</p>
+                
+                <div style="margin-bottom: 4px; z-index: 1;">
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 150.000</span>
+                  <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
+                </div>
+                <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Meter²</p>
+                
+                <div style="height: 1px; background-color: #f1f5f9; margin-bottom: 16px;"></div>
+                
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: #475569; line-height: 1.4;">
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #f97316; font-size: 14px; line-height: 1;">•</span> <span>Pengupasan / perataan tanah</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #f97316; font-size: 14px; line-height: 1;">•</span> <span>Pemadatan tanah dengan mesin giling</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #f97316; font-size: 14px; line-height: 1;">•</span> <span>Gelar batu makadam 15 cm</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #f97316; font-size: 14px; line-height: 1;">•</span> <span>Gelar batu split</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #f97316; font-size: 14px; line-height: 1;">•</span> <span>Di siram aspal emulsi (lem aspal)</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #f97316; font-size: 14px; line-height: 1;">•</span> <span>Gelar aspal hotmix</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #f97316; font-size: 14px; line-height: 1;">•</span> <span>Pemadatan finising pekerjaan</span></li>
+                </ul>
+              </div>
+
+            </div>
+          `,
+          en: `
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 30px 0; align-items: stretch;">
+              
+              <!-- CATEGORY A -->
+              <div style="position: relative; display: flex; flex-direction: column; background-color: #fff; border: 1px solid #e2e8f0; border-radius: 8px; border-top: 4px solid #e11d48; padding: 20px 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+                <span style="position: absolute; top: 10px; right: 10px; font-size: 64px; font-weight: 900; color: #e11d48; opacity: 0.06; line-height: 1; pointer-events: none;">A</span>
+                
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px; z-index: 1;">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #e11d48;"></span>
+                  <h3 style="font-size: 12px; font-weight: 700; color: #0f172a; margin: 0; letter-spacing: 0.05em;">CATEGORY A</h3>
+                </div>
+                <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Overlay / hotmix resurfacing</p>
+                
+                <div style="margin-bottom: 4px; z-index: 1;">
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 75,000</span>
+                  <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
+                </div>
+                <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Square Meter</p>
+                
+                <div style="height: 1px; background-color: #f1f5f9; margin-bottom: 16px;"></div>
+                
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: #475569; line-height: 1.4;">
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #e11d48; font-size: 14px; line-height: 1;">•</span> <span>Road surface cleaning</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #e11d48; font-size: 14px; line-height: 1;">•</span> <span>Sprayed with emulsion liquid (asphalt glue)</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #e11d48; font-size: 14px; line-height: 1;">•</span> <span>Lay hotmix asphalt</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #e11d48; font-size: 14px; line-height: 1;">•</span> <span>Compacted with wales / BB roller machine</span></li>
+                </ul>
+              </div>
+
+              <!-- CATEGORY B -->
+              <div style="position: relative; display: flex; flex-direction: column; background-color: #fff; border: 1px solid #e2e8f0; border-radius: 8px; border-top: 4px solid #16a34a; padding: 20px 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+                <span style="position: absolute; top: 10px; right: 10px; font-size: 64px; font-weight: 900; color: #16a34a; opacity: 0.06; line-height: 1; pointer-events: none;">B</span>
+                
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px; z-index: 1;">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #16a34a;"></span>
+                  <h3 style="font-size: 12px; font-weight: 700; color: #0f172a; margin: 0; letter-spacing: 0.05em;">CATEGORY B</h3>
+                </div>
+                <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Patching / split stone / macadam and hotmix</p>
+                
+                <div style="margin-bottom: 4px; z-index: 1;">
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 95,000</span>
+                  <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
+                </div>
+                <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Square Meter</p>
+                
+                <div style="height: 1px; background-color: #f1f5f9; margin-bottom: 16px;"></div>
+                
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: #475569; line-height: 1.4;">
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #16a34a; font-size: 14px; line-height: 1;">•</span> <span>Cleaning the work area</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #16a34a; font-size: 14px; line-height: 1;">•</span> <span>Lay split stone / macadam stone on potholes</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #16a34a; font-size: 14px; line-height: 1;">•</span> <span>Compaction with roller machine / asphalt coating</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #16a34a; font-size: 14px; line-height: 1;">•</span> <span>Lay hotmix asphalt</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #16a34a; font-size: 14px; line-height: 1;">•</span> <span>Finishing compaction until neat</span></li>
+                </ul>
+              </div>
+
+              <!-- CATEGORY C -->
+              <div style="position: relative; display: flex; flex-direction: column; background-color: #fff; border: 1px solid #e2e8f0; border-radius: 8px; border-top: 4px solid #eab308; padding: 20px 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+                <span style="position: absolute; top: 10px; right: 10px; font-size: 64px; font-weight: 900; color: #eab308; opacity: 0.06; line-height: 1; pointer-events: none;">C</span>
+                
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px; z-index: 1;">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #eab308;"></span>
+                  <h3 style="font-size: 12px; font-weight: 700; color: #0f172a; margin: 0; letter-spacing: 0.05em;">CATEGORY C</h3>
+                </div>
+                <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Penetration asphalt paving</p>
+                
+                <div style="margin-bottom: 4px; z-index: 1;">
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 100,000</span>
+                  <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
+                </div>
+                <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Square Meter</p>
+                
+                <div style="height: 1px; background-color: #f1f5f9; margin-bottom: 16px;"></div>
+                
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: #475569; line-height: 1.4;">
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #eab308; font-size: 14px; line-height: 1;">•</span> <span>Soil compaction with roller machine</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #eab308; font-size: 14px; line-height: 1;">•</span> <span>Lay 15 cm macadam stone</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #eab308; font-size: 14px; line-height: 1;">•</span> <span>Burned asphalt coating (asphalt glue)</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #eab308; font-size: 14px; line-height: 1;">•</span> <span>Lay 3 cm split stone</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #eab308; font-size: 14px; line-height: 1;">•</span> <span>Sprayed with burned asphalt (asphalt glue)</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #eab308; font-size: 14px; line-height: 1;">•</span> <span>Lay stone dust</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #eab308; font-size: 14px; line-height: 1;">•</span> <span>Finishing compaction of work</span></li>
+                </ul>
+              </div>
+
+              <!-- CATEGORY D -->
+              <div style="position: relative; display: flex; flex-direction: column; background-color: #fff; border: 1px solid #e2e8f0; border-radius: 8px; border-top: 4px solid #f97316; padding: 20px 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+                <span style="position: absolute; top: 10px; right: 10px; font-size: 64px; font-weight: 900; color: #f97316; opacity: 0.06; line-height: 1; pointer-events: none;">D</span>
+                
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px; z-index: 1;">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #f97316;"></span>
+                  <h3 style="font-size: 12px; font-weight: 700; color: #0f172a; margin: 0; letter-spacing: 0.05em;">CATEGORY D</h3>
+                </div>
+                <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Base stage of making new from soil compaction / 0%</p>
+                
+                <div style="margin-bottom: 4px; z-index: 1;">
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 150,000</span>
+                  <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
+                </div>
+                <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Square Meter</p>
+                
+                <div style="height: 1px; background-color: #f1f5f9; margin-bottom: 16px;"></div>
+                
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: #475569; line-height: 1.4;">
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #f97316; font-size: 14px; line-height: 1;">•</span> <span>Soil stripping / leveling</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #f97316; font-size: 14px; line-height: 1;">•</span> <span>Soil compaction with roller machine</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #f97316; font-size: 14px; line-height: 1;">•</span> <span>Lay 15 cm macadam stone</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #f97316; font-size: 14px; line-height: 1;">•</span> <span>Lay split stone</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #f97316; font-size: 14px; line-height: 1;">•</span> <span>Sprayed with emulsion asphalt (asphalt glue)</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #f97316; font-size: 14px; line-height: 1;">•</span> <span>Lay hotmix asphalt</span></li>
+                  <li style="display: flex; gap: 6px; align-items: flex-start;"><span style="color: #f97316; font-size: 14px; line-height: 1;">•</span> <span>Finishing compaction of work</span></li>
+                </ul>
+              </div>
+
+            </div>
+          `,
+        },
+      },
+
+      // --- TAMBAHAN EDUKASI: CARA MEMILIH PAKET ---
+      {
+        type: "heading",
+        text: { id: "Bingung Pilih Paket yang Mana? Ini Panduannya", en: "Confused About Which Package to Choose? Here's the Guide" },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Setiap jalan punya tingkat kerusakan yang berbeda. Agar uang Anda tidak terbuang sia-sia, sesuaikan paket di atas dengan kondisi lapangan:",
+          en: "Every road has a different level of damage. To ensure your money is not wasted, match the package above with the field conditions:",
+        },
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          { 
+            id: "Pilih Kategori A jika jalan lama Anda kondisinya masih relatif rata dan kokoh, hanya butuh lapisan baru agar lebih halus.", 
+            en: "Choose Category A if your old road is still relatively level and solid, just needs a new layer to be smoother." 
+          },
+          { 
+            id: "Pilih Kategori B jika ada lubang parah atau jalan amblas di beberapa titik, sehingga butuh tambalan batu makadam sebelum dilapisi aspal.", 
+            en: "Choose Category B if there are severe potholes or sunken roads at several points, so it needs macadam stone patches before being coated with asphalt." 
+          },
+          { 
+            id: "Pilih Kategori C atau D jika jalanan benar-benar rusak parah, berlumpur, atau Anda ingin membangun jalan baru dari nol (tanah belum diaspal).", 
+            en: "Choose Category C or D if the road is heavily damaged, muddy, or you want to build a new road from scratch (the land has never been paved)." 
+          },
+        ],
+      },
+
+      // --- TAMBAHAN EDUKASI: FAKTOR PENENTU HARGA ---
+      {
+        type: "heading",
+        text: { id: "Catatan Penting Sebelum Memesan", en: "Important Notes Before Ordering" },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Harga di atas adalah estimasi awal (harga mulai dari) untuk memberikan gambaran anggaran Anda. Harga dapat berubah sesuai kondisi lapangan & volume pekerjaan. Beberapa faktor yang biasanya mempengaruhi harga akhir antara lain:",
+          en: "The prices above are initial estimates (starting prices) to provide an overview of your budget. Prices may change according to field conditions & work volume. Several factors usually affect the final price, including:",
+        },
+      },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          { id: "Luas area pekerjaan (semakin luas, biasanya harga per meter bisa lebih efisien).", en: "Work area size (the larger the area, usually the price per meter can be more efficient)." },
+          { id: "Tingkat kerusakan jalan aktual di lapangan.", en: "The actual level of road damage in the field." },
+          { id: "Jarak lokasi proyek dari Asphalt Mixing Plant (AMP).", en: "The distance of the project location from the Asphalt Mixing Plant (AMP)." },
+          { id: "Tingkat kesulitan akses jalan untuk alat berat.", en: "The difficulty level of road access for heavy equipment." },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Ingin mendapatkan harga pasti yang sesuai dengan kondisi jalan Anda? Tim PT. Tri Abadi Makmur Indonesia siap melakukan survei lokasi secara gratis. Hubungi kami sekarang untuk konsultasi lebih lanjut.",
+          en: "Want to get a definite price that matches your road conditions? The PT. Tri Abadi Makmur Indonesia team is ready to conduct a free site survey. Contact us now for further consultation.",
+        },
+      },
+    ],
+  },
 ];
 
 export function getArticleBySlug(slug) {

@@ -2,7 +2,7 @@ import "./globals.css";
 import { LanguageProvider } from "../context/LanguageContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import FloatingWA from "../components/FloatingWA"; // <-- 1. TAMBAHKAN IMPORT INI
+import FloatingWA from "../components/FloatingWA";
 import Script from "next/script";
 
 export const metadata = {
@@ -52,6 +52,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id">
       <head>
+        {/* Preload gambar LCP (hero) — biar browser mulai download sebelum React hydrate */}
+        <link
+          rel="preload"
+          as="image"
+          href="/proyek/hero-1-1024.webp"
+          imageSrcSet="/proyek/hero-1-320.webp 320w, /proyek/hero-1-640.webp 640w, /proyek/hero-1-1024.webp 1024w"
+          imageSizes="100vw"
+          fetchPriority="high"
+        />
+
         {/* Tag GTM untuk <head> */}
         <Script id="gtm-script" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -78,10 +88,8 @@ export default function RootLayout({ children }) {
             {children}
           </main>
           <Footer />
-          
-          {/* 2. TAMBAHKAN KOMPONEN FLOATING WA DI SINI */}
+
           <FloatingWA />
-          
         </LanguageProvider>
       </body>
     </html>

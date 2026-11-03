@@ -85,6 +85,12 @@ const projects = [
 ];
 
 // ─────────────────────────────────────────────
+// HELPER: ubah src jadi versi ukuran tertentu
+// ─────────────────────────────────────────────
+const toSize = (src, suffix) => src.replace(/\.webp$/, `${suffix}.webp`);
+const toThumb = (src) => src.replace("/proyek/", "/proyek/thumbs/");
+
+// ─────────────────────────────────────────────
 // IKON
 // ─────────────────────────────────────────────
 function IconChevronLeft({ className = "w-6 h-6" }) {
@@ -291,7 +297,7 @@ function Lightbox({
         </button>
       </div>
 
-      {/* Main image */}
+      {/* Main image — pakai versi 1024w */}
       <div className="flex-1 flex items-center justify-center px-3 sm:px-20 relative min-h-0">
         <button
           onClick={(e) => { e.stopPropagation(); goPrev(); }}
@@ -303,7 +309,7 @@ function Lightbox({
 
         <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
           <img
-            src={selected.src}
+            src={toSize(selected.src, "-1024")}
             alt=""
             decoding="async"
             draggable={false}
@@ -320,7 +326,7 @@ function Lightbox({
         </button>
       </div>
 
-      {/* Thumbnail strip */}
+      {/* Thumbnail strip — pakai versi thumbs (2-4 KB) */}
       <div
         className="px-3 sm:px-4 py-3 sm:py-4 overflow-x-auto border-t border-white/10 shrink-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         onClick={(e) => e.stopPropagation()}
@@ -345,7 +351,7 @@ function Lightbox({
                 style={{ scrollSnapAlign: "center" }}
               >
                 <img
-                  src={thumb.src}
+                  src={toThumb(thumb.src)}
                   alt=""
                   loading="lazy"
                   decoding="async"
@@ -402,13 +408,14 @@ export default function Projects() {
     return () => window.removeEventListener("keydown", onKey);
   }, [selectedIndex, goPrev, goNext]);
 
+  // Preload next/prev pakai versi 1024 (sesuai yang dipakai lightbox)
   useEffect(() => {
     if (selectedIndex === null) return;
     const next = (selectedIndex + 1) % total;
     const prev = (selectedIndex - 1 + total) % total;
     [next, prev].forEach((i) => {
       const img = new Image();
-      img.src = projects[i].src;
+      img.src = toSize(projects[i].src, "-1024");
     });
   }, [selectedIndex, total]);
 
@@ -496,12 +503,16 @@ export default function Projects() {
                   className="group relative w-full h-full overflow-hidden rounded-xl bg-slate-100 cursor-pointer border border-slate-200/80 hover:border-[#1e88e5]/60 hover:shadow-lg hover:shadow-slate-900/5 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
                 >
                   <img
-                    src={item.src}
+                    src={toSize(item.src, "-640")}
+                    srcSet={`
+                      ${toSize(item.src, "-320")} 320w,
+                      ${toSize(item.src, "-640")} 640w,
+                      ${toSize(item.src, "-1024")} 1024w
+                    `}
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 260px"
                     alt=""
                     loading="lazy"
                     decoding="async"
-                    width={600}
-                    height={600}
                     className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
                   />
 

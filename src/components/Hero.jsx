@@ -2,7 +2,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { useLang } from "../context/LanguageContext";
 import { useIsMobile } from "../hooks/useIsMobile";
 
@@ -10,10 +9,12 @@ import { useIsMobile } from "../hooks/useIsMobile";
 // DAFTAR FOTO (background)
 // ─────────────────────────────────────────────
 const photos = [
-  { src: "/proyek/hero-1.webp", srcSmall: "/proyek/hero-1.webp" },
-  { src: "/proyek/hero-2.webp", srcSmall: "/proyek/hero-2.webp" },
-  { src: "/proyek/hero-3.webp", srcSmall: "/proyek/hero-3.webp" },
+  { src: "/proyek/hero-1.webp" },
+  { src: "/proyek/hero-2.webp" },
+  { src: "/proyek/hero-3.webp" },
 ];
+
+const toSize = (src, suffix) => src.replace(/\.webp$/, `${suffix}.webp`);
 
 // ─────────────────────────────────────────────
 // KONTEN BILINGUAL
@@ -102,13 +103,12 @@ export default function Hero() {
     setLabelIdx(0);
   }, [lang]);
 
-  // Prefetch next image via <link rel="prefetch"> (desktop only)
+  // Prefetch next hero image (desktop only) — pakai varian -1024
   useEffect(() => {
     if (isMobile || typeof document === "undefined") return;
     const next = (active + 1) % photos.length;
-    const href = photos[next].src;
+    const href = toSize(photos[next].src, "-1024");
 
-    // Hindari duplikasi
     const existing = document.querySelector(`link[data-hero-prefetch="${href}"]`);
     if (existing) return;
 
@@ -118,11 +118,6 @@ export default function Hero() {
     link.href = href;
     link.setAttribute("data-hero-prefetch", href);
     document.head.appendChild(link);
-
-    // Cleanup link lama yang sudah tidak relevan (opsional)
-    return () => {
-      // Biarkan link tetap ada — browser akan cache, tidak masalah
-    };
   }, [active, isMobile]);
 
   return (
@@ -134,36 +129,44 @@ export default function Hero() {
     >
       {/* ═══ BACKGROUND ═══ */}
       {isMobile ? (
-        <Image
-          src={photos[0].srcSmall}
+        <img
+          src="/proyek/hero-1-640.webp"
+          srcSet="
+            /proyek/hero-1-320.webp 320w,
+            /proyek/hero-1-640.webp 640w,
+            /proyek/hero-1-1024.webp 1024w
+          "
+          sizes="100vw"
           alt=""
           aria-hidden="true"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover"
         />
       ) : (
         photos.map((p, i) => (
-          <Image
+          <img
             key={p.src}
-            src={p.src}
+            src={toSize(p.src, "-1024")}
+            srcSet={`
+              ${toSize(p.src, "-640")} 640w,
+              ${toSize(p.src, "-1024")} 1024w
+            `}
+            sizes="100vw"
             alt=""
             aria-hidden="true"
-            fill
-            priority={i === 0}
-            sizes="100vw"
-            className={`object-cover transition-opacity duration-[1200ms] ease-in-out
+            fetchPriority={i === 0 ? "high" : "low"}
+            loading="eager"
+            decoding="async"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1200ms] ease-in-out
                         ${i === active ? "opacity-100" : "opacity-0"}`}
           />
         ))
       )}
 
-      {/* ═══ OVERLAY (solid, bukan gradient) ═══ */}
-      <div
-        className="absolute inset-0 bg-slate-950/70"
-        aria-hidden="true"
-      />
+      {/* ═══ OVERLAY ═══ */}
+      <div className="absolute inset-0 bg-slate-950/70" aria-hidden="true" />
 
       {/* ═══ CONTENT ═══ */}
       <div className="relative z-10 w-full max-w-5xl md:max-w-6xl mx-auto
@@ -235,14 +238,14 @@ export default function Hero() {
           {data.tagline}
         </p>
 
-        {/* ─── TOMBOL DOWNLOAD COMPANY PROFILE ─── */}
+        {/* ─── TOMBOL DOWNLOAD ─── */}
         <div
           className={`mt-8 sm:mt-10 transition-all duration-700 ease-out
                       ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
           style={{ transitionDelay: "1100ms" }}
         >
           <a
-            href="/company-profile.pdf" // Ganti dengan path file PDF Anda yang sebenarnya di folder public
+            href="/company-profile.pdf"
             download
             className="inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-3.5
                        bg-[#1e88e5] hover:bg-blue-600 text-white
@@ -250,7 +253,6 @@ export default function Hero() {
                        transition-all duration-300 shadow-lg shadow-blue-500/30
                        hover:shadow-blue-500/50 hover:-translate-y-0.5"
           >
-            {/* Icon Download */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
