@@ -165,7 +165,7 @@ function Lightbox({ selectedIndex, setSelectedIndex, lang, goPrev, goNext }) {
           <img
             key={selectedIndex}
             src={toSize(selected.src, "-1024")}
-            alt=""
+            alt={`Dokumentasi proyek PT Tri Abadi Makmur ke-${selectedIndex + 1}`}
             decoding="async"
             draggable={false}
             className="w-full h-full object-contain select-none rounded-lg"
@@ -204,7 +204,7 @@ function Lightbox({ selectedIndex, setSelectedIndex, lang, goPrev, goNext }) {
             >
               <img
                 src={toThumb(thumb.src)}
-                alt=""
+                alt="" // Dikosongkan karena button sudah punya aria-label
                 loading="lazy"
                 decoding="async"
                 width={64}
@@ -313,7 +313,7 @@ export default function ProjectsSection() {
                     ${toSize(item.src, "-1024")} 1024w
                   `}
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  alt=""
+                  alt={`Proyek pengaspalan hotmix dan paving block PT Tri Abadi Makmur ke-${i + 1}`}
                   fetchPriority={i < 4 ? "high" : "auto"}
                   loading={i < 4 ? "eager" : "lazy"}
                   decoding="async"

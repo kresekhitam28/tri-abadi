@@ -310,7 +310,7 @@ function Lightbox({
         <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
           <img
             src={toSize(selected.src, "-1024")}
-            alt=""
+            alt={`Dokumentasi proyek PT Tri Abadi Makmur ke-${selectedIndex + 1}`}
             decoding="async"
             draggable={false}
             className="w-full h-auto max-h-[72vh] object-contain mx-auto rounded-lg select-none"
@@ -352,7 +352,7 @@ function Lightbox({
               >
                 <img
                   src={toThumb(thumb.src)}
-                  alt=""
+                  alt="" // Dibiarkan kosong karena tombol sudah punya aria-label
                   loading="lazy"
                   decoding="async"
                   width={56}
@@ -510,7 +510,7 @@ export default function Projects() {
                       ${toSize(item.src, "-1024")} 1024w
                     `}
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 260px"
-                    alt=""
+                    alt={`Dokumentasi proyek pengaspalan dan konstruksi PT Tri Abadi Makmur ke-${i + 1}`}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"

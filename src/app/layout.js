@@ -7,6 +7,9 @@ import Script from "next/script";
 
 export const metadata = {
   metadataBase: new URL("https://spesialisaspal.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "PT Tri Abadi Makmur | Spesialis Aspal & Kontraktor Pengaspalan",
     template: "%s | PT Tri Abadi Makmur",
@@ -49,9 +52,39 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // Data JSON-LD untuk Google (Local Business / General Contractor)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "GeneralContractor",
+    "name": "PT Tri Abadi Makmur - Spesialis Aspal",
+    "url": "https://spesialisaspal.com/",
+    "telephone": "+6282258089367", // [GANTI DENGAN NOMOR TELEPON RESMI PT TAM]
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. Al Hidayah RT.06 RW.02, Pondok Jaya, Pondok Aren", // [GANTI DENGAN ALAMAT LENGKAP RESMI]
+      "addressLocality": "Tangerang Selatan",
+      "addressRegion": "Banten",
+      "addressCountry": "ID"
+    },
+    "areaServed": [
+      "Jakarta", 
+      "Bogor", 
+      "Depok", 
+      "Tangerang", 
+      "Tangerang Selatan", 
+      "Bekasi"
+    ]
+  };
+
   return (
     <html lang="id">
       <head>
+        {/* JSON-LD untuk SEO Google */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
         {/* Preload gambar LCP (hero) — biar browser mulai download sebelum React hydrate */}
         <link
           rel="preload"
@@ -63,7 +96,7 @@ export default function RootLayout({ children }) {
         />
 
         {/* Tag GTM untuk <head> */}
-        <Script id="gtm-script" strategy="afterInteractive">
+        <Script id="gtm-script" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=

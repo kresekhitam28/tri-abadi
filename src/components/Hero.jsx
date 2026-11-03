@@ -211,7 +211,7 @@ export default function Hero() {
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-6"}`}
           style={{
-            transitionDelay: "400ms",
+  
             fontSize: "clamp(2.5rem, 9vw, 7rem)",
             letterSpacing: "-0.02em",
           }}
