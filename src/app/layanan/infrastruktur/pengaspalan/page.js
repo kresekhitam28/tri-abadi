@@ -5,6 +5,9 @@ export const metadata = {
   title: "Jasa Pengaspalan | PT Tri Abadi Makmur",
   description:
     "Jasa pengaspalan berkualitas tinggi dengan harga bersaing. Dikerjakan oleh tenaga konstruksi berpengalaman untuk hasil yang rapi, kuat, dan tahan lama.",
+  alternates: {
+    canonical: "/layanan/infrastruktur/pengaspalan",
+  },
 };
 
 export default function PengaspalanPage() {

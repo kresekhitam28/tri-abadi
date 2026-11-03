@@ -5,6 +5,9 @@ export const metadata = {
   title: "Sewa Tronton / Dump Truck | PT Tri Abadi Makmur",
   description:
     "Sewa tronton dan dump truck murah untuk angkut material, tanah, dan batu. Melayani Jabodetabek dan sekitarnya dengan berbagai varian dump truck.",
+  alternates: {
+    canonical: "/heavy-equipment/tronton-dump-truck",
+  },
 };
 
 export default function DumpTruckPage() {

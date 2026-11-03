@@ -5,6 +5,9 @@ export const metadata = {
   title: "Blog & Berita",
   description:
     "Tips, info, dan berita terbaru seputar konstruksi dan pengaspalan jalan dari tim PT Tri Abadi Makmur.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 export default function BlogPage() {

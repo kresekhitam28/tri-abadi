@@ -5,6 +5,9 @@ export const metadata = {
   title: "Kerikil | PT Tri Abadi Makmur",
   description:
     "Jual kerikil untuk campuran beton, pengerasan jalan, dan drainase. Berbagai ukuran tersedia, siap antar.",
+  alternates: {
+    canonical: "/supplier/kerikil",
+  },
 };
 
 export default function KerikilPage() {

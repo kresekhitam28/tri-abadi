@@ -5,6 +5,9 @@ export const metadata = {
   title: "Sewa Tandem Roller | PT Tri Abadi Makmur",
   description:
     "Sewa tandem roller termurah di Indonesia untuk pengaspalan jalan, jembatan, dan proyek konstruksi. Tersedia two axle dan three axle tandem roller.",
+  alternates: {
+    canonical: "/heavy-equipment/tandem-roller",
+  },
 };
 
 export default function TandemRollerPage() {

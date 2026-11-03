@@ -5,6 +5,9 @@ export const metadata = {
   title: "Tanah Urug | PT Tri Abadi Makmur",
   description:
     "Jual tanah urug untuk pengurugan lahan dan meninggikan permukaan tanah. Volume besar tersedia, harga ekonomis, pengiriman cepat.",
+  alternates: {
+    canonical: "/supplier/tanah-urug",
+  },
 };
 
 export default function TanahUrugPage() {

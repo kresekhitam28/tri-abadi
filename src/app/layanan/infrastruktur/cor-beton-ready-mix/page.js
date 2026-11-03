@@ -5,6 +5,9 @@ export const metadata = {
   title: "Cor Beton Ready Mix | PT Tri Abadi Makmur",
   description:
     "Jasa cor beton ready mix murah untuk konstruksi infrastruktur dan renovasi rumah. Kualitas SNI, presisi, dan hemat waktu.",
+  alternates: {
+    canonical: "/layanan/infrastruktur/cor-beton-ready-mix",
+  },
 };
 
 export default function CorBetonReadyMixPage() {

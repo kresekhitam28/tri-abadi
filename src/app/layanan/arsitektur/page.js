@@ -5,6 +5,9 @@ export const metadata = {
   title: "Jasa Arsitektur | PT Tri Abadi Makmur",
   description:
     "Desain rumah, bangunan komersial, dan 3D visualisasi yang disesuaikan dengan gaya, lahan, dan budget Anda.",
+  alternates: {
+    canonical: "/layanan/arsitektur",
+  },
 };
 
 export default function JasaArsitekturPage() {

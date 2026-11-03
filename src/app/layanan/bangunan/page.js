@@ -5,6 +5,9 @@ export const metadata = {
   title: "Konstruksi Bangunan | PT Tri Abadi Makmur",
   description:
     "Jasa konstruksi bangunan untuk rumah tinggal, komersial, dan renovasi. Struktur kokoh, pengerjaan rapi, dan tepat waktu.",
+  alternates: {
+    canonical: "/layanan/bangunan",
+  },
 };
 
 export default function KonstruksiBangunanPage() {

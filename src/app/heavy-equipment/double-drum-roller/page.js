@@ -5,6 +5,9 @@ export const metadata = {
   title: "Sewa Double Drum Roller | PT Tri Abadi Makmur",
   description:
     "Sewa double drum roller untuk pemadatan aspal dan hot mix. Cocok untuk proyek pengaspalan jalan dan perataan lahan.",
+  alternates: {
+    canonical: "/heavy-equipment/double-drum-roller",
+  },
 };
 
 export default function DoubleDrumRollerPage() {

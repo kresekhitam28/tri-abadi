@@ -5,6 +5,9 @@ export const metadata = {
   title: "Sirtu (Pasir Batu) | PT Tri Abadi Makmur",
   description:
     "Jual sirtu untuk urugan jalan dan pengurugan lahan. Kuat, stabil, ekonomis untuk proyek bervolume besar.",
+  alternates: {
+    canonical: "/supplier/sirtu",
+  },
 };
 
 export default function SirtuPage() {

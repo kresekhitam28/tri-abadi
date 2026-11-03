@@ -5,6 +5,9 @@ export const metadata = {
   title: "Sewa Self Loader | PT Tri Abadi Makmur",
   description:
     "Sewa self loader harga terjangkau untuk angkutan kayu log dan material berat. Tersedia berbagai ukuran, cocok untuk proyek konstruksi, pertanian, dan kehutanan.",
+  alternates: {
+    canonical: "/heavy-equipment/self-loader",
+  },
 };
 
 export default function SelfLoaderPage() {

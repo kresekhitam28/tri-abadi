@@ -7,7 +7,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const { slug } = await params; // Next.js 15+ (hapus await kalau pakai Next 14)
+  // Next.js 15+ menggunakan await params. 
+  // Jika Anda menggunakan Next.js 14, hapus kata "await" di samping params.
+  const { slug } = await params; 
   const article = articles.find((a) => a.slug === slug);
 
   if (!article) {
@@ -41,6 +43,7 @@ export async function generateMetadata({ params }) {
       images: [`${SITE_URL}${article.src}`],
     },
     alternates: {
+      // Ini adalah bagian Canonical dinamis yang sangat tepat
       canonical: `${SITE_URL}/blog/${slug}`,
     },
   };

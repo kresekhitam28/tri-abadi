@@ -5,6 +5,9 @@ export const metadata = {
   title: "Tentang Kami",
   description:
     "PT Tri Abadi Makmur — perusahaan konstruksi dengan pengalaman bertahun-tahun di bidang pengaspalan jalan dan infrastruktur.",
+  alternates: {
+    canonical: "/tentang-kami",
+  },
 };
 
 export default function TentangKamiPage() {

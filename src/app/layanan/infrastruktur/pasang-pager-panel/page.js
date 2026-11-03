@@ -5,6 +5,9 @@ export const metadata = {
   title: "Pasang Pager Panel | PT Tri Abadi Makmur",
   description:
     "Jasa pasang pager panel beton precast untuk lahan, pabrik, dan kawasan industri. Kokoh, rapi, dan hemat waktu pemasangan.",
+  alternates: {
+    canonical: "/layanan/infrastruktur/pasang-pager-panel",
+  },
 };
 
 export default function PasangPagerPanelPage() {

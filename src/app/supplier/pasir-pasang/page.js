@@ -5,6 +5,9 @@ export const metadata = {
   title: "Pasir Pasang | PT Tri Abadi Makmur",
   description:
     "Jual pasir pasang untuk pemasangan bata, plesteran, dan acian. Tekstur kasar, daya rekat kuat, harga terjangkau.",
+  alternates: {
+    canonical: "/supplier/pasir-pasang",
+  },
 };
 
 export default function PasirPasangPage() {

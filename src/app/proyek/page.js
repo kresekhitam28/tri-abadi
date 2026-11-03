@@ -5,6 +5,9 @@ export const metadata = {
   title: "Proyek Kami | PT Tri Abadi Makmur",
   description:
     "Portofolio proyek konstruksi PT Tri Abadi Makmur — pengaspalan jalan, paving block, cor beton, dan infrastruktur lainnya.",
+  alternates: {
+    canonical: "/proyek",
+  },
 };
 
 export default function ProyekPage() {

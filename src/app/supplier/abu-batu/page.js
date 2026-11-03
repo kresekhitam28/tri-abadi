@@ -5,6 +5,9 @@ export const metadata = {
   title: "Abu Batu | PT Tri Abadi Makmur",
   description:
     "Menjual abu batu siap antar untuk campuran beton, paving block, dan material konstruksi lainnya. Harga ekonomis, kualitas terjamin.",
+  alternates: {
+    canonical: "/supplier/abu-batu",
+  },
 };
 
 export default function AbuBatuPage() {

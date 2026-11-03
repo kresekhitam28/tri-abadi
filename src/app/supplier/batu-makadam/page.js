@@ -5,6 +5,9 @@ export const metadata = {
   title: "Batu Makadam | PT Tri Abadi Makmur",
   description:
     "Jual batu makadam murah untuk pengerasan jalan, bantalan rel, dan konstruksi. Kualitas terjamin, siap antar.",
+  alternates: {
+    canonical: "/supplier/batu-makadam",
+  },
 };
 
 export default function BatuMakadamPage() {
