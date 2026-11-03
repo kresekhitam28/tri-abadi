@@ -162,7 +162,7 @@ const WEBSITE_CREDIT_URL = "https://spesialisaspal.com";
 // ─────────────────────────────────────────────
 function SectionHeading({ children }) {
   return (
-    <h4
+    <p
       className="relative inline-block text-white font-bold mb-5 uppercase tracking-[0.22em]"
       style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.8125rem)" }}
     >
@@ -171,7 +171,7 @@ function SectionHeading({ children }) {
         className="absolute left-0 -bottom-1.5 w-8 h-[2px] rounded-full bg-[#4da3ff]"
         aria-hidden="true"
       />
-    </h4>
+    </p>
   );
 }
 
