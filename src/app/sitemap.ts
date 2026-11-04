@@ -1,70 +1,82 @@
 import { MetadataRoute } from 'next';
-// Pastikan path import ini sesuai dengan project Anda
 import { articles } from '../data/articles';
 
-// Wajib untuk output: export (Static Export)
 export const dynamic = 'force-static';
 export const revalidate = false;
 
+const BASE_URL = 'https://spesialisaspal.com';
+
+// ⚠️ GANTI tanggal dengan tanggal terakhir halaman BENAR-BENAR diubah
+const STATIC_LAST_MODIFIED: Record<string, string> = {
+  '/': '2026-01-15',
+  '/tentang-kami': '2025-06-01',
+  '/layanan': '2026-01-15',
+  '/proyek': '2026-01-15',
+  '/supplier': '2025-06-01',
+  '/kontak': '2025-06-01',
+  '/blog': '2026-01-15',
+  '/layanan/infrastruktur/pengaspalan': '2026-01-15',
+  '/layanan/infrastruktur/pasang-kanstin': '2025-06-01',
+  '/layanan/infrastruktur/cor-beton-ready-mix': '2025-06-01',
+  '/layanan/infrastruktur/pasang-grass-block': '2025-06-01',
+  '/layanan/infrastruktur/pasang-paving-block': '2026-01-15',
+  '/layanan/infrastruktur/pasang-pager-panel': '2025-06-01',
+  '/layanan/infrastruktur/pasang-tiang-pancang': '2025-06-01',
+  '/layanan/bangunan': '2025-06-01',
+  '/layanan/arsitektur': '2025-06-01',
+  '/supplier/abu-batu': '2025-06-01',
+  '/supplier/base-course': '2025-06-01',
+  '/supplier/batu-kali': '2025-06-01',
+  '/supplier/batu-makadam': '2025-06-01',
+  '/supplier/batu-split': '2025-06-01',
+  '/supplier/kerikil': '2025-06-01',
+  '/supplier/pasir-beton': '2025-06-01',
+  '/supplier/pasir-pasang': '2025-06-01',
+  '/supplier/sirtu': '2025-06-01',
+  '/supplier/tanah-urug': '2025-06-01',
+  '/heavy-equipment/dozer': '2025-06-01',
+  '/heavy-equipment/excavator': '2025-06-01',
+  '/heavy-equipment/self-loader': '2025-06-01',
+  '/heavy-equipment/tandem-roller': '2025-06-01',
+  '/heavy-equipment/double-drum-roller': '2025-06-01',
+  '/heavy-equipment/pneumatic-roller': '2025-06-01',
+  '/heavy-equipment/baby-roller': '2025-06-01',
+  '/heavy-equipment/asphalt-finisher': '2025-06-01',
+  '/heavy-equipment/tronton-dump-truck': '2025-06-01',
+};
+
+// Tipe union yang valid untuk changeFrequency
+type ChangeFreq = 'weekly' | 'yearly' | 'monthly' | 'always' | 'hourly' | 'daily' | 'never';
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://spesialisaspal.com';
-  const today = new Date().toISOString().split('T')[0];
+  const staticRoutes: MetadataRoute.Sitemap = Object.entries(STATIC_LAST_MODIFIED).map(
+    ([path, lastModified]) => {
+      const priority =
+        path === '/' ? 1.0 :
+        path === '/layanan' || path === '/kontak' ||
+        path === '/layanan/infrastruktur/pengaspalan' ? 0.9 :
+        path.startsWith('/supplier/') || path.startsWith('/heavy-equipment/') ? 0.6 :
+        path === '/layanan/arsitektur' ? 0.7 :
+        0.8;
 
-  // 1. Daftar halaman statis sesuai sitemap.xml lama Anda
-  const staticRoutes = [
-    { url: '/', priority: 1.0, changeFrequency: 'weekly' as const },
-    { url: '/tentang-kami', priority: 0.8, changeFrequency: 'monthly' as const },
-    { url: '/layanan', priority: 0.9, changeFrequency: 'weekly' as const },
-    { url: '/proyek', priority: 0.8, changeFrequency: 'weekly' as const },
-    { url: '/supplier', priority: 0.8, changeFrequency: 'weekly' as const },
-    { url: '/kontak', priority: 0.9, changeFrequency: 'monthly' as const },
-    { url: '/blog', priority: 0.7, changeFrequency: 'weekly' as const },
-    
-    // Layanan Infrastruktur
-    { url: '/layanan/infrastruktur/pengaspalan', priority: 0.9, changeFrequency: 'monthly' as const },
-    { url: '/layanan/infrastruktur/pasang-kanstin', priority: 0.8, changeFrequency: 'monthly' as const },
-    { url: '/layanan/infrastruktur/cor-beton-ready-mix', priority: 0.8, changeFrequency: 'monthly' as const },
-    { url: '/layanan/infrastruktur/pasang-grass-block', priority: 0.8, changeFrequency: 'monthly' as const },
-    { url: '/layanan/infrastruktur/pasang-paving-block', priority: 0.8, changeFrequency: 'monthly' as const },
-    { url: '/layanan/infrastruktur/pasang-pager-panel', priority: 0.8, changeFrequency: 'monthly' as const },
-    { url: '/layanan/infrastruktur/pasang-tiang-pancang', priority: 0.8, changeFrequency: 'monthly' as const },
-    { url: '/layanan/bangunan', priority: 0.8, changeFrequency: 'monthly' as const },
-    { url: '/layanan/arsitektur', priority: 0.7, changeFrequency: 'monthly' as const },
+      const changeFrequency: ChangeFreq =
+        path === '/' || path === '/layanan' || path === '/blog' ? 'weekly' :
+        path === '/kontak' || path === '/tentang-kami' ? 'yearly' :
+        'monthly';
 
-    // Supplier
-    { url: '/supplier/abu-batu', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/supplier/base-course', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/supplier/batu-kali', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/supplier/batu-makadam', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/supplier/batu-split', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/supplier/kerikil', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/supplier/pasir-beton', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/supplier/pasir-pasang', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/supplier/sirtu', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/supplier/tanah-urug', priority: 0.6, changeFrequency: 'monthly' as const },
+      return {
+        url: `${BASE_URL}${path}`,
+        lastModified,
+        changeFrequency,
+        priority,
+      };
+    }
+  );
 
-    // Alat Berat (Heavy Equipment)
-    { url: '/heavy-equipment/dozer', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/heavy-equipment/excavator', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/heavy-equipment/self-loader', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/heavy-equipment/tandem-roller', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/heavy-equipment/double-drum-roller', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/heavy-equipment/pneumatic-roller', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/heavy-equipment/baby-roller', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/heavy-equipment/asphalt-finisher', priority: 0.6, changeFrequency: 'monthly' as const },
-    { url: '/heavy-equipment/tronton-dump-truck', priority: 0.6, changeFrequency: 'monthly' as const },
-  ].map((route) => ({
-    url: `${baseUrl}${route.url}`,
-    lastModified: today,
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
-  }));
-
-  // 2. Daftar artikel blog (Otomatis dari articles.js)
-  const blogRoutes = articles.map((post: any) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: today,
-    changeFrequency: 'monthly' as const,
+  const blogRoutes: MetadataRoute.Sitemap = articles.map((post: any) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: post.dateISO || '2025-10-01',
+    changeFrequency: 'monthly' as ChangeFreq,
     priority: 0.7,
   }));
 
