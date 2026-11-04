@@ -10,6 +10,7 @@ export const articles = [
       en: "Affordable Asphalt Paving",
     },
     date: { id: "21 Juli 2026", en: "July 21, 2026" },
+    dateISO: "2026-07-21",
     desc: {
       id: "Memiliki jalan yang mulus dan enak dilalui adalah impian setiap pengguna jalan. Kami hadir memberikan solusi aspal berkualitas dengan harga terjangkau.",
       en: "Having a smooth and comfortable road is every road user's dream. We are here to provide quality asphalt solutions at affordable prices.",
@@ -57,6 +58,7 @@ export const articles = [
     category: { id: "Hotmix", en: "Hotmix" },
     title: { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works" },
     date: { id: "21 Juli 2026", en: "July 21, 2026" },
+    dateISO: "2026-07-21",
     desc: {
       id: "Jenis pekerjaan aspal hotmix — Penggunaan pada aspal juga harus anda ketahui dengan saksama. Serta bahan baku dasar dari bahan material yang perlu anda ketahui jenis serta kegunaannya.",
       en: "Types of hotmix asphalt works — The use of asphalt must be understood carefully. As well as the basic raw materials you need to know the types and uses.",
@@ -104,6 +106,7 @@ export const articles = [
     category: { id: "Distributor", en: "Distributor" },
     title: { id: "Distributor Aspal", en: "Asphalt Distributor" },
     date: { id: "21 Juli 2026", en: "July 21, 2026" },
+    dateISO: "2026-07-21",
     desc: {
       id: "Distributor aspal — Sebelum melakukan transaksi dengan perusahaan-perusahaan yang akan melayani atau sebagai mitra distributor aspal, penting untuk memilih perusahaan yang terbaik.",
       en: "Asphalt distributor — Before doing business with companies that will serve you or become your distributor partner, it is important to choose the best company.",
@@ -151,6 +154,7 @@ export const articles = [
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
     title: { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair" },
     date: { id: "21 Juli 2026", en: "July 21, 2026" },
+    dateISO: "2026-07-21",
     desc: {
       id: "Perbaikan jalan aspal hotmix — Beberapa area yang perlu mendapatkan perhatian lebih untuk dilakukan perbaikan agar jalan lebih mulus dan nyaman dilalui.",
       en: "Hotmix asphalt road repair — Several areas that need more attention for repairs so roads are smoother and more comfortable to pass.",
@@ -199,6 +203,7 @@ export const articles = [
     category: { id: "Paving", en: "Paving" },
     title: { id: "Pemasangan Kansteen", en: "Kansteen Installation" },
     date: { id: "21 Juli 2026", en: "July 21, 2026" },
+    dateISO: "2026-07-21",
     desc: {
       id: "Pemasangan kansteen — Kansteen adalah salah satu dari jenis pekerjaan yang lebih baik kita ketahui dari pengguna jalan. Fungsi pemasangan kansteen untuk pembatas area tirtioan terhadap jalanan yang lebih rapi dan juga berguna untuk mengarahkan air.",
       en: "Kansteen installation — Kansteen is one type of work that is better known to road users. The function of curb installation is as a divider between the sidewalk area and the road, making it neater and also useful for directing water.",
@@ -246,6 +251,7 @@ export const articles = [
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
     title: { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative" },
     date: { id: "21 Juli 2026", en: "July 21, 2026" },
+    dateISO: "2026-07-21",
     desc: {
       id: "Aspal jalan murah — Memiliki jalan yang mulus dan enak dilalui adalah impian setiap orang. Utamanya mereka yang memiliki bisnis. Sedangkan mereka yang memiliki bisnis mereka harus pintar. Sudah banyak beredar. Meski penggunaan jasa yang berpengalaman akan membuat hasil lebih bagus.",
       en: "Affordable road asphalt — Having a smooth and comfortable road is everyone's dream. Especially those who own a business. Those who own a business must be smart. Many have circulated. Although using an experienced service will produce better results.",
@@ -293,6 +299,7 @@ export const articles = [
     category: { id: "Hotmix", en: "Hotmix" },
     title: { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative" },
     date: { id: "21 Juli 2026", en: "July 21, 2026" },
+    dateISO: "2026-07-21",
     desc: {
       id: "Pekerjaan aspal hotmix — Penggunaan pada aspal juga harus anda ketahui dengan saksama. Serta bahan baku dasar dari bahan material yang perlu anda ketahui jenis serta kegunaannya.",
       en: "Hotmix asphalt works — The use of asphalt must be understood carefully. As well as the basic raw materials you need to know the types and uses.",
@@ -340,6 +347,7 @@ export const articles = [
     category: { id: "Distributor", en: "Distributor" },
     title: { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative" },
     date: { id: "21 Juli 2026", en: "July 21, 2026" },
+    dateISO: "2026-07-21",
     desc: {
       id: "Distributor aspal — Sebelum melakukan transaksi dengan perusahaan-perusahaan yang akan melayani atau sebagai mitra distributor aspal yang baik adalah perusahaan yang terbaik.",
       en: "Asphalt distributor — Before doing business with companies that will serve you or become a good distributor partner, you need the best company.",
@@ -387,6 +395,7 @@ export const articles = [
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
     title: { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative" },
     date: { id: "21 Juli 2026", en: "July 21, 2026" },
+    dateISO: "2026-07-21",
     desc: {
       id: "Perbaikan jalan aspal hotmix — Beberapa area yang perlu mendapatkan perhatian lebih untuk dilakukan perbaikan agar jalan lebih mulus dan nyaman dilalui.",
       en: "Hotmix asphalt road repair — Several areas that need more attention for repairs so roads are smoother and more comfortable to pass.",
@@ -435,6 +444,7 @@ export const articles = [
     category: { id: "Paving", en: "Paving" },
     title: { id: "Pemasangan Paving Block", en: "Paving Block Installation" },
     date: { id: "21 Juli 2026", en: "July 21, 2026" },
+    dateISO: "2026-07-21",
     desc: {
       id: "Paving block memberikan tampilan rapi pada halaman dan area parkir.",
       en: "Paving blocks give a neat look to yards and parking areas.",
@@ -463,6 +473,7 @@ export const articles = [
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
     title: { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving" },
     date: { id: "21 Juli 2026", en: "July 21, 2026" },
+    dateISO: "2026-07-21",
     desc: {
       id: "Pengaspalan jalan perumahan dengan material berkualitas untuk hasil rata dan tahan lama.",
       en: "Residential road paving with quality materials for flat and durable results.",
@@ -491,6 +502,7 @@ export const articles = [
     category: { id: "Hotmix", en: "Hotmix" },
     title: { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads" },
     date: { id: "21 Juli 2026", en: "July 21, 2026" },
+    dateISO: "2026-07-21",
     desc: {
       id: "Hotmix berkualitas untuk area perkantoran dan komersial. Hasil rapi, cepat kering, dan tahan lama.",
       en: "Quality hotmix for office and commercial areas. Neat result, quick drying, and durable.",
@@ -519,6 +531,7 @@ export const articles = [
     category: { id: "Cor Beton", en: "Ready-Mix Concrete" },
     title: { id: "Jasa Pengecoran Beton", en: "Concrete Casting Services" },
     date: { id: "28 September 2026", en: "September 28, 2026" },
+    dateISO: "2026-09-28",
     desc: {
       id: "Cara menghitung cor jalan perkubik bisa dikatakan memang bukan pekerjaan mudah. Dalam pembangunan sebuah infrastruktur, cor beton jalan merupakan salah satu proses paling penting.",
       en: "Calculating concrete per cubic meter is not an easy task. In infrastructure development, concrete road casting is one of the most important processes.",
@@ -629,6 +642,7 @@ export const articles = [
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
     title: { id: "Biaya Aspal Per Meter", en: "Asphalt Cost Per Meter" },
     date: { id: "28 September 2026", en: "September 28, 2026" },
+    dateISO: "2026-09-28",
     desc: {
       id: "Memiliki jalan yang mulus dan enak dilalui adalah impian setiap orang. Namun, berapa sebenarnya biaya aspal per meter? Berikut panduan dan tips untuk mendapatkan aspal jalan murah namun berkualitas.",
       en: "Having a smooth and comfortable road is everyone's dream. But what is the actual asphalt cost per meter? Here is a guide and tips to get affordable but quality asphalt.",
@@ -719,6 +733,7 @@ export const articles = [
     category: { id: "Grass Block", en: "Grass Block" },
     title: { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide" },
     date: { id: "15 Oktober 2026", en: "October 15, 2026" },
+    dateISO: "2026-10-15",
     desc: {
       id: "Grass block atau paving block berongga kian populer untuk area parkir, jalan perumahan, dan taman karena ramah lingkungan dan estetis. Simak panduan lengkap pasang grass block di sini.",
       en: "Grass block is increasingly popular for parking areas, residential roads, and parks because it is eco-friendly and aesthetic. Read the complete guide to installing grass blocks here.",
@@ -850,6 +865,7 @@ export const articles = [
     category: { id: "Pagar Panel", en: "Panel Fence" },
     title: { id: "Pemasangan Pagar Panel", en: "Panel Fence Installation Guide" },
     date: { id: "18 Oktober 2026", en: "October 18, 2026" },
+    dateISO: "2026-10-18",
     desc: {
       id: "Pagar panel beton menjadi solusi populer untuk pembatas lahan proyek dan perumahan karena kokoh, rapi, dan cepat dipasang. Simak panduan lengkap dan keunggulannya di sini.",
       en: "Concrete panel fences are a popular solution for project and residential land boundaries because they are sturdy, neat, and quick to install. Read the complete guide and its advantages here.",
@@ -981,6 +997,7 @@ export const articles = [
     category: { id: "Tiang Pancang", en: "Pile Driving" },
     title: { id: "Pemasangan Tiang Pancang", en: "Pile Driving Installation Guide" },
     date: { id: "20 Oktober 2026", en: "October 20, 2026" },
+    dateISO: "2026-10-20",
     desc: {
       id: "Tiang pancang adalah fondasi krusial untuk bangunan bertingkat dan infrastruktur berat. Simak pengertian, jenis, dan tahapan pasang tiang pancang agar bangunan kokoh dan aman.",
       en: "Piles are crucial foundations for multi-story buildings and heavy infrastructure. Read the definition, types, and stages of pile driving installation to ensure a sturdy and safe building.",
@@ -1100,6 +1117,7 @@ export const articles = [
     category: { id: "Hotmix", en: "Hotmix" },
     title: { id: "Lapisan Aspal Hotmix", en: "Hotmix Asphalt Layers" },
     date: { id: "25 Oktober 2026", en: "October 25, 2026" },
+    dateISO: "2026-10-25",
     desc: {
       id: "Lapisan aspal hotmix — Memahami struktur dan fungsi setiap lapisan aspal hotmix sangat penting agar jalan yang dibangun kuat, rata, dan tahan lama. Berikut penjelasan lengkapnya.",
       en: "Hotmix asphalt layers — Understanding the structure and function of each hotmix asphalt layer is essential so the road built is strong, flat, and durable. Here is the complete explanation.",
@@ -1244,6 +1262,7 @@ export const articles = [
     category: { id: "Hotmix", en: "Hotmix" },
     title: { id: "Harga Aspal Hotmix", en: "Hotmix Asphalt Prices" },
     date: { id: "1 November 2026", en: "November 1, 2026" },
+    dateISO: "2026-11-01",
     desc: {
       id: "Daftar harga paket jasa pengaspalan dan perbaikan jalan aspal hotmix terbaru. Mulai dari pelapisan ulang, tambal sulam, hingga pembuatan jalan baru.",
       en: "Latest price list for hotmix asphalt paving and road repair services. From resurfacing, patching, to new road construction.",
