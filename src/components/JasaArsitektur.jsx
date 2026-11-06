@@ -361,6 +361,14 @@ const content = {
       "Layanan kami mencakup desain arsitektur, gambar kerja (DED), visualisasi 3D, hingga Rencana Anggaran Biaya (RAB) — siap dibangun tanpa kendala di lapangan.",
     ],
     tahapanTitle: "Tahapan Pengerjaan",
+        faqTitle: "Pertanyaan Seputar Jasa Arsitektur",
+    faqItems: [
+      { q: "Berapa biaya jasa desain arsitektur?", a: "Biaya desain arsitektur biasanya dihitung per meter persegi (berkisar Rp 50.000 - Rp 150.000/m²) tergantung tingkat kerumitan dan paket yang dipilih (desain saja, atau lengkap dengan DED dan RAB)." },
+      { q: "Berapa lama proses pembuatan desain?", a: "Untuk desain rumah tinggal standar, proses dari konsultasi hingga finalisasi gambar kerja biasanya memakan waktu 2-4 minggu." },
+      { q: "Apakah ada batasan revisi desain?", a: "Kami memberikan kesempatan revisi sesuai dengan paket yang disepakati. Tujuannya agar desain benar-benar sesuai dengan visi dan kebutuhan Anda." },
+      { q: "Apakah bisa desain saja tanpa konstruksi?", a: "Bisa. Kami menyediakan layanan desain (gambar kerja dan 3D) secara terpisah, maupun paket lengkap desain + bangun (design and build)." }
+    ],
+    faqLinkText: "Konsultasikan desain impian Anda dengan tim kami.",
     // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Informasi & Edukasi",
     articleTitleLight: "Butuh wawasan seputar ",
@@ -398,6 +406,15 @@ const content = {
       "Our services include architectural design, working drawings (DED), 3D visualization, and Budget Plan (RAB) — ready to build without obstacles on site.",
     ],
     tahapanTitle: "Work Stages",
+
+        faqTitle: "Frequently Asked Questions About Architecture",
+    faqItems: [
+      { q: "How much does architectural design cost?", a: "Architectural design fees are usually calculated per square meter (around Rp 50,000 - Rp 150,000/m²) depending on complexity and the chosen package (design only, or complete with DED and budget plan)." },
+      { q: "How long does the design process take?", a: "For standard residential design, the process from consultation to finalization of working drawings usually takes 2-4 weeks." },
+      { q: "Is there a limit to design revisions?", a: "We provide revision opportunities according to the agreed package. The goal is for the design to truly match your vision and needs." },
+      { q: "Can I order just the design without construction?", a: "Yes. We provide design services (working drawings and 3D) separately, or as a complete design + build package." }
+    ],
+    faqLinkText: "Consult your dream design with our team.",
     // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Information & Education",
     articleTitleLight: "Need insights on ",
@@ -763,6 +780,49 @@ export default function JasaArsitektur() {
               </div>
             </div>
           </FadeUp>
+                    {/* ═══════ FAQ ═══════ */}
+          <div className="mt-16 mb-16">
+            <FadeUp>
+              <div className="text-center mb-10">
+                <SectionKicker>FAQ</SectionKicker>
+                <h2
+                  className="font-light tracking-tight text-slate-900 leading-tight"
+                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
+                >
+                  Pertanyaan Seputar <span className="font-bold">Jasa Arsitektur</span>
+                </h2>
+              </div>
+            </FadeUp>
+
+            <div className="max-w-3xl mx-auto space-y-4">
+              {t.faqItems.map((faq, i) => (
+                <FadeUp key={i} delay={i * 50}>
+                  <details className="group border border-slate-200 rounded-xl bg-white overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                    <summary className="flex items-center justify-between cursor-pointer p-5 sm:p-6 font-semibold text-slate-900 hover:text-[#1e88e5] transition-colors">
+                      <span>{faq.q}</span>
+                      <span className="shrink-0 ml-4 transition-transform duration-300 group-open:-rotate-180">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M6 9l6 6 6-6" /></svg>
+                      </span>
+                    </summary>
+                    <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4"
+                         style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.9375rem)" }}>
+                      {faq.a}
+                    </div>
+                  </details>
+                </FadeUp>
+              ))}
+            </div>
+            
+            <FadeUp delay={200}>
+              <div className="text-center mt-8">
+                <a href={`https://wa.me/6282258089367?text=${encodeURIComponent("Halo, saya ingin konsultasi desain arsitektur.")}`} 
+                   target="_blank" rel="noreferrer"
+                   className="inline-flex items-center gap-2 text-[#1e88e5] font-semibold hover:underline">
+                  {t.faqLinkText} <IconArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </FadeUp>
+          </div>
 
           {/* ═══════ AREA JANGKAUAN ═══════ */}
           <div className="mt-12 sm:mt-16 mb-16">

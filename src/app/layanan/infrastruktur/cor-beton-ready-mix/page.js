@@ -2,9 +2,9 @@
 import CorBetonReadyMix from "../../../../components/CorBetonReadyMix";
 
 export const metadata = {
-  title: "Cor Beton Ready Mix | PT Tri Abadi Makmur",
+  title: "Jasa Cor Beton Ready Mix Tangerang & Jabodetabek",
   description:
-    "Jasa cor beton ready mix murah untuk konstruksi infrastruktur dan renovasi rumah. Kualitas SNI, presisi, dan hemat waktu.",
+    "Jasa pengecoran beton ready mix untuk jalan, halaman pabrik, dan rumah di Tangerang & Jabodetabek. Mutu beton terjamin, pengerjaan cepat, dan harga transparan.",
   alternates: {
     canonical: "/layanan/infrastruktur/cor-beton-ready-mix",
   },

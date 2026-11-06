@@ -153,7 +153,7 @@ function IconArticle({ className = "w-4 h-4" }) {
 }
 
 // ─────────────────────────────────────────────
-// ACCORDION (memoized)
+// ACCORDION (memoized) - Hanya untuk FAQ
 // ─────────────────────────────────────────────
 const Accordion = memo(function Accordion({ title, children, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -314,7 +314,8 @@ function SectionKicker({ children }) {
 const content = {
   id: {
     heroKicker: "Layanan Kami",
-    heroTitle: "Pengaspalan",
+    heroTitle: "Jasa Pengaspalan Murah & Hotmix",
+    heroSubtitle: "Untuk Perumahan, Pabrik & Jalan Lingkungan di Tangerang & Jabodetabek",
     heroDesc: "Jasa pengaspalan berkualitas tinggi dengan harga bersaing. Dikerjakan oleh tenaga konstruksi berpengalaman untuk hasil yang rapi, kuat, dan tahan lama.",
     figKicker: "Proyek",
     figCaption: "Proyek Pengaspalan — Tri Abadi Makmur",
@@ -324,11 +325,7 @@ const content = {
     introP2Prefix: "Dari team Kontraktor ",
     introP2Mid: ", kami mau menawarkan dan melayani pengerjaan jalan, perbaikan jalan, serta aspal dan pembuatan aspal.",
     otherKicker: "Bukan hanya aspal",
-    contactP1: "Untuk detailnya, Anda bisa menghubungi kami melalui Gmail di ",
-    contactEmail: "triabadimakmur@gmail.com",
-    contactP2: " dan juga bisa melalui Facebook dan Instagram.",
-    acc1Title: "Seperti Pengaspalan Untuk",
-    acc1Intro: "Kami melayani berbagai kebutuhan pengaspalan untuk:",
+    acc1Title: "Kami melayani berbagai kebutuhan pengaspalan untuk",
     acc1Items: [
       "Jalan perumahan & komplek",
       "Jalan pabrik & kawasan industri",
@@ -390,7 +387,8 @@ const content = {
   },
   en: {
     heroKicker: "Our Services",
-    heroTitle: "Asphalt Paving",
+    heroTitle: "Affordable Hotmix Asphalt Paving",
+    heroSubtitle: "for Residential, Factory & Neighborhood Roads in Tangerang & Greater Jakarta",
     heroDesc: "High-quality asphalt paving services at competitive prices. Executed by experienced construction crews for neat, strong, and long-lasting results.",
     figKicker: "Project",
     figCaption: "Asphalt Paving Project — Tri Abadi Makmur",
@@ -400,9 +398,6 @@ const content = {
     introP2Prefix: "From the Contractor team ",
     introP2Mid: ", we would like to offer and serve road construction, road repair, as well as asphalt works and asphalt production.",
     otherKicker: "Not just asphalt",
-    contactP1: "For details, you can contact us via WhatsApp at ",
-    contactEmail: "triabadimakmur@gmail.com",
-    contactP2: " and also through Facebook and Instagram.",
     acc1Title: "Asphalt Paving For",
     acc1Intro: "We serve various asphalt paving needs for:",
     acc1Items: [
@@ -619,11 +614,19 @@ export default function Pengaspalan() {
             >
               {data.heroTitle}<span className="text-[#1e88e5]">.</span>
             </h1>
+            {data.heroSubtitle && (
+              <p
+                className="text-slate-600 max-w-2xl mx-auto mt-4"
+                style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1.125rem)" }}
+              >
+                {data.heroSubtitle}
+              </p>
+            )}
           </Reveal>
 
           <Reveal delay={160} y={24}>
             <p
-              className="text-slate-600 leading-relaxed max-w-2xl mx-auto"
+              className="text-slate-600 leading-relaxed max-w-2xl mx-auto mt-6"
               style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1.0625rem)" }}
             >
               {data.heroDesc}
@@ -694,56 +697,36 @@ export default function Pengaspalan() {
             </div>
           </Reveal>
 
-          {/* Kartu kontruksi lain */}
-          <div className="mb-16">
-            <Reveal y={26}>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="w-6 h-px bg-[#1e88e5]" aria-hidden="true" />
-                <h3 className="text-[11px] sm:text-[12px] uppercase tracking-[0.25em] sm:tracking-[0.28em] text-slate-500 font-bold">
-                  {data.otherKicker}
-                </h3>
-              </div>
-            </Reveal>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-              {kontruksiLain.map((item, i) => (
-                <Reveal key={i} delay={i * 60} y={24}>
-                  <KontruksiCard item={item} t={t} />
-                </Reveal>
-              ))}
-            </div>
-          </div>
-
-          {/* Paragraf penutup atas accordion */}
-          <Reveal delay={100} y={22}>
-            <div className="p-6 bg-blue-50/50 rounded-xl border border-blue-100/50 mb-8">
-              <p
-                className="text-slate-700 leading-[1.85] text-center"
-                style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.9375rem)" }}
-              >
-                {data.contactP1}
-                <a href={`mailto:${data.contactEmail}`} className="font-semibold text-[#1e88e5] hover:underline">{data.contactEmail}</a>
-                {data.contactP2}
-              </p>
-            </div>
-          </Reveal>
-
-          {/* Accordion atas */}
+          {/* Accordion diganti menjadi statis (tanpa buka tutup) */}
           <Reveal delay={150} y={24}>
-            <Accordion title={data.acc1Title} defaultOpen={false}>
-              <p className="mb-4 font-medium text-slate-800">{data.acc1Intro}</p>
-              <ul className="list-disc list-outside pl-5 space-y-2 marker:text-[#1e88e5]">
-                {data.acc1Items.map((it, i) => <li key={i}>{it}</li>)}
-              </ul>
-            </Accordion>
+            <div className="border border-slate-200 rounded-xl overflow-hidden mb-6 bg-white">
+              <div className="w-full px-5 sm:px-6 py-4 sm:py-5 border-b border-slate-100">
+                <span className="font-semibold uppercase tracking-[0.12em] text-slate-800" style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
+                  {data.acc1Title}
+                </span>
+              </div>
+              <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-4 text-slate-700 leading-[1.85] space-y-3.5" style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
+                <p className="mb-4 font-medium text-slate-800">{data.acc1Intro}</p>
+                <ul className="list-disc list-outside pl-5 space-y-2 marker:text-[#1e88e5]">
+                  {data.acc1Items.map((it, i) => <li key={i}>{it}</li>)}
+                </ul>
+              </div>
+            </div>
           </Reveal>
 
           <Reveal delay={200} y={24}>
-            <Accordion title={data.acc2Title} defaultOpen={false}>
-              <ul className="list-disc list-outside pl-5 space-y-2 marker:text-[#1e88e5]">
-                {data.acc2Items.map((it, i) => <li key={i}>{it}</li>)}
-              </ul>
-            </Accordion>
+            <div className="border border-slate-200 rounded-xl overflow-hidden mb-6 bg-white">
+              <div className="w-full px-5 sm:px-6 py-4 sm:py-5 border-b border-slate-100">
+                <span className="font-semibold uppercase tracking-[0.12em] text-slate-800" style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
+                  {data.acc2Title}
+                </span>
+              </div>
+              <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-4 text-slate-700 leading-[1.85] space-y-3.5" style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
+                <ul className="list-disc list-outside pl-5 space-y-2 marker:text-[#1e88e5]">
+                  {data.acc2Items.map((it, i) => <li key={i}>{it}</li>)}
+                </ul>
+              </div>
+            </div>
           </Reveal>
         </div>
 
@@ -874,7 +857,7 @@ export default function Pengaspalan() {
             </Reveal>
           </div>
 
-          {/* ACCORDION BAWAH */}
+          {/* ACCORDION BAWAH (Masih pakai Accordion) */}
           <Reveal y={24}>
             <Accordion title={data.acc3Title} defaultOpen={false}>
               <ul className="list-disc list-outside pl-5 space-y-2 marker:text-[#1e88e5]">
@@ -888,6 +871,60 @@ export default function Pengaspalan() {
               <p>{data.acc4Body}</p>
             </Accordion>
           </Reveal>
+
+          {/* ═══════ FAQ ═══════ */}
+          <div className="mt-16 mb-16">
+            <Reveal y={26}>
+              <div className="text-center mb-10">
+                <SectionKicker>FAQ</SectionKicker>
+                <h2
+                  className="font-light tracking-tight text-slate-900 leading-tight"
+                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
+                >
+                  Pertanyaan yang Sering <span className="font-bold">Diajukan</span>
+                </h2>
+              </div>
+            </Reveal>
+
+            <div className="max-w-3xl mx-auto">
+              {[
+                { q: "Berapa biaya pengaspalan hotmix per meter?", a: "Biaya pengaspalan hotmix berkisar Rp 75.000 – Rp 150.000 per m², tergantung luas area, ketebalan aspal, jenis pekerjaan (overlay, tambal sulam, atau baru), dan lokasi proyek. Untuk penawaran akurat, kami melakukan survei lokasi gratis terlebih dahulu." },
+                { q: "Apakah bisa survei lokasi dulu sebelum order?", a: "Ya, kami menyediakan survei lokasi gratis untuk memastikan kebutuhan, mengukur luas area, dan memberikan estimasi biaya yang akurat. Survei bisa dijadwalkan via WhatsApp." },
+                { q: "Berapa lama proses pengerjaan pengaspalan?", a: "Tergantung luas dan kondisi lahan. Untuk jalan perumahan standar (100–500 m²), biasanya 1–3 hari kerja. Untuk proyek lebih besar, kami berikan estimasi waktu setelah survei." },
+                { q: "Apakah ada garansi pengerjaan?", a: "Ya, kami memberikan garansi pengerjaan hingga 2 tahun untuk pengaspalan hotmix, tergantung jenis pekerjaan dan kondisi lapangan. Detail garansi dijelaskan dalam penawaran." },
+                { q: "Area mana saja yang dilayani?", a: "Kami melayani Jabodetabek (Jakarta, Bogor, Depok, Tangerang, Bekasi) dan sekitarnya. Untuk area di luar Jabodetabek, silakan konsultasi via WhatsApp untuk memastikan ketersediaan." },
+                { q: "Apa beda pengaspalan hotmix dan aspal biasa?", a: "Aspal hotmix dicampur dan dipanaskan pada suhu tertentu sebelum dihampar, sehingga daya lekat dan kepadatannya jauh lebih baik. Hasilnya lebih rata, kuat, dan tahan lama dibanding aspal dingin atau aspal biasa." },
+                { q: "Apakah bisa mengerjakan proyek skala besar seperti jalan pabrik?", a: "Ya, kami melayani proyek dari skala kecil (jalan lingkungan) hingga besar (jalan pabrik, kawasan industri, area parkir gedung). Kami didukung alat berat modern dan tim berpengalaman." },
+                { q: "Bagaimana cara memesan jasa pengaspalan?", a: "Cukup hubungi kami via WhatsApp. Tim kami akan menjadwalkan survei lokasi, memberikan penawaran, dan setelah disetujui, pengerjaan bisa dijadwalkan sesuai kesepakatan." },
+              ].map((faq, i) => (
+                <Reveal key={i} delay={i * 60} y={20}>
+                  <Accordion title={faq.q} defaultOpen={i === 0}>
+                    <p>{faq.a}</p>
+                  </Accordion>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          {/* ═══════ KARTU KONTRUKSI LAIN (PINDAHAN) ═══════ */}
+          <div className="mt-16 mb-16">
+            <Reveal y={26}>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-6 h-px bg-[#1e88e5]" aria-hidden="true" />
+                <h3 className="text-[11px] sm:text-[12px] uppercase tracking-[0.25em] sm:tracking-[0.28em] text-slate-500 font-bold">
+                  {data.otherKicker}
+                </h3>
+              </div>
+            </Reveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+              {kontruksiLain.map((item, i) => (
+                <Reveal key={i} delay={i * 60} y={24}>
+                  <KontruksiCard item={item} t={t} />
+                </Reveal>
+              ))}
+            </div>
+          </div>
 
           {/* ═══════ TAMBAHAN: SECTION ARTIKEL BLOG ═══════ */}
           <Reveal y={30}>

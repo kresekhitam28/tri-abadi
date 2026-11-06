@@ -85,10 +85,10 @@ function IconDownload({ className = "w-5 h-5" }) {
 // ─────────────────────────────────────────────
 const content = {
   id: {
-    heroKicker: "Tentang Kami",
-    heroTitleLight: "Tentang ",
-    heroTitleBold: "Kami",
-    heroSubtitle: "Semua Tentang PT. Tri Abadi Makmur Indonesia",
+    heroKicker: "Profil Perusahaan",
+    heroTitleLight: "Kontraktor Aspal ",
+    heroTitleBold: "Berpengalaman",
+    heroSubtitle: "PT. Tri Abadi Makmur Indonesia — Spesialis pengaspalan & infrastruktur di Tangerang & Jabodetabek.",
     heroImgAlt: "Konstruksi",
     intro:
       "Tri Abadi Makmur merupakan perusahaan yang bergerak di bidang konstruksi, dengan pengalaman yang sudah bertahun-tahun kami kembangkan, tahapan proses yang mengedepankan kualitas dan kehati-hatian, serta eksekusi pengerjaan proyek yang signifikan, demi tercapainya kepuasan client sehingga terwujudnya jalinan kerjasama yang continue dan berkepanjangan.",
@@ -125,10 +125,10 @@ const content = {
     downloadBtn: "Download Company Profile",
   },
   en: {
-    heroKicker: "About Us",
-    heroTitleLight: "About ",
-    heroTitleBold: "Us",
-    heroSubtitle: "All About PT. Tri Abadi Makmur Indonesia",
+    heroKicker: "Company Profile",
+    heroTitleLight: "Experienced Asphalt ",
+    heroTitleBold: "Contractor",
+    heroSubtitle: "PT. Tri Abadi Makmur Indonesia — Asphalt paving & infrastructure specialist in Tangerang & Greater Jakarta.",
     heroImgAlt: "Construction",
     intro:
       "Tri Abadi Makmur is a company engaged in the construction sector. With years of experience, we have developed quality-focused and careful processes, along with significant project execution, to achieve client satisfaction and build continuous, long-term partnerships.",

@@ -3,17 +3,18 @@
 export const articles = [
   {
     slug: "aspal-jalan-murah",
+    date: { id: "28 September 2026", en: "September 28, 2026" },
+    dateISO: "2026-10-14", // 
     src: "/proyek/proyek-1.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
-    title: {
-      id: "Aspal Jalan Murah",
-      en: "Affordable Asphalt Paving",
+        title: { 
+      id: "Aspal Jalan Murah untuk Perumahan & Pabrik", 
+      en: "Affordable Asphalt for Residential & Factory" 
     },
-    date: { id: "21 Juli 2026", en: "July 21, 2026" },
-    dateISO: "2026-07-21",
+    // ...
     desc: {
-      id: "Memiliki jalan yang mulus dan enak dilalui adalah impian setiap pengguna jalan. Kami hadir memberikan solusi aspal berkualitas dengan harga terjangkau.",
-      en: "Having a smooth and comfortable road is every road user's dream. We are here to provide quality asphalt solutions at affordable prices.",
+      id: "Mencari jalan aspal murah tapi berkualitas? PT Tri Abadi Makmur memberikan solusi pengaspalan hotmix dengan harga transparan di Tangerang & Jabodetabek.",
+      en: "Looking for cheap but quality asphalt? PT Tri Abadi Makmur provides hotmix paving solutions with transparent prices in Tangerang & Greater Jakarta.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -38,30 +39,38 @@ export const articles = [
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-    body: [
-      { type: "paragraph", text: { id: "Aspal Jalan Murah — Mencari jalan yang mulus dan enak dilalui adalah impian setiap orang. Utamanya mereka yang memiliki bisnis. Sedangkan mereka yang memiliki bisnis mereka harus pintar. Sudah banyak beredar. Meski penggunaan jasa yang berpengalaman akan membuat hasil lebih bagus. Namun satu hal yang penting adalah mendapatkan aspal jalan yang murah dan bagus. Namun yang menawarkan jasa aspal murah banyak. Anda ingin mendapatkan layanan aspal yang murah dan berkualitas. Maka dari itu anda harus memilih jasa penyedia aspal yang tepat.", en: "Affordable Asphalt — Finding a smooth and comfortable road is everyone's dream, especially for business owners. Even though the use of experienced services will produce better results, the important thing is to get cheap and good asphalt. Many offer cheap asphalt services. You want to get affordable and quality asphalt service. Therefore you must choose the right asphalt provider." } },
-      { type: "heading", text: { id: "Aspal Jalan Murah — Tips untuk Mendapatkan Aspal Jalan Murah", en: "Affordable Asphalt — Tips to Get Affordable Asphalt" } },
-      { type: "paragraph", text: { id: "Membeli aspal bukan hal sembarangan dan murah yang tidak bisa Anda asumsikan. Anda harus dituntut dengan harga yang sesuai maupun pengerjaan berkualitas yang akan rapi dan akan membuat investor. Untuk lebih jelasnya, di bawah ini ada beberapa cara yang dapat Anda lakukan untuk mendapatkan aspal jalan murah.", en: "Buying asphalt is not something arbitrary. You are required to pay a suitable price with quality work that is neat and will satisfy investors. To be clearer, below are several ways you can do to get affordable asphalt." } },
+        body: [
+      { type: "paragraph", text: { id: "Aspal Jalan Murah — Mendapatkan jalan aspal yang mulus tidak harus menguras kantong. Banyak orang mengira pengaspalan itu mahal, padahal dengan perencanaan yang tepat, Anda bisa mendapatkan aspal jalan murah tapi tetap berkualitas. Jika Anda mencari <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengaspalan murah</a> di Tangerang atau Jabodetabek, PT Tri Abadi Makmur menawarkan harga transparan tanpa mengurangi kualitas material.", en: "Affordable Asphalt — Getting a smooth asphalt road doesn't have to break the bank. Many people think paving is expensive, but with proper planning, you can get cheap but quality asphalt. If you are looking for affordable paving services in Tangerang or Greater Jakarta, PT Tri Abadi Makmur offers transparent prices without reducing material quality." } },
+      { type: "heading", text: { id: "Tips Mendapatkan Aspal Jalan Murah Tapi Berkualitas", en: "Tips to Get Affordable but Quality Asphalt" } },
       { type: "list", ordered: true, items: [
-        { id: "Mengecek Situasi Pengaspalan — Apabila memiliki proyek pengaspalan, perlu memikirkan lokasi dan penyelesaiannya. Selain itu, akan penting untuk melakukan pengecekan mengenai berapa biaya yang dibutuhkan. Selain itu, pertanyaan yang sering muncul adalah: mengapa Anda harus memilih jasa aspal yang tepat? Karena aspal yang murah dan berkualitas akan membuat hasil lebih rapi dan tahan lama.", en: "Check the Paving Situation — If you have a paving project, consider the location and its completion. It is important to check the costs required. You must compare which asphalt service is right and worth it." },
-        { id: "Membandingkan Harga — Selain dari sisi pengerjaan yang bagus, Anda juga perlu membandingkan harga. Ketika ada dua pilihan penyedia jasa aspal, bandingkan dengan beberapa aspek lain. Tidak hanya pada harga, tapi juga kualitas material, alat yang dipakai, dan garansi pengerjaan.", en: "Compare Prices — Besides good workmanship, you also need to compare prices. When there are two asphalt service providers, compare them on several aspects: not just price, but also material quality, tools used, and work warranty." },
-        { id: "Mengambil Harga Promosi — Jika Anda sedang mencari jasa aspal murah, momen promosi bisa dimanfaatkan. Beberapa penyedia jasa aspal biasanya memberikan promo di waktu-waktu tertentu. Manfaatkan momen tersebut untuk mendapatkan harga terbaik.", en: "Take Promotions — If you are looking for affordable asphalt services, take advantage of promotional moments. Some asphalt providers usually give promos at certain times. Use those moments to get the best price." },
-        { id: "Kelebatan dan Efisiensi — Pengerjaan aspal yang baik harus dikerjakan dengan cepat dan juga efisien. Selain itu, pekerjaan aspal dapat dilakukan dengan cepat karena adanya bantuan alat berat. Namun kenyataannya aspal juga tidak boleh terlalu lama dibiarkan, terutama jika kondisi hujan.", en: "Speed and Efficiency — Good asphalt work must be done quickly and efficiently. Asphalt work can be done fast thanks to heavy equipment. However, asphalt should not be left too long, especially in rainy conditions." },
+        { id: "<strong>Pilih Waktu yang Tepat:</strong> Menghindari musim hujan sangat disarankan. Pengaspalan saat cuaca cerah membuat proses lebih cepat dan hemat biaya operasional.", en: "<strong>Choose the Right Time:</strong> Avoiding the rainy season is highly recommended. Paving in sunny weather makes the process faster and saves operational costs." },
+        { id: "<strong>Sesuaikan Ketebalan:</strong> Untuk jalan lingkungan perumahan, aspal hotmix dengan ketebalan 3-4 cm sudah cukup kuat dan lebih murah dibanding jalan pabrik.", en: "<strong>Adjust Thickness:</strong> For residential neighborhood roads, 3-4 cm thick hotmix asphalt is strong enough and cheaper than factory roads." },
+        { id: "<strong>Bandingkan Penawaran:</strong> Jangan langsung menerima harga pertama. Bandingkan penawaran dari beberapa kontraktor, tapi pastikan spesifikasi materialnya sama.", en: "<strong>Compare Quotes:</strong> Don't just accept the first price. Compare quotes from several contractors, but make sure the material specifications are the same." }
       ] },
-      { type: "heading", text: { id: "Kelebihan dan Efisiensi", en: "Advantages and Efficiency" } },
-      { type: "paragraph", text: { id: "Pengerjaan aspal menggunakan alat berat yang canggih dapat menghemat biaya operasional dan waktu. Pengerjaan jalan aspal yang tepat akan membuat hasil lebih halus dan lebih cepat. Pengerjaan aspal di lapangan berbeda-beda tergantung kondisi jalan dan luas area yang akan diproses.", en: "Asphalt work using sophisticated heavy equipment can save operational costs and time. Proper asphalt road work will produce smoother and faster results. Asphalt work in the field varies depending on road conditions and the area to be processed." } },
+      { 
+  type: "paragraph", 
+  text: { 
+    id: "<p>Untuk melihat rincian estimasi biaya, Anda bisa membaca artikel kami tentang <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>Biaya Aspal Per Meter</a>.</p>", 
+    en: "<p>To see detailed cost estimates, you can read our article on <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>Asphalt Cost Per Meter</a>.</p>" 
+  } 
+},
+      { type: "paragraph", text: { id: "PT Tri Abadi Makmur adalah solusi tepat untuk proyek pengaspalan dengan budget terbatas namun tetap mengutamakan kualitas. Kami melayani pengaspalan jalan perumahan, gang, hingga area komersial. Dapatkan penawaran terbaik hari ini dengan menghubungi kami via WhatsApp.", en: "PT Tri Abadi Makmur is the right solution for paving projects with a limited budget while still prioritizing quality. We serve residential road paving, alleys, and commercial areas. Get the best offer today by contacting us via WhatsApp." } }
     ],
   },
   {
     slug: "pekerjaan-aspal-hotmix",
+    date: { id: "15 Oktober 2026", en: "October 15, 2026" },
+    dateISO: "2026-10-18",
     src: "/proyek/proyek-17.webp",
     category: { id: "Hotmix", en: "Hotmix" },
-    title: { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works" },
-    date: { id: "21 Juli 2026", en: "July 21, 2026" },
-    dateISO: "2026-07-21",
+    title: { 
+      id: "Pekerjaan Aspal Hotmix: Panduan & Spesifikasi", 
+      en: "Hotmix Asphalt Works: Guide & Specifications" 
+    },
+    // ...
     desc: {
-      id: "Jenis pekerjaan aspal hotmix — Penggunaan pada aspal juga harus anda ketahui dengan saksama. Serta bahan baku dasar dari bahan material yang perlu anda ketahui jenis serta kegunaannya.",
-      en: "Types of hotmix asphalt works — The use of asphalt must be understood carefully. As well as the basic raw materials you need to know the types and uses.",
+      id: "Panduan lengkap pekerjaan aspal hotmix: jenis, ketebalan, dan kegunaan untuk jalan perumahan hingga pabrik. Dikerjakan oleh ahlinya di Tangerang & Jabodetabek.",
+      en: "Complete guide to hotmix asphalt works: types, thickness, and uses for residential to factory roads. Executed by experts in Tangerang & Greater Jakarta.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -86,30 +95,35 @@ export const articles = [
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-    body: [
-      { type: "paragraph", text: { id: "Jenis pekerjaan aspal hotmix — Penggunaan pada aspal juga harus anda ketahui dengan saksama. Serta bahan baku dasar dari bahan material yang perlu anda ketahui jenis serta kegunaannya. Aspal hotmix memiliki ketebalan yang berbeda-beda, untuk mengetahui lebih detail terkait hal ini, berikut pembahasan yang dapat anda simak.", en: "Types of hotmix asphalt works — The use of asphalt must also be understood carefully. As well as the basic raw materials you need to know the types and uses. Hotmix asphalt has different thicknesses; to find out more, here is a discussion you can follow." } },
-      { type: "heading", text: { id: "5 Jenis-Jenis Pekerjaan Aspal Hotmix, Beda Ketebalan Beda Kegunaan", en: "5 Types of Hotmix Asphalt Works, Different Thickness Different Uses" } },
-      { type: "paragraph", text: { id: "Perbedaan mendasar dari setiap jenis dan ketebalan aspal pada dasarnya dilakukan berdasarkan penggunaan untuk konstruksi. Semakin baik aspal hotmix memiliki ketebalan, semakin besar biaya yang harus anda keluarkan. Berikut beberapa jenis aspal hotmix beserta tebal yang mungkin anda butuhkan.", en: "The fundamental difference of each type and thickness of asphalt is basically based on its use for construction. The better the hotmix asphalt thickness, the greater the cost you have to spend. Here are several types of hotmix asphalt and the thickness you may need." } },
-      { type: "list", ordered: true, items: [
-        { id: "Asphalt Treated Base (ATB) — Jenis aspal hotmix ini biasanya dipakai untuk lapis pondasi atas (ATB). Aspal hotmix ini memiliki ketebalan 5 cm paling sering dibandingkan yang lainnya, jika dibutuhkan material pengganti perumahan maupun area perkantoran yang membutuhkan stabilitas yang lebih besar. Setiap tipe material yang digunakan juga berbeda. Perbedaan jenis aspal ini juga berbeda antara 4 cm ke atas. Material pengganti yang sama juga sering dipakai untuk kepentingan jalan tipe lainnya.", en: "Asphalt Treated Base (ATB) — This type of hotmix asphalt is usually used for the upper base layer (ATB). This hotmix asphalt has a thickness of 5 cm, most often compared to others, if you need substitute material for housing or office areas that require greater stability. Each type of material used is also different. This type of asphalt also differs from 4 cm and above. The same substitute material is also often used for other types of road needs." },
-        { id: "Asphalt Concrete Binder Course (AC-BC) — Jenis aspal ini memiliki ketebalan antara 4 cm sampai 6 cm. Aspal ini juga biasa digunakan sebagai lapis pondasi atas. Selain itu, fungsinya juga sama dengan aspal jenis ATB. Beda diantara keduanya juga terletak pada penggunaan dalam perumahan, jalan raya, dan jalan untuk area perkantoran. Kadang penggunaan aspal ini biasanya lebih sering digunakan untuk jalan dengan kapasitas berat. Juga untuk area tol, jembatan, dan lain sebagainya. Untuk lebih jelasnya, aspal ini lebih banyak digunakan pada proyek besar.", en: "Asphalt Concrete Binder Course (AC-BC) — This asphalt has a thickness between 4 cm and 6 cm. It is also commonly used as an upper base layer. Its function is similar to ATB type asphalt. The difference between the two lies in their use in housing, highways, and office areas. Sometimes this asphalt is more often used for heavy-duty roads. Also for toll areas, bridges, and so on. To be clearer, this asphalt is more widely used in large projects." },
-        { id: "Asphalt Concrete Wearing Course (AC-WC) — Aspal ini lebih sering digunakan untuk lapisan permukaan aspal. Aspal hotmix ini memiliki ketebalan 4 cm. Aspal AC-WC ini bisa juga digunakan untuk jalan dengan beban berat, seperti jalan raya dan jalan tol.", en: "Asphalt Concrete Wearing Course (AC-WC) — This asphalt is more often used as the asphalt surface layer. This hotmix asphalt has a thickness of 4 cm. AC-WC asphalt can also be used for heavy-duty roads, such as highways and toll roads." },
-        { id: "Hot Roll Sheet — Jenis aspal hotmix ini biasanya dipakai untuk jalan raya dan jalan tol. Ketebalan aspal hotmix ini sekitar 3 cm. Jenis hotmix ini memiliki tekstur yang lebih halus dan sering digunakan untuk jalan dengan beban yang tidak terlalu berat.", en: "Hot Roll Sheet — This type of hotmix asphalt is usually used for highways and toll roads. The thickness of this hotmix asphalt is about 3 cm. This type of hotmix has a smoother texture and is often used for roads with lighter loads." },
-        { id: "Sand Sheet — Sand sheet ini bisa dikatakan sebagai lapis tipis aspal yang dipakai untuk finishing lapis permukaan. Ketebalan aspal jenis ini hanya sekitar 1,5 cm sampai 2 cm. Sand sheet biasanya dipakai untuk melapisi lapis permukaan jalan agar tampak lebih halus dan rata.", en: "Sand Sheet — Sand sheet can be considered a thin layer of asphalt used for finishing the surface layer. The thickness of this asphalt is only about 1.5 cm to 2 cm. Sand sheet is usually used to coat the road surface layer to make it appear smoother and flatter." },
+        body: [
+      { type: "paragraph", text: { id: "Pekerjaan aspal hotmix — Aspal hotmix adalah standar tertinggi untuk pembangunan jalan saat ini. Kualitasnya yang padat, awet, dan tahan cuaca membuatnya menjadi pilihan utama untuk jalan perumahan, pabrik, hingga jalan raya. Jika Anda membutuhkan kontraktor untuk <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>pekerjaan aspal hotmix</a> di area Tangerang & Jabodetabek, PT Tri Abadi Makmur adalah ahlinya.", en: "Hotmix asphalt works — Hotmix asphalt is the highest standard for road construction today. Its dense, durable, and weather-resistant qualities make it the main choice for residential roads, factories, and highways. If you need a contractor for hotmix asphalt works in the Tangerang & Greater Jakarta area, PT Tri Abadi Makmur is the expert." } },
+      { type: "heading", text: { id: "Apa Saja Jenis Aspal Hotmix dan Kegunaannya?", en: "What Are the Types of Hotmix Asphalt and Their Uses?" } },
+      { type: "paragraph", text: { id: "Tidak semua aspal hotmix itu sama. Ketebalan dan jenis campurannya disesuaikan dengan beban jalan:", en: "Not all hotmix asphalt is the same. The thickness and type of mix are adjusted to the road load:" } },
+      { type: "list", ordered: false, items: [
+        { id: "<strong>AC-WC (Asphalt Concrete Wearing Course):</strong> Lapisan permukaan, ketebalan 4 cm. Cocok untuk jalan raya dan jalan perumahan.", en: "<strong>AC-WC (Asphalt Concrete Wearing Course):</strong> Surface layer, 4 cm thick. Suitable for highways and residential roads." },
+        { id: "<strong>AC-BC (Asphalt Concrete Binder Course):</strong> Lapisan pengikat, ketebalan 4-6 cm. Digunakan untuk jalan dengan beban berat seperti jalan pabrik.", en: "<strong>AC-BC (Asphalt Concrete Binder Course):</strong> Binder layer, 4-6 cm thick. Used for heavy load roads like factory roads." },
+        { id: "<strong>ATB (Asphalt Treated Base):</strong> Lapisan pondasi atas, ketebalan 5 cm. Menambah stabilitas jalan.", en: "<strong>ATB (Asphalt Treated Base):</strong> Upper base layer, 5 cm thick. Adds road stability." }
       ] },
-      { type: "paragraph", text: { id: "Jenis aspal hotmix memang berbeda-beda sesuai dengan kebutuhan Anda. Anda bisa memakai aspal hotmix dengan bahan material yang sesuai dengan kebutuhan Anda. Harga aspal hotmix juga sangat bervariasi tergantung jenis yang dipakai. Untuk itu Anda harus menyadari hal tersebut. Namun, semuanya tetap terjangkau dengan kualitas yang baik. Perusahaan Anda juga kami harap bisa menghubungi nomor kami untuk mendapatkan konsultasi.", en: "Types of hotmix asphalt do vary according to your needs. You can use hotmix asphalt with materials that suit your needs. The price of hotmix asphalt also varies greatly depending on the type used. Therefore you must be aware of this. However, everything remains affordable with good quality. For your company, we hope you can contact our number to get a consultation." } },
+      { type: "paragraph", text: { id: "Untuk melihat rincian harga paket pengaspalan, Anda bisa membaca artikel kami tentang <a href='/blog/harga-aspal-hotmix' class='text-[#1e88e5] hover:underline font-semibold'>Harga Aspal Hotmix</a>.", en: "To see detailed paving package prices, you can read our article on Hotmix Asphalt Prices." } },
+      { type: "heading", text: { id: "Kenapa Memilih Jasa Pengaspalan Kami?", en: "Why Choose Our Paving Services?" } },
+      { type: "paragraph", text: { id: "PT Tri Abadi Makmur didukung oleh alat berat modern (seperti Asphalt Finisher dan Tandem Roller) serta tim berpengalaman. Kami menjamin hasil yang rata, tidak bergelombang, dan tahan lama. Kami juga memberikan garansi pengerjaan untuk kepuasan Anda.", en: "PT Tri Abadi Makmur is supported by modern heavy equipment (such as Asphalt Finisher and Tandem Roller) and an experienced team. We guarantee flat, non-wavy, and durable results. We also provide a work warranty for your satisfaction." } },
+      { type: "paragraph", text: { id: "Punya proyek jalan pabrik, perumahan, atau area parkir? Konsultasikan kebutuhan Anda sekarang dan dapatkan survei lokasi gratis.", en: "Have a factory road, residential, or parking area project? Consult your needs now and get a free site survey." } }
     ],
   },
   {
     slug: "distributor-aspal",
+    date: { id: "18 Oktober 2026", en: "October 18, 2026" },
+    dateISO: "2026-10-20", // <-- TAMBAHKAN INI
     src: "/proyek/proyek-15.webp",
     category: { id: "Distributor", en: "Distributor" },
-    title: { id: "Distributor Aspal", en: "Asphalt Distributor" },
-    date: { id: "21 Juli 2026", en: "July 21, 2026" },
-    dateISO: "2026-07-21",
+        title: { 
+      id: "Distributor Aspal Terpercaya di Tangerang & Jabodetabek", 
+      en: "Trusted Asphalt Distributor in Tangerang & Greater Jakarta" 
+    },
+    // ...
     desc: {
-      id: "Distributor aspal — Sebelum melakukan transaksi dengan perusahaan-perusahaan yang akan melayani atau sebagai mitra distributor aspal, penting untuk memilih perusahaan yang terbaik.",
-      en: "Asphalt distributor — Before doing business with companies that will serve you or become your distributor partner, it is important to choose the best company.",
+      id: "Mencari distributor aspal untuk kebutuhan proyek Anda? PT Tri Abadi Makmur menyediakan aspal berkualitas dengan harga bersaing. Konsultasi gratis via WhatsApp.",
+      en: "Looking for an asphalt distributor for your project needs? PT Tri Abadi Makmur provides quality asphalt at competitive prices. Free consultation via WhatsApp.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -134,27 +148,27 @@ export const articles = [
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-    body: [
-      { type: "paragraph", text: { id: "Distributor Aspal – Sebelum melakukan transaksi dengan perusahaan-perusahaan yang akan melayani atau sebagai mitra distributor aspal yang baik adalah perusahaan yang terbaik. Sebelum anda melakukan hal yang dianggap penting untuk kebutuhan bahan aspal distributor atau yang berhubungan dengan distributor dan supplier aspal. Anda juga bisa memilih beberapa pertimbangan agar tidak salah dalam memilih distributor. Ketika anda mendapatkan distributor aspal yang tepat, maka pekerjaan pengaspalan anda akan lebih mudah dan bisa mendapatkan hasil terbaik. Maka dari itu perhatikan betul perusahaan yang akan menjadi partner bisnis perusahaan untuk kebutuhan aspal anda.", en: "Asphalt Distributor – Before doing business with companies that will serve you or become a good distributor partner, you need a good company. Before doing anything considered important for your asphalt material needs, or related to asphalt distributors and suppliers, you should also weigh several considerations so you do not choose the wrong distributor. When you get the right asphalt distributor, your paving work becomes easier and gets the best results. Therefore pay close attention to the company that will become your business partner for your asphalt needs." } },
-      { type: "heading", text: { id: "Distributor aspal – Perhatikan Tips Ini Sebelum Memilih Distributor Aspal Terbaik", en: "Asphalt Distributor – Pay Attention to These Tips Before Choosing the Best Asphalt Distributor" } },
-      { type: "paragraph", text: { id: "Di perusahaan aspal juga ada beberapa distributor yang menawarkan distributor aspal yang bagus. Berikut adalah beberapa hal yang harus dilakukan untuk memilih perusahaan penyedia aspal yang tepat.", en: "In the asphalt industry there are also several distributors offering a good asphalt distributor. Here are several things you should do to choose the right asphalt provider." } },
+        body: [
+      { type: "paragraph", text: { id: "Distributor Aspal — Membangun jalan yang berkualitas dimulai dari pemilihan material yang tepat. Jika Anda sedang mencari distributor aspal terpercaya untuk proyek perumahan, pabrik, atau jalan raya di area Tangerang & Jabodetabek, PT Tri Abadi Makmur siap menjadi mitra bisnis Anda. Kami menyediakan aspal berkualitas dengan pasokan yang konsisten. Lihat juga halaman <a href='/supplier' class='text-[#1e88e5] hover:underline font-semibold'>Supplier Kami</a>.", en: "Asphalt Distributor — Building a quality road starts with choosing the right material. If you are looking for a trusted asphalt distributor for residential, factory, or highway projects in the Tangerang & Greater Jakarta area, PT Tri Abadi Makmur is ready to be your business partner. We provide quality asphalt with consistent supply. Also see our Supplier page." } },
+      { type: "heading", text: { id: "Tips Memilih Distributor Aspal yang Tepat", en: "Tips for Choosing the Right Asphalt Distributor" } },
+      { type: "paragraph", text: { id: "Jangan asal membeli aspal. Pastikan distributor Anda memenuhi kriteria berikut agar proyek tidak gagal:", en: "Don't just buy asphalt carelessly. Make sure your distributor meets the following criteria so the project doesn't fail:" } },
       { type: "list", ordered: true, items: [
-        { id: "Pahami Profitnya — Perhatikan betul-betul manfaat aspal yang ditawarkan dalam pekerjaan konstruksi. Sebab hal ini juga membuat mereka memiliki tujuan atau visi mereka sendiri menguntungkan. Orang-orang yang memiliki untuk memanfaatkan hal tersebut bisa membuat pekerjaan berjalan lebih mudah dan memberi manfaat. Maka dari itu perhatikan lebih detail hal seperti ini agar tidak salah pilih dalam bisnis aspal yang bagus dan anda akan menentukan hal yang sesuai.", en: "Understand the Benefits — Pay close attention to the benefits of asphalt offered for your construction work. This also makes sure the company has clear goals or a vision that benefits you. People who choose to take advantage of this can make their work easier and more beneficial. So look at this in more detail so you don't pick the wrong asphalt business and can determine the right choice." },
-        { id: "Pengalamannya — Bagaimana kita melihat perusahaan penyedia aspal yang berpengalaman. Ada beberapa perusahaan yang bisa bekerja sama dengan baik. Ketika anda memilih distributor aspal yang tepat, anda akan lebih mudah mendapat pengalaman dari perusahaan terbaik. Maka dari itu cari tahu informasi atau perusahaan yang berkualitas dan berpengalaman di bidang aspal.", en: "Experience — How do we judge an experienced asphalt provider company? Some companies can collaborate well. When you choose the right asphalt distributor, you will more easily gain experience from the best company. So find out more about quality companies with experience in asphalt." },
-        { id: "Dapat Dipercaya — Anda akan menemukan perusahaan penyedia aspal yang bisa dipercaya dan bisa menjadi partner bisnis anda. Ketika akan menggunakan jasa pengaspalan sebaiknya anda mencari perusahaan yang sudah terpercaya dan memiliki reputasi yang baik.", en: "Trustworthy — You will find asphalt provider companies that can be trusted and can become your business partner. When using paving services, you should look for a company that is already trusted and has a good reputation." },
-        { id: "Syarat Dan Ketentuan Yang Diberikan — Sebelum anda bekerjasama dengan perusahaan aspal, sebaiknya anda mengetahui syarat dan ketentuan yang diberikan pihak perusahaan. Anda akan melihat dan menentukan apakah sesuai dengan keinginan anda dan perusahaan.", en: "Terms and Conditions — Before working with an asphalt company, you should know the terms and conditions set by the company. You will see and decide whether they match what you and the company want." },
-        { id: "Biaya — Masalah biaya memang bisa berbeda-beda, semua bisa berbeda-beda karena di perusahaan penyedia jasa pengaspalan jalan memiliki kebijakan tersendiri dalam menetapkan harga. Pilihlah jasa aspal yang bisa menjangkau kemampuan anda.", en: "Cost — The issue of cost can vary, everything can differ because each paving service provider has its own policy in setting prices. Choose an asphalt service that fits your budget." },
+        { id: "<strong>Kualitas Material Terjamin:</strong> Pastikan aspal memiliki spesifikasi yang sesuai standar (misalnya penetrasi 60/70) dan tidak tercampur kotoran.", en: "<strong>Guaranteed Material Quality:</strong> Make sure the asphalt has specifications that meet standards (e.g., penetration 60/70) and is not mixed with dirt." },
+        { id: "<strong>Pengalaman & Reputasi:</strong> Pilih distributor yang sudah lama bergerak di bidang konstruksi jalan dan memiliki rekam jejak yang baik.", en: "<strong>Experience & Reputation:</strong> Choose a distributor that has been engaged in road construction for a long time and has a good track record." },
+        { id: "<strong>Ketepatan Waktu Pengiriman:</strong> Keterlambatan material bisa menghentikan proyek. Pastikan distributor memiliki armada transportasi yang memadai.", en: "<strong>On-Time Delivery:</strong> Material delays can halt a project. Make sure the distributor has an adequate transportation fleet." },
+        { id: "<strong>Harga Transparan:</strong> Waspadai harga yang terlalu murah karena biasanya kualitasnya di bawah standar. Pilih yang menawarkan harga wajar sesuai kualitas.", en: "<strong>Transparent Pricing:</strong> Beware of prices that are too cheap because the quality is usually below standard. Choose one that offers a reasonable price according to quality." }
       ] },
-      { type: "paragraph", text: { id: "Itulah beberapa tips memilih distributor aspal terbaik. Pastikan anda memilih distributor aspal terbaik untuk kebutuhan anda. Itu juga membuat perusahaan anda lebih mudah mendapat kepercayaan dari klien. Jadi, pastikan untuk memilih distributor aspal yang tepat untuk kebutuhan anda. Nah, untuk memenuhi kebutuhan distributor aspal yang terbaik dan terpercaya, anda bisa menghubungi kami. Tidak hanya menyediakan distributor aspal, kami juga melayani berbagai kebutuhan yang berhubungan dengan aspal seperti jasa pengaspalan dan juga jual aspal. Kami melayani seluruh Indonesia dengan tim yang profesional dan berpengalaman.", en: "Those are several tips for choosing the best asphalt distributor. Make sure you choose the best one for your needs. It also makes it easier for your company to gain clients' trust. So, make sure to choose the right asphalt distributor for your needs. To fulfill your need for the best and most trusted asphalt distributor, you can contact us. Not only do we provide an asphalt distributor, we also serve various asphalt-related needs such as paving services and asphalt sales. We serve all of Indonesia with a professional and experienced team." } },
+      { type: "paragraph", text: { id: "PT Tri Abadi Makmur adalah distributor aspal yang juga melayani <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengaspalan</a> secara lengkap. Artinya, Anda tidak perlu repot mencari kontraktor terpisah jika membeli material dari kami.", en: "PT Tri Abadi Makmur is an asphalt distributor that also provides complete paving services. This means you don't need to bother looking for a separate contractor if you buy materials from us." } },
+      { type: "paragraph", text: { id: "Butuh pasokan aspal atau konsultasi material untuk proyek Anda? Hubungi kami sekarang via WhatsApp untuk mendapatkan penawaran terbaik.", en: "Need asphalt supply or material consultation for your project? Contact us now via WhatsApp to get the best offer." } }
     ],
   },
   {
     slug: "perbaikan-jalan-aspal",
+    date: { id: "20 Oktober 2026", en: "October 20, 2026" },
+    dateISO: "2026-10-22", //
     src: "/proyek/proyek-2.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
-    title: { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair" },
-    date: { id: "21 Juli 2026", en: "July 21, 2026" },
-    dateISO: "2026-07-21",
+    title: { id: "Perbaikan Jalan Aspal: Penyebab, Proses & Biaya", en: "Asphalt Road Repair: Causes, Process & Cost" },
     desc: {
       id: "Perbaikan jalan aspal hotmix — Beberapa area yang perlu mendapatkan perhatian lebih untuk dilakukan perbaikan agar jalan lebih mulus dan nyaman dilalui.",
       en: "Hotmix asphalt road repair — Several areas that need more attention for repairs so roads are smoother and more comfortable to pass.",
@@ -199,14 +213,18 @@ export const articles = [
   },
   {
     slug: "pemasangan-kansteen",
+    date: { id: "25 Oktober 2026", en: "October 25, 2026" },
+    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
     src: "/proyek/pasang-kanstin.webp",
     category: { id: "Paving", en: "Paving" },
-    title: { id: "Pemasangan Kansteen", en: "Kansteen Installation" },
-    date: { id: "21 Juli 2026", en: "July 21, 2026" },
-    dateISO: "2026-07-21",
+        title: { 
+      id: "Jasa Pasang Kanstin: Fungsi, Jenis & Estimasi Harga", 
+      en: "Curb Installation Services: Functions, Types & Price Estimates" 
+    },
+    // ...
     desc: {
-      id: "Pemasangan kansteen — Kansteen adalah salah satu dari jenis pekerjaan yang lebih baik kita ketahui dari pengguna jalan. Fungsi pemasangan kansteen untuk pembatas area tirtioan terhadap jalanan yang lebih rapi dan juga berguna untuk mengarahkan air.",
-      en: "Kansteen installation — Kansteen is one type of work that is better known to road users. The function of curb installation is as a divider between the sidewalk area and the road, making it neater and also useful for directing water.",
+      id: "Pemasangan kanstin atau kansteen untuk pembatas jalan, trotoar, dan taman. Dikerjakan rapi dan presisi oleh PT Tri Abadi Makmur di area Tangerang & Jabodetabek.",
+      en: "Curb installation for road dividers, sidewalks, and gardens. Neatly and precisely executed by PT Tri Abadi Makmur in the Tangerang & Greater Jakarta area.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -231,30 +249,33 @@ export const articles = [
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-    body: [
-      { type: "paragraph", text: { id: "Pemasangan kansteen — Kansteen adalah salah satu dari jenis pekerjaan yang lebih baik kita ketahui dari pengguna jalan. Fungsi pemasangan kansteen untuk pembatas area tirtioan terhadap jalanan yang lebih rapi dan juga berguna untuk mengarahkan air. Adapun jenis pekerjaan yang baik ini dari pemasangan kansteen untuk pembatas area tirtioan terhadap jalanan. Dan untuk anda yang sedang mencari jasa pemasangan kansteen, berikut adalah jenis-jenis kansteen yang sering digunakan.", en: "Kansteen installation — Kansteen is one type of work that is better known to road users. The function of curb installation is as a divider between the sidewalk area and the road, making it neater and also useful for directing water. As for this good type of work from curb installation as a divider between the sidewalk area and the road. And for those of you looking for curb installation services, here are the types of curbs that are often used." } },
-      { type: "heading", text: { id: "5 Jenis Jasa Pemasangan Kansteen Yang Sering Diminati", en: "5 Types of Curbs Installation Services That Are Often in Demand" } },
-      { type: "paragraph", text: { id: "Berikut ini beberapa jenis pemasangan kansteen yang sering digunakan. Jasa kansteen pun juga semakin berkembang. Berikut adalah detailnya.", en: "Here are several types of curb installation that are often used. Curb services are also growing. Here are the details." } },
-      { type: "list", ordered: true, items: [
-        { id: "Pemasangan Kansteen — Kansteen DKI merupakan pemasangan kansteen yang digunakan untuk pembatas antara jalan trotoar. Namun untuk DKI sendiri adalah kansteen yang biasa dibedakan dengan jenis lainnya. Jenis kansteen yang digunakan dalam membuat jalan adalah kansteen biasa. Jenis kansteen yang paling sering digunakan pada jalan adalah kansteen yang memiliki ukuran yang sama dengan jalan. Pada jenis kansteen ini adalah kansteen yang paling sering dijumpai di jalan. Jenis kansteen ini memiliki ukuran yang sama dengan jalan dan memiliki ukuran yang lebih kecil daripada jalan.", en: "Curbs Installation — DKI curbs are curb installations used as a divider between the road and the sidewalk. However, for DKI itself, this curb is usually distinguished from other types. The type of curb used in road construction is the ordinary curb. The type of curb most often used on roads is the curb that has the same size as the road. This type of curb is the most commonly found on roads. This type of curb has the same size as the road and is smaller than the road." },
-        { id: "Pemasangan Kansteen Taman — Jenis pemasangan kansteen ini biasanya memiliki dua tipe. Pertama, kansteen yang memiliki ukuran yang lebih kecil dan digunakan untuk pembatas antara taman dan jalan. Kedua, kansteen yang memiliki ukuran yang lebih kecil dan digunakan untuk pembatas antara taman dan jalan. Kansteen jenis ini banyak digunakan untuk taman, seperti pembatas jalan setapak atau pembatas antara taman dengan jalan. Selain itu kansteen taman juga banyak digunakan untuk taman dan jalan setapak pada taman.", en: "Garden Curbs Installation — This type of curb installation usually has two types. First, curbs with a smaller size used as a divider between the garden and the road. Second, curbs with a smaller size used as a divider between the garden and the road. This type of curb is widely used for gardens, such as a divider for footpaths or between the garden and the road. Besides that, garden curbs are also widely used for gardens and garden footpaths." },
-        { id: "Pemasangan Kansteen Car Stopper — Kansteen ini juga digunakan untuk membuat batas tinggi pada ban mobil agar mobil tidak melewati batas taman yang ingin kita buat, kansteen ini biasa digunakan untuk taman yang memiliki area parkir di depannya. Kansteen ini banyak digunakan untuk taman yang memiliki area parkir di depannya. Kansteen ini juga banyak digunakan untuk taman yang memiliki area parkir di depannya.", en: "Car Stopper Curbs Installation — This curb is also used to make a height limit for car tires so the car does not go past the garden boundary we want to make. This curb is commonly used for gardens that have a parking area in front of them. This curb is widely used for gardens that have a parking area in front of them. This curb is also widely used for gardens that have a parking area in front of them." },
-        { id: "Kansteen S — Kansteen jenis ini biasanya berbentuk dua ukuran dengan kansteen berukuran. Kansteen ini juga memiliki bentuk yang sama dengan kansteen biasa. Kansteen S memiliki bentuk yang sama dengan kansteen biasa. Kansteen ini juga biasanya digunakan untuk membuat pembatas jalan trotoar. Kansteen S ini juga banyak digunakan untuk membuat jalan setapak atau jalan yang lebih kecil. Kansteen S juga banyak digunakan untuk membuat kansteen yang lebih kecil dan lebih kecil.", en: "S Curbs — This type of curb usually comes in two sizes with curb dimensions. This curb also has the same shape as an ordinary curb. S curbs have the same shape as ordinary curbs. This curb is also commonly used to make road and sidewalk dividers. S curbs are also widely used to make footpaths or smaller roads. S curbs are also widely used to make smaller and smaller curbs." },
-        { id: "Pemasangan Kansteen Trotoar — Trotoar ini nantinya dibuat untuk jalan setapak. Dengan pemasangan kansteen ini, nantinya banyak difungsikan untuk membuat area pejalan kaki untuk menuju trotoar. Di kawasan trotoar ini juga banyak digunakan untuk pejalan kaki. Untuk itu banyak sekali trotoar yang dibangun di kawasan ini. Trotoar ini juga banyak difungsikan untuk membuat area pejalan kaki untuk menuju trotoar. Dan anda juga bisa menambahkan kansteen taman yang bisa disesuaikan dengan kebutuhan.", en: "Sidewalk Curbs Installation — This sidewalk will later be made for footpaths. With this curb installation, it will later be mostly used to create a pedestrian area leading to the sidewalk. In this sidewalk area, it is also widely used for pedestrians. That is why many sidewalks are built in this area. This sidewalk is also widely used to create a pedestrian area leading to the sidewalk. And you can also add garden curbs that can be adjusted to your needs." },
+        body: [
+      { type: "paragraph", text: { id: "Pemasangan kansteen — Kansteen (atau kanstin) adalah komponen penting dalam pembangunan jalan. Fungsinya sebagai pembatas antara jalan dan trotoar, serta mengarahkan aliran air agar tidak menggenang di badan jalan. Jika Anda membutuhkan <a href='/layanan/infrastruktur/pasang-kanstin' class='text-[#1e88e5] hover:underline font-semibold'>jasa pasang kanstin</a> yang rapi di area Tangerang & Jabodetabek, PT Tri Abadi Makmur solusinya.", en: "Kansteen installation — Kansteen (or curb) is an important component in road construction. Its function is as a divider between the road and sidewalk, and directs water flow so it doesn't stagnate on the road body. If you need neat curb installation services in the Tangerang & Greater Jakarta area, PT Tri Abadi Makmur is the solution." } },
+      { type: "heading", text: { id: "Jenis-Jenis Kanstin yang Sering Digunakan", en: "Types of Curbs Commonly Used" } },
+      { type: "list", ordered: false, items: [
+        { id: "<strong>Kanstin DKI / Jalan:</strong> Ukuran standar untuk pembatas jalan raya, kokoh menahan benturan.", en: "<strong>DKI / Road Curbs:</strong> Standard size for highway dividers, sturdy against impacts." },
+        { id: "<strong>Kanstin Taman:</strong> Ukuran lebih kecil dan estetis, cocok untuk pembatas taman atau jalan setapak.", en: "<strong>Garden Curbs:</strong> Smaller and aesthetic size, suitable for garden or footpath dividers." },
+        { id: "<strong>Kanstin Car Stopper:</strong> Berfungsi sebagai pembatas ban mobil agar tidak melewati batas taman atau area parkir.", en: "<strong>Car Stopper Curbs:</strong> Functions as a car tire barrier so it doesn't cross the garden or parking area boundary." },
+        { id: "<strong>Kanstin S:</strong> Memiliki bentuk profil S, sering digunakan untuk trotoar dan jalan lingkungan.", en: "<strong>S Curbs:</strong> Has an S profile shape, often used for sidewalks and neighborhood roads." }
       ] },
-      { type: "paragraph", text: { id: "Jasa pemasangan kansteen memang paling banyak digunakan untuk pengerjaan proyek konstruksi. Sementara itu, kansteen untuk kebutuhan pribadi sebenarnya juga bisa dipesan melalui penyedia jasa pemasangan kansteen yang kamu percaya. Di zaman sekarang ini, tidak ada salahnya jika kamu mencari penyedia jasa pemasangan kansteen yang terbaik. Untuk itu kamu bisa menghubungi kami. Kami adalah penyedia jasa pemasangan kansteen yang terbaik dan terpercaya di Indonesia. Kami juga melayani berbagai kebutuhan pemasangan kansteen seperti kansteen taman, kansteen trotoar, kansteen jalan, dan masih banyak lagi.", en: "Curbs installation services are indeed most widely used for construction projects. Meanwhile, curbs for personal needs can also be ordered through a curbs installation service provider you trust. Nowadays, there is nothing wrong with looking for the best curbs installation service provider. For that, you can contact us. We are the best and most trusted curbs installation service provider in Indonesia. We also serve various curb installation needs such as garden curbs, sidewalk curbs, road curbs, and many more." } },
+      { type: "paragraph", text: { id: "Untuk pemasangan kanstin yang rapi dan presisi, dibutuhkan tenaga ahli dan alat yang tepat. PT Tri Abadi Makmur telah berpengalaman dalam pemasangan kanstin untuk berbagai proyek perumahan, pabrik, dan jalan raya. Kami juga melayani <a href='/layanan/infrastruktur/pasang-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>pemasangan paving block</a> untuk melengkapi trotoar Anda.", en: "For neat and precise curb installation, expert workers and the right tools are needed. PT Tri Abadi Makmur is experienced in curb installation for various residential, factory, and highway projects. We also provide paving block installation to complete your sidewalk." } },
+      { type: "paragraph", text: { id: "Hubungi kami sekarang untuk konsultasi dan survei lokasi gratis. Dapatkan harga kanstin terbaik untuk proyek Anda.", en: "Contact us now for free consultation and site survey. Get the best curb price for your project." } }
     ],
   },
   {
     slug: "aspal-jalan-murah-2",
+    date: { id: "25 Oktober 2026", en: "October 25, 2026" },
+    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
     src: "/proyek/proyek-30.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
-    title: { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative" },
-    date: { id: "21 Juli 2026", en: "July 21, 2026" },
-    dateISO: "2026-07-21",
+        title: { 
+      id: "Tips Hemat Biaya Pengaspalan Jalan Aspal", 
+      en: "Tips to Save on Asphalt Road Paving Costs" 
+    },
+    // ...
     desc: {
-      id: "Aspal jalan murah — Memiliki jalan yang mulus dan enak dilalui adalah impian setiap orang. Utamanya mereka yang memiliki bisnis. Sedangkan mereka yang memiliki bisnis mereka harus pintar. Sudah banyak beredar. Meski penggunaan jasa yang berpengalaman akan membuat hasil lebih bagus.",
-      en: "Affordable road asphalt — Having a smooth and comfortable road is everyone's dream. Especially those who own a business. Those who own a business must be smart. Many have circulated. Although using an experienced service will produce better results.",
+      id: "Mendapatkan aspal jalan murah tidak harus mengorbankan kualitas. Simak tips hemat biaya pengaspalan jalan dari PT Tri Abadi Makmur di Tangerang & Jabodetabek.",
+      en: "Getting cheap asphalt roads doesn't have to sacrifice quality. Read tips to save on road paving costs from PT Tri Abadi Makmur in Tangerang & Greater Jakarta.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -279,30 +300,32 @@ export const articles = [
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-    body: [
-      { type: "paragraph", text: { id: "Aspal Jalan Murah – Memiliki jalan yang mulus dan enak dilalui adalah imipian setiap orang. Utamanya mereka yang memiliki berjubel kendaraan. Setidaknya impian ini akan mampu tercapai dengan cara mengaspal jalan. Sudah barang tentu, melalui pengaspalan jalan yang awalnya bergelombang alias tidak rata, berlubang, dan tidak stabil dapat teratasi dengan baik. Sangat menggiurkan memang. Coba saja anda bayangkan. Namun yang menjadi permasalahan selanjutnya bukankah harga aspal itu tidaklah murah? alias mahal. Mungkin dengan sesegera anda akan mengira-ngira berapa besar budget yang harus dikeluarkan untuk melakukan pengaspalan. Sebab dalam melakukan proyek pengaspalan akan ada banyak faktor yang mempengaruhi sekaligus layak untuk dipertimbangkan. Namun apakah bisa melakukan perbaikan jalan dengan anggaran yang sangat murah?. Tenang, solusinya terpaparkan jelas dalam artikel ini.", en: "Affordable Asphalt — Finding a smooth and comfortable road is everyone's dream, especially for business owners. Even though the use of experienced services will produce better results, the important thing is to get cheap and good asphalt. Many offer cheap asphalt services. You want to get affordable and quality asphalt service. Therefore you must choose the right asphalt provider." } },
-      { type: "heading", text: { id: "Aspal Jalan Murah — Tips untuk Mendapatkan Aspal Jalan Murah", en: "Affordable Asphalt — Tips to Get Affordable Asphalt" } },
-      { type: "paragraph", text: { id: "Memang aspal merupakan barang langka dan memiliki harga yang tidak biasa. Pada umumnya aspal sendiri dipatok dengan harga per meter. Sehingga semuanya tergantung pada kepiawaian anda. Mulai dari mengecek situs resmi pengaspalan, membandingkan harga, mengambil promosi dan efesiensi yang layak diketahui. Untuk lebih jelasnya hal demikian akan dibahas lebih jelas di bawah ini.", en: "Buying asphalt is not something arbitrary. You are required to pay a suitable price with quality work that is neat and will satisfy investors. To be clearer, below are several ways you can do to get affordable asphalt." } },
+       body: [
+      { type: "paragraph", text: { id: "Aspal Jalan Murah Alternatif — Banyak orang menganggap pengaspalan jalan itu mahal. Padahal, dengan strategi yang tepat, Anda bisa mendapatkan aspal jalan murah tanpa mengurangi kualitas. Jika Anda sedang mencari <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengaspalan murah</a> di area Tangerang atau Jabodetabek, berikut adalah tips hemat dari PT Tri Abadi Makmur.", en: "Affordable Asphalt Alternative — Many people think road paving is expensive. In fact, with the right strategy, you can get cheap asphalt roads without reducing quality. If you are looking for affordable paving services in the Tangerang or Greater Jakarta area, here are saving tips from PT Tri Abadi Makmur." } },
+      { type: "heading", text: { id: "Cara Menghemat Biaya Pengaspalan Jalan", en: "How to Save on Road Paving Costs" } },
       { type: "list", ordered: true, items: [
-        { id: "Mengecek Situs Pengaspalan — Apabila mencari situs resmi pengaspalan secara langsung di internet maka secara pasti anda akan disuguhkan beragam pilihan. Sebagai petunjuk pertama, anda dapat mengunjungi semua website. Sudah pasti semuanya akan menyodorkan konten yang berbeda. Mulai dari profil perusahaan, tawaran harga, produk aspal yang dijual, rincian harga pengerjaan sampai pada garansi yang dijanjikan. Namun yang perlu diperhatikan dalam pengecekan situs satu ke situs lain ini ialah tingkat transparansi, jaminan dan terpercaya. Pastikan anda benar-benar memilih situs resmi.", en: "Check the Paving Situation — If you have a paving project, consider the location and its completion. It is important to check the costs required. You must compare which asphalt service is right and worth it." },
-        { id: "Membandingkan Harga — Selain dari sisi pengerjaan yang bagus, Anda juga perlu membandingkan harga. Ketika ada dua pilihan penyedia jasa aspal, bandingkan dengan beberapa aspek lain. Tidak hanya pada harga, tapi juga kualitas material, alat yang dipakai, dan garansi pengerjaan.", en: "Compare Prices — Besides good workmanship, you also need to compare prices. When there are two asphalt service providers, compare them on several aspects: not just price, but also material quality, tools used, and work warranty." },
-        { id: "Mengambil Harga Promosi — Jika Anda sedang mencari jasa aspal murah, momen promosi bisa dimanfaatkan. Beberapa penyedia jasa aspal biasanya memberikan promo di waktu-waktu tertentu. Manfaatkan momen tersebut untuk mendapatkan harga terbaik.", en: "Take Promotions — If you are looking for affordable asphalt services, take advantage of promotional moments. Some asphalt providers usually give promos at certain times. Use those moments to get the best price." },
-        { id: "Kelebatan dan Efisiensi — Pengerjaan aspal yang baik harus dikerjakan dengan cepat dan juga efisien. Selain itu, pekerjaan aspal dapat dilakukan dengan cepat karena adanya bantuan alat berat. Namun kenyataannya aspal juga tidak boleh terlalu lama dibiarkan, terutama jika kondisi hujan.", en: "Speed and Efficiency — Good asphalt work must be done quickly and efficiently. Asphalt work can be done fast thanks to heavy equipment. However, asphalt should not be left too long, especially in rainy conditions." },
+        { id: "<strong>Pilih Jenis Aspal yang Tepat:</strong> Untuk jalan lingkungan, aspal hotmix tipis (3-4 cm) sudah cukup. Tidak perlu menggunakan spesifikasi jalan tol yang jauh lebih mahal.", en: "<strong>Choose the Right Asphalt Type:</strong> For neighborhood roads, thin hotmix asphalt (3-4 cm) is sufficient. No need to use toll road specifications which are much more expensive." },
+        { id: "<strong>Lakukan Perbaikan Sejak Dini:</strong> Menambal lubang kecil jauh lebih murah daripada membongkar dan mengaspal ulang seluruh jalan yang sudah rusak parah.", en: "<strong>Repair Early:</strong> Patching small potholes is much cheaper than dismantling and re-paving an entire severely damaged road." },
+        { id: "<strong>Gabungkan dengan Proyek Tetangga:</strong> Jika area di sekitar Anda juga membutuhkan pengaspalan, mengerjakannya bersamaan (satu alat berat) bisa menekan biaya mobilisasi.", en: "<strong>Combine with Neighbor Projects:</strong> If the surrounding area also needs paving, doing it together (one heavy equipment) can reduce mobilization costs." }
       ] },
-      { type: "heading", text: { id: "Kelebihan dan Efisiensi", en: "Advantages and Efficiency" } },
-      { type: "paragraph", text: { id: "Pengerjaan aspal menggunakan alat berat yang canggih dapat menghemat biaya operasional dan waktu. Pengerjaan jalan aspal yang tepat akan membuat hasil lebih halus dan lebih cepat. Pengerjaan aspal di lapangan berbeda-beda tergantung kondisi jalan dan luas area yang akan diproses.", en: "Asphalt work using sophisticated heavy equipment can save operational costs and time. Proper asphalt road work will produce smoother and faster results. Asphalt work in the field varies depending on road conditions and the area to be processed." } },
+      { type: "paragraph", text: { id: "Untuk melihat perbandingan harga yang lebih detail, Anda bisa membaca artikel kami tentang <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>Biaya Aspal Per Meter</a>.", en: "To see a more detailed price comparison, you can read our article on Asphalt Cost Per Meter." } },
+      { type: "paragraph", text: { id: "PT Tri Abadi Makmur menawarkan harga aspal jalan murah dengan material berkualitas. Dapatkan penawaran terbaik hari ini dengan menghubungi kami via WhatsApp.", en: "PT Tri Abadi Makmur offers cheap asphalt road prices with quality materials. Get the best offer today by contacting us via WhatsApp." } }
     ],
   },
   {
     slug: "pekerjaan-aspal-hotmix-2",
+    date: { id: "25 Oktober 2026", en: "October 25, 2026" },
+    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
     src: "/proyek/proyek-31.webp",
     category: { id: "Hotmix", en: "Hotmix" },
-    title: { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative" },
-    date: { id: "21 Juli 2026", en: "July 21, 2026" },
-    dateISO: "2026-07-21",
+       title: { 
+      id: "Spesifikasi & Metode Pekerjaan Aspal Hotmix", 
+      en: "Hotmix Asphalt Work Specifications & Methods" 
+    },
+    // ...
     desc: {
-      id: "Pekerjaan aspal hotmix — Penggunaan pada aspal juga harus anda ketahui dengan saksama. Serta bahan baku dasar dari bahan material yang perlu anda ketahui jenis serta kegunaannya.",
-      en: "Hotmix asphalt works — The use of asphalt must be understood carefully. As well as the basic raw materials you need to know the types and uses.",
+      id: "Panduan spesifikasi dan metode kerja aspal hotmix untuk hasil jalan yang padat dan tahan lama. Dikerjakan oleh tenaga ahli PT Tri Abadi Makmur di Tangerang & Jabodetabek.",
+      en: "Guide to hotmix asphalt work specifications and methods for dense and durable road results. Executed by expert staff of PT Tri Abadi Makmur in Tangerang & Greater Jakarta.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -327,30 +350,35 @@ export const articles = [
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-    body: [
-      { type: "paragraph", text: { id: "Pekerjaan aspal hotmix — Penggunaan pada aspal juga harus anda ketahui dengan saksama. Serta bahan baku dasar dari bahan material yang perlu anda ketahui jenis serta kegunaannya. Aspal hotmix memiliki ketebalan yang berbeda-beda, untuk mengetahui lebih detail terkait hal ini, berikut pembahasan yang dapat anda simak.", en: "Hotmix asphalt works — The use of asphalt must also be understood carefully. As well as the basic raw materials you need to know the types and uses. Hotmix asphalt has different thicknesses; to find out more, here is a discussion you can follow." } },
-      { type: "heading", text: { id: "5 Jenis-Jenis Pekerjaan Aspal Hotmix, Beda Ketebalan Beda Kegunaan", en: "5 Types of Hotmix Asphalt Works, Different Thickness Different Uses" } },
-      { type: "paragraph", text: { id: "Perbedaan mendasar dari setiap jenis dan ketebalan aspal pada dasarnya dilakukan berdasarkan penggunaan untuk konstruksi. Semakin baik aspal hotmix memiliki ketebalan, semakin besar biaya yang harus anda keluarkan. Berikut beberapa jenis aspal hotmix beserta tebal yang mungkin anda butuhkan.", en: "The fundamental difference of each type and thickness of asphalt is basically based on its use for construction. The better the hotmix asphalt thickness, the greater the cost you have to spend. Here are several types of hotmix asphalt and the thickness you may need." } },
+       body: [
+      { type: "paragraph", text: { id: "Pekerjaan Aspal Hotmix Alternatif — Kualitas jalan sangat bergantung pada metode dan spesifikasi pengerjaannya. Jika Anda mencari kontraktor yang menerapkan standar tinggi untuk <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>pekerjaan aspal hotmix</a> di area Tangerang & Jabodetabek, PT Tri Abadi Makmur adalah pilihan tepat. Kami tidak hanya mengandalkan alat berat modern, tetapi juga kepatuhan pada setiap tahapan spesifikasi teknis.", en: "Hotmix Asphalt Work Alternative — Road quality heavily depends on the method and specifications of the work. If you are looking for a contractor that applies high standards for hotmix asphalt works in the Tangerang & Greater Jakarta area, PT Tri Abadi Makmur is the right choice. We not only rely on modern heavy equipment but also compliance with every stage of technical specifications." } },
+      { type: "heading", text: { id: "Tahapan Metode Kerja Aspal Hotmix", en: "Hotmix Asphalt Work Method Stages" } },
+      { type: "paragraph", text: { id: "Agar hasil maksimal, tim PT Tri Abadi Makmur selalu mengikuti prosedur standar berikut:", en: "To get maximum results, the PT Tri Abadi Makmur team always follows these standard procedures:" } },
       { type: "list", ordered: true, items: [
-        { id: "Asphalt Treated Base (ATB) — Jenis aspal hotmix ini biasanya dipakai untuk lapis pondasi atas (ATB). Aspal hotmix ini memiliki ketebalan 5 cm paling sering dibandingkan yang lainnya, jika dibutuhkan material pengganti perumahan maupun area perkantoran yang membutuhkan stabilitas yang lebih besar. Setiap tipe material yang digunakan juga berbeda. Perbedaan jenis aspal ini juga berbeda antara 4 cm ke atas. Material pengganti yang sama juga sering dipakai untuk kepentingan jalan tipe lainnya.", en: "Asphalt Treated Base (ATB) — This type of hotmix asphalt is usually used for the upper base layer (ATB). This hotmix asphalt has a thickness of 5 cm, most often compared to others, if you need substitute material for housing or office areas that require greater stability. Each type of material used is also different. This type of asphalt also differs from 4 cm and above. The same substitute material is also often used for other types of road needs." },
-        { id: "Asphalt Concrete Binder Course (AC-BC) — Jenis aspal ini memiliki ketebalan antara 4 cm sampai 6 cm. Aspal ini juga biasa digunakan sebagai lapis pondasi atas. Selain itu, fungsinya juga sama dengan aspal jenis ATB. Beda diantara keduanya juga terletak pada penggunaan dalam perumahan, jalan raya, dan jalan untuk area perkantoran. Kadang penggunaan aspal ini biasanya lebih sering digunakan untuk jalan dengan kapasitas berat. Juga untuk area tol, jembatan, dan lain sebagainya. Untuk lebih jelasnya, aspal ini lebih banyak digunakan pada proyek besar.", en: "Asphalt Concrete Binder Course (AC-BC) — This asphalt has a thickness between 4 cm and 6 cm. It is also commonly used as an upper base layer. Its function is similar to ATB type asphalt. The difference between the two lies in their use in housing, highways, and office areas. Sometimes this asphalt is more often used for heavy-duty roads. Also for toll areas, bridges, and so on. To be clearer, this asphalt is more widely used in large projects." },
-        { id: "Asphalt Concrete Wearing Course (AC-WC) — Aspal ini lebih sering digunakan untuk lapisan permukaan aspal. Aspal hotmix ini memiliki ketebalan 4 cm. Aspal AC-WC ini bisa juga digunakan untuk jalan dengan beban berat, seperti jalan raya dan jalan tol.", en: "Asphalt Concrete Wearing Course (AC-WC) — This asphalt is more often used as the asphalt surface layer. This hotmix asphalt has a thickness of 4 cm. AC-WC asphalt can also be used for heavy-duty roads, such as highways and toll roads." },
-        { id: "Hot Roll Sheet — Jenis aspal hotmix ini biasanya dipakai untuk jalan raya dan jalan tol. Ketebalan aspal hotmix ini sekitar 3 cm. Jenis hotmix ini memiliki tekstur yang lebih halus dan sering digunakan untuk jalan dengan beban yang tidak terlalu berat.", en: "Hot Roll Sheet — This type of hotmix asphalt is usually used for highways and toll roads. The thickness of this hotmix asphalt is about 3 cm. This type of hotmix has a smoother texture and is often used for roads with lighter loads." },
-        { id: "Sand Sheet — Sand sheet ini bisa dikatakan sebagai lapis tipis aspal yang dipakai untuk finishing lapis permukaan. Ketebalan aspal jenis ini hanya sekitar 1,5 cm sampai 2 cm. Sand sheet biasanya dipakai untuk melapisi lapis permukaan jalan agar tampak lebih halus dan rata.", en: "Sand Sheet — Sand sheet can be considered a thin layer of asphalt used for finishing the surface layer. The thickness of this asphalt is only about 1.5 cm to 2 cm. Sand sheet is usually used to coat the road surface layer to make it appear smoother and flatter." },
+        { id: "<strong>Persiapan Lahan:</strong> Pembersihan area dari material lepas dan pemadatan tanah dasar (subgrade) agar tidak amblas.", en: "<strong>Land Preparation:</strong> Cleaning the area from loose material and compacting the subgrade so it doesn't sink." },
+        { id: "<strong>Lapisan Pondasi (Base Course):</strong> Penghamparan batu makadam atau sirtu yang dipadatkan sebagai penopang utama beban kendaraan.", en: "<strong>Base Course Layer:</strong> Spreading macadam stone or sirtu that is compacted as the main support for vehicle loads." },
+        { id: "<strong>Lapisan Perekat (Prime Coat / Tack Coat):</strong> Penyemprotan aspal cair (emulsi) agar lapisan hotmix menempel sempurna pada pondasi.", en: "<strong>Binder Layer (Prime Coat / Tack Coat):</strong> Spraying liquid asphalt (emulsion) so the hotmix layer adheres perfectly to the foundation." },
+        { id: "<strong>Penghamparan Hotmix (Asphalt Finisher):</strong> Aspal panas dihampar dengan ketebalan merata menggunakan mesin khusus, bukan tenaga manual, agar hasilnya rata.", en: "<strong>Hotmix Spreading (Asphalt Finisher):</strong> Hot asphalt is spread with even thickness using a special machine, not manual labor, so the result is flat." },
+        { id: "<strong>Pemadatan (Tandem Roller):</strong> Pemadatan awal dan akhir menggunakan alat berat agar aspal benar-benar padat dan tidak keropos.", en: "<strong>Compaction (Tandem Roller):</strong> Initial and final compaction using heavy equipment so the asphalt is truly dense and not porous." }
       ] },
-      { type: "paragraph", text: { id: "Jenis aspal hotmix memang berbeda-beda sesuai dengan kebutuhan Anda. Anda bisa memakai aspal hotmix dengan bahan material yang sesuai dengan kebutuhan Anda. Harga aspal hotmix juga sangat bervariasi tergantung jenis yang dipakai. Untuk itu Anda harus menyadari hal tersebut. Namun, semuanya tetap terjangkau dengan kualitas yang baik. Perusahaan Anda juga kami harap bisa menghubungi nomor kami untuk mendapatkan konsultasi.", en: "Types of hotmix asphalt do vary according to your needs. You can use hotmix asphalt with materials that suit your needs. The price of hotmix asphalt also varies greatly depending on the type used. Therefore you must be aware of this. However, everything remains affordable with good quality. For your company, we hope you can contact our number to get a consultation." } },
+      { type: "paragraph", text: { id: "Ingin melihat daftar harga untuk metode pekerjaan di atas? Anda bisa membaca artikel kami tentang <a href='/blog/harga-aspal-hotmix' class='text-[#1e88e5] hover:underline font-semibold'>Harga Aspal Hotmix</a>.", en: "Want to see the price list for the work methods above? You can read our article on Hotmix Asphalt Prices." } },
+      { type: "paragraph", text: { id: "Punya proyek jalan yang membutuhkan spesifikasi khusus? Hubungi kami sekarang untuk konsultasi teknis dan survei lokasi gratis.", en: "Have a road project that requires special specifications? Contact us now for technical consultation and free site survey." } }
     ],
   },
   {
     slug: "distributor-aspal-2",
+    date: { id: "25 Oktober 2026", en: "October 25, 2026" },
+    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
     src: "/proyek/proyek-55.webp",
     category: { id: "Distributor", en: "Distributor" },
-    title: { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative" },
-    date: { id: "21 Juli 2026", en: "July 21, 2026" },
-    dateISO: "2026-07-21",
+        title: { 
+      id: "Tips Memilih Mitra Distributor Aspal Terbaik", 
+      en: "Tips for Choosing the Best Asphalt Distributor Partner" 
+    },
+    // ...
     desc: {
-      id: "Distributor aspal — Sebelum melakukan transaksi dengan perusahaan-perusahaan yang akan melayani atau sebagai mitra distributor aspal yang baik adalah perusahaan yang terbaik.",
-      en: "Asphalt distributor — Before doing business with companies that will serve you or become a good distributor partner, you need the best company.",
+      id: "Panduan memilih mitra distributor aspal yang terpercaya untuk kelancaran proyek konstruksi Anda. Dapatkan pasokan aspal berkualitas dari PT Tri Abadi Makmur.",
+      en: "Guide to choosing a trusted asphalt distributor partner for the smooth running of your construction project. Get quality asphalt supply from PT Tri Abadi Makmur.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -375,30 +403,32 @@ export const articles = [
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-    body: [
-      { type: "paragraph", text: { id: "Distributor Aspal – Sebelum melakukan transaksi dengan perusahaan-perusahaan yang akan melayani atau sebagai mitra distributor aspal yang baik adalah perusahaan yang terbaik. Sebelum anda melakukan hal yang dianggap penting untuk kebutuhan bahan aspal distributor atau yang berhubungan dengan distributor dan supplier aspal. Anda juga bisa memilih beberapa pertimbangan agar tidak salah dalam memilih distributor. Ketika anda mendapatkan distributor aspal yang tepat, maka pekerjaan pengaspalan anda akan lebih mudah dan bisa mendapatkan hasil terbaik. Maka dari itu perhatikan betul perusahaan yang akan menjadi partner bisnis perusahaan untuk kebutuhan aspal anda.", en: "Asphalt Distributor – Before doing business with companies that will serve you or become a good distributor partner, you need the best company. Before doing anything considered important for your asphalt material needs, or related to asphalt distributors and suppliers, you should also weigh several considerations so you do not choose the wrong distributor. When you get the right asphalt distributor, your paving work becomes easier and gets the best results. Therefore pay close attention to the company that will become your business partner for your asphalt needs." } },
-      { type: "heading", text: { id: "Distributor aspal – Perhatikan Tips Ini Sebelum Memilih Distributor Aspal Terbaik", en: "Asphalt Distributor – Pay Attention to These Tips Before Choosing the Best Asphalt Distributor" } },
-      { type: "paragraph", text: { id: "Di perusahaan aspal juga ada beberapa distributor yang menawarkan distributor aspal yang bagus. Berikut adalah beberapa hal yang harus dilakukan untuk memilih perusahaan penyedia aspal yang tepat.", en: "In the asphalt industry there are also several distributors offering a good asphalt distributor. Here are several things you should do to choose the right asphalt provider." } },
+        body: [
+      { type: "paragraph", text: { id: "Distributor Aspal Alternatif — Memilih mitra distributor aspal tidak boleh sembarangan. Pasokan material yang terlambat atau kualitas aspal yang buruk bisa menggagalkan seluruh proyek konstruksi Anda. Jika Anda sedang mencari mitra penyedia aspal untuk proyek di area Tangerang atau Jabodetabek, PT Tri Abadi Makmur menawarkan kerja sama yang saling menguntungkan. Lihat juga <a href='/supplier' class='text-[#1e88e5] hover:underline font-semibold'>halaman Supplier</a> kami.", en: "Asphalt Distributor Alternative — Choosing an asphalt distributor partner cannot be done carelessly. Late material supply or poor asphalt quality can ruin your entire construction project. If you are looking for an asphalt supply partner for a project in the Tangerang or Greater Jakarta area, PT Tri Abadi Makmur offers mutually beneficial cooperation. Also see our Supplier page." } },
+      { type: "heading", text: { id: "Kriteria Mitra Distributor Aspal yang Baik", en: "Criteria for a Good Asphalt Distributor Partner" } },
       { type: "list", ordered: true, items: [
-        { id: "Pahami Profitnya — Perhatikan betul-betul manfaat aspal yang ditawarkan dalam pekerjaan konstruksi. Sebab hal ini juga membuat mereka memiliki tujuan atau visi mereka sendiri menguntungkan. Orang-orang yang memiliki untuk memanfaatkan hal tersebut bisa membuat pekerjaan berjalan lebih mudah dan memberi manfaat. Maka dari itu perhatikan lebih detail hal seperti ini agar tidak salah pilih dalam bisnis aspal yang bagus dan anda akan menentukan hal yang sesuai.", en: "Understand the Benefits — Pay close attention to the benefits of asphalt offered for your construction work. This also makes sure the company has clear goals or a vision that benefits you. People who choose to take advantage of this can make their work easier and more beneficial. So look at this in more detail so you don't pick the wrong asphalt business and can determine the right choice." },
-        { id: "Pengalamannya — Bagaimana kita melihat perusahaan penyedia aspal yang berpengalaman. Ada beberapa perusahaan yang bisa bekerja sama dengan baik. Ketika anda memilih distributor aspal yang tepat, anda akan lebih mudah mendapat pengalaman dari perusahaan terbaik. Maka dari itu cari tahu informasi atau perusahaan yang berkualitas dan berpengalaman di bidang aspal.", en: "Experience — How do we judge an experienced asphalt provider company? Some companies can collaborate well. When you choose the right asphalt distributor, you will more easily gain experience from the best company. So find out more about quality companies with experience in asphalt." },
-        { id: "Dapat Dipercaya — Anda akan menemukan perusahaan penyedia aspal yang bisa dipercaya dan bisa menjadi partner bisnis anda. Ketika akan menggunakan jasa pengaspalan sebaiknya anda mencari perusahaan yang sudah terpercaya dan memiliki reputasi yang baik.", en: "Trustworthy — You will find asphalt provider companies that can be trusted and can become your business partner. When using paving services, you should look for a company that is already trusted and has a good reputation." },
-        { id: "Syarat Dan Ketentuan Yang Diberikan — Sebelum anda bekerjasama dengan perusahaan aspal, sebaiknya anda mengetahui syarat dan ketentuan yang diberikan pihak perusahaan. Anda akan melihat dan menentukan apakah sesuai dengan keinginan anda dan perusahaan.", en: "Terms and Conditions — Before working with an asphalt company, you should know the terms and conditions set by the company. You will see and decide whether they match what you and the company want." },
-        { id: "Biaya — Masalah biaya memang bisa berbeda-beda, semua bisa berbeda-beda karena di perusahaan penyedia jasa pengaspalan jalan memiliki kebijakan tersendiri dalam menetapkan harga. Pilihlah jasa aspal yang bisa menjangkau kemampuan anda.", en: "Cost — The issue of cost can vary, everything can differ because each paving service provider has its own policy in setting prices. Choose an asphalt service that fits your budget." },
+        { id: "<strong>Konsistensi Kualitas:</strong> Pastikan aspal yang dipasok selalu memiliki spesifikasi yang sama di setiap pengiriman.", en: "<strong>Quality Consistency:</strong> Ensure the asphalt supplied always has the same specifications in every delivery." },
+        { id: "<strong>Kemampuan Suplai Skala Besar:</strong> Untuk proyek jalan raya, Anda butuh distributor yang mampu menyuplai aspal dalam jumlah besar secara berkelanjutan.", en: "<strong>Large-Scale Supply Capability:</strong> For highway projects, you need a distributor capable of supplying asphalt in large quantities sustainably." },
+        { id: "<strong>Layanan Purna Jual:</strong> Distributor yang baik akan membantu Anda jika ada kendala teknis terkait material aspal yang digunakan.", en: "<strong>After-Sales Service:</strong> A good distributor will help you if there are technical issues related to the asphalt material used." }
       ] },
-      { type: "paragraph", text: { id: "Itulah beberapa tips memilih distributor aspal terbaik. Pastikan anda memilih distributor aspal terbaik untuk kebutuhan anda. Itu juga membuat perusahaan anda lebih mudah mendapat kepercayaan dari klien. Jadi, pastikan untuk memilih distributor aspal yang tepat untuk kebutuhan anda. Nah, untuk memenuhi kebutuhan distributor aspal yang terbaik dan terpercaya, anda bisa menghubungi kami. Tidak hanya menyediakan distributor aspal, kami juga melayani berbagai kebutuhan yang berhubungan dengan aspal seperti jasa pengaspalan dan juga jual aspal. Kami melayani seluruh Indonesia dengan tim yang profesional dan berpengalaman.", en: "Those are several tips for choosing the best asphalt distributor. Make sure you choose the best one for your needs. It also makes it easier for your company to gain clients' trust. So, make sure to choose the right asphalt distributor for your needs. To fulfill your need for the best and most trusted asphalt distributor, you can contact us. Not only do we provide an asphalt distributor, we also serve various asphalt-related needs such as paving services and asphalt sales. We serve all of Indonesia with a professional and experienced team." } },
+      { type: "paragraph", text: { id: "Selain menyediakan material aspal, PT Tri Abadi Makmur juga merupakan kontraktor yang menyediakan <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengaspalan</a>. Ini memudahkan Anda karena semua kebutuhan proyek jalan bisa ditangani oleh satu perusahaan yang sama.", en: "Besides providing asphalt materials, PT Tri Abadi Makmur is also a contractor providing paving services. This makes it easier for you because all road project needs can be handled by the same company." } },
+      { type: "paragraph", text: { id: "Butuh mitra distribusi aspal yang andal? Hubungi PT Tri Abadi Makmur sekarang untuk konsultasi dan kerja sama jangka panjang.", en: "Need a reliable asphalt distribution partner? Contact PT Tri Abadi Makmur now for consultation and long-term cooperation." } }
     ],
   },
   {
     slug: "perbaikan-jalan-aspal-2",
+    date: { id: "1 November 2026", en: "November 1, 2026" },
+    dateISO: "2026-11-01", // <-- TAMBAHKAN INI
     src: "/proyek/proyek-21.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
-    title: { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative" },
-    date: { id: "21 Juli 2026", en: "July 21, 2026" },
-    dateISO: "2026-07-21",
+       title: { 
+      id: "Metode Perbaikan Jalan Aspal yang Tepat & Awet", 
+      en: "Proper & Durable Asphalt Road Repair Methods" 
+    },
+    // ...
     desc: {
-      id: "Perbaikan jalan aspal hotmix — Beberapa area yang perlu mendapatkan perhatian lebih untuk dilakukan perbaikan agar jalan lebih mulus dan nyaman dilalui.",
-      en: "Hotmix asphalt road repair — Several areas that need more attention for repairs so roads are smoother and more comfortable to pass.",
+      id: "Simak metode perbaikan jalan aspal yang benar agar tidak mudah rusak lagi saat hujan. Dikerjakan oleh ahlinya di Tangerang & Jabodetabek oleh PT Tri Abadi Makmur.",
+      en: "Read the correct asphalt road repair methods so they don't get damaged easily again when it rains. Executed by experts in Tangerang & Greater Jakarta by PT Tri Abadi Makmur.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -423,31 +453,32 @@ export const articles = [
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-    body: [
-      { type: "paragraph", text: { id: "Perbaikan jalan Aspal Hotmix — Beberapa area yang perlu mendapatkan perhatian lebih untuk dilakukan perbaikan agar jalan lebih mulus dan nyaman dilalui. Namun, sebelum perbaikan jalan tersebut dilakukan, anda harus tahu bahwa ada beberapa faktor yang mempengaruhi biaya perbaikan jalan aspal hotmix. Faktor-faktor tersebut antara lain: luas area yang akan diperbaiki, tingkat kerusakan jalan, jenis aspal yang digunakan, dan kondisi lingkungan sekitar. Dengan mengetahui faktor-faktor tersebut, anda bisa lebih mudah memprediksi berapa biaya yang akan dikeluarkan untuk perbaikan jalan aspal hotmix.", en: "Hotmix Asphalt Road Repair — Several areas need more attention for repairs so roads are smoother and more comfortable to pass. However, before the repair is carried out, you should know that several factors affect the cost of hotmix asphalt road repair. These factors include: the area to be repaired, the level of road damage, the type of asphalt used, and the surrounding environmental conditions. By knowing these factors, you can more easily predict the cost of the hotmix asphalt road repair." } },
-      { type: "heading", text: { id: "Perbaikan Jalan Aspal Hotmix", en: "Hotmix Asphalt Road Repair" } },
-      { type: "paragraph", text: { id: "Perbaikan jalan aspal hotmix bisa dilakukan di beberapa area dan salah satu area yang perlu diperhatikan adalah area perbaikan jalan yang harus dilakukan sesuai dengan tingkat kerusakan jalan. Berikut adalah beberapa area yang perlu diperhatikan untuk perbaikan jalan aspal hotmix.", en: "Hotmix asphalt road repair can be done in several areas, and one area that needs attention is repair work according to the level of road damage. Here are several areas that need attention for hotmix asphalt road repair." } },
-      { type: "heading", text: { id: "5 Area Perbaikan Jalan Yang Menjadi Fokus Pemenintah", en: "5 Road Repair Areas That Are the Government's Focus" } },
+       body: [
+      { type: "paragraph", text: { id: "Perbaikan Jalan Aspal Alternatif — Jalan yang rusak tidak bisa hanya ditambal dengan aspal dingin biasa. Agar perbaikan bertahan lama, dibutuhkan metode yang tepat sesuai tingkat kerusakannya. Jika Anda mencari <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa perbaikan jalan aspal</a> yang menerapkan metode profesional di area Tangerang & Jabodetabek, PT Tri Abadi Makmur siap membantu.", en: "Asphalt Road Repair Alternative — A damaged road cannot just be patched with ordinary cold asphalt. For repairs to last long, the right method is needed according to the level of damage. If you are looking for asphalt road repair services that apply professional methods in the Tangerang & Greater Jakarta area, PT Tri Abadi Makmur is ready to help." } },
+      { type: "heading", text: { id: "Metode Perbaikan Jalan Aspal Berdasarkan Kerusakan", en: "Asphalt Road Repair Methods Based on Damage" } },
       { type: "list", ordered: true, items: [
-        { id: "Parkir Basement — Basement merupakan area parkir yang berada di bawah tanah yang biasanya digunakan untuk lahan parkir di area perkotaan. Area parkir ini biasanya digunakan untuk memarkir kendaraan bagi orang-orang yang bekerja di gedung perkantoran. Untuk itu penting bagi anda untuk melakukan perawatan pada area basement agar tidak terjadi kerusakan yang dapat membahayakan pengguna. Perawatan atau perbaikan aspal basement bisa anda lakukan secara berkala untuk menghindari kerusakan yang lebih parah.", en: "Basement Parking — The basement is an underground parking area usually used for parking in urban areas. This parking area is commonly used to park vehicles for people working in office buildings. Therefore it is important for you to maintain the basement area so that no damage occurs that could endanger users. Maintenance or repair of basement asphalt can be done periodically to avoid further damage." },
-        { id: "Sarana Pengisian Bahan Bakar Umum — Sarana pengisian bahan bakar umum atau biasa disebut SPBU merupakan kawasan yang lalu lalang. Yang merupakan perusahaan yang memang harus tetap mulus dan rata. Untuk itu penting untuk dilakukan perbaikan atau perawatan pada area SPBU agar tidak terjadi kerusakan yang dapat membahayakan pengguna. Selain itu juga untuk kenyamanan pengguna kendaraan bermotor. Maka dari itu untuk menjaga kenyamanan pengguna dan kualitas aspal yang bagus, anda bisa melakukan perbaikan aspal secara berkala.", en: "Public Fuel Filling Stations — Public fuel filling stations, commonly called gas stations, are busy areas that must remain smooth and level. Therefore it is important to repair or maintain the gas station area to prevent damage that could endanger users, and also for the comfort of motorized vehicle users. So to maintain user comfort and good asphalt quality, you can do periodic asphalt repairs." },
-        { id: "Perbaikan Jalan Raya — Perbaikan jalan raya merupakan perbaikan jalan yang dilakukan oleh pemerintah untuk jalan umum yang banyak dilalui. Jalan raya merupakan akses utama untuk mobilitas masyarakat. Untuk itu penting untuk dilakukan perbaikan jalan agar tetap mulus dan nyaman dilalui. Perbaikan jalan raya biasanya dilakukan dengan metode pengaspalan ulang. Bila tidak segera diperbaiki, jalan raya yang rusak bisa membahayakan pengguna dan bisa memicu kecelakaan lalu lintas.", en: "Highway Repair — Highway repair is road work carried out by the government for busy public roads. Highways are the main access for public mobility. Therefore it is important to repair them so they remain smooth and comfortable. Highway repair is usually done using the re-paving method. If not repaired immediately, damaged highways can endanger users and trigger traffic accidents." },
-        { id: "Jalan Lingkungan — Lingkungan merupakan sarana paling kecil yang dijadikan objek perbaikan jalan. Lingkungan juga merupakan salah satu akses jalan yang banyak dilalui masyarakat. Untuk itu penting untuk dilakukan perbaikan jalan lingkungan agar tetap mulus dan nyaman dilalui. Perbaikan jalan lingkungan bisa dilakukan dengan metode pengaspalan ulang atau penambalan. Hal ini penting agar akses jalan lingkungan tetap bisa dilalui dengan nyaman.", en: "Neighborhood Roads — Neighborhood roads are the smallest unit of road repair work. They are also one of the access roads frequently used by the community. Therefore it is important to repair neighborhood roads so they remain smooth and comfortable. Repair can be done using re-paving or patching methods. This is important so that neighborhood road access remains comfortably passable." },
-        { id: "Jalan MHT — Jalan MHT merupakan salah satu jalan yang digunakan untuk lalu lintas pengendara sepeda motor. Jalan MHT biasanya digunakan sebagai jalur alternatif ketika jalan utama macet. Selain itu juga sebagai jalur alternatif ketika jalan utama sedang diperbaiki. Maka dari itu penting untuk dilakukan perbaikan jalan MHT agar tetap mulus dan nyaman dilalui. Perbaikan jalan MHT bisa dilakukan dengan metode pengaspalan ulang atau penambalan.", en: "MHT Roads — MHT roads are roads designated for motorcycle traffic. MHT roads are usually used as an alternative route when the main road is congested. They also serve as an alternative when the main road is under repair. Therefore it is important to repair MHT roads so they remain smooth and comfortable. Repair can be done using re-paving or patching methods." },
+        { id: "<strong>Metode Penambalan (Patching):</strong> Untuk lubang kecil. Area lubang dibersihkan, dipotong rapi, diberi perekat (tack coat), lalu diisi aspal hotmix dan dipadatkan.", en: "<strong>Patching Method:</strong> For small potholes. The hole area is cleaned, cut neatly, given a binder (tack coat), then filled with hotmix asphalt and compacted." },
+        { id: "<strong>Metode Pelapisan Ulang (Overlay):</strong> Untuk jalan yang retak merata tapi masih kokoh. Aspal lama dibersihkan, lalu dihampar lapisan aspal hotmix baru di atasnya.", en: "<strong>Overlay Method:</strong> For roads that are evenly cracked but still solid. The old asphalt is cleaned, then a new layer of hotmix asphalt is spread over it." },
+        { id: "<strong>Metode Pembongkaran (Rekonstruksi):</strong> Untuk jalan yang amblas parah atau berlumpur. Aspal lama dibongkar, tanah dasar dipadatkan ulang, lalu diaspal dari nol.", en: "<strong>Demolition Method (Reconstruction):</strong> For roads that are severely sunken or muddy. The old asphalt is dismantled, the subgrade is re-compacted, then paved from scratch." }
       ] },
-      { type: "paragraph", text: { id: "Itulah beberapa area perbaikan jalan aspal hotmix yang perlu diperhatikan. Semoga bermanfaat dan menambah wawasan anda. Untuk memenuhi kebutuhan perbaikan jalan aspal hotmix yang berkualitas dan terpercaya, anda bisa menghubungi kami. Kami melayani berbagai kebutuhan aspal hotmix seperti jasa pengaspalan, jual aspal hotmix, dan lain sebagainya. Kami melayani seluruh Indonesia dengan tim yang profesional dan berpengalaman.", en: "Those are several hotmix asphalt road repair areas that need attention. We hope this is useful and expands your insight. To meet your need for quality and trusted hotmix asphalt road repair, you can contact us. We serve various hotmix asphalt needs such as paving services, hotmix asphalt sales, and more. We serve all of Indonesia with a professional and experienced team." } },
+      { type: "paragraph", text: { id: "Untuk mengetahui estimasi biaya dari masing-masing metode di atas, Anda bisa membaca panduan lengkap di artikel kami tentang <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>Biaya Aspal Per Meter</a>.", en: "To find out the estimated cost of each method above, you can read the complete guide in our article on Asphalt Cost Per Meter." } },
+      { type: "paragraph", text: { id: "Jangan biarkan jalan rusak membahayakan pengguna. Konsultasikan jenis kerusakan jalan Anda dan dapatkan solusi perbaikan terbaik dari PT Tri Abadi Makmur. Hubungi kami via WhatsApp sekarang.", en: "Do not let damaged roads endanger users. Consult your road damage type and get the best repair solution from PT Tri Abadi Makmur. Contact us via WhatsApp now." } }
     ],
   },
   {
     slug: "pemasangan-paving-block",
+    date: { id: "25 Oktober 2026", en: "October 25, 2026" },
+    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
     src: "/proyek/proyek-36.webp",
     category: { id: "Paving", en: "Paving" },
-    title: { id: "Pemasangan Paving Block", en: "Paving Block Installation" },
-    date: { id: "21 Juli 2026", en: "July 21, 2026" },
-    dateISO: "2026-07-21",
+    title: { 
+      id: "Panduan Pemasangan Paving Block & Kisaran Harga", 
+      en: "Paving Block Installation Guide & Price Range" 
+    },
+    // ...
     desc: {
-      id: "Paving block memberikan tampilan rapi pada halaman dan area parkir.",
-      en: "Paving blocks give a neat look to yards and parking areas.",
+      id: "Pemasangan paving block memberikan tampilan rapi pada halaman dan area parkir. Ketahui tahapan pemasangan dan kisaran harganya di sini.",
+      en: "Paving block installation gives a neat look to yards and parking areas. Know the installation stages and price range here.",
     },
     author: { name: "PT. Tri Abadi Makmur Indonesia", phone: "0858-8182-7315", avatar: "/logo.webp" },
     tags: [
@@ -463,20 +494,37 @@ export const articles = [
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-    body: [
-      { type: "paragraph", text: { id: "Paving block adalah pilihan tepat untuk halaman, area parkir, dan trotoar. Selain rapi, paving block juga mudah dipasang dan tahan lama.", en: "Paving block is the right choice for yards, parking areas, and sidewalks. Besides looking neat, paving blocks are also easy to install and durable." } },
+        body: [
+      { type: "paragraph", text: { id: "Pemasangan paving block adalah pilihan tepat untuk halaman, area parkir, dan trotoar. Selain rapi, paving block juga mudah dipasang dan tahan lama. Jika Anda sedang mencari <a href='/layanan/infrastruktur/pasang-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>jasa pasang paving block</a> di Tangerang atau Jabodetabek, PT Tri Abadi Makmur menawarkan pemasangan yang rapi, presisi, dan tentunya bergaransi.", en: "Paving block installation is the right choice for yards, parking areas, and sidewalks. Besides looking neat, paving blocks are also easy to install and durable. If you are looking for paving block installation services in Tangerang or Greater Jakarta, PT Tri Abadi Makmur offers neat, precise, and guaranteed installation." } },
+      { type: "heading", text: { id: "Mengapa Memilih Paving Block untuk Halaman Anda?", en: "Why Choose Paving Block for Your Yard?" } },
+      { type: "paragraph", text: { id: "Banyak orang beralih dari cor beton ke paving block karena beberapa alasan kuat. Salah satunya adalah kemampuan resapan air. Paving block memiliki celah yang memungkinkan air hujan meresap ke tanah, sehingga mengurangi risiko genangan (banjir) di halaman Anda. Selain itu, paving block lebih mudah diperbaiki jika ada bagian yang rusak tanpa harus membongkar seluruh area.", en: "Many people switch from concrete to paving blocks for several strong reasons. One of them is water absorption capability. Paving blocks have gaps that allow rainwater to seep into the soil, reducing the risk of puddles in your yard. Besides that, paving blocks are easier to repair if there is damage without having to dismantle the entire area." } },
+      { type: "heading", text: { id: "Tahapan Pemasangan Paving Block yang Benar", en: "Proper Paving Block Installation Stages" } },
+      { type: "list", ordered: true, items: [
+        { id: "<strong>Pengukuran & Pembersihan Area:</strong> Menentukan area dan membersihkan tanah dari rumput liar atau batu.", en: "<strong>Measurement & Area Cleaning:</strong> Determining the area and clearing the land from weeds or rocks." },
+        { id: "<strong>Pemadatan Tanah Dasar:</strong> Tanah dipadatkan menggunakan alat (stamper) agar tidak bergelombang.", en: "<strong>Base Soil Compaction:</strong> The soil is compacted using a tool (stamper) so it doesn't become wavy." },
+        { id: "<strong>Lapisan Pasir/Abu Batu:</strong> Menghamparkan pasir setebal 5-10 cm sebagai bantalan paving.", en: "<strong>Sand/Stone Dust Layer:</strong> Spreading 5-10 cm thick sand as a paving cushion." },
+        { id: "<strong>Pemasangan Paving:</strong> Paving disusun sesuai motif (bata, cacing, atau hexagon) dengan rapi.", en: "<strong>Paving Installation:</strong> Paving is arranged neatly according to the pattern." },
+        { id: "<strong>Pengisian Celah & Pemadatan:</strong> Celah diisi abu batu, lalu dipadatkan dengan baby roller agar saling mengunci.", en: "<strong>Filling Gaps & Compaction:</strong> Gaps are filled with stone dust, then compacted with a baby roller to interlock." }
+      ] },
+      { type: "heading", text: { id: "Berapa Harga Pemasangan Paving Block?", en: "How Much Does Paving Block Installation Cost?" } },
+      { type: "paragraph", text: { id: "Harga pemasangan paving block berkisar antara Rp 100.000 hingga Rp 200.000 per meter persegi, tergantung pada ketebalan paving, motif, dan luas area. Untuk pemasangan kanstin sebagai pembatas, Anda bisa membaca artikel kami tentang <a href='/blog/pemasangan-kansteen' class='text-[#1e88e5] hover:underline font-semibold'>Pemasangan Kansteen</a>.", en: "Paving block installation costs range from Rp 100,000 to Rp 200,000 per square meter, depending on the paving thickness, pattern, and area size. For curb installation as a divider, you can read our article on Kansteen Installation." } },
+      { type: "paragraph", text: { id: "Percayakan kebutuhan paving block Anda kepada ahlinya. Hubungi PT Tri Abadi Makmur sekarang untuk konsultasi gratis dan survei lokasi. Kami melayani seluruh area Tangerang, Jakarta, Bekasi, Depok, dan Bogor.", en: "Entrust your paving block needs to the experts. Contact PT Tri Abadi Makmur now for free consultation and site survey. We serve the entire Tangerang, Jakarta, Bekasi, Depok, and Bogor areas." } }
     ],
   },
   {
     slug: "pengaspalan-jalan-perumahan",
+    date: { id: "1 November 2026", en: "November 1, 2026" },
+    dateISO: "2026-11-01", // <-- TAMBAHKAN INI
     src: "/proyek/proyek-56.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
-    title: { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving" },
-    date: { id: "21 Juli 2026", en: "July 21, 2026" },
-    dateISO: "2026-07-21",
+       title: { 
+      id: "Jasa Pengaspalan Jalan Perumahan Tangerang & Jabodetabek", 
+      en: "Residential Road Asphalt Paving Services Tangerang & Greater Jakarta" 
+    },
+    // ...
     desc: {
-      id: "Pengaspalan jalan perumahan dengan material berkualitas untuk hasil rata dan tahan lama.",
-      en: "Residential road paving with quality materials for flat and durable results.",
+      id: "Jalan perumahan mulus meningkatkan kenyamanan penghuni dan nilai properti. PT Tri Abadi Makmur melayani pengaspalan jalan perumahan dengan hotmix berkualitas.",
+      en: "Smooth residential roads increase residents' comfort and property value. PT Tri Abadi Makmur provides residential road paving with quality hotmix.",
     },
     author: { name: "PT. Tri Abadi Makmur Indonesia", phone: "0858-8182-7315", avatar: "/logo.webp" },
     tags: [
@@ -492,20 +540,32 @@ export const articles = [
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-    body: [
-      { type: "paragraph", text: { id: "Jalan perumahan yang mulus akan meningkatkan kenyamanan penghuni dan nilai properti. Kami melayani pengaspalan jalan perumahan dengan material hotmix berkualitas dan pengerjaan yang rapi.", en: "Smooth residential roads will increase residents' comfort and property value. We provide residential road paving with quality hotmix material and neat workmanship." } },
+       body: [
+      { type: "paragraph", text: { id: "Pengaspalan Jalan Perumahan — Jalan yang mulus di dalam kawasan perumahan bukan sekadar soal estetika. Ini adalah investasi jangka panjang yang meningkatkan kenyamanan penghuni, mengurangi kerusakan kendaraan, dan menaikkan nilai jual properti. Jika Anda adalah pengurus komplek atau pengembang yang mencari <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengaspalan jalan perumahan</a> di Tangerang atau Jabodetabek, PT Tri Abadi Makmur adalah mitra yang tepat.", en: "Residential Road Paving — A smooth road within a residential area is not just about aesthetics. It is a long-term investment that increases residents' comfort, reduces vehicle damage, and raises property value. If you are a complex manager or developer looking for residential road paving services in Tangerang or Greater Jakarta, PT Tri Abadi Makmur is the right partner." } },
+      { type: "heading", text: { id: "Kenapa Kualitas Aspal Sangat Penting untuk Perumahan?", en: "Why is Asphalt Quality Crucial for Residential Areas?" } },
+      { type: "list", ordered: false, items: [
+        { id: "<strong>Aktivitas Kendaraan Sehari-hari:</strong> Jalan perumahan dilalui oleh berbagai kendaraan ringan dan berat (seperti truk sampah). Kualitas hotmix yang baik akan mencegah jalan cepat berlubang.", en: "<strong>Daily Vehicle Activity:</strong> Residential roads are passed by various light and heavy vehicles (like garbage trucks). Good hotmix quality will prevent the road from quickly getting potholes." },
+        { id: "<strong>Drainase & Genangan:</strong> Pengaspalan yang tepat (dengan kemiringan yang benar) akan mencegah air menggenang di depan rumah warga saat hujan.", en: "<strong>Drainage & Puddles:</strong> Proper paving (with the correct slope) will prevent water from pooling in front of residents' houses when it rains." },
+        { id: "<strong>Keselamatan Pengguna Jalan:</strong> Permukaan aspal yang rata dan tidak bergelombang mengurangi risiko kecelakaan, terutama bagi pengendara sepeda motor dan anak-anak.", en: "<strong>Road User Safety:</strong> A flat and non-wavy asphalt surface reduces the risk of accidents, especially for motorcyclists and children." }
+      ] },
+      { type: "paragraph", text: { id: "PT Tri Abadi Makmur memiliki pengalaman bertahun-tahun dalam menangani proyek pengaspalan perumahan. Kami menggunakan material hotmix standar tinggi dan alat berat modern (seperti tandem roller) agar hasilnya padat, rata, dan rapi. Kami juga menyediakan layanan <a href='/layanan/infrastruktur/pasang-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>pemasangan paving block</a> untuk area trotoar atau taman perumahan Anda.", en: "PT Tri Abadi Makmur has years of experience in handling residential paving projects. We use high-standard hotmix materials and modern heavy equipment (like tandem rollers) so the results are dense, flat, and neat. We also provide paving block installation services for your residential sidewalk or garden area." } },
+      { type: "paragraph", text: { id: "Dapatkan penawaran terbaik untuk pengaspalan perumahan Anda. Hubungi kami sekarang via WhatsApp untuk survei lokasi gratis.", en: "Get the best offer for your residential paving. Contact us now via WhatsApp for a free site survey." } }
     ],
   },
   {
     slug: "hotmix-untuk-jalan-perkantoran",
+    date: { id: "18 Oktober 2026", en: "October 18, 2026" },
+    dateISO: "2026-10-20", // <-- TAMBAHKAN INI
     src: "/proyek/proyek-57.webp",
     category: { id: "Hotmix", en: "Hotmix" },
-    title: { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads" },
-    date: { id: "21 Juli 2026", en: "July 21, 2026" },
-    dateISO: "2026-07-21",
+       title: { 
+      id: "Jasa Hotmix untuk Jalan Perkantoran & Komersial", 
+      en: "Hotmix Services for Office & Commercial Roads" 
+    },
+    // ...
     desc: {
-      id: "Hotmix berkualitas untuk area perkantoran dan komersial. Hasil rapi, cepat kering, dan tahan lama.",
-      en: "Quality hotmix for office and commercial areas. Neat result, quick drying, and durable.",
+      id: "Area perkantoran dan komersial membutuhkan jalan yang rapi dan tahan lama. PT Tri Abadi Makmur menyediakan pekerjaan aspal hotmix untuk kebutuhan tersebut di Tangerang & Jabodetabek.",
+      en: "Office and commercial areas require neat and durable roads. PT Tri Abadi Makmur provides hotmix asphalt works for these needs in Tangerang & Greater Jakarta.",
     },
     author: { name: "PT. Tri Abadi Makmur Indonesia", phone: "0858-8182-7315", avatar: "/logo.webp" },
     tags: [
@@ -521,20 +581,32 @@ export const articles = [
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
     ],
-    body: [
-      { type: "paragraph", text: { id: "Area perkantoran dan komersial membutuhkan jalan yang rapi dan tahan lama. Kami menyediakan pekerjaan aspal hotmix untuk kebutuhan tersebut dengan hasil yang cepat kering dan rapi.", en: "Office and commercial areas require neat and durable roads. We provide hotmix asphalt works for such needs with quick-drying and neat results." } },
+       body: [
+      { type: "paragraph", text: { id: "Hotmix untuk Jalan Perkantoran — Bagi sebuah perusahaan atau kawasan komersial, jalan akses yang mulus adalah cerminan profesionalisme. Karyawan, klien, dan tamu akan merasa lebih nyaman jika area parkir dan jalan masuk tertata rapi. Jika Anda membutuhkan kontraktor untuk <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>pekerjaan aspal hotmix</a> di area perkantoran Anda di Tangerang atau Jabodetabek, PT Tri Abadi Makmur siap membantu.", en: "Hotmix for Office Roads — For a company or commercial area, a smooth access road is a reflection of professionalism. Employees, clients, and guests will feel more comfortable if the parking area and entrance are neatly arranged. If you need a contractor for hotmix asphalt works in your office area in Tangerang or Greater Jakarta, PT Tri Abadi Makmur is ready to help." } },
+      { type: "heading", text: { id: "Mengapa Memilih Hotmix untuk Area Komersial?", en: "Why Choose Hotmix for Commercial Areas?" } },
+      { type: "list", ordered: false, items: [
+        { id: "<strong>Tahan Beban Berat:</strong> Area perkantoran sering dilalui kendaraan operasional dan tamu. Hotmix AC-BC sangat kuat menahan beban tersebut.", en: "<strong>Withstands Heavy Loads:</strong> Office areas are often passed by operational and guest vehicles. AC-BC hotmix is very strong to withstand these loads." },
+        { id: "<strong>Cepat Kering & Rapi:</strong> Pengerjaan hotmix tidak memakan waktu lama. Jalan bisa segera digunakan kembali sehingga tidak mengganggu operasional kantor.", en: "<strong>Fast Drying & Neat:</strong> Hotmix work doesn't take long. The road can be used again immediately so it doesn't disrupt office operations." },
+        { id: "<strong>Tampilan Estetis:</strong> Permukaan hotmix yang padat dan hitam merata memberikan kesan mewah dan bersih pada area perkantoran.", en: "<strong>Aesthetic Appearance:</strong> The dense and evenly black hotmix surface gives a luxurious and clean impression to the office area." }
+      ] },
+      { type: "paragraph", text: { id: "Kami memahami bahwa waktu adalah uang dalam bisnis. Oleh karena itu, tim PT Tri Abadi Makmur selalu mengedepankan ketepatan waktu dan kerapian. Kami juga menyediakan layanan <a href='/layanan/infrastruktur/pasang-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>pemasangan paving block</a> untuk area parkir atau jalur pejalan kaki di kantor Anda.", en: "We understand that time is money in business. Therefore, the PT Tri Abadi Makmur team always prioritizes punctuality and neatness. We also provide paving block installation services for parking areas or pedestrian paths in your office." } },
+      { type: "paragraph", text: { id: "Konsultasikan kebutuhan pengaspalan area komersial Anda sekarang. Hubungi kami via WhatsApp untuk survei lokasi dan penawaran terbaik.", en: "Consult your commercial area paving needs now. Contact us via WhatsApp for site survey and the best offer." } }
     ],
   },
   {
     slug: "jasa-pengecoran-beton",
+    date: { id: "18 Oktober 2026", en: "October 18, 2026" },
+    dateISO: "2026-10-20", // <-- TAMBAHKAN INI
     src: "/proyek/proyek-13.webp",
     category: { id: "Cor Beton", en: "Ready-Mix Concrete" },
-    title: { id: "Jasa Pengecoran Beton", en: "Concrete Casting Services" },
-    date: { id: "28 September 2026", en: "September 28, 2026" },
-    dateISO: "2026-09-28",
+        title: { 
+      id: "Jasa Pengecoran Beton Jalan & Halaman", 
+      en: "Concrete Casting Services for Roads & Yards" 
+    },
+    // ...
     desc: {
-      id: "Cara menghitung cor jalan perkubik bisa dikatakan memang bukan pekerjaan mudah. Dalam pembangunan sebuah infrastruktur, cor beton jalan merupakan salah satu proses paling penting.",
-      en: "Calculating concrete per cubic meter is not an easy task. In infrastructure development, concrete road casting is one of the most important processes.",
+      id: "Jasa pengecoran beton untuk jalan dan halaman rumah. Simak cara menghitung volume cor perkubik dan dapatkan layanan ready mix berkualitas di Tangerang & Jabodetabek.",
+      en: "Concrete casting services for roads and home yards. Read how to calculate concrete volume per cubic meter and get quality ready-mix services in Tangerang & Greater Jakarta.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -556,11 +628,11 @@ export const articles = [
   { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
 ],
     body: [
-      { 
+            { 
         type: "paragraph", 
         text: { 
-          id: "Jasa pengecoran beton | Cara menghitung cor jalan perkubik bisa dikatakan memang bukan pekerjaan mudah. Dalam pembangunan sebuah infrastruktur bisa dikatakan cor beton jalan itu merupakan salah satu proses paling penting.", 
-          en: "Concrete casting services | Calculating concrete per cubic meter is not an easy task. In infrastructure development, concrete road casting is one of the most important processes." 
+          id: "Jasa pengecoran beton | Cara menghitung cor jalan perkubik — Cor beton jalan merupakan salah satu proses paling penting dalam pembangunan infrastruktur. Jika Anda membutuhkan <a href='/layanan/infrastruktur/cor-beton-ready-mix' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengecoran beton ready mix</a> di area Tangerang atau Jabodetabek, PT Tri Abadi Makmur menyediakan layanan pengecoran yang presisi dan berkualitas. Simak panduan cara menghitung volume cor berikut agar anggaran Anda tidak membengkak.", 
+          en: "Concrete casting services | How to calculate concrete per cubic meter — Concrete road casting is one of the most important processes in infrastructure development. If you need ready-mix concrete casting services in the Tangerang or Greater Jakarta area, PT Tri Abadi Makmur provides precise and quality casting services. Read the following guide on how to calculate cast volume so your budget doesn't swell." 
         } 
       },
       { 
@@ -627,25 +699,30 @@ export const articles = [
           en: "If you do not want to be troubled when doing road casting, you can use construction services. Make sure to choose wisely so you can get affordable prices and the best quality. Because nowadays there are quite a lot of road construction services. However, not all have good quality, so you must choose them in detail." 
         } 
       },
-      { 
+           { 
         type: "paragraph", 
         text: { 
-          id: "Salah satu jasa konstruksi terbaik yang bisa Anda manfaatkan yaitu Tri Abadi Makmur Indonesia. Ada berbagai macam layanan diberikan dari mulai konstruksi infrastruktur, konstruksi bangunan, dan arsitektur. Anda tidak perlu khawatir lagi dengan hasilnya, karena Tri Abadi Makmur Indonesia memiliki banyak tenaga profesional dengan pengalaman yang lama. Selain itu Anda juga tentunya bisa mendapatkan harga cor jalan perkubik terjangkau tetapi berkualitas tinggi.", 
-          en: "One of the best construction services you can take advantage of is Tri Abadi Makmur Indonesia. There are various kinds of services provided, from infrastructure construction, building construction, to architecture. You no longer need to worry about the results, because Tri Abadi Makmur Indonesia has many professional workers with long experience. In addition, you can of course get affordable but high-quality concrete road per cubic meter prices." 
+          id: "Percayakan kebutuhan pengecoran beton Anda kepada PT Tri Abadi Makmur. Kami menyediakan material ready mix berkualitas tinggi dengan tim yang profesional. Hubungi kami sekarang via WhatsApp untuk konsultasi volume, harga, dan jadwal pengecoran.", 
+          en: "Entrust your concrete casting needs to PT Tri Abadi Makmur. We provide high-quality ready-mix materials with a professional team. Contact us now via WhatsApp for consultation on volume, price, and casting schedule." 
         } 
       }
+      
     ],
   },
   {
     slug: "biaya-aspal-per-meter",
+    date: { id: "15 Oktober 2026", en: "October 15, 2026" },
+    dateISO: "2026-10-18", // <-- TAMBAHKAN INI
     src: "/proyek/proyek-22.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
-    title: { id: "Biaya Aspal Per Meter", en: "Asphalt Cost Per Meter" },
-    date: { id: "28 September 2026", en: "September 28, 2026" },
-    dateISO: "2026-09-28",
+        title: { 
+      id: "Biaya Aspal Per Meter: Rincian Harga & Tips Hemat", 
+      en: "Asphalt Cost Per Meter: Price Details & Saving Tips" 
+    },
+    // ...
     desc: {
-      id: "Memiliki jalan yang mulus dan enak dilalui adalah impian setiap orang. Namun, berapa sebenarnya biaya aspal per meter? Berikut panduan dan tips untuk mendapatkan aspal jalan murah namun berkualitas.",
-      en: "Having a smooth and comfortable road is everyone's dream. But what is the actual asphalt cost per meter? Here is a guide and tips to get affordable but quality asphalt.",
+      id: "Berapa sebenarnya biaya aspal per meter terbaru? Simak rincian harga, faktor penentu, dan tips hemat pengaspalan jalan dari PT Tri Abadi Makmur.",
+      en: "What is the actual latest asphalt cost per meter? Read the price details, determining factors, and tips to save on road paving from PT Tri Abadi Makmur.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -670,73 +747,97 @@ export const articles = [
   { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
   { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
 ],
-    body: [
+    
+           body: [
       { 
         type: "paragraph", 
         text: { 
-          id: "Biaya aspal per meter | Jasa pengaspalan | Aspal jalan murah – Memiliki jalan yang mulus dan enak dilalui adalah impian setiap orang. Utamanya mereka yang memiliki mobilitas kendaraan tinggi. Setidaknya impian ini akan mampu tercapai dengan cara mengaspal jalan. Sudah barang tentu, melalui pengaspalan jalan yang awalnya bergelombang alias tidak rata, berlubang, dan tidak stabil dapat teratasi dengan baik.", 
-          en: "Asphalt cost per meter | Paving services | Affordable asphalt – Having a smooth and comfortable road is everyone's dream. Especially those with high vehicle mobility. At least this dream can be achieved by paving the road. Of course, through paving a road that was initially bumpy, uneven, potholed, and unstable can be resolved properly." 
-        } 
-      },
-      { 
-        type: "paragraph", 
-        text: { 
-          id: "Sangat menggiurkan memang. Coba saja anda bayangkan. Namun yang menjadi permasalahan selanjutnya bukankah harga aspal itu tidaklah murah? alias mahal. Mungkin dengan sesegera anda akan mengira-ngira berapa besar budget yang harus dikeluarkan untuk melakukan pengaspalan. Sebab dalam melakukan proyek pengaspalan akan ada banyak faktor yang mempengaruhi sekaligus layak untuk dipertimbangkan. Namun apakah bisa melakukan perbaikan jalan dengan anggaran yang sangat murah? Tenang, solusinya terpaparkan jelas dalam artikel ini.", 
-          en: "It is very tempting indeed. Just imagine it. But the next problem is, isn't the price of asphalt not cheap? Or rather expensive. You will probably immediately estimate how big the budget must be spent to do the paving. Because in carrying out a paving project there will be many factors that influence and are worth considering. But can you do road repairs on a very cheap budget? Relax, the solution is clearly presented in this article." 
+          id: "Biaya aspal per meter | Jasa pengaspalan | Aspal jalan murah – Memiliki jalan yang mulus dan enak dilalui adalah impian setiap orang. Utamanya mereka yang memiliki mobilitas kendaraan tinggi. Namun, berapa sebenarnya <strong>biaya aspal per meter</strong> terbaru? Jika Anda sedang mencari <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengaspalan murah</a> di Tangerang atau Jabodetabek untuk perumahan, pabrik, atau area parkir, PT Tri Abadi Makmur siap membantu dengan survei lokasi gratis.", 
+          en: "Asphalt cost per meter | Paving services | Affordable asphalt – Having a smooth and comfortable road is everyone's dream. Especially those with high vehicle mobility. But what is the actual asphalt cost per meter? If you are looking for affordable paving services in Tangerang or Greater Jakarta, PT Tri Abadi Makmur is ready to help with a free site survey." 
         } 
       },
       { 
         type: "heading", 
-        text: { id: "Tips untuk Mendapatkan Aspal Jalan Murah", en: "Tips to Get Affordable Asphalt" } 
+        text: { id: "Berapa Sih Biaya Aspal Per Meter Terbaru?", en: "What is the Latest Asphalt Cost Per Meter?" } 
       },
       { 
         type: "paragraph", 
         text: { 
-          id: "Memang aspal merupakan barang langka dan memiliki harga yang tidak biasa. Pada umumnya aspal sendiri dipatok dengan harga per meter. Sehingga semuanya tergantung pada kepiawaian anda. Mulai dari mengecek situs resmi pengaspalan, membandingkan harga, mengambil promosi dan efesiensi yang layak diketahui. Untuk lebih jelasnya hal demikian akan dibahas lebih jelas di bawah ini.", 
-          en: "Indeed, asphalt is a rare item and has an unusual price. Generally, asphalt itself is priced per meter. So everything depends on your expertise. Starting from checking the official paving website, comparing prices, taking promotions, and efficiency worth knowing. For more details, this will be discussed more clearly below." 
+          id: "Harga aspal sangat bervariasi tergantung pada ketebalan, jenis aspal (hotmix atau penetrasi), dan kondisi jalan. Secara umum, berikut adalah estimasi kisaran biaya aspal per meter untuk berbagai jenis pekerjaan:", 
+          en: "Asphalt prices vary greatly depending on thickness, type of asphalt, and road conditions. Generally, here is the estimated cost per meter for various types of work:" 
+        } 
+      },
+      { 
+        type: "list", 
+        ordered: false, 
+        items: [
+          { id: "<strong>Overlay / Pelapisan Ulang:</strong> Rp 75.000 - Rp 100.000 / m²", en: "<strong>Overlay:</strong> Rp 75,000 - Rp 100,000 / m²" },
+          { id: "<strong>Tambal Sulam (Pecingan):</strong> Rp 95.000 - Rp 120.000 / m²", en: "<strong>Patching:</strong> Rp 95,000 - Rp 120,000 / m²" },
+          { id: "<strong>Pengaspalan Baru (Hotmix):</strong> Rp 150.000 - Rp 250.000 / m²", en: "<strong>New Hotmix Paving:</strong> Rp 150,000 - Rp 250,000 / m²" }
+        ] 
+      },
+      { 
+        type: "paragraph", 
+        text: { 
+          id: "Untuk rincian paket harga yang lebih spesifik, Anda bisa membaca artikel kami tentang <a href='/blog/harga-aspal-hotmix' class='text-[#1e88e5] hover:underline font-semibold'>Harga Aspal Hotmix</a>. Penting untuk diingat bahwa harga di atas adalah estimasi awal. Biaya pasti akan ditentukan setelah tim kami melakukan survei lokasi.", 
+          en: "For detailed package prices, you can read our article on Hotmix Asphalt Prices. It is important to note that the prices above are initial estimates. The exact cost will be determined after our team conducts a site survey." 
+        } 
+      },
+      { 
+        type: "heading", 
+        text: { id: "Faktor Apa Saja yang Mempengaruhi Harga Aspal?", en: "What Factors Influence Asphalt Prices?" } 
+      },
+      { 
+        type: "paragraph", 
+        text: { 
+          id: "Ada beberapa faktor yang membuat harga aspal bisa naik atau turun. Memahami hal ini akan membantu Anda menghemat budget:", 
+          en: "Several factors can make asphalt prices go up or down. Understanding this will help you save your budget:" 
         } 
       },
       { 
         type: "list", 
         ordered: true, 
         items: [
-          { 
-            id: "Mengecek Situs Pengaspalan — Apabila mencari situs resmi pengaspalan secara langsung di internet maka secara pasti anda akan disuguhkan beragam pilihan. Sebagai petunjuk pertama, anda dapat mengunjungi semua website. Sudah pasti semuanya akan menyodorkan konten yang berbeda. Mulai dari profil perusahaan, tawaran harga, produk aspal yang dijual, rincian harga pengerjaan sampai pada garansi yang dijanjikan. Namun yang perlu diperhatikan dalam pengecekan situs satu ke situs lain ini ialah tingkat transparansi, jaminan dan terpercaya. Pastikan anda benar-benar memilih situs resmi. Alangkah baiknya anda melakukan pengecekan dan pemesanan melalui situs resmi PT. Tri Abadi Makmur Indonesia. Sebab situs ini merupakan milik perusahaan yang amanah, ramah dan berkomitmen setia dalam melayani klien.", 
-            en: "Check the Paving Website — If you look for an official paving website directly on the internet, you will certainly be presented with various choices. As a first clue, you can visit all websites. Surely all will present different content. Starting from the company profile, price offers, asphalt products sold, details of work prices to the promised warranty. However, what needs to be considered in checking one site to another is the level of transparency, guarantee, and trust. Make sure you really choose an official site. It would be better if you check and order through the official website of PT. Tri Abadi Makmur Indonesia. Because this site belongs to a trustworthy, friendly company committed to serving clients faithfully." 
-          },
-          { 
-            id: "Membandingkan Harga — Setelah anda berhasil memastikan dan benar-benar memilih situs resmi. Tahap berikutnya, anda harus membandingkan harga di antara semua situs resmi tersebut. Pastikan secara teliti anda memperhatikan setiap perbedaan harga yang ditawarkan sekaligus rincian pelayanan yang akan didapatkan. Pada umumnya harga tersedia dalam bentuk paket. Dan dihargai dalam satuan per meter. Tapi tidak menutup kemungkinan permainan harga akan tampil mencolok dalam informasi yang dipresentasikan. Yang anda butuhkan hanyalah kesabaran, ketelitian dan mengambil keputusan yang tepat.", 
-            en: "Compare Prices — After you have successfully confirmed and really chosen the official site. The next stage, you must compare prices among all these official sites. Make sure you carefully pay attention to each price difference offered as well as the details of services to be obtained. Generally, prices are available in package form and priced per meter. But it does not rule out the possibility that price games will appear striking in the information presented. What you need is patience, thoroughness, and making the right decision." 
-          },
-          { 
-            id: "Mengambil Harga Promosi — Selanjutnya ialah terkait dengan hadirnya harga promosi yang ditawarkan. Biasanya harga promosi ini muncul tidak mengenal waktu, artinya bersifat momentual. Misalnya saja berkaitan dengan status perusahaan yang baru saja dibuka atau mungkin pemesanan anda bertepatan dengan berdirinya perusahaan tersebut. Namun yang jelas, harga yang ditawarkan di perusahaan PT. Tri Abadi Makmur Indonesia jauh lebih ekonomis dibandingkan dengan yang lain. Harga ramah di kantong namun kualitas kelas utama.", 
-            en: "Take Promotional Prices — Next is related to the presence of promotional prices offered. Usually, these promotional prices appear regardless of time, meaning they are momentous. For example, related to the status of a newly opened company or maybe your order coincides with the establishment of the company. But what is clear is that the prices offered at PT. Tri Abadi Makmur Indonesia are much more economical compared to others. Pocket-friendly prices but top-class quality." 
-          },
-          { 
-            id: "Ketepatan dan Efesiensi — Proyek perbaikan jalan yang akan anda lakukan alangkah baiknya dirinci sedetail mungkin. Sebab hal ini akan berkaitan langsung dengan bahan baku, jenis, ketepatan waktu, kualitas dan proses pengerjaan. Melakukan konsultasi terlebih dahulu kepada orang yang ahli dalam hal pengaspalan adalah jalan yang baik dan tepat.", 
-            en: "Accuracy and Efficiency — The road repair project you are going to do should be detailed as much as possible. Because this will be directly related to raw materials, types, timeliness, quality, and the work process. Consulting first with someone who is an expert in paving is a good and right way." 
-          }
+          { id: "<strong>Luas Area Pekerjaan:</strong> Semakin luas area yang diaspal, biasanya harga per meter akan semakin murah (efisiensi alat berat).", en: "<strong>Work Area Size:</strong> The larger the area, the cheaper the price per meter usually is (heavy equipment efficiency)." },
+          { id: " <strong>Ketebalan Aspal:</strong> Semakin tebal lapisan aspal, semakin banyak material yang dibutuhkan, sehingga biaya naik.", en: "<strong>Asphalt Thickness:</strong> The thicker the asphalt layer, the more material is needed, thus increasing the cost." },
+          { id: "<strong>Jarak ke Lokasi Proyek:</strong> Jarak dari Asphalt Mixing Plant (AMP) ke lokasi proyek mempengaruhi biaya transportasi material.", en: "<strong>Distance to Project:</strong> The distance from the Asphalt Mixing Plant (AMP) to the project site affects material transportation costs." },
+          { id: "<strong>Akses Jalan:</strong> Jika lokasi sulit dijangkau alat berat, biaya operasional bisa meningkat.", en: "<strong>Road Access:</strong> If the location is difficult for heavy equipment to reach, operational costs may increase." }
         ] 
+      },
+      { 
+        type: "heading", 
+        text: { id: "Tips Mendapatkan Aspal Jalan Murah Tapi Berkualitas", en: "Tips for Getting Affordable but Quality Asphalt" } 
       },
       { 
         type: "paragraph", 
         text: { 
-          id: "Pastikan juga anda memilih perusahaan yang terpercaya, terjamin dan bertanggungjawab. Intinya, pengalokasian budget harus selaras dengan luas area yang akan diaspal. Demikian beberapa tips yang dapat anda lakukan untuk mendapatkan aspal jalan murah namun dengan kualitas terjamin. Alias tidak murahan. Semoga menjadi solusi yang tepat untuk kebingungan anda.", 
-          en: "Also make sure you choose a trusted, guaranteed, and responsible company. In essence, budget allocation must be in line with the area to be paved. Those are some tips you can do to get affordable asphalt roads but with guaranteed quality. Not cheap quality. Hopefully, this becomes the right solution for your confusion." 
+          id: "Jangan hanya tergiur dengan harga termurah. Pastikan penyedia jasa aspal Anda menggunakan material standar dan memiliki tim berpengalaman. PT Tri Abadi Makmur selalu mengedepankan kualitas hotmix dan kepuasan klien. Kami melayani pengaspalan untuk jalan perumahan, kawasan industri, hingga area komersial.", 
+          en: "Don't just be tempted by the cheapest price. Make sure your asphalt service provider uses standard materials and has an experienced team. PT Tri Abadi Makmur always prioritizes hotmix quality and client satisfaction. We serve paving for residential roads, industrial areas, and commercial areas." 
+        } 
+      },
+      { 
+        type: "paragraph", 
+        text: { 
+          id: "Butuh konsultasi atau penawaran harga pasti untuk proyek Anda? Hubungi tim kami sekarang via WhatsApp untuk mendapatkan survei lokasi gratis. Dapatkan aspal jalan murah dan berkualitas hanya di PT Tri Abadi Makmur.", 
+          en: "Need consultation or a definite price quote for your project? Contact our team now via WhatsApp to get a free site survey. Get affordable and quality asphalt only at PT Tri Abadi Makmur." 
         } 
       }
     ],
   },
   {
     slug: "pemasangan-grass-block",
+    date: { id: "25 Oktober 2026", en: "October 25, 2026" },
+    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
     src: "/proyek/proyek-39.webp",
     category: { id: "Grass Block", en: "Grass Block" },
-    title: { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide" },
-    date: { id: "15 Oktober 2026", en: "October 15, 2026" },
-    dateISO: "2026-10-15",
+       title: { 
+      id: "Panduan Pasang Grass Block & Keunggulannya", 
+      en: "Grass Block Installation Guide & Advantages" 
+    },
+    // ...
     desc: {
-      id: "Grass block atau paving block berongga kian populer untuk area parkir, jalan perumahan, dan taman karena ramah lingkungan dan estetis. Simak panduan lengkap pasang grass block di sini.",
-      en: "Grass block is increasingly popular for parking areas, residential roads, and parks because it is eco-friendly and aesthetic. Read the complete guide to installing grass blocks here.",
+      id: "Grass block ramah lingkungan untuk area parkir dan taman. Simak panduan lengkap pasang grass block dan dapatkan harga terbaik dari PT Tri Abadi Makmur di Tangerang.",
+      en: "Eco-friendly grass block for parking areas and gardens. Read the complete guide to installing grass blocks and get the best price from PT Tri Abadi Makmur in Tangerang.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -757,19 +858,13 @@ export const articles = [
   { id: "Pemasangan Pagar Panel", en: "Panel Fence Installation Guide", slug: "pemasangan-pagar-panel" },
   { id: "Pemasangan Tiang Pancang", en: "Pile Driving Installation Guide", slug: "pemasangan-tiang-pancang" },
 ],
-    body: [
+    
+         body: [
       { 
         type: "paragraph", 
         text: { 
-          id: "Pasang grass block — Memiliki area terbuka dengan permukaan yang rapi sekaligus tetap ramah lingkungan adalah dambaan banyak pemilik properti. Grass block hadir sebagai solusi tepat untuk kebutuhan tersebut. Material ini sering digunakan untuk area parkir, jalan lingkungan perumahan, hingga taman kota.", 
-          en: "Grass block installation — Having an open area with a neat surface while remaining eco-friendly is the dream of many property owners. Grass block comes as the right solution for these needs. This material is often used for parking areas, residential neighborhood roads, and city parks." 
-        } 
-      },
-      { 
-        type: "paragraph", 
-        text: { 
-          id: "Berbeda dengan paving block biasa yang kedap air, grass block memiliki rongga atau lubang pada permukaannya. Rongga inilah yang memungkinkan rumput untuk tumbuh dan air hujan meresap langsung ke dalam tanah. Inilah sebabnya material ini sangat digemari dalam konsep pembangunan berkelanjutan atau green construction.", 
-          en: "Unlike regular paving blocks which are waterproof, grass blocks have cavities or holes on their surface. These cavities allow grass to grow and rainwater to seep directly into the soil. This is why this material is highly favored in the concept of sustainable development or green construction." 
+          id: "Pasang grass block — Memiliki area terbuka dengan permukaan rapi sekaligus ramah lingkungan adalah dambaan pemilik properti. Jika Anda mencari <a href='/layanan/infrastruktur/pasang-grass-block' class='text-[#1e88e5] hover:underline font-semibold'>jasa pasang grass block</a> di Tangerang atau Jabodetabek, PT Tri Abadi Makmur menawarkan pemasangan yang rapi, kuat, dan bergaransi.", 
+          en: "Grass block installation — Having an open area with a neat surface while remaining eco-friendly is the dream of property owners. If you are looking for grass block installation services in Tangerang or Greater Jakarta, PT Tri Abadi Makmur offers neat, strong, and guaranteed installation." 
         } 
       },
       { 
@@ -785,16 +880,12 @@ export const articles = [
             en: "Eco-Friendly — Helps water absorption and reduces puddles during rain." 
           },
           { 
-            id: "Estetika Tinggi — Memberikan sentuhan hijau pada halaman atau area parkir yang membuatnya terlihat lebih asri.", 
-            en: "High Aesthetics — Provides a green touch to the yard or parking area that makes it look fresher." 
+            id: "Estetika Tinggi — Memberikan sentuhan hijau pada halaman atau area parkir.", 
+            en: "High Aesthetics — Provides a green touch to the yard or parking area." 
           },
           { 
-            id: "Kuat dan Tahan Lama — Mampu menahan beban kendaraan bermotor jika dipasang dengan standar yang benar.", 
-            en: "Strong and Durable — Able to withstand motor vehicle loads if installed with the correct standards." 
-          },
-          { 
-            id: "Ekonomis — Perawatan yang mudah dan biaya relatif lebih murah dibandingkan perkerasan beton penuh.", 
-            en: "Economical — Easy maintenance and relatively cheaper costs compared to full concrete paving." 
+            id: "Kuat dan Tahan Lama — Mampu menahan beban kendaraan jika dipasang dengan standar yang benar.", 
+            en: "Strong and Durable — Able to withstand vehicle loads if installed with the correct standards." 
           }
         ] 
       },
@@ -805,8 +896,8 @@ export const articles = [
       { 
         type: "paragraph", 
         text: { 
-          id: "Agar hasil pemasangan grass block rapi, tidak mudah amblas, dan bisa bertahan lama, ada beberapa tahapan pemasangan yang harus dilakukan dengan presisi. Berikut adalah panduan standar dari PT. Tri Abadi Makmur Indonesia:", 
-          en: "So that the grass block installation results are neat, not easily sink, and can last a long time, there are several installation stages that must be done with precision. Here is the standard guide from PT. Tri Abadi Makmur Indonesia:" 
+          id: "Agar hasil rapi dan tidak mudah amblas, ada tahapan yang harus dilakukan oleh tim PT Tri Abadi Makmur:", 
+          en: "So that the results are neat and not easily sink, there are stages that must be done by the PT Tri Abadi Makmur team:" 
         } 
       },
       { 
@@ -814,61 +905,54 @@ export const articles = [
         ordered: true, 
         items: [
           { 
-            id: "Pengukuran dan Pembersihan Area — Menentukan area yang akan dipasang, membersihkan rumput liar, batu, dan menggali tanah sesuai kedalaman yang dibutuhkan.", 
-            en: "Measurement and Area Cleaning — Determining the area to be installed, clearing weeds, rocks, and digging the soil to the required depth." 
+            id: "Pengukuran dan Pembersihan Area.", 
+            en: "Measurement and Area Cleaning." 
           },
           { 
-            id: "Pemadatan Tanah Dasar (Leveling) — Tanah dasar diratakan dan dipadatkan menggunakan alat pemadat (stamper) agar permukaan tidak bergelombang dan tidak amblas.", 
-            en: "Base Soil Compaction (Leveling) — The base soil is leveled and compacted using a compactor (stamper) so the surface does not become wavy or sink." 
+            id: "Pemadatan Tanah Dasar (Leveling).", 
+            en: "Base Soil Compaction (Leveling)." 
           },
           { 
-            id: "Lapisan Pasir / Abu Batu — Menghamparkan pasir atau abu batu setebal 5-10 cm di atas tanah dasar. Lapisan ini berfungsi sebagai bantalan dan membantu meratakan ketinggian grass block.", 
-            en: "Sand / Stone Dust Layer — Spreading sand or stone dust about 5-10 cm thick on the base soil. This layer functions as a cushion and helps level the height of the grass block." 
+            id: "Lapisan Pasir / Abu Batu setebal 5-10 cm.", 
+            en: "Sand / Stone Dust Layer 5-10 cm thick." 
           },
           { 
-            id: "Pemasangan Grass Block — Memasang grass block satu per satu sesuai pola yang diinginkan, bisa lurus atau zig-zag. Pastikan setiap blok saling mengunci dan rapat.", 
-            en: "Grass Block Installation — Installing grass blocks one by one according to the desired pattern, either straight or zig-zag. Make sure each block interlocks and fits tightly." 
+            id: "Pemasangan Grass Block sesuai pola.", 
+            en: "Grass Block Installation according to the pattern." 
           },
           { 
-            id: "Pengisian Celah dan Pemadatan — Mengisi rongga grass block dengan tanah subur atau campuran abu batu dan pupuk, lalu memadatkannya dengan baby roller agar posisinya stabil.", 
-            en: "Filling Gaps and Compaction — Filling the grass block cavities with fertile soil or a mixture of stone dust and fertilizer, then compacting it with a baby roller to stabilize its position." 
+            id: "Pengisian Celah dan Pemadatan dengan baby roller.", 
+            en: "Filling Gaps and Compaction with a baby roller." 
           },
           { 
-            id: "Penanaman Rumput — Menaburkan bibit rumput (seperti rumput gajah mini atau rumput jepang) pada rongga yang sudah terisi tanah, lalu rutin disiram hingga tumbuh merata.", 
-            en: "Planting Grass — Sprinkling grass seeds (like mini elephant grass or Japanese grass) into the cavities filled with soil, then watering regularly until it grows evenly." 
+            id: "Penanaman Rumput pada rongga yang sudah terisi tanah.", 
+            en: "Planting Grass in the cavities filled with soil." 
           }
         ] 
       },
       { 
-        type: "heading", 
-        text: { id: "Butuh Jasa Pasang Grass Block Profesional?", en: "Need Professional Grass Block Installation Services?" } 
-      },
-      { 
         type: "paragraph", 
         text: { 
-          id: "Pemasangan grass block yang tidak tepat dapat menyebabkan material mudah bergeser, rumput sulit tumbuh, atau permukaan amblas saat dilewati kendaraan. Oleh karena itu, menggunakan tenaga profesional sangat disarankan.", 
-          en: "Improper grass block installation can cause the material to shift easily, grass to be difficult to grow, or the surface to sink when passed by vehicles. Therefore, using professional workers is highly recommended." 
-        } 
-      },
-      { 
-        type: "paragraph", 
-        text: { 
-          id: "PT. Tri Abadi Makmur Indonesia memiliki tim ahli dan alat berat modern yang siap membantu proyek pasang grass block Anda di Jabodetabek dan sekitarnya. Hasil dijamin rapi, kuat, dan sesuai standar. Hubungi kami sekarang untuk konsultasi gratis dan survei lokasi.", 
-          en: "PT. Tri Abadi Makmur Indonesia has a team of experts and modern heavy equipment ready to help with your grass block installation project in Greater Jakarta and its surroundings. The results are guaranteed to be neat, strong, and according to standards. Contact us now for free consultation and site survey." 
+          id: "Butuh jasa pasang grass block profesional? Hubungi PT Tri Abadi Makmur sekarang untuk konsultasi gratis dan survei lokasi.", 
+          en: "Need professional grass block installation services? Contact PT Tri Abadi Makmur now for free consultation and site survey." 
         } 
       }
     ],
   },
   {
     slug: "pemasangan-pagar-panel",
+    date: { id: "25 Oktober 2026", en: "October 25, 2026" },
+    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
     src: "/proyek/proyek-83.webp",
     category: { id: "Pagar Panel", en: "Panel Fence" },
-    title: { id: "Pemasangan Pagar Panel", en: "Panel Fence Installation Guide" },
-    date: { id: "18 Oktober 2026", en: "October 18, 2026" },
-    dateISO: "2026-10-18",
+        title: { 
+      id: "Jasa Pasang Pagar Panel Beton (Precast)", 
+      en: "Concrete Panel Fence Installation Services" 
+    },
+    // ...
     desc: {
-      id: "Pagar panel beton menjadi solusi populer untuk pembatas lahan proyek dan perumahan karena kokoh, rapi, dan cepat dipasang. Simak panduan lengkap dan keunggulannya di sini.",
-      en: "Concrete panel fences are a popular solution for project and residential land boundaries because they are sturdy, neat, and quick to install. Read the complete guide and its advantages here.",
+      id: "Pagar panel beton kokoh dan rapi untuk pembatas lahan proyek dan perumahan. Dikerjakan cepat oleh PT Tri Abadi Makmur di Tangerang & Jabodetabek.",
+      en: "Sturdy and neat concrete panel fences for project and residential land boundaries. Executed quickly by PT Tri Abadi Makmur in Tangerang & Greater Jakarta.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -889,118 +973,41 @@ export const articles = [
   { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
   { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
 ],
-    body: [
-      { 
-        type: "paragraph", 
-        text: { 
-          id: "Pasang pagar panel — Membangun sebuah proyek konstruksi, kawasan industri, hingga perumahan tentu membutuhkan batas wilayah yang jelas dan aman. Pagar panel beton (precast) menjadi salah satu solusi paling diminati saat ini untuk kebutuhan tersebut. Material ini menawarkan kekuatan, ketahanan, dan tampilan yang lebih rapi dibandingkan pagar konvensional.", 
-          en: "Panel fence installation — Building a construction project, industrial area, or residential area certainly requires clear and safe territorial boundaries. Concrete panel fences (precast) have become one of the most sought-after solutions today for these needs. This material offers strength, durability, and a neater appearance compared to conventional fences." 
-        } 
-      },
-      { 
-        type: "paragraph", 
-        text: { 
-          id: "Pagar panel terbuat dari campuran beton berkualitas tinggi yang dicetak sedemikian rupa di pabrik, kemudian dirakit di lokasi proyek. Proses fabrikasi ini membuat kualitas dan ukurannya jauh lebih presisi dan konsisten. Selain itu, pemasangannya pun jauh lebih cepat dibandingkan membangun pagar bata merah atau batako secara manual.", 
-          en: "Panel fences are made from high-quality concrete mixtures cast in a factory, then assembled at the project site. This fabrication process makes the quality and size much more precise and consistent. In addition, its installation is much faster than building a red brick or brick fence manually." 
-        } 
-      },
-      { 
-        type: "heading", 
-        text: { id: "Keunggulan Pagar Panel Beton", en: "Advantages of Concrete Panel Fences" } 
-      },
-      { 
-        type: "list", 
-        ordered: false, 
-        items: [
-          { 
-            id: "Pengerjaan Cepat — Tidak membutuhkan waktu lama seperti memasang bata satu per satu. Panel langsung dirakit dan disusun.", 
-            en: "Fast Work — Does not take as long as installing bricks one by one. Panels are directly assembled and arranged." 
-          },
-          { 
-            id: "Sangat Kokoh — Mampu menahan angin kencang, guncangan, dan memiliki daya tahan yang lama terhadap cuaca ekstrem.", 
-            en: "Very Sturdy — Able to withstand strong winds, shocks, and has long durability against extreme weather." 
-          },
-          { 
-            id: "Tampilan Rapi & Modern — Desainnya minimalis dengan garis presisi, sangat cocok untuk kawasan industri maupun perumahan elit.", 
-            en: "Neat & Modern Appearance — Its minimalist design with precise lines is very suitable for industrial areas and elite residential areas." 
-          },
-          { 
-            id: "Hemat Biaya — Dibandingkan dengan pagar bata yang membutuhkan semen, pasir, dan upah tukang yang banyak, pagar panel lebih efisien secara biaya.", 
-            en: "Cost-Effective — Compared to brick fences that require a lot of cement, sand, and labor wages, panel fences are more cost-efficient." 
-          },
-          { 
-            id: "Dapat Dibongkar Pasang — Jika proyek sudah selesai, pagar panel bisa dibongkar dengan rapi dan dipindahkan ke lokasi proyek lain.", 
-            en: "Remountable — If the project is finished, the panel fence can be dismantled neatly and moved to another project location." 
-          }
-        ] 
-      },
-      { 
-        type: "heading", 
-        text: { id: "Tahapan Pasang Pagar Panel yang Benar", en: "Proper Panel Fence Installation Stages" } 
-      },
-      { 
-        type: "paragraph", 
-        text: { 
-          id: "Agar pagar panel berdiri tegak, kuat, dan tidak mudah roboh, proses pemasangannya tidak boleh dilakukan secara sembarangan. Berikut adalah tahapan pemasangan standar yang biasa dilakukan oleh tim PT. Tri Abadi Makmur Indonesia:", 
-          en: "So that the panel fence stands upright, strong, and does not easily collapse, the installation process cannot be done carelessly. Here are the standard installation stages usually carried out by the PT. Tri Abadi Makmur Indonesia team:" 
-        } 
-      },
-      { 
-        type: "list", 
-        ordered: true, 
-        items: [
-          { 
-            id: "Pengukuran dan Pemasangan Patok — Menentukan garis batas pagar sesuai dengan gambar kerja. Pemasangan patok dilakukan dengan jarak antar tiang (biasanya 2,5 meter).", 
-            en: "Measurement and Pile Installation — Determining the fence boundary line according to the working drawing. Pile installation is done with a distance between posts (usually 2.5 meters)." 
-          },
-          { 
-            id: "Penggalian Tanah untuk Pondasi — Menggali tanah pada titik-titik patok untuk membuat lubang pondasi tempat tiang (kolom) ditanam.", 
-            en: "Soil Excavation for Foundation — Digging the soil at pile points to make foundation holes where the posts (columns) will be planted." 
-          },
-          { 
-            id: "Pengecoran Pondasi dan Pemasangan Tiang — Memasukkan tiang beton ke dalam lubang galian, kemudian mengecor area tersebut dengan campuran beton dan batu kali agar tiang berdiri sangat kokoh.", 
-            en: "Foundation Casting and Post Installation — Inserting concrete posts into the excavated holes, then casting the area with a mixture of concrete and river stones so the posts stand very sturdy." 
-          },
-          { 
-            id: "Pemasangan Panel Beton — Setelah pondasi mengering dan tiang tegak sempurna, panel beton diangkat menggunakan alat berat (crane atau ekskavator) lalu disusun ke dalam alur (slot) tiang dari bawah ke atas.", 
-            en: "Concrete Panel Installation — After the foundation dries and the posts are perfectly upright, concrete panels are lifted using heavy equipment (crane or excavator) and then arranged into the post slots from bottom to top." 
-          },
-          { 
-            id: "Finishing dan Pengecekan — Memastikan semua panel terkunci dengan rapi, tidak ada yang miring, dan memberikan sentuhan akhir seperti pengecatan atau perataan tanah di sekitar pagar.", 
-            en: "Finishing and Checking — Ensuring all panels are locked neatly, none are tilted, and providing final touches such as painting or leveling the ground around the fence." 
-          }
-        ] 
-      },
-      { 
-        type: "heading", 
-        text: { id: "Butuh Jasa Pasang Pagar Panel Profesional?", en: "Need Professional Panel Fence Installation Services?" } 
-      },
-      { 
-        type: "paragraph", 
-        text: { 
-          id: "Pemasangan pagar panel membutuhkan alat berat dan tenaga ahli untuk memastikan tiang dan panel terpasang dengan aman dan sejajar. Jika dipasang oleh tenaga yang kurang berpengalaman, pagar bisa miring atau bahkan roboh saat terkena angin kencang.", 
-          en: "Panel fence installation requires heavy equipment and expert workers to ensure posts and panels are installed safely and aligned. If installed by inexperienced workers, the fence can tilt or even collapse when hit by strong winds." 
-        } 
-      },
-      { 
-        type: "paragraph", 
-        text: { 
-          id: "Percayakan kebutuhan pagar panel beton proyek Anda kepada PT. Tri Abadi Makmur Indonesia. Kami menyediakan jasa pasang pagar panel dengan tim yang sudah berpengalaman, peralatan modern, serta harga yang kompetitif. Kami melayani area Jabodetabek dan sekitarnya. Hubungi kami sekarang untuk mendapatkan penawaran terbaik!", 
-          en: "Entrust your project's concrete panel fence needs to PT. Tri Abadi Makmur Indonesia. We provide panel fence installation services with an experienced team, modern equipment, and competitive prices. We serve the Greater Jakarta area and its surroundings. Contact us now to get the best offer!" 
-        } 
-      }
+           body: [
+      { type: "paragraph", text: { id: "Pasang pagar panel — Membangun proyek konstruksi atau perumahan tentu membutuhkan batas wilayah yang jelas dan aman. Pagar panel beton (precast) menjadi solusi paling diminati karena kokoh, rapi, dan cepat dipasang. Jika Anda mencari <a href='/layanan/infrastruktur/pasang-pager-panel' class='text-[#1e88e5] hover:underline font-semibold'>jasa pasang pagar panel</a> di area Tangerang & Jabodetabek, PT Tri Abadi Makmur solusinya.", en: "Panel fence installation — Building a construction project or residential area certainly requires clear and safe territorial boundaries. Concrete panel fences (precast) have become the most sought-after solution because they are sturdy, neat, and quick to install. If you are looking for panel fence installation services in the Tangerang & Greater Jakarta area, PT Tri Abadi Makmur is the solution." } },
+      { type: "heading", text: { id: "Keunggulan Pagar Panel Beton", en: "Advantages of Concrete Panel Fences" } },
+      { type: "list", ordered: false, items: [
+        { id: "<strong>Pengerjaan Cepat:</strong> Tidak membutuhkan waktu lama seperti memasang bata satu per satu.", en: "<strong>Fast Work:</strong> Does not take as long as installing bricks one by one." },
+        { id: "<strong>Sangat Kokoh:</strong> Mampu menahan angin kencang dan memiliki daya tahan lama terhadap cuaca ekstrem.", en: "<strong>Very Sturdy:</strong> Able to withstand strong winds and has long durability against extreme weather." },
+        { id: "<strong>Tampilan Rapi & Modern:</strong> Desain minimalis dengan garis presisi, cocok untuk kawasan industri maupun perumahan.", en: "<strong>Neat & Modern Appearance:</strong> Minimalist design with precise lines, suitable for industrial areas and residential areas." },
+        { id: "<strong>Hemat Biaya:</strong> Lebih efisien secara biaya dibandingkan pagar bata merah manual.", en: "<strong>Cost-Effective:</strong> More cost-efficient compared to manual red brick fences." }
+      ] },
+      { type: "heading", text: { id: "Tahapan Pasang Pagar Panel yang Benar", en: "Proper Panel Fence Installation Stages" } },
+      { type: "paragraph", text: { id: "Agar pagar panel berdiri tegak dan tidak mudah roboh, pemasangan harus dilakukan oleh tenaga ahli. Berikut tahapan standar dari PT Tri Abadi Makmur:", en: "So that the panel fence stands upright and does not easily collapse, installation must be done by experts. Here are the standard stages from PT Tri Abadi Makmur:" } },
+      { type: "list", ordered: true, items: [
+        { id: "Pengukuran dan Pemasangan Patok (jarak antar tiang biasanya 2,5 meter).", en: "Measurement and Pile Installation (distance between posts is usually 2.5 meters)." },
+        { id: "Penggalian Tanah untuk Pondasi tiang.", en: "Soil Excavation for Post Foundation." },
+        { id: "Pengecoran Pondasi dan Pemasangan Tiang beton.", en: "Foundation Casting and Concrete Post Installation." },
+        { id: "Pemasangan Panel Beton menggunakan alat berat (crane/ekskavator).", en: "Concrete Panel Installation using heavy equipment (crane/excavator)." },
+        { id: "Finishing dan Pengecekan kerapian panel.", en: "Finishing and Checking the neatness of the panels." }
+      ] },
+      { type: "paragraph", text: { id: "Percayakan kebutuhan pagar panel beton proyek Anda kepada PT Tri Abadi Makmur. Kami menyediakan tim berpengalaman, peralatan modern, serta harga yang kompetitif. Hubungi kami sekarang untuk mendapatkan penawaran terbaik!", en: "Entrust your project's concrete panel fence needs to PT Tri Abadi Makmur. We provide an experienced team, modern equipment, and competitive prices. Contact us now to get the best offer!" } }
     ],
   },
   {
     slug: "pemasangan-tiang-pancang",
+    date: { id: "25 Oktober 2026", en: "October 25, 2026" },
+    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
     src: "/proyek/proyek-80.webp",
     category: { id: "Tiang Pancang", en: "Pile Driving" },
-    title: { id: "Pemasangan Tiang Pancang", en: "Pile Driving Installation Guide" },
-    date: { id: "20 Oktober 2026", en: "October 20, 2026" },
-    dateISO: "2026-10-20",
+     title: { 
+      id: "Jasa Pasang Tiang Pancang: Fondasi Kokoh & Aman", 
+      en: "Pile Driving Installation Services: Strong & Safe Foundation" 
+    },
+    // ...
     desc: {
-      id: "Tiang pancang adalah fondasi krusial untuk bangunan bertingkat dan infrastruktur berat. Simak pengertian, jenis, dan tahapan pasang tiang pancang agar bangunan kokoh dan aman.",
-      en: "Piles are crucial foundations for multi-story buildings and heavy infrastructure. Read the definition, types, and stages of pile driving installation to ensure a sturdy and safe building.",
+      id: "Tiang pancang adalah fondasi krusial untuk bangunan bertingkat. Simak pengertian, jenis, dan tahapan pasang tiang pancang dari PT Tri Abadi Makmur.",
+      en: "Piles are crucial foundations for multi-story buildings. Read the definition, types, and stages of pile driving installation from PT Tri Abadi Makmur.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -1021,19 +1028,12 @@ export const articles = [
   { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
   { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
 ],
-    body: [
+        body: [
       { 
         type: "paragraph", 
         text: { 
-          id: "Pasang tiang pancang — Dalam dunia konstruksi, kekuatan sebuah bangunan sangat ditentukan oleh fondasinya. Untuk bangunan bertingkat, jembatan, atau proyek di atas tanah yang lunak, penggunaan tiang pancang menjadi sebuah keharusan. Tiang pancang berfungsi meneruskan beban bangunan ke lapisan tanah keras yang berada jauh di bawah permukaan.", 
-          en: "Pile driving installation — In the world of construction, the strength of a building is largely determined by its foundation. For multi-story buildings, bridges, or projects on soft soil, the use of piles is a necessity. Piles function to transmit building loads to the hard soil layer located far below the surface." 
-        } 
-      },
-      { 
-        type: "paragraph", 
-        text: { 
-          id: "Tanpa fondasi tiang pancang yang tepat, bangunan berisiko mengalami penurunan (settlement) yang tidak merata. Hal ini bisa menyebabkan dinding retak, lantai amblas, hingga keruntuhan struktur. Oleh karena itu, pemilihan material dan proses pemasangan tiang pancang harus dilakukan oleh tenaga ahli dan menggunakan alat berat yang sesuai standar.", 
-          en: "Without the right pile foundation, buildings risk experiencing uneven settlement. This can cause cracked walls, sunken floors, and even structural collapse. Therefore, material selection and the pile driving process must be carried out by experts using heavy equipment that meets standards." 
+          id: "Pasang tiang pancang — Dalam dunia konstruksi, kekuatan bangunan sangat ditentukan oleh fondasinya. Untuk bangunan bertingkat, jembatan, atau proyek di atas tanah lunak, penggunaan tiang pancang adalah keharusan. Jika Anda mencari <a href='/layanan/infrastruktur/pasang-tiang-pancang' class='text-[#1e88e5] hover:underline font-semibold'>jasa pasang tiang pancang</a> di Tangerang atau Jabodetabek, PT Tri Abadi Makmur didukung oleh tenaga ahli dan alat berat modern.", 
+          en: "Pile driving installation — In the world of construction, the strength of a building is largely determined by its foundation. For multi-story buildings, bridges, or projects on soft soil, the use of piles is a necessity. If you are looking for pile driving installation services in Tangerang or Greater Jakarta, PT Tri Abadi Makmur is supported by expert staff and modern heavy equipment." 
         } 
       },
       { 
@@ -1045,28 +1045,24 @@ export const articles = [
         ordered: false, 
         items: [
           { 
-            id: "Tiang Pancang Beton (Precast) — Paling umum digunakan. Dicetak di pabrik dengan mutu beton tinggi (K-450 ke atas), memiliki bentuk persegi, bulat, atau segitiga.", 
-            en: "Concrete Piles (Precast) — Most commonly used. Cast in factories with high concrete quality (K-450 and above), available in square, round, or triangular shapes." 
+            id: "<strong>Tiang Pancang Beton (Precast):</strong> Paling umum digunakan, dicetak di pabrik dengan mutu beton tinggi (K-450 ke atas).", 
+            en: "<strong>Concrete Piles (Precast):</strong> Most commonly used, cast in factories with high concrete quality (K-450 and above)." 
           },
           { 
-            id: "Tiang Pancang Baja (Spun Pile / Steel Pipe) — Digunakan untuk proyek dengan beban sangat berat atau kondisi tanah yang ekstrem. Memiliki daya tahan tarik yang baik.", 
-            en: "Steel Piles (Spun Pile / Steel Pipe) — Used for projects with very heavy loads or extreme soil conditions. Has good tensile resistance." 
-          },
-          { 
-            id: "Tiang Pancang Kayu — Biasanya digunakan untuk bangunan skala kecil di area tertentu, namun jarang dipakai untuk proyek modern karena rentan pelapukan.", 
-            en: "Wooden Piles — Usually used for small-scale buildings in certain areas, but rarely used for modern projects because they are prone to decay." 
+            id: "<strong>Tiang Pancang Baja (Spun Pile):</strong> Digunakan untuk proyek dengan beban sangat berat atau kondisi tanah ekstrem.", 
+            en: "<strong>Steel Piles (Spun Pile):</strong> Used for projects with very heavy loads or extreme soil conditions." 
           }
         ] 
       },
       { 
         type: "heading", 
-        text: { id: "Tahapan dan Metode Pasang Tiang Pancang", en: "Stages and Methods of Pile Driving Installation" } 
+        text: { id: "Metode Pasang Tiang Pancang", en: "Pile Driving Installation Methods" } 
       },
       { 
         type: "paragraph", 
         text: { 
-          id: "Proses pemasangan tiang pancang tidak bisa dilakukan secara sembarangan. Di lapangan, ada dua metode utama yang biasa digunakan oleh PT. Tri Abadi Makmur Indonesia, yaitu metode Jacking (tekan) dan Drop Hammer (hantam):", 
-          en: "The pile driving installation process cannot be done carelessly. In the field, there are two main methods commonly used by PT. Tri Abadi Makmur Indonesia, namely the Jacking method (pressing) and Drop Hammer (striking):" 
+          id: "Ada dua metode utama yang biasa digunakan oleh PT Tri Abadi Makmur di lapangan:", 
+          en: "There are two main methods commonly used by PT Tri Abadi Makmur in the field:" 
         } 
       },
       { 
@@ -1074,53 +1070,38 @@ export const articles = [
         ordered: true, 
         items: [
           { 
-            id: "Metode Jacking (Hydraulic Static Pile Driver) — Tiang ditekan ke dalam tanah menggunakan sistem hidrolik. Metode ini tidak menimbulkan getaran dan suara bising, sangat cocok untuk area pemukiman padat penduduk.", 
-            en: "Jacking Method (Hydraulic Static Pile Driver) — Piles are pressed into the soil using a hydraulic system. This method does not cause vibration and noise, making it very suitable for densely populated residential areas." 
+            id: "<strong>Metode Jacking (Hidrolik):</strong> Tiang ditekan ke dalam tanah. Tidak menimbulkan getaran dan suara bising, sangat cocok untuk area pemukiman padat.", 
+            en: "<strong>Jacking Method (Hydraulic):</strong> Piles are pressed into the soil. Does not cause vibration and noise, very suitable for densely populated residential areas." 
           },
           { 
-            id: "Metode Drop Hammer (Hantam) — Tiang dipancang menggunakan alat berat (crane) yang menjatuhkan palu (hammer) dari ketinggian tertentu. Metode ini lebih cepat untuk area proyek yang luas dan jauh dari pemukiman.", 
-            en: "Drop Hammer Method (Striking) — Piles are driven using heavy equipment (crane) that drops a hammer from a certain height. This method is faster for large project areas far from settlements." 
-          },
-          { 
-            id: "Penyambungan Tiang (Welding) — Jika kedalaman tanah keras sangat dalam, tiang pancang akan disambung. Untuk tiang beton, biasanya menggunakan plat baja yang dilas hingga rata dan kuat.", 
-            en: "Pile Splicing (Welding) — If the hard soil depth is very deep, the piles will be spliced. For concrete piles, steel plates are usually used which are welded until flat and strong." 
-          },
-          { 
-            id: "Pemotongan Tiang (Cut Off Level) — Setelah tiang mencapai tanah keras, bagian atas tiang akan dipotong sesuai ketinggian rencana (cut off level) agar rata dengan struktur pondasi selanjutnya (pile cap).", 
-            en: "Pile Cutting (Cut Off Level) — After the pile reaches the hard soil, the top of the pile will be cut according to the planned height (cut off level) so it is level with the next foundation structure (pile cap)." 
+            id: "<strong>Metode Drop Hammer:</strong> Tiang dipancang menggunakan alat berat (crane) yang menjatuhkan palu. Lebih cepat untuk area proyek yang luas.", 
+            en: "<strong>Drop Hammer Method:</strong> Piles are driven using heavy equipment (crane) that drops a hammer. Faster for large project areas." 
           }
         ] 
       },
       { 
-        type: "heading", 
-        text: { id: "Percayakan Proyek Anda Kepada Ahlinya", en: "Entrust Your Project to the Experts" } 
-      },
-      { 
         type: "paragraph", 
         text: { 
-          id: "Pemasangan tiang pancang yang salah dapat berakibat fatal pada kekuatan struktur bangunan di masa depan. Dibutuhkan perhitungan kalibrasi alat, pembacaan tanah, dan operator yang sangat berpengalaman untuk mendapatkan hasil pemancangan yang presisi dan sesuai daya dukung yang direncanakan.", 
-          en: "Incorrect pile driving installation can have fatal consequences on the strength of the building structure in the future. It takes tool calibration calculations, soil reading, and highly experienced operators to get precise driving results that match the planned bearing capacity." 
-        } 
-      },
-      { 
-        type: "paragraph", 
-        text: { 
-          id: "PT. Tri Abadi Makmur Indonesia menyediakan jasa pasang tiang pancang untuk berbagai kebutuhan konstruksi, baik skala perumahan, gedung komersial, maupun infrastruktur. Kami didukung oleh tenaga profesional, alat berat hidrolik modern, dan material tiang berkualitas tinggi. Hubungi kami hari ini untuk konsultasi teknis dan penawaran terbaik untuk proyek Anda.", 
-          en: "PT. Tri Abadi Makmur Indonesia provides pile driving installation services for various construction needs, both residential scale, commercial buildings, and infrastructure. We are supported by professional staff, modern hydraulic heavy equipment, and high-quality pile materials. Contact us today for technical consultation and the best offer for your project." 
+          id: "Pemasangan tiang pancang yang salah dapat berakibat fatal pada kekuatan struktur bangunan. Percayakan proyek Anda kepada ahlinya. Hubungi PT Tri Abadi Makmur hari ini untuk konsultasi teknis dan penawaran terbaik.", 
+          en: "Incorrect pile driving installation can have fatal consequences on the building structure's strength. Entrust your project to the experts. Contact PT Tri Abadi Makmur today for technical consultation and the best offer." 
         } 
       }
     ],
   },
     {
     slug: "lapisan-aspal-hotmix",
+    date: { id: "25 Oktober 2026", en: "October 25, 2026" },
+    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
     src: "/proyek/proyek-31.webp",
     category: { id: "Hotmix", en: "Hotmix" },
-    title: { id: "Lapisan Aspal Hotmix", en: "Hotmix Asphalt Layers" },
-    date: { id: "25 Oktober 2026", en: "October 25, 2026" },
-    dateISO: "2026-10-25",
+        title: { 
+      id: "Struktur Lapisan Aspal Hotmix: Panduan Lengkap", 
+      en: "Hotmix Asphalt Layer Structure: Complete Guide" 
+    },
+    // ...
     desc: {
-      id: "Lapisan aspal hotmix — Memahami struktur dan fungsi setiap lapisan aspal hotmix sangat penting agar jalan yang dibangun kuat, rata, dan tahan lama. Berikut penjelasan lengkapnya.",
-      en: "Hotmix asphalt layers — Understanding the structure and function of each hotmix asphalt layer is essential so the road built is strong, flat, and durable. Here is the complete explanation.",
+      id: "Memahami struktur dan fungsi setiap lapisan aspal hotmix sangat penting agar jalan yang dibangun kuat, rata, dan tahan lama. Berikut penjelasan lengkapnya.",
+      en: "Understanding the structure and function of each hotmix asphalt layer is essential so the road built is strong, flat, and durable. Here is the complete explanation.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -1146,23 +1127,12 @@ export const articles = [
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-    body: [
+       body: [
       {
         type: "paragraph",
         text: {
-          id: "Lapisan aspal hotmix — Jalan yang mulus, kuat, dan tahan lama tidak tercipta begitu saja. Di balik permukaan aspal yang rata, terdapat struktur lapisan aspal hotmix yang tersusun secara berlapis sesuai fungsinya masing-masing. Setiap lapisan memiliki peran penting dalam menahan beban kendaraan, menyalurkan air, serta menjaga kestabilan struktur jalan. Memahami lapisan aspal hotmix menjadi kunci bagi siapa pun yang ingin membangun atau memperbaiki jalan dengan hasil terbaik.",
-          en: "Hotmix asphalt layers — A smooth, strong, and durable road is not created just like that. Behind the flat asphalt surface, there is a hotmix asphalt layer structure arranged in layers according to their respective functions. Each layer plays an important role in bearing vehicle loads, draining water, and maintaining the stability of the road structure. Understanding hotmix asphalt layers is key for anyone who wants to build or repair roads with the best results.",
-        },
-      },
-      {
-        type: "heading",
-        text: { id: "Apa Itu Aspal Hotmix?", en: "What Is Hotmix Asphalt?" },
-      },
-      {
-        type: "paragraph",
-        text: {
-          id: "Aspal hotmix adalah campuran agregat (batu pecah, pasir, dan filler) dengan aspal sebagai bahan pengikat yang dipanaskan pada suhu tertentu sebelum dihampar dan dipadatkan. Proses pencampuran panas inilah yang membuat aspal hotmix memiliki daya lekat, kepadatan, dan kekuatan yang jauh lebih baik dibandingkan aspal dingin. Karena keunggulannya inilah aspal hotmix menjadi standar dalam pembangunan jalan raya, jalan tol, hingga jalan perumahan.",
-          en: "Hotmix asphalt is a mixture of aggregate (crushed stone, sand, and filler) with asphalt as a binder, heated at a certain temperature before being spread and compacted. This hot mixing process is what makes hotmix asphalt have much better adhesion, density, and strength compared to cold asphalt. Because of these advantages, hotmix asphalt has become the standard in highway, toll road, and residential road construction.",
+          id: "Lapisan aspal hotmix — Jalan yang mulus dan tahan lama tidak tercipta begitu saja. Di balik permukaan aspal yang rata, terdapat struktur lapisan aspal hotmix yang tersusun berlapis sesuai fungsinya. Jika Anda sedang merencanakan proyek jalan dan mencari <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengaspalan hotmix</a> di Tangerang atau Jabodetabek, PT Tri Abadi Makmur menerapkan standar lapisan yang tepat untuk hasil maksimal.",
+          en: "Hotmix asphalt layers — A smooth and durable road is not created just like that. Behind the flat asphalt surface, there is a hotmix asphalt layer structure arranged in layers according to their functions. If you are planning a road project and looking for hotmix asphalt services in Tangerang or Greater Jakarta, PT Tri Abadi Makmur applies the correct layer standards for maximum results.",
         },
       },
       {
@@ -1170,102 +1140,55 @@ export const articles = [
         text: { id: "Struktur Lapisan Aspal Hotmix dari Bawah ke Atas", en: "Hotmix Asphalt Layer Structure from Bottom to Top" },
       },
       {
-        type: "paragraph",
-        text: {
-          id: "Secara umum, struktur perkerasan jalan dengan aspal hotmix terdiri dari beberapa lapisan yang saling menopang. Masing-masing lapisan memiliki ketebalan dan fungsi tersendiri. Berikut urutan lapisan aspal hotmix dari bawah ke atas.",
-          en: "In general, the road pavement structure with hotmix asphalt consists of several layers that support each other. Each layer has its own thickness and function. Here is the order of hotmix asphalt layers from bottom to top.",
-        },
-      },
-      {
         type: "list",
         ordered: true,
         items: [
           {
-            id: "Lapisan Tanah Dasar (Subgrade) — Lapisan paling bawah berupa tanah asli atau tanah urug yang dipadatkan. Lapisan ini menjadi pondasi utama yang menopang seluruh beban jalan. Kualitas pemadatan tanah dasar sangat menentukan kestabilan lapisan di atasnya.",
-            en: "Subgrade Layer — The bottom-most layer consisting of compacted natural or fill soil. This layer is the main foundation that supports the entire road load. The quality of subgrade compaction greatly determines the stability of the layers above it.",
+            id: "<strong>Lapisan Tanah Dasar (Subgrade):</strong> Lapisan paling bawah berupa tanah yang dipadatkan. Menjadi pondasi utama penopang beban jalan.",
+            en: "<strong>Subgrade Layer:</strong> The bottom-most layer consisting of compacted soil. It is the main foundation supporting the road load.",
           },
           {
-            id: "Lapisan Pondasi Bawah (Subbase Course) — Terdiri dari material berbutir seperti batu pecah, kerikil, atau sirtu yang dipadatkan. Berfungsi menyalurkan beban dan sebagai lapisan drainase agar air tidak naik ke atas. Ketebalannya biasanya berkisar 15–30 cm.",
-            en: "Subbase Course — Consists of granular materials such as crushed stone, gravel, or sirtu that are compacted. It functions to distribute loads and acts as a drainage layer to prevent water from rising. Its thickness is usually around 15–30 cm.",
+            id: "<strong>Lapisan Pondasi Bawah (Subbase Course):</strong> Material berbutir (batu pecah/sirtu) setebal 15–30 cm. Berfungsi sebagai drainase agar air tidak naik.",
+            en: "<strong>Subbase Course:</strong> Granular material (crushed stone/sirtu) 15–30 cm thick. Functions as drainage to prevent water from rising.",
           },
           {
-            id: "Lapisan Pondasi Atas (Base Course) — Bisa menggunakan agregat padat atau aspal hotmix jenis ATB (Asphalt Treated Base) dengan ketebalan sekitar 5 cm. Lapisan ini berperan menahan gaya geser dan menyebarkan beban kendaraan sebelum diteruskan ke lapisan di bawahnya.",
-            en: "Base Course — Can use dense aggregate or hotmix asphalt type ATB (Asphalt Treated Base) with a thickness of about 5 cm. This layer plays a role in resisting shear forces and distributing vehicle loads before they are transferred to the layer below.",
+            id: "<strong>Lapisan Pondasi Atas (Base Course):</strong> Bisa menggunakan agregat padat atau aspal hotmix jenis ATB. Menahan gaya geser kendaraan.",
+            en: "<strong>Base Course:</strong> Can use dense aggregate or hotmix asphalt type ATB. Resists vehicle shear forces.",
           },
           {
-            id: "Lapisan Pengikat (Binder Course / AC-BC) — Menggunakan aspal hotmix jenis AC-BC dengan ketebalan 4–6 cm. Lapisan ini berfungsi sebagai pengikat antara lapisan pondasi dan lapisan permukaan. Fungsinya menambah kekuatan struktur serta menahan beban berat kendaraan.",
-            en: "Binder Course (AC-BC) — Uses hotmix asphalt type AC-BC with a thickness of 4–6 cm. This layer functions as a binder between the base course and the surface layer. It adds structural strength and bears heavy vehicle loads.",
+            id: "<strong>Lapisan Pengikat (Binder Course / AC-BC):</strong> Aspal hotmix setebal 4–6 cm. Berfungsi mengikat lapisan pondasi dan permukaan, serta menahan beban berat.",
+            en: "<strong>Binder Course (AC-BC):</strong> Hotmix asphalt 4–6 cm thick. Functions to bind the base and surface layers, and bear heavy loads.",
           },
           {
-            id: "Lapisan Permukaan (Wearing Course / AC-WC) — Merupakan lapisan teratas aspal hotmix jenis AC-WC dengan ketebalan 4 cm. Lapisan ini bersentuhan langsung dengan ban kendaraan, sehingga harus tahan terhadap gesekan, cuaca, serta kedap air. Kualitas lapisan ini sangat menentukan kenyamanan berkendara.",
-            en: "Wearing Course (AC-WC) — This is the top layer of hotmix asphalt type AC-WC with a thickness of 4 cm. This layer is in direct contact with vehicle tires, so it must be resistant to friction, weather, and be waterproof. The quality of this layer greatly determines driving comfort.",
-          },
-          {
-            id: "Lapisan Aus atau Penutup (Sand Sheet / Hot Roll Sheet) — Lapisan finishing tipis setebal 1,5–3 cm untuk meratakan permukaan agar tampak lebih halus dan rata. Tidak semua proyek menggunakan lapisan ini, tergantung kebutuhan dan spesifikasi.",
-            en: "Wearing or Cover Layer (Sand Sheet / Hot Roll Sheet) — A thin finishing layer 1.5–3 cm thick to flatten the surface so it looks smoother and more even. Not all projects use this layer, depending on needs and specifications.",
-          },
+            id: "<strong>Lapisan Permukaan (Wearing Course / AC-WC):</strong> Lapisan teratas setebal 4 cm. Bersentuhan langsung dengan ban, harus tahan gesekan dan kedap air.",
+            en: "<strong>Wearing Course (AC-WC):</strong> Top layer 4 cm thick. In direct contact with tires, must be friction-resistant and waterproof.",
+          }
         ],
-      },
-      {
-        type: "heading",
-        text: { id: "Fungsi Penting Setiap Lapisan", en: "The Important Function of Each Layer" },
       },
       {
         type: "paragraph",
         text: {
-          id: "Setiap lapisan aspal hotmix saling bergantung satu dengan lainnya. Jika salah satu lapisan tidak dikerjakan dengan benar, maka lapisan di atasnya akan cepat rusak. Misalnya, jika tanah dasar tidak dipadatkan dengan baik, lapisan pondasi bisa amblas dan menyebabkan permukaan jalan bergelombang. Begitu pula jika lapisan pengikat terlalu tipis, lapisan permukaan akan mudah retak ketika dilalui kendaraan berat.",
-          en: "Each hotmix asphalt layer depends on one another. If one layer is not done correctly, the layer above it will quickly deteriorate. For example, if the subgrade is not properly compacted, the base course can sink and cause the road surface to become wavy. Likewise, if the binder layer is too thin, the surface layer will easily crack when passed by heavy vehicles.",
+          id: "Setiap lapisan saling bergantung. Jika tanah dasar tidak dipadatkan dengan baik, lapisan di atasnya akan cepat rusak. PT Tri Abadi Makmur selalu memastikan setiap tahapan dikerjakan dengan alat berat yang sesuai standar. Butuh jasa pengaspalan hotmix profesional? Hubungi kami sekarang untuk konsultasi dan penawaran terbaik.",
+          en: "Each layer depends on one another. If the subgrade is not properly compacted, the layers above it will quickly deteriorate. PT Tri Abadi Makmur always ensures every stage is carried out with heavy equipment that meets standards. Need professional hotmix asphalt services? Contact us now for consultation and the best offer.",
         },
-      },
-      {
-        type: "heading",
-        text: { id: "Tips Memastikan Lapisan Aspal Hotmix Berkualitas", en: "Tips to Ensure Quality Hotmix Asphalt Layers" },
-      },
-      {
-        type: "list",
-        ordered: true,
-        items: [
-          {
-            id: "Gunakan Material Sesuai Standar — Pastikan agregat dan aspal yang digunakan sesuai spesifikasi, misalnya mutu aspal penetrasi 60/70 dan agregat yang bersih dari kotoran.",
-            en: "Use Materials According to Standards — Make sure the aggregate and asphalt used match the specification, for example penetration 60/70 asphalt and aggregate clean from impurities.",
-          },
-          {
-            id: "Perhatikan Suhu Pencampuran — Aspal hotmix harus dihampar pada suhu yang tepat, umumnya 130–150°C. Suhu yang terlalu rendah membuat aspal sulit dipadatkan, sementara suhu terlalu tinggi membuat aspal cepat mengeras.",
-            en: "Pay Attention to Mixing Temperature — Hotmix asphalt must be spread at the right temperature, generally 130–150°C. Too low a temperature makes asphalt difficult to compact, while too high a temperature makes asphalt harden quickly.",
-          },
-          {
-            id: "Pemadatan yang Merata — Gunakan tandem roller dan pneumatic tire roller sesuai tahapan agar setiap lapisan benar-benar padat dan tidak ada rongga udara berlebih.",
-            en: "Even Compaction — Use tandem rollers and pneumatic tire rollers according to the stages so that each layer is truly dense and has no excess air voids.",
-          },
-          {
-            id: "Pilih Kontraktor Berpengalaman — Pengerjaan aspal hotmix membutuhkan alat berat dan tenaga ahli. Pilih penyedia jasa yang sudah terbukti berpengalaman agar hasilnya rapi dan tahan lama.",
-            en: "Choose an Experienced Contractor — Hotmix asphalt work requires heavy equipment and experts. Choose a service provider that has proven experience so the results are neat and durable.",
-          },
-        ],
-      },
-      {
-        type: "heading",
-        text: { id: "Butuh Jasa Pengaspalan Hotmix Profesional?", en: "Need Professional Hotmix Asphalt Services?" },
-      },
-      {
-        type: "paragraph",
-        text: {
-          id: "Pembangunan dan perbaikan jalan dengan lapisan aspal hotmix yang benar akan menghemat biaya perawatan jangka panjang. Jalan yang dibangun dengan struktur lapisan yang tepat akan jauh lebih awet dan nyaman dilalui. PT. Tri Abadi Makmur Indonesia menyediakan jasa pengaspalan hotmix untuk jalan raya, jalan perumahan, area perkantoran, hingga jalan lingkungan. Kami didukung oleh tim profesional, alat berat modern, dan material berkualitas tinggi. Kami melayani seluruh Indonesia. Hubungi kami sekarang untuk konsultasi dan penawaran terbaik.",
-          en: "Road construction and repair with the correct hotmix asphalt layers will save long-term maintenance costs. A road built with the right layer structure will be far more durable and comfortable to pass. PT. Tri Abadi Makmur Indonesia provides hotmix asphalt services for highways, residential roads, office areas, and neighborhood roads. We are supported by a professional team, modern heavy equipment, and high-quality materials. We serve all of Indonesia. Contact us now for consultation and the best offer.",
-        },
-      },
+      }
     ],
+  
   },
     {
     slug: "harga-aspal-hotmix",
+    date: { id: "1 November 2026", en: "November 1, 2026" },
+    dateISO: "2026-11-01", // <-- TAMBAHKAN INI
     src: "/proyek/proyek-22.webp", 
     category: { id: "Hotmix", en: "Hotmix" },
-    title: { id: "Harga Aspal Hotmix", en: "Hotmix Asphalt Prices" },
-    date: { id: "1 November 2026", en: "November 1, 2026" },
-    dateISO: "2026-11-01",
+       title: { 
+      id: "Daftar Harga Aspal Hotmix Terbaru & Paketnya", 
+      en: "Latest Hotmix Asphalt Price List & Packages" 
+    },
+    // ...
     desc: {
       id: "Daftar harga paket jasa pengaspalan dan perbaikan jalan aspal hotmix terbaru. Mulai dari pelapisan ulang, tambal sulam, hingga pembuatan jalan baru.",
-      en: "Latest price list for hotmix asphalt paving and road repair services. From resurfacing, patching, to new road construction.",
+      en: "Latest price list for hotmix asphalt paving and road repair service packages. From resurfacing, patching, to new road construction.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -1283,12 +1206,12 @@ export const articles = [
       { id: "Biaya Aspal Per Meter", en: "Asphalt Cost Per Meter", slug: "biaya-aspal-per-meter" },
     ],
     body: [
-      {
+            {
         type: "paragraph",
         text: {
-          id: "Mencari penyedia jasa pengaspalan seringkali membingungkan karena harga yang ditawarkan bisa sangat bervariasi. Agar Anda tidak salah anggaran, berikut kami tawarkan transparansi harga paket jasa perbaikan dan pengaspalan jalan menggunakan material hotmix berkualitas.",
-          en: "Finding a paving service provider is often confusing because the prices offered can vary widely. To ensure you don't miscalculate your budget, here we offer price transparency for road repair and paving service packages using quality hotmix materials.",
-        },
+          id: "Mencari penyedia jasa pengaspalan seringkali membingungkan karena harga yang ditawarkan bisa sangat bervariasi. Agar Anda tidak salah anggaran, berikut kami tawarkan transparansi harga paket <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengaspalan hotmix</a> menggunakan material berkualitas untuk area Tangerang & Jabodetabek.",
+          en: "Finding a paving service provider is often confusing because the prices offered can vary widely. To ensure you don't miscalculate your budget, here we offer price transparency for hotmix asphalt service packages using quality materials for the Tangerang & Greater Jakarta area.",
+      },
       },
       {
         type: "paragraph",
@@ -1590,11 +1513,11 @@ export const articles = [
           { id: "Tingkat kesulitan akses jalan untuk alat berat.", en: "The difficulty level of road access for heavy equipment." },
         ],
       },
-      {
+            {
         type: "paragraph",
         text: {
-          id: "Ingin mendapatkan harga pasti yang sesuai dengan kondisi jalan Anda? Tim PT. Tri Abadi Makmur Indonesia siap melakukan survei lokasi secara gratis. Hubungi kami sekarang untuk konsultasi lebih lanjut.",
-          en: "Want to get a definite price that matches your road conditions? The PT. Tri Abadi Makmur Indonesia team is ready to conduct a free site survey. Contact us now for further consultation.",
+          id: "Ingin mendapatkan harga pasti yang sesuai dengan kondisi jalan Anda? Tim PT Tri Abadi Makmur siap melakukan survei lokasi secara gratis. Hubungi kami sekarang via WhatsApp untuk konsultasi dan penawaran terbaik.",
+          en: "Want to get a definite price that matches your road conditions? The PT Tri Abadi Makmur team is ready to conduct a free site survey. Contact us now via WhatsApp for consultation and the best offer.",
         },
       },
     ],

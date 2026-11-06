@@ -2,9 +2,9 @@
 import PasangPavingBlock from "../../../../components/PasangPavingBlock";
 
 export const metadata = {
-  title: "Pasang Paving Block | PT Tri Abadi Makmur",
+  title: "Jasa Pasang Paving Block Murah Tangerang & Jabodetabek",
   description:
-    "Jasa pasang paving block untuk jalan perumahan, trotoar, dan area publik. Rapi, presisi, dan tahan lama dengan berbagai pilihan motif.",
+    "Jasa pasang paving block untuk perumahan, trotoar, parkir & industri di Tangerang & Jabodetabek. Rapi, presisi, harga murah, dan bergaransi. Konsultasi gratis via WhatsApp.",
   alternates: {
     canonical: "/layanan/infrastruktur/pasang-paving-block",
   },

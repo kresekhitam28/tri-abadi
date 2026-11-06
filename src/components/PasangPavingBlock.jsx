@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
-import Link from "next/link"; // <-- TAMBAHAN: Import Link
+import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import PavingPricingPanel from "./PavingPricingPanel";
 
@@ -140,7 +140,6 @@ function IconSparkles({ className = "w-4 h-4" }) {
 function IconWrench({ className = "w-4 h-4" }) {
   return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg>);
 }
-// TAMBAHAN: Ikon Artikel
 function IconArticle({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
@@ -344,7 +343,8 @@ function SectionKicker({ children }) {
 const content = {
   id: {
     heroKicker: "Layanan Kami",
-    heroTitle: "Pasang Paving Block",
+    heroTitle: "Jasa Pasang Paving Block Murah & Rapi",
+    heroSubtitle: "Untuk Perumahan, Trotoar & Area Parkir di Tangerang & Jabodetabek.",
     heroDesc: "Jasa pasang paving block untuk jalan perumahan, trotoar, dan area publik. Rapi, presisi, dan tahan lama dengan berbagai pilihan motif.",
     figAlt: "Pasang Paving Block",
     figCaption: "Pemasangan Paving Block — Tri Abadi Makmur",
@@ -363,7 +363,6 @@ const content = {
     priceTitleLight: "Jasa Pasang ",
     priceTitleBold: "Paving Block Jabodetabek",
     priceDesc: "Spesifikasi harga jasa pasang paving block & grass block.",
-    // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Informasi & Edukasi",
     articleTitleLight: "Butuh wawasan seputar ",
     articleTitleBold: "Konstruksi & Paving Block?",
@@ -384,7 +383,8 @@ const content = {
   },
   en: {
     heroKicker: "Our Services",
-    heroTitle: "Paving Block Installation",
+    heroTitle: "Affordable & Neat Paving Block Installation",
+    heroSubtitle: "for Residential, Sidewalks & Parking Areas in Tangerang & Greater Jakarta.",
     heroDesc: "Paving block installation services for housing roads, sidewalks, and public areas. Neat, precise, and durable with various pattern choices.",
     figAlt: "Paving Block Installation",
     figCaption: "Paving Block Installation — Tri Abadi Makmur",
@@ -403,7 +403,6 @@ const content = {
     priceTitleLight: "Paving Block Installation ",
     priceTitleBold: "Services in Jabodetabek",
     priceDesc: "Price specifications for paving block & grass block installation services.",
-    // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Information & Education",
     articleTitleLight: "Need insights on ",
     articleTitleBold: "Construction & Paving Block?",
@@ -605,6 +604,14 @@ export default function PasangPavingBlock() {
             >
               {data.heroTitle}<span className="text-[#1e88e5]">.</span>
             </h1>
+            {data.heroSubtitle && (
+              <p
+                className="text-slate-600 max-w-2xl mx-auto mt-4 mb-6"
+                style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1.125rem)" }}
+              >
+                {data.heroSubtitle}
+              </p>
+            )}
           </Reveal>
 
           <Reveal delay={160} y={24}>
@@ -773,6 +780,39 @@ export default function PasangPavingBlock() {
               </div>
             </Reveal>
           </div>
+
+          {/* ═══════ FAQ ═══════ */}
+          <div className="mt-16 mb-16">
+            <Reveal y={26}>
+              <div className="text-center mb-10">
+                <SectionKicker>FAQ</SectionKicker>
+                <h2
+                  className="font-light tracking-tight text-slate-900 leading-tight"
+                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
+                >
+                  Pertanyaan yang Sering <span className="font-bold">Diajukan</span>
+                </h2>
+              </div>
+            </Reveal>
+
+            <div className="max-w-3xl mx-auto">
+              {[
+                { q: "Berapa biaya pasang paving block per meter?", a: "Biaya pasang paving block berkisar Rp 100.000 – Rp 200.000 per m², tergantung jenis paving (bata, cacing, hexagon), ketebalan, luas area, dan lokasi proyek. Untuk penawaran akurat, kami melakukan survei lokasi gratis terlebih dahulu." },
+                { q: "Apakah bisa survei lokasi dulu sebelum order?", a: "Ya, kami menyediakan survei lokasi gratis untuk memastikan kebutuhan, mengukur luas area, dan memberikan estimasi biaya yang akurat. Survei bisa dijadwalkan via WhatsApp." },
+                { q: "Berapa lama proses pemasangan paving block?", a: "Tergantung luas dan kondisi lahan. Untuk area standar (100–500 m²), biasanya 1–3 hari kerja. Untuk proyek lebih besar, kami berikan estimasi waktu setelah survei." },
+                { q: "Apakah ada garansi pengerjaan?", a: "Ya, kami memberikan garansi pengerjaan untuk pemasangan paving block, tergantung jenis pekerjaan dan kondisi lapangan. Detail garansi dijelaskan dalam penawaran." },
+                { q: "Area mana saja yang dilayani?", a: "Kami melayani Jabodetabek (Jakarta, Bogor, Depok, Tangerang, Bekasi) dan sekitarnya. Untuk area di luar Jabodetabek, silakan konsultasi via WhatsApp untuk memastikan ketersediaan." },
+                { q: "Apa kelebihan paving block dibanding cor beton?", a: "Paving block lebih mudah diperbaiki (bisa diganti per bagian), memiliki celah untuk resapan air (mengurangi genangan), dan tampilannya lebih estetis dengan berbagai pilihan motif dan warna." },
+              ].map((faq, i) => (
+                <Reveal key={i} delay={i * 60} y={20}>
+                  <Accordion title={faq.q} defaultOpen={i === 0}>
+                    <p>{faq.a}</p>
+                  </Accordion>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
         </div>
 
         {/* ═══════ PANEL HARGA ═══════ */}

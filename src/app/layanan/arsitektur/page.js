@@ -2,14 +2,14 @@
 import JasaArsitektur from "../../../components/JasaArsitektur";
 
 export const metadata = {
-  title: "Jasa Arsitektur | PT Tri Abadi Makmur",
+  title: "Jasa Arsitektur & Desain Rumah Tangerang & Jabodetabek",
   description:
-    "Desain rumah, bangunan komersial, dan 3D visualisasi yang disesuaikan dengan gaya, lahan, dan budget Anda.",
+    "Jasa arsitektur profesional untuk desain rumah tinggal, komersial, dan renovasi. Konsultasi desain 3D, gambar kerja, dan RAB di Tangerang & Jabodetabek.",
   alternates: {
     canonical: "/layanan/arsitektur",
   },
 };
 
-export default function JasaArsitekturPage() {
+export default function ArsitekturPage() {
   return <JasaArsitektur />;
 }

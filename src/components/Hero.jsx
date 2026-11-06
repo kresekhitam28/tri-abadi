@@ -203,24 +203,22 @@ export default function Hero() {
           <span className="w-6 sm:w-12 h-px bg-[#1e88e5]" />
         </div>
 
-        {/* ─── JUDUL ─── */}
-        <h1
+                   <h1
           className={`text-white leading-[0.95] mb-5 sm:mb-8
                       transition-all duration-1000 ease-out
                       ${mounted
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-6"}`}
           style={{
-  
             fontSize: "clamp(2.5rem, 9vw, 7rem)",
             letterSpacing: "-0.02em",
           }}
         >
-          <span className="block font-light tracking-tight">
-            PT. TAM
+          <span className="block font-light tracking-tight text-3xl sm:text-5xl mb-2">
+            Spesialis Aspal Hotmix
           </span>
-          <span className="block font-bold tracking-tight mt-1 sm:mt-2 text-white">
-            Indonesia
+          <span className="block font-bold tracking-tight text-white text-4xl sm:text-6xl">
+            & Infrastruktur Bangunan
           </span>
         </h1>
 

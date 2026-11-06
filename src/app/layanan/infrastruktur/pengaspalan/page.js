@@ -2,9 +2,9 @@
 import Pengaspalan from "../../../../components/Pengaspalan";
 
 export const metadata = {
-  title: "Jasa Pengaspalan | PT Tri Abadi Makmur",
+  title: "Jasa Pengaspalan Murah & Hotmix Tangerang & Jabodetabek | Tri Abadi Makmur",
   description:
-    "Jasa pengaspalan berkualitas tinggi dengan harga bersaing. Dikerjakan oleh tenaga konstruksi berpengalaman untuk hasil yang rapi, kuat, dan tahan lama.",
+    "Jasa pengaspalan murah & hotmix untuk perumahan, pabrik, gudang di Tangerang & Jabodetabek. Survei gratis, garansi 2 tahun, harga transparan. Konsultasi via WhatsApp.",
   alternates: {
     canonical: "/layanan/infrastruktur/pengaspalan",
   },

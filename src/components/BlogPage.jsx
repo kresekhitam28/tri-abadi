@@ -12,14 +12,14 @@ const content = {
     kicker: "Artikel & Berita",
     titleLight: "Semua",
     titleBold: "Artikel",
-    description: "Kumpulan tips, info, dan berita terbaru seputar konstruksi dan pengaspalan.",
+    description: "Temukan panduan, tips, dan berita terbaru seputar konstruksi jalan, pengaspalan hotmix, paving block, dan perbaikan jalan dari PT Tri Abadi Makmur untuk area Tangerang & Jabodetabek.",
     empty: "Belum ada artikel.",
   },
   en: {
     kicker: "Articles & News",
     titleLight: "All",
     titleBold: "Articles",
-    description: "Collection of the latest tips, info, and news about construction and paving.",
+    description: "Find the latest guides, tips, and news about road construction, hotmix asphalt paving, paving blocks, and road repair from PT Tri Abadi Makmur for Tangerang & Greater Jakarta.",
     empty: "No articles found yet.",
   },
 };
@@ -79,11 +79,11 @@ export default function Blog() {
             <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
           </div>
 
-          <h2 className="font-light tracking-tight text-slate-900 leading-[1.05]" style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}>
+            <h1 className="font-light tracking-tight text-slate-900 leading-[1.05]" style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}>
             <span className="font-semibold">{data.titleLight}</span>{" "}
             {data.titleBold}
             <span className="text-[#1e88e5]">.</span>
-          </h2>
+          </h1>
 
           <p className="max-w-2xl mx-auto text-slate-600 leading-relaxed mt-5 sm:mt-6" style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}>
             {data.description}

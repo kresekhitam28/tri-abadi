@@ -18,7 +18,8 @@ export default function BlogCard({ item }) {
 
   const title = pick(item.title, lang);
   const desc = pick(item.desc, lang);
-  const readMore = lang === "en" ? "Read More" : "Baca Selengkapnya";
+  const category = pick(item.category, lang); // <-- Ambil data kategori
+  const readMore = lang === "en" ? "Read Article" : "Baca Artikel";
   const href = `/blog/${item.slug}`;
 
   return (
@@ -52,6 +53,16 @@ export default function BlogCard({ item }) {
       </Link>
 
       <div className="flex flex-col flex-1 p-5 sm:p-6">
+        
+        {/* KATEGORI (BARU) */}
+        {category && (
+          <div className="mb-2.5">
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#1e88e5] bg-blue-50 px-2.5 py-1 rounded-md">
+              {category}
+            </span>
+          </div>
+        )}
+
         <h3
           className="font-semibold text-slate-900 leading-snug tracking-tight
                      line-clamp-2"
@@ -70,19 +81,20 @@ export default function BlogCard({ item }) {
           {desc}
         </p>
 
+        {/* TOMBOL BACA (DIPERBARUI) */}
         <div className="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-slate-100">
           <Link
             href={href}
             className="inline-flex items-center gap-2
                        text-[10.5px] sm:text-[11.5px]
                        font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em]
-                       text-slate-700 hover:text-[#1e88e5]
+                       text-[#1e88e5] hover:text-blue-700
                        transition-colors duration-150"
           >
             {readMore}
             <span
               aria-hidden="true"
-              className="transition-transform duration-200 group-hover:translate-x-0.5"
+              className="transition-transform duration-200 group-hover:translate-x-1"
             >
               →
             </span>

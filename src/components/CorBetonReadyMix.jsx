@@ -393,6 +393,14 @@ const content = {
     infoP3Bold: "225 kg per cm²",
     infoP3Suffix: ".",
     factsKicker: "Fakta Teknis",
+        faqTitle: "Pertanyaan Seputar Cor Beton Ready Mix",
+    faqItems: [
+      { q: "Berapa harga cor beton ready mix per kubik?", a: "Harga cor beton ready mix bervariasi tergantung kelas mutu beton (K 225, K 300, dll) dan jarak lokasi proyek. Untuk rincian harga terbaru, silakan lihat tabel harga di atas atau hubungi kami untuk penawaran resmi." },
+      { q: "Berapa lama beton ready mix mengering?", a: "Beton akan mengeras dalam 24 jam pertama, namun mencapai kekuatan maksimal (kuat tekan penuh) setelah 28 hari. Selama masa tersebut, sebaiknya hindari beban berat di atasnya." },
+      { q: "Apakah pengiriman beton termasuk dalam harga?", a: "Untuk area Tangerang dan sekitarnya, harga biasanya sudah termasuk pengiriman. Untuk luar area tersebut, akan ada biaya transportasi tambahan sesuai jarak." },
+      { q: "Berapa volume minimal pemesanan?", a: "Volume minimal pemesanan beton ready mix umumnya adalah 1 truk mixer (sekitar 3-7 meter kubik), tergantung kapasitas truk yang tersedia. Untuk volume kecil, kami juga menyediakan opsi pengecoran manual." }
+    ],
+    faqLinkText: "Butuh simulasi volume dan biaya? Konsultasikan dengan tim kami.",
     acc1Title: "Keunggulan Jasa Cor Beton Ready Mix Kami",
     acc2Title: "Jenis Beton Ready Mix Yang Kami Sediakan",
     acc2Intro: "Kami menyediakan berbagai jenis beton ready mix dengan kelas yang berbeda sesuai kebutuhan proyek Anda:",
@@ -435,6 +443,14 @@ const content = {
     infoP3Bold: "225 kg per cm²",
     infoP3Suffix: ".",
     factsKicker: "Technical Facts",
+        faqTitle: "Frequently Asked Questions About Ready-Mix Concrete",
+    faqItems: [
+      { q: "How much does ready-mix concrete cost per cubic meter?", a: "The price of ready-mix concrete varies depending on the concrete quality class (K 225, K 300, etc.) and the distance to the project site. For the latest price details, please see the price table above or contact us for an official quote." },
+      { q: "How long does ready-mix concrete take to dry?", a: "Concrete will harden within the first 24 hours, but reaches maximum strength (full compressive strength) after 28 days. During this period, heavy loads should be avoided." },
+      { q: "Is concrete delivery included in the price?", a: "For the Tangerang area and its surroundings, the price usually includes delivery. For areas outside this, there will be an additional transportation fee depending on the distance." },
+      { q: "What is the minimum order volume?", a: "The minimum order volume for ready-mix concrete is generally 1 mixer truck (around 3-7 cubic meters), depending on the available truck capacity. For small volumes, we also offer a manual casting option." }
+    ],
+    faqLinkText: "Need a volume and cost simulation? Consult with our team.",
     acc1Title: "Advantages of Our Ready-Mix Concrete Service",
     acc2Title: "Types of Ready-Mix Concrete We Provide",
     acc2Intro: "We provide various types of ready-mix concrete with different classes according to your project needs:",
@@ -861,6 +877,50 @@ export default function CorBetonReadyMix() {
               </div>
             </div>
           </Reveal>
+
+                    {/* ═══════ FAQ ═══════ */}
+          <div className="mt-16 mb-16">
+            <Reveal y={26}>
+              <div className="text-center mb-10">
+                <SectionKicker>FAQ</SectionKicker>
+                <h2
+                  className="font-light tracking-tight text-slate-900 leading-tight"
+                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
+                >
+                  Pertanyaan Seputar <span className="font-bold">Cor Beton</span>
+                </h2>
+              </div>
+            </Reveal>
+
+            <div className="max-w-3xl mx-auto space-y-4">
+              {data.faqItems.map((faq, i) => (
+                <Reveal key={i} delay={i * 60} y={20}>
+                  <details className="group border border-slate-200 rounded-xl bg-white overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                    <summary className="flex items-center justify-between cursor-pointer p-5 sm:p-6 font-semibold text-slate-900 hover:text-[#1e88e5] transition-colors">
+                      <span>{faq.q}</span>
+                      <span className="shrink-0 ml-4 transition-transform duration-300 group-open:-rotate-180">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M6 9l6 6 6-6" /></svg>
+                      </span>
+                    </summary>
+                    <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4"
+                         style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.9375rem)" }}>
+                      {faq.a}
+                    </div>
+                  </details>
+                </Reveal>
+              ))}
+            </div>
+            
+            <Reveal delay={200}>
+              <div className="text-center mt-8">
+                <a href={`https://wa.me/6282258089367?text=${encodeURIComponent("Halo, saya ingin bertanya tentang cor beton ready mix.")}`} 
+                   target="_blank" rel="noreferrer"
+                   className="inline-flex items-center gap-2 text-[#1e88e5] font-semibold hover:underline">
+                  {data.faqLinkText} <IconArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </Reveal>
+          </div>
 
           {/* ═══════ AREA JANGKAUAN ═══════ */}
           <div className="mt-12 sm:mt-16 mb-16">

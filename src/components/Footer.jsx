@@ -34,18 +34,11 @@ function IconPhone({ className = "w-5 h-5" }) {
     </svg>
   );
 }
-// Ikon Telepon Klasik / Landline (solid: gagang + badan telepon + dial)
 function IconLandline({ className = "w-5 h-5" }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-      {/* Gagang telepon */}
       <path d="M12 3C7.2 3 3.2 4.6 2 7.2c-.3.7.1 1.5.9 1.7l2.3.6c.7.2 1.4-.2 1.6-.9l.3-1.2c.1-.4.4-.7.8-.8C9 6.3 10.5 6.1 12 6.1s3 .2 4.1.5c.4.1.7.4.8.8l.3 1.2c.2.7.9 1.1 1.6.9l2.3-.6c.8-.2 1.2-1 .9-1.7C20.8 4.6 16.8 3 12 3z" />
-      {/* Badan telepon + lubang dial */}
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M7.5 10.5h9l3.2 8.6c.3.9-.3 1.9-1.3 1.9H5.6c-1 0-1.6-1-1.3-1.9l3.2-8.6zM12 13.8a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4z"
-      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M7.5 10.5h9l3.2 8.6c.3.9-.3 1.9-1.3 1.9H5.6c-1 0-1.6-1-1.3-1.9l3.2-8.6zM12 13.8a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4z" />
     </svg>
   );
 }
@@ -100,6 +93,21 @@ const perusahaanLinks = [
   { label: { id: "Proyek",       en: "Projects" },  href: "/proyek" },
   { label: { id: "Supplier",     en: "Supplier" },  href: "/supplier" },
   { label: { id: "Kontak",       en: "Contact" },   href: "/kontak" },
+];
+
+const supplierLinks = [
+  { label: { id: "Supplier Abu Batu", en: "Stone Dust Supplier" }, href: "/supplier/abu-batu" },
+  { label: { id: "Supplier Base Course", en: "Base Course Supplier" }, href: "/supplier/base-course" },
+  { label: { id: "Supplier Batu Kali", en: "River Stone Supplier" }, href: "/supplier/batu-kali" },
+  { label: { id: "Supplier Batu Makadam", en: "Macadam Stone Supplier" }, href: "/supplier/batu-makadam" },
+  { label: { id: "Supplier Batu Split", en: "Split Stone Supplier" }, href: "/supplier/batu-split" },
+  { label: { id: "Supplier Kerikil", en: "Gravel Supplier" }, href: "/supplier/kerikil" },
+  { label: { id: "Supplier Pasir Beton", en: "Concrete Sand Supplier" }, href: "/supplier/pasir-beton" },
+  { label: { id: "Supplier Pasir Pasang", en: "Masonry Sand Supplier" }, href: "/supplier/pasir-pasang" },
+  { label: { id: "Supplier Sirtu", en: "Sirtu Supplier" }, href: "/supplier/sirtu" },
+  { label: { id: "Supplier Tanah Urug", en: "Fill Soil Supplier" }, href: "/supplier/tanah-urug" },
+  { label: { id: "Alat Berat Excavator", en: "Excavator Heavy Equipment" }, href: "/heavy-equipment/excavator" },
+  { label: { id: "Alat Berat Dozer", en: "Dozer Heavy Equipment" }, href: "/heavy-equipment/dozer" },
 ];
 
 // ─────────────────────────────────────────────
@@ -162,16 +170,12 @@ const WEBSITE_CREDIT_URL = "https://spesialisaspal.com";
 // ─────────────────────────────────────────────
 function SectionHeading({ children }) {
   return (
-    <p
-      className="relative inline-block text-white font-bold mb-5 uppercase tracking-[0.22em]"
-      style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.8125rem)" }}
-    >
-      {children}
-      <span
-        className="absolute left-0 -bottom-1.5 w-8 h-[2px] rounded-full bg-[#4da3ff]"
-        aria-hidden="true"
-      />
-    </p>
+    <div className="mb-5">
+      <p className="inline-block text-white font-bold uppercase tracking-[0.18em] pb-1.5 border-b-2 border-[#4da3ff]"
+         style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.75rem)" }}>
+        {children}
+      </p>
+    </div>
   );
 }
 
@@ -336,10 +340,10 @@ export default function Footer() {
 
       {/* ═══════════ MAIN FOOTER ═══════════ */}
       <div className="max-w-6xl md:max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 pt-12 sm:pt-14 lg:pt-20 pb-10 sm:pb-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-6 lg:gap-8">
 
           {/* Kolom 1 — Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div className="sm:col-span-2 lg:col-span-3">
             <div className="mb-4 sm:mb-5">
               <div
                 className="font-extrabold tracking-tight leading-tight text-white"
@@ -366,14 +370,28 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Kolom 2 & 3 — Layanan & Perusahaan */}
-          <div className="grid grid-cols-2 gap-8 sm:gap-6 lg:contents">
+          {/* Kolom 2 — Layanan */}
+          <div className="lg:col-span-2">
             <LinkColumn
               title={data.sectionLayanan}
               links={layananLinks}
               t={t}
               onNavigate={handleNavigate}
             />
+          </div>
+
+          {/* Kolom 3 — Supplier & Alat Berat */}
+          <div className="lg:col-span-3">
+            <LinkColumn
+              title={t({ id: "Supplier & Alat Berat", en: "Supplier & Heavy Equip" })}
+              links={supplierLinks}
+              t={t}
+              onNavigate={handleNavigate}
+            />
+          </div>
+
+          {/* Kolom 4 — Perusahaan */}
+          <div className="lg:col-span-2">
             <LinkColumn
               title={data.sectionPerusahaan}
               links={perusahaanLinks}
@@ -382,8 +400,8 @@ export default function Footer() {
             />
           </div>
 
-          {/* Kolom 4 — Kontak */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          {/* Kolom 5 — Kontak */}
+          <div className="sm:col-span-2 lg:col-span-2">
             <SectionHeading>{data.sectionKontak}</SectionHeading>
             <ul className="space-y-3 sm:space-y-3.5">
               <ContactRow href={MAPS_HREF} Icon={IconMap} external>
@@ -395,12 +413,9 @@ export default function Footer() {
               <ContactRow href="tel:+6282112999002" Icon={IconPhone}>
                 +62 821-1299-9002
               </ContactRow>
-
-              {/* Telepon kantor (landline) — pakai ikon telepon klasik */}
               <ContactRow href="tel:+622127840353" Icon={IconLandline}>
                 +021 2784 0353
               </ContactRow>
-
               <ContactRow href={EMAIL_HREF} Icon={IconMail}>
                 {EMAIL}
               </ContactRow>

@@ -231,6 +231,9 @@ function TagItem({ tag, lang, className }) {
 // ─────────────────────────────────────────────
 // BODY RENDERER (DIUPDATE UNTUK HTML/TABEL)
 // ─────────────────────────────────────────────
+// ─────────────────────────────────────────────
+// BODY RENDERER (DIUPDATE UNTUK HTML/TABEL)
+// ─────────────────────────────────────────────
 function ArticleBody({ body, lang }) {
   let firstParagraphDone = false;
 
@@ -255,34 +258,33 @@ function ArticleBody({ body, lang }) {
           firstParagraphDone = true;
           const text = pick(block.text, lang);
           
-          // Deteksi apakah blok ini berisi kode HTML (seperti tabel)
-          const isHtml = text.trim().startsWith("<");
+          // Cek apakah teks mengandung HTML (tag <a>, <strong>, <p>, dll)
+          const containsHtml = text.includes('<') && text.includes('>');
 
           return (
             <Reveal key={i} y={14}>
-              {isFirst && !isHtml ? (
+              {isFirst && !containsHtml ? (
+                // Paragraf pertama tanpa HTML (Drop Cap)
                 <p className="text-slate-700 leading-[1.9] sm:leading-[1.95]
                               first-letter:float-left first-letter:mr-3 first-letter:mt-1
                               first-letter:text-[42px] sm:first-letter:text-[46px]
                               first-letter:font-semibold
                               first-letter:leading-[0.9] first-letter:text-[#1e88e5]"
-                   style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1rem)" }}
-                >
+                   style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1rem)" }}>
                   {text}
                 </p>
-              ) : isHtml ? (
-                /* Render HTML (Tabel/Grid) */
+              ) : containsHtml ? (
+                // Render HTML (Tabel, Link, Strong, dll)
                 <div
-                  className="text-slate-700 leading-[1.9] sm:leading-[1.95] prose max-w-none w-full"
+                  className="text-slate-700 leading-[1.9] sm:leading-[1.95] prose max-w-none w-full
+                             [&>p]:mb-5 [&>p:last-child]:mb-0"
                   style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1rem)" }}
                   dangerouslySetInnerHTML={{ __html: text }}
                 />
               ) : (
-                /* Render Teks Biasa */
-                <p
-                  className="text-slate-700 leading-[1.9] sm:leading-[1.95]"
-                  style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1rem)" }}
-                >
+                // Render Teks Biasa
+                <p className="text-slate-700 leading-[1.9] sm:leading-[1.95]"
+                   style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1rem)" }}>
                   {text}
                 </p>
               )}
@@ -301,31 +303,15 @@ function ArticleBody({ body, lang }) {
                             marker:text-[#1e88e5] marker:font-semibold`}
                 style={{ fontSize: "clamp(0.875rem, 1.7vw, 0.9375rem)" }}
               >
-                {block.items.map((it, j) => (
-                  <li key={j}>{pick(it, lang)}</li>
-                ))}
+                {block.items.map((it, j) => {
+                  const itemText = pick(it, lang);
+                  // Jika list item mengandung HTML (seperti <strong>), render sebagai HTML
+                  if (itemText.includes('<') && itemText.includes('>')) {
+                    return <li key={j} dangerouslySetInnerHTML={{ __html: itemText }} />;
+                  }
+                  return <li key={j}>{itemText}</li>;
+                })}
               </Tag>
-            </Reveal>
-          );
-        }
-
-        if (block.type === "tags") {
-          return (
-            <Reveal key={i} y={14}>
-              <div className="flex flex-wrap gap-2 pt-2">
-                {block.items.map((tag, j) => (
-                  <TagItem
-                    key={j}
-                    tag={tag}
-                    lang={lang}
-                    className="inline-block px-3 py-1.5 rounded-md
-                               bg-slate-50 border border-slate-200
-                               text-[11px] sm:text-xs text-slate-600 font-medium
-                               hover:border-[#1e88e5]/50 hover:text-[#1e88e5]
-                               transition-colors"
-                  />
-                ))}
-              </div>
             </Reveal>
           );
         }
@@ -684,6 +670,42 @@ export default function BlogDetail() {
                  style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
                 {t.authorDesc}
               </p>
+            </div>
+          </div>
+        </Reveal>
+
+                {/* ═══════ CTA BANTUAN (BARU) ═══════ */}
+        <Reveal y={22}>
+          <div className="mt-12 p-8 sm:p-10 bg-slate-900 rounded-3xl text-center shadow-2xl shadow-slate-900/20 relative overflow-hidden">
+            {/* Efek background abstrak halus */}
+            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-[#1e88e5] rounded-full blur-3xl opacity-20 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-[#25D366] rounded-full blur-3xl opacity-10 pointer-events-none"></div>
+
+            <div className="relative z-10">
+              <p className="text-[#4da3ff] text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-bold mb-4">
+                Butuh Bantuan?
+              </p>
+              <h3
+                className="text-white font-light tracking-tight mb-4"
+                style={{ fontSize: "clamp(1.25rem, 3vw, 1.75rem)" }}
+              >
+                Punya Pertanyaan Seputar <span className="font-bold">Proyek Anda?</span>
+              </h3>
+              <p className="text-slate-400 mb-8 max-w-lg mx-auto" style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}>
+                Tim PT Tri Abadi Makmur siap membantu konsultasi, survei lokasi, dan memberikan penawaran terbaik untuk kebutuhan pengaspalan atau konstruksi Anda.
+              </p>
+              <a
+                href={`https://wa.me/6282258089367?text=${encodeURIComponent("Halo Tri Abadi Makmur, saya baru saja membaca artikel Anda dan ingin berkonsultasi mengenai proyek saya.")}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-4 min-h-[48px] rounded-xl bg-[#25D366] text-white hover:bg-[#20bd5a] font-bold uppercase tracking-[0.1em] sm:tracking-[0.15em] shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50 hover:-translate-y-0.5 transition-all duration-300"
+                style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.875rem)" }}
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 shrink-0">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                </svg>
+                Konsultasi via WhatsApp
+              </a>
             </div>
           </div>
         </Reveal>

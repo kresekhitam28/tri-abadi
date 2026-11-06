@@ -374,6 +374,15 @@ const content = {
       "Semua pekerjaan kami kerjakan sesuai standar SNI dengan pengawasan ketat di setiap tahap, sehingga hasilnya kokoh, aman, dan tahan lama.",
     ],
     tahapanTitle: "Tahapan Pengerjaan",
+
+        faqTitle: "Pertanyaan yang Sering Diajukan",
+    faqItems: [
+      { q: "Berapa biaya bangun rumah per meter?", a: "Biaya bangun rumah berkisar Rp 3.500.000 - Rp 6.000.000 per meter persegi, tergantung spesifikasi material, desain, dan kondisi lahan. Hubungi kami untuk mendapatkan RAB (Rencana Anggaran Biaya) yang lebih akurat." },
+      { q: "Apakah bisa membangun dengan budget terbatas?", a: "Bisa. Kami dapat menyesuaikan desain dan spesifikasi material dengan budget Anda tanpa mengorbankan kekuatan struktur utama bangunan." },
+      { q: "Apakah ada garansi pengerjaan?", a: "Ya, kami memberikan garansi untuk pekerjaan struktural (seperti retak struktur atau kebocoran) sesuai dengan kontrak kerja sama." },
+      { q: "Berapa lama proses pembangunan rumah?", a: "Untuk rumah 1-2 lantai standar, waktu pengerjaan biasanya 3-6 bulan tergantung luas dan tingkat kesulitan desain." }
+    ],
+    faqLinkText: "Butuh informasi lebih lanjut? Hubungi WhatsApp kami.",
     // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Informasi & Edukasi",
     articleTitleLight: "Butuh wawasan seputar ",
@@ -411,6 +420,15 @@ const content = {
       "All of our work follows SNI standards with strict supervision at every stage, so the result is solid, safe, and durable.",
     ],
     tahapanTitle: "Work Stages",
+
+        faqTitle: "Frequently Asked Questions",
+    faqItems: [
+      { q: "How much does it cost to build a house per meter?", a: "House construction costs range from Rp 3,500,000 - Rp 6,000,000 per square meter, depending on material specifications, design, and land conditions. Contact us for a more accurate budget plan." },
+      { q: "Can I build on a limited budget?", a: "Yes. We can adjust the design and material specifications to your budget without compromising the main structural strength." },
+      { q: "Is there a work warranty?", a: "Yes, we provide a warranty for structural work (such as structural cracks or leaks) according to the contract." },
+      { q: "How long does house construction take?", a: "For a standard 1-2 story house, construction time is usually 3-6 months depending on the area and design complexity." }
+    ],
+    faqLinkText: "Need more information? Contact our WhatsApp.",
     // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Information & Education",
     articleTitleLight: "Need insights on ",
@@ -776,6 +794,49 @@ export default function KonstruksiBangunan() {
               </div>
             </div>
           </FadeUp>
+                    {/* ═══════ FAQ ═══════ */}
+          <div className="mt-16 mb-16">
+            <FadeUp>
+              <div className="text-center mb-10">
+                <SectionKicker>FAQ</SectionKicker>
+                <h2
+                  className="font-light tracking-tight text-slate-900 leading-tight"
+                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
+                >
+                  Pertanyaan yang Sering <span className="font-bold">Diajukan</span>
+                </h2>
+              </div>
+            </FadeUp>
+
+            <div className="max-w-3xl mx-auto space-y-4">
+              {t.faqItems.map((faq, i) => (
+                <FadeUp key={i} delay={i * 50}>
+                  <details className="group border border-slate-200 rounded-xl bg-white overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                    <summary className="flex items-center justify-between cursor-pointer p-5 sm:p-6 font-semibold text-slate-900 hover:text-[#1e88e5] transition-colors">
+                      <span>{faq.q}</span>
+                      <span className="shrink-0 ml-4 transition-transform duration-300 group-open:-rotate-180">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M6 9l6 6 6-6" /></svg>
+                      </span>
+                    </summary>
+                    <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4"
+                         style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.9375rem)" }}>
+                      {faq.a}
+                    </div>
+                  </details>
+                </FadeUp>
+              ))}
+            </div>
+            
+            <FadeUp delay={200}>
+              <div className="text-center mt-8">
+                <a href={`https://wa.me/6282258089367?text=${encodeURIComponent("Halo, saya ingin bertanya tentang jasa konstruksi bangunan.")}`} 
+                   target="_blank" rel="noreferrer"
+                   className="inline-flex items-center gap-2 text-[#1e88e5] font-semibold hover:underline">
+                  {t.faqLinkText} <IconArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </FadeUp>
+          </div>
 
           {/* ═══════ AREA JANGKAUAN ═══════ */}
           <div className="mt-12 sm:mt-16 mb-16">
