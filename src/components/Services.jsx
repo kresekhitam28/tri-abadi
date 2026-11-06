@@ -96,14 +96,16 @@ function IconChevronDown({ className = "w-4 h-4" }) {
 
 // ─────────────────────────────────────────────
 // KONTEN BILINGUAL
+// `featured: true` → selalu terbuka (tidak bisa ditutup)
 // ─────────────────────────────────────────────
 const content = {
   id: {
     kicker: "Yang Bisa Kami Kerjakan",
     description:
       "Kami menyediakan solusi konstruksi menyeluruh — dari perencanaan hingga eksekusi, dengan standar kualitas dan profesionalisme tinggi.",
+    featuredBadge: "Unggulan",
     services: [
-      { Icon: IconRoad,    title: "Pengaspalan",          desc: "Pembangunan & perbaikan jalan dengan standar kualitas tinggi.", pricing: "aspal" },
+      { Icon: IconRoad,    title: "Pengaspalan",          desc: "Pembangunan & perbaikan jalan dengan standar kualitas tinggi.", pricing: "aspal", featured: true },
       { Icon: IconCurb,    title: "Pasang Kanstin",       desc: "Pemasangan kanstin taman, trotoar, DKI, dan S dengan rapi.",   pricing: "kanstin" },
       { Icon: IconMixer,   title: "Cor Beton Ready Mix",  desc: "Pengecoran beton siap pakai untuk berbagai kebutuhan proyek.", pricing: "beton" },
       { Icon: IconGrass,   title: "Pasang Grass Block",   desc: "Pemasangan grass block untuk area parkir & taman.",            pricing: "grassblock" },
@@ -116,8 +118,9 @@ const content = {
     kicker: "What We Can Do",
     description:
       "We provide end-to-end construction solutions — from planning to execution, with high standards of quality and professionalism.",
+    featuredBadge: "Featured",
     services: [
-      { Icon: IconRoad,    title: "Asphalt Paving",       desc: "Road construction & repair with high quality standards.",       pricing: "aspal" },
+      { Icon: IconRoad,    title: "Asphalt Paving",       desc: "Road construction & repair with high quality standards.",       pricing: "aspal", featured: true },
       { Icon: IconCurb,    title: "Curb Installation",    desc: "Neat installation of curbs for gardens, sidewalks, DKI, and S.", pricing: "kanstin" },
       { Icon: IconMixer,   title: "Ready-Mix Concrete",   desc: "Ready-to-use concrete casting for various project needs.",      pricing: "beton" },
       { Icon: IconGrass,   title: "Grass Block",          desc: "Grass block installation for parking areas & gardens.",         pricing: "grassblock" },
@@ -169,6 +172,8 @@ export default function Services() {
   const data = content[lang] || content.id;
   const isMobile = useIsMobile();
 
+  // openIndex hanya untuk layanan buka-tutup (non-featured).
+  // Layanan featured (Pengaspalan) selalu terbuka.
   const [openIndex, setOpenIndex] = useState(null);
   const panelRefs = useRef([]);
 
@@ -177,7 +182,7 @@ export default function Services() {
     []
   );
 
-  // Auto-scroll ke panel yang terbuka
+  // Auto-scroll ke panel yang dibuka user
   useEffect(() => {
     if (openIndex === null) return;
     const el = panelRefs.current[openIndex];
@@ -232,9 +237,10 @@ export default function Services() {
 
         {/* ═══ DAFTAR LAYANAN ═══ */}
         <div className="space-y-3 sm:space-y-3.5">
-          {services.map(({ Icon, title, desc, pricing }, i) => {
-            const isOpen = openIndex === i;
+          {services.map(({ Icon, title, desc, pricing, featured }, i) => {
             const isExpandable = Boolean(pricing);
+            const isOpen = Boolean(featured) || openIndex === i;
+            const canToggle = isExpandable && !featured;
 
             return (
               <div
@@ -243,16 +249,17 @@ export default function Services() {
                 className={`bg-white border rounded-2xl overflow-hidden scroll-mt-20 sm:scroll-mt-24 transition-colors duration-200
                   ${isOpen
                     ? "border-[#1e88e5]"
-                    : "border-slate-200 hover:border-[#1e88e5]/50"}`}
+                    : "border-slate-200 hover:border-[#1e88e5]/50"}
+                  ${featured ? "shadow-sm shadow-[#1e88e5]/10" : ""}`}
               >
                 <button
                   type="button"
-                  onClick={() => isExpandable && toggle(i)}
-                  disabled={!isExpandable}
+                  onClick={() => canToggle && toggle(i)}
+                  disabled={!canToggle}
                   aria-expanded={isOpen}
                   aria-controls={`service-panel-${i}`}
                   className={`w-full flex items-center gap-3 sm:gap-5 px-4 sm:px-6 py-4 sm:py-5 text-left transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1e88e5]
-                    ${isExpandable ? "cursor-pointer" : "cursor-default"}`}
+                    ${canToggle ? "cursor-pointer" : "cursor-default"}`}
                 >
                   <span
                     className={`shrink-0 w-11 h-11 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-colors duration-200
@@ -275,18 +282,25 @@ export default function Services() {
                     </span>
                   </span>
 
-                  {isExpandable && (
-                    <span
-                      className={`shrink-0 flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-full border text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] transition-colors duration-200
-                        ${isOpen
-                          ? "bg-[#1e88e5] text-white border-[#1e88e5]"
-                          : "bg-white text-slate-600 border-slate-300"}`}
-                    >
-                      {isOpen ? btnClose : btnOpen}
-                      <IconChevronDown
-                        className={`w-3 h-3 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-                      />
+                  {/* Featured: badge statis · Lainnya: tombol Buka/Tutup */}
+                  {featured ? (
+                    <span className="shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-full bg-[#1e88e5] text-white text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em]">
+                      {data.featuredBadge}
                     </span>
+                  ) : (
+                    isExpandable && (
+                      <span
+                        className={`shrink-0 flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-full border text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] transition-colors duration-200
+                          ${isOpen
+                            ? "bg-[#1e88e5] text-white border-[#1e88e5]"
+                            : "bg-white text-slate-600 border-slate-300"}`}
+                      >
+                        {isOpen ? btnClose : btnOpen}
+                        <IconChevronDown
+                          className={`w-3 h-3 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                        />
+                      </span>
+                    )
                   )}
                 </button>
 

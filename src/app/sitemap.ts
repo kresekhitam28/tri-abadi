@@ -6,7 +6,8 @@ export const revalidate = false;
 
 const BASE_URL = 'https://spesialisaspal.com';
 
-// ⚠️ GANTI tanggal dengan tanggal terakhir halaman BENAR-BENAR diubah
+// ⚠️ Hanya update tanggal saat halaman BENAR-BENAR diubah.
+// Google abaikan lastmod kalau tidak sesuai perubahan aktual.
 const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/': '2026-01-15',
   '/tentang-kami': '2025-06-01',
@@ -14,7 +15,7 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/proyek': '2026-01-15',
   '/supplier': '2025-06-01',
   '/kontak': '2025-06-01',
-  '/blog': '2026-01-15',
+  '/blog': '2026-11-01',
   '/layanan/infrastruktur/pengaspalan': '2026-01-15',
   '/layanan/infrastruktur/pasang-kanstin': '2025-06-01',
   '/layanan/infrastruktur/cor-beton-ready-mix': '2025-06-01',
@@ -45,7 +46,6 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/heavy-equipment/tronton-dump-truck': '2025-06-01',
 };
 
-// Tipe union yang valid untuk changeFrequency
 type ChangeFreq = 'weekly' | 'yearly' | 'monthly' | 'always' | 'hourly' | 'daily' | 'never';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -75,7 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogRoutes: MetadataRoute.Sitemap = articles.map((post: any) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: post.dateISO || '2025-10-01',
+    lastModified: post.dateISO || new Date().toISOString().split('T')[0],
     changeFrequency: 'monthly' as ChangeFreq,
     priority: 0.7,
   }));

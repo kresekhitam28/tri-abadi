@@ -4,21 +4,20 @@ export const articles = [
   {
     slug: "aspal-jalan-murah",
     date: { id: "28 September 2026", en: "September 28, 2026" },
-    dateISO: "2026-10-14", // 
+    dateISO: "2026-09-28",
     src: "/proyek/proyek-1.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
-        title: { 
+    title: { 
       id: "Aspal Jalan Murah untuk Perumahan & Pabrik", 
       en: "Affordable Asphalt for Residential & Factory" 
     },
-    // ...
     desc: {
       id: "Mencari jalan aspal murah tapi berkualitas? PT Tri Abadi Makmur memberikan solusi pengaspalan hotmix dengan harga transparan di Tangerang & Jabodetabek.",
       en: "Looking for cheap but quality asphalt? PT Tri Abadi Makmur provides hotmix paving solutions with transparent prices in Tangerang & Greater Jakarta.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
-      phone: "082258089367",
+      phone: "0858-8182-7315",
       avatar: "/logo.webp",
       lastUpdated: { id: "5 Oktober 2026", en: "October 5, 2026" },
       bio: {
@@ -31,15 +30,15 @@ export const articles = [
       { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
       { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
       { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-      { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative", slug: "aspal-jalan-murah-2" },
-      { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative", slug: "pekerjaan-aspal-hotmix-2" },
-      { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative", slug: "distributor-aspal-2" },
-      { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative", slug: "perbaikan-jalan-aspal-2" },
+      { id: "Tips Hemat Biaya Pengaspalan", en: "Tips to Save on Paving Costs", slug: "aspal-jalan-murah-2" },
+      { id: "Spesifikasi & Metode Kerja Hotmix", en: "Hotmix Work Specs & Methods", slug: "pekerjaan-aspal-hotmix-2" },
+      { id: "Tips Memilih Mitra Distributor Aspal", en: "Tips for Choosing Asphalt Distributor", slug: "distributor-aspal-2" },
+      { id: "Metode Perbaikan Jalan Aspal", en: "Asphalt Road Repair Methods", slug: "perbaikan-jalan-aspal-2" },
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-        body: [
+    body: [
       { type: "paragraph", text: { id: "Aspal Jalan Murah — Mendapatkan jalan aspal yang mulus tidak harus menguras kantong. Banyak orang mengira pengaspalan itu mahal, padahal dengan perencanaan yang tepat, Anda bisa mendapatkan aspal jalan murah tapi tetap berkualitas. Jika Anda mencari <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengaspalan murah</a> di Tangerang atau Jabodetabek, PT Tri Abadi Makmur menawarkan harga transparan tanpa mengurangi kualitas material.", en: "Affordable Asphalt — Getting a smooth asphalt road doesn't have to break the bank. Many people think paving is expensive, but with proper planning, you can get cheap but quality asphalt. If you are looking for affordable paving services in Tangerang or Greater Jakarta, PT Tri Abadi Makmur offers transparent prices without reducing material quality." } },
       { type: "heading", text: { id: "Tips Mendapatkan Aspal Jalan Murah Tapi Berkualitas", en: "Tips to Get Affordable but Quality Asphalt" } },
       { type: "list", ordered: true, items: [
@@ -48,26 +47,25 @@ export const articles = [
         { id: "<strong>Bandingkan Penawaran:</strong> Jangan langsung menerima harga pertama. Bandingkan penawaran dari beberapa kontraktor, tapi pastikan spesifikasi materialnya sama.", en: "<strong>Compare Quotes:</strong> Don't just accept the first price. Compare quotes from several contractors, but make sure the material specifications are the same." }
       ] },
       { 
-  type: "paragraph", 
-  text: { 
-    id: "<p>Untuk melihat rincian estimasi biaya, Anda bisa membaca artikel kami tentang <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>Biaya Aspal Per Meter</a>.</p>", 
-    en: "<p>To see detailed cost estimates, you can read our article on <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>Asphalt Cost Per Meter</a>.</p>" 
-  } 
-},
+        type: "paragraph", 
+        text: { 
+          id: "<p>Untuk melihat rincian estimasi biaya, Anda bisa membaca artikel kami tentang <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>Biaya Aspal Per Meter</a>.</p>", 
+          en: "<p>To see detailed cost estimates, you can read our article on <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>Asphalt Cost Per Meter</a>.</p>" 
+        } 
+      },
       { type: "paragraph", text: { id: "PT Tri Abadi Makmur adalah solusi tepat untuk proyek pengaspalan dengan budget terbatas namun tetap mengutamakan kualitas. Kami melayani pengaspalan jalan perumahan, gang, hingga area komersial. Dapatkan penawaran terbaik hari ini dengan menghubungi kami via WhatsApp.", en: "PT Tri Abadi Makmur is the right solution for paving projects with a limited budget while still prioritizing quality. We serve residential road paving, alleys, and commercial areas. Get the best offer today by contacting us via WhatsApp." } }
     ],
   },
   {
     slug: "pekerjaan-aspal-hotmix",
     date: { id: "15 Oktober 2026", en: "October 15, 2026" },
-    dateISO: "2026-10-18",
+    dateISO: "2026-10-15",
     src: "/proyek/proyek-17.webp",
     category: { id: "Hotmix", en: "Hotmix" },
     title: { 
       id: "Pekerjaan Aspal Hotmix: Panduan & Spesifikasi", 
       en: "Hotmix Asphalt Works: Guide & Specifications" 
     },
-    // ...
     desc: {
       id: "Panduan lengkap pekerjaan aspal hotmix: jenis, ketebalan, dan kegunaan untuk jalan perumahan hingga pabrik. Dikerjakan oleh ahlinya di Tangerang & Jabodetabek.",
       en: "Complete guide to hotmix asphalt works: types, thickness, and uses for residential to factory roads. Executed by experts in Tangerang & Greater Jakarta.",
@@ -87,15 +85,15 @@ export const articles = [
       { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
       { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
       { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-      { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative", slug: "aspal-jalan-murah-2" },
-      { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative", slug: "pekerjaan-aspal-hotmix-2" },
-      { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative", slug: "distributor-aspal-2" },
-      { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative", slug: "perbaikan-jalan-aspal-2" },
+      { id: "Tips Hemat Biaya Pengaspalan", en: "Tips to Save on Paving Costs", slug: "aspal-jalan-murah-2" },
+      { id: "Spesifikasi & Metode Kerja Hotmix", en: "Hotmix Work Specs & Methods", slug: "pekerjaan-aspal-hotmix-2" },
+      { id: "Tips Memilih Mitra Distributor Aspal", en: "Tips for Choosing Asphalt Distributor", slug: "distributor-aspal-2" },
+      { id: "Metode Perbaikan Jalan Aspal", en: "Asphalt Road Repair Methods", slug: "perbaikan-jalan-aspal-2" },
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-        body: [
+    body: [
       { type: "paragraph", text: { id: "Pekerjaan aspal hotmix — Aspal hotmix adalah standar tertinggi untuk pembangunan jalan saat ini. Kualitasnya yang padat, awet, dan tahan cuaca membuatnya menjadi pilihan utama untuk jalan perumahan, pabrik, hingga jalan raya. Jika Anda membutuhkan kontraktor untuk <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>pekerjaan aspal hotmix</a> di area Tangerang & Jabodetabek, PT Tri Abadi Makmur adalah ahlinya.", en: "Hotmix asphalt works — Hotmix asphalt is the highest standard for road construction today. Its dense, durable, and weather-resistant qualities make it the main choice for residential roads, factories, and highways. If you need a contractor for hotmix asphalt works in the Tangerang & Greater Jakarta area, PT Tri Abadi Makmur is the expert." } },
       { type: "heading", text: { id: "Apa Saja Jenis Aspal Hotmix dan Kegunaannya?", en: "What Are the Types of Hotmix Asphalt and Their Uses?" } },
       { type: "paragraph", text: { id: "Tidak semua aspal hotmix itu sama. Ketebalan dan jenis campurannya disesuaikan dengan beban jalan:", en: "Not all hotmix asphalt is the same. The thickness and type of mix are adjusted to the road load:" } },
@@ -113,14 +111,13 @@ export const articles = [
   {
     slug: "distributor-aspal",
     date: { id: "18 Oktober 2026", en: "October 18, 2026" },
-    dateISO: "2026-10-20", // <-- TAMBAHKAN INI
+    dateISO: "2026-10-18",
     src: "/proyek/proyek-15.webp",
     category: { id: "Distributor", en: "Distributor" },
-        title: { 
+    title: { 
       id: "Distributor Aspal Terpercaya di Tangerang & Jabodetabek", 
       en: "Trusted Asphalt Distributor in Tangerang & Greater Jakarta" 
     },
-    // ...
     desc: {
       id: "Mencari distributor aspal untuk kebutuhan proyek Anda? PT Tri Abadi Makmur menyediakan aspal berkualitas dengan harga bersaing. Konsultasi gratis via WhatsApp.",
       en: "Looking for an asphalt distributor for your project needs? PT Tri Abadi Makmur provides quality asphalt at competitive prices. Free consultation via WhatsApp.",
@@ -140,15 +137,15 @@ export const articles = [
       { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works", slug: "pekerjaan-aspal-hotmix" },
       { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
       { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-      { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative", slug: "aspal-jalan-murah-2" },
-      { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative", slug: "pekerjaan-aspal-hotmix-2" },
-      { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative", slug: "distributor-aspal-2" },
-      { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative", slug: "perbaikan-jalan-aspal-2" },
+      { id: "Tips Hemat Biaya Pengaspalan", en: "Tips to Save on Paving Costs", slug: "aspal-jalan-murah-2" },
+      { id: "Spesifikasi & Metode Kerja Hotmix", en: "Hotmix Work Specs & Methods", slug: "pekerjaan-aspal-hotmix-2" },
+      { id: "Tips Memilih Mitra Distributor Aspal", en: "Tips for Choosing Asphalt Distributor", slug: "distributor-aspal-2" },
+      { id: "Metode Perbaikan Jalan Aspal", en: "Asphalt Road Repair Methods", slug: "perbaikan-jalan-aspal-2" },
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-        body: [
+    body: [
       { type: "paragraph", text: { id: "Distributor Aspal — Membangun jalan yang berkualitas dimulai dari pemilihan material yang tepat. Jika Anda sedang mencari distributor aspal terpercaya untuk proyek perumahan, pabrik, atau jalan raya di area Tangerang & Jabodetabek, PT Tri Abadi Makmur siap menjadi mitra bisnis Anda. Kami menyediakan aspal berkualitas dengan pasokan yang konsisten. Lihat juga halaman <a href='/supplier' class='text-[#1e88e5] hover:underline font-semibold'>Supplier Kami</a>.", en: "Asphalt Distributor — Building a quality road starts with choosing the right material. If you are looking for a trusted asphalt distributor for residential, factory, or highway projects in the Tangerang & Greater Jakarta area, PT Tri Abadi Makmur is ready to be your business partner. We provide quality asphalt with consistent supply. Also see our Supplier page." } },
       { type: "heading", text: { id: "Tips Memilih Distributor Aspal yang Tepat", en: "Tips for Choosing the Right Asphalt Distributor" } },
       { type: "paragraph", text: { id: "Jangan asal membeli aspal. Pastikan distributor Anda memenuhi kriteria berikut agar proyek tidak gagal:", en: "Don't just buy asphalt carelessly. Make sure your distributor meets the following criteria so the project doesn't fail:" } },
@@ -165,7 +162,7 @@ export const articles = [
   {
     slug: "perbaikan-jalan-aspal",
     date: { id: "20 Oktober 2026", en: "October 20, 2026" },
-    dateISO: "2026-10-22", //
+    dateISO: "2026-10-20",
     src: "/proyek/proyek-2.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
     title: { id: "Perbaikan Jalan Aspal: Penyebab, Proses & Biaya", en: "Asphalt Road Repair: Causes, Process & Cost" },
@@ -188,10 +185,10 @@ export const articles = [
       { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works", slug: "pekerjaan-aspal-hotmix" },
       { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
       { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-      { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative", slug: "aspal-jalan-murah-2" },
-      { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative", slug: "pekerjaan-aspal-hotmix-2" },
-      { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative", slug: "distributor-aspal-2" },
-      { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative", slug: "perbaikan-jalan-aspal-2" },
+      { id: "Tips Hemat Biaya Pengaspalan", en: "Tips to Save on Paving Costs", slug: "aspal-jalan-murah-2" },
+      { id: "Spesifikasi & Metode Kerja Hotmix", en: "Hotmix Work Specs & Methods", slug: "pekerjaan-aspal-hotmix-2" },
+      { id: "Tips Memilih Mitra Distributor Aspal", en: "Tips for Choosing Asphalt Distributor", slug: "distributor-aspal-2" },
+      { id: "Metode Perbaikan Jalan Aspal", en: "Asphalt Road Repair Methods", slug: "perbaikan-jalan-aspal-2" },
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
@@ -214,14 +211,13 @@ export const articles = [
   {
     slug: "pemasangan-kansteen",
     date: { id: "25 Oktober 2026", en: "October 25, 2026" },
-    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
+    dateISO: "2026-10-25",
     src: "/proyek/pasang-kanstin.webp",
     category: { id: "Paving", en: "Paving" },
-        title: { 
+    title: { 
       id: "Jasa Pasang Kanstin: Fungsi, Jenis & Estimasi Harga", 
       en: "Curb Installation Services: Functions, Types & Price Estimates" 
     },
-    // ...
     desc: {
       id: "Pemasangan kanstin atau kansteen untuk pembatas jalan, trotoar, dan taman. Dikerjakan rapi dan presisi oleh PT Tri Abadi Makmur di area Tangerang & Jabodetabek.",
       en: "Curb installation for road dividers, sidewalks, and gardens. Neatly and precisely executed by PT Tri Abadi Makmur in the Tangerang & Greater Jakarta area.",
@@ -241,15 +237,15 @@ export const articles = [
       { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works", slug: "pekerjaan-aspal-hotmix" },
       { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
       { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
-      { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative", slug: "aspal-jalan-murah-2" },
-      { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative", slug: "pekerjaan-aspal-hotmix-2" },
-      { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative", slug: "distributor-aspal-2" },
-      { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative", slug: "perbaikan-jalan-aspal-2" },
+      { id: "Tips Hemat Biaya Pengaspalan", en: "Tips to Save on Paving Costs", slug: "aspal-jalan-murah-2" },
+      { id: "Spesifikasi & Metode Kerja Hotmix", en: "Hotmix Work Specs & Methods", slug: "pekerjaan-aspal-hotmix-2" },
+      { id: "Tips Memilih Mitra Distributor Aspal", en: "Tips for Choosing Asphalt Distributor", slug: "distributor-aspal-2" },
+      { id: "Metode Perbaikan Jalan Aspal", en: "Asphalt Road Repair Methods", slug: "perbaikan-jalan-aspal-2" },
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-        body: [
+    body: [
       { type: "paragraph", text: { id: "Pemasangan kansteen — Kansteen (atau kanstin) adalah komponen penting dalam pembangunan jalan. Fungsinya sebagai pembatas antara jalan dan trotoar, serta mengarahkan aliran air agar tidak menggenang di badan jalan. Jika Anda membutuhkan <a href='/layanan/infrastruktur/pasang-kanstin' class='text-[#1e88e5] hover:underline font-semibold'>jasa pasang kanstin</a> yang rapi di area Tangerang & Jabodetabek, PT Tri Abadi Makmur solusinya.", en: "Kansteen installation — Kansteen (or curb) is an important component in road construction. Its function is as a divider between the road and sidewalk, and directs water flow so it doesn't stagnate on the road body. If you need neat curb installation services in the Tangerang & Greater Jakarta area, PT Tri Abadi Makmur is the solution." } },
       { type: "heading", text: { id: "Jenis-Jenis Kanstin yang Sering Digunakan", en: "Types of Curbs Commonly Used" } },
       { type: "list", ordered: false, items: [
@@ -265,14 +261,13 @@ export const articles = [
   {
     slug: "aspal-jalan-murah-2",
     date: { id: "25 Oktober 2026", en: "October 25, 2026" },
-    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
+    dateISO: "2026-10-25",
     src: "/proyek/proyek-30.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
-        title: { 
+    title: { 
       id: "Tips Hemat Biaya Pengaspalan Jalan Aspal", 
       en: "Tips to Save on Asphalt Road Paving Costs" 
     },
-    // ...
     desc: {
       id: "Mendapatkan aspal jalan murah tidak harus mengorbankan kualitas. Simak tips hemat biaya pengaspalan jalan dari PT Tri Abadi Makmur di Tangerang & Jabodetabek.",
       en: "Getting cheap asphalt roads doesn't have to sacrifice quality. Read tips to save on road paving costs from PT Tri Abadi Makmur in Tangerang & Greater Jakarta.",
@@ -293,14 +288,14 @@ export const articles = [
       { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
       { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
       { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-      { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative", slug: "pekerjaan-aspal-hotmix-2" },
-      { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative", slug: "distributor-aspal-2" },
-      { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative", slug: "perbaikan-jalan-aspal-2" },
+      { id: "Spesifikasi & Metode Kerja Hotmix", en: "Hotmix Work Specs & Methods", slug: "pekerjaan-aspal-hotmix-2" },
+      { id: "Tips Memilih Mitra Distributor Aspal", en: "Tips for Choosing Asphalt Distributor", slug: "distributor-aspal-2" },
+      { id: "Metode Perbaikan Jalan Aspal", en: "Asphalt Road Repair Methods", slug: "perbaikan-jalan-aspal-2" },
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-       body: [
+    body: [
       { type: "paragraph", text: { id: "Aspal Jalan Murah Alternatif — Banyak orang menganggap pengaspalan jalan itu mahal. Padahal, dengan strategi yang tepat, Anda bisa mendapatkan aspal jalan murah tanpa mengurangi kualitas. Jika Anda sedang mencari <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengaspalan murah</a> di area Tangerang atau Jabodetabek, berikut adalah tips hemat dari PT Tri Abadi Makmur.", en: "Affordable Asphalt Alternative — Many people think road paving is expensive. In fact, with the right strategy, you can get cheap asphalt roads without reducing quality. If you are looking for affordable paving services in the Tangerang or Greater Jakarta area, here are saving tips from PT Tri Abadi Makmur." } },
       { type: "heading", text: { id: "Cara Menghemat Biaya Pengaspalan Jalan", en: "How to Save on Road Paving Costs" } },
       { type: "list", ordered: true, items: [
@@ -315,14 +310,13 @@ export const articles = [
   {
     slug: "pekerjaan-aspal-hotmix-2",
     date: { id: "25 Oktober 2026", en: "October 25, 2026" },
-    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
+    dateISO: "2026-10-25",
     src: "/proyek/proyek-31.webp",
     category: { id: "Hotmix", en: "Hotmix" },
-       title: { 
+    title: { 
       id: "Spesifikasi & Metode Pekerjaan Aspal Hotmix", 
       en: "Hotmix Asphalt Work Specifications & Methods" 
     },
-    // ...
     desc: {
       id: "Panduan spesifikasi dan metode kerja aspal hotmix untuk hasil jalan yang padat dan tahan lama. Dikerjakan oleh tenaga ahli PT Tri Abadi Makmur di Tangerang & Jabodetabek.",
       en: "Guide to hotmix asphalt work specifications and methods for dense and durable road results. Executed by expert staff of PT Tri Abadi Makmur in Tangerang & Greater Jakarta.",
@@ -343,14 +337,14 @@ export const articles = [
       { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
       { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
       { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-      { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative", slug: "aspal-jalan-murah-2" },
-      { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative", slug: "distributor-aspal-2" },
-      { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative", slug: "perbaikan-jalan-aspal-2" },
+      { id: "Tips Hemat Biaya Pengaspalan", en: "Tips to Save on Paving Costs", slug: "aspal-jalan-murah-2" },
+      { id: "Tips Memilih Mitra Distributor Aspal", en: "Tips for Choosing Asphalt Distributor", slug: "distributor-aspal-2" },
+      { id: "Metode Perbaikan Jalan Aspal", en: "Asphalt Road Repair Methods", slug: "perbaikan-jalan-aspal-2" },
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-       body: [
+    body: [
       { type: "paragraph", text: { id: "Pekerjaan Aspal Hotmix Alternatif — Kualitas jalan sangat bergantung pada metode dan spesifikasi pengerjaannya. Jika Anda mencari kontraktor yang menerapkan standar tinggi untuk <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>pekerjaan aspal hotmix</a> di area Tangerang & Jabodetabek, PT Tri Abadi Makmur adalah pilihan tepat. Kami tidak hanya mengandalkan alat berat modern, tetapi juga kepatuhan pada setiap tahapan spesifikasi teknis.", en: "Hotmix Asphalt Work Alternative — Road quality heavily depends on the method and specifications of the work. If you are looking for a contractor that applies high standards for hotmix asphalt works in the Tangerang & Greater Jakarta area, PT Tri Abadi Makmur is the right choice. We not only rely on modern heavy equipment but also compliance with every stage of technical specifications." } },
       { type: "heading", text: { id: "Tahapan Metode Kerja Aspal Hotmix", en: "Hotmix Asphalt Work Method Stages" } },
       { type: "paragraph", text: { id: "Agar hasil maksimal, tim PT Tri Abadi Makmur selalu mengikuti prosedur standar berikut:", en: "To get maximum results, the PT Tri Abadi Makmur team always follows these standard procedures:" } },
@@ -368,14 +362,13 @@ export const articles = [
   {
     slug: "distributor-aspal-2",
     date: { id: "25 Oktober 2026", en: "October 25, 2026" },
-    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
+    dateISO: "2026-10-25",
     src: "/proyek/proyek-55.webp",
     category: { id: "Distributor", en: "Distributor" },
-        title: { 
+    title: { 
       id: "Tips Memilih Mitra Distributor Aspal Terbaik", 
       en: "Tips for Choosing the Best Asphalt Distributor Partner" 
     },
-    // ...
     desc: {
       id: "Panduan memilih mitra distributor aspal yang terpercaya untuk kelancaran proyek konstruksi Anda. Dapatkan pasokan aspal berkualitas dari PT Tri Abadi Makmur.",
       en: "Guide to choosing a trusted asphalt distributor partner for the smooth running of your construction project. Get quality asphalt supply from PT Tri Abadi Makmur.",
@@ -396,14 +389,14 @@ export const articles = [
       { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
       { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
       { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-      { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative", slug: "aspal-jalan-murah-2" },
-      { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative", slug: "pekerjaan-aspal-hotmix-2" },
-      { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative", slug: "perbaikan-jalan-aspal-2" },
+      { id: "Tips Hemat Biaya Pengaspalan", en: "Tips to Save on Paving Costs", slug: "aspal-jalan-murah-2" },
+      { id: "Spesifikasi & Metode Kerja Hotmix", en: "Hotmix Work Specs & Methods", slug: "pekerjaan-aspal-hotmix-2" },
+      { id: "Metode Perbaikan Jalan Aspal", en: "Asphalt Road Repair Methods", slug: "perbaikan-jalan-aspal-2" },
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-        body: [
+    body: [
       { type: "paragraph", text: { id: "Distributor Aspal Alternatif — Memilih mitra distributor aspal tidak boleh sembarangan. Pasokan material yang terlambat atau kualitas aspal yang buruk bisa menggagalkan seluruh proyek konstruksi Anda. Jika Anda sedang mencari mitra penyedia aspal untuk proyek di area Tangerang atau Jabodetabek, PT Tri Abadi Makmur menawarkan kerja sama yang saling menguntungkan. Lihat juga <a href='/supplier' class='text-[#1e88e5] hover:underline font-semibold'>halaman Supplier</a> kami.", en: "Asphalt Distributor Alternative — Choosing an asphalt distributor partner cannot be done carelessly. Late material supply or poor asphalt quality can ruin your entire construction project. If you are looking for an asphalt supply partner for a project in the Tangerang or Greater Jakarta area, PT Tri Abadi Makmur offers mutually beneficial cooperation. Also see our Supplier page." } },
       { type: "heading", text: { id: "Kriteria Mitra Distributor Aspal yang Baik", en: "Criteria for a Good Asphalt Distributor Partner" } },
       { type: "list", ordered: true, items: [
@@ -418,14 +411,13 @@ export const articles = [
   {
     slug: "perbaikan-jalan-aspal-2",
     date: { id: "1 November 2026", en: "November 1, 2026" },
-    dateISO: "2026-11-01", // <-- TAMBAHKAN INI
+    dateISO: "2026-11-01",
     src: "/proyek/proyek-21.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
-       title: { 
+    title: { 
       id: "Metode Perbaikan Jalan Aspal yang Tepat & Awet", 
       en: "Proper & Durable Asphalt Road Repair Methods" 
     },
-    // ...
     desc: {
       id: "Simak metode perbaikan jalan aspal yang benar agar tidak mudah rusak lagi saat hujan. Dikerjakan oleh ahlinya di Tangerang & Jabodetabek oleh PT Tri Abadi Makmur.",
       en: "Read the correct asphalt road repair methods so they don't get damaged easily again when it rains. Executed by experts in Tangerang & Greater Jakarta by PT Tri Abadi Makmur.",
@@ -446,14 +438,14 @@ export const articles = [
       { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
       { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
       { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-      { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative", slug: "aspal-jalan-murah-2" },
-      { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative", slug: "pekerjaan-aspal-hotmix-2" },
-      { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative", slug: "distributor-aspal-2" },
+      { id: "Tips Hemat Biaya Pengaspalan", en: "Tips to Save on Paving Costs", slug: "aspal-jalan-murah-2" },
+      { id: "Spesifikasi & Metode Kerja Hotmix", en: "Hotmix Work Specs & Methods", slug: "pekerjaan-aspal-hotmix-2" },
+      { id: "Tips Memilih Mitra Distributor Aspal", en: "Tips for Choosing Asphalt Distributor", slug: "distributor-aspal-2" },
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-       body: [
+    body: [
       { type: "paragraph", text: { id: "Perbaikan Jalan Aspal Alternatif — Jalan yang rusak tidak bisa hanya ditambal dengan aspal dingin biasa. Agar perbaikan bertahan lama, dibutuhkan metode yang tepat sesuai tingkat kerusakannya. Jika Anda mencari <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa perbaikan jalan aspal</a> yang menerapkan metode profesional di area Tangerang & Jabodetabek, PT Tri Abadi Makmur siap membantu.", en: "Asphalt Road Repair Alternative — A damaged road cannot just be patched with ordinary cold asphalt. For repairs to last long, the right method is needed according to the level of damage. If you are looking for asphalt road repair services that apply professional methods in the Tangerang & Greater Jakarta area, PT Tri Abadi Makmur is ready to help." } },
       { type: "heading", text: { id: "Metode Perbaikan Jalan Aspal Berdasarkan Kerusakan", en: "Asphalt Road Repair Methods Based on Damage" } },
       { type: "list", ordered: true, items: [
@@ -468,33 +460,41 @@ export const articles = [
   {
     slug: "pemasangan-paving-block",
     date: { id: "25 Oktober 2026", en: "October 25, 2026" },
-    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
+    dateISO: "2026-10-25",
     src: "/proyek/proyek-36.webp",
     category: { id: "Paving", en: "Paving" },
     title: { 
       id: "Panduan Pemasangan Paving Block & Kisaran Harga", 
       en: "Paving Block Installation Guide & Price Range" 
     },
-    // ...
     desc: {
       id: "Pemasangan paving block memberikan tampilan rapi pada halaman dan area parkir. Ketahui tahapan pemasangan dan kisaran harganya di sini.",
       en: "Paving block installation gives a neat look to yards and parking areas. Know the installation stages and price range here.",
     },
-    author: { name: "PT. Tri Abadi Makmur Indonesia", phone: "0858-8182-7315", avatar: "/logo.webp" },
+    author: {
+      name: "PT. Tri Abadi Makmur Indonesia",
+      phone: "0858-8182-7315",
+      avatar: "/logo.webp",
+      lastUpdated: { id: "25 Oktober 2026", en: "October 25, 2026" },
+      bio: {
+        id: "Tri Abadi Makmur merupakan perusahaan yang bergerak di bidang konstruksi, dengan pengalaman yang sudah bertahun – tahun kami kembangkan, tahapan proses yang mengedepankan kualitas dan kehati-hatian, serta eksekusi pengerjaan proyek yang signifikan, demi tercapainya kepuasan client sehingga terwujudnya jalinan kerjasama yang continue dan berkelanjutan.",
+        en: "Tri Abadi Makmur is a construction company with years of experience we have developed, a process that prioritizes quality and prudence, as well as the execution of significant projects, in order to achieve client satisfaction so that continuous and long-term cooperation is realized.",
+      },
+    },
     tags: [
       { id: "Aspal Jalan Murah", en: "Affordable Asphalt Paving", slug: "aspal-jalan-murah" },
       { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works", slug: "pekerjaan-aspal-hotmix" },
       { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
       { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
       { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-      { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative", slug: "aspal-jalan-murah-2" },
-      { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative", slug: "pekerjaan-aspal-hotmix-2" },
-      { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative", slug: "distributor-aspal-2" },
-      { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative", slug: "perbaikan-jalan-aspal-2" },
+      { id: "Tips Hemat Biaya Pengaspalan", en: "Tips to Save on Paving Costs", slug: "aspal-jalan-murah-2" },
+      { id: "Spesifikasi & Metode Kerja Hotmix", en: "Hotmix Work Specs & Methods", slug: "pekerjaan-aspal-hotmix-2" },
+      { id: "Tips Memilih Mitra Distributor Aspal", en: "Tips for Choosing Asphalt Distributor", slug: "distributor-aspal-2" },
+      { id: "Metode Perbaikan Jalan Aspal", en: "Asphalt Road Repair Methods", slug: "perbaikan-jalan-aspal-2" },
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-        body: [
+    body: [
       { type: "paragraph", text: { id: "Pemasangan paving block adalah pilihan tepat untuk halaman, area parkir, dan trotoar. Selain rapi, paving block juga mudah dipasang dan tahan lama. Jika Anda sedang mencari <a href='/layanan/infrastruktur/pasang-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>jasa pasang paving block</a> di Tangerang atau Jabodetabek, PT Tri Abadi Makmur menawarkan pemasangan yang rapi, presisi, dan tentunya bergaransi.", en: "Paving block installation is the right choice for yards, parking areas, and sidewalks. Besides looking neat, paving blocks are also easy to install and durable. If you are looking for paving block installation services in Tangerang or Greater Jakarta, PT Tri Abadi Makmur offers neat, precise, and guaranteed installation." } },
       { type: "heading", text: { id: "Mengapa Memilih Paving Block untuk Halaman Anda?", en: "Why Choose Paving Block for Your Yard?" } },
       { type: "paragraph", text: { id: "Banyak orang beralih dari cor beton ke paving block karena beberapa alasan kuat. Salah satunya adalah kemampuan resapan air. Paving block memiliki celah yang memungkinkan air hujan meresap ke tanah, sehingga mengurangi risiko genangan (banjir) di halaman Anda. Selain itu, paving block lebih mudah diperbaiki jika ada bagian yang rusak tanpa harus membongkar seluruh area.", en: "Many people switch from concrete to paving blocks for several strong reasons. One of them is water absorption capability. Paving blocks have gaps that allow rainwater to seep into the soil, reducing the risk of puddles in your yard. Besides that, paving blocks are easier to repair if there is damage without having to dismantle the entire area." } },
@@ -514,33 +514,41 @@ export const articles = [
   {
     slug: "pengaspalan-jalan-perumahan",
     date: { id: "1 November 2026", en: "November 1, 2026" },
-    dateISO: "2026-11-01", // <-- TAMBAHKAN INI
+    dateISO: "2026-11-01",
     src: "/proyek/proyek-56.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
-       title: { 
+    title: { 
       id: "Jasa Pengaspalan Jalan Perumahan Tangerang & Jabodetabek", 
       en: "Residential Road Asphalt Paving Services Tangerang & Greater Jakarta" 
     },
-    // ...
     desc: {
       id: "Jalan perumahan mulus meningkatkan kenyamanan penghuni dan nilai properti. PT Tri Abadi Makmur melayani pengaspalan jalan perumahan dengan hotmix berkualitas.",
       en: "Smooth residential roads increase residents' comfort and property value. PT Tri Abadi Makmur provides residential road paving with quality hotmix.",
     },
-    author: { name: "PT. Tri Abadi Makmur Indonesia", phone: "0858-8182-7315", avatar: "/logo.webp" },
+    author: {
+      name: "PT. Tri Abadi Makmur Indonesia",
+      phone: "0858-8182-7315",
+      avatar: "/logo.webp",
+      lastUpdated: { id: "1 November 2026", en: "November 1, 2026" },
+      bio: {
+        id: "Tri Abadi Makmur merupakan perusahaan yang bergerak di bidang konstruksi, dengan pengalaman yang sudah bertahun – tahun kami kembangkan, tahapan proses yang mengedepankan kualitas dan kehati-hatian, serta eksekusi pengerjaan proyek yang signifikan, demi tercapainya kepuasan client sehingga terwujudnya jalinan kerjasama yang continue dan berkelanjutan.",
+        en: "Tri Abadi Makmur is a construction company with years of experience we have developed, a process that prioritizes quality and prudence, as well as the execution of significant projects, in order to achieve client satisfaction so that continuous and long-term cooperation is realized.",
+      },
+    },
     tags: [
       { id: "Aspal Jalan Murah", en: "Affordable Asphalt Paving", slug: "aspal-jalan-murah" },
       { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works", slug: "pekerjaan-aspal-hotmix" },
       { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
       { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
       { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-      { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative", slug: "aspal-jalan-murah-2" },
-      { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative", slug: "pekerjaan-aspal-hotmix-2" },
-      { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative", slug: "distributor-aspal-2" },
-      { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative", slug: "perbaikan-jalan-aspal-2" },
+      { id: "Tips Hemat Biaya Pengaspalan", en: "Tips to Save on Paving Costs", slug: "aspal-jalan-murah-2" },
+      { id: "Spesifikasi & Metode Kerja Hotmix", en: "Hotmix Work Specs & Methods", slug: "pekerjaan-aspal-hotmix-2" },
+      { id: "Tips Memilih Mitra Distributor Aspal", en: "Tips for Choosing Asphalt Distributor", slug: "distributor-aspal-2" },
+      { id: "Metode Perbaikan Jalan Aspal", en: "Asphalt Road Repair Methods", slug: "perbaikan-jalan-aspal-2" },
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-       body: [
+    body: [
       { type: "paragraph", text: { id: "Pengaspalan Jalan Perumahan — Jalan yang mulus di dalam kawasan perumahan bukan sekadar soal estetika. Ini adalah investasi jangka panjang yang meningkatkan kenyamanan penghuni, mengurangi kerusakan kendaraan, dan menaikkan nilai jual properti. Jika Anda adalah pengurus komplek atau pengembang yang mencari <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengaspalan jalan perumahan</a> di Tangerang atau Jabodetabek, PT Tri Abadi Makmur adalah mitra yang tepat.", en: "Residential Road Paving — A smooth road within a residential area is not just about aesthetics. It is a long-term investment that increases residents' comfort, reduces vehicle damage, and raises property value. If you are a complex manager or developer looking for residential road paving services in Tangerang or Greater Jakarta, PT Tri Abadi Makmur is the right partner." } },
       { type: "heading", text: { id: "Kenapa Kualitas Aspal Sangat Penting untuk Perumahan?", en: "Why is Asphalt Quality Crucial for Residential Areas?" } },
       { type: "list", ordered: false, items: [
@@ -555,33 +563,41 @@ export const articles = [
   {
     slug: "hotmix-untuk-jalan-perkantoran",
     date: { id: "18 Oktober 2026", en: "October 18, 2026" },
-    dateISO: "2026-10-20", // <-- TAMBAHKAN INI
+    dateISO: "2026-10-18",
     src: "/proyek/proyek-57.webp",
     category: { id: "Hotmix", en: "Hotmix" },
-       title: { 
+    title: { 
       id: "Jasa Hotmix untuk Jalan Perkantoran & Komersial", 
       en: "Hotmix Services for Office & Commercial Roads" 
     },
-    // ...
     desc: {
       id: "Area perkantoran dan komersial membutuhkan jalan yang rapi dan tahan lama. PT Tri Abadi Makmur menyediakan pekerjaan aspal hotmix untuk kebutuhan tersebut di Tangerang & Jabodetabek.",
       en: "Office and commercial areas require neat and durable roads. PT Tri Abadi Makmur provides hotmix asphalt works for these needs in Tangerang & Greater Jakarta.",
     },
-    author: { name: "PT. Tri Abadi Makmur Indonesia", phone: "0858-8182-7315", avatar: "/logo.webp" },
+    author: {
+      name: "PT. Tri Abadi Makmur Indonesia",
+      phone: "0858-8182-7315",
+      avatar: "/logo.webp",
+      lastUpdated: { id: "18 Oktober 2026", en: "October 18, 2026" },
+      bio: {
+        id: "Tri Abadi Makmur merupakan perusahaan yang bergerak di bidang konstruksi, dengan pengalaman yang sudah bertahun – tahun kami kembangkan, tahapan proses yang mengedepankan kualitas dan kehati-hatian, serta eksekusi pengerjaan proyek yang signifikan, demi tercapainya kepuasan client sehingga terwujudnya jalinan kerjasama yang continue dan berkelanjutan.",
+        en: "Tri Abadi Makmur is a construction company with years of experience we have developed, a process that prioritizes quality and prudence, as well as the execution of significant projects, in order to achieve client satisfaction so that continuous and long-term cooperation is realized.",
+      },
+    },
     tags: [
       { id: "Aspal Jalan Murah", en: "Affordable Asphalt Paving", slug: "aspal-jalan-murah" },
       { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works", slug: "pekerjaan-aspal-hotmix" },
       { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
       { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
       { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-      { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative", slug: "aspal-jalan-murah-2" },
-      { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative", slug: "pekerjaan-aspal-hotmix-2" },
-      { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative", slug: "distributor-aspal-2" },
-      { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative", slug: "perbaikan-jalan-aspal-2" },
+      { id: "Tips Hemat Biaya Pengaspalan", en: "Tips to Save on Paving Costs", slug: "aspal-jalan-murah-2" },
+      { id: "Spesifikasi & Metode Kerja Hotmix", en: "Hotmix Work Specs & Methods", slug: "pekerjaan-aspal-hotmix-2" },
+      { id: "Tips Memilih Mitra Distributor Aspal", en: "Tips for Choosing Asphalt Distributor", slug: "distributor-aspal-2" },
+      { id: "Metode Perbaikan Jalan Aspal", en: "Asphalt Road Repair Methods", slug: "perbaikan-jalan-aspal-2" },
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
     ],
-       body: [
+    body: [
       { type: "paragraph", text: { id: "Hotmix untuk Jalan Perkantoran — Bagi sebuah perusahaan atau kawasan komersial, jalan akses yang mulus adalah cerminan profesionalisme. Karyawan, klien, dan tamu akan merasa lebih nyaman jika area parkir dan jalan masuk tertata rapi. Jika Anda membutuhkan kontraktor untuk <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>pekerjaan aspal hotmix</a> di area perkantoran Anda di Tangerang atau Jabodetabek, PT Tri Abadi Makmur siap membantu.", en: "Hotmix for Office Roads — For a company or commercial area, a smooth access road is a reflection of professionalism. Employees, clients, and guests will feel more comfortable if the parking area and entrance are neatly arranged. If you need a contractor for hotmix asphalt works in your office area in Tangerang or Greater Jakarta, PT Tri Abadi Makmur is ready to help." } },
       { type: "heading", text: { id: "Mengapa Memilih Hotmix untuk Area Komersial?", en: "Why Choose Hotmix for Commercial Areas?" } },
       { type: "list", ordered: false, items: [
@@ -596,14 +612,13 @@ export const articles = [
   {
     slug: "jasa-pengecoran-beton",
     date: { id: "18 Oktober 2026", en: "October 18, 2026" },
-    dateISO: "2026-10-20", // <-- TAMBAHKAN INI
+    dateISO: "2026-10-18",
     src: "/proyek/proyek-13.webp",
     category: { id: "Cor Beton", en: "Ready-Mix Concrete" },
-        title: { 
+    title: { 
       id: "Jasa Pengecoran Beton Jalan & Halaman", 
       en: "Concrete Casting Services for Roads & Yards" 
     },
-    // ...
     desc: {
       id: "Jasa pengecoran beton untuk jalan dan halaman rumah. Simak cara menghitung volume cor perkubik dan dapatkan layanan ready mix berkualitas di Tangerang & Jabodetabek.",
       en: "Concrete casting services for roads and home yards. Read how to calculate concrete volume per cubic meter and get quality ready-mix services in Tangerang & Greater Jakarta.",
@@ -619,16 +634,16 @@ export const articles = [
       },
     },
     tags: [
-  { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
-  { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide", slug: "pemasangan-grass-block" },
-  { id: "Pemasangan Pagar Panel", en: "Panel Fence Installation Guide", slug: "pemasangan-pagar-panel" },
-  { id: "Pemasangan Tiang Pancang", en: "Pile Driving Installation Guide", slug: "pemasangan-tiang-pancang" },
-  { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-  { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
-  { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
-],
+      { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
+      { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide", slug: "pemasangan-grass-block" },
+      { id: "Pemasangan Pagar Panel", en: "Panel Fence Installation Guide", slug: "pemasangan-pagar-panel" },
+      { id: "Pemasangan Tiang Pancang", en: "Pile Driving Installation Guide", slug: "pemasangan-tiang-pancang" },
+      { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+      { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
+      { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
+    ],
     body: [
-            { 
+      { 
         type: "paragraph", 
         text: { 
           id: "Jasa pengecoran beton | Cara menghitung cor jalan perkubik — Cor beton jalan merupakan salah satu proses paling penting dalam pembangunan infrastruktur. Jika Anda membutuhkan <a href='/layanan/infrastruktur/cor-beton-ready-mix' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengecoran beton ready mix</a> di area Tangerang atau Jabodetabek, PT Tri Abadi Makmur menyediakan layanan pengecoran yang presisi dan berkualitas. Simak panduan cara menghitung volume cor berikut agar anggaran Anda tidak membengkak.", 
@@ -699,27 +714,25 @@ export const articles = [
           en: "If you do not want to be troubled when doing road casting, you can use construction services. Make sure to choose wisely so you can get affordable prices and the best quality. Because nowadays there are quite a lot of road construction services. However, not all have good quality, so you must choose them in detail." 
         } 
       },
-           { 
+      { 
         type: "paragraph", 
         text: { 
           id: "Percayakan kebutuhan pengecoran beton Anda kepada PT Tri Abadi Makmur. Kami menyediakan material ready mix berkualitas tinggi dengan tim yang profesional. Hubungi kami sekarang via WhatsApp untuk konsultasi volume, harga, dan jadwal pengecoran.", 
           en: "Entrust your concrete casting needs to PT Tri Abadi Makmur. We provide high-quality ready-mix materials with a professional team. Contact us now via WhatsApp for consultation on volume, price, and casting schedule." 
         } 
       }
-      
     ],
   },
   {
     slug: "biaya-aspal-per-meter",
     date: { id: "15 Oktober 2026", en: "October 15, 2026" },
-    dateISO: "2026-10-18", // <-- TAMBAHKAN INI
+    dateISO: "2026-10-15",
     src: "/proyek/proyek-22.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
-        title: { 
+    title: { 
       id: "Biaya Aspal Per Meter: Rincian Harga & Tips Hemat", 
       en: "Asphalt Cost Per Meter: Price Details & Saving Tips" 
     },
-    // ...
     desc: {
       id: "Berapa sebenarnya biaya aspal per meter terbaru? Simak rincian harga, faktor penentu, dan tips hemat pengaspalan jalan dari PT Tri Abadi Makmur.",
       en: "What is the actual latest asphalt cost per meter? Read the price details, determining factors, and tips to save on road paving from PT Tri Abadi Makmur.",
@@ -735,20 +748,19 @@ export const articles = [
       },
     },
     tags: [
-  { id: "Aspal Jalan Murah", en: "Affordable Asphalt Paving", slug: "aspal-jalan-murah" },
-  { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works", slug: "pekerjaan-aspal-hotmix" },
-  { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
-  { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
-  { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-  { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative", slug: "aspal-jalan-murah-2" },
-  { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative", slug: "pekerjaan-aspal-hotmix-2" },
-  { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative", slug: "distributor-aspal-2" },
-  { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative", slug: "perbaikan-jalan-aspal-2" },
-  { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
-  { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
-],
-    
-           body: [
+      { id: "Aspal Jalan Murah", en: "Affordable Asphalt Paving", slug: "aspal-jalan-murah" },
+      { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works", slug: "pekerjaan-aspal-hotmix" },
+      { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
+      { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
+      { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+      { id: "Tips Hemat Biaya Pengaspalan", en: "Tips to Save on Paving Costs", slug: "aspal-jalan-murah-2" },
+      { id: "Spesifikasi & Metode Kerja Hotmix", en: "Hotmix Work Specs & Methods", slug: "pekerjaan-aspal-hotmix-2" },
+      { id: "Tips Memilih Mitra Distributor Aspal", en: "Tips for Choosing Asphalt Distributor", slug: "distributor-aspal-2" },
+      { id: "Metode Perbaikan Jalan Aspal", en: "Asphalt Road Repair Methods", slug: "perbaikan-jalan-aspal-2" },
+      { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
+      { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
+    ],
+    body: [
       { 
         type: "paragraph", 
         text: { 
@@ -799,7 +811,7 @@ export const articles = [
         ordered: true, 
         items: [
           { id: "<strong>Luas Area Pekerjaan:</strong> Semakin luas area yang diaspal, biasanya harga per meter akan semakin murah (efisiensi alat berat).", en: "<strong>Work Area Size:</strong> The larger the area, the cheaper the price per meter usually is (heavy equipment efficiency)." },
-          { id: " <strong>Ketebalan Aspal:</strong> Semakin tebal lapisan aspal, semakin banyak material yang dibutuhkan, sehingga biaya naik.", en: "<strong>Asphalt Thickness:</strong> The thicker the asphalt layer, the more material is needed, thus increasing the cost." },
+          { id: "<strong>Ketebalan Aspal:</strong> Semakin tebal lapisan aspal, semakin banyak material yang dibutuhkan, sehingga biaya naik.", en: "<strong>Asphalt Thickness:</strong> The thicker the asphalt layer, the more material is needed, thus increasing the cost." },
           { id: "<strong>Jarak ke Lokasi Proyek:</strong> Jarak dari Asphalt Mixing Plant (AMP) ke lokasi proyek mempengaruhi biaya transportasi material.", en: "<strong>Distance to Project:</strong> The distance from the Asphalt Mixing Plant (AMP) to the project site affects material transportation costs." },
           { id: "<strong>Akses Jalan:</strong> Jika lokasi sulit dijangkau alat berat, biaya operasional bisa meningkat.", en: "<strong>Road Access:</strong> If the location is difficult for heavy equipment to reach, operational costs may increase." }
         ] 
@@ -827,14 +839,13 @@ export const articles = [
   {
     slug: "pemasangan-grass-block",
     date: { id: "25 Oktober 2026", en: "October 25, 2026" },
-    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
+    dateISO: "2026-10-25",
     src: "/proyek/proyek-39.webp",
     category: { id: "Grass Block", en: "Grass Block" },
-       title: { 
+    title: { 
       id: "Panduan Pasang Grass Block & Keunggulannya", 
       en: "Grass Block Installation Guide & Advantages" 
     },
-    // ...
     desc: {
       id: "Grass block ramah lingkungan untuk area parkir dan taman. Simak panduan lengkap pasang grass block dan dapatkan harga terbaik dari PT Tri Abadi Makmur di Tangerang.",
       en: "Eco-friendly grass block for parking areas and gardens. Read the complete guide to installing grass blocks and get the best price from PT Tri Abadi Makmur in Tangerang.",
@@ -850,16 +861,15 @@ export const articles = [
       },
     },
     tags: [
-  { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
-  { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-  { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
-  { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
-  { id: "Jasa Pengecoran Beton", en: "Concrete Casting Services", slug: "jasa-pengecoran-beton" },
-  { id: "Pemasangan Pagar Panel", en: "Panel Fence Installation Guide", slug: "pemasangan-pagar-panel" },
-  { id: "Pemasangan Tiang Pancang", en: "Pile Driving Installation Guide", slug: "pemasangan-tiang-pancang" },
-],
-    
-         body: [
+      { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
+      { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+      { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
+      { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
+      { id: "Jasa Pengecoran Beton", en: "Concrete Casting Services", slug: "jasa-pengecoran-beton" },
+      { id: "Pemasangan Pagar Panel", en: "Panel Fence Installation Guide", slug: "pemasangan-pagar-panel" },
+      { id: "Pemasangan Tiang Pancang", en: "Pile Driving Installation Guide", slug: "pemasangan-tiang-pancang" },
+    ],
+    body: [
       { 
         type: "paragraph", 
         text: { 
@@ -942,14 +952,13 @@ export const articles = [
   {
     slug: "pemasangan-pagar-panel",
     date: { id: "25 Oktober 2026", en: "October 25, 2026" },
-    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
+    dateISO: "2026-10-25",
     src: "/proyek/proyek-83.webp",
     category: { id: "Pagar Panel", en: "Panel Fence" },
-        title: { 
+    title: { 
       id: "Jasa Pasang Pagar Panel Beton (Precast)", 
       en: "Concrete Panel Fence Installation Services" 
     },
-    // ...
     desc: {
       id: "Pagar panel beton kokoh dan rapi untuk pembatas lahan proyek dan perumahan. Dikerjakan cepat oleh PT Tri Abadi Makmur di Tangerang & Jabodetabek.",
       en: "Sturdy and neat concrete panel fences for project and residential land boundaries. Executed quickly by PT Tri Abadi Makmur in Tangerang & Greater Jakarta.",
@@ -965,15 +974,15 @@ export const articles = [
       },
     },
     tags: [
-  { id: "Pemasangan Tiang Pancang", en: "Pile Driving Installation Guide", slug: "pemasangan-tiang-pancang" },
-  { id: "Jasa Pengecoran Beton", en: "Concrete Casting Services", slug: "jasa-pengecoran-beton" },
-  { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide", slug: "pemasangan-grass-block" },
-  { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
-  { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-  { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
-  { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
-],
-           body: [
+      { id: "Pemasangan Tiang Pancang", en: "Pile Driving Installation Guide", slug: "pemasangan-tiang-pancang" },
+      { id: "Jasa Pengecoran Beton", en: "Concrete Casting Services", slug: "jasa-pengecoran-beton" },
+      { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide", slug: "pemasangan-grass-block" },
+      { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
+      { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+      { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
+      { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
+    ],
+    body: [
       { type: "paragraph", text: { id: "Pasang pagar panel — Membangun proyek konstruksi atau perumahan tentu membutuhkan batas wilayah yang jelas dan aman. Pagar panel beton (precast) menjadi solusi paling diminati karena kokoh, rapi, dan cepat dipasang. Jika Anda mencari <a href='/layanan/infrastruktur/pasang-pager-panel' class='text-[#1e88e5] hover:underline font-semibold'>jasa pasang pagar panel</a> di area Tangerang & Jabodetabek, PT Tri Abadi Makmur solusinya.", en: "Panel fence installation — Building a construction project or residential area certainly requires clear and safe territorial boundaries. Concrete panel fences (precast) have become the most sought-after solution because they are sturdy, neat, and quick to install. If you are looking for panel fence installation services in the Tangerang & Greater Jakarta area, PT Tri Abadi Makmur is the solution." } },
       { type: "heading", text: { id: "Keunggulan Pagar Panel Beton", en: "Advantages of Concrete Panel Fences" } },
       { type: "list", ordered: false, items: [
@@ -997,14 +1006,13 @@ export const articles = [
   {
     slug: "pemasangan-tiang-pancang",
     date: { id: "25 Oktober 2026", en: "October 25, 2026" },
-    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
+    dateISO: "2026-10-25",
     src: "/proyek/proyek-80.webp",
     category: { id: "Tiang Pancang", en: "Pile Driving" },
-     title: { 
+    title: { 
       id: "Jasa Pasang Tiang Pancang: Fondasi Kokoh & Aman", 
       en: "Pile Driving Installation Services: Strong & Safe Foundation" 
     },
-    // ...
     desc: {
       id: "Tiang pancang adalah fondasi krusial untuk bangunan bertingkat. Simak pengertian, jenis, dan tahapan pasang tiang pancang dari PT Tri Abadi Makmur.",
       en: "Piles are crucial foundations for multi-story buildings. Read the definition, types, and stages of pile driving installation from PT Tri Abadi Makmur.",
@@ -1020,15 +1028,15 @@ export const articles = [
       },
     },
     tags: [
-  { id: "Pemasangan Pagar Panel", en: "Panel Fence Installation Guide", slug: "pemasangan-pagar-panel" },
-  { id: "Jasa Pengecoran Beton", en: "Concrete Casting Services", slug: "jasa-pengecoran-beton" },
-  { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide", slug: "pemasangan-grass-block" },
-  { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
-  { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-  { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
-  { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
-],
-        body: [
+      { id: "Pemasangan Pagar Panel", en: "Panel Fence Installation Guide", slug: "pemasangan-pagar-panel" },
+      { id: "Jasa Pengecoran Beton", en: "Concrete Casting Services", slug: "jasa-pengecoran-beton" },
+      { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide", slug: "pemasangan-grass-block" },
+      { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
+      { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+      { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
+      { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
+    ],
+    body: [
       { 
         type: "paragraph", 
         text: { 
@@ -1088,17 +1096,16 @@ export const articles = [
       }
     ],
   },
-    {
+  {
     slug: "lapisan-aspal-hotmix",
     date: { id: "25 Oktober 2026", en: "October 25, 2026" },
-    dateISO: "2026-10-25", // <-- TAMBAHKAN INI
+    dateISO: "2026-10-25",
     src: "/proyek/proyek-31.webp",
     category: { id: "Hotmix", en: "Hotmix" },
-        title: { 
+    title: { 
       id: "Struktur Lapisan Aspal Hotmix: Panduan Lengkap", 
       en: "Hotmix Asphalt Layer Structure: Complete Guide" 
     },
-    // ...
     desc: {
       id: "Memahami struktur dan fungsi setiap lapisan aspal hotmix sangat penting agar jalan yang dibangun kuat, rata, dan tahan lama. Berikut penjelasan lengkapnya.",
       en: "Understanding the structure and function of each hotmix asphalt layer is essential so the road built is strong, flat, and durable. Here is the complete explanation.",
@@ -1119,15 +1126,15 @@ export const articles = [
       { id: "Distributor Aspal", en: "Asphalt Distributor", slug: "distributor-aspal" },
       { id: "Perbaikan Jalan Aspal", en: "Asphalt Road Repair", slug: "perbaikan-jalan-aspal" },
       { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
-      { id: "Aspal Jalan Murah Alternatif", en: "Affordable Asphalt Alternative", slug: "aspal-jalan-murah-2" },
-      { id: "Pekerjaan Aspal Hotmix Alternatif", en: "Hotmix Asphalt Works Alternative", slug: "pekerjaan-aspal-hotmix-2" },
-      { id: "Distributor Aspal Alternatif", en: "Asphalt Distributor Alternative", slug: "distributor-aspal-2" },
-      { id: "Perbaikan Jalan Aspal Alternatif", en: "Asphalt Road Repair Alternative", slug: "perbaikan-jalan-aspal-2" },
+      { id: "Tips Hemat Biaya Pengaspalan", en: "Tips to Save on Paving Costs", slug: "aspal-jalan-murah-2" },
+      { id: "Spesifikasi & Metode Kerja Hotmix", en: "Hotmix Work Specs & Methods", slug: "pekerjaan-aspal-hotmix-2" },
+      { id: "Tips Memilih Mitra Distributor Aspal", en: "Tips for Choosing Asphalt Distributor", slug: "distributor-aspal-2" },
+      { id: "Metode Perbaikan Jalan Aspal", en: "Asphalt Road Repair Methods", slug: "perbaikan-jalan-aspal-2" },
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
       { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
     ],
-       body: [
+    body: [
       {
         type: "paragraph",
         text: {
@@ -1173,19 +1180,17 @@ export const articles = [
         },
       }
     ],
-  
   },
-    {
+  {
     slug: "harga-aspal-hotmix",
     date: { id: "1 November 2026", en: "November 1, 2026" },
-    dateISO: "2026-11-01", // <-- TAMBAHKAN INI
-    src: "/proyek/proyek-22.webp", 
+    dateISO: "2026-11-01",
+    src: "/proyek/proyek-22.webp",
     category: { id: "Hotmix", en: "Hotmix" },
-       title: { 
+    title: { 
       id: "Daftar Harga Aspal Hotmix Terbaru & Paketnya", 
       en: "Latest Hotmix Asphalt Price List & Packages" 
     },
-    // ...
     desc: {
       id: "Daftar harga paket jasa pengaspalan dan perbaikan jalan aspal hotmix terbaru. Mulai dari pelapisan ulang, tambal sulam, hingga pembuatan jalan baru.",
       en: "Latest price list for hotmix asphalt paving and road repair service packages. From resurfacing, patching, to new road construction.",
@@ -1206,12 +1211,12 @@ export const articles = [
       { id: "Biaya Aspal Per Meter", en: "Asphalt Cost Per Meter", slug: "biaya-aspal-per-meter" },
     ],
     body: [
-            {
+      {
         type: "paragraph",
         text: {
           id: "Mencari penyedia jasa pengaspalan seringkali membingungkan karena harga yang ditawarkan bisa sangat bervariasi. Agar Anda tidak salah anggaran, berikut kami tawarkan transparansi harga paket <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengaspalan hotmix</a> menggunakan material berkualitas untuk area Tangerang & Jabodetabek.",
           en: "Finding a paving service provider is often confusing because the prices offered can vary widely. To ensure you don't miscalculate your budget, here we offer price transparency for hotmix asphalt service packages using quality materials for the Tangerang & Greater Jakarta area.",
-      },
+        },
       },
       {
         type: "paragraph",
@@ -1220,8 +1225,6 @@ export const articles = [
           en: "The prices below are calculated per square meter (m²) and already include materials and labor. You can adjust the package choice with the condition of the road to be repaired.",
         },
       },
-      
-      // --- GRID KATEGORI (4 KOLOM SEJAJAR) ---
       {
         type: "paragraph",
         text: {
@@ -1459,8 +1462,6 @@ export const articles = [
           `,
         },
       },
-
-      // --- TAMBAHAN EDUKASI: CARA MEMILIH PAKET ---
       {
         type: "heading",
         text: { id: "Bingung Pilih Paket yang Mana? Ini Panduannya", en: "Confused About Which Package to Choose? Here's the Guide" },
@@ -1490,8 +1491,6 @@ export const articles = [
           },
         ],
       },
-
-      // --- TAMBAHAN EDUKASI: FAKTOR PENENTU HARGA ---
       {
         type: "heading",
         text: { id: "Catatan Penting Sebelum Memesan", en: "Important Notes Before Ordering" },
@@ -1513,7 +1512,7 @@ export const articles = [
           { id: "Tingkat kesulitan akses jalan untuk alat berat.", en: "The difficulty level of road access for heavy equipment." },
         ],
       },
-            {
+      {
         type: "paragraph",
         text: {
           id: "Ingin mendapatkan harga pasti yang sesuai dengan kondisi jalan Anda? Tim PT Tri Abadi Makmur siap melakukan survei lokasi secara gratis. Hubungi kami sekarang via WhatsApp untuk konsultasi dan penawaran terbaik.",

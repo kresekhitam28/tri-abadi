@@ -436,7 +436,11 @@ function ParentMenuButton({ item, lang }) {
   const isRight = item.align === "right";
 
   return (
-    <div className="relative group">
+    <div
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -447,12 +451,12 @@ function ParentMenuButton({ item, lang }) {
         {label}
         <ChevronDown
           className={`w-3 h-3 text-slate-400 transition-transform duration-300
-            ${open ? "rotate-180 text-[#1e88e5]" : "group-hover:rotate-180 group-hover:text-[#1e88e5]"}`}
+            ${open ? "rotate-180 text-[#1e88e5]" : ""}`}
         />
 
         <span
           className={`absolute left-3 right-3 -bottom-0.5 h-0.5 bg-[#1e88e5] origin-left transition-transform duration-500 rounded-full
-            ${open ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}
+            ${open ? "scale-x-100" : "scale-x-0"}`}
           aria-hidden="true"
         />
       </button>
@@ -463,7 +467,7 @@ function ParentMenuButton({ item, lang }) {
           ${isRight ? "right-0" : "left-0"}
           ${open
             ? "opacity-100 visible translate-y-0"
-            : "opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0"}`}
+            : "opacity-0 invisible translate-y-2"}`}
       >
         {/* Arrow indicator */}
         <span
@@ -601,7 +605,7 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  // Mobile menu top mengikuti tinggi header (yang berubah saat scrolled)
+  // Mobile menu top mengikuti tinggi header
   const mobileTopClass = scrolled
     ? "top-[68px] sm:top-[72px]"
     : "top-[72px] sm:top-[76px]";
@@ -681,21 +685,23 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE MENU OVERLAY */}
       <div
         className={`lg:hidden fixed inset-0 z-40 transition-opacity duration-300
           ${mobileOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
       >
+        {/* Backdrop (klik area gelap untuk menutup) */}
         <div
-          className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
+          className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm cursor-pointer"
           onClick={() => setMobileOpen(false)}
           aria-hidden="true"
         />
 
+        {/* Menu Content */}
         <nav
           id="mobile-menu"
           aria-label="Mobile navigation"
-          className={`absolute left-0 right-0 bottom-0 bg-white overflow-y-auto shadow-[0_-10px_40px_-10px_rgba(0,0,0,0.1)] transition-transform duration-300 ease-out
+          className={`absolute left-0 right-0 max-h-[85dvh] rounded-b-3xl bg-white overflow-y-auto shadow-[0_-10px_40px_-10px_rgba(0,0,0,0.1)] transition-transform duration-300 ease-out
             ${mobileTopClass}
             ${mobileOpen ? "translate-y-0" : "-translate-y-4"}`}
         >
@@ -710,8 +716,16 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="px-5 sm:px-6 pb-8 mb-24">
+          <div className="px-5 sm:px-6 pb-8">
             <LanguageToggleMobile lang={lang} setLang={setLang} />
+
+            {/* Tombol Tutup Menu Tambahan */}
+            <button
+              onClick={() => setMobileOpen(false)}
+              className="w-full mt-4 py-3 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-[14px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5]"
+            >
+              {lang === "en" ? "Close Menu" : "Tutup Menu"}
+            </button>
           </div>
         </nav>
       </div>
