@@ -2,11 +2,17 @@
 import Pengaspalan from "../../../../components/Pengaspalan";
 
 export const metadata = {
-  title: "Jasa Pengaspalan Murah & Hotmix Tangerang & Jabodetabek | Tri Abadi Makmur",
+  title: "Jasa Pengaspalan Jalan & Aspal Hotmix Bergaransi",
   description:
-    "Jasa pengaspalan murah & hotmix untuk perumahan, pabrik, gudang di Tangerang & Jabodetabek. Survei gratis, garansi 2 tahun, harga transparan. Konsultasi via WhatsApp.",
+    "Kontraktor jasa pengaspalan jalan & aspal hotmix (mulai Rp 75rb/m²) untuk pabrik, gudang, perumahan & area parkir di Jabodetabek, Banten & Jawa Barat. Survei gratis!",
   alternates: {
     canonical: "/layanan/infrastruktur/pengaspalan",
+  },
+  openGraph: {
+    title: "Jasa Pengaspalan Jalan & Aspal Hotmix Bergaransi | PT Tri Abadi Makmur",
+    description:
+      "Kontraktor jasa pengaspalan jalan & aspal hotmix (mulai Rp 75rb/m²) untuk pabrik, gudang, perumahan & area parkir di Jabodetabek, Banten & Jawa Barat. Survei gratis!",
+    url: "https://spesialisaspal.com/layanan/infrastruktur/pengaspalan",
   },
 };
 

@@ -120,8 +120,9 @@ const content = {
     callUs: "Telepon Kami",
     cityLine: "Jl. Al Hidayah RT.06 RW.02, Pondok Jaya, Pondok Aren, Tangerang Selatan",
     brandTagline: "KONTRAKTOR UMUM",
-    brandDesc:
-      "Perusahaan yang bergerak di bidang konstruksi dengan pengalaman bertahun-tahun. Mengedepankan kualitas & kehati-hatian untuk kepuasan client.",
+    brandDesc:  "Perusahaan konstruksi berpengalaman di bidang pengaspalan jalan, paving block, dan infrastruktur. Melayani Jabodetabek, Banten, dan berbagai wilayah Indonesia.",
+    sectionLayanan: "Layanan",
+    sectionLayanan: "Layanan",
     sectionLayanan: "Layanan",
     sectionPerusahaan: "Perusahaan",
     sectionKontak: "Hubungi Kami",

@@ -2,11 +2,17 @@
 import About from "../../components/About";
 
 export const metadata = {
-  title: "Tentang PT Tri Abadi Makmur: Kontraktor Aspal Berpengalaman",
+  title: "Tentang Kami: Kontraktor Aspal & Infrastruktur Terpercaya",
   description:
-    "PT Tri Abadi Makmur adalah kontraktor pengaspalan dan infrastruktur berpengalaman di Tangerang & Jabodetabek. Didukung tim profesional & alat berat modern. Lihat profil kami.",
+    "Mengenal lebih dekat PT Tri Abadi Makmur, kontraktor pengaspalan jalan & infrastruktur berpengalaman di Jabodetabek, Banten & Jawa Barat. Didukung alat berat modern & bergaransi.",
   alternates: {
     canonical: "/tentang-kami",
+  },
+  openGraph: {
+    title: "Tentang Kami: Kontraktor Aspal & Infrastruktur Terpercaya | PT Tri Abadi Makmur",
+    description:
+      "Mengenal lebih dekat PT Tri Abadi Makmur, kontraktor pengaspalan jalan & infrastruktur berpengalaman di Jabodetabek, Banten & Jawa Barat. Didukung alat berat modern.",
+    url: "https://spesialisaspal.com/tentang-kami",
   },
 };
 

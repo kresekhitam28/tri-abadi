@@ -12,15 +12,19 @@ const content = {
     kicker: "Artikel & Berita",
     titleLight: "Semua",
     titleBold: "Artikel",
-    description: "Temukan panduan, tips, dan berita terbaru seputar konstruksi jalan, pengaspalan hotmix, paving block, dan perbaikan jalan dari PT Tri Abadi Makmur untuk area Tangerang & Jabodetabek.",
+    description:
+      "Temukan panduan biaya, tips teknis, dan berita terbaru seputar konstruksi jalan, pengaspalan hotmix, paving block, dan perbaikan jalan dari PT Tri Abadi Makmur untuk area Jabodetabek, Banten & Jawa Barat.",
     empty: "Belum ada artikel.",
+    pageLabel: "Halaman",
   },
   en: {
     kicker: "Articles & News",
     titleLight: "All",
     titleBold: "Articles",
-    description: "Find the latest guides, tips, and news about road construction, hotmix asphalt paving, paving blocks, and road repair from PT Tri Abadi Makmur for Tangerang & Greater Jakarta.",
+    description:
+      "Find pricing guides, technical tips, and the latest news about road construction, hotmix asphalt paving, paving blocks, and road repair from PT Tri Abadi Makmur for Greater Jakarta, Banten & West Java.",
     empty: "No articles found yet.",
+    pageLabel: "Page",
   },
 };
 
@@ -52,15 +56,22 @@ export default function Blog() {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [activePage]);
 
+  // Urutkan artikel dari tanggal terbaru agar panduan harga tampil di halaman pertama
+  const sortedArticles = useMemo(() => {
+    return [...articles].sort((a, b) =>
+      (b.dateISO || "").localeCompare(a.dateISO || "")
+    );
+  }, []);
+
   // Hitung total halaman berdasarkan jumlah artikel
-  const totalPages = Math.ceil(articles.length / ARTICLES_PER_PAGE);
+  const totalPages = Math.ceil(sortedArticles.length / ARTICLES_PER_PAGE);
 
   // Potong array artikel sesuai halaman yang aktif
   const currentArticles = useMemo(() => {
     const start = activePage * ARTICLES_PER_PAGE;
     const end = start + ARTICLES_PER_PAGE;
-    return articles.slice(start, end);
-  }, [activePage]);
+    return sortedArticles.slice(start, end);
+  }, [activePage, sortedArticles]);
 
   return (
     <section
@@ -68,7 +79,6 @@ export default function Blog() {
       style={{ contain: "layout style" }}
     >
       <div className="relative max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
-        
         {/* ═══ HEADER ═══ */}
         <div className="text-center mb-8 sm:mb-12 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-5">
@@ -79,13 +89,19 @@ export default function Blog() {
             <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
           </div>
 
-            <h1 className="font-light tracking-tight text-slate-900 leading-[1.05]" style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}>
+          <h1
+            className="font-light tracking-tight text-slate-900 leading-[1.05]"
+            style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}
+          >
             <span className="font-semibold">{data.titleLight}</span>{" "}
             {data.titleBold}
             <span className="text-[#1e88e5]">.</span>
           </h1>
 
-          <p className="max-w-2xl mx-auto text-slate-600 leading-relaxed mt-5 sm:mt-6" style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}>
+          <p
+            className="max-w-2xl mx-auto text-slate-600 leading-relaxed mt-5 sm:mt-6"
+            style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}
+          >
             {data.description}
           </p>
         </div>
@@ -115,23 +131,29 @@ export default function Blog() {
 
         {/* ═══ NAVIGASI ANGKA 1, 2, 3... ═══ */}
         {totalPages > 1 && (
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-12 sm:mt-16">
+          <nav
+            aria-label="Navigasi halaman artikel"
+            className="flex flex-wrap items-center justify-center gap-2 mt-12 sm:mt-16"
+          >
             {Array.from({ length: totalPages }).map((_, index) => (
               <button
                 key={index}
+                type="button"
                 onClick={() => setActivePage(index)}
-                className={`w-10 h-10 flex items-center justify-center rounded-lg text-sm font-semibold transition-all duration-200
-                  ${activePage === index 
-                    ? "bg-[#1e88e5] text-white shadow-md shadow-[#1e88e5]/30 scale-110" 
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                aria-label={`${data.pageLabel} ${index + 1}`}
+                aria-current={activePage === index ? "page" : undefined}
+                className={`w-10 h-10 flex items-center justify-center rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer
+                  ${
+                    activePage === index
+                      ? "bg-[#1e88e5] text-white shadow-md shadow-[#1e88e5]/30 scale-110"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                   }`}
               >
                 {index + 1}
               </button>
             ))}
-          </div>
+          </nav>
         )}
-
       </div>
     </section>
   );

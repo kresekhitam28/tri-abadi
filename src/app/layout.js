@@ -12,34 +12,36 @@ export const metadata = {
     canonical: "/",
   },
   title: {
-    default: "PT Tri Abadi Makmur | Spesialis Aspal & Kontraktor Pengaspalan",
+    default: "Jasa Pengaspalan Jalan Hotmix & Kontraktor Aspal | PT Tri Abadi Makmur",
     template: "%s | PT Tri Abadi Makmur",
   },
   description:
-    "PT Tri Abadi Makmur — Jasa pengaspalan jalan hotmix, paving block, kanstin, cor beton, dan konstruksi infrastruktur profesional & bergaransi di Tangerang Selatan & Jabodetabek.",
+    "Kontraktor jasa pengaspalan jalan hotmix, paving block, kanstin & cor beton bergaransi di Jabodetabek, Banten & Jawa Barat. Mulai Rp 75rb/m², gratis survei lokasi!",
   keywords: [
     "jasa pengaspalan",
+    "jasa pengaspalan jalan",
     "aspal hotmix",
     "kontraktor aspal",
+    "kontraktor pengaspalan jabodetabek",
     "paving block",
     "kanstin",
     "cor beton ready mix",
-    "Tangerang Selatan",
   ],
   authors: [{ name: "PT Tri Abadi Makmur" }],
   openGraph: {
     type: "website",
     siteName: "PT Tri Abadi Makmur",
-    title: "PT Tri Abadi Makmur | Spesialis Aspal & Kontraktor Pengaspalan",
+    title: "Jasa Pengaspalan Jalan Hotmix & Kontraktor Aspal | PT Tri Abadi Makmur",
     description:
-      "Jasa pengaspalan jalan hotmix, paving block, kanstin, cor beton, dan konstruksi infrastruktur profesional.",
+      "Kontraktor jasa pengaspalan jalan hotmix, paving block, kanstin & cor beton bergaransi di Jabodetabek, Banten & Jawa Barat. Gratis survei lokasi!",
     images: ["/logo.webp"],
     locale: "id_ID",
   },
   twitter: {
     card: "summary_large_image",
-    title: "PT Tri Abadi Makmur | Spesialis Aspal & Kontraktor Pengaspalan",
-    description: "Jasa pengaspalan jalan hotmix, paving block, kanstin, cor beton.",
+    title: "Jasa Pengaspalan Jalan Hotmix & Kontraktor Aspal | PT Tri Abadi Makmur",
+    description:
+      "Kontraktor jasa pengaspalan jalan hotmix, paving block, kanstin & cor beton bergaransi di Jabodetabek, Banten & Jawa Barat.",
     images: ["/logo.webp"],
   },
   icons: {
@@ -59,21 +61,23 @@ export default function RootLayout({ children }) {
     "@type": "GeneralContractor",
     "name": "PT Tri Abadi Makmur - Spesialis Aspal",
     "url": "https://spesialisaspal.com/",
-    "telephone": "+6282258089367", 
+    "telephone": "+6282258089367",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Jl. Al Hidayah RT.06 RW.02, Pondok Jaya, Pondok Aren", 
+      "streetAddress": "Jl. Al Hidayah RT.06 RW.02, Pondok Jaya, Pondok Aren",
       "addressLocality": "Tangerang Selatan",
       "addressRegion": "Banten",
       "addressCountry": "ID"
     },
     "areaServed": [
-      "Jakarta", 
-      "Bogor", 
-      "Depok", 
-      "Tangerang", 
-      "Tangerang Selatan", 
-      "Bekasi"
+      "Jakarta",
+      "Bogor",
+      "Depok",
+      "Tangerang",
+      "Tangerang Selatan",
+      "Bekasi",
+      "Banten",
+      "Jawa Barat"
     ]
   };
 

@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useLang } from "../context/LanguageContext";
-import { getArticleBySlug } from "../data/articles";
+import { articles, getArticleBySlug } from "../data/articles";
 
 // ─────────────────────────────────────────────
 // KONFIGURASI SITE URL (untuk share link)
@@ -154,12 +154,24 @@ const I = {
 };
 
 // ─────────────────────────────────────────────
-// HELPER: pick bilingual
+// HELPER: pick bilingual & format tanggal
 // ─────────────────────────────────────────────
 const pick = (field, lang) => {
   if (!field) return "";
   if (typeof field === "string") return field;
   return field[lang] || field.id || field.en || "";
+};
+
+const formatDate = (dateISO, lang) => {
+  if (!dateISO) return "";
+  try {
+    return new Date(dateISO).toLocaleDateString(
+      lang === "en" ? "en-US" : "id-ID",
+      { day: "numeric", month: "long", year: "numeric" }
+    );
+  } catch {
+    return dateISO;
+  }
 };
 
 // ─────────────────────────────────────────────
@@ -168,8 +180,18 @@ const pick = (field, lang) => {
 const content = {
   id: {
     notFoundTitle: "Artikel tidak ditemukan",
+    publishedLabel: "Dipublikasikan pada",
     tagsLabel: "Tag",
     shareLabel: "Bagikan",
+    relatedTitle: "Artikel Terkait Lainnya",
+    ctaKicker: "Butuh Bantuan?",
+    ctaTitleLight: "Punya Pertanyaan Seputar",
+    ctaTitleBold: "Proyek Anda?",
+    ctaDesc:
+      "Tim PT Tri Abadi Makmur siap membantu konsultasi, survei lokasi gratis, dan memberikan penawaran terbaik untuk kebutuhan pengaspalan atau konstruksi Anda di Jabodetabek, Banten & Jawa Barat.",
+    ctaBtn: "Konsultasi via WhatsApp",
+    ctaWaMsg:
+      "Halo PT Tri Abadi Makmur, saya baru saja membaca artikel Anda dan ingin berkonsultasi mengenai proyek saya.",
     commentTitle: "Tinggalkan Komentar",
     commentNote: "Komentar Anda akan dikirim ke email kami.",
     placeholderComment: "Komentar Anda...",
@@ -180,17 +202,27 @@ const content = {
     btnError: "Gagal. Coba lagi.",
     btnIdle: "Kirim Komentar",
     authorBio:
-      "Tri Abadi makmur merupakan perusahaan yang bergerak di bidang konstruksi, dengan pengalaman yang sudah bertahun – tahun kami kembangkan, tahapan proses yang mengedepankan kualitas dan kehati-hatian, serta eksekusi pengerjaan proyek yang signifikan, demi tercapainya kepuasan client sehingga terwujudnya jalinan kerjasama yang continue dan berkelanjutan.",
+      "PT Tri Abadi Makmur merupakan perusahaan kontraktor pengaspalan jalan dan konstruksi umum di Jabodetabek, Banten & Jawa Barat yang mengedepankan kualitas material, ketepatan waktu, dan garansi hasil pekerjaan.",
     authorDesc:
-      "Kami menyediakan jasa pengaspalan berkualitas dengan hasil rapi dan tahan lama.",
+      "Melayani jasa pengaspalan hotmix, pemasangan paving block, pagar panel beton, serta penyewaan alat berat.",
     copied: "Link disalin!",
     share: "Bagikan",
     copyLink: "Salin Link",
   },
   en: {
     notFoundTitle: "Article not found",
+    publishedLabel: "Published on",
     tagsLabel: "Tags",
     shareLabel: "Share",
+    relatedTitle: "Related Articles",
+    ctaKicker: "Need Assistance?",
+    ctaTitleLight: "Have Questions About",
+    ctaTitleBold: "Your Project?",
+    ctaDesc:
+      "PT Tri Abadi Makmur is ready to help with free site surveys, consultations, and competitive quotes for your asphalt paving or construction needs across Greater Jakarta, Banten & West Java.",
+    ctaBtn: "Consult via WhatsApp",
+    ctaWaMsg:
+      "Hello PT Tri Abadi Makmur, I just read your article and would like to consult about my project.",
     commentTitle: "Leave a Comment",
     commentNote: "Your comment will be sent to our email.",
     placeholderComment: "Your comment...",
@@ -201,9 +233,9 @@ const content = {
     btnError: "Failed. Try again.",
     btnIdle: "Send Comment",
     authorBio:
-      "Tri Abadi Makmur is a construction company with years of experience we have developed, a process that prioritizes quality and prudence, as well as the execution of significant projects, in order to achieve client satisfaction so that continuous and long-term cooperation is realized.",
+      "PT Tri Abadi Makmur is an asphalt paving and general construction contractor across Greater Jakarta, Banten & West Java prioritizing material quality, punctuality, and guaranteed workmanship.",
     authorDesc:
-      "We provide quality asphalt paving services with neat and durable results.",
+      "Providing hotmix asphalt paving, paving block installation, precast panel fencing, and heavy equipment rental.",
     copied: "Link copied!",
     share: "Share",
     copyLink: "Copy Link",
@@ -229,10 +261,7 @@ function TagItem({ tag, lang, className }) {
 }
 
 // ─────────────────────────────────────────────
-// BODY RENDERER (DIUPDATE UNTUK HTML/TABEL)
-// ─────────────────────────────────────────────
-// ─────────────────────────────────────────────
-// BODY RENDERER (DIUPDATE UNTUK HTML/TABEL)
+// BODY RENDERER
 // ─────────────────────────────────────────────
 function ArticleBody({ body, lang }) {
   let firstParagraphDone = false;
@@ -257,24 +286,22 @@ function ArticleBody({ body, lang }) {
           const isFirst = !firstParagraphDone;
           firstParagraphDone = true;
           const text = pick(block.text, lang);
-          
-          // Cek apakah teks mengandung HTML (tag <a>, <strong>, <p>, dll)
-          const containsHtml = text.includes('<') && text.includes('>');
+          const containsHtml = text.includes("<") && text.includes(">");
 
           return (
             <Reveal key={i} y={14}>
               {isFirst && !containsHtml ? (
-                // Paragraf pertama tanpa HTML (Drop Cap)
-                <p className="text-slate-700 leading-[1.9] sm:leading-[1.95]
-                              first-letter:float-left first-letter:mr-3 first-letter:mt-1
-                              first-letter:text-[42px] sm:first-letter:text-[46px]
-                              first-letter:font-semibold
-                              first-letter:leading-[0.9] first-letter:text-[#1e88e5]"
-                   style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1rem)" }}>
+                <p
+                  className="text-slate-700 leading-[1.9] sm:leading-[1.95]
+                             first-letter:float-left first-letter:mr-3 first-letter:mt-1
+                             first-letter:text-[42px] sm:first-letter:text-[46px]
+                             first-letter:font-semibold
+                             first-letter:leading-[0.9] first-letter:text-[#1e88e5]"
+                  style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1rem)" }}
+                >
                   {text}
                 </p>
               ) : containsHtml ? (
-                // Render HTML (Tabel, Link, Strong, dll)
                 <div
                   className="text-slate-700 leading-[1.9] sm:leading-[1.95] prose max-w-none w-full
                              [&>p]:mb-5 [&>p:last-child]:mb-0"
@@ -282,9 +309,10 @@ function ArticleBody({ body, lang }) {
                   dangerouslySetInnerHTML={{ __html: text }}
                 />
               ) : (
-                // Render Teks Biasa
-                <p className="text-slate-700 leading-[1.9] sm:leading-[1.95]"
-                   style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1rem)" }}>
+                <p
+                  className="text-slate-700 leading-[1.9] sm:leading-[1.95]"
+                  style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1rem)" }}
+                >
                   {text}
                 </p>
               )}
@@ -305,9 +333,10 @@ function ArticleBody({ body, lang }) {
               >
                 {block.items.map((it, j) => {
                   const itemText = pick(it, lang);
-                  // Jika list item mengandung HTML (seperti <strong>), render sebagai HTML
-                  if (itemText.includes('<') && itemText.includes('>')) {
-                    return <li key={j} dangerouslySetInnerHTML={{ __html: itemText }} />;
+                  if (itemText.includes("<") && itemText.includes(">")) {
+                    return (
+                      <li key={j} dangerouslySetInnerHTML={{ __html: itemText }} />
+                    );
                   }
                   return <li key={j}>{itemText}</li>;
                 })}
@@ -358,6 +387,12 @@ export default function BlogDetail() {
         return !s || s !== article.slug;
       })
       .slice(0, 8);
+  }, [article]);
+
+  // 3 artikel terkait untuk internal linking SEO
+  const relatedArticles = useMemo(() => {
+    if (!article) return [];
+    return articles.filter((a) => a.slug !== article.slug).slice(0, 3);
   }, [article]);
 
   const handleShare = useCallback(async () => {
@@ -478,20 +513,22 @@ export default function BlogDetail() {
   }
 
   const category = pick(article.category, lang);
-  const desc     = pick(article.desc, lang);
+  const desc = pick(article.desc, lang);
+  const formattedDate = formatDate(article.dateISO, lang);
 
   return (
     <article className="bg-white" style={{ contain: "layout style" }}>
-
       {/* ═══ HERO ═══ */}
       <section className="pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 lg:pb-12">
         <div className="relative max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <Reveal delay={0} y={14}>
             <div className="inline-flex items-center gap-3">
               <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
-              <span className="text-[10px] sm:text-[11px] uppercase
-                               tracking-[0.25em] sm:tracking-[0.3em]
-                               text-[#1e88e5] font-semibold">
+              <span
+                className="text-[10px] sm:text-[11px] uppercase
+                           tracking-[0.25em] sm:tracking-[0.3em]
+                           text-[#1e88e5] font-semibold"
+              >
                 {category}
               </span>
               <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
@@ -507,14 +544,27 @@ export default function BlogDetail() {
               <span className="text-[#1e88e5]">.</span>
             </h1>
           </Reveal>
+
+          {formattedDate && (
+            <Reveal delay={130} y={16}>
+              <p className="mt-4 text-xs sm:text-sm text-slate-500">
+                {t.publishedLabel}{" "}
+                <time dateTime={article.dateISO} className="font-medium text-slate-700">
+                  {formattedDate}
+                </time>
+              </p>
+            </Reveal>
+          )}
         </div>
       </section>
 
       {/* ═══ COVER ═══ */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 sm:mt-8 lg:mt-12">
         <Reveal y={26} duration={800}>
-          <figure className="relative rounded-2xl overflow-hidden bg-slate-100
-                             ring-1 ring-slate-200 aspect-[16/9]">
+          <figure
+            className="relative rounded-2xl overflow-hidden bg-slate-100
+                       ring-1 ring-slate-200 aspect-[16/9]"
+          >
             <Image
               src={article.src}
               alt={title}
@@ -535,9 +585,11 @@ export default function BlogDetail() {
       {/* ═══ BODY ═══ */}
       <section className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 pt-10 sm:pt-12 lg:pt-16">
         <Reveal y={18}>
-          <p className="text-slate-600 leading-[1.85] italic
-                        border-l-2 border-[#1e88e5] pl-4 sm:pl-5 mb-8 sm:mb-10"
-             style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.9375rem)" }}>
+          <p
+            className="text-slate-600 leading-[1.85] italic
+                       border-l-2 border-[#1e88e5] pl-4 sm:pl-5 mb-8 sm:mb-10"
+            style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.9375rem)" }}
+          >
             {desc}
           </p>
         </Reveal>
@@ -546,9 +598,11 @@ export default function BlogDetail() {
 
         {/* ═══ TAGS & SHARE ═══ */}
         <Reveal y={20}>
-          <div className="mt-12 sm:mt-14 pt-6 sm:pt-8 border-t border-slate-200
-                          flex flex-col sm:flex-row sm:items-start
-                          sm:justify-between gap-8 sm:gap-10">
+          <div
+            className="mt-12 sm:mt-14 pt-6 sm:pt-8 border-t border-slate-200
+                       flex flex-col sm:flex-row sm:items-start
+                       sm:justify-between gap-8 sm:gap-10"
+          >
             {visibleTags.length > 0 ? (
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-3 text-slate-400">
@@ -631,7 +685,7 @@ export default function BlogDetail() {
               </div>
 
               {copied && (
-                <p className="mt-2 text-[11px] text-[#1e88e5] font-semibold text-right sm:text-right text-center">
+                <p className="mt-2 text-[11px] text-[#1e88e5] font-semibold text-center sm:text-right">
                   {t.copied}
                 </p>
               )}
@@ -641,14 +695,18 @@ export default function BlogDetail() {
 
         {/* ═══ AUTHOR ═══ */}
         <Reveal y={22}>
-          <div className="mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-slate-200
-                          flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 sm:gap-6">
+          <div
+            className="mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-slate-200
+                       flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 sm:gap-6"
+          >
             {article.author?.avatar && (
-              <div className="relative w-20 h-20 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden shrink-0
-                              bg-slate-100 ring-1 ring-slate-200">
+              <div
+                className="relative w-20 h-20 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden shrink-0
+                           bg-slate-100 ring-1 ring-slate-200"
+              >
                 <Image
                   src={article.author.avatar}
-                  alt={article.author?.name || "Author"}
+                  alt={article.author?.name || "PT Tri Abadi Makmur"}
                   fill
                   sizes="96px"
                   className="object-cover"
@@ -658,57 +716,88 @@ export default function BlogDetail() {
 
             <div className="flex-1 min-w-0">
               <h3 className="text-[16px] lg:text-[17px] font-semibold text-slate-900 mb-2">
-                {article.author?.name}
+                {article.author?.name || "PT Tri Abadi Makmur"}
               </h3>
 
-              <p className="text-slate-600 leading-[1.8] mb-2 sm:mb-3"
-                 style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
+              <p
+                className="text-slate-600 leading-[1.8] mb-2 sm:mb-3"
+                style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
+              >
                 {article.author?.bio ? pick(article.author.bio, lang) : t.authorBio}
               </p>
 
-              <p className="text-slate-600 leading-[1.8]"
-                 style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
+              <p
+                className="text-slate-600 leading-[1.8]"
+                style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
+              >
                 {t.authorDesc}
               </p>
             </div>
           </div>
         </Reveal>
 
-                {/* ═══════ CTA BANTUAN (BARU) ═══════ */}
+        {/* ═══════ CTA BANTUAN ═══════ */}
         <Reveal y={22}>
           <div className="mt-12 p-8 sm:p-10 bg-slate-900 rounded-3xl text-center shadow-2xl shadow-slate-900/20 relative overflow-hidden">
-            {/* Efek background abstrak halus */}
-            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-[#1e88e5] rounded-full blur-3xl opacity-20 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-[#25D366] rounded-full blur-3xl opacity-10 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-[#1e88e5] rounded-full blur-3xl opacity-20 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-[#25D366] rounded-full blur-3xl opacity-10 pointer-events-none" />
 
             <div className="relative z-10">
               <p className="text-[#4da3ff] text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-bold mb-4">
-                Butuh Bantuan?
+                {t.ctaKicker}
               </p>
               <h3
                 className="text-white font-light tracking-tight mb-4"
                 style={{ fontSize: "clamp(1.25rem, 3vw, 1.75rem)" }}
               >
-                Punya Pertanyaan Seputar <span className="font-bold">Proyek Anda?</span>
+                {t.ctaTitleLight} <span className="font-bold">{t.ctaTitleBold}</span>
               </h3>
-              <p className="text-slate-400 mb-8 max-w-lg mx-auto" style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}>
-                Tim PT Tri Abadi Makmur siap membantu konsultasi, survei lokasi, dan memberikan penawaran terbaik untuk kebutuhan pengaspalan atau konstruksi Anda.
+              <p
+                className="text-slate-400 mb-8 max-w-lg mx-auto"
+                style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}
+              >
+                {t.ctaDesc}
               </p>
               <a
-                href={`https://wa.me/6282258089367?text=${encodeURIComponent("Halo Tri Abadi Makmur, saya baru saja membaca artikel Anda dan ingin berkonsultasi mengenai proyek saya.")}`}
+                href={`https://wa.me/6282258089367?text=${encodeURIComponent(t.ctaWaMsg)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-4 min-h-[48px] rounded-xl bg-[#25D366] text-white hover:bg-[#20bd5a] font-bold uppercase tracking-[0.1em] sm:tracking-[0.15em] shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50 hover:-translate-y-0.5 transition-all duration-300"
                 style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.875rem)" }}
               >
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 shrink-0">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                </svg>
-                Konsultasi via WhatsApp
+                <I.WA className="w-5 h-5 shrink-0" />
+                {t.ctaBtn}
               </a>
             </div>
           </div>
         </Reveal>
+
+        {/* ═══ ARTIKEL TERKAIT (INTERNAL LINKING SEO) ═══ */}
+        {relatedArticles.length > 0 && (
+          <Reveal y={22}>
+            <div className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-slate-200">
+              <h3 className="text-[17px] sm:text-[18px] font-semibold text-slate-900 mb-6">
+                {t.relatedTitle}
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {relatedArticles.map((rel) => (
+                  <Link
+                    key={rel.slug}
+                    href={`/blog/${rel.slug}`}
+                    className="group block p-4 rounded-xl border border-slate-200 hover:border-[#1e88e5]/60 bg-slate-50/50 hover:bg-white transition-all"
+                  >
+                    <p className="text-[10px] uppercase tracking-wider text-[#1e88e5] font-semibold mb-1.5">
+                      {pick(rel.category, lang)}
+                    </p>
+                    <h4 className="text-sm font-semibold text-slate-900 group-hover:text-[#1e88e5] line-clamp-2 leading-snug transition-colors">
+                      {pick(rel.title, lang)}
+                    </h4>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        )}
 
         {/* ═══ COMMENTS ═══ */}
         <Reveal y={22}>
@@ -785,7 +874,6 @@ export default function BlogDetail() {
           </div>
         </Reveal>
       </section>
-
     </article>
   );
 }

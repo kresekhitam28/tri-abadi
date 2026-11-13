@@ -313,11 +313,10 @@ function SectionKicker({ children }) {
 // ─────────────────────────────────────────────
 const content = {
   id: {
-    heroKicker: "Layanan Kami",
-    heroTitle: "Jasa Pengaspalan Murah & Hotmix",
-    heroSubtitle: "Untuk Perumahan, Pabrik & Jalan Lingkungan di Tangerang & Jabodetabek",
-    heroDesc: "Jasa pengaspalan berkualitas tinggi dengan harga bersaing. Dikerjakan oleh tenaga konstruksi berpengalaman untuk hasil yang rapi, kuat, dan tahan lama.",
-    figKicker: "Proyek",
+    heroKicker: "Layanan Utama Kami",
+    heroTitle: "Jasa Pengaspalan Jalan & Aspal Hotmix",
+    heroSubtitle: "untuk Perumahan, Pabrik, Gudang, Kawasan Industri, Area Parkir, hingga Proyek Pemerintah.",
+    heroDesc: "PT Tri Abadi Makmur melayani jasa pengaspalan jalan, aspal hotmix, perbaikan jalan, dan overlay untuk berbagai skala proyek. Melayani Jabodetabek, Banten, dan berbagai wilayah Indonesia.",
     figCaption: "Proyek Pengaspalan — Tri Abadi Makmur",
     figAlt: "Jasa Pengaspalan",
     introTitle: "Jasa Pengaspalan Berkualitas Tinggi Harga Bersaing",
@@ -386,10 +385,10 @@ const content = {
     ctaWaMessage: "Halo Tri Abadi Makmur, saya ingin konsultasi mengenai Project...",
   },
   en: {
-    heroKicker: "Our Services",
-    heroTitle: "Affordable Hotmix Asphalt Paving",
-    heroSubtitle: "for Residential, Factory & Neighborhood Roads in Tangerang & Greater Jakarta",
-    heroDesc: "High-quality asphalt paving services at competitive prices. Executed by experienced construction crews for neat, strong, and long-lasting results.",
+    heroKicker: "Our Main Service",
+    heroTitle: "Asphalt Paving & Hotmix Solutions",
+    heroSubtitle: "for Residential, Factory, Warehouse, Industrial Areas, Parking Lots, up to Government Projects.",
+    heroDesc: "PT Tri Abadi Makmur provides asphalt paving, hotmix, road repair, and overlay services for various project scales. Serving Greater Jakarta, Banten, and various regions across Indonesia.",
     figKicker: "Project",
     figCaption: "Asphalt Paving Project — Tri Abadi Makmur",
     figAlt: "Asphalt Paving Service",

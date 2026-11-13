@@ -88,11 +88,11 @@ const content = {
     heroKicker: "Profil Perusahaan",
     heroTitleLight: "Kontraktor Aspal ",
     heroTitleBold: "Berpengalaman",
-    heroSubtitle: "PT. Tri Abadi Makmur Indonesia — Spesialis pengaspalan & infrastruktur di Tangerang & Jabodetabek.",
+    heroSubtitle: "PT. Tri Abadi Makmur Indonesia — Spesialis pengaspalan & infrastruktur di Jabodetabek, Banten & Jawa Barat.",
     heroImgAlt: "Konstruksi",
     intro:
       "Tri Abadi Makmur merupakan perusahaan yang bergerak di bidang konstruksi, dengan pengalaman yang sudah bertahun-tahun kami kembangkan, tahapan proses yang mengedepankan kualitas dan kehati-hatian, serta eksekusi pengerjaan proyek yang signifikan, demi tercapainya kepuasan client sehingga terwujudnya jalinan kerjasama yang continue dan berkepanjangan.",
-    sectionKicker: "pondasi Kami",
+    sectionKicker: "Pondasi Kami",
     sectionTitleLight: "Visi, Misi ",
     sectionTitleBold: "& Keunggulan",
     card1Number: "01",
@@ -128,7 +128,7 @@ const content = {
     heroKicker: "Company Profile",
     heroTitleLight: "Experienced Asphalt ",
     heroTitleBold: "Contractor",
-    heroSubtitle: "PT. Tri Abadi Makmur Indonesia — Asphalt paving & infrastructure specialist in Tangerang & Greater Jakarta.",
+    heroSubtitle: "PT. Tri Abadi Makmur Indonesia — Asphalt paving & infrastructure specialist in Greater Jakarta, Banten & West Java.",
     heroImgAlt: "Construction",
     intro:
       "Tri Abadi Makmur is a company engaged in the construction sector. With years of experience, we have developed quality-focused and careful processes, along with significant project execution, to achieve client satisfaction and build continuous, long-term partnerships.",
@@ -421,7 +421,7 @@ export default function About() {
             }}
           >
             <a
-              href="/company-profile.pdf" // Pastikan file PDF ada di folder public
+              href="/company-profile.pdf"
               download
               className="inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-3.5
                          bg-[#1e88e5] hover:bg-blue-600 text-white

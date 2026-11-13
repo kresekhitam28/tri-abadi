@@ -3,95 +3,82 @@
 
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { createPortal } from "react-dom";
-import Link from "next/link";
+import { useLang } from "../context/LanguageContext";
 
 // ─────────────────────────────────────────────
-// DAFTAR FOTO PENGERJAAN
+// DAFTAR FOTO PENGERJAAN + KATEGORI ALT SEO
 // ─────────────────────────────────────────────
-const projects = [
-  { src: "/proyek/proyek-1.webp" },
-  { src: "/proyek/proyek-2.webp" },
-  { src: "/proyek/proyek-3.webp" },
-  { src: "/proyek/proyek-4.webp" },
-  { src: "/proyek/proyek-5.webp" },
-  { src: "/proyek/proyek-6.webp" },
-  { src: "/proyek/proyek-7.webp" },
-  { src: "/proyek/proyek-8.webp" },
-  { src: "/proyek/proyek-9.webp" },
-  { src: "/proyek/proyek-10.webp" },
-  { src: "/proyek/proyek-11.webp" },
-  { src: "/proyek/proyek-12.webp" },
-  { src: "/proyek/proyek-13.webp" },
-  { src: "/proyek/proyek-14.webp" },
-  { src: "/proyek/proyek-15.webp" },
-  { src: "/proyek/proyek-16.webp" },
-  { src: "/proyek/proyek-17.webp" },
-  { src: "/proyek/proyek-18.webp" },
-  { src: "/proyek/proyek-19.webp" },
-  { src: "/proyek/proyek-20.webp" },
-  { src: "/proyek/proyek-21.webp" },
-  { src: "/proyek/proyek-22.webp" },
-  { src: "/proyek/proyek-23.webp" },
-  { src: "/proyek/proyek-24.webp" },
-  { src: "/proyek/proyek-25.webp" },
-  { src: "/proyek/proyek-26.webp" },
-  { src: "/proyek/proyek-27.webp" },
-  { src: "/proyek/proyek-28.webp" },
-  { src: "/proyek/proyek-29.webp" },
-  { src: "/proyek/proyek-30.webp" },
-  { src: "/proyek/proyek-31.webp" },
-  { src: "/proyek/proyek-32.webp" },
-  { src: "/proyek/proyek-33.webp" },
-  { src: "/proyek/proyek-34.webp" },
-  { src: "/proyek/proyek-35.webp" },
-  { src: "/proyek/proyek-36.webp" },
-  { src: "/proyek/proyek-37.webp" },
-  { src: "/proyek/proyek-38.webp" },
-  { src: "/proyek/proyek-39.webp" },
-  { src: "/proyek/proyek-40.webp" },
-  { src: "/proyek/proyek-41.webp" },
-  { src: "/proyek/proyek-42.webp" },
-  { src: "/proyek/proyek-43.webp" },
-  { src: "/proyek/proyek-44.webp" },
-  { src: "/proyek/proyek-45.webp" },
-  { src: "/proyek/proyek-57.webp" },
-  { src: "/proyek/proyek-58.webp" },
-  { src: "/proyek/proyek-59.webp" },
-  { src: "/proyek/proyek-60.webp" },
-  { src: "/proyek/proyek-61.webp" },
-  { src: "/proyek/proyek-62.webp" },
-  { src: "/proyek/proyek-63.webp" },
-  { src: "/proyek/proyek-64.webp" },
-  { src: "/proyek/proyek-65.webp" },
-  { src: "/proyek/proyek-66.webp" },
-  { src: "/proyek/proyek-67.webp" },
-  { src: "/proyek/proyek-68.webp" },
-  { src: "/proyek/proyek-69.webp" },
-  { src: "/proyek/proyek-70.webp" },
-  { src: "/proyek/proyek-71.webp" },
-  { src: "/proyek/proyek-72.webp" },
-  { src: "/proyek/proyek-73.webp" },
-  { src: "/proyek/proyek-74.webp" },
-  { src: "/proyek/proyek-75.webp" },
-  { src: "/proyek/proyek-76.webp" },
-  { src: "/proyek/proyek-77.webp" },
-  { src: "/proyek/proyek-78.webp" },
-  { src: "/proyek/proyek-79.webp" },
-  { src: "/proyek/proyek-80.webp" },
-  { src: "/proyek/proyek-81.webp" },
-  { src: "/proyek/proyek-82.webp" },
-  { src: "/proyek/proyek-83.webp" },
-  { src: "/proyek/proyek-84.webp" },
+const rawProjects = [
+  { src: "/proyek/proyek-1.webp", desc: "Pengaspalan jalan raya hotmix dengan alat berat finisher dan tandem roller" },
+  { src: "/proyek/proyek-2.webp", desc: "Pekerjaan pengaspalan hotmix area akses perumahan Jabodetabek" },
+  { src: "/proyek/proyek-3.webp", desc: "Pemasangan pagar panel beton precast area kawasan industri" },
+  { src: "/proyek/proyek-4.webp", desc: "Mobilisasi dan pemasangan tiang pagar panel beton" },
+  { src: "/proyek/proyek-5.webp", desc: "Proses instalasi pagar panel beton precast" },
+  ...Array.from({ length: 40 }, (_, idx) => {
+    const num = idx + 6;
+    const labels = [
+      "Jasa pengaspalan jalan hotmix bergaransi Jabodetabek",
+      "Pemadatan lapisan aspal hotmix menggunakan tandem roller",
+      "Pemasangan paving block dan kanstin area parkir",
+      "Pekerjaan konstruksi infrastruktur jalan dan perkerasan beton",
+    ];
+    return {
+      src: `/proyek/proyek-${num}.webp`,
+      desc: `${labels[idx % labels.length]} - Proyek #${num}`,
+    };
+  }),
+  ...Array.from({ length: 28 }, (_, idx) => {
+    const num = idx + 57;
+    const labels = [
+      "Proyek pengaspalan hotmix jalan lingkungan dan pabrik",
+      "Finishing penghamparan aspal hotmix PT Tri Abadi Makmur",
+      "Pekerjaan cut and fill serta pemadatan batu makadam",
+      "Pemasangan tiang pancang dan struktur pondasi",
+    ];
+    return {
+      src: `/proyek/proyek-${num}.webp`,
+      desc: `${labels[idx % labels.length]} - Proyek #${num}`,
+    };
+  }),
 ];
 
 // ─────────────────────────────────────────────
-// HELPER: ubah src jadi versi ukuran tertentu
+// KONTEN BILINGUAL
 // ─────────────────────────────────────────────
+const content = {
+  id: {
+    kicker: "Portofolio & Dokumentasi",
+    titleLight: "Galeri Proyek",
+    titleBold: "Pengaspalan & Konstruksi",
+    subtitle:
+      "Dokumentasi nyata pengerjaan pengaspalan jalan hotmix, pemasangan paving block, pagar panel beton, dan pemadatan lahan oleh PT Tri Abadi Makmur di Jabodetabek, Banten & Jawa Barat.",
+    ctaQuestion: "Ingin hasil pengerjaan rapi dan bergaransi seperti di galeri ini?",
+    ctaHighlight: "Konsultasikan kebutuhan proyek Anda",
+    ctaSuffix: "— gratis survei lokasi & perhitungan RAB.",
+    ctaButton: "Konsultasi via WhatsApp",
+    waMessage:
+      "Halo PT Tri Abadi Makmur, saya melihat galeri proyek Anda dan ingin konsultasi kebutuhan pengaspalan/konstruksi.",
+  },
+  en: {
+    kicker: "Portfolio & Documentation",
+    titleLight: "Asphalt & Construction",
+    titleBold: "Project Gallery",
+    subtitle:
+      "Real documentation of hotmix road paving, paving block installation, precast panel fencing, and land grading by PT Tri Abadi Makmur across Greater Jakarta, Banten & West Java.",
+    ctaQuestion: "Want neat and guaranteed workmanship like in this gallery?",
+    ctaHighlight: "Consult your project needs",
+    ctaSuffix: "— free site survey & cost estimation.",
+    ctaButton: "Consult via WhatsApp",
+    waMessage:
+      "Hello PT Tri Abadi Makmur, I saw your project gallery and would like to consult about an asphalt paving/construction project.",
+  },
+};
+
 const toSize = (src, suffix) => src.replace(/\.webp$/, `${suffix}.webp`);
 const toThumb = (src) => src.replace("/proyek/", "/proyek/thumbs/");
 
 // ─────────────────────────────────────────────
-// IKON
+// IKON & HOOKS (TETAP SAMA)
 // ─────────────────────────────────────────────
 function IconChevronLeft({ className = "w-6 h-6" }) {
   return (
@@ -126,9 +113,6 @@ function IconArrowRight({ className = "w-4 h-4" }) {
   );
 }
 
-// ─────────────────────────────────────────────
-// HOOK: deteksi mobile
-// ─────────────────────────────────────────────
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -147,9 +131,6 @@ function useIsMobile() {
   return isMobile;
 }
 
-// ─────────────────────────────────────────────
-// HOOK: REVEAL ON SCROLL
-// ─────────────────────────────────────────────
 function useReveal(options = {}) {
   const {
     threshold = 0.12,
@@ -189,9 +170,6 @@ function useReveal(options = {}) {
   return [ref, visible];
 }
 
-// ─────────────────────────────────────────────
-// KOMPONEN: REVEAL WRAPPER
-// ─────────────────────────────────────────────
 function Reveal({
   children,
   delay = 0,
@@ -205,9 +183,7 @@ function Reveal({
   const [ref, visible] = useReveal({ enabled });
 
   const style = useMemo(() => {
-    if (!enabled) {
-      return { contain: "layout" };
-    }
+    if (!enabled) return { contain: "layout" };
     return {
       transitionProperty: "opacity, transform",
       transitionDuration: `${duration}ms`,
@@ -227,14 +203,9 @@ function Reveal({
   );
 }
 
-// ─────────────────────────────────────────────
-// HOOK: body scroll lock
-// ─────────────────────────────────────────────
 function useBodyScrollLock(locked) {
   useEffect(() => {
-    if (!locked) return;
-    if (typeof document === "undefined") return;
-
+    if (!locked || typeof document === "undefined") return;
     const scrollY = window.scrollY;
     const body = document.body;
     const prev = {
@@ -265,9 +236,6 @@ function useBodyScrollLock(locked) {
   }, [locked]);
 }
 
-// ─────────────────────────────────────────────
-// LIGHTBOX
-// ─────────────────────────────────────────────
 function Lightbox({
   selectedIndex,
   setSelectedIndex,
@@ -275,7 +243,7 @@ function Lightbox({
   goNext,
   onClose,
 }) {
-  const selected = projects[selectedIndex];
+  const selected = rawProjects[selectedIndex];
 
   return (
     <div
@@ -286,22 +254,20 @@ function Lightbox({
       style={{ background: "rgba(2, 6, 23, 0.97)" }}
       onClick={onClose}
     >
-      {/* Topbar */}
       <div className="flex items-center justify-end px-4 sm:px-5 py-3 sm:py-4 z-10 border-b border-white/10 shrink-0">
         <button
           onClick={(e) => { e.stopPropagation(); onClose(); }}
-          className="w-10 h-10 flex items-center justify-center text-white/80 hover:text-white bg-white/5 hover:bg-white/15 backdrop-blur-sm rounded-full transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+          className="w-10 h-10 flex items-center justify-center text-white/80 hover:text-white bg-white/5 hover:bg-white/15 backdrop-blur-sm rounded-full transition-colors duration-150 cursor-pointer"
           aria-label="Tutup"
         >
           <IconClose />
         </button>
       </div>
 
-      {/* Main image — pakai versi 1024w */}
       <div className="flex-1 flex items-center justify-center px-3 sm:px-20 relative min-h-0">
         <button
           onClick={(e) => { e.stopPropagation(); goPrev(); }}
-          className="absolute left-1.5 sm:left-6 z-10 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+          className="absolute left-1.5 sm:left-6 z-10 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-150 cursor-pointer"
           aria-label="Sebelumnya"
         >
           <IconChevronLeft className="w-5 h-5" />
@@ -310,7 +276,7 @@ function Lightbox({
         <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
           <img
             src={toSize(selected.src, "-1024")}
-            alt={`Dokumentasi proyek PT Tri Abadi Makmur ke-${selectedIndex + 1}`}
+            alt={selected.desc}
             decoding="async"
             draggable={false}
             className="w-full h-auto max-h-[72vh] object-contain mx-auto rounded-lg select-none"
@@ -319,24 +285,20 @@ function Lightbox({
 
         <button
           onClick={(e) => { e.stopPropagation(); goNext(); }}
-          className="absolute right-1.5 sm:right-6 z-10 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+          className="absolute right-1.5 sm:right-6 z-10 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-150 cursor-pointer"
           aria-label="Berikutnya"
         >
           <IconChevronRight className="w-5 h-5" />
         </button>
       </div>
 
-      {/* Thumbnail strip — pakai versi thumbs (2-4 KB) */}
       <div
         className="px-3 sm:px-4 py-3 sm:py-4 overflow-x-auto border-t border-white/10 shrink-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         onClick={(e) => e.stopPropagation()}
-        style={{
-          WebkitOverflowScrolling: "touch",
-          scrollSnapType: "x mandatory",
-        }}
+        style={{ WebkitOverflowScrolling: "touch", scrollSnapType: "x mandatory" }}
       >
         <div className="flex items-center justify-start sm:justify-center gap-1.5 min-w-max mx-auto px-1">
-          {projects.map((thumb, i) => {
+          {rawProjects.map((thumb, i) => {
             const isActive = i === selectedIndex;
             return (
               <button
@@ -344,15 +306,13 @@ function Lightbox({
                 onClick={() => setSelectedIndex(i)}
                 aria-label={`Foto ${i + 1}`}
                 aria-current={isActive ? "true" : undefined}
-                className={`shrink-0 w-11 h-11 sm:w-14 sm:h-14 overflow-hidden rounded-md cursor-pointer transition-opacity duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950
-                  ${isActive
-                    ? "ring-2 ring-[#1e88e5] opacity-100"
-                    : "opacity-30 hover:opacity-80"}`}
+                className={`shrink-0 w-11 h-11 sm:w-14 sm:h-14 overflow-hidden rounded-md cursor-pointer transition-opacity duration-150
+                  ${isActive ? "ring-2 ring-[#1e88e5] opacity-100" : "opacity-30 hover:opacity-80"}`}
                 style={{ scrollSnapAlign: "center" }}
               >
                 <img
                   src={toThumb(thumb.src)}
-                  alt="" // Dibiarkan kosong karena tombol sudah punya aria-label
+                  alt=""
                   loading="lazy"
                   decoding="async"
                   width={56}
@@ -372,10 +332,13 @@ function Lightbox({
 // PROJECTS
 // ─────────────────────────────────────────────
 export default function Projects() {
+  const { lang } = useLang();
+  const data = content[lang] || content.id;
+
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [mounted, setMounted] = useState(false);
   const isMobile = useIsMobile();
-  const total = projects.length;
+  const total = rawProjects.length;
 
   useEffect(() => {
     setMounted(true);
@@ -384,15 +347,11 @@ export default function Projects() {
   useBodyScrollLock(selectedIndex !== null);
 
   const goPrev = useCallback(() => {
-    setSelectedIndex((prev) =>
-      prev === null ? null : (prev - 1 + total) % total
-    );
+    setSelectedIndex((prev) => (prev === null ? null : (prev - 1 + total) % total));
   }, [total]);
 
   const goNext = useCallback(() => {
-    setSelectedIndex((prev) =>
-      prev === null ? null : (prev + 1) % total
-    );
+    setSelectedIndex((prev) => (prev === null ? null : (prev + 1) % total));
   }, [total]);
 
   const closeLightbox = useCallback(() => setSelectedIndex(null), []);
@@ -408,14 +367,13 @@ export default function Projects() {
     return () => window.removeEventListener("keydown", onKey);
   }, [selectedIndex, goPrev, goNext]);
 
-  // Preload next/prev pakai versi 1024 (sesuai yang dipakai lightbox)
   useEffect(() => {
     if (selectedIndex === null) return;
     const next = (selectedIndex + 1) % total;
     const prev = (selectedIndex - 1 + total) % total;
     [next, prev].forEach((i) => {
       const img = new Image();
-      img.src = toSize(projects[i].src, "-1024");
+      img.src = toSize(rawProjects[i].src, "-1024");
     });
   }, [selectedIndex, total]);
 
@@ -424,6 +382,8 @@ export default function Projects() {
     if (p === 0 || p === 5) return "md:col-span-2 md:row-span-2";
     return "";
   };
+
+  const waHref = `https://wa.me/6282258089367?text=${encodeURIComponent(data.waMessage)}`;
 
   return (
     <>
@@ -438,10 +398,8 @@ export default function Projects() {
                   linear-gradient(to bottom, #f1f5f9 1px, transparent 1px)
                 `,
                 backgroundSize: "64px 64px",
-                maskImage:
-                  "radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 100%)",
-                WebkitMaskImage:
-                  "radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 100%)",
+                maskImage: "radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 100%)",
+                WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 100%)",
               }}
               aria-hidden="true"
             />
@@ -452,43 +410,41 @@ export default function Projects() {
         )}
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-5 lg:px-8">
-
-          {/* ═══ HEADER ═══ */}
+          {/* ═══ HEADER DENGAN H1 SEO ═══ */}
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 lg:mb-16">
             <Reveal delay={0} y={20}>
               <div className="inline-flex items-center gap-3 mb-4">
                 <span className="w-6 sm:w-8 h-px bg-[#1e88e5]/60" aria-hidden="true" />
                 <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-semibold">
-                  What We Have Done
+                  {data.kicker}
                 </span>
                 <span className="w-6 sm:w-8 h-px bg-[#1e88e5]/60" aria-hidden="true" />
               </div>
             </Reveal>
 
             <Reveal delay={80} y={30}>
-              <h2
+              <h1
                 className="font-light tracking-tight text-slate-900 leading-[1.15]"
                 style={{ fontSize: "clamp(1.75rem, 5vw, 2.625rem)" }}
               >
-                Galeri <span className="font-semibold">Pengerjaan</span>
+                {data.titleLight} <span className="font-semibold">{data.titleBold}</span>
                 <span className="text-[#1e88e5]">.</span>
-              </h2>
+              </h1>
             </Reveal>
 
             <Reveal delay={160} y={24}>
               <p
-                className="text-slate-500 leading-relaxed mt-4"
-                style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.9375rem)" }}
+                className="text-slate-600 leading-relaxed mt-4"
+                style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.95rem)" }}
               >
-                Dokumentasi nyata dari layanan yang kami kerjakan —
-                dari perencanaan hingga finishing.
+                {data.subtitle}
               </p>
             </Reveal>
           </div>
 
           {/* ═══ GRID GALERI ═══ */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-2.5 lg:gap-3 [grid-auto-rows:130px] sm:[grid-auto-rows:150px] lg:[grid-auto-rows:190px]">
-            {projects.map((item, i) => (
+            {rawProjects.map((item, i) => (
               <Reveal
                 key={i}
                 delay={Math.min(i, 16) * 35}
@@ -499,8 +455,8 @@ export default function Projects() {
                 <button
                   type="button"
                   onClick={() => setSelectedIndex(i)}
-                  aria-label={`Buka proyek ${i + 1}`}
-                  className="group relative w-full h-full overflow-hidden rounded-xl bg-slate-100 cursor-pointer border border-slate-200/80 hover:border-[#1e88e5]/60 hover:shadow-lg hover:shadow-slate-900/5 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
+                  aria-label={item.desc}
+                  className="group relative w-full h-full overflow-hidden rounded-xl bg-slate-100 cursor-pointer border border-slate-200/80 hover:border-[#1e88e5]/60 hover:shadow-lg hover:shadow-slate-900/5 transition-colors duration-300"
                 >
                   <img
                     src={toSize(item.src, "-640")}
@@ -510,7 +466,7 @@ export default function Projects() {
                       ${toSize(item.src, "-1024")} 1024w
                     `}
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 260px"
-                    alt={`Dokumentasi proyek pengaspalan dan konstruksi PT Tri Abadi Makmur ke-${i + 1}`}
+                    alt={item.desc}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
@@ -525,30 +481,29 @@ export default function Projects() {
             ))}
           </div>
 
-          {/* ═══ CTA ═══ */}
+          {/* ═══ CTA (WHATSAPP) ═══ */}
           <Reveal y={34}>
             <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-10 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
               <p
                 className="text-slate-600 leading-relaxed text-center sm:text-left max-w-xl"
                 style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.9375rem)" }}
               >
-                Butuh layanan seperti yang ada di galeri ini?{" "}
-                <span className="text-slate-900 font-medium">
-                  Konsultasikan kebutuhan proyek Anda
-                </span>{" "}
-                — kami siap membantu dari perencanaan hingga finishing.
+                {data.ctaQuestion}{" "}
+                <span className="text-slate-900 font-medium">{data.ctaHighlight}</span>{" "}
+                {data.ctaSuffix}
               </p>
 
-              <Link
-                href="/kontak"
-                className="group shrink-0 inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 min-h-[44px] rounded-xl bg-slate-900 text-white hover:bg-[#1e88e5] font-semibold text-[11px] sm:text-[11.5px] uppercase tracking-[0.15em] sm:tracking-[0.18em] transition-colors duration-200 shadow-md shadow-slate-900/10 hover:shadow-lg hover:shadow-[#1e88e5]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
+              <a
+                href={waHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group shrink-0 inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 min-h-[44px] rounded-xl bg-[#1e88e5] hover:bg-blue-600 text-white font-semibold text-[11px] sm:text-[11.5px] uppercase tracking-[0.15em] sm:tracking-[0.18em] transition-all duration-200 shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/40"
               >
-                Konsultasi Gratis
+                {data.ctaButton}
                 <IconArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-1" />
-              </Link>
+              </a>
             </div>
           </Reveal>
-
         </div>
       </section>
 
