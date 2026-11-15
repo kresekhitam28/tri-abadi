@@ -2,7 +2,6 @@
 "use client";
 
 import { useState, useMemo, useCallback, memo, Fragment } from "react";
-import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 
 // ─────────────────────────────────────────────
@@ -33,11 +32,10 @@ function IconMinus({ className = "w-4 h-4" }) {
     </svg>
   );
 }
-function IconArrowRight({ className = "w-3.5 h-3.5" }) {
+function IconWhatsApp({ className = "w-4 h-4" }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <path d="M5 12h14M13 6l6 6-6 6" />
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
     </svg>
   );
 }
@@ -141,30 +139,32 @@ const content = {
   id: {
     headerBadge1: "Paket Harga",
     headerBadge2: "Paving & Grass Block",
-    headerTitle: "Jasa pasang paving block Jabodetabek",
-    headerSubtitle: "Spesifikasi harga jasa pasang paving block",
+    headerTitle: "Jasa pasang paving block Jabodetabek, Banten & Jawa Barat",
+    headerSubtitle: "Spesifikasi harga borongan jasa pasang paving block (Tebal 6 cm & 8 cm · Mutu K-250 – K-300)",
     colType: "Type", colTebal: "Tebal", colTebalUnit: "Cm",
     colNatural: "Harga", colNaturalLine2: "Natural",
     colWarna: "Harga", colWarnaLine2: "Warna",
     colIsi: "Isi", colIsiLine2: "/ m²",
-    footnoteTable: "Harga dalam ribuan Rupiah per m²",
+    footnoteTable: "Harga material dalam ribuan Rupiah per m²",
     mobileIsi: "Isi:", mobileNatural: "Natural", mobileWarna: "Warna",
-    footerNote: "Harga dapat berubah sesuai kondisi lapangan & volume pekerjaan.",
-    ctaLabel: "Selengkapnya",
+    footerNote: "Gratis survei lokasi & konsultasi RAB. Harga dapat menyesuaikan luas area & kondisi lapangan.",
+    ctaLabel: "Tanya Harga & Survei via WA",
+    waText: "Halo Tri Abadi Makmur, saya mau tanya rincian harga pemasangan paving block & jadwalkan survei lokasi...",
   },
   en: {
     headerBadge1: "Price Package",
     headerBadge2: "Paving & Grass Block",
-    headerTitle: "Paving block installation services in Jabodetabek",
-    headerSubtitle: "Price specification for paving block installation services",
+    headerTitle: "Paving block installation services in Jabodetabek, Banten & Jawa Barat",
+    headerSubtitle: "Price specification for paving block installation services (Thickness 6 cm & 8 cm · Grade K-250 – K-300)",
     colType: "Type", colTebal: "Thickness", colTebalUnit: "Cm",
     colNatural: "Price", colNaturalLine2: "Natural",
     colWarna: "Price", colWarnaLine2: "Colored",
     colIsi: "Qty", colIsiLine2: "/ m²",
-    footnoteTable: "Prices are in thousands of Rupiah per m²",
+    footnoteTable: "Material prices are in thousands of Rupiah per m²",
     mobileIsi: "Qty:", mobileNatural: "Natural", mobileWarna: "Colored",
-    footerNote: "Prices may change according to field conditions & work volume.",
-    ctaLabel: "Learn More",
+    footerNote: "Free site survey & budget consultation. Prices may adjust based on area size & field conditions.",
+    ctaLabel: "Ask Price & Survey via WA",
+    waText: "Hello Tri Abadi Makmur, I would like to ask about paving block installation prices & schedule a site survey...",
   },
 };
 
@@ -338,7 +338,8 @@ export default function PavingPricingPanel({ hideCta = false }) {
   const { lang } = useLang();
   const t = content[lang] || content.id;
 
-  const [open, setOpen] = useState(0);
+  // Default buka indeks 1 ("Jasa + Bahan") karena paling banyak dicari dari Google Ads
+  const [open, setOpen] = useState(1);
   const toggle = useCallback((i) => {
     setOpen((prev) => (prev === i ? -1 : i));
   }, []);
@@ -375,38 +376,52 @@ export default function PavingPricingPanel({ hideCta = false }) {
       },
       {
         label: { id: "Jasa + bahan", en: "Service + material" },
-        title: { id: "Jasa pasang paving block berikut Bahan", en: "Paving block installation service including Material" },
-        desc: { id: "Tenaga + material pendukung", en: "Labor + supporting material" },
+        title: { id: "Jasa pasang paving block berikut Bahan (Terima Beres)", en: "Paving block installation service including Material" },
+        desc: { id: "Tenaga + material paving K-250/K-300 + abu batu / sirtu", en: "Labor + paving material K-250/K-300 + stone dust / sirtu" },
         content: (
           <div className="space-y-3">
             <div className="rounded-lg border border-slate-200 divide-y divide-dashed divide-slate-200">
               <div className="flex items-start sm:items-center justify-between gap-3 sm:gap-4 px-4 py-3">
                 <span className="text-[12.5px] text-slate-700 min-w-0">
-                  {lang === "en" ? "Labor + Material" : "Tenaga + Bahan"}{" "}
+                  {lang === "en" ? "Labor + Material (6 cm)" : "Tenaga + Bahan (Tebal 6 cm)"}{" "}
                   <span className="text-slate-400">({lang === "en" ? "Stone dust & Paving" : "Abu batu & Paving"})</span>
                 </span>
                 <span className="text-[13px] font-semibold text-slate-900 whitespace-nowrap shrink-0">Rp 120.000<span className="text-[11px] text-slate-500">/m²</span></span>
               </div>
               <div className="flex items-start sm:items-center justify-between gap-3 sm:gap-4 px-4 py-3">
                 <span className="text-[12.5px] text-slate-700 min-w-0">
-                  {lang === "en" ? "Labor + Material" : "Tenaga + Bahan"}{" "}
+                  {lang === "en" ? "Labor + Material (6 cm + Sirtu)" : "Tenaga + Bahan (Tebal 6 cm + Sirtu)"}{" "}
                   <span className="text-slate-400">({lang === "en" ? "Sirtu, Stone dust & Paving" : "Sirtu, Abu batu & Paving"})</span>
                 </span>
                 <span className="text-[13px] font-semibold text-slate-900 whitespace-nowrap shrink-0">Rp 135.000<span className="text-[11px] text-slate-500">/m²</span></span>
+              </div>
+              <div className="flex items-start sm:items-center justify-between gap-3 sm:gap-4 px-4 py-3 bg-slate-50/50">
+                <span className="text-[12.5px] text-slate-700 min-w-0">
+                  {lang === "en" ? "Labor + Material (8 cm)" : "Tenaga + Bahan (Tebal 8 cm)"}{" "}
+                  <span className="text-slate-400">({lang === "en" ? "Stone dust & Paving K-300" : "Abu batu & Paving K-300"})</span>
+                </span>
+                <span className="text-[13px] font-semibold text-slate-900 whitespace-nowrap shrink-0">Rp 130.000<span className="text-[11px] text-slate-500">/m²</span></span>
+              </div>
+              <div className="flex items-start sm:items-center justify-between gap-3 sm:gap-4 px-4 py-3 bg-slate-50/50">
+                <span className="text-[12.5px] text-slate-700 min-w-0">
+                  {lang === "en" ? "Labor + Material (8 cm + Sirtu)" : "Tenaga + Bahan (Tebal 8 cm + Sirtu)"}{" "}
+                  <span className="text-slate-400">({lang === "en" ? "Sirtu, Stone dust & Paving K-300" : "Sirtu, Abu batu & Paving K-300"})</span>
+                </span>
+                <span className="text-[13px] font-semibold text-slate-900 whitespace-nowrap shrink-0">Rp 145.000<span className="text-[11px] text-slate-500">/m²</span></span>
               </div>
             </div>
             <ul className="space-y-1 text-[11px] text-slate-500">
               <li className="flex gap-2">
                 <span className="text-slate-300" aria-hidden="true">•</span>
-                {lang === "en" ? (<>Price for paving block thickness <b className="text-slate-700">6 cm</b> (8 cm + Rp 10.000)</>) : (<>Harga untuk paving block ketebalan <b className="text-slate-700">6 cm</b> (8 cm + Rp 10.000)</>)}
+                {lang === "en" ? (<>Standard concrete grade <b className="text-slate-700">K-250 to K-300</b> (Hydraulic Press)</>) : (<>Mutu beton standar <b className="text-slate-700">K-250 s/d K-300</b> (Press Hidrolik)</>)}
               </li>
               <li className="flex gap-2">
                 <span className="text-slate-300" aria-hidden="true">•</span>
-                {lang === "en" ? (<>Color <b className="text-slate-700">natural</b> (other colors + Rp 10.000)</>) : (<>Warna <b className="text-slate-700">natural</b> (warna lain + Rp 10.000)</>)}
+                {lang === "en" ? (<>Color <b className="text-slate-700">natural</b> (other colors + Rp 10.000/m²)</>) : (<>Warna <b className="text-slate-700">natural</b> (warna merah/hitam + Rp 10.000/m²)</>)}
               </li>
               <li className="flex gap-2">
                 <span className="text-slate-300" aria-hidden="true">•</span>
-                {lang === "en" ? (<>Price for area above <b className="text-slate-700">100 m²</b></>) : (<>Harga untuk ukuran di atas <b className="text-slate-700">100 m²</b></>)}
+                {lang === "en" ? (<>Price for area above <b className="text-slate-700">100 m²</b> (under 100 m² negotiable)</>) : (<>Harga untuk ukuran di atas <b className="text-slate-700">100 m²</b> (di bawah 100 m² silakan konsultasi)</>)}
               </li>
             </ul>
           </div>
@@ -414,8 +429,8 @@ export default function PavingPricingPanel({ hideCta = false }) {
       },
       {
         label: { id: "Bentuk paving", en: "Paving shape" },
-        title: { id: "Pilihan bentuk Paving Block", en: "Paving Block Shape Options" },
-        desc: { id: "Bata · Cacing · Hexagonal", en: "Brick · Worm · Hexagonal" },
+        title: { id: "Harga Material Paving Block per m² (Bata, Cacing, Hexagonal)", en: "Paving Block Material Price per m² (Brick, Worm, Hexagonal)" },
+        desc: { id: "Tebal 6 cm & 8 cm · Natural & Warna", en: "Thickness 6 cm & 8 cm · Natural & Colored" },
         content: (
           <>
             <ProductTable data={pavingTypes} imageMap={imageMapPaving} t={t} lang={lang} />
@@ -425,7 +440,7 @@ export default function PavingPricingPanel({ hideCta = false }) {
       },
       {
         label: { id: "Grass block", en: "Grass block" },
-        title: { id: "Jasa Pasang Grass Block", en: "Grass Block Installation Service" },
+        title: { id: "Harga Material & Pasang Grass Block", en: "Grass Block Material & Installation Price" },
         desc: { id: "Fullpave · Halfpave · Topi Uskup", en: "Fullpave · Halfpave · Bishop's Cap" },
         content: (
           <>
@@ -439,7 +454,7 @@ export default function PavingPricingPanel({ hideCta = false }) {
 
   return (
     <section
-      className="w-full bg-white border border-slate-200 rounded-2xl overflow-hidden"
+      className="w-full bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm"
       aria-labelledby="paving-panel-title"
     >
       {/* Header */}
@@ -474,18 +489,20 @@ export default function PavingPricingPanel({ hideCta = false }) {
         ))}
       </div>
 
-      {/* Footer */}
-      <div className={`px-4 sm:px-6 py-4 border-t border-slate-200 bg-slate-50/60 ${hideCta ? "" : "flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"}`}>
+      {/* Footer dengan CTA WhatsApp Langsung */}
+      <div className={`px-4 sm:px-6 py-4 border-t border-slate-200 bg-slate-50/80 ${hideCta ? "" : "flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"}`}>
         <span className="text-[11px] text-slate-500 leading-relaxed">{t.footerNote}</span>
         {!hideCta && (
-          <Link
-            href="/layanan/infrastruktur/pasang-paving-block"
+          <a
+            href={`https://wa.me/6282258089367?text=${encodeURIComponent(t.waText)}`}
+            target="_blank"
+            rel="noreferrer"
             aria-label={t.ctaLabel}
-            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 min-h-[44px] sm:min-h-0 rounded-lg shrink-0 bg-slate-900 text-white text-[12px] font-semibold hover:bg-[#1e88e5] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 min-h-[44px] rounded-xl shrink-0 bg-[#25D366] text-white text-[12px] font-bold hover:bg-[#20bd5a] shadow-sm transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
           >
+            <IconWhatsApp className="w-4 h-4 shrink-0" />
             {t.ctaLabel}
-            <IconArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          </a>
         )}
       </div>
     </section>

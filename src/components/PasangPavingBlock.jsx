@@ -116,9 +116,6 @@ function IconWhatsApp({ className = "w-4 h-4" }) {
 function IconArrowRight({ className = "w-3.5 h-3.5" }) {
   return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M5 12h14M13 5l7 7-7 7" /></svg>);
 }
-function IconCheck({ className = "w-4 h-4" }) {
-  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20 6L9 17l-5-5" /></svg>);
-}
 function IconShield({ className = "w-4 h-4" }) {
   return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>);
 }
@@ -249,7 +246,7 @@ const tahapanPemasangan = [
     Icon: IconLayers,
     title: { id: "Leveling & Perataan", en: "Leveling & Flattening" },
     desc: {
-      id: "Menentukan rata atau miripnya permukaan yang akan dikerjakan dengan menggunakan alat waterpass.",
+      id: "Menentukan rata atau miringnya permukaan yang akan dikerjakan dengan menggunakan alat waterpass.",
       en: "Determining the flatness of the surface to be worked on using a water level.",
     },
   },
@@ -340,29 +337,29 @@ function SectionKicker({ children }) {
 // ─────────────────────────────────────────────
 // KONTEN BILINGUAL
 // ─────────────────────────────────────────────
-const content = {
+  const content = {
   id: {
     heroKicker: "Layanan Kami",
     heroTitle: "Jasa Pasang Paving Block Murah & Rapi",
-    heroSubtitle: "Untuk Perumahan, Trotoar & Area Parkir di Tangerang & Jabodetabek.",
-    heroDesc: "Jasa pasang paving block untuk jalan perumahan, trotoar, dan area publik. Rapi, presisi, dan tahan lama dengan berbagai pilihan motif.",
+    heroSubtitle: "Untuk Perumahan, Trotoar & Area Parkir di Jabodetabek, Banten & Jawa Barat.",
+    heroDesc: "Jasa pasang paving block untuk jalan perumahan, trotoar, dan area publik. Rapi, presisi, dan tahan lama dengan berbagai pilihan motif serta survei lokasi gratis.",
     figAlt: "Pasang Paving Block",
     figCaption: "Pemasangan Paving Block — Tri Abadi Makmur",
-    introTitle: "Jasa Pasang Paving Block Jabodetabek",
+    introTitle: "Jasa Pasang Paving Block Jabodetabek, Banten & Jawa Barat",
     introBody: " — atau conblock adalah material bangunan yang dibuat dari komposisi bahan material kasar seperti campuran semen dan pasir yang dipress dengan tekanan tertentu dan dibuat dengan berbagai bentuk dan warna.",
-    quote: "Kontruksi Paving Block / Conblock juga merupakan metode hisa yang umum digunakan untuk pembangunan jalan maupun infrastruktur lainnya — sekaligus memberikan nilai estetika pada area terbuka.",
+    quote: "Konstruksi Paving Block / Conblock juga merupakan metode yang umum digunakan untuk pembangunan jalan maupun infrastruktur lainnya — sekaligus memberikan nilai estetika pada area terbuka.",
     aboutKicker: "Informasi",
     aboutTitleLight: "Tentang ",
     aboutTitleBold: "Paving Block",
     aboutP1: "Paving block / conblock banyak sekali digunakan sebagai infrastruktur karena kemudahan perawatannya, jika mengingat biaya yang relatif murah dibandingkan bahan lain. Tapi dilihat dari fungsi, paving block memang digunakan sebagai infrastruktur taman dan jalan.",
     aboutP2: "Seperti yang kita ketahui, paving block dipasang di area terbuka dan dipakai untuk melapisi permukaan tanah yang akan ditanami rumput atau sebagai jalur pejalan kaki.",
-    aboutP3: "Pemasangan conblock ini juga sangat sesuai digunakan perusahaan atau instansi dalam penataan lalu ruang hijau dimana harus ada lahan untuk serapan air sebagaimana telah ditetapkan oleh pemerintah.",
+    aboutP3: "Pemasangan conblock ini juga sangat sesuai digunakan perusahaan atau instansi dalam penataan ruang hijau dimana harus ada lahan untuk serapan air sebagaimana telah ditetapkan oleh pemerintah.",
     usedKicker: "Biasa Digunakan Di",
     stepKicker: "Tahapan Pemasangan",
     priceKicker: "Paket Harga",
     priceTitleLight: "Jasa Pasang ",
-    priceTitleBold: "Paving Block Jabodetabek",
-    priceDesc: "Spesifikasi harga jasa pasang paving block & grass block.",
+    priceTitleBold: "Paving Block Jabodetabek, Banten & Jawa Barat",
+    priceDesc: "Spesifikasi harga borongan jasa pasang paving block & grass block (tenaga saja maupun terima beres berikut material).",
     articleKicker: "Informasi & Edukasi",
     articleTitleLight: "Butuh wawasan seputar ",
     articleTitleBold: "Konstruksi & Paving Block?",
@@ -371,24 +368,24 @@ const content = {
     areaKicker: "Layanan",
     areaTitleLight: "Area ",
     areaTitleBold: "Jangkauan Kami",
-    areaDesc: "Melayani jasa pasang paving block di berbagai kota & kabupaten berikut.",
+    areaDesc: "Melayani jasa pasang paving block di Jabodetabek, Banten, Jawa Barat, dan berbagai kota & kabupaten berikut.",
     areaToggle: "Lihat Daftar Kota & Kabupaten",
     areaCity: "Kota",
     areaRegency: "Kab.",
-    ctaKicker: "Konsultasi Gratis",
+    ctaKicker: "Konsultasi & Survei Gratis",
     ctaTitleLight: "Butuh jasa pasang paving block? ",
     ctaTitleBold: "Kami siap membantu.",
-    ctaBtn: "Hubungi via WhatsApp",
-    ctaWaMessage: "Halo Tri Abadi Makmur, saya ingin konsultasi mengenai Project...",
+    ctaBtn: "Tanya Harga & Survei via WA",
+    ctaWaMessage: "Halo Tri Abadi Makmur, saya ingin konsultasi & tanya estimasi harga Jasa Pasang Paving Block...",
   },
   en: {
     heroKicker: "Our Services",
     heroTitle: "Affordable & Neat Paving Block Installation",
-    heroSubtitle: "for Residential, Sidewalks & Parking Areas in Tangerang & Greater Jakarta.",
-    heroDesc: "Paving block installation services for housing roads, sidewalks, and public areas. Neat, precise, and durable with various pattern choices.",
+    heroSubtitle: "for Residential, Sidewalks & Parking Areas in Greater Jakarta, Banten & West Java.",
+    heroDesc: "Paving block installation services for housing roads, sidewalks, and public areas. Neat, precise, and durable with various pattern choices and free site survey.",
     figAlt: "Paving Block Installation",
     figCaption: "Paving Block Installation — Tri Abadi Makmur",
-    introTitle: "Paving Block Installation Services in Jabodetabek",
+    introTitle: "Paving Block Installation Services in Jabodetabek, Banten & West Java",
     introBody: " — or conblock is a building material made from a composition of coarse materials such as a mixture of cement and sand, pressed under specific pressure and made in various shapes and colors.",
     quote: "Paving Block / Conblock construction is also a common method used for road construction and other infrastructure — while also adding aesthetic value to open areas.",
     aboutKicker: "Information",
@@ -401,7 +398,7 @@ const content = {
     stepKicker: "Installation Stages",
     priceKicker: "Price Packages",
     priceTitleLight: "Paving Block Installation ",
-    priceTitleBold: "Services in Jabodetabek",
+    priceTitleBold: "Services in Jabodetabek, Banten & West Java",
     priceDesc: "Price specifications for paving block & grass block installation services.",
     articleKicker: "Information & Education",
     articleTitleLight: "Need insights on ",
@@ -411,18 +408,17 @@ const content = {
     areaKicker: "Services",
     areaTitleLight: "Our ",
     areaTitleBold: "Coverage Area",
-    areaDesc: "Serving paving block installation services in the following cities & regencies.",
+    areaDesc: "Serving paving block installation services in Jabodetabek, Banten, West Java, and the following cities & regencies.",
     areaToggle: "View City & Regency List",
     areaCity: "City",
     areaRegency: "Regency",
-    ctaKicker: "Free Consultation",
+    ctaKicker: "Free Consultation & Survey",
     ctaTitleLight: "Need paving block installation? ",
     ctaTitleBold: "We are ready to help.",
-    ctaBtn: "Contact via WhatsApp",
-    ctaWaMessage: "Hello Tri Abadi Makmur, I would like to consult about an project...",
+    ctaBtn: "Ask Price & Survey via WA",
+    ctaWaMessage: "Hello Tri Abadi Makmur, I would like to consult about Paving Block Installation...",
   },
 };
-
 // ─────────────────────────────────────────────
 // SUB-KOMPONEN: KEUNGGULAN CARD (memoized)
 // ─────────────────────────────────────────────
@@ -631,7 +627,7 @@ export default function PasangPavingBlock() {
 
           {/* Foto utama */}
           <Reveal y={40} duration={800}>
-            <figure className="relative rounded-2xl overflow-hidden bg-slate-100 mb-8 shadow-xl shadow-slate-200/50 ring-1 ring-slate-900/5">
+            <figure className="relative rounded-2xl overflow-hidden bg-slate-100 mb-12 shadow-xl shadow-slate-200/50 ring-1 ring-slate-900/5">
               <div className="aspect-[16/10]">
                 <img
                   src="/proyek/proyek-40.webp"
@@ -663,7 +659,37 @@ export default function PasangPavingBlock() {
               </figcaption>
             </figure>
           </Reveal>
+        </div>
 
+        {/* ═══════ PANEL HARGA (DIPINDAHKAN KE ATAS AGAR LANGSUNG TERLIHAT) ═══════ */}
+        <div className="mt-8 lg:mt-12 mb-16">
+          <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+            <Reveal y={26}>
+              <div className="text-center mb-10">
+                <SectionKicker>{data.priceKicker}</SectionKicker>
+                <h2
+                  className="font-light tracking-tight text-slate-900 leading-tight max-w-2xl mx-auto"
+                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
+                >
+                  {data.priceTitleLight}
+                  <span className="font-bold">{data.priceTitleBold}</span>
+                </h2>
+                <p
+                  className="text-slate-500 mt-4 max-w-xl mx-auto"
+                  style={{ fontSize: "clamp(0.875rem, 1.4vw, 0.9375rem)" }}
+                >
+                  {data.priceDesc}
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal y={34} delay={80}>
+              <PavingPricingPanel />
+            </Reveal>
+          </div>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
           {/* Pengantar */}
           <Reveal delay={100} y={24}>
             <div className="max-w-3xl mb-14">
@@ -801,7 +827,7 @@ export default function PasangPavingBlock() {
                 { q: "Apakah bisa survei lokasi dulu sebelum order?", a: "Ya, kami menyediakan survei lokasi gratis untuk memastikan kebutuhan, mengukur luas area, dan memberikan estimasi biaya yang akurat. Survei bisa dijadwalkan via WhatsApp." },
                 { q: "Berapa lama proses pemasangan paving block?", a: "Tergantung luas dan kondisi lahan. Untuk area standar (100–500 m²), biasanya 1–3 hari kerja. Untuk proyek lebih besar, kami berikan estimasi waktu setelah survei." },
                 { q: "Apakah ada garansi pengerjaan?", a: "Ya, kami memberikan garansi pengerjaan untuk pemasangan paving block, tergantung jenis pekerjaan dan kondisi lapangan. Detail garansi dijelaskan dalam penawaran." },
-                { q: "Area mana saja yang dilayani?", a: "Kami melayani Jabodetabek (Jakarta, Bogor, Depok, Tangerang, Bekasi) dan sekitarnya. Untuk area di luar Jabodetabek, silakan konsultasi via WhatsApp untuk memastikan ketersediaan." },
+                { q: "Area mana saja yang dilayani?", a: "Kami melayani Jabodetabek (Jakarta, Bogor, Depok, Tangerang, Bekasi), Bandung, serta berbagai kota di Jawa Barat & sekitarnya." },
                 { q: "Apa kelebihan paving block dibanding cor beton?", a: "Paving block lebih mudah diperbaiki (bisa diganti per bagian), memiliki celah untuk resapan air (mengurangi genangan), dan tampilannya lebih estetis dengan berbagai pilihan motif dan warna." },
               ].map((faq, i) => (
                 <Reveal key={i} delay={i * 60} y={20}>
@@ -812,39 +838,6 @@ export default function PasangPavingBlock() {
               ))}
             </div>
           </div>
-
-        </div>
-
-        {/* ═══════ PANEL HARGA ═══════ */}
-        <div className="mt-16 lg:mt-20 mb-16">
-          <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
-            <Reveal y={26}>
-              <div className="text-center mb-10">
-                <SectionKicker>{data.priceKicker}</SectionKicker>
-                <h2
-                  className="font-light tracking-tight text-slate-900 leading-tight max-w-2xl mx-auto"
-                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
-                >
-                  {data.priceTitleLight}
-                  <span className="font-bold">{data.priceTitleBold}</span>
-                </h2>
-                <p
-                  className="text-slate-500 mt-4 max-w-xl mx-auto"
-                  style={{ fontSize: "clamp(0.875rem, 1.4vw, 0.9375rem)" }}
-                >
-                  {data.priceDesc}
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal y={34} delay={80}>
-              <PavingPricingPanel hideCta />
-            </Reveal>
-          </div>
-        </div>
-
-        {/* Lanjut konten */}
-        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
 
           {/* ═══════ TAMBAHAN: SECTION ARTIKEL BLOG ═══════ */}
           <Reveal y={30}>
@@ -946,7 +939,6 @@ export default function PasangPavingBlock() {
           {/* ═══════ CTA (Premium) ═══════ */}
           <Reveal y={34}>
             <div className="mt-10 sm:mt-14 p-8 sm:p-12 bg-slate-900 rounded-3xl text-center max-w-3xl mx-auto shadow-2xl shadow-slate-900/20 relative overflow-hidden">
-              {/* Efek background abstrak halus */}
               <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-[#1e88e5] rounded-full blur-3xl opacity-20 pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-[#25D366] rounded-full blur-3xl opacity-10 pointer-events-none"></div>
 

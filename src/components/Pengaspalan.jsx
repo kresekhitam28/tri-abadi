@@ -2,9 +2,11 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo, useId } from "react";
-import Link from "next/link"; 
+import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import ServicePricingPanel from "./ServicePricingPanel";
+
+const WA_NUMBER = "6282258089367";
 
 // ─────────────────────────────────────────────
 // HOOK: DETEKSI MOBILE
@@ -153,7 +155,7 @@ function IconArticle({ className = "w-4 h-4" }) {
 }
 
 // ─────────────────────────────────────────────
-// ACCORDION (memoized) - Hanya untuk FAQ
+// ACCORDION (memoized)
 // ─────────────────────────────────────────────
 const Accordion = memo(function Accordion({ title, children, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -294,7 +296,7 @@ const areaJangkauan = [
 ];
 
 // ─────────────────────────────────────────────
-// SECTION KICKER (Simpel)
+// SECTION KICKER
 // ─────────────────────────────────────────────
 function SectionKicker({ children }) {
   return (
@@ -317,14 +319,22 @@ const content = {
     heroTitle: "Jasa Pengaspalan Jalan & Aspal Hotmix",
     heroSubtitle: "untuk Perumahan, Pabrik, Gudang, Kawasan Industri, Area Parkir, hingga Proyek Pemerintah.",
     heroDesc: "PT Tri Abadi Makmur melayani jasa pengaspalan jalan, aspal hotmix, perbaikan jalan, dan overlay untuk berbagai skala proyek. Melayani Jabodetabek, Banten, dan berbagai wilayah Indonesia.",
+    heroWaBtn: "Konsultasi & Minta Penawaran",
+    heroPriceBtn: "Lihat Paket Harga / m²",
+    figKicker: "Proyek Lapangan",
     figCaption: "Proyek Pengaspalan — Tri Abadi Makmur",
     figAlt: "Jasa Pengaspalan",
+    priceKicker: "Paket Harga",
+    priceTitleLight: "Berikut kami tawarkan ",
+    priceTitleBold: "harga paket jasa pengaspalan & perbaikan aspal",
+    priceWaBtn: "Hitung Biaya Sesuai Luas Area (m²)",
     introTitle: "Jasa Pengaspalan Berkualitas Tinggi Harga Bersaing",
-    introP1: "— menggunakan tenaga-tenaga konstruksi profesional demi memberikan service yang diutamakan.",
-    introP2Prefix: "Dari team Kontraktor ",
-    introP2Mid: ", kami mau menawarkan dan melayani pengerjaan jalan, perbaikan jalan, serta aspal dan pembuatan aspal.",
+    introP1: "— didukung tenaga konstruksi berpengalaman serta peralatan berat lengkap untuk hasil jalan yang rata, padat, dan tahan lama.",
+    introP2Prefix: "Dari tim kontraktor ",
+    introP2Mid: ", kami melayani pengaspalan hotmix baru, pelapisan ulang (overlay), hingga perbaikan jalan rusak untuk berbagai kebutuhan proyek.",
     otherKicker: "Bukan hanya aspal",
     acc1Title: "Kami melayani berbagai kebutuhan pengaspalan untuk",
+    acc1Intro: "Cakupan area & jenis proyek yang kami kerjakan:",
     acc1Items: [
       "Jalan perumahan & komplek",
       "Jalan pabrik & kawasan industri",
@@ -341,9 +351,6 @@ const content = {
       "Pembersihan & pemadatan area kerja",
       "Finishing & perapihan hasil akhir",
     ],
-    priceKicker: "Paket Harga",
-    priceTitleLight: "Berikut kami tawarkan ",
-    priceTitleBold: "harga paket jasa perbaikan aspal",
     methodKicker: "Metode Kerja",
     methodTitleLight: "Cara ",
     methodTitleBold: "Pengerjaan",
@@ -354,8 +361,8 @@ const content = {
     infoKicker: "Informasi",
     infoTitleLight: "Harga dan Biaya ",
     infoTitleBold: "Pengaspalan",
-    infoP1: "Dalam menentukan harga, kami akan mengacu pada apa yang ditentukan oleh pihak pembuat dan mengukur sendiri kondisi jalan nantinya. Jika pihak memakai komposisi dan volume pekerjaan yang ditentukan oleh Anda, kami akan mengerjakan sesuai dengan yang sudah ditentukan di lapangan.",
-    infoP2: "Sedangkan dalam mengerjakan pengaspalan tergantung luas dan kondisi jalan, dan akan dihitung pula saat survey lokasi. Mengenai harga diatur di bawah pengaruh kualitas. Dengan adanya pekerjaan di pinggir jalan maupun untuk berbagai jenis kategori jalan, kami kerjakan aspal murah.",
+    infoP1: "Penentuan harga pengaspalan mengacu pada spesifikasi ketebalan lapisan, jenis material hotmix, serta hasil pengukuran kondisi lahan saat survey lokasi. Jika Anda sudah memiliki RAB atau volume pekerjaan tersendiri, tim kami siap menyesuaikan pengerjaan sesuai spesifikasi teknis di lapangan.",
+    infoP2: "Total biaya menyesuaikan luas area (m²) dan kondisi dasar jalan yang akan diaspal. Dengan dukungan tim profesional dan pasokan material hotmix langsung, kami memberikan penawaran harga yang kompetitif tanpa mengurangi kualitas kepadatan jalan.",
     acc3Title: "Keunggulan Jasa Pengaspalan Kami",
     acc3Items: [
       "Tenaga kerja berpengalaman & profesional",
@@ -382,20 +389,26 @@ const content = {
     ctaTitleLight: "Butuh jasa pengaspalan? ",
     ctaTitleBold: "Kami siap membantu.",
     ctaBtn: "Hubungi via WhatsApp",
-    ctaWaMessage: "Halo Tri Abadi Makmur, saya ingin konsultasi mengenai Project...",
+    ctaWaMessage: "Halo Tri Abadi Makmur, saya ingin konsultasi estimasi biaya & survey pengaspalan untuk lokasi di...",
   },
   en: {
     heroKicker: "Our Main Service",
     heroTitle: "Asphalt Paving & Hotmix Solutions",
     heroSubtitle: "for Residential, Factory, Warehouse, Industrial Areas, Parking Lots, up to Government Projects.",
     heroDesc: "PT Tri Abadi Makmur provides asphalt paving, hotmix, road repair, and overlay services for various project scales. Serving Greater Jakarta, Banten, and various regions across Indonesia.",
-    figKicker: "Project",
+    heroWaBtn: "Consult & Request Quote",
+    heroPriceBtn: "View Price Packages / m²",
+    figKicker: "Field Project",
     figCaption: "Asphalt Paving Project — Tri Abadi Makmur",
     figAlt: "Asphalt Paving Service",
+    priceKicker: "Price Packages",
+    priceTitleLight: "Here we offer ",
+    priceTitleBold: "asphalt paving & repair service package prices",
+    priceWaBtn: "Calculate Cost by Area Size (m²)",
     introTitle: "High-Quality Asphalt Paving at Competitive Prices",
-    introP1: "— using professional construction crews to deliver prioritized service.",
-    introP2Prefix: "From the Contractor team ",
-    introP2Mid: ", we would like to offer and serve road construction, road repair, as well as asphalt works and asphalt production.",
+    introP1: "— backed by experienced construction crews and complete heavy equipment for smooth, dense, and long-lasting roads.",
+    introP2Prefix: "From the contractor team ",
+    introP2Mid: ", we provide new hotmix paving, asphalt overlay, and damaged road repairs for various project requirements.",
     otherKicker: "Not just asphalt",
     acc1Title: "Asphalt Paving For",
     acc1Intro: "We serve various asphalt paving needs for:",
@@ -415,9 +428,6 @@ const content = {
       "Cleaning & compaction of work area",
       "Finishing & final trim",
     ],
-    priceKicker: "Price Packages",
-    priceTitleLight: "Here we offer ",
-    priceTitleBold: "asphalt repair service package prices",
     methodKicker: "Work Method",
     methodTitleLight: "How We ",
     methodTitleBold: "Work",
@@ -428,8 +438,8 @@ const content = {
     infoKicker: "Information",
     infoTitleLight: "Asphalt ",
     infoTitleBold: "Pricing",
-    infoP1: "In determining the price, we will refer to what is specified by the builder and measure the road conditions ourselves. If you use a composition and work volume determined by you, we will carry out the work according to what has been determined on site.",
-    infoP2: "Meanwhile, the paving work depends on the area and road conditions, and will also be calculated during the site survey. The price is influenced by quality. Whether it's roadside work or various road categories, we deliver affordable asphalt.",
+    infoP1: "Asphalt paving pricing refers to layer thickness specifications, hotmix material grades, and site condition measurements during our survey. If you already have your own BOQ or work volume, our team can execute according to your technical specifications.",
+    infoP2: "Total cost depends on total area (m²) and base road conditions. Supported by professional crews and direct hotmix supply, we deliver competitive pricing without compromising road density and durability.",
     acc3Title: "Advantages of Our Asphalt Paving Service",
     acc3Items: [
       "Experienced & professional crews",
@@ -456,12 +466,12 @@ const content = {
     ctaTitleLight: "Need asphalt paving? ",
     ctaTitleBold: "We are ready to help.",
     ctaBtn: "Contact via WhatsApp",
-    ctaWaMessage: "Hello Tri Abadi Makmur, I would like to consult about an project...",
+    ctaWaMessage: "Hello Tri Abadi Makmur, I would like to consult about asphalt paving cost & site survey in...",
   },
 };
 
 // ─────────────────────────────────────────────
-// SUB-KOMPONEN: TAHAPAN CARD (Simpel)
+// SUB-KOMPONEN: TAHAPAN CARD
 // ─────────────────────────────────────────────
 const TahapanCard = memo(function TahapanCard({ item, t }) {
   return (
@@ -493,7 +503,7 @@ const TahapanCard = memo(function TahapanCard({ item, t }) {
 });
 
 // ─────────────────────────────────────────────
-// SUB-KOMPONEN: KONTRUKSI LAIN CARD (Simpel)
+// SUB-KOMPONEN: KONTRUKSI LAIN CARD
 // ─────────────────────────────────────────────
 const KontruksiCard = memo(function KontruksiCard({ item, t }) {
   return (
@@ -520,7 +530,7 @@ const KontruksiCard = memo(function KontruksiCard({ item, t }) {
 });
 
 // ─────────────────────────────────────────────
-// SUB-KOMPONEN: AREA ROW (Simpel)
+// SUB-KOMPONEN: AREA ROW
 // ─────────────────────────────────────────────
 const AreaRow = memo(function AreaRow({ area, data }) {
   return (
@@ -589,12 +599,13 @@ export default function Pengaspalan() {
 
   const [showArea, setShowArea] = useState(false);
   const areaPanelId = useId();
+  const waHref = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(data.ctaWaMessage)}`;
 
   return (
     <div className="bg-slate-50/50">
 
-      {/* ═══════ HERO (Simpel) ═══════ */}
-      <section className="pt-32 lg:pt-40 pb-16 lg:pb-24 bg-white border-b border-slate-100">
+      {/* ═══════ HERO ═══════ */}
+      <section className="pt-32 lg:pt-40 pb-14 lg:pb-20 bg-white border-b border-slate-100">
         <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <Reveal delay={0} y={20}>
             <div className="inline-flex items-center gap-3 mb-6">
@@ -623,13 +634,72 @@ export default function Pengaspalan() {
             )}
           </Reveal>
 
-          <Reveal delay={160} y={24}>
+          <Reveal delay={140} y={24}>
             <p
-              className="text-slate-600 leading-relaxed max-w-2xl mx-auto mt-6"
+              className="text-slate-600 leading-relaxed max-w-2xl mx-auto mt-5"
               style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1.0625rem)" }}
             >
               {data.heroDesc}
             </p>
+          </Reveal>
+
+          {/* CTA ABOVE THE FOLD */}
+          <Reveal delay={200} y={20}>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+              <a
+                href={waHref}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 min-h-[48px] rounded-xl bg-[#25D366] text-white hover:bg-[#20bd5a] font-bold text-xs sm:text-sm uppercase tracking-[0.12em] shadow-lg shadow-[#25D366]/25 hover:shadow-[#25D366]/40 hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <IconWhatsApp className="w-5 h-5 shrink-0" />
+                {data.heroWaBtn}
+              </a>
+              <a
+                href="#paket-harga-aspal"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[48px] rounded-xl bg-slate-50 text-slate-700 border border-slate-200 hover:border-[#1e88e5] hover:text-[#1e88e5] font-bold text-xs sm:text-sm uppercase tracking-[0.12em] transition-all duration-200"
+              >
+                {data.heroPriceBtn}
+                <IconArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ═══════ PAKET HARGA (DI ATAS AGAR LANGSUNG TERLIHAT) ═══════ */}
+      <section id="paket-harga-aspal" className="py-14 lg:py-20 bg-white border-b border-slate-100 scroll-mt-24">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+          <Reveal y={26}>
+            <div className="text-center mb-10">
+              <SectionKicker>{data.priceKicker}</SectionKicker>
+              <h2
+                className="font-light tracking-tight text-slate-900 leading-tight max-w-2xl mx-auto"
+                style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
+              >
+                {data.priceTitleLight}
+                <span className="font-bold">{data.priceTitleBold}</span>
+              </h2>
+            </div>
+          </Reveal>
+
+          <Reveal y={34} delay={80}>
+            <ServicePricingPanel hideCta />
+          </Reveal>
+
+          <Reveal y={20} delay={120}>
+            <div className="mt-8 text-center">
+              <a
+                href={waHref}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 min-h-[48px] rounded-xl bg-[#25D366] text-white hover:bg-[#20bd5a] font-bold text-xs sm:text-sm uppercase tracking-[0.12em] shadow-md shadow-[#25D366]/20 hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <IconWhatsApp className="w-5 h-5 shrink-0" />
+                {data.priceWaBtn}
+                <IconArrowRight className="w-4 h-4 shrink-0" />
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -645,15 +715,11 @@ export default function Pengaspalan() {
                 <img
                   src="/proyek/proyek-1.webp"
                   alt={data.figAlt}
-                  loading="eager"
+                  loading="lazy"
                   decoding="async"
                   width={1200}
                   height={750}
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.onerror = null;
-                    e.currentTarget.src = "/proyek/proyek-1.webp";
-                  }}
                 />
               </div>
               <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 to-transparent px-5 sm:px-8 py-5 sm:py-8 pt-16 sm:pt-20">
@@ -690,69 +756,45 @@ export default function Pengaspalan() {
                 style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}
               >
                 {data.introP2Prefix}
-                <span className="font-bold text-slate-900">Tri Abadi Makmur</span>
+                <span className="font-bold text-slate-900">PT Tri Abadi Makmur</span>
                 {data.introP2Mid}
               </p>
             </div>
           </Reveal>
 
-          {/* Accordion diganti menjadi statis (tanpa buka tutup) */}
-          <Reveal delay={150} y={24}>
-            <div className="border border-slate-200 rounded-xl overflow-hidden mb-6 bg-white">
-              <div className="w-full px-5 sm:px-6 py-4 sm:py-5 border-b border-slate-100">
-                <span className="font-semibold uppercase tracking-[0.12em] text-slate-800" style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
-                  {data.acc1Title}
-                </span>
-              </div>
-              <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-4 text-slate-700 leading-[1.85] space-y-3.5" style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
-                <p className="mb-4 font-medium text-slate-800">{data.acc1Intro}</p>
-                <ul className="list-disc list-outside pl-5 space-y-2 marker:text-[#1e88e5]">
-                  {data.acc1Items.map((it, i) => <li key={i}>{it}</li>)}
-                </ul>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={200} y={24}>
-            <div className="border border-slate-200 rounded-xl overflow-hidden mb-6 bg-white">
-              <div className="w-full px-5 sm:px-6 py-4 sm:py-5 border-b border-slate-100">
-                <span className="font-semibold uppercase tracking-[0.12em] text-slate-800" style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
-                  {data.acc2Title}
-                </span>
-              </div>
-              <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-4 text-slate-700 leading-[1.85] space-y-3.5" style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
-                <ul className="list-disc list-outside pl-5 space-y-2 marker:text-[#1e88e5]">
-                  {data.acc2Items.map((it, i) => <li key={i}>{it}</li>)}
-                </ul>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-
-        {/* ═══════ PAKET HARGA ═══════ */}
-        <div className="mt-20 lg:mt-28 mb-20 bg-white py-16 border-y border-slate-100">
-          <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
-            <Reveal y={26}>
-              <div className="text-center mb-12">
-                <SectionKicker>{data.priceKicker}</SectionKicker>
-                <h2
-                  className="font-light tracking-tight text-slate-900 leading-tight max-w-2xl mx-auto"
-                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
-                >
-                  {data.priceTitleLight}
-                  <span className="font-bold">{data.priceTitleBold}</span>
-                </h2>
+          {/* Daftar Cakupan & Layanan */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+            <Reveal delay={120} y={24}>
+              <div className="border border-slate-200 rounded-xl overflow-hidden bg-white h-full">
+                <div className="w-full px-5 sm:px-6 py-4 sm:py-5 border-b border-slate-100">
+                  <span className="font-semibold uppercase tracking-[0.12em] text-slate-800" style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
+                    {data.acc1Title}
+                  </span>
+                </div>
+                <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-4 text-slate-700 leading-[1.85] space-y-3.5" style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
+                  <p className="mb-3 font-medium text-slate-800">{data.acc1Intro}</p>
+                  <ul className="list-disc list-outside pl-5 space-y-2 marker:text-[#1e88e5]">
+                    {data.acc1Items.map((it, i) => <li key={i}>{it}</li>)}
+                  </ul>
+                </div>
               </div>
             </Reveal>
 
-            <Reveal y={34} delay={80}>
-              <ServicePricingPanel hideCta />
+            <Reveal delay={180} y={24}>
+              <div className="border border-slate-200 rounded-xl overflow-hidden bg-white h-full">
+                <div className="w-full px-5 sm:px-6 py-4 sm:py-5 border-b border-slate-100">
+                  <span className="font-semibold uppercase tracking-[0.12em] text-slate-800" style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
+                    {data.acc2Title}
+                  </span>
+                </div>
+                <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-4 text-slate-700 leading-[1.85] space-y-3.5" style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
+                  <ul className="list-disc list-outside pl-5 space-y-2 marker:text-[#1e88e5]">
+                    {data.acc2Items.map((it, i) => <li key={i}>{it}</li>)}
+                  </ul>
+                </div>
+              </div>
             </Reveal>
           </div>
-        </div>
-
-        {/* Lanjut konten */}
-        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
 
           {/* SECTION: CARA PENGERJAAN */}
           <div className="mb-20">
@@ -799,10 +841,6 @@ export default function Pengaspalan() {
                     width={1200}
                     height={675}
                     className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.onerror = null;
-                      e.currentTarget.src = "/proyek/proyek-2.webp";
-                    }}
                   />
                 </div>
                 <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 to-transparent px-5 sm:px-8 py-5 sm:py-8 pt-16 sm:pt-20">
@@ -856,9 +894,9 @@ export default function Pengaspalan() {
             </Reveal>
           </div>
 
-          {/* ACCORDION BAWAH (Masih pakai Accordion) */}
+          {/* ACCORDION KEUNGGULAN */}
           <Reveal y={24}>
-            <Accordion title={data.acc3Title} defaultOpen={false}>
+            <Accordion title={data.acc3Title} defaultOpen={true}>
               <ul className="list-disc list-outside pl-5 space-y-2 marker:text-[#1e88e5]">
                 {data.acc3Items.map((it, i) => <li key={i}>{it}</li>)}
               </ul>
@@ -905,7 +943,7 @@ export default function Pengaspalan() {
             </div>
           </div>
 
-          {/* ═══════ KARTU KONTRUKSI LAIN (PINDAHAN) ═══════ */}
+          {/* ═══════ KARTU KONTRUKSI LAIN ═══════ */}
           <div className="mt-16 mb-16">
             <Reveal y={26}>
               <div className="flex items-center gap-3 mb-6">
@@ -925,20 +963,20 @@ export default function Pengaspalan() {
             </div>
           </div>
 
-          {/* ═══════ TAMBAHAN: SECTION ARTIKEL BLOG ═══════ */}
+          {/* ═══════ SECTION ARTIKEL BLOG ═══════ */}
           <Reveal y={30}>
             <div className="mt-10 sm:mt-12 p-6 sm:p-10 bg-white border border-slate-100 rounded-2xl shadow-sm text-center max-w-3xl mx-auto relative overflow-hidden group hover:shadow-md transition-shadow duration-300">
               <div className="relative z-10">
                 <SectionKicker>{data.articleKicker}</SectionKicker>
-                <h3 
-                  className="text-slate-900 tracking-tight mb-4" 
+                <h3
+                  className="text-slate-900 tracking-tight mb-4"
                   style={{ fontSize: "clamp(1.25rem, 3vw, 1.75rem)" }}
                 >
                   <span className="font-light">{data.articleTitleLight}</span>
                   <span className="font-bold">{data.articleTitleBold}</span>
                 </h3>
-                <p 
-                  className="text-slate-600 mx-auto mb-8 max-w-xl leading-relaxed" 
+                <p
+                  className="text-slate-600 mx-auto mb-8 max-w-xl leading-relaxed"
                   style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}
                 >
                   {data.articleDesc}
@@ -1020,10 +1058,9 @@ export default function Pengaspalan() {
             </Reveal>
           </div>
 
-          {/* ═══════ CTA (Simpel) ═══════ */}
+          {/* ═══════ CTA BAWAH ═══════ */}
           <Reveal y={34}>
             <div className="mt-10 sm:mt-14 p-8 sm:p-12 bg-slate-900 rounded-3xl text-center max-w-3xl mx-auto shadow-2xl shadow-slate-900/20 relative overflow-hidden">
-              {/* Efek background abstrak halus */}
               <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-[#1e88e5] rounded-full blur-3xl opacity-20 pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-[#25D366] rounded-full blur-3xl opacity-10 pointer-events-none"></div>
 
@@ -1039,7 +1076,7 @@ export default function Pengaspalan() {
                   <span className="font-bold">{data.ctaTitleBold}</span>
                 </h3>
                 <a
-                  href={`https://wa.me/6282258089367?text=${encodeURIComponent(data.ctaWaMessage)}`}
+                  href={waHref}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={data.ctaBtn}

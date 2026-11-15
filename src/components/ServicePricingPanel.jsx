@@ -5,6 +5,8 @@ import { memo } from "react";
 import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 
+const WA_NUMBER = "6282258089367";
+
 // ─── KATEGORI BILINGUAL ─────────────────────
 const categories = [
   {
@@ -85,15 +87,17 @@ const categories = [
 const content = {
   id: {
     headerBadge: "Paket Harga",
-    headerTitle: "Berikut kami tawarkan harga paket jasa perbaikan aspal",
-    footerNote: "Harga dapat berubah sesuai kondisi lapangan & volume pekerjaan.",
+    headerTitle: "Berikut kami tawarkan harga paket jasa perbaikan & pengaspalan",
+    footerNote: "Harga dapat berubah sesuai kondisi lapangan & volume pekerjaan (minimal order berlaku).",
     ctaLabel: "Selengkapnya",
+    cardWaBtn: "Pesan Paket Ini",
   },
   en: {
     headerBadge: "Price Package",
-    headerTitle: "Here we offer price packages for asphalt repair services",
-    footerNote: "Prices may change according to field conditions & work volume.",
+    headerTitle: "Here we offer price packages for asphalt paving & repair services",
+    footerNote: "Prices may change according to field conditions & work volume (minimum order applies).",
     ctaLabel: "Learn More",
+    cardWaBtn: "Select This Package",
   },
 };
 
@@ -114,12 +118,29 @@ function IconArrowRight({ className = "w-3.5 h-3.5" }) {
   );
 }
 
+function IconWhatsApp({ className = "w-3.5 h-3.5" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+  );
+}
+
 // ─────────────────────────────────────────────
 // CATEGORY CARD (memoized)
 // ─────────────────────────────────────────────
-const CategoryCard = memo(function CategoryCard({ c, lang }) {
+const CategoryCard = memo(function CategoryCard({ c, lang, btnLabel }) {
+  const pkgName = pick(c.name, lang);
+  const pkgTag = pick(c.tag, lang);
+  const waMsg =
+    lang === "en"
+      ? `Hello PT Tri Abadi Makmur, I am interested in ${pkgName} (${pkgTag} - ${c.price}/m²). Could you provide an estimate and site survey schedule for my project at...`
+      : `Halo PT Tri Abadi Makmur, saya tertarik dengan Paket ${pkgName} (${pkgTag} - ${c.price}/m²). Mohon info estimasi biaya & jadwal survey untuk lokasi di...`;
+
+  const waHref = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waMsg)}`;
+
   return (
-    <article className="relative flex flex-col h-full overflow-hidden bg-white border border-slate-200 rounded-xl">
+    <article className="relative flex flex-col h-full overflow-hidden bg-white border border-slate-200 rounded-xl hover:border-slate-300 hover:shadow-md transition-all duration-200">
       {/* Aksen atas */}
       <span
         className="absolute top-0 left-0 right-0 h-[3px]"
@@ -149,11 +170,11 @@ const CategoryCard = memo(function CategoryCard({ c, lang }) {
               aria-hidden="true"
             />
             <span className="text-[11px] font-bold tracking-[0.15em] text-slate-700 uppercase">
-              {pick(c.name, lang)}
+              {pkgName}
             </span>
           </div>
           <p className="text-[11px] text-slate-500 leading-snug italic">
-            {pick(c.tag, lang)}
+            {pkgTag}
           </p>
         </div>
 
@@ -174,7 +195,7 @@ const CategoryCard = memo(function CategoryCard({ c, lang }) {
         </div>
 
         {/* Rincian pekerjaan */}
-        <ul className="space-y-1.5 sm:space-y-2 flex-1">
+        <ul className="space-y-1.5 sm:space-y-2 flex-1 mb-5">
           {c.items.map((it, i) => {
             const text = pick(it, lang);
             return (
@@ -192,6 +213,17 @@ const CategoryCard = memo(function CategoryCard({ c, lang }) {
             );
           })}
         </ul>
+
+        {/* Tombol WA langsung per paket */}
+        <a
+          href={waHref}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-auto w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[40px] rounded-lg bg-[#25D366]/10 text-[#128C7E] hover:bg-[#25D366] hover:text-white border border-[#25D366]/30 font-bold text-[11.5px] tracking-wide transition-colors duration-200"
+        >
+          <IconWhatsApp className="w-3.5 h-3.5 shrink-0" />
+          {btnLabel}
+        </a>
       </div>
     </article>
   );
@@ -235,7 +267,7 @@ export default function ServicePricingPanel({ hideCta = false }) {
       <div className="p-4 sm:p-5 lg:p-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 items-stretch">
           {categories.map((c) => (
-            <CategoryCard key={c.code} c={c} lang={lang} />
+            <CategoryCard key={c.code} c={c} lang={lang} btnLabel={t.cardWaBtn} />
           ))}
         </div>
       </div>

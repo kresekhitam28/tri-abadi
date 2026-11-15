@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
-import Link from "next/link"; // <-- TAMBAHAN: Import Link
+import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import BetonPricingPanel from "./BetonPricingPanel";
 
@@ -162,7 +162,6 @@ function IconTruck({ className = "w-4 h-4" }) {
     </svg>
   );
 }
-// TAMBAHAN: Ikon Artikel
 function IconArticle({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
@@ -273,17 +272,17 @@ const infoBeton = [
   { id: "Kekuatan beton ready mix bisa mencapai 250 kg per cm² setelah usia 28 hari", en: "Ready-mix concrete strength can reach 250 kg per cm² after 28 days of age" },
   { id: "Tersedia dalam berbagai kelas: K 175, K 225, K 250, K 300, K 350, K 400, K 500", en: "Available in various classes: K 175, K 225, K 250, K 300, K 350, K 400, K 500" },
   { id: "Diaduk di batching plant dengan alat berat berkomputer, bukan manual", en: "Mixed at a batching plant with computer-controlled heavy equipment, not manually" },
-  { id: "Distribusi ke lokasi menggunakan truk mixer sesuai jadwal", en: "Distributed to the site using mixer trucks according to schedule" },
+  { id: "Distribusi ke lokasi menggunakan truk mixer standar maupun minimix sesuai jadwal", en: "Distributed to the site using standard or minimix mixer trucks according to schedule" },
 ];
 
 const jenisBeton = [
-  { k: "K 500 / Klas A",       v: { id: "Beton untuk precast / prestressed",                              en: "Concrete for precast / prestressed" } },
+  { k: "K 500 / Klas A",       v: { id: "Beton untuk precast / prestressed",                               en: "Concrete for precast / prestressed" } },
   { k: "K 400 / Klas P",       v: { id: "Beton untuk rabat jalan kelas 1 (jl negara / jl tol)",          en: "Concrete for class 1 road slabs (national roads / toll roads)" } },
-  { k: "K 375 / Klas B",       v: { id: "Beton untuk lantai dan bangunan pabrik / rigid jalan",           en: "Concrete for floors and factory buildings / rigid pavement" } },
-  { k: "K 350 / Klas B",       v: { id: "Beton untuk lantai dan bangunan pabrik / rigid jalan",           en: "Concrete for floors and factory buildings / rigid pavement" } },
-  { k: "K 325 s/d K 300",      v: { id: "Konstruksi bangunan ruko / rumah bertingkat 3 s/d 5 lantai",     en: "Shop-house / 3 to 5-storey building construction" } },
-  { k: "K 275 s/d K 225",      v: { id: "Konstruksi bangunan bertingkat 2 lantai, ruko / rumah tinggal",  en: "2-storey building construction, shop-houses / residential homes" } },
-  { k: "K 175 s/d K 125 & B0", v: { id: "Konstruksi bangunan ringan / LC / lantai dasar",                 en: "Light building construction / LC / ground floor" } },
+  { k: "K 375 / Klas B",       v: { id: "Beton untuk lantai dan bangunan pabrik / rigid jalan",          en: "Concrete for floors and factory buildings / rigid pavement" } },
+  { k: "K 350 / Klas B",       v: { id: "Beton untuk lantai dan bangunan pabrik / rigid jalan",          en: "Concrete for floors and factory buildings / rigid pavement" } },
+  { k: "K 325 s/d K 300",      v: { id: "Konstruksi bangunan ruko / rumah bertingkat 3 s/d 5 lantai",    en: "Shop-house / 3 to 5-storey building construction" } },
+  { k: "K 275 s/d K 225",      v: { id: "Konstruksi bangunan bertingkat 2 lantai, ruko / rumah tinggal", en: "2-storey building construction, shop-houses / residential homes" } },
+  { k: "K 175 s/d K 125 & B0", v: { id: "Konstruksi bangunan ringan / LC / lantai dasar",                en: "Light building construction / LC / ground floor" } },
 ];
 
 const keunggulanAccItems = [
@@ -379,36 +378,36 @@ function SectionKicker({ children }) {
 const content = {
   id: {
     heroKicker: "Layanan Kami",
-    heroTitle: "Cor Beton Ready Mix",
-    heroDesc: "Jasa cor beton ready mix murah untuk konstruksi infrastruktur dan renovasi rumah. Kualitas SNI, presisi, dan hemat waktu.",
+    heroTitle: "Jasa Cor Beton Ready Mix & Minimix",
+    heroSubtitle: "Untuk Jalan, Lantai Gudang, Dak Rumah & Konstruksi di Jabodetabek, Banten & Jawa Barat.",
+    heroDesc: "Jasa cor beton ready mix murah untuk konstruksi infrastruktur, jalan rigid, dan renovasi rumah. Kualitas SNI, presisi, armada lengkap, dan gratis survei lokasi.",
     figAlt: "Cor Beton Ready Mix",
     figCaption: "Pengecoran Beton Ready Mix — Tri Abadi Makmur",
-    intro: "Jasa cor beton ready mix — pada abad ke-21 ini kebutuhan jasa cor beton ready mix ataupun harga jasa ready mix concrete sangat dibutuhkan sekali, terlebih bagi masyarakat yang sedang membangun rumah maupun gedung. Terlebih pada infrastruktur dan renovasi perumahan kini juga semakin marak dilakukan, salah satu contohnya dalam kasus perumahan KPR.",
+    intro: "Jasa cor beton ready mix Jabodetabek, Banten & Jawa Barat — pada abad ke-21 ini kebutuhan jasa cor beton ready mix ataupun harga ready mix concrete per kubik (m³) sangat dibutuhkan sekali, baik untuk pengecoran jalan rigid beton, lantai pabrik/gudang, maupun dak rumah bertingkat.",
     infoKicker: "Informasi",
     infoTitleLight: "Mengenal ",
     infoTitleBold: "Beton Ready Mix",
     infoP1: "Pertumbuhan pembuatan struktur bangunan yang kurang kokoh bisa sangat membahayakan penghuni rumah tersebut. Untuk menghindari hal yang tidak diinginkan, langkah paling tepat adalah memilih bahan yang berkualitas.",
-    infoP2: "Berikut informasi mengenai jasa harga beton cor K 225. Perlu Anda ketahui bahwa kualitas beton ini tergolong dalam beton kelas 2 yang dapat digunakan untuk pembuatan bangunan struktur maupun atap sedang — misalnya pengecoran jalan, lantai, kolom, balok dan lain sebagainya.",
+    infoP2: "Berikut informasi mengenai jasa harga beton cor K 225 hingga K 400. Perlu Anda ketahui bahwa kualitas beton K 225 tergolong dalam beton kelas 2 yang dapat digunakan untuk pembuatan bangunan struktur maupun atap sedang — misalnya pengecoran dak lantai, kolom, balok, hingga jalan lingkungan.",
     infoP3Prefix: "Kualitas K 225 sendiri memiliki kuat tekan beton setelah umur beton 28 hari (setelah pengecoran) yang bisa mencapai ",
     infoP3Bold: "225 kg per cm²",
     infoP3Suffix: ".",
     factsKicker: "Fakta Teknis",
-        faqTitle: "Pertanyaan Seputar Cor Beton Ready Mix",
+    faqTitle: "Pertanyaan Seputar Cor Beton Ready Mix",
     faqItems: [
-      { q: "Berapa harga cor beton ready mix per kubik?", a: "Harga cor beton ready mix bervariasi tergantung kelas mutu beton (K 225, K 300, dll) dan jarak lokasi proyek. Untuk rincian harga terbaru, silakan lihat tabel harga di atas atau hubungi kami untuk penawaran resmi." },
+      { q: "Berapa harga cor beton ready mix per kubik?", a: "Harga cor beton ready mix bervariasi tergantung kelas mutu beton (B0, K 225, K 250, K 300, K 350, hingga K 400) dan jarak lokasi proyek dari batching plant. Rincian harga terbaru dapat Anda lihat langsung pada tabel harga di bagian atas halaman ini." },
       { q: "Berapa lama beton ready mix mengering?", a: "Beton akan mengeras dalam 24 jam pertama, namun mencapai kekuatan maksimal (kuat tekan penuh) setelah 28 hari. Selama masa tersebut, sebaiknya hindari beban berat di atasnya." },
-      { q: "Apakah pengiriman beton termasuk dalam harga?", a: "Untuk area Tangerang dan sekitarnya, harga biasanya sudah termasuk pengiriman. Untuk luar area tersebut, akan ada biaya transportasi tambahan sesuai jarak." },
-      { q: "Berapa volume minimal pemesanan?", a: "Volume minimal pemesanan beton ready mix umumnya adalah 1 truk mixer (sekitar 3-7 meter kubik), tergantung kapasitas truk yang tersedia. Untuk volume kecil, kami juga menyediakan opsi pengecoran manual." }
+      { q: "Apakah pengiriman beton termasuk dalam harga?", a: "Untuk wilayah Jabodetabek, Banten & Jawa Barat yang masuk dalam radius jangkauan batching plant terdekat kami, harga sudah termasuk pengiriman truk mixer. Tim kami akan mengecek titik lokasi proyek Anda terlebih dahulu." },
+      { q: "Berapa volume minimal pemesanan?", a: "Volume minimal pemesanan beton ready mix standar adalah 1 truk mixer (sekitar 6–7 m³). Untuk akses jalan sempit atau volume kecil (sekitar 3 m³), kami juga menyediakan armada truk Minimix." }
     ],
-    faqLinkText: "Butuh simulasi volume dan biaya? Konsultasikan dengan tim kami.",
+    faqLinkText: "Butuh simulasi volume (m³) dan estimasi biaya? Konsultasikan dengan tim kami.",
     acc1Title: "Keunggulan Jasa Cor Beton Ready Mix Kami",
     acc2Title: "Jenis Beton Ready Mix Yang Kami Sediakan",
     acc2Intro: "Kami menyediakan berbagai jenis beton ready mix dengan kelas yang berbeda sesuai kebutuhan proyek Anda:",
     priceKicker: "Paket Harga",
     priceTitleLight: "Harga Jasa ",
-    priceTitleBold: "Cor Beton Ready Mix",
-    priceDesc: "Pilih kelas beton sesuai kebutuhan — harga per meter kubik (m³).",
-    // TAMBAHAN KONTEN ARTIKEL
+    priceTitleBold: "Cor Beton Ready Mix Jabodetabek, Banten & Jawa Barat",
+    priceDesc: "Pilih kelas mutu beton (K-175 s/d K-500) sesuai kebutuhan struktur proyek Anda — harga per meter kubik (m³).",
     articleKicker: "Informasi & Edukasi",
     articleTitleLight: "Butuh wawasan seputar ",
     articleTitleBold: "Konstruksi & Beton Ready Mix?",
@@ -417,48 +416,48 @@ const content = {
     areaKicker: "Layanan",
     areaTitleLight: "Area ",
     areaTitleBold: "Jangkauan Kami",
-    areaDesc: "Melayani pengecoran beton ready mix di berbagai kota & kabupaten berikut.",
+    areaDesc: "Melayani pengecoran beton ready mix di Jabodetabek, Banten, Jawa Barat, dan berbagai kota & kabupaten berikut.",
     areaToggle: "Lihat Daftar Kota & Kabupaten",
     areaCity: "Kota",
     areaRegency: "Kab.",
-    ctaKicker: "Konsultasi Gratis",
+    ctaKicker: "Konsultasi & Survei Gratis",
     ctaTitleLight: "Butuh cor beton ready mix? ",
     ctaTitleBold: "Kami siap membantu.",
-    ctaBtn: "Hubungi via WhatsApp",
-    ctaWaMessage: "Halo Tri Abadi Makmur, saya ingin konsultasi mengenai Project...",
+    ctaBtn: "Tanya Harga & Jadwal Cor via WA",
+    ctaWaMessage: "Halo Tri Abadi Makmur, saya ingin konsultasi & tanya harga Cor Beton Ready Mix...",
   },
   en: {
     heroKicker: "Our Services",
-    heroTitle: "Ready-Mix Concrete",
-    heroDesc: "Affordable ready-mix concrete services for infrastructure construction and home renovation. SNI quality, precise, and time-saving.",
+    heroTitle: "Ready-Mix & Minimix Concrete Services",
+    heroSubtitle: "for Roads, Warehouse Floors, Roof Slabs & Construction in Greater Jakarta, Banten & West Java.",
+    heroDesc: "Affordable ready-mix concrete services for infrastructure construction, rigid roads, and home renovation. SNI quality, precise, and free site survey.",
     figAlt: "Ready-Mix Concrete",
     figCaption: "Ready-Mix Concrete Casting — Tri Abadi Makmur",
-    intro: "Ready-mix concrete services — in the 21st century, the need for ready-mix concrete casting services or ready-mix concrete prices is very high, especially for those building homes or buildings. Moreover, infrastructure and housing renovation are also increasingly common, one example being KPR (subsidized housing) projects.",
+    intro: "Ready-mix concrete services in Jabodetabek, Banten & West Java — the need for ready-mix concrete casting services and prices per cubic meter (m³) is essential for rigid concrete roads, factory/warehouse floors, and multi-storey residential slabs.",
     infoKicker: "Information",
     infoTitleLight: "Getting to Know ",
     infoTitleBold: "Ready-Mix Concrete",
     infoP1: "The growth of building structures that are not sturdy enough can be very dangerous to the residents of the house. To avoid unwanted things, the most appropriate step is to choose quality materials.",
-    infoP2: "Here is information about K 225 concrete casting service prices. You should know that this concrete quality is classified as class 2 concrete, which can be used for structural buildings and medium roofs — for example, casting roads, floors, columns, beams, and so on.",
+    infoP2: "Here is information about K 225 to K 400 concrete casting service prices. You should know that K 225 concrete quality is classified as class 2 concrete, which can be used for structural buildings and medium roofs — for example, casting roads, floors, columns, beams, and so on.",
     infoP3Prefix: "K 225 quality itself has a concrete compressive strength after 28 days of age (after casting) that can reach ",
     infoP3Bold: "225 kg per cm²",
     infoP3Suffix: ".",
     factsKicker: "Technical Facts",
-        faqTitle: "Frequently Asked Questions About Ready-Mix Concrete",
+    faqTitle: "Frequently Asked Questions About Ready-Mix Concrete",
     faqItems: [
-      { q: "How much does ready-mix concrete cost per cubic meter?", a: "The price of ready-mix concrete varies depending on the concrete quality class (K 225, K 300, etc.) and the distance to the project site. For the latest price details, please see the price table above or contact us for an official quote." },
+      { q: "How much does ready-mix concrete cost per cubic meter?", a: "The price of ready-mix concrete varies depending on the concrete quality class (K 225, K 300, etc.) and the distance to the project site. Please see the price table at the top of this page or contact us for an official quote." },
       { q: "How long does ready-mix concrete take to dry?", a: "Concrete will harden within the first 24 hours, but reaches maximum strength (full compressive strength) after 28 days. During this period, heavy loads should be avoided." },
-      { q: "Is concrete delivery included in the price?", a: "For the Tangerang area and its surroundings, the price usually includes delivery. For areas outside this, there will be an additional transportation fee depending on the distance." },
-      { q: "What is the minimum order volume?", a: "The minimum order volume for ready-mix concrete is generally 1 mixer truck (around 3-7 cubic meters), depending on the available truck capacity. For small volumes, we also offer a manual casting option." }
+      { q: "Is concrete delivery included in the price?", a: "For Jabodetabek, Banten & West Java areas within our nearest batching plant delivery radius, the price includes mixer truck delivery." },
+      { q: "What is the minimum order volume?", a: "The minimum order volume for standard ready-mix concrete is 1 mixer truck (around 6-7 m³). For narrow road access or smaller volumes (around 3 m³), we also provide Minimix trucks." }
     ],
-    faqLinkText: "Need a volume and cost simulation? Consult with our team.",
+    faqLinkText: "Need a volume (m³) and cost simulation? Consult with our team.",
     acc1Title: "Advantages of Our Ready-Mix Concrete Service",
     acc2Title: "Types of Ready-Mix Concrete We Provide",
     acc2Intro: "We provide various types of ready-mix concrete with different classes according to your project needs:",
     priceKicker: "Price Packages",
     priceTitleLight: "Ready-Mix Concrete ",
-    priceTitleBold: "Service Pricing",
+    priceTitleBold: "Service Pricing in Jabodetabek, Banten & West Java",
     priceDesc: "Choose the concrete class according to your needs — price per cubic meter (m³).",
-    // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Information & Education",
     articleTitleLight: "Need insights on ",
     articleTitleBold: "Construction & Ready-Mix Concrete?",
@@ -467,15 +466,15 @@ const content = {
     areaKicker: "Services",
     areaTitleLight: "Our ",
     areaTitleBold: "Coverage Area",
-    areaDesc: "Serving ready-mix concrete casting in the following cities & regencies.",
+    areaDesc: "Serving ready-mix concrete casting in Jabodetabek, Banten, West Java, and the following cities & regencies.",
     areaToggle: "View City & Regency List",
     areaCity: "City",
     areaRegency: "Regency",
-    ctaKicker: "Free Consultation",
+    ctaKicker: "Free Consultation & Survey",
     ctaTitleLight: "Need ready-mix concrete? ",
     ctaTitleBold: "We are ready to help.",
-    ctaBtn: "Contact via WhatsApp",
-    ctaWaMessage: "Hello Tri Abadi Makmur, I would like to consult about an project...",
+    ctaBtn: "Ask Price & Schedule via WA",
+    ctaWaMessage: "Hello Tri Abadi Makmur, I would like to consult about Ready-Mix Concrete...",
   },
 };
 
@@ -658,6 +657,14 @@ export default function CorBetonReadyMix() {
             >
               {data.heroTitle}<span className="text-[#1e88e5]">.</span>
             </h1>
+            {data.heroSubtitle && (
+              <p
+                className="text-slate-600 max-w-2xl mx-auto mt-4 mb-6"
+                style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1.125rem)" }}
+              >
+                {data.heroSubtitle}
+              </p>
+            )}
           </Reveal>
 
           <Reveal delay={160} y={24}>
@@ -709,6 +716,37 @@ export default function CorBetonReadyMix() {
               </figcaption>
             </figure>
           </Reveal>
+        </div>
+
+        {/* ═══════ PANEL HARGA (DIPINDAHKAN KE ATAS AGAR LANGSUNG TERLIHAT) ═══════ */}
+        <div className="mt-8 lg:mt-12 mb-16">
+          <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+            <Reveal y={26}>
+              <div className="text-center mb-10">
+                <SectionKicker>{data.priceKicker}</SectionKicker>
+                <h2
+                  className="font-light tracking-tight text-slate-900 leading-tight max-w-2xl mx-auto"
+                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
+                >
+                  {data.priceTitleLight}
+                  <span className="font-bold">{data.priceTitleBold}</span>
+                </h2>
+                <p
+                  className="text-slate-500 mt-4 max-w-xl mx-auto"
+                  style={{ fontSize: "clamp(0.875rem, 1.4vw, 0.9375rem)" }}
+                >
+                  {data.priceDesc}
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal y={34} delay={80}>
+              <BetonPricingPanel />
+            </Reveal>
+          </div>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
 
           {/* Pengantar */}
           <Reveal delay={100} y={24}>
@@ -811,38 +849,6 @@ export default function CorBetonReadyMix() {
               </ul>
             </Accordion>
           </Reveal>
-        </div>
-
-        {/* ═══════ PANEL HARGA ═══════ */}
-        <div className="mt-16 lg:mt-20 mb-16">
-          <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
-            <Reveal y={26}>
-              <div className="text-center mb-10">
-                <SectionKicker>{data.priceKicker}</SectionKicker>
-                <h2
-                  className="font-light tracking-tight text-slate-900 leading-tight max-w-2xl mx-auto"
-                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
-                >
-                  {data.priceTitleLight}
-                  <span className="font-bold">{data.priceTitleBold}</span>
-                </h2>
-                <p
-                  className="text-slate-500 mt-4 max-w-xl mx-auto"
-                  style={{ fontSize: "clamp(0.875rem, 1.4vw, 0.9375rem)" }}
-                >
-                  {data.priceDesc}
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal y={34} delay={80}>
-              <BetonPricingPanel hideCta />
-            </Reveal>
-          </div>
-        </div>
-
-        {/* Lanjut konten */}
-        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
 
           {/* ═══════ TAMBAHAN: SECTION ARTIKEL BLOG ═══════ */}
           <Reveal y={30}>
@@ -878,7 +884,7 @@ export default function CorBetonReadyMix() {
             </div>
           </Reveal>
 
-                    {/* ═══════ FAQ ═══════ */}
+          {/* ═══════ FAQ ═══════ */}
           <div className="mt-16 mb-16">
             <Reveal y={26}>
               <div className="text-center mb-10">
@@ -913,7 +919,7 @@ export default function CorBetonReadyMix() {
             
             <Reveal delay={200}>
               <div className="text-center mt-8">
-                <a href={`https://wa.me/6282258089367?text=${encodeURIComponent("Halo, saya ingin bertanya tentang cor beton ready mix.")}`} 
+                <a href={`https://wa.me/6282258089367?text=${encodeURIComponent(data.ctaWaMessage)}`} 
                    target="_blank" rel="noreferrer"
                    className="inline-flex items-center gap-2 text-[#1e88e5] font-semibold hover:underline">
                   {data.faqLinkText} <IconArrowRight className="w-4 h-4" />
@@ -988,7 +994,6 @@ export default function CorBetonReadyMix() {
           {/* ═══════ CTA (Premium) ═══════ */}
           <Reveal y={34}>
             <div className="mt-10 sm:mt-14 p-8 sm:p-12 bg-slate-900 rounded-3xl text-center max-w-3xl mx-auto shadow-2xl shadow-slate-900/20 relative overflow-hidden">
-              {/* Efek background abstrak halus */}
               <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-[#1e88e5] rounded-full blur-3xl opacity-20 pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-[#25D366] rounded-full blur-3xl opacity-10 pointer-events-none"></div>
 
