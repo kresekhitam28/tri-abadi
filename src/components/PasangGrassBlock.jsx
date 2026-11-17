@@ -2,10 +2,11 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
-import Image from "next/image";
-import Link from "next/link"; // <-- TAMBAHAN: Import Link
+import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import GrassBlockPricingPanel from "./GrassBlockPricingPanel";
+
+const WA_NUMBER = "6282258089367";
 
 // ─────────────────────────────────────────────
 // HOOK: DETEKSI MOBILE
@@ -32,34 +33,21 @@ function useIsMobile() {
 // HOOK: REVEAL ON SCROLL
 // ─────────────────────────────────────────────
 function useReveal(options = {}) {
-  const {
-    threshold = 0.12,
-    rootMargin = "0px 0px -60px 0px",
-    once = true,
-    enabled = true,
-  } = options;
+  const { threshold = 0.12, rootMargin = "0px 0px -60px 0px", once = true, enabled = true } = options;
   const ref = useRef(null);
   const [visible, setVisible] = useState(!enabled);
 
   useEffect(() => {
-    if (!enabled) {
-      setVisible(true);
-      return;
-    }
+    if (!enabled) { setVisible(true); return; }
     const el = ref.current;
     if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
-    }
+    if (typeof IntersectionObserver === "undefined") { setVisible(true); return; }
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
           if (once) io.unobserve(entry.target);
-        } else if (!once) {
-          setVisible(false);
-        }
+        } else if (!once) setVisible(false);
       },
       { threshold, rootMargin }
     );
@@ -70,26 +58,15 @@ function useReveal(options = {}) {
   return [ref, visible];
 }
 
-// ─────────────────────────────────────────────
-// REVEAL WRAPPER (memoized)
-// ─────────────────────────────────────────────
 const Reveal = memo(function Reveal({
-  children,
-  delay = 0,
-  y = 28,
-  x = 0,
-  duration = 700,
-  as: Tag = "div",
-  className = "",
+  children, delay = 0, y = 28, x = 0, duration = 700, as: Tag = "div", className = "",
 }) {
   const isMobile = useIsMobile();
   const enabled = !isMobile;
   const [ref, visible] = useReveal({ enabled });
 
   const style = useMemo(() => {
-    if (!enabled) {
-      return { contain: "layout paint style" };
-    }
+    if (!enabled) return { contain: "layout paint style" };
     return {
       transitionProperty: "opacity, transform",
       transitionDuration: `${duration}ms`,
@@ -102,101 +79,44 @@ const Reveal = memo(function Reveal({
     };
   }, [enabled, visible, duration, delay, x, y]);
 
-  return (
-    <Tag ref={ref} style={style} className={className}>
-      {children}
-    </Tag>
-  );
+  return <Tag ref={ref} style={style} className={className}>{children}</Tag>;
 });
 
 // ─────────────────────────────────────────────
 // IKON
 // ─────────────────────────────────────────────
 function IconWhatsApp({ className = "w-4 h-4" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-    </svg>
-  );
+  return (<svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>);
 }
 function IconArrowRight({ className = "w-3.5 h-3.5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M5 12h14M13 5l7 7-7 7" />
-    </svg>
-  );
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" /></svg>);
 }
 function IconCheck({ className = "w-4 h-4" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.6}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M20 6L9 17l-5-5" />
-    </svg>
-  );
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg>);
 }
 function IconLeaf({ className = "w-4 h-4" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" />
-      <path d="M2 21c0-3 1.85-5.36 5.08-6" />
-    </svg>
-  );
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" /><path d="M2 21c0-3 1.85-5.36 5.08-6" /></svg>);
 }
 function IconDroplet({ className = "w-4 h-4" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-    </svg>
-  );
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" /></svg>);
 }
 function IconGrid({ className = "w-4 h-4" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <rect x="3" y="3" width="7" height="7" />
-      <rect x="14" y="3" width="7" height="7" />
-      <rect x="3" y="14" width="7" height="7" />
-      <rect x="14" y="14" width="7" height="7" />
-    </svg>
-  );
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></svg>);
 }
 function IconLayers({ className = "w-4 h-4" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M12 2L2 7l10 5 10-5-10-5z" />
-      <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-    </svg>
-  );
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5M2 12l10 5 10-5" /></svg>);
 }
 function IconRuler({ className = "w-4 h-4" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M21.3 8.7l-9-9a1 1 0 0 0-1.4 0l-9 9a1 1 0 0 0 0 1.4l9 9a1 1 0 0 0 1.4 0l9-9a1 1 0 0 0 0-1.4z" />
-      <path d="M7.5 10.5l2-2M10.5 13.5l2-2M13.5 16.5l2-2" />
-    </svg>
-  );
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M21.3 8.7l-9-9a1 1 0 0 0-1.4 0l-9 9a1 1 0 0 0 0 1.4l9 9a1 1 0 0 0 1.4 0l9-9a1 1 0 0 0 0-1.4z" /><path d="M7.5 10.5l2-2M10.5 13.5l2-2M13.5 16.5l2-2" /></svg>);
 }
 function IconSparkles({ className = "w-4 h-4" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" />
-    </svg>
-  );
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" /></svg>);
 }
-// TAMBAHAN: Ikon Artikel
 function IconArticle({ className = "w-4 h-4" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-    </svg>
-  );
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg>);
+}
+function IconChevron({ className = "w-5 h-5" }) {
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>);
 }
 
 // ─────────────────────────────────────────────
@@ -209,47 +129,24 @@ const Accordion = memo(function Accordion({ title, children, defaultOpen = false
   const btnClose = lang === "en" ? "Close" : "Tutup";
 
   return (
-    <div
-      className={`border rounded-xl overflow-hidden mb-2.5 bg-white
-                  transition-colors duration-200
+    <div className={`border rounded-xl overflow-hidden mb-2.5 bg-white transition-colors duration-200
                   ${open ? "border-[#1e88e5]" : "border-slate-200"}`}
-      style={{ contain: "layout paint style" }}
-    >
-      <button
-        type="button"
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-        className="w-full flex items-center gap-3 sm:gap-4
-                   px-4 sm:px-5 py-3.5 sm:py-4
-                   text-left cursor-pointer transition-colors duration-150"
-      >
-        <span
-          className={`flex-1 font-semibold uppercase tracking-[0.12em]
-                      ${open ? "text-[#1e88e5]" : "text-slate-800"}`}
-          style={{ fontSize: "clamp(0.75rem, 1.5vw, 0.84375rem)" }}
-        >
+      style={{ contain: "layout paint style" }}>
+      <button type="button" onClick={() => setOpen(!open)} aria-expanded={open}
+        className="w-full flex items-center gap-3 sm:gap-4 px-4 sm:px-5 py-3.5 sm:py-4 text-left cursor-pointer transition-colors duration-150">
+        <span className={`flex-1 font-semibold uppercase tracking-[0.12em] ${open ? "text-[#1e88e5]" : "text-slate-800"}`}
+          style={{ fontSize: "clamp(0.75rem, 1.5vw, 0.84375rem)" }}>
           {title}
         </span>
-        <span
-          className={`shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-full border
-                      font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]
-                      transition-colors duration-150
-                      ${open
-                        ? "bg-[#1e88e5] text-white border-[#1e88e5]"
-                        : "bg-white text-slate-500 border-slate-300"}`}
-          style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
-        >
+        <span className={`shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-full border font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-colors duration-150
+                      ${open ? "bg-[#1e88e5] text-white border-[#1e88e5]" : "bg-white text-slate-500 border-slate-300"}`}
+          style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}>
           {open ? btnClose : btnOpen}
         </span>
       </button>
-
       {open && (
-        <div
-          className="px-4 sm:px-5 pb-4 sm:pb-5 pt-1
-                     text-slate-700 leading-[1.85]
-                     border-t border-slate-100"
-          style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
-        >
+        <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-1 text-slate-700 leading-[1.85] border-t border-slate-100"
+          style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
           {children}
         </div>
       )}
@@ -258,80 +155,20 @@ const Accordion = memo(function Accordion({ title, children, defaultOpen = false
 });
 
 // ─────────────────────────────────────────────
-// DATA BILINGUAL
+// DATA
 // ─────────────────────────────────────────────
 const keunggulanGrass = [
-  {
-    Icon: IconLeaf,
-    title: { id: "Ramah Lingkungan", en: "Eco-Friendly" },
-    desc: {
-      id: "Grass block memungkinkan rumput tumbuh di sela-sela paving, membantu penyerapan air dan mengurangi panas permukaan.",
-      en: "Grass block allows grass to grow between pavers, helping water absorption and reducing surface heat.",
-    },
-  },
-  {
-    Icon: IconDroplet,
-    title: { id: "Drainase Alami", en: "Natural Drainage" },
-    desc: {
-      id: "Air hujan dapat meresap ke dalam tanah melalui celah grass block, mengurangi genangan dan membantu resapan air.",
-      en: "Rainwater can seep into the ground through the gaps of grass blocks, reducing puddles and aiding water absorption.",
-    },
-  },
-  {
-    Icon: IconGrid,
-    title: { id: "Kuat & Rapi", en: "Strong & Neat" },
-    desc: {
-      id: "Dipasang presisi dengan pola terkunci, menghasilkan permukaan yang rapi, kuat, dan tahan lama.",
-      en: "Precisely installed with interlocking patterns, producing a neat, strong, and durable surface.",
-    },
-  },
-  {
-    Icon: IconCheck,
-    title: { id: "Multifungsi", en: "Multifunctional" },
-    desc: {
-      id: "Cocok untuk area parkir, jalan lingkungan, taman, dan area publik yang membutuhkan estetika sekaligus fungsi.",
-      en: "Suitable for parking areas, neighborhood roads, parks, and public areas requiring both aesthetics and function.",
-    },
-  },
+  { Icon: IconLeaf, title: { id: "Ramah Lingkungan", en: "Eco-Friendly" }, desc: { id: "Grass block memungkinkan rumput tumbuh di sela-sela paving, membantu penyerapan air dan mengurangi panas permukaan.", en: "Grass block allows grass to grow between pavers, helping water absorption and reducing surface heat." } },
+  { Icon: IconDroplet, title: { id: "Drainase Alami", en: "Natural Drainage" }, desc: { id: "Air hujan dapat meresap ke dalam tanah melalui celah grass block, mengurangi genangan dan membantu resapan air.", en: "Rainwater can seep into the ground through the gaps of grass blocks, reducing puddles and aiding water absorption." } },
+  { Icon: IconGrid, title: { id: "Kuat & Rapi", en: "Strong & Neat" }, desc: { id: "Dipasang presisi dengan pola terkunci, menghasilkan permukaan yang rapi, kuat, dan tahan lama.", en: "Precisely installed with interlocking patterns, producing a neat, strong, and durable surface." } },
+  { Icon: IconCheck, title: { id: "Multifungsi", en: "Multifunctional" }, desc: { id: "Cocok untuk area parkir, jalan lingkungan, taman, dan area publik yang membutuhkan estetika sekaligus fungsi.", en: "Suitable for parking areas, neighborhood roads, parks, and public areas requiring both aesthetics and function." } },
 ];
 
 const tahapanPemasangan = [
-  {
-    no: "01",
-    Icon: IconLayers,
-    title: { id: "Leveling & Perataan", en: "Leveling & Flattening" },
-    desc: {
-      id: "Meratakan permukaan yang akan dikerjakan dengan menggunakan alat wales/stamper agar dasar benar-benar rata.",
-      en: "Leveling the surface to be worked on using a wales/stamper tool so the base is completely flat.",
-    },
-  },
-  {
-    no: "02",
-    Icon: IconRuler,
-    title: { id: "Pembersihan & Pengukuran", en: "Cleaning & Measuring" },
-    desc: {
-      id: "Sebelum proses pemasangan, dilakukan pembersihan dan pengukuran untuk menentukan titik-titik yang akan dipasang.",
-      en: "Before installation, cleaning and measuring are carried out to determine the points to be installed.",
-    },
-  },
-  {
-    no: "03",
-    Icon: IconGrid,
-    title: { id: "Pemasangan Paving Block", en: "Paving Block Installation" },
-    desc: {
-      id: "Menggelar abu batu, memadatkan dengan mesin giling, kemudian memasang paving block sesuai pola yang diinginkan.",
-      en: "Spreading stone dust, compacting with a roller, then installing paving blocks according to the desired pattern.",
-    },
-  },
-  {
-    no: "04",
-    Icon: IconSparkles,
-    title: { id: "Finishing & Pemadatan", en: "Finishing & Compaction" },
-    desc: {
-      id: "Menggunakan Baby Roller / wales mini untuk memastikan posisi block rapi. Celah antar paving diisi abu batu supaya tidak bergeser.",
-      en: "Using a Baby Roller / mini wales to ensure blocks are neatly positioned. Gaps between pavers are filled with stone dust to prevent shifting.",
-    },
-  },
+  { no: "01", Icon: IconLayers, title: { id: "Leveling & Perataan", en: "Leveling & Flattening" }, desc: { id: "Meratakan permukaan yang akan dikerjakan dengan menggunakan alat wales/stamper agar dasar benar-benar rata.", en: "Leveling the surface to be worked on using a wales/stamper tool so the base is completely flat." } },
+  { no: "02", Icon: IconRuler, title: { id: "Pembersihan & Pengukuran", en: "Cleaning & Measuring" }, desc: { id: "Sebelum proses pemasangan, dilakukan pembersihan dan pengukuran untuk menentukan titik-titik yang akan dipasang.", en: "Before installation, cleaning and measuring are carried out to determine the points to be installed." } },
+  { no: "03", Icon: IconGrid, title: { id: "Pemasangan Paving Block", en: "Paving Block Installation" }, desc: { id: "Menggelar abu batu, memadatkan dengan mesin giling, kemudian memasang paving block sesuai pola yang diinginkan.", en: "Spreading stone dust, compacting with a roller, then installing paving blocks according to the desired pattern." } },
+  { no: "04", Icon: IconSparkles, title: { id: "Finishing & Pemadatan", en: "Finishing & Compaction" }, desc: { id: "Menggunakan Baby Roller / wales mini untuk memastikan posisi block rapi. Celah antar paving diisi abu batu supaya tidak bergeser.", en: "Using a Baby Roller / mini wales to ensure blocks are neatly positioned. Gaps between pavers are filled with stone dust to prevent shifting." } },
 ];
 
 const areaUmum = [
@@ -345,67 +182,16 @@ const areaUmum = [
   { id: "Area Publik",     en: "Public Areas" },
 ];
 
-// ─────────────────────────────────────────────
-// AREA JANGKAUAN
-// ─────────────────────────────────────────────
+// Area jangkauan
 const areaJangkauan = [
-  {
-    region: "DKI Jakarta",
-    kota: ["Jakarta Barat", "Jakarta Utara", "Jakarta Pusat", "Jakarta Timur", "Jakarta Selatan"],
-    kabupaten: ["Kepulauan Seribu"],
-  },
-  {
-    region: "Jawa Barat",
-    kota: ["Bandung", "Bekasi", "Bogor", "Depok", "Cimahi", "Sukabumi", "Tasikmalaya", "Banjar", "Cirebon"],
-    kabupaten: [
-      "Bandung", "Bandung Barat", "Bekasi", "Bogor", "Cianjur", "Cirebon",
-      "Garut", "Indramayu", "Karawang", "Kuningan", "Majalengka",
-      "Pangandaran", "Purwakarta", "Subang", "Sukabumi", "Sumedang",
-      "Tasikmalaya", "Ciamis",
-    ],
-  },
-  {
-    region: "Banten",
-    kota: ["Serang", "Tangerang", "Tangerang Selatan", "Cilegon"],
-    kabupaten: ["Lebak", "Pandeglang", "Serang", "Tangerang"],
-  },
-  {
-    region: "Jawa Tengah",
-    kota: ["Semarang", "Pekalongan", "Tegal", "Magelang", "Salatiga", "Surakarta (Solo)"],
-    kabupaten: [
-      "Banjarnegara", "Banyumas", "Batang", "Blora", "Boyolali", "Brebes",
-      "Cilacap", "Demak", "Grobogan", "Jepara", "Karanganyar", "Kebumen",
-      "Kendal", "Klaten", "Kudus", "Magelang", "Pati", "Pekalongan",
-      "Pemalang", "Purbalingga", "Purworejo", "Rembang", "Semarang",
-      "Sragen", "Sukoharjo", "Tegal", "Temanggung", "Wonogiri", "Wonosobo",
-    ],
-  },
-  {
-    region: "DI Yogyakarta",
-    kota: ["Yogyakarta"],
-    kabupaten: ["Bantul", "Gunungkidul", "Kulon Progo", "Sleman"],
-  },
-  {
-    region: "Jawa Timur",
-    kota: ["Surabaya", "Malang", "Madiun", "Kediri", "Blitar", "Banyuwangi", "Probolinggo", "Pasuruan", "Mojokerto", "Batu"],
-    kabupaten: [
-      "Bangkalan", "Banyuwangi", "Blitar", "Bojonegoro", "Bondowoso", "Gresik",
-      "Jember", "Jombang", "Kediri", "Lamongan", "Madiun", "Lumajang",
-      "Magetan", "Pacitan", "Malang", "Mojokerto", "Nganjuk", "Ngawi",
-      "Pamekasan", "Pasuruan", "Ponorogo", "Probolinggo", "Sampang",
-      "Sidoarjo", "Situbondo", "Sumenep", "Trenggalek", "Tuban", "Tulungagung",
-    ],
-  },
-  {
-    region: "Bangka Belitung",
-    kota: ["Pangkal Pinang"],
-    kabupaten: ["Bangka", "Bangka Barat", "Bangka Selatan", "Bangka Tengah", "Belitung", "Belitung Timur"],
-  },
-  {
-    region: "Bali",
-    kota: ["Denpasar"],
-    kabupaten: ["Badung", "Bangli", "Buleleng", "Gianyar", "Jembrana", "Karangasem", "Klungkung", "Tabanan"],
-  },
+  { region: "DKI Jakarta", kota: ["Jakarta Barat", "Jakarta Utara", "Jakarta Pusat", "Jakarta Timur", "Jakarta Selatan"], kabupaten: ["Kepulauan Seribu"] },
+  { region: "Jawa Barat", kota: ["Bandung", "Bekasi", "Bogor", "Depok", "Cimahi", "Sukabumi", "Tasikmalaya", "Banjar", "Cirebon"], kabupaten: ["Bandung", "Bandung Barat", "Bekasi", "Bogor", "Cianjur", "Cirebon", "Garut", "Indramayu", "Karawang", "Kuningan", "Majalengka", "Pangandaran", "Purwakarta", "Subang", "Sukabumi", "Sumedang", "Tasikmalaya", "Ciamis"] },
+  { region: "Banten", kota: ["Serang", "Tangerang", "Tangerang Selatan", "Cilegon"], kabupaten: ["Lebak", "Pandeglang", "Serang", "Tangerang"] },
+  { region: "Jawa Tengah", kota: ["Semarang", "Pekalongan", "Tegal", "Magelang", "Salatiga", "Surakarta (Solo)"], kabupaten: ["Banjarnegara", "Banyumas", "Batang", "Blora", "Boyolali", "Brebes", "Cilacap", "Demak", "Grobogan", "Jepara", "Karanganyar", "Kebumen", "Kendal", "Klaten", "Kudus", "Magelang", "Pati", "Pekalongan", "Pemalang", "Purbalingga", "Purworejo", "Rembang", "Semarang", "Sragen", "Sukoharjo", "Tegal", "Temanggung", "Wonogiri", "Wonosobo"] },
+  { region: "DI Yogyakarta", kota: ["Yogyakarta"], kabupaten: ["Bantul", "Gunungkidul", "Kulon Progo", "Sleman"] },
+  { region: "Jawa Timur", kota: ["Surabaya", "Malang", "Madiun", "Kediri", "Blitar", "Banyuwangi", "Probolinggo", "Pasuruan", "Mojokerto", "Batu"], kabupaten: ["Bangkalan", "Banyuwangi", "Blitar", "Bojonegoro", "Bondowoso", "Gresik", "Jember", "Jombang", "Kediri", "Lamongan", "Madiun", "Lumajang", "Magetan", "Pacitan", "Malang", "Mojokerto", "Nganjuk", "Ngawi", "Pamekasan", "Pasuruan", "Ponorogo", "Probolinggo", "Sampang", "Sidoarjo", "Situbondo", "Sumenep", "Trenggalek", "Tuban", "Tulungagung"] },
+  { region: "Bangka Belitung", kota: ["Pangkal Pinang"], kabupaten: ["Bangka", "Bangka Barat", "Bangka Selatan", "Bangka Tengah", "Belitung", "Belitung Timur"] },
+  { region: "Bali", kota: ["Denpasar"], kabupaten: ["Badung", "Bangli", "Buleleng", "Gianyar", "Jembrana", "Karangasem", "Klungkung", "Tabanan"] },
 ];
 
 // ─────────────────────────────────────────────
@@ -414,13 +200,9 @@ const areaJangkauan = [
 function SectionKicker({ children }) {
   return (
     <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-3">
-      <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
-      <span className="text-[10px] sm:text-[11px] uppercase
-                       tracking-[0.25em] sm:tracking-[0.3em]
-                       text-[#1e88e5] font-semibold">
-        {children}
-      </span>
-      <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
+      <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" aria-hidden="true" />
+      <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-semibold">{children}</span>
+      <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" aria-hidden="true" />
     </div>
   );
 }
@@ -433,8 +215,13 @@ const content = {
     heroKicker: "Layanan Kami",
     heroTitle: "Pasang Grass Block",
     heroDesc: "Jasa pasang grass block untuk area parkir, jalan lingkungan, dan taman. Rapi, kuat, ramah lingkungan, dan hemat biaya.",
+    figKicker: "Proyek",
     figAlt: "Pasang Grass Block",
     figCaption: "Pemasangan Grass Block — Tri Abadi Makmur",
+    priceKicker: "Paket Harga",
+    priceTitleLight: "Jasa Pasang ",
+    priceTitleBold: "Grass Block Jabodetabek",
+    priceDesc: "Spesifikasi harga jasa pasang grass block & paving block.",
     introTitle: "Jasa Pasang Grass Block Jabodetabek",
     introBody: " — atau conblock adalah material bangunan yang dibuat dari campuran bahan material kasar seperti coran semen dan pasir yang dipress dengan tekanan tertentu dan dibuat dengan berbagai bentuk dan warna.",
     quote: "Grass block banyak digunakan sebagai infrastruktur karena keunggulan perawatan dan biaya yang relatif murah dibandingkan dengan bahan lain — sekaligus memberikan nilai estetika pada area terbuka.",
@@ -446,16 +233,21 @@ const content = {
     aboutP3: "Tapi dilihat dari fungsi, grass block memang digunakan sebagai infrastruktur taman. Seperti yang kita ketahui, grass block dipasang di area terbuka, dan dipakai untuk melapisi permukaan tanah yang akan ditanami rumput atau paving.",
     usedKicker: "Biasa Digunakan Di",
     stepKicker: "Tahapan Pemasangan",
-    priceKicker: "Paket Harga",
-    priceTitleLight: "Jasa Pasang ",
-    priceTitleBold: "Grass Block Jabodetabek",
-    priceDesc: "Spesifikasi harga jasa pasang grass block & paving block.",
-    // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Informasi & Edukasi",
     articleTitleLight: "Butuh wawasan seputar ",
     articleTitleBold: "Konstruksi & Grass Block?",
     articleDesc: "Jangan lewatkan artikel dan tips terbaru dari kami seputar pemasangan grass block, sistem drainase alami, dan penataan area hijau.",
     articleBtn: "Lihat Semua Artikel",
+    faqTitle: "Pertanyaan Seputar Pasang Grass Block",
+    faqItems: [
+      { q: "Berapa harga pasang grass block per meter?", a: "Harga grass block berkisar Rp 75.000 – Rp 115.000 per m² tergantung tipe (Fullpave, Halfpave, Set Kombinasi), ketebalan (6 cm / 8 cm), dan warna (natural / warna). Untuk penawaran akurat, kami lakukan survey lokasi gratis terlebih dahulu. Lihat rincian lengkap di tabel harga bagian atas halaman ini." },
+      { q: "Apa beda grass block dan paving block?", a: "Grass block memiliki rongga di tengah sehingga rumput bisa tumbuh dan air hujan bisa meresap ke tanah — cocok untuk area yang butuh drainase alami. Paving block solid tanpa rongga, lebih cocok untuk jalan yang menahan beban berat dan butuh permukaan rata." },
+      { q: "Berapa lama proses pemasangan grass block?", a: "Tergantung luas area. Untuk 100 m² standar, biasanya 2–3 hari kerja. Setelah survey, kami berikan estimasi waktu yang lebih akurat." },
+      { q: "Apakah grass block kuat untuk area parkir mobil?", a: "Ya. Untuk area parkir mobil, kami sarankan grass block ketebalan 8 cm dengan mutu K-300 dan lapisan dasar sirtu + abu batu yang dipadatkan. Konsultasikan beban kendaraan Anda saat survey." },
+      { q: "Apakah ada garansi pengerjaan?", a: "Ya, garansi pemasangan hingga 2 tahun untuk mutu dan kerapian hasil kerja, tergantung jenis pekerjaan dan kondisi lapangan." },
+      { q: "Berapa minimal order pemasangan grass block?", a: "Minimal order menyesuaikan tipe grass block dan lokasi. Detail dikonsultasikan via WhatsApp untuk memastikan efisiensi pengerjaan." },
+    ],
+    faqLinkText: "Butuh simulasi volume & estimasi biaya? Konsultasikan dengan tim kami.",
     areaKicker: "Layanan",
     areaTitleLight: "Area ",
     areaTitleBold: "Jangkauan Kami",
@@ -467,14 +259,19 @@ const content = {
     ctaTitleLight: "Butuh jasa pasang grass block? ",
     ctaTitleBold: "Kami siap membantu.",
     ctaBtn: "Hubungi via WhatsApp",
-    ctaWaMessage: "Halo Tri Abadi Makmur, saya ingin konsultasi mengenai Project...",
+    ctaWaMessage: "Halo Tri Abadi Makmur, saya ingin konsultasi estimasi biaya & survey pasang grass block untuk lokasi di...",
   },
   en: {
     heroKicker: "Our Services",
     heroTitle: "Grass Block Installation",
     heroDesc: "Grass block installation services for parking areas, neighborhood roads, and parks. Neat, strong, eco-friendly, and cost-effective.",
+    figKicker: "Project",
     figAlt: "Grass Block Installation",
     figCaption: "Grass Block Installation — Tri Abadi Makmur",
+    priceKicker: "Price Packages",
+    priceTitleLight: "Grass Block Installation ",
+    priceTitleBold: "Services in Jabodetabek",
+    priceDesc: "Price specifications for grass block & paving block installation services.",
     introTitle: "Grass Block Installation Services in Jabodetabek",
     introBody: " — or conblock is a building material made from a mixture of coarse materials such as cement casting and sand, pressed under specific pressure and made in various shapes and colors.",
     quote: "Grass block is widely used as infrastructure due to its easy maintenance and relatively low cost compared to other materials — while also adding aesthetic value to open areas.",
@@ -486,16 +283,21 @@ const content = {
     aboutP3: "But in terms of function, grass block is indeed used as garden infrastructure. As we know, grass block is installed in open areas, and is used to cover ground surfaces that will be planted with grass or paving.",
     usedKicker: "Commonly Used In",
     stepKicker: "Installation Stages",
-    priceKicker: "Price Packages",
-    priceTitleLight: "Grass Block Installation ",
-    priceTitleBold: "Services in Jabodetabek",
-    priceDesc: "Price specifications for grass block & paving block installation services.",
-    // TAMBAHAN KONTEN ARTIKEL
     articleKicker: "Information & Education",
     articleTitleLight: "Need insights on ",
     articleTitleBold: "Construction & Grass Block?",
     articleDesc: "Don't miss our latest articles and tips about grass block installation, natural drainage systems, and green area landscaping.",
     articleBtn: "View All Articles",
+    faqTitle: "Frequently Asked Questions About Grass Block Installation",
+    faqItems: [
+      { q: "How much does grass block installation cost per meter?", a: "Grass block prices range from Rp 75,000 – Rp 115,000 per m² depending on the type (Fullpave, Halfpave, Combination Set), thickness (6 cm / 8 cm), and color (natural / colored). For an accurate quote, we conduct a free site survey first. See the full price breakdown in the price table at the top of this page." },
+      { q: "What is the difference between grass block and paving block?", a: "Grass block has a hollow center so grass can grow and rainwater can seep into the soil — suitable for areas requiring natural drainage. Paving block is solid without hollows, better for roads with heavy loads that need a flat surface." },
+      { q: "How long does grass block installation take?", a: "Depends on area size. For a standard 100 m², usually 2–3 working days. After survey, we will give a more accurate time estimate." },
+      { q: "Is grass block strong enough for car parking areas?", a: "Yes. For car parking areas, we recommend 8 cm thick grass block with K-300 grade and a base layer of compacted sirtu + stone dust. Consult your vehicle load during the survey." },
+      { q: "Is there a work warranty?", a: "Yes, up to a 2-year installation warranty for quality and neatness, depending on work type and site conditions." },
+      { q: "What is the minimum order for grass block installation?", a: "Minimum order depends on the grass block type and location. Details are consulted via WhatsApp to ensure installation efficiency." },
+    ],
+    faqLinkText: "Need a volume & cost simulation? Consult with our team.",
     areaKicker: "Services",
     areaTitleLight: "Our ",
     areaTitleBold: "Coverage Area",
@@ -507,154 +309,85 @@ const content = {
     ctaTitleLight: "Need grass block installation? ",
     ctaTitleBold: "We are ready to help.",
     ctaBtn: "Contact via WhatsApp",
-    ctaWaMessage: "Hello Tri Abadi Makmur, I would like to consult about an project...",
+    ctaWaMessage: "Hello Tri Abadi Makmur, I would like to consult grass block installation cost & site survey in...",
   },
 };
 
 // ─────────────────────────────────────────────
-// SUB-KOMPONEN: KEUNGGULAN CARD (memoized)
+// SUB-KOMPONEN
 // ─────────────────────────────────────────────
 const KeunggulanCard = memo(function KeunggulanCard({ item, t }) {
   const { Icon, title, desc } = item;
   return (
-    <div
-      className="flex items-start gap-3 sm:gap-3.5"
-      style={{ contain: "layout paint style" }}
-    >
-      <span className="shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-lg
-                       bg-[#1e88e5]/10 text-[#1e88e5]
-                       flex items-center justify-center">
+    <div className="flex items-start gap-3 sm:gap-3.5">
+      <span className="shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#1e88e5]/10 text-[#1e88e5] flex items-center justify-center">
         <Icon className="w-4 h-4" />
       </span>
       <div className="min-w-0">
-        <div
-          className="text-slate-900 font-semibold leading-snug"
-          style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.84375rem)" }}
-        >
-          {t(title)}
-        </div>
-        <div
-          className="text-slate-500 leading-snug mt-1"
-          style={{ fontSize: "clamp(0.71875rem, 1.3vw, 0.75rem)" }}
-        >
-          {t(desc)}
-        </div>
+        <div className="text-slate-900 font-semibold leading-snug" style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.84375rem)" }}>{t(title)}</div>
+        <div className="text-slate-500 leading-snug mt-1" style={{ fontSize: "clamp(0.71875rem, 1.3vw, 0.75rem)" }}>{t(desc)}</div>
       </div>
     </div>
   );
 });
 
-// ─────────────────────────────────────────────
-// SUB-KOMPONEN: AREA UMUM CHIP (memoized)
-// ─────────────────────────────────────────────
 const AreaUmumChip = memo(function AreaUmumChip({ item, t }) {
   return (
-    <div className="flex items-center gap-2" style={{ contain: "layout paint style" }}>
+    <div className="flex items-center gap-2">
       <span className="w-1.5 h-1.5 rounded-full bg-[#1e88e5] shrink-0" />
-      <span
-        className="text-slate-700 font-medium"
-        style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.8125rem)" }}
-      >
-        {t(item)}
-      </span>
+      <span className="text-slate-700 font-medium" style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.8125rem)" }}>{t(item)}</span>
     </div>
   );
 });
 
-// ─────────────────────────────────────────────
-// SUB-KOMPONEN: STEP ITEM (memoized)
-// ─────────────────────────────────────────────
 const StepItem = memo(function StepItem({ step, t, isLast }) {
   const { Icon } = step;
   return (
-    <div
-      className="relative flex gap-3 sm:gap-4"
-      style={{ contain: "layout paint style" }}
-    >
+    <div className="relative flex gap-3 sm:gap-4">
       {!isLast && (
-        <span className="absolute left-4 top-9 bottom-[-24px] w-px bg-slate-200" />
+        <span className="absolute left-4 top-9 bottom-[-24px] w-px bg-slate-200" aria-hidden="true" />
       )}
-
       <div className="relative shrink-0">
-        <div className="w-8 h-8 rounded-full flex items-center justify-center
-                        bg-[#1e88e5]/10 text-[#1e88e5]">
+        <div className="w-8 h-8 rounded-full flex items-center justify-center bg-[#1e88e5]/10 text-[#1e88e5]">
           <Icon className="w-3.5 h-3.5" />
         </div>
       </div>
-
       <div className="min-w-0 pb-1">
         <div className="flex items-center gap-2 mb-1 flex-wrap">
-          <span className="text-[10px] font-bold font-mono text-slate-400">
-            {step.no}
-          </span>
-          <h4
-            className="font-semibold text-slate-900"
-            style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.84375rem)" }}
-          >
-            {t(step.title)}
-          </h4>
+          <span className="text-[10px] font-bold font-mono text-slate-400">{step.no}</span>
+          <h4 className="font-semibold text-slate-900" style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.84375rem)" }}>{t(step.title)}</h4>
         </div>
-        <p
-          className="text-slate-600 leading-relaxed"
-          style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.78125rem)" }}
-        >
-          {t(step.desc)}
-        </p>
+        <p className="text-slate-600 leading-relaxed" style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.78125rem)" }}>{t(step.desc)}</p>
       </div>
     </div>
   );
 });
 
-// ─────────────────────────────────────────────
-// SUB-KOMPONEN: AREA ROW (memoized)
-// ─────────────────────────────────────────────
 const AreaRow = memo(function AreaRow({ area, data }) {
   return (
-    <div style={{ contain: "layout paint style" }}>
+    <div>
       <div className="flex items-center gap-3 mb-4">
         <span className="w-4 h-px bg-[#1e88e5]" />
-        <h3 className="text-[11.5px] sm:text-[12.5px] uppercase
-                       tracking-[0.2em] sm:tracking-[0.22em]
-                       text-[#1e88e5] font-bold">
-          {area.region}
-        </h3>
+        <h3 className="text-[11.5px] sm:text-[12.5px] uppercase tracking-[0.2em] sm:tracking-[0.22em] text-[#1e88e5] font-bold">{area.region}</h3>
         <span className="flex-1 h-px bg-slate-200" />
       </div>
-
       <div className="space-y-3 pl-1">
         {area.kota && area.kota.length > 0 && (
           <div className="flex items-start gap-2.5 sm:gap-3">
-            <span className="shrink-0 mt-[3px] text-[9.5px] sm:text-[10px] uppercase
-                             tracking-wider font-bold text-slate-400 w-[50px] sm:w-[60px]">
-              {data.areaCity}
-            </span>
+            <span className="shrink-0 mt-[3px] text-[9.5px] sm:text-[10px] uppercase tracking-wider font-bold text-slate-400 w-[50px] sm:w-[60px]">{data.areaCity}</span>
             <div className="flex flex-wrap gap-1.5 flex-1">
               {area.kota.map((k, i) => (
-                <span key={i}
-                  className="inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md
-                             bg-[#1e88e5]/5 border border-[#1e88e5]/20
-                             text-[10.5px] sm:text-[11px] text-[#1565c0] font-medium">
-                  {k}
-                </span>
+                <span key={i} className="inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-[#1e88e5]/5 border border-[#1e88e5]/20 text-[10.5px] sm:text-[11px] text-[#1565c0] font-medium">{k}</span>
               ))}
             </div>
           </div>
         )}
-
         {area.kabupaten && area.kabupaten.length > 0 && (
           <div className="flex items-start gap-2.5 sm:gap-3">
-            <span className="shrink-0 mt-[3px] text-[9.5px] sm:text-[10px] uppercase
-                             tracking-wider font-bold text-slate-400 w-[50px] sm:w-[60px]">
-              {data.areaRegency}
-            </span>
+            <span className="shrink-0 mt-[3px] text-[9.5px] sm:text-[10px] uppercase tracking-wider font-bold text-slate-400 w-[50px] sm:w-[60px]">{data.areaRegency}</span>
             <div className="flex flex-wrap gap-1.5 flex-1">
               {area.kabupaten.map((k, i) => (
-                <span key={i}
-                  className="inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md
-                             bg-white border border-slate-200
-                             text-[10.5px] sm:text-[11px] text-slate-600">
-                  {k}
-                </span>
+                <span key={i} className="inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-white border border-slate-200 text-[10.5px] sm:text-[11px] text-slate-600">{k}</span>
               ))}
             </div>
           </div>
@@ -678,44 +411,37 @@ export default function PasangGrassBlock() {
   }, [lang]);
 
   const [showArea, setShowArea] = useState(false);
+  const waHref = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(data.ctaWaMessage)}`;
 
   return (
     <div className="bg-slate-50/50">
 
-      {/* ═══════ HERO ═══════ */}
+      {/* ═══════ HERO (tanpa CTA, seperti beton) ═══════ */}
       <section className="pt-32 lg:pt-40 pb-12 lg:pb-16 bg-white border-b border-slate-100">
         <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <Reveal delay={0} y={20}>
             <div className="inline-flex items-center gap-3 mb-6">
               <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" aria-hidden="true" />
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-bold">
-                {data.heroKicker}
-              </span>
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-bold">{data.heroKicker}</span>
               <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" aria-hidden="true" />
             </div>
           </Reveal>
 
           <Reveal delay={80} y={30}>
-            <h1
-              className="font-light tracking-tight text-slate-900 leading-[1.1] mb-6"
-              style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}
-            >
+            <h1 className="font-light tracking-tight text-slate-900 leading-[1.1] mb-6" style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}>
               {data.heroTitle}<span className="text-[#1e88e5]">.</span>
             </h1>
           </Reveal>
 
           <Reveal delay={160} y={24}>
-            <p
-              className="text-slate-600 leading-relaxed max-w-2xl mx-auto"
-              style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1.0625rem)" }}
-            >
+            <p className="text-slate-600 leading-relaxed max-w-2xl mx-auto" style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1.0625rem)" }}>
               {data.heroDesc}
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* ═══════ KONTEN UTAMA ═══════ */}
+      {/* ═══════ KONTEN ═══════ */}
       <section className="py-16 lg:py-24">
         <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
 
@@ -733,89 +459,83 @@ export default function PasangGrassBlock() {
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     e.currentTarget.onerror = null;
-                    e.currentTarget.src = "/proyek/proyek-38.webp";
+                    e.currentTarget.src = "/proyek/proyek-1.webp";
                   }}
                 />
               </div>
               <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 to-transparent px-5 sm:px-8 py-5 sm:py-8 pt-16 sm:pt-20">
                 <div className="flex items-center gap-2.5 mb-2">
                   <span className="w-6 sm:w-8 h-px bg-[#4da3ff]" aria-hidden="true" />
-                  <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.28em] text-[#4da3ff] font-bold">
-                    {"Proyek"}
-                  </span>
+                  <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.28em] text-[#4da3ff] font-bold">{data.figKicker}</span>
                 </div>
-                <p
-                  className="text-white font-semibold text-lg sm:text-xl"
-                  style={{ fontSize: "clamp(0.9375rem, 1.5vw, 1.125rem)" }}
-                >
+                <p className="text-white font-semibold text-lg sm:text-xl" style={{ fontSize: "clamp(0.9375rem, 1.5vw, 1.125rem)" }}>
                   {data.figCaption}
                 </p>
               </figcaption>
             </figure>
           </Reveal>
+        </div>
 
-          {/* Pengantar */}
+        {/* ═══════ PANEL HARGA (DI ATAS, seperti beton) ═══════ */}
+        <div className="mt-8 lg:mt-12 mb-16">
+          <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+            <Reveal y={26}>
+              <div className="text-center mb-10">
+                <SectionKicker>{data.priceKicker}</SectionKicker>
+                <h2 className="font-light tracking-tight text-slate-900 leading-tight max-w-2xl mx-auto" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}>
+                  {data.priceTitleLight}<span className="font-bold">{data.priceTitleBold}</span>
+                </h2>
+                <p className="text-slate-500 mt-4 max-w-xl mx-auto" style={{ fontSize: "clamp(0.875rem, 1.4vw, 0.9375rem)" }}>
+                  {data.priceDesc}
+                </p>
+              </div>
+            </Reveal>
+            <Reveal y={34} delay={80}>
+              <GrassBlockPricingPanel />
+            </Reveal>
+          </div>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
+
+          {/* Pengantar + Quote */}
           <Reveal delay={100} y={24}>
             <div className="max-w-3xl mb-14">
-              <p className="text-slate-700 leading-[1.9]"
-                 style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}>
+              <p className="text-slate-700 leading-[1.9]" style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}>
                 <span className="font-bold text-slate-900">{data.introTitle}</span>
                 {data.introBody}
               </p>
             </div>
           </Reveal>
 
-          {/* Quote */}
           <Reveal delay={150} y={22}>
             <div className="max-w-3xl mx-auto text-center mb-12">
-              <p
-                className="text-slate-700 leading-[1.9] italic font-medium"
-                style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}
-              >
+              <p className="text-slate-700 leading-[1.9] italic font-medium" style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}>
                 {data.quote}
               </p>
             </div>
           </Reveal>
 
-          {/* ═══════ TENTANG GRASS BLOCK ═══════ */}
+          {/* TENTANG GRASS BLOCK */}
           <div className="mb-16">
             <Reveal y={26}>
               <div className="text-center mb-10">
                 <SectionKicker>{data.aboutKicker}</SectionKicker>
-                <h2
-                  className="font-light tracking-tight text-slate-900 leading-tight"
-                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
-                >
-                  {data.aboutTitleLight}
-                  <span className="font-bold">{data.aboutTitleBold}</span>
+                <h2 className="font-light tracking-tight text-slate-900 leading-tight" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}>
+                  {data.aboutTitleLight}<span className="font-bold">{data.aboutTitleBold}</span>
                 </h2>
               </div>
             </Reveal>
 
             <Reveal delay={100} y={22}>
               <div className="max-w-3xl mx-auto text-center space-y-5 mb-12">
-                <p
-                  className="text-slate-600 leading-[1.85]"
-                  style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}
-                >
-                  {data.aboutP1}
-                </p>
-                <p
-                  className="text-slate-600 leading-[1.85]"
-                  style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}
-                >
-                  {data.aboutP2}
-                </p>
-                <p
-                  className="text-slate-600 leading-[1.85]"
-                  style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}
-                >
-                  {data.aboutP3}
-                </p>
+                <p className="text-slate-600 leading-[1.85]" style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}>{data.aboutP1}</p>
+                <p className="text-slate-600 leading-[1.85]" style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}>{data.aboutP2}</p>
+                <p className="text-slate-600 leading-[1.85]" style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}>{data.aboutP3}</p>
               </div>
             </Reveal>
 
-            {/* Kartu keunggulan */}
+            {/* Keunggulan Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5 mb-12">
               {keunggulanGrass.map((item, i) => (
                 <Reveal key={i} delay={i * 100} y={24}>
@@ -829,10 +549,7 @@ export default function PasangGrassBlock() {
               <div className="mb-12">
                 <div className="flex items-center gap-2 mb-5">
                   <span className="w-6 h-px bg-[#1e88e5]" />
-                  <h3 className="text-[10.5px] sm:text-[11px] uppercase
-                                 tracking-[0.25em] text-slate-500 font-semibold">
-                    {data.usedKicker}
-                  </h3>
+                  <h3 className="text-[10.5px] sm:text-[11px] uppercase tracking-[0.25em] text-slate-500 font-semibold">{data.usedKicker}</h3>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-3">
                   {areaUmum.map((area, i) => (
@@ -849,83 +566,34 @@ export default function PasangGrassBlock() {
               <div>
                 <div className="flex items-center gap-2 mb-6">
                   <span className="w-6 h-px bg-[#1e88e5]" />
-                  <h3 className="text-[10.5px] sm:text-[11px] uppercase
-                                 tracking-[0.25em] text-slate-500 font-semibold">
-                    {data.stepKicker}
-                  </h3>
+                  <h3 className="text-[10.5px] sm:text-[11px] uppercase tracking-[0.25em] text-slate-500 font-semibold">{data.stepKicker}</h3>
                 </div>
-
                 <div className="space-y-6">
                   {tahapanPemasangan.map((tp, i) => (
                     <Reveal key={i} delay={i * 100} x={-20} y={0}>
-                      <StepItem
-                        step={tp}
-                        t={t}
-                        isLast={i === tahapanPemasangan.length - 1}
-                      />
+                      <StepItem step={tp} t={t} isLast={i === tahapanPemasangan.length - 1} />
                     </Reveal>
                   ))}
                 </div>
               </div>
             </Reveal>
           </div>
-        </div>
 
-        {/* ═══════ PANEL HARGA ═══════ */}
-        <div className="mt-16 lg:mt-20 mb-16">
-          <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
-            <Reveal y={26}>
-              <div className="text-center mb-10">
-                <SectionKicker>{data.priceKicker}</SectionKicker>
-                <h2
-                  className="font-light tracking-tight text-slate-900 leading-tight max-w-2xl mx-auto"
-                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
-                >
-                  {data.priceTitleLight}
-                  <span className="font-bold">{data.priceTitleBold}</span>
-                </h2>
-                <p
-                  className="text-slate-500 mt-4 max-w-xl mx-auto"
-                  style={{ fontSize: "clamp(0.875rem, 1.4vw, 0.9375rem)" }}
-                >
-                  {data.priceDesc}
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal y={34} delay={80}>
-              <GrassBlockPricingPanel hideCta />
-            </Reveal>
-          </div>
-        </div>
-
-        {/* Lanjut konten */}
-        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
-
-          {/* ═══════ TAMBAHAN: SECTION ARTIKEL BLOG ═══════ */}
+          {/* ═══════ ARTIKEL BLOG ═══════ */}
           <Reveal y={30}>
             <div className="mt-10 sm:mt-12 p-6 sm:p-10 bg-white border border-slate-100 rounded-2xl shadow-sm text-center max-w-3xl mx-auto relative overflow-hidden group hover:shadow-md transition-shadow duration-300">
               <div className="relative z-10">
                 <SectionKicker>{data.articleKicker}</SectionKicker>
-                <h3 
-                  className="text-slate-900 tracking-tight mb-4" 
-                  style={{ fontSize: "clamp(1.25rem, 3vw, 1.75rem)" }}
-                >
+                <h3 className="text-slate-900 tracking-tight mb-4" style={{ fontSize: "clamp(1.25rem, 3vw, 1.75rem)" }}>
                   <span className="font-light">{data.articleTitleLight}</span>
                   <span className="font-bold">{data.articleTitleBold}</span>
                 </h3>
-                <p 
-                  className="text-slate-600 mx-auto mb-8 max-w-xl leading-relaxed" 
-                  style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}
-                >
+                <p className="text-slate-600 mx-auto mb-8 max-w-xl leading-relaxed" style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}>
                   {data.articleDesc}
                 </p>
                 <Link
                   href="/blog"
-                  className="inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-[#1e88e5] text-white 
-                             font-bold tracking-wide transition-all duration-300 
-                             shadow-lg shadow-[#1e88e5]/30 hover:shadow-[#1e88e5]/50 hover:-translate-y-1 
-                             hover:bg-[#1976d2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
+                  className="inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-[#1e88e5] text-white font-bold tracking-wide transition-all duration-300 shadow-lg shadow-[#1e88e5]/30 hover:shadow-[#1e88e5]/50 hover:-translate-y-1 hover:bg-[#1976d2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
                   style={{ fontSize: "clamp(0.8125rem, 1.4vw, 0.9375rem)" }}
                 >
                   <IconArticle className="w-5 h-5" />
@@ -936,22 +604,56 @@ export default function PasangGrassBlock() {
             </div>
           </Reveal>
 
+          {/* ═══════ FAQ (pakai <details> seperti beton) ═══════ */}
+          <div className="mt-16 mb-16">
+            <Reveal y={26}>
+              <div className="text-center mb-10">
+                <SectionKicker>FAQ</SectionKicker>
+                <h2 className="font-light tracking-tight text-slate-900 leading-tight" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}>
+                  {lang === "en" ? "Frequently Asked " : "Pertanyaan Seputar "}
+                  <span className="font-bold">{lang === "en" ? "Questions" : "Pasang Grass Block"}</span>
+                </h2>
+              </div>
+            </Reveal>
+
+            <div className="max-w-3xl mx-auto space-y-4">
+              {data.faqItems.map((faq, i) => (
+                <Reveal key={i} delay={i * 60} y={20}>
+                  <details className="group border border-slate-200 rounded-xl bg-white overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                    <summary className="flex items-center justify-between cursor-pointer p-5 sm:p-6 font-semibold text-slate-900 hover:text-[#1e88e5] transition-colors">
+                      <span>{faq.q}</span>
+                      <span className="shrink-0 ml-4 transition-transform duration-300 group-open:-rotate-180">
+                        <IconChevron />
+                      </span>
+                    </summary>
+                    <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4"
+                         style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.9375rem)" }}>
+                      {faq.a}
+                    </div>
+                  </details>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal delay={200}>
+              <div className="text-center mt-8">
+                <a href={waHref} target="_blank" rel="noopener noreferrer"
+                   className="inline-flex items-center gap-2 text-[#1e88e5] font-semibold hover:underline">
+                  {data.faqLinkText} <IconArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </Reveal>
+          </div>
+
           {/* ═══════ AREA JANGKAUAN ═══════ */}
           <div className="mt-12 sm:mt-16 mb-16">
             <Reveal y={26}>
               <div className="text-center mb-8">
                 <SectionKicker>{data.areaKicker}</SectionKicker>
-                <h2
-                  className="font-light tracking-tight text-slate-900 leading-tight"
-                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
-                >
-                  {data.areaTitleLight}
-                  <span className="font-bold">{data.areaTitleBold}</span>
+                <h2 className="font-light tracking-tight text-slate-900 leading-tight" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}>
+                  {data.areaTitleLight}<span className="font-bold">{data.areaTitleBold}</span>
                 </h2>
-                <p
-                  className="text-slate-500 mt-4 max-w-xl mx-auto"
-                  style={{ fontSize: "clamp(0.875rem, 1.4vw, 0.9375rem)" }}
-                >
+                <p className="text-slate-500 mt-4 max-w-xl mx-auto" style={{ fontSize: "clamp(0.875rem, 1.4vw, 0.9375rem)" }}>
                   {data.areaDesc}
                 </p>
               </div>
@@ -965,25 +667,14 @@ export default function PasangGrassBlock() {
                 aria-label={data.areaToggle}
                 className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 bg-white border border-slate-200 rounded-xl cursor-pointer hover:border-[#1e88e5] hover:shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1e88e5]"
               >
-                <span
-                  className={`font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]
-                              ${showArea ? "text-[#1e88e5]" : "text-slate-700"}`}
-                  style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.9375rem)" }}
-                >
+                <span className={`font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] ${showArea ? "text-[#1e88e5]" : "text-slate-700"}`}
+                  style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.9375rem)" }}>
                   {data.areaToggle}
                 </span>
-                <span
-                  className={`shrink-0 px-4 py-1.5 rounded-full border
-                              font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]
-                              transition-colors duration-150
-                              ${showArea
-                                ? "bg-[#1e88e5] text-white border-[#1e88e5]"
-                                : "bg-slate-50 text-slate-500 border-slate-200"}`}
-                  style={{ fontSize: "clamp(0.625rem, 1vw, 0.6875rem)" }}
-                >
-                  {showArea
-                    ? (lang === "en" ? "Close" : "Tutup")
-                    : (lang === "en" ? "Open"  : "Buka")}
+                <span className={`shrink-0 px-4 py-1.5 rounded-full border font-bold uppercase tracking-[0.15em] transition-colors duration-150
+                    ${showArea ? "bg-[#1e88e5] text-white border-[#1e88e5]" : "bg-slate-50 text-slate-500 border-slate-200"}`}
+                  style={{ fontSize: "clamp(0.625rem, 1vw, 0.6875rem)" }}>
+                  {showArea ? (lang === "en" ? "Close" : "Tutup") : (lang === "en" ? "Open" : "Buka")}
                 </span>
               </button>
 
@@ -999,28 +690,20 @@ export default function PasangGrassBlock() {
             </Reveal>
           </div>
 
-          {/* ═══════ CTA (Premium) ═══════ */}
+          {/* ═══════ CTA PREMIUM ═══════ */}
           <Reveal y={34}>
             <div className="mt-10 sm:mt-14 p-8 sm:p-12 bg-slate-900 rounded-3xl text-center max-w-3xl mx-auto shadow-2xl shadow-slate-900/20 relative overflow-hidden">
-              {/* Efek background abstrak halus */}
               <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-[#1e88e5] rounded-full blur-3xl opacity-20 pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-[#25D366] rounded-full blur-3xl opacity-10 pointer-events-none"></div>
-
               <div className="relative z-10">
-                <p className="text-[#4da3ff] text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-bold mb-4">
-                  {data.ctaKicker}
-                </p>
-                <h3
-                  className="text-white font-light tracking-tight mb-8"
-                  style={{ fontSize: "clamp(1.25rem, 3vw, 1.75rem)" }}
-                >
-                  {data.ctaTitleLight}
-                  <span className="font-bold">{data.ctaTitleBold}</span>
+                <p className="text-[#4da3ff] text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-bold mb-4">{data.ctaKicker}</p>
+                <h3 className="text-white font-light tracking-tight mb-8" style={{ fontSize: "clamp(1.25rem, 3vw, 1.75rem)" }}>
+                  {data.ctaTitleLight}<span className="font-bold">{data.ctaTitleBold}</span>
                 </h3>
                 <a
-                  href={`https://wa.me/6282258089367?text=${encodeURIComponent(data.ctaWaMessage)}`}
+                  href={waHref}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   aria-label={data.ctaBtn}
                   className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-4 min-h-[48px] rounded-xl bg-[#25D366] text-white hover:bg-[#20bd5a] font-bold uppercase tracking-[0.1em] sm:tracking-[0.15em] shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50 hover:-translate-y-0.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
                   style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.875rem)" }}

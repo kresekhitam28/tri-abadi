@@ -5,6 +5,8 @@ import { useState, useMemo, useCallback, memo } from "react";
 import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 
+const WA_NUMBER = "6282258089367";
+
 // ─────────────────────────────────────────────
 // IKON
 // ─────────────────────────────────────────────
@@ -40,6 +42,21 @@ function IconChevron({ className = "w-3 h-3" }) {
     </svg>
   );
 }
+function IconCheck({ className = "w-3 h-3" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3}
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M5 12l5 5L20 7" />
+    </svg>
+  );
+}
+function IconWhatsApp({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+  );
+}
 
 // ─────────────────────────────────────────────
 // KONTEN BILINGUAL
@@ -49,33 +66,51 @@ const content = {
     headerBadge1: "Paket Harga",
     headerBadge2: "Pasang Tiang Pancang",
     headerTitle: "Jasa pasang tiang pancang",
-    headerSubtitle: "Spesifikasi harga jasa pasang tiang pancang",
+    headerSubtitle: "Harga borongan tiang pancang beton precast + alat berat",
     itemTitle: "Jasa Pasang Tiang Pancang",
-    itemDesc: "Harga borongan tenaga pasang",
-    rowLabel: "Pasang tiang pancang",
-    rowLabelHint: "(per meter lari)",
-    rowPrice: "Rp 280.000",
-    rowUnit: "/m¹",
-    note1: "Harga borongan tenaga + alat",
-    note2: "Harga sudah Termasuk Bahan & Jasa Pasang",
-    footerNote: "Harga dapat berubah sesuai kondisi lapangan & volume pekerjaan.",
+    itemDesc: "Borongan bahan + tenaga + alat berat",
+    priceTagLabel: "Harga Borongan",
+    priceLabel: "Rp 280.000",
+    priceUnit: "/ m¹",
+    priceNote: "Per meter lari (m¹) — harga sudah termasuk bahan, tenaga, & operasional alat berat",
+    includeLabel: "Sudah Termasuk",
+    includeItems: [
+      "Tiang pancang beton precast",
+      "Tenaga kerja & pengawasan",
+      "Alat berat (drop hammer / diesel hammer)",
+    ],
+    infoLabel: "Konsultasi & Survey",
+    infoValue: "Gratis",
+    infoNote: "Konsultasi teknis & survey lokasi gratis untuk wilayah Jabodetabek & sekitarnya.",
+    footerNote: "Harga dapat menyesuaikan volume, kedalaman, & kondisi tanah di lapangan.",
     ctaLabel: "Selengkapnya",
+    waBtn: "Konsultasi via WA",
+    waText: "Halo PT Tri Abadi Makmur, saya mau tanya harga & konsultasi jasa pasang tiang pancang...",
   },
   en: {
     headerBadge1: "Price Package",
     headerBadge2: "Pile Installation",
     headerTitle: "Pile installation service",
-    headerSubtitle: "Price specification for pile installation service",
-    itemTitle: "Pile Installation Service",
-    itemDesc: "Contract labor installation price",
-    rowLabel: "Pile installation",
-    rowLabelHint: "(per linear meter)",
-    rowPrice: "Rp 280.000",
-    rowUnit: "/m¹",
-    note1: "Contract price for labor + equipment",
-    note2: "Price already includes Material & Installation Service",
-    footerNote: "Prices may change according to field conditions & work volume.",
+    headerSubtitle: "Contract price for precast concrete pile + heavy equipment",
+    itemTitle: "Precast Concrete Pile Installation",
+    itemDesc: "Material + labor + heavy equipment contract price",
+    priceTagLabel: "Contract Price",
+    priceLabel: "Rp 280,000",
+    priceUnit: "/ m¹",
+    priceNote: "Per linear meter (m¹) — price already includes material, labor, & heavy equipment operation",
+    includeLabel: "Includes",
+    includeItems: [
+      "Precast concrete pile",
+      "Labor & supervision",
+      "Heavy equipment (drop hammer / diesel hammer)",
+    ],
+    infoLabel: "Consultation & Survey",
+    infoValue: "Free",
+    infoNote: "Free technical consultation & site survey for Jabodetabek & surrounding areas.",
+    footerNote: "Prices may adjust based on volume, depth, & field soil conditions.",
     ctaLabel: "Learn More",
+    waBtn: "Consult via WA",
+    waText: "Hello PT Tri Abadi Makmur, I would like to ask about pile installation price & consult...",
   },
 };
 
@@ -91,12 +126,12 @@ const AccordionItem = memo(function AccordionItem({
         type="button"
         onClick={() => onToggle(index)}
         aria-expanded={isOpen}
-        className={`w-full flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3.5 sm:py-4 text-left transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1e88e5]
-          ${isOpen ? "bg-[#1e88e5]/[0.03]" : "hover:bg-slate-50"}`}
+        className={`w-full flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3.5 sm:py-4 text-left transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-600
+          ${isOpen ? "bg-indigo-600/[0.04]" : "hover:bg-slate-50"}`}
       >
         <span
           className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors duration-150
-            ${isOpen ? "bg-[#1e88e5] text-white" : "bg-slate-100 text-slate-600"}`}
+            ${isOpen ? "bg-indigo-600 text-white" : "bg-slate-100 text-slate-600"}`}
         >
           {isOpen ? <IconMinus className="w-3.5 h-3.5" /> : <IconPlus className="w-3.5 h-3.5" />}
         </span>
@@ -104,7 +139,7 @@ const AccordionItem = memo(function AccordionItem({
         <span className="flex-1 min-w-0">
           <span
             className={`block font-semibold leading-snug transition-colors duration-150
-              ${isOpen ? "text-[#1e88e5]" : "text-slate-800"}`}
+              ${isOpen ? "text-indigo-700" : "text-slate-800"}`}
             style={{ fontSize: "clamp(0.8125rem, 1.7vw, 0.84375rem)" }}
           >
             {item.title}
@@ -142,29 +177,61 @@ export default function TiangPancangPricingPanel({ hideCta = false }) {
         title: t.itemTitle,
         desc: t.itemDesc,
         content: (
-          <div className="space-y-3">
-            <div className="rounded-lg border border-slate-200 divide-y divide-dashed divide-slate-200">
-              <div className="flex items-start sm:items-center justify-between gap-3 px-4 py-3">
-                <span className="text-[12.5px] text-slate-700 min-w-0">
-                  {t.rowLabel}{" "}
-                  <span className="text-slate-400">{t.rowLabelHint}</span>
-                </span>
-                <span className="text-[13px] font-semibold text-slate-900 whitespace-nowrap shrink-0">
-                  {t.rowPrice}
-                  <span className="text-[11px] text-slate-500">{t.rowUnit}</span>
+          <div className="space-y-3 sm:space-y-4">
+            {/* ── Hero price (indigo/industrial) ── */}
+            <div className="relative overflow-hidden rounded-xl border-2 border-indigo-200 bg-gradient-to-br from-indigo-50 via-slate-50 to-indigo-50 p-4 sm:p-5">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-600" aria-hidden="true" />
+                <span className="text-[10px] uppercase tracking-[0.15em] font-bold text-indigo-700">
+                  {t.priceTagLabel}
                 </span>
               </div>
+              <div className="flex items-baseline gap-1 flex-wrap">
+                <span
+                  className="font-extrabold text-slate-900 tracking-tight leading-none"
+                  style={{ fontSize: "clamp(1.75rem, 4vw, 2.25rem)" }}
+                >
+                  {t.priceLabel}
+                </span>
+                <span className="text-sm text-slate-500 font-medium">{t.priceUnit}</span>
+              </div>
+              <p className="text-[11px] text-slate-500 mt-2 leading-relaxed">
+                {t.priceNote}
+              </p>
             </div>
-            <ul className="space-y-1 text-[11px] text-slate-500">
-              <li className="flex gap-2">
-                <span className="text-slate-300" aria-hidden="true">•</span>
-                {t.note1}
-              </li>
-              <li className="flex gap-2">
-                <span className="text-slate-300" aria-hidden="true">•</span>
-                {t.note2}
-              </li>
-            </ul>
+
+            {/* ── Feature cards ── */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {/* Includes */}
+              <div className="rounded-lg border border-slate-200 bg-white p-3">
+                <div className="text-[10px] uppercase tracking-wider font-bold text-slate-400 mb-2">
+                  {t.includeLabel}
+                </div>
+                <ul className="space-y-1.5">
+                  {t.includeItems.map((it, i) => (
+                    <li key={i} className="flex items-start gap-2 text-[12px] text-slate-700">
+                      <span className="mt-0.5 w-4 h-4 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                        <IconCheck className="w-2.5 h-2.5" />
+                      </span>
+                      <span>{it}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Free survey */}
+              <div className="rounded-lg border border-indigo-200 bg-indigo-50/60 p-3">
+                <div className="text-[10px] uppercase tracking-wider font-bold text-indigo-700 mb-1">
+                  {t.infoLabel}
+                </div>
+                <div className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-none">
+                  {t.infoValue}
+                </div>
+                <p className="text-[10.5px] text-slate-500 mt-1.5 leading-snug">
+                  {t.infoNote}
+                </p>
+              </div>
+            </div>
           </div>
         ),
       },
@@ -178,14 +245,14 @@ export default function TiangPancangPricingPanel({ hideCta = false }) {
       aria-labelledby="tiang-pancang-panel-title"
     >
       {/* Header */}
-      <div className="px-4 sm:px-6 py-4 sm:py-5 border-b border-slate-200 bg-gradient-to-r from-slate-50 to-white">
+      <div className="px-4 sm:px-6 py-4 sm:py-5 border-b border-slate-200 bg-gradient-to-r from-indigo-50/50 to-white">
         <div className="flex items-start gap-3">
           <span
-            className="mt-1 w-1 h-9 rounded-full bg-[#1e88e5] shrink-0"
+            className="mt-1 w-1 h-9 rounded-full bg-indigo-600 shrink-0"
             aria-hidden="true"
           />
           <div className="min-w-0">
-            <div className="flex items-center gap-1.5 text-[10px] sm:text-[10.5px] uppercase tracking-[0.18em] text-[#1e88e5] font-semibold mb-1">
+            <div className="flex items-center gap-1.5 text-[10px] sm:text-[10.5px] uppercase tracking-[0.18em] text-indigo-700 font-semibold mb-1">
               <span>{t.headerBadge1}</span>
               <IconChevron className="w-2.5 h-2.5" />
               <span>{t.headerBadge2}</span>
@@ -230,14 +297,26 @@ export default function TiangPancangPricingPanel({ hideCta = false }) {
         </span>
 
         {!hideCta && (
-          <Link
-            href="/layanan/infrastruktur/pasang-tiang-pancang"
-            aria-label={t.ctaLabel}
-            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 min-h-[44px] sm:min-h-0 rounded-lg shrink-0 bg-slate-900 text-white text-[12px] font-semibold hover:bg-[#1e88e5] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
-          >
-            {t.ctaLabel}
-            <IconArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 shrink-0">
+            <a
+              href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(t.waText)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t.waBtn}
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] rounded-lg bg-[#25D366] text-white text-[12px] font-bold hover:bg-[#20bd5a] shadow-sm transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
+            >
+              <IconWhatsApp className="w-4 h-4 shrink-0" />
+              {t.waBtn}
+            </a>
+            <Link
+              href="/layanan/infrastruktur/pasang-tiang-pancang"
+              aria-label={t.ctaLabel}
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] rounded-lg bg-slate-900 text-white text-[12px] font-semibold hover:bg-indigo-600 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2"
+            >
+              {t.ctaLabel}
+              <IconArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         )}
       </div>
     </section>
