@@ -5,72 +5,142 @@ import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { useLang } from "../context/LanguageContext";
 
+const ITEMS_PER_PAGE = 12;
+
 // ─────────────────────────────────────────────
-// DAFTAR FOTO PENGERJAAN + KATEGORI ALT SEO
+// DAFTAR FOTO PENGERJAAN LENGKAP (Teraudit & Rapi)
+// category : "aspal" | "paving" | "panel" | "beton"
 // ─────────────────────────────────────────────
 const rawProjects = [
-  { src: "/proyek/proyek-1.webp", desc: "Pengaspalan jalan raya hotmix dengan alat berat finisher dan tandem roller" },
-  { src: "/proyek/proyek-2.webp", desc: "Pekerjaan pengaspalan hotmix area akses perumahan Jabodetabek" },
-  { src: "/proyek/proyek-3.webp", desc: "Pemasangan pagar panel beton precast area kawasan industri" },
-  { src: "/proyek/proyek-4.webp", desc: "Mobilisasi dan pemasangan tiang pagar panel beton" },
-  { src: "/proyek/proyek-5.webp", desc: "Proses instalasi pagar panel beton precast" },
-  ...Array.from({ length: 40 }, (_, idx) => {
-    const num = idx + 6;
-    const labels = [
-      "Jasa pengaspalan jalan hotmix bergaransi Jabodetabek",
-      "Pemadatan lapisan aspal hotmix menggunakan tandem roller",
-      "Pemasangan paving block dan kanstin area parkir",
-      "Pekerjaan konstruksi infrastruktur jalan dan perkerasan beton",
-    ];
-    return {
-      src: `/proyek/proyek-${num}.webp`,
-      desc: `${labels[idx % labels.length]} - Proyek #${num}`,
-    };
-  }),
-  ...Array.from({ length: 28 }, (_, idx) => {
-    const num = idx + 57;
-    const labels = [
-      "Proyek pengaspalan hotmix jalan lingkungan dan pabrik",
-      "Finishing penghamparan aspal hotmix PT Tri Abadi Makmur",
-      "Pekerjaan cut and fill serta pemadatan batu makadam",
-      "Pemasangan tiang pancang dan struktur pondasi",
-    ];
-    return {
-      src: `/proyek/proyek-${num}.webp`,
-      desc: `${labels[idx % labels.length]} - Proyek #${num}`,
-    };
-  }),
+  { id: 1, src: "/proyek/proyek-1.webp", category: "aspal", desc: "Proses pengaspalan hotmix area parkir dan akses showroom mobil — permukaan rata dan rapi", location: "Bandung Barat" },
+  { id: 3, src: "/proyek/proyek-3.webp", category: "panel", desc: "Penurunan pagar panel beton precast — susunan rapi, kokoh, dan siap pakai", location: "Pelabuhan Marunda Center" },
+  { id: 5, src: "/proyek/proyek-5.webp", category: "panel", desc: "Pemasangan pagar panel beton precast — susunan rapi, kokoh, dan siap pakai", location: "Pelabuhan Tegar Indonesia" },
+  { id: 8, src: "/proyek/proyek-8.webp", category: "beton", desc: "Pengukuran slump beton cor — kontrol workability sebelum pengecoran", location: "Cilangkap" },
+  { id: 9, src: "/proyek/proyek-9.webp", category: "beton", desc: "Pengiriman beton ready mix — distribusi material sebelum pengecoran", location: "Bogor" },
+  { id: 10, src: "/proyek/proyek-10.webp", category: "beton", desc: "Hasil pengecoran lantai beton ready mix — rata, padat, dan siap digunakan", location: "Bogor" },
+  { id: 11, src: "/proyek/proyek-11.webp", category: "beton", desc: "Proses pengecoran beton ready mix — finishing menggunakan trowel untuk permukaan rata dan halus", location: "Bogor" },
+  { id: 13, src: "/proyek/proyek-13.webp", category: "beton", desc: "Hasil pengecoran pile cap beton ready mix — padat, rapi, dan siap pekerjaan struktur", location: "Bogor" },
+  { id: 14, src: "/proyek/proyek-14.webp", category: "beton", desc: "Proses pengecoran beton ready mix — padat, rata, dan siap lanjut pekerjaan", location: "Bogor" },
+  { id: 16, src: "/proyek/proyek-16.webp", category: "aspal", desc: "Proses pengaspalan hotmix area akses masuk Hotel Da Vinci — permukaan rata dan rapi", location: "Jakarta Pusat" },
+  { id: 17, src: "/proyek/proyek-17.webp", category: "aspal", desc: "Proses pengaspalan hotmix area dudukan tangki Pertamina — permukaan rata dan rapi", location: "Semarang" },
+  { id: 19, src: "/proyek/proyek-19.webp", category: "aspal", desc: "Proses pemadatan pengaspalan hotmix dengan alat combination roller — padat dan rata", location: "Lebak Bulus" },
+  { id: 21, src: "/proyek/proyek-21.webp", category: "aspal", desc: "Proses pemadatan pengaspalan hotmix dengan alat combination roller di Komplek Vila Delima — padat dan rata", location: "Jakarta Selatan" },
+  { id: 23, src: "/proyek/proyek-23.webp", category: "aspal", desc: "Pengiriman combination roller roda tiga untuk pengaspalan hotmix — armada siap digunakan di lokasi", location: "Cinere" },
+  { id: 25, src: "/proyek/proyek-25.webp", category: "aspal", desc: "Pemadatan hotmix dengan baby roller di area pabrik cat Propan — padat, rata, dan sesuai elevasi", location: "Cikupa, Tangerang" },
+  { id: 26, src: "/proyek/proyek-26.webp", category: "aspal", desc: "Proses pengerjaan penggelaran pengaspalan hotmix — finishing permukaan rata dan halus", location: "Cikupa, Tangerang" },
+  { id: 27, src: "/proyek/proyek-27.webp", category: "aspal", desc: "Pengaspalan hotmix area masuk dan parkir Hotel Kempinski — permukaan rata, rapi, dan siap pakai", location: "Jakarta Pusat" },
+  { id: 29, src: "/proyek/proyek-29.webp", category: "aspal", desc: "Pengaspalan hotmix area akses masuk Hotel Kempinski — permukaan rata, rapi, dan siap pakai", location: "Jakarta Pusat" },
+  { id: 30, src: "/proyek/proyek-30.webp", category: "aspal", desc: "Proses penggelaran pengaspalan hotmix di area Perumahan Sevilage — permukaan rata dan rapi", location: "Bogor" },
+  { id: 31, src: "/proyek/proyek-31.webp", category: "aspal", desc: "Proses pemadatan pengaspalan hotmix dengan alat combination roller — padat dan rata", location: "Bogor" },
+  { id: 32, src: "/proyek/proyek-32.webp", category: "aspal", desc: "Proses pemadatan pengaspalan hotmix dengan alat baby roller — padat dan rata", location: "Bogor" },
+  { id: 34, src: "/proyek/proyek-34.webp", category: "aspal", desc: "Pengiriman alat berat combination roller ke lokasi Perumahan Sevilage — armada siap digunakan untuk pengaspalan", location: "Bogor" },
+  { id: 35, src: "/proyek/proyek-35.webp", category: "paving", desc: "Proses pemasangan paving block area jalan Perumahan Cibeureum — susunan rapi, rata, dan terkunci baik", location: "Bandung" },
+  { id: 37, src: "/proyek/proyek-37.webp", category: "paving", desc: "Hasil pemasangan grass block untuk jalan perumahan — rata, rapi, dan siap pakai", location: "Bandung" },
+  { id: 38, src: "/proyek/proyek-38.webp", category: "paving", desc: "Hasil pemasangan paving block untuk kompleks perumahan — rata, rapi, dan siap pakai", location: "Depok" },
+  { id: 40, src: "/proyek/proyek-40.webp", category: "paving", desc: "Proses pemasangan paving hexagon untuk jalan perumahan cluster baru — permukaan rata dan rapi", location: "Cibubur" },
+  { id: 42, src: "/proyek/proyek-42.webp", category: "panel", desc: "Workshop tiang pancang — stok siap pakai dan siap dikirim ke lokasi proyek", location: "Balaraja" },
+  { id: 43, src: "/proyek/proyek-43.webp", category: "beton", desc: "Proses pemasangan bekisting dan pembesian pile cap", location: "Bekasi" },
+  { id: 44, src: "/proyek/proyek-44.webp", category: "beton", desc: "Proses pengecoran pile cap beton struktur", location: "Bekasi" },
+  { id: 45, src: "/proyek/proyek-45.webp", category: "beton", desc: "Pengecoran struktur atap dan pemasangan railing motif — siap lanjut ke tahap finishing", location: "Karawang" },
+  { id: 55, src: "/proyek/proyek-55.webp", category: "aspal", desc: "Workshop aspal bakar — stok siap pakai dan siap dikirim ke lokasi proyek", location: "Balaraja" },
+  { id: 56, src: "/proyek/proyek-56.webp", category: "aspal", desc: "Proses pemadatan aspal hotmix menggunakan baby roller", location: "Pamulang, Tangerang Selatan" },
+  { id: 57, src: "/proyek/proyek-57.webp", category: "aspal", desc: "Proses pengaspalan hotmix di area akses gedung perkantoran", location: "Bendungan Hilir" },
+  { id: 58, src: "/proyek/proyek-58.webp", category: "aspal", desc: "Proses pengaspalan hotmix di area pabrik forklift", location: "Cibitung" },
+  { id: 59, src: "/proyek/proyek-59.webp", category: "aspal", desc: "Proses pemadatan pengaspalan hotmix dengan alat combination roller di pabrik forklift", location: "Cibitung" },
+  { id: 60, src: "/proyek/proyek-60.webp", category: "beton", desc: "Proses pengecoran beton ready mix", location: "Jakarta Barat" },
+  { id: 62, src: "/proyek/proyek-62.webp", category: "beton", desc: "Proses pengecoran beton ready mix area lapangan", location: "Serpong" },
+  { id: 64, src: "/proyek/proyek-64.webp", category: "beton", desc: "Hasil pengecoran beton ready mix — permukaan rata dan kokoh", location: "Cikarang" },
+  { id: 65, src: "/proyek/proyek-65.webp", category: "beton", desc: "Workshop buis beton cor lingkaran siap kirim", location: "Balaraja" },
+  { id: 66, src: "/proyek/proyek-66.webp", category: "beton", desc: "Stok produksi buis beton cor lingkaran di workshop", location: "Balaraja" },
+  { id: 67, src: "/proyek/proyek-67.webp", category: "beton", desc: "Proses pengecoran beton ready mix sloof pondasi", location: "Bekasi" },
+  { id: 69, src: "/proyek/proyek-69.webp", category: "panel", desc: "Proses fabrikasi dan produksi pagar panel beton", location: "Depok" },
+  { id: 70, src: "/proyek/proyek-70.webp", category: "aspal", desc: "Hasil pengaspalan hotmix area lobby Gedung RKP", location: "Tanah Abang" },
+  { id: 71, src: "/proyek/proyek-71.webp", category: "panel", desc: "Proses pemasangan tiang pancang proyek infrastruktur", location: "Tol Jakarta-Cikampek" },
+  { id: 72, src: "/proyek/proyek-72.webp", category: "panel", desc: "Proses pemasangan tiang pancang dengan alat counterweight mesin pancang hidrolik", location: "Tangerang Selatan" },
+  { id: 73, src: "/proyek/proyek-73.webp", category: "panel", desc: "Proses pemancangan tiang dengan alat counterweight mesin pancang hidrolik", location: "Subang" },
+  { id: 74, src: "/proyek/proyek-74.webp", category: "panel", desc: "Proses penyambungan dan pengelasan tiang pancang", location: "Tangerang" },
+  { id: 75, src: "/proyek/proyek-75.webp", category: "beton", desc: "Proses pengangkatan beban counterweight mesin pancang hidrolik menggunakan excavator", location: "Jakarta Barat" },
+  { id: 77, src: "/proyek/proyek-77.webp", category: "beton", desc: "Proses pengerukan dan perataan tanah menggunakan excavator", location: "Depok" },
+  { id: 78, src: "/proyek/proyek-78.webp", category: "panel", desc: "Workshop produksi tiang pancang beton", location: "Karawang" },
+  { id: 79, src: "/proyek/proyek-79.webp", category: "panel", desc: "Pengiriman alat counterweight mesin pancang hidrolik ke lokasi", location: "Bekasi" },
+  { id: 80, src: "/proyek/proyek-80.webp", category: "panel", desc: "Workshop stok tiang pancang siap kirim", location: "Cikarang" },
+  { id: 81, src: "/proyek/proyek-81.webp", category: "aspal", desc: "Proses pembuatan dan pengaspalan jalan di area Perusahaan HSCC", location: "Bandung" },
+  { id: 82, src: "/proyek/proyek-82.webp", category: "panel", desc: "Workshop produksi pagar panel beton", location: "Bogor" },
+  { id: 83, src: "/proyek/proyek-83.webp", category: "panel", desc: "Workshop stok pagar panel beton precast", location: "Tangerang" },
+  { id: 84, src: "/proyek/proyek-84.webp", category: "panel", desc: "Workshop pagar panel beton siap distribusi", location: "Jakarta Timur" },
 ];
 
 // ─────────────────────────────────────────────
-// KONTEN BILINGUAL
+// KONTEN BILINGUAL & KATEGORI FILTER
 // ─────────────────────────────────────────────
 const content = {
   id: {
-    kicker: "Portofolio & Dokumentasi",
+    kicker: "Portofolio & Dokumentasi Nyata",
     titleLight: "Galeri Proyek",
     titleBold: "Pengaspalan & Konstruksi",
     subtitle:
-      "Dokumentasi nyata pengerjaan pengaspalan jalan hotmix, pemasangan paving block, pagar panel beton, dan pemadatan lahan oleh PT Tri Abadi Makmur di Jabodetabek, Banten & Jawa Barat.",
-    ctaQuestion: "Ingin hasil pengerjaan rapi dan bergaransi seperti di galeri ini?",
-    ctaHighlight: "Konsultasikan kebutuhan proyek Anda",
-    ctaSuffix: "— gratis survei lokasi & perhitungan RAB.",
+      "Dokumentasi hasil pengerjaan nyata proyek pengaspalan hotmix, pemasangan paving block, pagar panel beton, dan pemadatan lahan oleh tim PT Tri Abadi Makmur berstandar Bina Marga dan bergaransi resmi.",
+    filters: [
+      { id: "all", label: "Semua Proyek" },
+      { id: "aspal", label: "Pengaspalan Hotmix" },
+      { id: "paving", label: "Paving & Kanstin" },
+      { id: "panel", label: "Pagar Panel & Tiang" },
+      { id: "beton", label: "Cor Beton & Lahan" },
+    ],
+    badges: {
+      aspal: "Aspal Hotmix",
+      paving: "Paving & Kanstin",
+      panel: "Pagar Panel & Tiang",
+      beton: "Cor Beton & Lahan",
+      default: "Konstruksi",
+    },
+    viewPhoto: "Lihat Foto",
+    loadMore: "Muat Lebih Banyak",
+    remainingPhotos: "foto tersisa",
+    showingText: "Menampilkan",
+    ctaQuestion: "Ingin hasil pengerjaan rapi, kokoh, dan bergaransi seperti di galeri ini?",
+    ctaHighlight: "Konsultasikan kebutuhan proyek Anda sekarang",
+    ctaSuffix: "— kami berikan gratis survei lokasi & perhitungan estimasi RAB.",
     ctaButton: "Konsultasi via WhatsApp",
     waMessage:
       "Halo PT Tri Abadi Makmur, saya melihat galeri proyek Anda dan ingin konsultasi kebutuhan pengaspalan/konstruksi.",
+    lightboxCta: "Tanya Proyek Seperti Ini via WA",
+    photoOf: "Foto",
+    of: "dari",
   },
   en: {
-    kicker: "Portfolio & Documentation",
+    kicker: "Portfolio & Real Documentation",
     titleLight: "Asphalt & Construction",
     titleBold: "Project Gallery",
     subtitle:
-      "Real documentation of hotmix road paving, paving block installation, precast panel fencing, and land grading by PT Tri Abadi Makmur across Greater Jakarta, Banten & West Java.",
-    ctaQuestion: "Want neat and guaranteed workmanship like in this gallery?",
-    ctaHighlight: "Consult your project needs",
-    ctaSuffix: "— free site survey & cost estimation.",
+      "Real-world project documentation of hotmix road paving, paving block installation, precast panel fencing, and land grading executed by PT Tri Abadi Makmur across Greater Jakarta, Banten & West Java.",
+    filters: [
+      { id: "all", label: "All Projects" },
+      { id: "aspal", label: "Asphalt Paving" },
+      { id: "paving", label: "Paving & Curbs" },
+      { id: "panel", label: "Panel & Piles" },
+      { id: "beton", label: "Concrete & Grading" },
+    ],
+    badges: {
+      aspal: "Asphalt Paving",
+      paving: "Paving & Curbs",
+      panel: "Panel & Piles",
+      beton: "Concrete & Grading",
+      default: "Construction",
+    },
+    viewPhoto: "View Photo",
+    loadMore: "Load More Projects",
+    remainingPhotos: "photos remaining",
+    showingText: "Showing",
+    ctaQuestion: "Want durable, neat, and guaranteed construction like in this gallery?",
+    ctaHighlight: "Consult your project requirements today",
+    ctaSuffix: "— enjoy free site survey & transparent cost estimation.",
     ctaButton: "Consult via WhatsApp",
     waMessage:
       "Hello PT Tri Abadi Makmur, I saw your project gallery and would like to consult about an asphalt paving/construction project.",
+    lightboxCta: "Inquire This Project on WA",
+    photoOf: "Photo",
+    of: "of",
   },
 };
 
@@ -78,7 +148,7 @@ const toSize = (src, suffix) => src.replace(/\.webp$/, `${suffix}.webp`);
 const toThumb = (src) => src.replace("/proyek/", "/proyek/thumbs/");
 
 // ─────────────────────────────────────────────
-// IKON & HOOKS (TETAP SAMA)
+// IKON
 // ─────────────────────────────────────────────
 function IconChevronLeft({ className = "w-6 h-6" }) {
   return (
@@ -93,6 +163,14 @@ function IconChevronRight({ className = "w-6 h-6" }) {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
       strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M9 18l6-6-6-6" />
+    </svg>
+  );
+}
+function IconChevronDown({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M6 9l6 6 6-6" />
     </svg>
   );
 }
@@ -112,7 +190,26 @@ function IconArrowRight({ className = "w-4 h-4" }) {
     </svg>
   );
 }
+function IconZoom({ className = "w-5 h-5" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
+    </svg>
+  );
+}
+function IconWhatsApp({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M12.031 2c-5.516 0-9.969 4.453-9.969 9.969 0 1.758.458 3.475 1.328 4.988L2 22l5.188-1.359a9.93 9.93 0 0 0 4.843 1.258h.004c5.515 0 9.969-4.453 9.969-9.969A9.93 9.93 0 0 0 19.08 4.92 9.913 9.913 0 0 0 12.031 2Zm5.805 14.234c-.246.692-1.426 1.324-1.976 1.406-.508.078-1.148.109-1.855-.117-.426-.137-.977-.316-1.68-.621-2.957-1.277-4.887-4.254-5.035-4.453-.145-.195-1.203-1.602-1.203-3.055 0-1.453.762-2.168 1.031-2.465.27-.297.59-.371.785-.371.195 0 .391.004.563.012.18.008.422-.07.66.504.246.59.836 2.043.91 2.191.074.148.121.32.023.516-.098.195-.148.32-.293.492-.148.172-.312.383-.445.516-.148.148-.301.309-.129.605.172.297.766 1.262 1.645 2.043 1.129 1.008 2.082 1.32 2.379 1.469.297.148.469.125.641-.074.172-.195.738-.859.934-1.156.195-.297.391-.246.66-.148.27.098 1.719.809 2.012.957.297.148.492.223.566.348.074.125.074.715-.172 1.406Z" />
+    </svg>
+  );
+}
 
+// ─────────────────────────────────────────────
+// HOOKS
+// ─────────────────────────────────────────────
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -236,14 +333,24 @@ function useBodyScrollLock(locked) {
   }, [locked]);
 }
 
+// ─────────────────────────────────────────────
+// LIGHTBOX LENGKAP DENGAN CAPTION & CTA WA
+// ─────────────────────────────────────────────
 function Lightbox({
+  list,
   selectedIndex,
   setSelectedIndex,
   goPrev,
   goNext,
   onClose,
+  t,
 }) {
-  const selected = rawProjects[selectedIndex];
+  const selected = list[selectedIndex] || list[0];
+  if (!selected) return null;
+
+  const waProjectHref = `https://wa.me/6282258089367?text=${encodeURIComponent(
+    `Halo PT Tri Abadi Makmur, saya tertarik dengan pengerjaan seperti pada dokumentasi proyek ini: "${selected.desc}". Mohon info estimasi biaya dan jadwal survei lokasi.`
+  )}`;
 
   return (
     <div
@@ -251,63 +358,95 @@ function Lightbox({
       aria-modal="true"
       aria-label="Penampil foto pengerjaan"
       className="fixed inset-0 z-[100] flex flex-col"
-      style={{ background: "rgba(2, 6, 23, 0.97)" }}
+      style={{ background: "rgba(2, 6, 23, 0.98)" }}
       onClick={onClose}
     >
-      <div className="flex items-center justify-end px-4 sm:px-5 py-3 sm:py-4 z-10 border-b border-white/10 shrink-0">
+      {/* Top Header Bar */}
+      <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 z-10 border-b border-white/10 shrink-0 bg-slate-950/60 backdrop-blur-md">
+        <div className="flex items-center gap-2.5">
+          <span className="w-2 h-2 rounded-full bg-[#1e88e5] animate-pulse" />
+          <span className="text-white/80 text-xs sm:text-sm font-medium tracking-wide">
+            {t.photoOf} <span className="text-white font-bold">{selectedIndex + 1}</span> {t.of} {list.length}
+          </span>
+          {selected.location && (
+            <span className="hidden sm:inline-block px-2.5 py-0.5 rounded-full bg-white/10 text-white/70 text-[11px] font-medium border border-white/10">
+              {selected.location}
+            </span>
+          )}
+        </div>
+
         <button
           onClick={(e) => { e.stopPropagation(); onClose(); }}
-          className="w-10 h-10 flex items-center justify-center text-white/80 hover:text-white bg-white/5 hover:bg-white/15 backdrop-blur-sm rounded-full transition-colors duration-150 cursor-pointer"
+          className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-150 cursor-pointer"
           aria-label="Tutup"
         >
-          <IconClose />
+          <IconClose className="w-5 h-5" />
         </button>
       </div>
 
-      <div className="flex-1 flex items-center justify-center px-3 sm:px-20 relative min-h-0">
+      {/* Main Image Viewer */}
+      <div className="flex-1 flex items-center justify-center px-2 sm:px-16 relative min-h-0">
         <button
           onClick={(e) => { e.stopPropagation(); goPrev(); }}
-          className="absolute left-1.5 sm:left-6 z-10 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-150 cursor-pointer"
+          className="absolute left-2 sm:left-6 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white/90 hover:text-white bg-slate-900/80 hover:bg-[#1e88e5] border border-white/15 backdrop-blur-md rounded-full transition-all duration-200 cursor-pointer shadow-lg hover:scale-105"
           aria-label="Sebelumnya"
         >
-          <IconChevronLeft className="w-5 h-5" />
+          <IconChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
 
-        <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+        <div className="max-w-4xl w-full flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
           <img
             src={toSize(selected.src, "-1024")}
             alt={selected.desc}
             decoding="async"
             draggable={false}
-            className="w-full h-auto max-h-[72vh] object-contain mx-auto rounded-lg select-none"
+            className="w-full h-auto max-h-[62vh] sm:max-h-[68vh] object-contain mx-auto rounded-lg select-none shadow-2xl"
           />
+
+          {/* Caption Box & In-Lightbox CTA */}
+          <div className="w-full mt-3 sm:mt-4 px-3 sm:px-4 flex flex-col sm:flex-row items-center justify-between gap-3 bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
+            <p className="text-white/90 text-xs sm:text-sm leading-relaxed text-center sm:text-left line-clamp-2">
+              {selected.desc}
+            </p>
+
+            <a
+              href={waProjectHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-semibold shadow-md shadow-emerald-950/20 transition-all hover:scale-[1.02]"
+            >
+              <IconWhatsApp className="w-4 h-4" />
+              {t.lightboxCta}
+            </a>
+          </div>
         </div>
 
         <button
           onClick={(e) => { e.stopPropagation(); goNext(); }}
-          className="absolute right-1.5 sm:right-6 z-10 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-150 cursor-pointer"
+          className="absolute right-2 sm:right-6 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white/90 hover:text-white bg-slate-900/80 hover:bg-[#1e88e5] border border-white/15 backdrop-blur-md rounded-full transition-all duration-200 cursor-pointer shadow-lg hover:scale-105"
           aria-label="Berikutnya"
         >
-          <IconChevronRight className="w-5 h-5" />
+          <IconChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
       </div>
 
+      {/* Thumbnail Bar */}
       <div
-        className="px-3 sm:px-4 py-3 sm:py-4 overflow-x-auto border-t border-white/10 shrink-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="px-3 sm:px-4 py-2.5 sm:py-3.5 overflow-x-auto border-t border-white/10 shrink-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-slate-950/80"
         onClick={(e) => e.stopPropagation()}
         style={{ WebkitOverflowScrolling: "touch", scrollSnapType: "x mandatory" }}
       >
         <div className="flex items-center justify-start sm:justify-center gap-1.5 min-w-max mx-auto px-1">
-          {rawProjects.map((thumb, i) => {
+          {list.map((thumb, i) => {
             const isActive = i === selectedIndex;
             return (
               <button
-                key={i}
+                key={thumb.id}
                 onClick={() => setSelectedIndex(i)}
                 aria-label={`Foto ${i + 1}`}
                 aria-current={isActive ? "true" : undefined}
-                className={`shrink-0 w-11 h-11 sm:w-14 sm:h-14 overflow-hidden rounded-md cursor-pointer transition-opacity duration-150
-                  ${isActive ? "ring-2 ring-[#1e88e5] opacity-100" : "opacity-30 hover:opacity-80"}`}
+                className={`shrink-0 w-11 h-11 sm:w-13 sm:h-13 overflow-hidden rounded-md cursor-pointer transition-all duration-150 relative
+                  ${isActive ? "ring-2 ring-[#1e88e5] scale-105 opacity-100" : "opacity-35 hover:opacity-85"}`}
                 style={{ scrollSnapAlign: "center" }}
               >
                 <img
@@ -315,8 +454,8 @@ function Lightbox({
                   alt=""
                   loading="lazy"
                   decoding="async"
-                  width={56}
-                  height={56}
+                  width={52}
+                  height={52}
                   className="w-full h-full object-cover"
                 />
               </button>
@@ -329,30 +468,46 @@ function Lightbox({
 }
 
 // ─────────────────────────────────────────────
-// PROJECTS
+// PROJECTS (MAIN COMPONENT)
 // ─────────────────────────────────────────────
 export default function Projects() {
   const { lang } = useLang();
   const data = content[lang] || content.id;
 
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [mounted, setMounted] = useState(false);
   const isMobile = useIsMobile();
-  const total = rawProjects.length;
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  // Filter projects berdasarkan tab aktif
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === "all") return rawProjects;
+    return rawProjects.filter((p) => p.category === activeFilter);
+  }, [activeFilter]);
+
+  // Potong daftar foto yang ditampilkan sesuai visibleCount
+  const visibleProjects = useMemo(() => {
+    return filteredProjects.slice(0, visibleCount);
+  }, [filteredProjects, visibleCount]);
+
+  // Lightbox tetap bisa menjelajahi seluruh foto dalam kategori aktif
+  const totalFiltered = filteredProjects.length;
+  const remainingCount = Math.max(0, totalFiltered - visibleCount);
+
   useBodyScrollLock(selectedIndex !== null);
 
   const goPrev = useCallback(() => {
-    setSelectedIndex((prev) => (prev === null ? null : (prev - 1 + total) % total));
-  }, [total]);
+    setSelectedIndex((prev) => (prev === null ? null : (prev - 1 + totalFiltered) % totalFiltered));
+  }, [totalFiltered]);
 
   const goNext = useCallback(() => {
-    setSelectedIndex((prev) => (prev === null ? null : (prev + 1) % total));
-  }, [total]);
+    setSelectedIndex((prev) => (prev === null ? null : (prev + 1) % totalFiltered));
+  }, [totalFiltered]);
 
   const closeLightbox = useCallback(() => setSelectedIndex(null), []);
 
@@ -367,20 +522,27 @@ export default function Projects() {
     return () => window.removeEventListener("keydown", onKey);
   }, [selectedIndex, goPrev, goNext]);
 
+  // Prefetch neighboring images di lightbox
   useEffect(() => {
-    if (selectedIndex === null) return;
-    const next = (selectedIndex + 1) % total;
-    const prev = (selectedIndex - 1 + total) % total;
+    if (selectedIndex === null || totalFiltered === 0) return;
+    const next = (selectedIndex + 1) % totalFiltered;
+    const prev = (selectedIndex - 1 + totalFiltered) % totalFiltered;
     [next, prev].forEach((i) => {
-      const img = new Image();
-      img.src = toSize(rawProjects[i].src, "-1024");
+      if (filteredProjects[i]) {
+        const img = new Image();
+        img.src = toSize(filteredProjects[i].src, "-1024");
+      }
     });
-  }, [selectedIndex, total]);
+  }, [selectedIndex, totalFiltered, filteredProjects]);
 
   const getSpan = (i) => {
     const p = i % 8;
     if (p === 0 || p === 5) return "md:col-span-2 md:row-span-2";
     return "";
+  };
+
+  const getCategoryLabel = (cat) => {
+    return data.badges[cat] || data.badges.default;
   };
 
   const waHref = `https://wa.me/6282258089367?text=${encodeURIComponent(data.waMessage)}`;
@@ -411,7 +573,7 @@ export default function Projects() {
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-5 lg:px-8">
           {/* ═══ HEADER DENGAN H1 SEO ═══ */}
-          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 lg:mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10 lg:mb-12">
             <Reveal delay={0} y={20}>
               <div className="inline-flex items-center gap-3 mb-4">
                 <span className="w-6 sm:w-8 h-px bg-[#1e88e5]/60" aria-hidden="true" />
@@ -442,12 +604,39 @@ export default function Projects() {
             </Reveal>
           </div>
 
-          {/* ═══ GRID GALERI ═══ */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-2.5 lg:gap-3 [grid-auto-rows:130px] sm:[grid-auto-rows:150px] lg:[grid-auto-rows:190px]">
-            {rawProjects.map((item, i) => (
+          {/* ═══ FILTER TABS ═══ */}
+          <Reveal delay={200} y={20}>
+            <div className="flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2 overflow-x-auto pb-4 mb-6 sm:mb-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {data.filters.map((fl) => {
+                const isActive = activeFilter === fl.id;
+                return (
+                  <button
+                    key={fl.id}
+                    onClick={() => {
+                      setActiveFilter(fl.id);
+                      setVisibleCount(ITEMS_PER_PAGE);
+                      setSelectedIndex(null);
+                    }}
+                    className={`shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer
+                      ${
+                        isActive
+                          ? "bg-[#1e88e5] text-white shadow-md shadow-blue-500/25"
+                          : "bg-white text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-slate-200/80"
+                      }`}
+                  >
+                    {fl.label}
+                  </button>
+                );
+              })}
+            </div>
+          </Reveal>
+
+          {/* ═══ GRID GALERI DENGAN BADGE & HOVER OVERLAY ═══ */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-2.5 lg:gap-3 [grid-auto-rows:135px] sm:[grid-auto-rows:160px] lg:[grid-auto-rows:200px]">
+            {visibleProjects.map((item, i) => (
               <Reveal
-                key={i}
-                delay={Math.min(i, 16) * 35}
+                key={`${activeFilter}-${item.id}`}
+                delay={(i % ITEMS_PER_PAGE) * 35}
                 y={30}
                 duration={700}
                 className={getSpan(i)}
@@ -456,7 +645,7 @@ export default function Projects() {
                   type="button"
                   onClick={() => setSelectedIndex(i)}
                   aria-label={item.desc}
-                  className="group relative w-full h-full overflow-hidden rounded-xl bg-slate-100 cursor-pointer border border-slate-200/80 hover:border-[#1e88e5]/60 hover:shadow-lg hover:shadow-slate-900/5 transition-colors duration-300"
+                  className="group relative w-full h-full overflow-hidden rounded-xl bg-slate-100 cursor-pointer border border-slate-200/80 hover:border-[#1e88e5] hover:shadow-xl hover:shadow-slate-900/10 transition-all duration-300"
                 >
                   <img
                     src={toSize(item.src, "-640")}
@@ -469,27 +658,64 @@ export default function Projects() {
                     alt={item.desc}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                   />
 
+                  {/* Kategori Badge */}
+                  <div className="absolute top-2 left-2 z-10 pointer-events-none">
+                    <span className="px-2 py-0.5 rounded-md bg-slate-950/70 backdrop-blur-md text-white text-[9px] sm:text-[10px] font-medium border border-white/10 shadow-sm">
+                      {getCategoryLabel(item.category)}
+                    </span>
+                  </div>
+
+                  {/* Hover Overlay Gelap & Caption */}
                   <div
-                    className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-2.5 sm:p-3 text-left"
                     aria-hidden="true"
-                  />
+                  >
+                    <div className="flex items-center gap-1.5 text-white/80 mb-1">
+                      <IconZoom className="w-3.5 h-3.5 text-[#1e88e5]" />
+                      <span className="text-[10px] font-semibold uppercase tracking-wider text-[#4da3ff]">
+                        {data.viewPhoto}
+                      </span>
+                    </div>
+                    <p className="text-white text-[10.5px] sm:text-xs font-medium leading-snug line-clamp-2">
+                      {item.desc}
+                    </p>
+                  </div>
                 </button>
               </Reveal>
             ))}
           </div>
 
+          {/* ═══ LOAD MORE BUTTON & COUNTER ═══ */}
+          {remainingCount > 0 && (
+            <div className="mt-8 sm:mt-10 flex flex-col items-center gap-2.5">
+              <button
+                type="button"
+                onClick={() => setVisibleCount((prev) => prev + ITEMS_PER_PAGE)}
+                className="group inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-slate-50 text-slate-800 hover:text-[#1e88e5] border border-slate-200 hover:border-[#1e88e5] text-xs sm:text-sm font-semibold shadow-sm transition-all duration-200 cursor-pointer"
+              >
+                <span>
+                  {data.loadMore} ({remainingCount} {data.remainingPhotos})
+                </span>
+                <IconChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:translate-y-0.5" />
+              </button>
+              <span className="text-[11px] sm:text-xs text-slate-400">
+                {data.showingText} {visibleProjects.length} {data.of} {totalFiltered}
+              </span>
+            </div>
+          )}
+
           {/* ═══ CTA (WHATSAPP) ═══ */}
           <Reveal y={34}>
-            <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-10 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
+            <div className="mt-12 sm:mt-16 lg:mt-20 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6 bg-slate-50/70 p-6 sm:p-8 rounded-2xl border border-slate-200">
               <p
                 className="text-slate-600 leading-relaxed text-center sm:text-left max-w-xl"
                 style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.9375rem)" }}
               >
                 {data.ctaQuestion}{" "}
-                <span className="text-slate-900 font-medium">{data.ctaHighlight}</span>{" "}
+                <span className="text-slate-900 font-semibold">{data.ctaHighlight}</span>{" "}
                 {data.ctaSuffix}
               </p>
 
@@ -497,10 +723,11 @@ export default function Projects() {
                 href={waHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group shrink-0 inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 min-h-[44px] rounded-xl bg-[#1e88e5] hover:bg-blue-600 text-white font-semibold text-[11px] sm:text-[11.5px] uppercase tracking-[0.15em] sm:tracking-[0.18em] transition-all duration-200 shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/40"
+                className="group shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[46px] rounded-xl bg-[#1e88e5] hover:bg-blue-600 text-white font-semibold text-xs sm:text-sm uppercase tracking-[0.14em] transition-all duration-200 shadow-md shadow-blue-500/25 hover:shadow-lg hover:shadow-blue-500/40"
               >
+                <IconWhatsApp className="w-4 h-4" />
                 {data.ctaButton}
-                <IconArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-1" />
+                <IconArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
               </a>
             </div>
           </Reveal>
@@ -511,11 +738,13 @@ export default function Projects() {
       {mounted && selectedIndex !== null &&
         createPortal(
           <Lightbox
+            list={filteredProjects}
             selectedIndex={selectedIndex}
             setSelectedIndex={setSelectedIndex}
             goPrev={goPrev}
             goNext={goNext}
             onClose={closeLightbox}
+            t={data}
           />,
           document.body
         )}
