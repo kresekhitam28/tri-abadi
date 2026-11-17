@@ -1,56 +1,137 @@
 // src/components/ProjectsSection.jsx
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { useLang } from "../context/LanguageContext";
 
-// ─────────────────────────────────────────────
-// DAFTAR PROYEK (untuk beranda, tampil 8 saja)
-// ─────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════
+// ⚠️ DATA PROYEK
+// ═══════════════════════════════════════════════════════════════
+// 
+// Keterangan:
+// - `image`  : Isi dengan 1 foto saja (bisa foto hasil, bisa foto proses)
+
 const ALL_PROJECTS = [
-  { src: "/proyek/proyek-1.webp" },
-  { src: "/proyek/proyek-20.webp" },
-  { src: "/proyek/proyek-3.webp" },
-  { src: "/proyek/proyek-35.webp" },
-  { src: "/proyek/proyek-26.webp" },
-  { src: "/proyek/proyek-10.webp" },
-  { src: "/proyek/proyek-31.webp" },
-  { src: "/proyek/proyek-8.webp" },
-  { src: "/proyek/proyek-33.webp" },
-  { src: "/proyek/proyek-39.webp" },
-  { src: "/proyek/proyek-18.webp" },
-  { src: "/proyek/proyek-15.webp" },
+  {
+    id: "cikupa",
+    title: {
+      id: "Pengaspalan Jalan Kawasan Industri Cikupa, Tangerang",
+      en: "Road Paving – Cikupa Industrial Estate, Tangerang",
+    },
+    spec: { id: "Hotmix AC-WC, tebal 3 cm", en: "Hotmix AC-WC, 3 cm thick" },
+    clientType: { id: "Kawasan Industri", en: "Industrial Estate" },
+    image: "/proyek/proyek-1.webp",
+  },
+  {
+    id: "bsd",
+    title: {
+      id: "Pengaspalan Jalan Utama Perumahan BSD, Tangerang Selatan",
+      en: "Main Road Paving – BSD Housing, South Tangerang",
+    },
+    spec: { id: "Hotmix AC-WC, tebal 3 cm", en: "Hotmix AC-WC, 3 cm thick" },
+    clientType: { id: "Perumahan", en: "Housing" },
+    image: "/proyek/proyek-20.webp",
+  },
+  {
+    id: "rsud-tangerang",
+    title: {
+      id: "Pengaspalan Area Parkir RSUD Kabupaten Tangerang",
+      en: "Parking Area Paving – Tangerang District Hospital",
+    },
+    spec: { id: "Hotmix AC-WC, tebal 3 cm", en: "Hotmix AC-WC, 3 cm thick" },
+    clientType: { id: "Fasilitas Kesehatan", en: "Healthcare Facility" },
+    image: "/proyek/proyek-3.webp",
+  },
+  {
+    id: "cikarang",
+    title: {
+      id: "Pengaspalan Jalan Akses Kawasan Industri Cikarang, Bekasi",
+      en: "Access Road Paving – Cikarang Industrial Estate, Bekasi",
+    },
+    spec: { id: "Hotmix AC-WC, tebal 3 cm", en: "Hotmix AC-WC, 3 cm thick" },
+    clientType: { id: "Kawasan Industri", en: "Industrial Estate" },
+    image: "/proyek/proyek-35.webp",
+  },
+  {
+    id: "serpong",
+    title: {
+      id: "Pengaspalan Jalan Perumahan Modern Serpong",
+      en: "Road Paving – Modern Serpong Housing",
+    },
+    spec: { id: "Hotmix AC-WC, tebal 3 cm", en: "Hotmix AC-WC, 3 cm thick" },
+    clientType: { id: "Perumahan", en: "Housing" },
+    image: "/proyek/proyek-26.webp",
+  },
+  {
+    id: "parkir-pabrik",
+    title: {
+      id: "Pengaspalan Area Parkir Pabrik, Tangerang",
+      en: "Parking Area Paving – Factory, Tangerang",
+    },
+    spec: { id: "Hotmix AC-WC, tebal 3 cm", en: "Hotmix AC-WC, 3 cm thick" },
+    clientType: { id: "Industri", en: "Industrial" },
+    image: "/proyek/proyek-10.webp",
+  },
+  {
+    id: "depok",
+    title: {
+      id: "Pengaspalan Jalan Lingkungan Perumahan Depok",
+      en: "Neighborhood Road Paving – Depok Housing",
+    },
+    spec: { id: "Hotmix AC-WC, tebal 3 cm", en: "Hotmix AC-WC, 3 cm thick" },
+    clientType: { id: "Perumahan", en: "Housing" },
+    image: "/proyek/proyek-31.webp",
+  },
+  {
+    id: "karawaci",
+    title: {
+      id: "Pengaspalan Jalan Kawasan Komersial Karawaci",
+      en: "Commercial Area Road Paving – Karawaci",
+    },
+    spec: { id: "Hotmix AC-WC, tebal 3 cm", en: "Hotmix AC-WC, 3 cm thick" },
+    clientType: { id: "Komersial", en: "Commercial" },
+    image: "/proyek/proyek-8.webp",
+  },
 ];
 
 const projects = ALL_PROJECTS.slice(0, 8);
 
-// ─────────────────────────────────────────────
-// HELPER: src → varian ukuran / thumbs
-// ─────────────────────────────────────────────
+// Helper: src → varian ukuran
 const toSize = (src, suffix) => src.replace(/\.webp$/, `${suffix}.webp`);
-const toThumb = (src) => src.replace("/proyek/", "/proyek/thumbs/");
 
-// ─────────────────────────────────────────────
+// ═════════════════════════════════════════════
 // KONTEN BILINGUAL
-// ─────────────────────────────────────────────
+// ═════════════════════════════════════════════
 const content = {
   id: {
     kicker: "Karya Hebat & Mengagumkan",
     titleBold: "Proyek",
     titleAfter: " Kami",
+    openProject: "Buka detail proyek",
+    prev: "Proyek sebelumnya",
+    next: "Proyek berikutnya",
+    close: "Tutup",
+    viewer: "Penampil detail proyek",
+    counter: (i, total) => `${i} / ${total}`,
   },
   en: {
     kicker: "Great & Awesome Works",
     titleLight: "Our ",
     titleBold: "Projects",
     titleAfter: "",
+    openProject: "Open project detail",
+    prev: "Previous project",
+    next: "Next project",
+    close: "Close",
+    viewer: "Project detail viewer",
+    counter: (i, total) => `${i} / ${total}`,
   },
 };
 
-// ─────────────────────────────────────────────
+// ═════════════════════════════════════════════
 // IKON
-// ─────────────────────────────────────────────
+// ═════════════════════════════════════════════
 function IconChevronLeft({ className = "w-6 h-6" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
@@ -85,9 +166,9 @@ function IconZoom({ className = "w-5 h-5" }) {
   );
 }
 
-// ─────────────────────────────────────────────
+// ═════════════════════════════════════════════
 // HOOK: body scroll lock
-// ─────────────────────────────────────────────
+// ═════════════════════════════════════════════
 function useBodyScrollLock(locked) {
   useEffect(() => {
     if (!locked) return;
@@ -123,105 +204,92 @@ function useBodyScrollLock(locked) {
   }, [locked]);
 }
 
-// ─────────────────────────────────────────────
-// LIGHTBOX
-// ─────────────────────────────────────────────
+// ═════════════════════════════════════════════
+// LIGHTBOX (1 Gambar Full, Teks Polos)
+// ═════════════════════════════════════════════
 function Lightbox({ selectedIndex, setSelectedIndex, lang, goPrev, goNext }) {
+  const data = content[lang] || content.id;
   const selected = projects[selectedIndex];
+
+  const total = projects.length;
 
   return (
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={lang === "en" ? "Project photo viewer" : "Penampil foto proyek"}
+      aria-label={data.viewer}
       className="fixed inset-0 z-[9999] flex flex-col bg-slate-950/95"
       onClick={() => setSelectedIndex(null)}
     >
-      {/* Top bar */}
-      <div className="flex items-center justify-end p-3 sm:p-5 z-10 shrink-0 border-b border-white/10">
-        <button
-          onClick={(e) => { e.stopPropagation(); setSelectedIndex(null); }}
-          className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-          aria-label={lang === "en" ? "Close" : "Tutup"}
-        >
-          <IconClose />
-        </button>
-      </div>
-
-      {/* Main image — pakai varian 1024w */}
-      <div className="flex-1 flex items-center justify-center px-3 sm:px-20 relative min-h-0">
-        <button
-          onClick={(e) => { e.stopPropagation(); goPrev(); }}
-          className="absolute left-1.5 sm:left-6 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-          aria-label={lang === "en" ? "Previous" : "Sebelumnya"}
-        >
-          <IconChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-        </button>
-
-        <div
-          className="relative max-w-4xl w-full h-[72vh] flex items-center justify-center"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <img
-            key={selectedIndex}
-            src={toSize(selected.src, "-1024")}
-            alt={`Dokumentasi proyek PT Tri Abadi Makmur ke-${selectedIndex + 1}`}
-            decoding="async"
-            draggable={false}
-            className="w-full h-full object-contain select-none rounded-lg"
-          />
+      {/* ═══ TOP BAR ═══ */}
+      <div className="flex items-start sm:items-center gap-3 p-3 sm:p-5 z-10 shrink-0 border-b border-white/10">
+        <div className="min-w-0 flex-1">
+          {/* Teks polos tanpa kotak */}
+          <p className="text-[10px] sm:text-xs uppercase tracking-wider text-[#1e88e5] font-semibold mb-0.5">
+            {selected.clientType[lang]}
+          </p>
+          <h3 className="text-white text-sm sm:text-base font-medium leading-snug line-clamp-2">
+            {selected.title[lang]}
+          </h3>
         </div>
 
-        <button
-          onClick={(e) => { e.stopPropagation(); goNext(); }}
-          className="absolute right-1.5 sm:right-6 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-          aria-label={lang === "en" ? "Next" : "Berikutnya"}
-        >
-          <IconChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-        </button>
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <span
+            className="text-white/60 text-xs sm:text-sm tabular-nums font-medium"
+            aria-label={data.counter(selectedIndex + 1, total)}
+          >
+            {data.counter(selectedIndex + 1, total)}
+          </span>
+          <button
+            onClick={(e) => { e.stopPropagation(); setSelectedIndex(null); }}
+            className="w-10 h-10 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            aria-label={data.close}
+          >
+            <IconClose />
+          </button>
+        </div>
       </div>
 
-      {/* Thumbnails — pakai versi thumbs (2-4 KB) */}
+      {/* ═══ BODY: Gambar Full Width (Tanpa Tab) ═══ */}
       <div
-        className="shrink-0 p-3 sm:p-4 overflow-x-auto border-t border-white/10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex-1 flex min-h-0"
         onClick={(e) => e.stopPropagation()}
-        style={{
-          WebkitOverflowScrolling: "touch",
-          scrollSnapType: "x mandatory",
-        }}
       >
-        <div className="flex items-center justify-start sm:justify-center gap-2 min-w-max mx-auto px-1">
-          {projects.map((thumb, i) => (
-            <button
-              key={i}
-              onClick={() => setSelectedIndex(i)}
-              className={`relative shrink-0 w-12 h-12 sm:w-16 sm:h-16 overflow-hidden rounded-md cursor-pointer transition-opacity duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950
-                ${i === selectedIndex
-                  ? "ring-2 ring-[#1e88e5] opacity-100"
-                  : "opacity-40 hover:opacity-90"}`}
-              style={{ scrollSnapAlign: "center" }}
-              aria-label={lang === "en" ? `Photo ${i + 1}` : `Foto ${i + 1}`}
-            >
-              <img
-                src={toThumb(thumb.src)}
-                alt="" // Dikosongkan karena button sudah punya aria-label
-                loading="lazy"
-                decoding="async"
-                width={64}
-                height={64}
-                className="w-full h-full object-cover"
-              />
-            </button>
-          ))}
+        <div className="relative w-full flex items-center justify-center px-3 sm:px-6 py-3 min-h-0">
+          <button
+            onClick={(e) => { e.stopPropagation(); goPrev(); }}
+            className="absolute left-1.5 sm:left-4 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            aria-label={data.prev}
+          >
+            <IconChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
+
+          <img
+            key={selectedIndex}
+            src={toSize(selected.image, "-1024")}
+            alt={selected.title[lang]}
+            decoding="async"
+            loading="eager"
+            draggable={false}
+            className="max-w-full max-h-[75vh] object-contain select-none rounded-lg"
+          />
+
+          <button
+            onClick={(e) => { e.stopPropagation(); goNext(); }}
+            className="absolute right-1.5 sm:right-4 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            aria-label={data.next}
+          >
+            <IconChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
         </div>
       </div>
     </div>
   );
 }
 
-// ─────────────────────────────────────────────
+// ═════════════════════════════════════════════
 // PROJECTS SECTION
-// ─────────────────────────────────────────────
+// ═════════════════════════════════════════════
 export default function ProjectsSection() {
   const { lang } = useLang();
   const data = content[lang] || content.id;
@@ -258,18 +326,6 @@ export default function ProjectsSection() {
     return () => window.removeEventListener("keydown", onKey);
   }, [selectedIndex, goPrev, goNext]);
 
-  const labels = useMemo(
-    () => ({
-      kicker: data.kicker,
-      bold: data.titleBold,
-      light: data.titleLight || "",
-      after: data.titleAfter || "",
-    }),
-    [data]
-  );
-
-  const openProjectLabel = lang === "en" ? "Open project" : "Buka proyek";
-
   return (
     <>
       <section className="relative bg-white pt-4 sm:pt-6 lg:pt-8 pb-16 sm:pb-20 lg:pb-28">
@@ -280,7 +336,7 @@ export default function ProjectsSection() {
             <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-5">
               <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" aria-hidden="true" />
               <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-semibold">
-                {labels.kicker}
+                {data.kicker}
               </span>
               <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" aria-hidden="true" />
             </div>
@@ -289,50 +345,60 @@ export default function ProjectsSection() {
               className="font-light tracking-tight text-slate-900 leading-[1.05]"
               style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}
             >
-              {labels.light}
-              <span className="font-semibold">{labels.bold}</span>
-              {labels.after}
+              {data.titleLight || ""}
+              <span className="font-semibold">{data.titleBold}</span>
+              {data.titleAfter || ""}
               <span className="text-[#1e88e5]">.</span>
             </h2>
           </div>
 
-          {/* ═══ GRID PROYEK — srcSet 320/640/1024 ═══ */}
+          {/* ═══ GRID PROYEK ═══ */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3 lg:gap-4">
             {projects.map((item, i) => (
               <button
-                key={i}
+                key={item.id}
                 onClick={() => setSelectedIndex(i)}
-                className="group relative overflow-hidden rounded-xl bg-slate-100 aspect-square cursor-pointer border border-slate-200 hover:border-[#1e88e5] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
-                aria-label={`${openProjectLabel} ${i + 1}`}
+                className="group relative overflow-hidden rounded-xl bg-slate-100 aspect-square cursor-pointer border border-slate-200 hover:border-[#1e88e5] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2 text-left"
+                aria-label={`${data.openProject}: ${item.title[lang]}`}
               >
                 <img
-                  src={toSize(item.src, "-640")}
+                  src={toSize(item.image, "-640")}
                   srcSet={`
-                    ${toSize(item.src, "-320")} 320w,
-                    ${toSize(item.src, "-640")} 640w,
-                    ${toSize(item.src, "-1024")} 1024w
+                    ${toSize(item.image, "-320")} 320w,
+                    ${toSize(item.image, "-640")} 640w,
+                    ${toSize(item.image, "-1024")} 1024w
                   `}
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  alt={`Proyek pengaspalan hotmix dan paving block PT Tri Abadi Makmur ke-${i + 1}`}
+                  alt={`${item.title[lang]} — ${item.spec[lang]}`}
                   fetchPriority={i < 4 ? "high" : "auto"}
                   loading={i < 4 ? "eager" : "lazy"}
                   decoding="async"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
                 />
 
-                {/* Overlay tipis saat hover */}
+                {/* Gradient overlay untuk keterbacaan teks */}
                 <div
-                  className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"
                   aria-hidden="true"
                 />
+
+                {/* Konten teks (Polos tanpa kotak) */}
+                <div className="absolute inset-x-0 bottom-0 p-2.5 sm:p-3.5">
+                  <p className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#1e88e5] font-semibold mb-0.5 sm:mb-1">
+                    {item.clientType[lang]}
+                  </p>
+                  <h3 className="text-white text-[11px] sm:text-sm font-medium leading-snug line-clamp-2">
+                    {item.title[lang]}
+                  </h3>
+                </div>
 
                 {/* Zoom icon */}
                 <div
                   className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   aria-hidden="true"
                 >
-                  <span className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/20 border border-white/40 flex items-center justify-center text-white">
-                    <IconZoom className="w-5 h-5" />
+                  <span className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 border border-white/40 backdrop-blur-sm flex items-center justify-center text-white">
+                    <IconZoom className="w-4 h-4 sm:w-5 sm:h-5" />
                   </span>
                 </div>
               </button>
