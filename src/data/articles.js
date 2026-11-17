@@ -2171,10 +2171,7 @@ export const articles = [
       },
     ],
   },
-  // Tempel objek ini ke dalam array `articles` di src/data/articles.js
-// Slug: harga-paving-block-bata-hexagon-topi-uskup -> URL: /blog/harga-paving-block-bata-hexagon-topi-uskup
-
-  {
+      {
     slug: "harga-paving-block-bata-hexagon-topi-uskup",
     date: { id: "17 November 2026", en: "November 17, 2026" },
     dateISO: "2026-11-17",
@@ -2185,8 +2182,8 @@ export const articles = [
       en: "Paving Block Price per m² 2026: Brick, Hexagon & Bishop's Hat",
     },
     desc: {
-      id: "Bandingkan harga pasang paving block bata, hexagon, dan topi uskup per m² 2026 beserta kebutuhan buah dan kegunaannya. Survei lokasi gratis Jabodetabek!",
-      en: "Compare 2026 installation prices per m² for brick, hexagon, and bishop's hat paving blocks, plus pieces needed and best uses. Free site survey in Greater Jakarta!",
+      id: "Bandingkan harga material & jasa pasang paving block bata, cacing, hexagon, dan topi uskup per m² 2026. Survei lokasi & hitung kebutuhan gratis di Jabodetabek!",
+      en: "Compare 2026 material & installation prices per m² for brick, worm, hexagon, and bishop's hat paving blocks. Free site survey & quantity calculation in Greater Jakarta!",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -2216,34 +2213,301 @@ export const articles = [
       {
         type: "heading",
         text: {
-          id: "Perbandingan Harga Pasang per m² Berdasarkan Jenis",
-          en: "Installation Price Comparison per m² by Type",
+          id: "Harga Material Paving Block per m²",
+          en: "Paving Block Material Price per m²",
         },
       },
       {
         type: "paragraph",
         text: {
-          id: "Estimasi berikut sudah termasuk material, pemadatan tanah, lapisan pasir, pemasangan, dan pengisian celah untuk wilayah Jabodetabek. Harga pasti ditentukan setelah survei lokasi:",
-          en: "The following estimates include materials, soil compaction, sand bedding, installation, and joint filling for Greater Jakarta. The exact price is set after a site survey:",
+          id: "Harga material paving block untuk model bata, cacing (intepave), dan hexagon relatif sama, yang membedakan adalah tampilan dan pola pemasangannya. Berikut daftar harga material per m² (mutu K-250 – K-300, press hidrolik):",
+          en: "Paving block material prices for brick, worm (intepave), and hexagon models are relatively the same; what differs is the appearance and installation pattern. Here is the material price list per m² (grade K-250 – K-300, hydraulic press):",
         },
       },
       {
-        type: "list",
-        ordered: false,
-        items: [
-          {
-            id: "<strong>Paving Block Bata (persegi panjang):</strong> sekitar Rp 100.000 - Rp 130.000 / m². Paling ekonomis dan paling banyak dipakai.",
-            en: "<strong>Brick Paving Block (rectangular):</strong> around Rp 100,000 - Rp 130,000 / m². Most economical and most widely used.",
-          },
-          {
-            id: "<strong>Paving Block Topi Uskup:</strong> sekitar Rp 140.000 - Rp 180.000 / m². Bentuk saling mengunci, kuat untuk parkir dan jalan lingkungan.",
-            en: "<strong>Bishop's Hat Paving Block:</strong> around Rp 140,000 - Rp 180,000 / m². Interlocking shape, strong for parking and neighborhood roads.",
-          },
-          {
-            id: "<strong>Paving Block Hexagon (segi enam):</strong> sekitar Rp 150.000 - Rp 190.000 / m². Tampilan dekoratif, cocok untuk taman dan halaman.",
-            en: "<strong>Hexagon Paving Block:</strong> around Rp 150,000 - Rp 190,000 / m². Decorative look, suitable for gardens and yards.",
-          },
-        ],
+        type: "paragraph",
+        text: {
+          id: `<span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
+  <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
+    <span class='flex items-center gap-2 min-w-0'>
+      <span class='inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#1e88e5] text-white text-[11px] font-black shrink-0'>6</span>
+      <span class='text-sm font-bold text-slate-800 truncate'>Tebal 6 cm</span>
+      <span class='text-[11px] text-slate-500 truncate'>· Bata / Cacing / Hexagon</span>
+    </span>
+    <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500 text-white shrink-0'>Populer</span>
+  </span>
+  <span class='flex'>
+    <span class='flex-1 px-4 py-3 border-r border-slate-100'>
+      <span class='block text-[9px] uppercase tracking-widest text-slate-400 font-bold mb-1'>Natural</span>
+      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 75.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+    </span>
+    <span class='flex-1 px-4 py-3 bg-[#1e88e5]'>
+      <span class='block text-[9px] uppercase tracking-widest text-white/80 font-bold mb-1'>Warna</span>
+      <span class='block text-xl font-black text-white leading-none'>Rp 90.000<span class='text-[10px] font-semibold text-white/70 ml-0.5'>/m²</span></span>
+    </span>
+  </span>
+</span>
+<span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
+  <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
+    <span class='flex items-center gap-2 min-w-0'>
+      <span class='inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-700 text-white text-[11px] font-black shrink-0'>8</span>
+      <span class='text-sm font-bold text-slate-800 truncate'>Tebal 8 cm</span>
+      <span class='text-[11px] text-slate-500 truncate'>· Bata / Cacing / Hexagon</span>
+    </span>
+  </span>
+  <span class='flex'>
+    <span class='flex-1 px-4 py-3 border-r border-slate-100'>
+      <span class='block text-[9px] uppercase tracking-widest text-slate-400 font-bold mb-1'>Natural</span>
+      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 85.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+    </span>
+    <span class='flex-1 px-4 py-3 bg-[#1e88e5]'>
+      <span class='block text-[9px] uppercase tracking-widest text-white/80 font-bold mb-1'>Warna</span>
+      <span class='block text-xl font-black text-white leading-none'>Rp 100.000<span class='text-[10px] font-semibold text-white/70 ml-0.5'>/m²</span></span>
+    </span>
+  </span>
+</span>
+<span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
+  <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
+    <span class='flex items-center gap-2 min-w-0'>
+      <span class='inline-flex items-center justify-center w-7 h-7 rounded-lg bg-amber-500 text-white text-[11px] font-black shrink-0'>◆</span>
+      <span class='text-sm font-bold text-slate-800 truncate'>Topi Uskup</span>
+      <span class='text-[11px] text-slate-500 truncate'>· Border / tepian</span>
+    </span>
+    <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 shrink-0'>Per Buah</span>
+  </span>
+  <span class='block px-4 py-2 text-[11px] text-slate-500 border-b border-slate-100'>Ukuran 28 × 21 × 10.5 cm · dijual per pcs</span>
+  <span class='flex'>
+    <span class='flex-1 px-4 py-3 border-r border-slate-100'>
+      <span class='block text-[9px] uppercase tracking-widest text-slate-400 font-bold mb-1'>Tebal 6 cm</span>
+      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 8.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/pcs</span></span>
+    </span>
+    <span class='flex-1 px-4 py-3 bg-amber-50/60'>
+      <span class='block text-[9px] uppercase tracking-widest text-amber-700 font-bold mb-1'>Tebal 8 cm</span>
+      <span class='block text-xl font-black text-amber-700 leading-none'>Rp 9.000<span class='text-[10px] font-semibold text-amber-700/60 ml-0.5'>/pcs</span></span>
+    </span>
+  </span>
+</span>`,
+          en: `<span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
+  <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
+    <span class='flex items-center gap-2 min-w-0'>
+      <span class='inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#1e88e5] text-white text-[11px] font-black shrink-0'>6</span>
+      <span class='text-sm font-bold text-slate-800 truncate'>6 cm Thick</span>
+      <span class='text-[11px] text-slate-500 truncate'>· Brick / Worm / Hexagon</span>
+    </span>
+    <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500 text-white shrink-0'>Popular</span>
+  </span>
+  <span class='flex'>
+    <span class='flex-1 px-4 py-3 border-r border-slate-100'>
+      <span class='block text-[9px] uppercase tracking-widest text-slate-400 font-bold mb-1'>Natural</span>
+      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 75,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+    </span>
+    <span class='flex-1 px-4 py-3 bg-[#1e88e5]'>
+      <span class='block text-[9px] uppercase tracking-widest text-white/80 font-bold mb-1'>Colored</span>
+      <span class='block text-xl font-black text-white leading-none'>Rp 90,000<span class='text-[10px] font-semibold text-white/70 ml-0.5'>/m²</span></span>
+    </span>
+  </span>
+</span>
+<span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
+  <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
+    <span class='flex items-center gap-2 min-w-0'>
+      <span class='inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-700 text-white text-[11px] font-black shrink-0'>8</span>
+      <span class='text-sm font-bold text-slate-800 truncate'>8 cm Thick</span>
+      <span class='text-[11px] text-slate-500 truncate'>· Brick / Worm / Hexagon</span>
+    </span>
+  </span>
+  <span class='flex'>
+    <span class='flex-1 px-4 py-3 border-r border-slate-100'>
+      <span class='block text-[9px] uppercase tracking-widest text-slate-400 font-bold mb-1'>Natural</span>
+      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 85,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+    </span>
+    <span class='flex-1 px-4 py-3 bg-[#1e88e5]'>
+      <span class='block text-[9px] uppercase tracking-widest text-white/80 font-bold mb-1'>Colored</span>
+      <span class='block text-xl font-black text-white leading-none'>Rp 100,000<span class='text-[10px] font-semibold text-white/70 ml-0.5'>/m²</span></span>
+    </span>
+  </span>
+</span>
+<span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
+  <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
+    <span class='flex items-center gap-2 min-w-0'>
+      <span class='inline-flex items-center justify-center w-7 h-7 rounded-lg bg-amber-500 text-white text-[11px] font-black shrink-0'>◆</span>
+      <span class='text-sm font-bold text-slate-800 truncate'>Bishop's Hat</span>
+      <span class='text-[11px] text-slate-500 truncate'>· Border / edging</span>
+    </span>
+    <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 shrink-0'>Per Piece</span>
+  </span>
+  <span class='block px-4 py-2 text-[11px] text-slate-500 border-b border-slate-100'>Size 28 × 21 × 10.5 cm · sold per pc</span>
+  <span class='flex'>
+    <span class='flex-1 px-4 py-3 border-r border-slate-100'>
+      <span class='block text-[9px] uppercase tracking-widest text-slate-400 font-bold mb-1'>6 cm Thick</span>
+      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 8,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/pc</span></span>
+    </span>
+    <span class='flex-1 px-4 py-3 bg-amber-50/60'>
+      <span class='block text-[9px] uppercase tracking-widest text-amber-700 font-bold mb-1'>8 cm Thick</span>
+      <span class='block text-xl font-black text-amber-700 leading-none'>Rp 9,000<span class='text-[10px] font-semibold text-amber-700/60 ml-0.5'>/pc</span></span>
+    </span>
+  </span>
+</span>`,
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Harga Jasa Pasang & Paket Terima Beres",
+          en: "Installation Service & Turnkey Package Prices",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Harga material di atas belum termasuk jasa pemasangan. Berikut rincian biaya jasa pasang dan paket terima beres (jasa + material):",
+          en: "The material prices above do not include installation services. Here are the details of installation costs and turnkey packages (labor + material):",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: `<span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
+  <span class='block px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
+    <span class='text-[10px] font-bold uppercase tracking-widest text-slate-600'>Jasa Pasang</span>
+  </span>
+  <span class='flex items-center justify-between gap-3 px-4 py-3 border-b border-slate-100'>
+    <span class='flex-1 min-w-0'>
+      <span class='block text-sm font-bold text-slate-800'>Jasa Pasang Saja</span>
+      <span class='block text-[11px] text-slate-500 mt-0.5'>Tenaga + Finishing Stamper</span>
+    </span>
+    <span class='shrink-0 inline-flex items-baseline gap-0.5 px-3 py-1.5 rounded-lg bg-slate-100 text-slate-900 whitespace-nowrap'>
+      <span class='text-base font-black leading-none'>Rp 30.000</span>
+      <span class='text-[10px] font-semibold text-slate-500'>/m²</span>
+    </span>
+  </span>
+  <span class='flex items-center justify-between gap-3 px-4 py-3'>
+    <span class='flex-1 min-w-0'>
+      <span class='block text-sm font-bold text-slate-800'>Jasa + Abu Batu</span>
+      <span class='block text-[11px] text-slate-500 mt-0.5'>Tenaga + Abu Batu + Finishing</span>
+    </span>
+    <span class='shrink-0 inline-flex items-baseline gap-0.5 px-3 py-1.5 rounded-lg bg-[#1e88e5] text-white whitespace-nowrap'>
+      <span class='text-base font-black leading-none'>Rp 40.000</span>
+      <span class='text-[10px] font-semibold text-white/80'>/m²</span>
+    </span>
+  </span>
+</span>
+<span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
+  <span class='block px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
+    <span class='text-[10px] font-bold uppercase tracking-widest text-slate-600'>Terima Beres (Jasa + Material)</span>
+  </span>
+  <span class='flex flex-wrap'>
+    <span class='flex-1 min-w-[140px] px-4 py-3 border-b border-r border-slate-100'>
+      <span class='flex items-center justify-between mb-1'>
+        <span class='text-[10px] font-bold uppercase tracking-wider text-slate-500'>Tebal 6 cm</span>
+        <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700'>Populer</span>
+      </span>
+      <span class='block text-[11px] text-slate-500 mb-1.5'>Tanpa Sirtu</span>
+      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 120.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+    </span>
+    <span class='flex-1 min-w-[140px] px-4 py-3 border-b border-slate-100'>
+      <span class='flex items-center justify-between mb-1'>
+        <span class='text-[10px] font-bold uppercase tracking-wider text-slate-500'>Tebal 6 cm</span>
+        <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-slate-600'>+ Sirtu</span>
+      </span>
+      <span class='block text-[11px] text-slate-500 mb-1.5'>Dengan Sirtu</span>
+      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 135.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+    </span>
+    <span class='flex-1 min-w-[140px] px-4 py-3 border-r border-slate-100'>
+      <span class='flex items-center justify-between mb-1'>
+        <span class='text-[10px] font-bold uppercase tracking-wider text-slate-500'>Tebal 8 cm</span>
+        <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-slate-600'>K-300</span>
+      </span>
+      <span class='block text-[11px] text-slate-500 mb-1.5'>Tanpa Sirtu</span>
+      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 130.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+    </span>
+    <span class='flex-1 min-w-[140px] px-4 py-3'>
+      <span class='flex items-center justify-between mb-1'>
+        <span class='text-[10px] font-bold uppercase tracking-wider text-slate-500'>Tebal 8 cm</span>
+        <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-slate-600'>+ Sirtu</span>
+      </span>
+      <span class='block text-[11px] text-slate-500 mb-1.5'>Dengan Sirtu</span>
+      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 145.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+    </span>
+  </span>
+</span>`,
+          en: `<span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
+  <span class='block px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
+    <span class='text-[10px] font-bold uppercase tracking-widest text-slate-600'>Installation Service</span>
+  </span>
+  <span class='flex items-center justify-between gap-3 px-4 py-3 border-b border-slate-100'>
+    <span class='flex-1 min-w-0'>
+      <span class='block text-sm font-bold text-slate-800'>Labor Only</span>
+      <span class='block text-[11px] text-slate-500 mt-0.5'>Labor + Stamper Finishing</span>
+    </span>
+    <span class='shrink-0 inline-flex items-baseline gap-0.5 px-3 py-1.5 rounded-lg bg-slate-100 text-slate-900 whitespace-nowrap'>
+      <span class='text-base font-black leading-none'>Rp 30,000</span>
+      <span class='text-[10px] font-semibold text-slate-500'>/m²</span>
+    </span>
+  </span>
+  <span class='flex items-center justify-between gap-3 px-4 py-3'>
+    <span class='flex-1 min-w-0'>
+      <span class='block text-sm font-bold text-slate-800'>Labor + Stone Dust</span>
+      <span class='block text-[11px] text-slate-500 mt-0.5'>Labor + Stone Dust + Finishing</span>
+    </span>
+    <span class='shrink-0 inline-flex items-baseline gap-0.5 px-3 py-1.5 rounded-lg bg-[#1e88e5] text-white whitespace-nowrap'>
+      <span class='text-base font-black leading-none'>Rp 40,000</span>
+      <span class='text-[10px] font-semibold text-white/80'>/m²</span>
+    </span>
+  </span>
+</span>
+<span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
+  <span class='block px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
+    <span class='text-[10px] font-bold uppercase tracking-widest text-slate-600'>Turnkey (Labor + Material)</span>
+  </span>
+  <span class='flex flex-wrap'>
+    <span class='flex-1 min-w-[140px] px-4 py-3 border-b border-r border-slate-100'>
+      <span class='flex items-center justify-between mb-1'>
+        <span class='text-[10px] font-bold uppercase tracking-wider text-slate-500'>6 cm Thick</span>
+        <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700'>Popular</span>
+      </span>
+      <span class='block text-[11px] text-slate-500 mb-1.5'>Without Sirtu</span>
+      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 120,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+    </span>
+    <span class='flex-1 min-w-[140px] px-4 py-3 border-b border-slate-100'>
+      <span class='flex items-center justify-between mb-1'>
+        <span class='text-[10px] font-bold uppercase tracking-wider text-slate-500'>6 cm Thick</span>
+        <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-slate-600'>+ Sirtu</span>
+      </span>
+      <span class='block text-[11px] text-slate-500 mb-1.5'>With Sirtu</span>
+      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 135,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+    </span>
+    <span class='flex-1 min-w-[140px] px-4 py-3 border-r border-slate-100'>
+      <span class='flex items-center justify-between mb-1'>
+        <span class='text-[10px] font-bold uppercase tracking-wider text-slate-500'>8 cm Thick</span>
+        <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-slate-600'>K-300</span>
+      </span>
+      <span class='block text-[11px] text-slate-500 mb-1.5'>Without Sirtu</span>
+      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 130,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+    </span>
+    <span class='flex-1 min-w-[140px] px-4 py-3'>
+      <span class='flex items-center justify-between mb-1'>
+        <span class='text-[10px] font-bold uppercase tracking-wider text-slate-500'>8 cm Thick</span>
+        <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-slate-600'>+ Sirtu</span>
+      </span>
+      <span class='block text-[11px] text-slate-500 mb-1.5'>With Sirtu</span>
+      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 145,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+    </span>
+  </span>
+</span>`,
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: `<span class='not-prose block my-4 p-4 rounded-r-xl border-l-4 border-amber-400 bg-amber-50'>
+  <span class='block text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-1.5'>Catatan Penting</span>
+  <span class='block text-sm text-amber-900 leading-relaxed'>Harga material di atas berlaku untuk warna <b class='font-extrabold'>natural</b>. Untuk warna merah atau hitam, tambahkan <b class='font-extrabold'>Rp 10.000/m²</b>. Harga jasa pasang dan paket terima beres berlaku untuk luas area <b class='font-extrabold'>di atas 100 m²</b>; untuk area di bawah 100 m² silakan konsultasi terlebih dahulu.</span>
+</span>`,
+          en: `<span class='not-prose block my-4 p-4 rounded-r-xl border-l-4 border-amber-400 bg-amber-50'>
+  <span class='block text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-1.5'>Important Note</span>
+  <span class='block text-sm text-amber-900 leading-relaxed'>The material prices above apply to <b class='font-extrabold'>natural</b> color. For red or black colors, add <b class='font-extrabold'>Rp 10,000/m²</b>. Installation service and turnkey package prices apply to areas <b class='font-extrabold'>above 100 m²</b>; for areas below 100 m², please consult us first.</span>
+</span>`,
+        },
       },
       {
         type: "heading",
@@ -2252,8 +2516,8 @@ export const articles = [
       {
         type: "paragraph",
         text: {
-          id: "Ukuran umum 21 x 10,5 cm dengan kebutuhan sekitar 44 buah per m². Pola susunannya fleksibel (herringbone, anyam, atau lurus) dan sisa potongan relatif sedikit. Pilihan tepat untuk teras, carport, halaman, dan jalur pejalan kaki dengan anggaran terbatas.",
-          en: "Common size 21 x 10.5 cm with about 44 pieces needed per m². The layout pattern is flexible (herringbone, basket weave, or straight) and cutting waste is relatively low. A good choice for terraces, carports, yards, and walkways on a limited budget.",
+          id: "Paving bata hadir dalam ukuran standar dengan pola susunan yang fleksibel (herringbone, anyam, atau lurus) dan sisa potongan relatif sedikit. Pilihan tepat untuk teras, carport, halaman, dan jalur pejalan kaki dengan anggaran terbatas. Material bata 6 cm natural mulai <span class='inline-flex items-baseline gap-0.5 px-2 py-0.5 mx-0.5 rounded-md bg-[#1e88e5]/10 text-[#1e88e5] font-bold text-[0.92em] whitespace-nowrap'>Rp 75.000<span class='text-[0.72em] font-semibold text-[#1e88e5]/70'>/m²</span></span>, sedangkan tebal 8 cm mulai <span class='inline-flex items-baseline gap-0.5 px-2 py-0.5 mx-0.5 rounded-md bg-[#1e88e5]/10 text-[#1e88e5] font-bold text-[0.92em] whitespace-nowrap'>Rp 85.000<span class='text-[0.72em] font-semibold text-[#1e88e5]/70'>/m²</span></span>. Tim kami akan menghitungkan kebutuhan material dan jumlah paving sesuai luas area Anda.",
+          en: "Brick paving comes in standard sizes with flexible layout patterns (herringbone, basket weave, or straight) and relatively low cutting waste. A good choice for terraces, carports, yards, and walkways on a limited budget. Natural brick 6 cm starts at <span class='inline-flex items-baseline gap-0.5 px-2 py-0.5 mx-0.5 rounded-md bg-[#1e88e5]/10 text-[#1e88e5] font-bold text-[0.92em] whitespace-nowrap'>Rp 75,000<span class='text-[0.72em] font-semibold text-[#1e88e5]/70'>/m²</span></span>, while 8 cm starts at <span class='inline-flex items-baseline gap-0.5 px-2 py-0.5 mx-0.5 rounded-md bg-[#1e88e5]/10 text-[#1e88e5] font-bold text-[0.92em] whitespace-nowrap'>Rp 85,000<span class='text-[0.72em] font-semibold text-[#1e88e5]/70'>/m²</span></span>. Our team will calculate the material and paver quantity needed for your area size.",
         },
       },
       {
@@ -2263,8 +2527,8 @@ export const articles = [
       {
         type: "paragraph",
         text: {
-          id: "Ukuran sekitar 30 x 21 x 6 cm (tersedia juga tebal 8 cm) dengan kebutuhan sekitar 24 buah per m². Bentuknya yang saling mengunci membuat permukaan lebih stabil menahan beban kendaraan, sehingga banyak dipakai di jalan lingkungan, area parkir, dan kawasan komersial.",
-          en: "Size about 30 x 21 x 6 cm (8 cm thickness also available) with about 24 pieces needed per m². Its interlocking shape makes the surface more stable under vehicle loads, so it is widely used on neighborhood roads, parking areas, and commercial zones.",
+          id: "Topi uskup tersedia dalam ketebalan 6 cm dan 8 cm dengan bentuk saling mengunci yang membuat permukaan lebih stabil menahan beban kendaraan. Banyak dipakai di jalan lingkungan, area parkir, kawasan komersial, serta sebagai border / tepian paving. Berbeda dari jenis lain yang dijual per m², topi uskup umumnya dijual <b>per buah (pcs)</b> dengan harga <span class='inline-flex items-baseline gap-0.5 px-2 py-0.5 mx-0.5 rounded-md bg-amber-100 text-amber-800 font-bold text-[0.92em] whitespace-nowrap'>Rp 8.000<span class='text-[0.72em] font-semibold text-amber-700/70'>/pcs</span></span> untuk tebal 6 cm dan <span class='inline-flex items-baseline gap-0.5 px-2 py-0.5 mx-0.5 rounded-md bg-amber-100 text-amber-800 font-bold text-[0.92em] whitespace-nowrap'>Rp 9.000<span class='text-[0.72em] font-semibold text-amber-700/70'>/pcs</span></span> untuk tebal 8 cm. Tim kami akan membantu menghitungkan kebutuhan topi uskup sesuai panjang tepian area Anda.",
+          en: "Bishop's hat is available in 6 cm and 8 cm thicknesses with an interlocking shape that makes the surface more stable under vehicle loads. It is widely used on neighborhood roads, parking areas, commercial zones, and as a paving border / edging. Unlike other types sold per m², bishop's hat is generally sold <b>per piece (pc)</b> at <span class='inline-flex items-baseline gap-0.5 px-2 py-0.5 mx-0.5 rounded-md bg-amber-100 text-amber-800 font-bold text-[0.92em] whitespace-nowrap'>Rp 8,000<span class='text-[0.72em] font-semibold text-amber-700/70'>/pc</span></span> for 6 cm thickness and <span class='inline-flex items-baseline gap-0.5 px-2 py-0.5 mx-0.5 rounded-md bg-amber-100 text-amber-800 font-bold text-[0.92em] whitespace-nowrap'>Rp 9,000<span class='text-[0.72em] font-semibold text-amber-700/70'>/pc</span></span> for 8 cm thickness. Our team will help calculate the bishop's hat quantity needed according to your area's edge length.",
         },
       },
       {
@@ -2274,28 +2538,25 @@ export const articles = [
       {
         type: "paragraph",
         text: {
-          id: "Kebutuhan sekitar 25 buah per m². Hexagon punya tampilan khas yang rapi dan dekoratif, tetapi pemasangannya butuh ketelitian lebih dan sisa potongan di tepian lebih banyak, sehingga biaya pasangnya lebih tinggi. Cocok untuk taman, area santai, dan halaman yang mengutamakan estetika.",
-          en: "About 25 pieces needed per m². Hexagon has a distinctive neat and decorative look, but installation needs more precision and edge cutting waste is higher, so installation costs more. Suitable for gardens, lounge areas, and yards that prioritize aesthetics.",
+          id: "Hexagon punya tampilan khas yang rapi dan dekoratif, tetapi pemasangannya butuh ketelitian lebih dan sisa potongan di tepian lebih banyak, sehingga biaya pasangnya bisa sedikit lebih tinggi. Cocok untuk taman, area santai, dan halaman yang mengutamakan estetika. Harga material hexagon sama dengan bata dan cacing, yaitu <span class='inline-flex items-baseline gap-0.5 px-2 py-0.5 mx-0.5 rounded-md bg-[#1e88e5]/10 text-[#1e88e5] font-bold text-[0.92em] whitespace-nowrap'>Rp 75.000<span class='text-[0.72em] font-semibold text-[#1e88e5]/70'>/m²</span></span> (6 cm natural) hingga <span class='inline-flex items-baseline gap-0.5 px-2 py-0.5 mx-0.5 rounded-md bg-[#1e88e5]/10 text-[#1e88e5] font-bold text-[0.92em] whitespace-nowrap'>Rp 100.000<span class='text-[0.72em] font-semibold text-[#1e88e5]/70'>/m²</span></span> (8 cm warna). Tim kami akan membantu memperkirakan kebutuhan material dan area potongan agar hasil akhir rapi dan efisien.",
+          en: "Hexagon has a distinctive neat and decorative look, but installation needs more precision and edge cutting waste is higher, so installation costs may be slightly higher. Suitable for gardens, lounge areas, and yards that prioritize aesthetics. Hexagon material prices are the same as brick and worm: from <span class='inline-flex items-baseline gap-0.5 px-2 py-0.5 mx-0.5 rounded-md bg-[#1e88e5]/10 text-[#1e88e5] font-bold text-[0.92em] whitespace-nowrap'>Rp 75,000<span class='text-[0.72em] font-semibold text-[#1e88e5]/70'>/m²</span></span> (6 cm natural) to <span class='inline-flex items-baseline gap-0.5 px-2 py-0.5 mx-0.5 rounded-md bg-[#1e88e5]/10 text-[#1e88e5] font-bold text-[0.92em] whitespace-nowrap'>Rp 100,000<span class='text-[0.72em] font-semibold text-[#1e88e5]/70'>/m²</span></span> (8 cm colored). Our team will help estimate material needs and cutting areas so the final result is neat and efficient.",
         },
       },
       {
         type: "heading",
-        text: {
-          id: "Mana yang Paling Cocok untuk Kebutuhan Anda?",
-          en: "Which One Best Fits Your Needs?",
-        },
+        text: { id: "Mana yang Paling Cocok untuk Kebutuhan Anda?", en: "Which One Best Fits Your Needs?" },
       },
       {
         type: "list",
         ordered: true,
         items: [
           {
-            id: "<strong>Halaman dan teras rumah:</strong> paving bata. Murah, rapi, mudah diperbaiki.",
-            en: "<strong>Home yards and terraces:</strong> brick paving. Cheap, neat, easy to repair.",
+            id: "<strong>Halaman dan teras rumah:</strong> paving bata tebal 6 cm. Paling ekonomis, rapi, mudah diperbaiki.",
+            en: "<strong>Home yards and terraces:</strong> 6 cm brick paving. Most economical, neat, easy to repair.",
           },
           {
-            id: "<strong>Carport, parkir, dan jalan lingkungan:</strong> topi uskup tebal 6-8 cm dengan mutu K-300 ke atas.",
-            en: "<strong>Carports, parking, and neighborhood roads:</strong> bishop's hat 6-8 cm thick with K-300 grade or above.",
+            id: "<strong>Carport, parkir, dan jalan lingkungan:</strong> paving tebal 8 cm (bata/cacing/hexagon) atau topi uskup tebal 8 cm sebagai border.",
+            en: "<strong>Carports, parking, and neighborhood roads:</strong> 8 cm paving (brick/worm/hexagon) or 8 cm bishop's hat as border.",
           },
           {
             id: "<strong>Taman dan area dekoratif:</strong> hexagon, atau kombinasi dengan <a href='/blog/pemasangan-grass-block' class='text-[#1e88e5] hover:underline font-semibold'>grass block</a> untuk resapan air.",
@@ -2305,45 +2566,675 @@ export const articles = [
       },
       {
         type: "heading",
-        text: {
-          id: "Yang Membuat Harga Bisa Naik atau Turun",
-          en: "What Makes the Price Go Up or Down",
-        },
+        text: { id: "Yang Membuat Harga Bisa Naik atau Turun", en: "What Makes the Price Go Up or Down" },
       },
       {
         type: "list",
         ordered: false,
         items: [
           {
-            id: "Mutu dan ketebalan paving (K-200 sampai K-350, tebal 6 cm atau 8 cm).",
-            en: "Paving grade and thickness (K-200 to K-350, 6 cm or 8 cm).",
+            id: "Ketebalan paving (6 cm atau 8 cm) dan warna (natural atau warna +Rp 10.000/m²).",
+            en: "Paving thickness (6 cm or 8 cm) and color (natural or colored +Rp 10,000/m²).",
           },
           {
-            id: "Luas area. Area besar umumnya lebih efisien per m².",
-            en: "Area size. Large areas are generally more efficient per m².",
+            id: "Luas area. Harga jasa dan paket terima beres berlaku untuk area di atas 100 m².",
+            en: "Area size. Installation and turnkey package prices apply to areas above 100 m².",
           },
           {
-            id: "Kondisi tanah dan kebutuhan urugan atau pemadatan tambahan.",
-            en: "Soil condition and the need for extra fill or compaction.",
+            id: "Kondisi tanah dan kebutuhan urugan atau pemadatan tambahan (sirtu).",
+            en: "Soil condition and the need for extra fill or compaction (sirtu).",
           },
           {
-            id: "Warna, pola susunan, dan pemasangan <a href='/blog/pemasangan-kansteen' class='text-[#1e88e5] hover:underline font-semibold'>kanstin</a> di tepian.",
-            en: "Color, layout pattern, and <a href='/blog/pemasangan-kansteen' class='text-[#1e88e5] hover:underline font-semibold'>curb</a> installation along the edges.",
+            id: "Pola susunan dan pemasangan <a href='/blog/pemasangan-kansteen' class='text-[#1e88e5] hover:underline font-semibold'>kanstin</a> atau topi uskup di tepian.",
+            en: "Layout pattern and <a href='/blog/pemasangan-kansteen' class='text-[#1e88e5] hover:underline font-semibold'>curb</a> or bishop's hat installation along the edges.",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        text: { id: "Kami Bantu Hitung Kebutuhan Paving Anda—Gratis", en: "We Help Calculate Your Paving Needs—Free" },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Tidak perlu bingung menghitung jumlah paving atau memperkirakan sisa potongan sendiri. Tim PT Tri Abadi Makmur akan menghitungkan kebutuhan material paving sesuai jenis, ukuran area, pola susunan, dan ketebalan yang Anda pilih. Cukup sampaikan luas area dan fungsi penggunaannya, kami akan memberikan estimasi kebutuhan material, rekomendasi jenis paving, serta penawaran harga yang jelas. Layanan perhitungan ini gratis sebagai bagian dari survei lokasi.",
+          en: "No need to be confused about calculating the number of pavers or estimating cutting waste yourself. The PT Tri Abadi Makmur team will calculate the paving material needs according to the type, area size, layout pattern, and thickness you choose. Just provide the area size and intended use, and we will give a material estimate, paving type recommendation, and a clear price quote. This calculation service is free as part of the site survey.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Dengan perhitungan yang tepat, Anda terhindar dari risiko kekurangan material di tengah pemasangan atau kelebihan paving yang membuang anggaran. Kami juga memastikan pola susunan dan pemasangan kanstin atau topi uskup di tepian dikerjakan rapi sesuai rencana.",
+          en: "With accurate calculation, you avoid the risk of material shortage during installation or excess pavers that waste budget. We also ensure the layout pattern and curb or bishop's hat installation along the edges are done neatly according to plan.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Untuk gambaran umum harga dan tahapan pekerjaan, baca juga artikel kami tentang <a href='/blog/harga-paving-block-per-m2' class='text-[#1e88e5] hover:underline font-semibold'>Harga Paving Block per m²</a> dan <a href='/blog/pemasangan-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>tahapan pemasangan paving block</a>.",
+          en: "For a general price overview and work stages, also read our article on <a href='/blog/harga-paving-block-per-m2' class='text-[#1e88e5] hover:underline font-semibold'>Paving Block Price per m²</a> and the <a href='/blog/pemasangan-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>paving block installation stages</a>.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Bingung memilih jenis paving yang pas? Tim PT Tri Abadi Makmur siap survei lokasi gratis, menghitungkan kebutuhan material, dan memberi rekomendasi sesuai fungsi area Anda. Hubungi kami via WhatsApp untuk konsultasi dan penawaran terbaik.",
+          en: "Unsure which paving type fits? The PT Tri Abadi Makmur team is ready for a free site survey, material quantity calculation, and recommendations based on your area's function. Contact us via WhatsApp for consultation and the best offer.",
+        },
+      },
+    ],
+  },
+      {
+    slug: "harga-cor-beton-ready-mix",
+    date: { id: "17 November 2026", en: "November 17, 2026" },
+    dateISO: "2026-11-17",
+    src: "/proyek/proyek-13.webp",
+    category: { id: "Cor Beton", en: "Ready-Mix Concrete" },
+    title: {
+      id: "Harga Cor Beton Ready Mix per Kubik 2026 Terbaru & Bergaransi",
+      en: "Latest 2026 Ready-Mix Concrete Price per Cubic Meter & Guaranteed",
+    },
+    desc: {
+      id: "Daftar harga cor beton ready mix per kubik mulai K-225, K-250, K-300, K-350, K-375, K-400, hingga K-500 & Mini Mix. Layanan pengecoran Jabodetabek, Banten & Jawa Barat. Survei & hitung volume gratis!",
+      en: "Ready-mix concrete price list per cubic meter from K-225, K-250, K-300, K-350, K-375, K-400, to K-500 & Mini Mix. Casting services across Greater Jakarta, Banten & West Java. Free survey & volume calculation!",
+    },
+    author: {
+      name: "PT. Tri Abadi Makmur Indonesia",
+      phone: "082258089367",
+      avatar: "/logo.webp",
+      lastUpdated: { id: "17 November 2026", en: "November 17, 2026" },
+      bio: {
+        id: "Tri Abadi Makmur merupakan perusahaan yang bergerak di bidang konstruksi, dengan pengalaman yang sudah bertahun – tahun kami kembangkan, tahapan proses yang mengedepankan kualitas dan kehati-hatian, serta eksekusi pengerjaan proyek yang signifikan, demi tercapainya kepuasan client sehingga terwujudnya jalinan kerjasama yang continue dan berkelanjutan.",
+        en: "Tri Abadi Makmur is a construction company with years of experience we have developed, a process that prioritizes quality and prudence, as well as the execution of significant projects, in order to achieve client satisfaction so that continuous and long-term cooperation is realized.",
+      },
+    },
+    tags: [
+      { id: "Jasa Pengecoran Beton", en: "Concrete Casting Services", slug: "jasa-pengecoran-beton" },
+      { id: "Cor Beton Ready Mix", en: "Ready-Mix Concrete", slug: "cor-beton-ready-mix" },
+      { id: "Harga Cor Beton", en: "Concrete Price", slug: "harga-cor-beton" },
+      { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
+      { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide", slug: "pemasangan-grass-block" },
+      { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
+      { id: "Hotmix untuk Jalan Perkantoran", en: "Hotmix for Office Roads", slug: "hotmix-untuk-jalan-perkantoran" },
+    ],
+    body: [
+      {
+        type: "paragraph",
+        text: {
+          id: "Harga cor beton per kubik — Cor beton ready mix menjadi pilihan utama untuk pekerjaan jalan, halaman, area parkir, hingga struktur bangunan karena mutunya lebih terkontrol dan pengerjaannya lebih cepat. Jika Anda sedang mencari <a href='/layanan/infrastruktur/cor-beton-ready-mix' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengecoran beton ready mix</a> di Jabodetabek, Banten & Jawa Barat, PT Tri Abadi Makmur siap membantu—termasuk menghitungkan kebutuhan volume cor beton Anda secara gratis.",
+          en: "Ready-mix concrete price per cubic meter — Ready-mix concrete is a top choice for roads, yards, parking areas, and building structures because its quality is more controlled and the work is faster. If you are looking for ready-mix concrete casting services in Greater Jakarta, Banten & West Java, PT Tri Abadi Makmur is ready to help—including calculating your concrete volume needs for free.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Daftar Harga Cor Beton Ready Mix per Kubik",
+          en: "Ready-Mix Concrete Price List per Cubic Meter",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Harga disusun per kelompok penggunaan agar mudah dibandingkan. Semua harga di bawah adalah per meter kubik (m³) dengan slump standar 12 ± 2 cm:",
+          en: "Prices are grouped by usage tier for easy comparison. All prices below are per cubic meter (m³) with a standard slump of 12 ± 2 cm:",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: `<span class='not-prose block space-y-3'>
+
+  <!-- TIER 1 -->
+  <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
+    <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800'>
+      <span class='flex items-center gap-2 min-w-0'>
+        <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/15 text-white text-[10px] font-black shrink-0'>1</span>
+        <span class='text-[13px] font-bold text-white truncate'>Struktur Berat & Jalan Raya</span>
+      </span>
+      <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/15 text-white shrink-0 whitespace-nowrap'>K 350–500</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-900 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 500</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Klas A · Precast</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Precast / prestressed</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-center px-2 sm:px-2.5 py-1 rounded-lg bg-[#1e88e5] text-white text-[9.5px] sm:text-[10.5px] font-bold whitespace-nowrap'>Hubungi Kami</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-900 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 400</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Klas P · Rabat Jalan</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Jalan negara / jalan tol</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-900 text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1.200.000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
+      </span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-900 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 375</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Klas B · Lantai Pabrik</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Lantai pabrik / rigid jalan</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-900 text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1.050.000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
+      </span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-900 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 350</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Klas B · Lantai Pabrik</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Lantai pabrik / rigid jalan</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-900 text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1.000.000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
+      </span>
+    </span>
+  </span>
+
+  <!-- TIER 2 -->
+  <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
+    <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-700 border-b border-slate-600'>
+      <span class='flex items-center gap-2 min-w-0'>
+        <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/15 text-white text-[10px] font-black shrink-0'>2</span>
+        <span class='text-[13px] font-bold text-white truncate'>Ruko & Bangunan Bertingkat</span>
+      </span>
+      <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/15 text-white shrink-0 whitespace-nowrap'>K 275–325</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-800 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 325</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Ruko / Rumah 3–5 Lantai</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Ruko / rumah bertingkat 3–5 lantai</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-700 text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 950.000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
+      </span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-800 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 300</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Ruko / Rumah 3–5 Lantai</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Ruko / rumah bertingkat 3–5 lantai</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-700 text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 920.000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
+      </span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-800 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 275</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Ruko / Rumah 2 Lantai</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Rumah bertingkat dua lantai</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-700 text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 880.000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
+      </span>
+    </span>
+  </span>
+
+  <!-- TIER 3 -->
+  <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
+    <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-[#1e88e5] border-b border-[#1a76c7]'>
+      <span class='flex items-center gap-2 min-w-0'>
+        <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-white text-[10px] font-black shrink-0'>3</span>
+        <span class='text-[13px] font-bold text-white truncate'>Rumah Tinggal</span>
+      </span>
+      <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white text-[#1e88e5] shrink-0 whitespace-nowrap'>Populer</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-[#1e88e5]/10 text-[#1e88e5] text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 250</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Rumah / Ruko 2 Lantai</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Rumah tinggal / ruko standar</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-[#1e88e5] text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 850.000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/80'>/m³</span>
+      </span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-[#1e88e5]/10 text-[#1e88e5] text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 225</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Rumah Tinggal · Standar <span class='inline-block align-middle ml-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-500 text-white'>Populer</span></span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Rumah tinggal / ruko, truk standar</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-[#1e88e5] text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 830.000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/80'>/m³</span>
+      </span>
+    </span>
+  </span>
+
+  <!-- TIER 4 -->
+  <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
+    <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-amber-500 border-b border-amber-600'>
+      <span class='flex items-center gap-2 min-w-0'>
+        <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-white text-[10px] font-black shrink-0'>4</span>
+        <span class='text-[13px] font-bold text-white truncate'>Akses Jalan Sempit (Mini Mix)</span>
+      </span>
+      <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white text-amber-600 shrink-0 whitespace-nowrap'>Khusus</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-amber-100 text-amber-700 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 225</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>K 225 · Mini Mix</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Truk kecil untuk gang / jalan sempit</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-amber-500 text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1.290.000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/80'>/m³</span>
+      </span>
+    </span>
+  </span>
+
+  <!-- TIER 5 -->
+  <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
+    <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-500 border-b border-slate-600'>
+      <span class='flex items-center gap-2 min-w-0'>
+        <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/15 text-white text-[10px] font-black shrink-0'>5</span>
+        <span class='text-[13px] font-bold text-white truncate'>Konstruksi Ringan & LC</span>
+      </span>
+      <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/15 text-white shrink-0 whitespace-nowrap'>K 125–175 · B0</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-700 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 175</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Klas D · Bangunan Ringan</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Konstruksi bangunan ringan</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-center px-2 sm:px-2.5 py-1 rounded-lg bg-[#1e88e5] text-white text-[9.5px] sm:text-[10.5px] font-bold whitespace-nowrap'>Hubungi Kami</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-700 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 125</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Klas E · LC / Lantai Dasar</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>LC / lantai dasar</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-center px-2 sm:px-2.5 py-1 rounded-lg bg-[#1e88e5] text-white text-[9.5px] sm:text-[10.5px] font-bold whitespace-nowrap'>Hubungi Kami</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-700 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>B0</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Klas B0 · LC / Lantai Dasar</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>LC / lantai dasar</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-center px-2 sm:px-2.5 py-1 rounded-lg bg-[#1e88e5] text-white text-[9.5px] sm:text-[10.5px] font-bold whitespace-nowrap'>Hubungi Kami</span>
+    </span>
+  </span>
+
+</span>`,
+          en: `<span class='not-prose block space-y-3'>
+
+  <!-- TIER 1 -->
+  <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
+    <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800'>
+      <span class='flex items-center gap-2 min-w-0'>
+        <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/15 text-white text-[10px] font-black shrink-0'>1</span>
+        <span class='text-[13px] font-bold text-white truncate'>Heavy Structures & Highways</span>
+      </span>
+      <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/15 text-white shrink-0 whitespace-nowrap'>K 350–500</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-900 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 500</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Class A · Precast</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Precast / prestressed</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-center px-2 sm:px-2.5 py-1 rounded-lg bg-[#1e88e5] text-white text-[9.5px] sm:text-[10.5px] font-bold whitespace-nowrap'>Contact Us</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-900 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 400</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Class P · Road Slab</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>National road / toll road</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-900 text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1,200,000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
+      </span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-900 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 375</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Class B · Factory Floor</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Factory floor / rigid pavement</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-900 text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1,050,000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
+      </span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-900 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 350</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Class B · Factory Floor</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Factory floor / rigid pavement</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-900 text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1,000,000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
+      </span>
+    </span>
+  </span>
+
+  <!-- TIER 2 -->
+  <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
+    <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-700 border-b border-slate-600'>
+      <span class='flex items-center gap-2 min-w-0'>
+        <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/15 text-white text-[10px] font-black shrink-0'>2</span>
+        <span class='text-[13px] font-bold text-white truncate'>Shophouses & Multi-Story</span>
+      </span>
+      <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/15 text-white shrink-0 whitespace-nowrap'>K 275–325</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-800 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 325</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Shophouse / 3–5 Story</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Shophouse / 3–5 story buildings</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-700 text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 950,000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
+      </span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-800 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 300</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Shophouse / 3–5 Story</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Shophouse / 3–5 story buildings</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-700 text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 920,000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
+      </span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-800 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 275</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Shophouse / 2 Story</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Two-story building</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-700 text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 880,000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
+      </span>
+    </span>
+  </span>
+
+  <!-- TIER 3 -->
+  <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
+    <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-[#1e88e5] border-b border-[#1a76c7]'>
+      <span class='flex items-center gap-2 min-w-0'>
+        <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-white text-[10px] font-black shrink-0'>3</span>
+        <span class='text-[13px] font-bold text-white truncate'>Residential Homes</span>
+      </span>
+      <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white text-[#1e88e5] shrink-0 whitespace-nowrap'>Popular</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-[#1e88e5]/10 text-[#1e88e5] text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 250</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>House / 2-Story Shop</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Residential / standard shophouse</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-[#1e88e5] text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 850,000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/80'>/m³</span>
+      </span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-[#1e88e5]/10 text-[#1e88e5] text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 225</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Residential · Standard <span class='inline-block align-middle ml-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-500 text-white'>Popular</span></span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Residential / shophouse, standard truck</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-[#1e88e5] text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 830,000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/80'>/m³</span>
+      </span>
+    </span>
+  </span>
+
+  <!-- TIER 4 -->
+  <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
+    <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-amber-500 border-b border-amber-600'>
+      <span class='flex items-center gap-2 min-w-0'>
+        <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-white text-[10px] font-black shrink-0'>4</span>
+        <span class='text-[13px] font-bold text-white truncate'>Narrow Access (Mini Mix)</span>
+      </span>
+      <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white text-amber-600 shrink-0 whitespace-nowrap'>Special</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-amber-100 text-amber-700 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 225</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>K 225 · Mini Mix</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Small truck for narrow alleys / streets</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-amber-500 text-white whitespace-nowrap'>
+        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1,290,000</span>
+        <span class='hidden sm:inline text-[9px] font-semibold text-white/80'>/m³</span>
+      </span>
+    </span>
+  </span>
+
+  <!-- TIER 5 -->
+  <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
+    <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-500 border-b border-slate-600'>
+      <span class='flex items-center gap-2 min-w-0'>
+        <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/15 text-white text-[10px] font-black shrink-0'>5</span>
+        <span class='text-[13px] font-bold text-white truncate'>Light Structures & LC</span>
+      </span>
+      <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/15 text-white shrink-0 whitespace-nowrap'>K 125–175 · B0</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-700 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 175</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Class D · Lightweight</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>Lightweight building construction</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-center px-2 sm:px-2.5 py-1 rounded-lg bg-[#1e88e5] text-white text-[9.5px] sm:text-[10.5px] font-bold whitespace-nowrap'>Contact Us</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-700 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>K 125</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Class E · LC / Ground Floor</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>LC / ground floor</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-center px-2 sm:px-2.5 py-1 rounded-lg bg-[#1e88e5] text-white text-[9.5px] sm:text-[10.5px] font-bold whitespace-nowrap'>Contact Us</span>
+    </span>
+
+    <span class='flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 border-t border-slate-100'>
+      <span class='flex items-center gap-2.5 min-w-0 flex-1'>
+        <span class='inline-flex items-center justify-center min-w-[48px] sm:min-w-[56px] h-7 sm:h-8 px-1.5 rounded-md bg-slate-100 text-slate-700 text-[10px] sm:text-[11px] font-black shrink-0 whitespace-nowrap'>B0</span>
+        <span class='min-w-0'>
+          <span class='block text-[12.5px] sm:text-[13px] font-bold text-slate-800 leading-tight break-words'>Class B0 · LC / Ground Floor</span>
+          <span class='hidden sm:block text-[11px] text-slate-500 mt-0.5 truncate'>LC / ground floor</span>
+        </span>
+      </span>
+      <span class='shrink-0 inline-flex items-center px-2 sm:px-2.5 py-1 rounded-lg bg-[#1e88e5] text-white text-[9.5px] sm:text-[10.5px] font-bold whitespace-nowrap'>Contact Us</span>
+    </span>
+  </span>
+
+</span>`,
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "<span class='not-prose block my-4 p-4 rounded-r-xl border-l-4 border-slate-400 bg-slate-50'><span class='block text-[10px] font-bold uppercase tracking-widest text-slate-600 mb-1.5'>Catatan</span><span class='block text-sm text-slate-700 leading-relaxed'>Harga di atas dapat berubah sesuai jarak batching plant, kondisi akses lokasi, dan volume pemesanan (m³). Untuk penawaran pasti sesuai proyek Anda, silakan hubungi kami. Baca juga panduan terkait <a href='/blog/jasa-pengecoran-beton' class='text-[#1e88e5] hover:underline font-semibold'>Jasa Pengecoran Beton</a>.</span></span>",
+          en: "<span class='not-prose block my-4 p-4 rounded-r-xl border-l-4 border-slate-400 bg-slate-50'><span class='block text-[10px] font-bold uppercase tracking-widest text-slate-600 mb-1.5'>Note</span><span class='block text-sm text-slate-700 leading-relaxed'>Prices above may vary depending on batching plant distance, site access conditions, and order volume (m³). For a definite quote for your project, please contact us. Also read the guide on Concrete Casting Services.</span></span>",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Faktor yang Mempengaruhi Harga Cor Beton",
+          en: "Factors That Influence Concrete Prices",
+        },
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          {
+            id: "<strong>Mutu Beton:</strong> Semakin tinggi mutu beton (K), semakin banyak semen dan material pendukung, sehingga harga naik.",
+            en: "<strong>Concrete Grade:</strong> The higher the concrete grade (K), the more cement and supporting materials are needed, so the price increases.",
+          },
+          {
+            id: "<strong>Volume Pemesanan:</strong> Pemesanan dalam jumlah besar biasanya lebih efisien per meter kubik.",
+            en: "<strong>Order Volume:</strong> Larger orders are usually more efficient per cubic meter.",
+          },
+          {
+            id: "<strong>Jarak ke Lokasi:</strong> Jarak dari batching plant ke lokasi mempengaruhi biaya transportasi dan waktu pengiriman.",
+            en: "<strong>Distance to Site:</strong> The distance from the batching plant to the site affects transportation costs and delivery time.",
+          },
+          {
+            id: "<strong>Akses Jalan:</strong> Lokasi dengan akses sempit membutuhkan Mini Mix, sehingga biaya per m³ lebih tinggi (lihat perbandingan K 225 standar vs Mini Mix).",
+            en: "<strong>Road Access:</strong> Locations with narrow access require Mini Mix, so the cost per m³ is higher (see comparison of standard K 225 vs Mini Mix).",
+          },
+          {
+            id: "<strong>Slump & Aditif:</strong> Kebutuhan tingkat kekentalan beton atau bahan tambahan khusus dapat mempengaruhi harga.",
+            en: "<strong>Slump & Additives:</strong> The required concrete consistency or special additives can affect the price.",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Kami Bantu Hitung Kebutuhan Cor Beton Anda—Gratis",
+          en: "We Help Calculate Your Concrete Needs—Free",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Tidak perlu bingung menghitung sendiri. Tim PT Tri Abadi Makmur akan membantu menghitungkan volume cor beton yang dibutuhkan sesuai ukuran area, ketebalan, dan jenis pekerjaan Anda. Cukup sampaikan panjang, lebar, dan rencana ketebalan, kami akan memberikan estimasi volume serta rekomendasi mutu beton yang tepat—termasuk menentukan apakah proyek Anda membutuhkan truk standar atau Mini Mix. Layanan konsultasi dan perhitungan ini gratis sebagai bagian dari survei lokasi.",
+          en: "No need to be confused about calculating it yourself. The PT Tri Abadi Makmur team will help calculate the concrete volume needed according to your area size, thickness, and type of work. Just provide the length, width, and planned thickness, and we will give a volume estimate and recommend the right concrete grade—including determining whether your project needs a standard truck or Mini Mix. This consultation and calculation service is free as part of the site survey.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Dengan perhitungan yang tepat dari ahlinya, Anda terhindar dari risiko kekurangan material di tengah pengecoran atau kelebihan volume yang membuang anggaran. Kami juga memastikan jadwal pengiriman truk mixer sesuai kebutuhan lapangan.",
+          en: "With accurate calculation from experts, you avoid the risk of material shortage during casting or excess volume that wastes budget. We also ensure mixer truck delivery schedules match field needs.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Tips Memilih Penyedia Cor Beton yang Tepat",
+          en: "Tips for Choosing the Right Concrete Provider",
+        },
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          {
+            id: "<strong>Pastikan mutu sesuai beban:</strong> Tidak semua pekerjaan membutuhkan K-400. Untuk rumah tinggal, K-250 atau K-275 umumnya sudah cukup. Konsultasikan agar tidak boros.",
+            en: "<strong>Ensure the grade matches the load:</strong> Not all work requires K-400. For residential houses, K-250 or K-275 is generally sufficient. Consult so you don't overspend.",
+          },
+          {
+            id: "<strong>Pilih penyedia yang membantu perhitungan:</strong> Penyedia profesional akan menghitungkan volume dan merekomendasikan mutu, bukan sekadar menjual material.",
+            en: "<strong>Choose a provider that helps with calculations:</strong> A professional provider will calculate volume and recommend a grade, not just sell materials.",
+          },
+          {
+            id: "<strong>Siapkan akses truk mixer:</strong> Jika akses sempit, gunakan Mini Mix (K 225 Mini Mix) agar pengiriman tetap lancar tanpa biaya tambahan di luar perhitungan.",
+            en: "<strong>Prepare mixer truck access:</strong> If access is narrow, use Mini Mix (K 225 Mini Mix) so delivery remains smooth without unexpected additional costs.",
+          },
+          {
+            id: "<strong>Perhatikan jadwal pengiriman:</strong> Pengecoran beton harus kontinu. Pastikan penyedia mampu mengatur pengiriman tepat waktu.",
+            en: "<strong>Pay attention to delivery schedule:</strong> Concrete casting must be continuous. Make sure the provider can manage on-time deliveries.",
           },
         ],
       },
       {
         type: "paragraph",
         text: {
-          id: "Untuk gambaran harga umum dan cara menghitung jumlah paving, baca juga artikel kami tentang <a href='/blog/harga-paving-block-per-m2' class='text-[#1e88e5] hover:underline font-semibold'>Harga Paving Block per m²</a> dan <a href='/blog/pemasangan-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>tahapan pemasangan paving block</a>.",
-          en: "For general pricing and how to calculate the number of pavers, also read our article on <a href='/blog/harga-paving-block-per-m2' class='text-[#1e88e5] hover:underline font-semibold'>Paving Block Price per m²</a> and the <a href='/blog/pemasangan-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>paving block installation stages</a>.",
-        },
-      },
-      {
-        type: "paragraph",
-        text: {
-          id: "Bingung memilih jenis paving yang pas? Tim PT Tri Abadi Makmur siap survei lokasi gratis dan memberi rekomendasi sesuai fungsi area Anda. Hubungi kami via WhatsApp untuk konsultasi dan penawaran terbaik.",
-          en: "Unsure which paving type fits? The PT Tri Abadi Makmur team is ready for a free site survey and will recommend by your area's function. Contact us via WhatsApp for consultation and the best offer.",
+          id: "Butuh cor beton untuk jalan, halaman, parkir, atau struktur bangunan? Konsultasikan kebutuhan Anda dengan PT Tri Abadi Makmur. Kami melayani pengecoran ready mix di Jabodetabek, Banten, dan Jawa Barat dengan tim profesional serta material berkualitas. Hubungi kami via WhatsApp untuk survei lokasi, perhitungan volume gratis, dan penawaran terbaik.",
+          en: "Need concrete casting for roads, yards, parking, or building structures? Consult your needs with PT Tri Abadi Makmur. We provide ready-mix casting in Greater Jakarta, Banten, and West Java with a professional team and quality materials. Contact us via WhatsApp for a site survey, free volume calculation, and the best offer.",
         },
       },
     ],
