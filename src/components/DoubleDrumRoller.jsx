@@ -1,4 +1,4 @@
-// src/components/DoubleDrumRoller.jsx
+﻿// src/components/DoubleDrumRoller.jsx
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
@@ -329,7 +329,7 @@ const data = {
       "Pada proses akhir pemadatan, kembali gunakan roller yang beroda baja.",
       "Fungsinya agar pemadatan lebih rapat sehingga jalan tidak cepat rusak, kuat, dan tahan lama.",
       "Pemadatan di lajur yang menanjak dilakukan dari bagian yang lebih tinggi ke bagian rendah.",
-      "Kami menyarankan anda untuk menggunakan jasa konstruksi dari website www.konstruksi-jasa.com.",
+      "Kami menyarankan anda untuk menggunakan jasa konstruksi dari website spesialisaspal.com.",
       "Pelayanan 24 jam dan menyediakan segala kebutuhan konstruksi.",
       "Jika anda membutuhkan tenaga konstruksi juga tersedia disini yang siap mengerjakan seluruh tugas konstruksi pemadatan jalan.",
     ],
@@ -409,7 +409,7 @@ const data = {
       "In the final compaction process, use a steel-wheeled roller again.",
       "Its function is to make the compaction denser so the road doesn't get damaged quickly, is strong, and durable.",
       "Compaction on uphill lanes is done from the higher part to the lower part.",
-      "We recommend you use construction services from the website www.konstruksi-jasa.com.",
+      "We recommend you use construction services from the website spesialisaspal.com.",
       "24-hour service and provides all construction needs.",
       "If you need construction workers, they are also available here, ready to carry out all road compaction construction tasks.",
     ],

@@ -1,4 +1,4 @@
-// src/components/SelfLoader.jsx
+﻿// src/components/SelfLoader.jsx
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
@@ -270,7 +270,7 @@ const data = {
       "Kebanyakan operator memilih grapple yang dipasang sebagai standar oleh pihak pabrikan.",
     ],
     after: [
-      "Di konstruksi-jasa.com anda disediakan self loader yang mempunyai kapasitas dan kualitas mumpuni.",
+      "Di spesialisaspal.com anda disediakan self loader yang mempunyai kapasitas dan kualitas mumpuni.",
     ],
     accordionItems: [
       {
@@ -302,9 +302,9 @@ const data = {
       {
         title: "Tips Menggunakan Self Loader Untuk Angkutan Kayu",
         paragraphs: [
-          "Di konstruksi-jasa.com anda dapat menyewa self loader dengan berbagai ukuran dan dapat disesuaikan dengan pekerjaan yang akan anda lakukan.",
+          "Di spesialisaspal.com anda dapat menyewa self loader dengan berbagai ukuran dan dapat disesuaikan dengan pekerjaan yang akan anda lakukan.",
           "Apabila anda bergerak di bidang angkutan perkayuan, maka hal-hal berikut ini dapat anda terapkan guna meningkatkan kapasitas muatan:",
-          "1. Memastikan cara penyusunan tumpukan kayu log diatur sedemikian rupa dengan cara merakit tumpukan secara rapi dan bebas dari puing.\n2. Membentuk tumpukan pada sudut ke jalan untuk mengurangi atau menghemat waktu bongkar.\n3. Menyambungkan grapple yang lebih besar ke unit-unit yang menangani kayu log panjang.\n4. Menggunakan loader yang dapat dibongkar pasang, terutama ketika truk melakukan perjalanan ke area yang sama. Hal ini bertujuan untuk dapat meningkatkan kapasitas.\n5. Memberikan pelatihan khusus untuk meningkatkan produktivitas operator kendaraan dan keamanan operasional truk.\n\nItu tadi lima tips agar dapat memuat kayu log secara maksimal ke atas self loader dan di konstruksi-jasa.com.\n\nJuga menyediakan berbagai jenis kendaraan angkutan berat yang bisa disewa untuk pekerjaan proyek-proyek konstruksi, pertanian, kehutanan, jembatan, pertambangan dan lainnya.\n\nBila anda berminat menyewa kendaraan berat tersebut silahkan kunjungi website konstruksi-jasa.com atau bisa juga menghubungi kontak nomor telepon yang tersedia di website tersebut.\n\nAtau kalau anda berdomisili di Tangerang Selatan, silahkan datang langsung ke alamat Jalan Elang Raya No 1 Ciputat Kedaung Pamulang Tangerang Selatan.",
+          "1. Memastikan cara penyusunan tumpukan kayu log diatur sedemikian rupa dengan cara merakit tumpukan secara rapi dan bebas dari puing.\n2. Membentuk tumpukan pada sudut ke jalan untuk mengurangi atau menghemat waktu bongkar.\n3. Menyambungkan grapple yang lebih besar ke unit-unit yang menangani kayu log panjang.\n4. Menggunakan loader yang dapat dibongkar pasang, terutama ketika truk melakukan perjalanan ke area yang sama. Hal ini bertujuan untuk dapat meningkatkan kapasitas.\n5. Memberikan pelatihan khusus untuk meningkatkan produktivitas operator kendaraan dan keamanan operasional truk.\n\nItu tadi lima tips agar dapat memuat kayu log secara maksimal ke atas self loader dan di spesialisaspal.com.\n\nJuga menyediakan berbagai jenis kendaraan angkutan berat yang bisa disewa untuk pekerjaan proyek-proyek konstruksi, pertanian, kehutanan, jembatan, pertambangan dan lainnya.\n\nBila anda berminat menyewa kendaraan berat tersebut silahkan kunjungi website spesialisaspal.com atau bisa juga menghubungi kontak nomor telepon yang tersedia di website tersebut.\n\nAtau kalau anda berdomisili di Tangerang Selatan, silahkan datang langsung ke alamat Jalan Elang Raya No 1 Ciputat Kedaung Pamulang Tangerang Selatan.",
         ],
       },
     ],
@@ -325,7 +325,7 @@ const data = {
       "Most operators choose grapple that is installed as standard by the manufacturer.",
     ],
     after: [
-      "At konstruksi-jasa.com you are provided with a self loader that has capable capacity and quality.",
+      "At spesialisaspal.com you are provided with a self loader that has capable capacity and quality.",
     ],
     accordionItems: [
       {
@@ -357,9 +357,9 @@ const data = {
       {
         title: "Tips on Using Self Loader for Timber Transport",
         paragraphs: [
-          "At konstruksi-jasa.com you can rent a self loader of various sizes and can be adjusted to the work you will do.",
+          "At spesialisaspal.com you can rent a self loader of various sizes and can be adjusted to the work you will do.",
           "If you are in the timber transport business, the following can be applied to increase load capacity:",
-          "1. Ensuring the arrangement of the log pile is managed in such a way by assembling the pile neatly and free of debris.\n2. Forming the pile at an angle to the road to reduce or save unloading time.\n3. Attaching a larger grapple to units handling long logs.\n4. Using a loader that can be disassembled, especially when the truck travels to the same area. This aims to be able to increase capacity.\n5. Providing special training to increase vehicle operator productivity and truck operational safety.\n\nThose are five tips to load logs maximally onto the self loader and at konstruksi-jasa.com.\n\nAlso provides various types of heavy transport vehicles that can be rented for construction, agriculture, forestry, bridge, mining, and other project work.\n\nIf you are interested in renting these heavy vehicles, please visit the konstruksi-jasa.com website or you can also contact the telephone number available on that website.\n\nOr if you are domiciled in South Tangerang, please come directly to the address Jalan Elang Raya No 1 Ciputat Kedaung Pamulang South Tangerang.",
+          "1. Ensuring the arrangement of the log pile is managed in such a way by assembling the pile neatly and free of debris.\n2. Forming the pile at an angle to the road to reduce or save unloading time.\n3. Attaching a larger grapple to units handling long logs.\n4. Using a loader that can be disassembled, especially when the truck travels to the same area. This aims to be able to increase capacity.\n5. Providing special training to increase vehicle operator productivity and truck operational safety.\n\nThose are five tips to load logs maximally onto the self loader and at spesialisaspal.com.\n\nAlso provides various types of heavy transport vehicles that can be rented for construction, agriculture, forestry, bridge, mining, and other project work.\n\nIf you are interested in renting these heavy vehicles, please visit the spesialisaspal.com website or you can also contact the telephone number available on that website.\n\nOr if you are domiciled in South Tangerang, please come directly to the address Jalan Elang Raya No 1 Ciputat Kedaung Pamulang South Tangerang.",
         ],
       },
     ],

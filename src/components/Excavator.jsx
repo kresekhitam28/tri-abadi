@@ -1,4 +1,4 @@
-// src/components/Excavator.jsx
+﻿// src/components/Excavator.jsx
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
@@ -244,10 +244,10 @@ const data = {
     intro: [
       "Backhoe – dan Excavator merupakan dua jenis kendaraan proyek.",
       "Keduanya sering dipakai untuk pekerjaan berat terutama pada bidang konstruksi, seperti jalan dan bangunan.",
-      "Bagi anda yang ingin menyewa keduanya ini dapat mengunjungi konstruksi-jasa.com untuk anda yang belum pernah mengoperasikan kedua kendaraan tersebut.",
+      "Bagi anda yang ingin menyewa keduanya ini dapat mengunjungi spesialisaspal.com untuk anda yang belum pernah mengoperasikan kedua kendaraan tersebut.",
     ],
     after: [
-      "Simak penjelasan dan tips pengoperasiannya dari konstruksi-jasa.com berikut ini.",
+      "Simak penjelasan dan tips pengoperasiannya dari spesialisaspal.com berikut ini.",
       "Selain itu batu ini dibagi menjadi beberapa jenis.",
       "Untuk lebih detailnya, berikut akan diulas lebih lanjut informasi mengenai batu tersebut.",
     ],
@@ -304,10 +304,10 @@ const data = {
     intro: [
       "Backhoe – and Excavator are two types of project vehicles.",
       "Both are often used for heavy work especially in the construction sector, such as roads and buildings.",
-      "For those who want to rent both, you can visit konstruksi-jasa.com for those who have never operated these two vehicles.",
+      "For those who want to rent both, you can visit spesialisaspal.com for those who have never operated these two vehicles.",
     ],
     after: [
-      "See the explanation and operating tips from konstruksi-jasa.com below.",
+      "See the explanation and operating tips from spesialisaspal.com below.",
       "In addition, this stone is divided into several types.",
       "For more details, the following will further review information about this stone.",
     ],

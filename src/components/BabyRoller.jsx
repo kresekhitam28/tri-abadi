@@ -1,4 +1,4 @@
-// src/components/BabyRoller.jsx
+﻿// src/components/BabyRoller.jsx
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
@@ -258,8 +258,8 @@ const data = {
           "Dengan mengandalkan penggunaan alat ini setidaknya anda dapat lebih menghemat daya.",
           "Utamanya sumber daya (tenaga manusia) yang dibutuhkan. Ukurannya yang lebih mini, dapat mudah dikendalikan.",
           "Nah, demikianlah beberapa kelebihan dari baby roller yang harus anda ketahui.",
-          "Untuk informasi lebih lanjut, terkait alat ini anda dapat mengunjungi situs www.konstruksi-jasa.com.",
-          "Atau datang langsung ke perusahaan Tinggi Jaya Abadi.",
+          "Untuk informasi lebih lanjut, terkait alat ini anda dapat mengunjungi situs spesialisaspal.com.",
+          "Atau datang langsung ke perusahaan PT Tri Abadi Makmur.",
         ],
       },
     ],
@@ -347,8 +347,8 @@ const data = {
           "By relying on the use of this tool, at least you can save more power.",
           "Mainly the resources (human labor) needed. Its more mini size makes it easy to control.",
           "Well, those are some of the advantages of the baby roller that you should know.",
-          "For more information regarding this tool, you can visit the site www.konstruksi-jasa.com.",
-          "Or come directly to the Tinggi Jaya Abadi company.",
+          "For more information regarding this tool, you can visit the site spesialisaspal.com.",
+          "Or come directly to the PT Tri Abadi Makmur company.",
         ],
       },
     ],

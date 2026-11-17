@@ -1,4 +1,4 @@
-// src/components/AsphaltFinisher.jsx
+﻿// src/components/AsphaltFinisher.jsx
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
@@ -257,7 +257,7 @@ const data = {
           "Dengan kecepatan yang ada tersebut, maka mesin cukup hanya dioperasikan dengan power 9 HP.",
           "Bentuk konstruksi kendaraan ini terbilang cukup besar, sehingga untuk mengangkutnya harus menggunakan kendaraan trailer.",
           "Pembuatan beton aspal yang dikerjakan oleh Barber Green Finisher.",
-          "Anda dapat menyewa kendaraan ini di konstruksi-jasa.com.",
+          "Anda dapat menyewa kendaraan ini di spesialisaspal.com.",
         ],
       },
       {
@@ -283,9 +283,9 @@ const data = {
           "Screed menyelaraskan dengan fungsi perkerasan jalan.",
           "Pada pekerjaan sambungan lapisan aspal pada lapisan yang lama, penggunaan sedikit overlap akan mencegah terjadinya pengurangan ketebalan aspal.",
           "Saat penyelarasan lapisan dilakukan, tebal overlapping harus cukup memadai sehingga pemadatan ulang dari roller akan membuat lapisan aspal yang baru hanya turun sampai level lapisan lama yang tepat dibawahnya.",
-          "Asphalt finisher tersedia di website konstruksi-jasa.com, apabila anda membutuhkan kendaraan tersebut maka silahkan langsung mengunjungi website tersebut.",
+          "Asphalt finisher tersedia di website spesialisaspal.com, apabila anda membutuhkan kendaraan tersebut maka silahkan langsung mengunjungi website tersebut.",
           "Tersedia juga beragam jenis kendaraan berat lainnya.",
-          "Anda dapat bernegosiasi mengenai harga sewa kendaraan-kendaraan tersebut, dijamin alat berat seperti asphalt finisher dan lainnya merupakan kendaraan yang handal dan berkualitas yang disediakan oleh konstruksi-jasa.com.",
+          "Anda dapat bernegosiasi mengenai harga sewa kendaraan-kendaraan tersebut, dijamin alat berat seperti asphalt finisher dan lainnya merupakan kendaraan yang handal dan berkualitas yang disediakan oleh spesialisaspal.com.",
         ],
       },
     ],
@@ -316,7 +316,7 @@ const data = {
           "With that speed, the machine only needs to be operated with 9 HP power.",
           "The construction shape of this vehicle is quite large, so to transport it a trailer vehicle must be used.",
           "Production of asphalt concrete done by Barber Green Finisher.",
-          "You can rent this vehicle at konstruksi-jasa.com.",
+          "You can rent this vehicle at spesialisaspal.com.",
         ],
       },
       {
@@ -342,9 +342,9 @@ const data = {
           "The screed aligns with the function of the road pavement.",
           "In the asphalt layer connection work on the old layer, using a slight overlap will prevent a reduction in asphalt thickness.",
           "When the layer alignment is done, the overlap thickness must be adequate so that re-compaction from the roller will make the new asphalt layer only drop to the level of the old layer directly below it.",
-          "Asphalt finisher is available on the konstruksi-jasa.com website; if you need this vehicle, please directly visit the website.",
+          "Asphalt finisher is available on the spesialisaspal.com website; if you need this vehicle, please directly visit the website.",
           "Various other types of heavy vehicles are also available.",
-          "You can negotiate the rental price of these vehicles; heavy equipment such as asphalt finisher and others are guaranteed to be reliable and quality vehicles provided by konstruksi-jasa.com.",
+          "You can negotiate the rental price of these vehicles; heavy equipment such as asphalt finisher and others are guaranteed to be reliable and quality vehicles provided by spesialisaspal.com.",
         ],
       },
     ],

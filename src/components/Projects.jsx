@@ -68,6 +68,14 @@ const rawProjects = [
   { id: 82, src: "/proyek/proyek-82.webp", category: "panel", desc: "Workshop produksi pagar panel beton", location: "Bogor" },
   { id: 83, src: "/proyek/proyek-83.webp", category: "panel", desc: "Workshop stok pagar panel beton precast", location: "Tangerang" },
   { id: 84, src: "/proyek/proyek-84.webp", category: "panel", desc: "Workshop pagar panel beton siap distribusi", location: "Jakarta Timur" },
+  { id: 85, src: "/proyek/proyek-85.webp", category: "paving", desc: "Proses persiapan perataan tanah dasar (subgrade) sebelum pemasangan paving block — memastikan struktur fondasi yang kokoh, stabil, dan presisi demi hasil akhir jalan yang rata.", location: "Tangerang" },
+  { id: 86, src: "/proyek/proyek-86.webp", category: "paving", desc: "Tahap finishing pemasangan paving block area parkir — pengurugan pasir halus ke sela-sela paving dilanjutkan dengan pemadatan menggunakan alat stempel kodok getar agar permukaan kokoh.", location: "Tangerang" },
+  { id: 87, src: "/proyek/proyek-87.webp", category: "paving", desc: "Proses perataan pasir alas (bedding sand) menggunakan jidar baja dan panduan benang — memastikan elevasi permukaan yang presisi sebelum paving block dipasang agar hasil akhir rata.", location: "Tangerang" },
+  { id: 88, src: "/proyek/proyek-88.webp", category: "paving", desc: "Proses pemasangan paving block pada area parkir dan akses keluar kawasan — material ditata sistematis di atas alas pasir padat.", location: "Tangerang" },
+  { id: 89, src: "/proyek/proyek-89.webp", category: "paving", desc: "Proses pemasangan paving block untuk akses jalan dan halaman — menghasilkan struktur permukaan yang kuat dan rapi, memberikan kenyamanan untuk aktivitas sehari-hari.", location: "Tangerang" },
+  { id: 90, src: "/proyek/proyek-90.webp", category: "paving", desc: "Proses pemasangan paving block untuk akses jalan dan halaman — menunjukkan kesiapan lahan dasar yang telah dipadatkan dan diratakan.", location: "Tangerang" },
+  { id: 91, src: "/proyek/proyek-91.webp", category: "paving", desc: "Proses bongkar muat material paving block di lokasi proyek — merupakan bagian dari persiapan matang untuk mempercepat proses pemasangan dengan ketersediaan material.", location: "Tangerang" },
+  { id: 92, src: "/proyek/proyek-92.webp", category: "paving", desc: "Proses pemadatan akhir paving block menggunakan baby roller untuk menjamin kerataan, kekokohan, dan daya tahan struktur jalan jangka panjang.", location: "Tangerang" },
 ];
 
 // ─────────────────────────────────────────────
@@ -143,9 +151,6 @@ const content = {
     of: "of",
   },
 };
-
-const toSize = (src, suffix) => src.replace(/\.webp$/, `${suffix}.webp`);
-const toThumb = (src) => src.replace("/proyek/", "/proyek/thumbs/");
 
 // ─────────────────────────────────────────────
 // IKON
@@ -396,7 +401,7 @@ function Lightbox({
 
         <div className="max-w-4xl w-full flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
           <img
-            src={toSize(selected.src, "-1024")}
+            src={selected.src} // <-- DIUBAH: Langsung ambil dari data
             alt={selected.desc}
             decoding="async"
             draggable={false}
@@ -450,7 +455,7 @@ function Lightbox({
                 style={{ scrollSnapAlign: "center" }}
               >
                 <img
-                  src={toThumb(thumb.src)}
+                  src={thumb.src} // <-- DIUBAH: Langsung ambil dari data
                   alt=""
                   loading="lazy"
                   decoding="async"
@@ -530,7 +535,7 @@ export default function Projects() {
     [next, prev].forEach((i) => {
       if (filteredProjects[i]) {
         const img = new Image();
-        img.src = toSize(filteredProjects[i].src, "-1024");
+        img.src = filteredProjects[i].src; // <-- DIUBAH: Langsung ambil dari data
       }
     });
   }, [selectedIndex, totalFiltered, filteredProjects]);
@@ -648,13 +653,7 @@ export default function Projects() {
                   className="group relative w-full h-full overflow-hidden rounded-xl bg-slate-100 cursor-pointer border border-slate-200/80 hover:border-[#1e88e5] hover:shadow-xl hover:shadow-slate-900/10 transition-all duration-300"
                 >
                   <img
-                    src={toSize(item.src, "-640")}
-                    srcSet={`
-                      ${toSize(item.src, "-320")} 320w,
-                      ${toSize(item.src, "-640")} 640w,
-                      ${toSize(item.src, "-1024")} 1024w
-                    `}
-                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 260px"
+                    src={item.src} // <-- DIUBAH: Langsung ambil dari data
                     alt={item.desc}
                     loading="lazy"
                     decoding="async"
@@ -750,4 +749,4 @@ export default function Projects() {
         )}
     </>
   );
-}
+} 

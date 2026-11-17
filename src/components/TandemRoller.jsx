@@ -1,4 +1,4 @@
-// src/components/TandemRoller.jsx
+﻿// src/components/TandemRoller.jsx
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
@@ -265,7 +265,7 @@ const data = {
     thumbImage: "/proyek/proyek-48.webp",
     fallbackImage: "/proyek/proyek-48.webp",
     intro: [
-      "Tandem Roller – Ada banyak alat berat yang digunakan dalam bidang konstruksi, termasuk di perusahaan Tinggi Jaya Abadi yaitu perusahaan yang bergerak dalam bidang konstruksi.",
+      "Tandem Roller – Ada banyak alat berat yang digunakan dalam bidang konstruksi, termasuk di perusahaan PT Tri Abadi Makmur yaitu perusahaan yang bergerak dalam bidang konstruksi.",
       "Salah satu alat berat yang kami gunakan dan juga kami sewakan adalah tandem roller.",
     ],
     after: [
@@ -321,13 +321,13 @@ const data = {
       },
     ],
     penutup: [
-      "Itulah informasi mengenai tandem roller yang digunakan Tinggi Jaya Abadi.",
+      "Itulah informasi mengenai tandem roller yang digunakan PT Tri Abadi Makmur.",
       "Selain itu, masih banyak alat berat lain yang kami gunakan seperti dozer, excavator, dan self loader.",
       "Semua alat tersebut kami pastikan memiliki kualitas yang baik sehingga hasil dari konstruksi pun akan semakin optimal.",
       "Selain menggunakan alat berkualitas, kami juga mengerjakan konstruksi dengan tepat waktu dan tepat speck.",
       "Dengan demikian, Anda tidak perlu ragu jika akan menggunakan jasa kami.",
       "Untuk informasi lebih lanjut dan pemesanan, Anda dapat menghubungi kontak kami yang tertera pada website.",
-      "Pelayanan konstruksi apa saja yang dapat ditangani oleh Tinggi Jaya Abadi sebagai perusahaan konstruksi? Selain pengaspalan, kami juga melayani perbaikan jalan aspal dan penetrasian aspal.",
+      "Pelayanan konstruksi apa saja yang dapat ditangani oleh PT Tri Abadi Makmur sebagai perusahaan konstruksi? Selain pengaspalan, kami juga melayani perbaikan jalan aspal dan penetrasian aspal.",
       "Bahkan, masih banyak pelayanan lain yang kami tawarkan.",
       "Pelayanan tersebut mencakup sebagai berikut:",
       "1.Pemasangan paving block\n2.Pemasangan kansteen taman\n3.Kansteen trotoar\n4.Pemasangan grass block\n5.Cor beton ready hot mix, dsb.",
@@ -344,7 +344,7 @@ const data = {
     thumbImage: "/proyek/proyek-48.webp",
     fallbackImage: "/proyek/proyek-48.webp",
     intro: [
-      "Tandem Roller – There are many heavy equipment used in the construction sector, including at the Tinggi Jaya Abadi company, a company engaged in the construction sector.",
+      "Tandem Roller – There are many heavy equipment used in the construction sector, including at the PT Tri Abadi Makmur company, a company engaged in the construction sector.",
       "One of the heavy equipment we use and also rent out is the tandem roller.",
     ],
     after: [
@@ -400,13 +400,13 @@ const data = {
       },
     ],
     penutup: [
-      "That is the information about the tandem roller used by Tinggi Jaya Abadi.",
+      "That is the information about the tandem roller used by PT Tri Abadi Makmur.",
       "In addition, there are many other heavy equipment we use such as dozer, excavator, and self loader.",
       "We ensure all these tools have good quality so the construction results will be even more optimal.",
       "Besides using quality tools, we also carry out construction on time and on spec.",
       "Thus, you don't need to hesitate if you want to use our services.",
       "For further information and ordering, you can contact us at the contact listed on the website.",
-      "What construction services can Tinggi Jaya Abadi handle as a construction company? Besides asphalt paving, we also serve asphalt road repair and asphalt penetration.",
+      "What construction services can PT Tri Abadi Makmur handle as a construction company? Besides asphalt paving, we also serve asphalt road repair and asphalt penetration.",
       "In fact, there are many other services we offer.",
       "These services include the following:",
       "1. Paving block installation\n2. Garden curbstone installation\n3. Sidewalk curbstone\n4. Grass block installation\n5. Ready hot mix concrete casting, etc.",

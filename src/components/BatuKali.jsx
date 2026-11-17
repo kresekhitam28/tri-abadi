@@ -1,4 +1,4 @@
-// src/components/BatuKali.jsx
+﻿// src/components/BatuKali.jsx
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
@@ -210,7 +210,7 @@ const data = {
     thumbImage: "/produk/batu-kali.png",
     fallbackImage: "/produk/batu-kali.png",
     intro: [
-      "Batu Kali – Tinggi Jaya Abadi merupakan salah satu perusahaan yang bergerak dalam bidang konstruksi.",
+      "Batu Kali – PT Tri Abadi Makmur merupakan salah satu perusahaan yang bergerak dalam bidang konstruksi.",
       "Selain berpengalaman dan proses pengerjaan yang signifikan, kami mengutamakan material yang berkualitas.",
       "Salah satu material berkualitas yang kami gunakan adalah batu kali atau batu belah.",
       "Batu belah tersebut merupakan material alam yang diproduksi dan proses pembelahan batu besar menjadi bagian-bagian yang lebih kecil.",
@@ -298,7 +298,7 @@ const data = {
     thumbImage: "/produk/batu-kali.png",
     fallbackImage: "/produk/batu-kali.png",
     intro: [
-      "River Stone – Tinggi Jaya Abadi is a company engaged in the construction sector.",
+      "River Stone – PT Tri Abadi Makmur is a company engaged in the construction sector.",
       "Besides being experienced and having a significant work process, we prioritize quality materials.",
       "One of the quality materials we use is river stone or split stone.",
       "This split stone is a natural material produced by splitting large stones into smaller pieces.",

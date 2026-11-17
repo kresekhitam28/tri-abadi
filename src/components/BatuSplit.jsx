@@ -1,4 +1,4 @@
-// src/components/BatuSplit.jsx
+﻿// src/components/BatuSplit.jsx
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
@@ -288,8 +288,8 @@ const data = {
           "Selain itu, terkadang digunakan pula sebagai media pemecah atau penahan ombak.",
           "Sementara para kontraktor proyek sering menjadikan batu ini untuk reklamasi pantai maupun media pembuatan dermaga dengan kapasitas yang kecil.",
           "Demikianlah beberapa tips penggunaan batu split sesuai ukurannya.",
-          "Untuk pemesanan semua produk batu split anda dapat mengunjungi perusahaan Tinggi Jaya Abadi.",
-          "Dapat pula anda melakukan transaksi dan menyewa layanan jasa pengerjaan melalui situs resmi www.kontruksi-jasa.com.",
+          "Untuk pemesanan semua produk batu split anda dapat mengunjungi perusahaan PT Tri Abadi Makmur.",
+          "Dapat pula anda melakukan transaksi dan menyewa layanan jasa pengerjaan melalui situs resmi spesialisaspal.com.",
         ],
       },
     ],
@@ -373,8 +373,8 @@ const data = {
           "In addition, it is sometimes used as a breakwater or wave barrier.",
           "While project contractors often use this stone for beach reclamation or small-capacity dock construction.",
           "Those are some tips for using crushed stone according to its size.",
-          "To order all crushed stone products you can visit the Tinggi Jaya Abadi company.",
-          "You can also make transactions and hire construction services through the official website www.kontruksi-jasa.com.",
+          "To order all crushed stone products you can visit the PT Tri Abadi Makmur company.",
+          "You can also make transactions and hire construction services through the official website spesialisaspal.com.",
         ],
       },
     ],

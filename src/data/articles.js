@@ -2171,6 +2171,183 @@ export const articles = [
       },
     ],
   },
+  // Tempel objek ini ke dalam array `articles` di src/data/articles.js
+// Slug: harga-paving-block-bata-hexagon-topi-uskup -> URL: /blog/harga-paving-block-bata-hexagon-topi-uskup
+
+  {
+    slug: "harga-paving-block-bata-hexagon-topi-uskup",
+    date: { id: "17 November 2026", en: "November 17, 2026" },
+    dateISO: "2026-11-17",
+    src: "/proyek/proyek-88.webp",
+    category: { id: "Paving", en: "Paving" },
+    title: {
+      id: "Harga Paving Block per m² 2026: Bata, Hexagon & Topi Uskup",
+      en: "Paving Block Price per m² 2026: Brick, Hexagon & Bishop's Hat",
+    },
+    desc: {
+      id: "Bandingkan harga pasang paving block bata, hexagon, dan topi uskup per m² 2026 beserta kebutuhan buah dan kegunaannya. Survei lokasi gratis Jabodetabek!",
+      en: "Compare 2026 installation prices per m² for brick, hexagon, and bishop's hat paving blocks, plus pieces needed and best uses. Free site survey in Greater Jakarta!",
+    },
+    author: {
+      name: "PT. Tri Abadi Makmur Indonesia",
+      phone: "082258089367",
+      avatar: "/logo.webp",
+      lastUpdated: { id: "17 November 2026", en: "November 17, 2026" },
+      bio: {
+        id: "Tri Abadi Makmur merupakan perusahaan yang bergerak di bidang konstruksi, dengan pengalaman yang sudah bertahun – tahun kami kembangkan, tahapan proses yang mengedepankan kualitas dan kehati-hatian, serta eksekusi pengerjaan proyek yang signifikan, demi tercapainya kepuasan client sehingga terwujudnya jalinan kerjasama yang continue dan berkelanjutan.",
+        en: "Tri Abadi Makmur is a construction company with years of experience we have developed, a process that prioritizes quality and prudence, as well as the execution of significant projects, in order to achieve client satisfaction so that continuous and long-term cooperation is realized.",
+      },
+    },
+    tags: [
+      { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
+      { id: "Harga Paving Block per m²", en: "Paving Block Price per m²", slug: "harga-paving-block-per-m2" },
+      { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide", slug: "pemasangan-grass-block" },
+      { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+      { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
+    ],
+    body: [
+      {
+        type: "paragraph",
+        text: {
+          id: "Harga paving block per m² — Bentuk paving block menentukan harga, tampilan, dan kekuatan hasil akhir. Tiga jenis yang paling sering dipilih adalah bata (persegi panjang), hexagon, dan topi uskup. Jika Anda sedang membandingkan sebelum memesan <a href='/layanan/infrastruktur/pasang-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>jasa pasang paving block</a> di Jakarta, Tangerang, Bekasi, Depok & Bogor, panduan ini membantu Anda memilih sesuai fungsi dan anggaran.",
+          en: "Paving block price per m² — The shape of the paving block determines the price, appearance, and strength of the final result. The three most popular types are brick (rectangular), hexagon, and bishop's hat. If you are comparing options before ordering <a href='/layanan/infrastruktur/pasang-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>paving block installation services</a> in Jakarta, Tangerang, Bekasi, Depok & Bogor, this guide helps you choose by function and budget.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Perbandingan Harga Pasang per m² Berdasarkan Jenis",
+          en: "Installation Price Comparison per m² by Type",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Estimasi berikut sudah termasuk material, pemadatan tanah, lapisan pasir, pemasangan, dan pengisian celah untuk wilayah Jabodetabek. Harga pasti ditentukan setelah survei lokasi:",
+          en: "The following estimates include materials, soil compaction, sand bedding, installation, and joint filling for Greater Jakarta. The exact price is set after a site survey:",
+        },
+      },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          {
+            id: "<strong>Paving Block Bata (persegi panjang):</strong> sekitar Rp 100.000 - Rp 130.000 / m². Paling ekonomis dan paling banyak dipakai.",
+            en: "<strong>Brick Paving Block (rectangular):</strong> around Rp 100,000 - Rp 130,000 / m². Most economical and most widely used.",
+          },
+          {
+            id: "<strong>Paving Block Topi Uskup:</strong> sekitar Rp 140.000 - Rp 180.000 / m². Bentuk saling mengunci, kuat untuk parkir dan jalan lingkungan.",
+            en: "<strong>Bishop's Hat Paving Block:</strong> around Rp 140,000 - Rp 180,000 / m². Interlocking shape, strong for parking and neighborhood roads.",
+          },
+          {
+            id: "<strong>Paving Block Hexagon (segi enam):</strong> sekitar Rp 150.000 - Rp 190.000 / m². Tampilan dekoratif, cocok untuk taman dan halaman.",
+            en: "<strong>Hexagon Paving Block:</strong> around Rp 150,000 - Rp 190,000 / m². Decorative look, suitable for gardens and yards.",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        text: { id: "1. Paving Block Bata (Persegi Panjang)", en: "1. Brick Paving Block (Rectangular)" },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Ukuran umum 21 x 10,5 cm dengan kebutuhan sekitar 44 buah per m². Pola susunannya fleksibel (herringbone, anyam, atau lurus) dan sisa potongan relatif sedikit. Pilihan tepat untuk teras, carport, halaman, dan jalur pejalan kaki dengan anggaran terbatas.",
+          en: "Common size 21 x 10.5 cm with about 44 pieces needed per m². The layout pattern is flexible (herringbone, basket weave, or straight) and cutting waste is relatively low. A good choice for terraces, carports, yards, and walkways on a limited budget.",
+        },
+      },
+      {
+        type: "heading",
+        text: { id: "2. Paving Block Topi Uskup", en: "2. Bishop's Hat Paving Block" },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Ukuran sekitar 30 x 21 x 6 cm (tersedia juga tebal 8 cm) dengan kebutuhan sekitar 24 buah per m². Bentuknya yang saling mengunci membuat permukaan lebih stabil menahan beban kendaraan, sehingga banyak dipakai di jalan lingkungan, area parkir, dan kawasan komersial.",
+          en: "Size about 30 x 21 x 6 cm (8 cm thickness also available) with about 24 pieces needed per m². Its interlocking shape makes the surface more stable under vehicle loads, so it is widely used on neighborhood roads, parking areas, and commercial zones.",
+        },
+      },
+      {
+        type: "heading",
+        text: { id: "3. Paving Block Hexagon (Segi Enam)", en: "3. Hexagon Paving Block" },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Kebutuhan sekitar 25 buah per m². Hexagon punya tampilan khas yang rapi dan dekoratif, tetapi pemasangannya butuh ketelitian lebih dan sisa potongan di tepian lebih banyak, sehingga biaya pasangnya lebih tinggi. Cocok untuk taman, area santai, dan halaman yang mengutamakan estetika.",
+          en: "About 25 pieces needed per m². Hexagon has a distinctive neat and decorative look, but installation needs more precision and edge cutting waste is higher, so installation costs more. Suitable for gardens, lounge areas, and yards that prioritize aesthetics.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Mana yang Paling Cocok untuk Kebutuhan Anda?",
+          en: "Which One Best Fits Your Needs?",
+        },
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          {
+            id: "<strong>Halaman dan teras rumah:</strong> paving bata. Murah, rapi, mudah diperbaiki.",
+            en: "<strong>Home yards and terraces:</strong> brick paving. Cheap, neat, easy to repair.",
+          },
+          {
+            id: "<strong>Carport, parkir, dan jalan lingkungan:</strong> topi uskup tebal 6-8 cm dengan mutu K-300 ke atas.",
+            en: "<strong>Carports, parking, and neighborhood roads:</strong> bishop's hat 6-8 cm thick with K-300 grade or above.",
+          },
+          {
+            id: "<strong>Taman dan area dekoratif:</strong> hexagon, atau kombinasi dengan <a href='/blog/pemasangan-grass-block' class='text-[#1e88e5] hover:underline font-semibold'>grass block</a> untuk resapan air.",
+            en: "<strong>Gardens and decorative areas:</strong> hexagon, or a combination with <a href='/blog/pemasangan-grass-block' class='text-[#1e88e5] hover:underline font-semibold'>grass block</a> for water absorption.",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Yang Membuat Harga Bisa Naik atau Turun",
+          en: "What Makes the Price Go Up or Down",
+        },
+      },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          {
+            id: "Mutu dan ketebalan paving (K-200 sampai K-350, tebal 6 cm atau 8 cm).",
+            en: "Paving grade and thickness (K-200 to K-350, 6 cm or 8 cm).",
+          },
+          {
+            id: "Luas area. Area besar umumnya lebih efisien per m².",
+            en: "Area size. Large areas are generally more efficient per m².",
+          },
+          {
+            id: "Kondisi tanah dan kebutuhan urugan atau pemadatan tambahan.",
+            en: "Soil condition and the need for extra fill or compaction.",
+          },
+          {
+            id: "Warna, pola susunan, dan pemasangan <a href='/blog/pemasangan-kansteen' class='text-[#1e88e5] hover:underline font-semibold'>kanstin</a> di tepian.",
+            en: "Color, layout pattern, and <a href='/blog/pemasangan-kansteen' class='text-[#1e88e5] hover:underline font-semibold'>curb</a> installation along the edges.",
+          },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Untuk gambaran harga umum dan cara menghitung jumlah paving, baca juga artikel kami tentang <a href='/blog/harga-paving-block-per-m2' class='text-[#1e88e5] hover:underline font-semibold'>Harga Paving Block per m²</a> dan <a href='/blog/pemasangan-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>tahapan pemasangan paving block</a>.",
+          en: "For general pricing and how to calculate the number of pavers, also read our article on <a href='/blog/harga-paving-block-per-m2' class='text-[#1e88e5] hover:underline font-semibold'>Paving Block Price per m²</a> and the <a href='/blog/pemasangan-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>paving block installation stages</a>.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Bingung memilih jenis paving yang pas? Tim PT Tri Abadi Makmur siap survei lokasi gratis dan memberi rekomendasi sesuai fungsi area Anda. Hubungi kami via WhatsApp untuk konsultasi dan penawaran terbaik.",
+          en: "Unsure which paving type fits? The PT Tri Abadi Makmur team is ready for a free site survey and will recommend by your area's function. Contact us via WhatsApp for consultation and the best offer.",
+        },
+      },
+    ],
+  },
 ];
 
 export function getArticleBySlug(slug) {

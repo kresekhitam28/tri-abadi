@@ -1,4 +1,4 @@
-// src/components/DumpTruck.jsx
+﻿// src/components/DumpTruck.jsx
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
@@ -242,7 +242,7 @@ const data = {
     thumbImage: "/proyek/proyek-54.webp",
     fallbackImage: "/proyek/proyek-54.webp",
     intro: [
-      "Dump Truck – Anda sedang mencari dump truck? Langsung saja buka website konstruksi-jasa.com, di sini Anda akan menemukan dump truck yang bisa disewa untuk pekerjaan Anda.",
+      "Dump Truck – Anda sedang mencari dump truck? Langsung saja buka website spesialisaspal.com, di sini Anda akan menemukan dump truck yang bisa disewa untuk pekerjaan Anda.",
       "Dump truck ini dirancang untuk mengangkut bahan bangunan dan mengangkut tanah dan batu.",
     ],
     accordionItems: [
@@ -257,7 +257,7 @@ const data = {
         title: "Dump Truck Dan Berbagai Variannya",
         paragraphs: [
           "Dump truck ini tersedia dalam banyak bentuk dan ukuran, apakah anda tahu jenis-jenisnya?",
-          "Kalau belum, berikut akan dijelaskan jenis-jenisnya yang biasa digunakan dalam industri konstruksi yang bisa anda dapatkan di konstruksi-jasa.com.",
+          "Kalau belum, berikut akan dijelaskan jenis-jenisnya yang biasa digunakan dalam industri konstruksi yang bisa anda dapatkan di spesialisaspal.com.",
         ],
       },
       {
@@ -346,7 +346,7 @@ const data = {
     thumbImage: "/proyek/proyek-54.webp",
     fallbackImage: "/proyek/proyek-54.webp",
     intro: [
-      "Dump Truck – Are you looking for a dump truck? Just open the konstruksi-jasa.com website, here you will find a dump truck you can rent for your work.",
+      "Dump Truck – Are you looking for a dump truck? Just open the spesialisaspal.com website, here you will find a dump truck you can rent for your work.",
       "This dump truck is designed to transport building materials and transport soil and stone.",
     ],
     accordionItems: [
@@ -361,7 +361,7 @@ const data = {
         title: "Dump Truck and Its Various Variants",
         paragraphs: [
           "These dump trucks are available in many shapes and sizes, do you know the types?",
-          "If not, the following will explain the types commonly used in the construction industry that you can get at konstruksi-jasa.com.",
+          "If not, the following will explain the types commonly used in the construction industry that you can get at spesialisaspal.com.",
         ],
       },
       {

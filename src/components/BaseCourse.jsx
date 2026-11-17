@@ -1,4 +1,4 @@
-// src/components/BaseCourse.jsx
+﻿// src/components/BaseCourse.jsx
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
@@ -191,7 +191,7 @@ const data = {
     thumbImage: "/produk/base-course.png",
     fallbackImage: "/produk/base-course.png",
     intro: [
-      "Base Course – Salah satu jenis batu berkualitas yang digunakan Tinggi Jaya Abadi sebagai material untuk konstruksi adalah batu base course.",
+      "Base Course – Salah satu jenis batu berkualitas yang digunakan PT Tri Abadi Makmur sebagai material untuk konstruksi adalah batu base course.",
       "Biasanya batu ini juga disebut dengan batu base course.",
       "Batu ini merupakan campuran pecahan batu kecil yang memiliki ukuran 1 – 5 cm dengan abu batu yang telah diformulasikan khusus untuk filter lahan.",
     ],
@@ -206,7 +206,7 @@ const data = {
       "Sedangkan, 30 % dari batu tersebut berisi campuran abu batu yang berukuran sangat kecil seperti abu atau debu.",
       "Jika batu basecose berisi campuran kolotan atau tanah, bisa dikatakan batu tersebut tidak memiliki kualitas yang baik.",
       "Jangan sampai Anda menggunakan material ini untuk konstruksi Anda.",
-      "Oleh karena itu, pastikan Anda memiliki kontraktor yang amanah seperti halnya Tinggi Jaya Abadi.",
+      "Oleh karena itu, pastikan Anda memiliki kontraktor yang amanah seperti halnya PT Tri Abadi Makmur.",
       "Pasalnya, kami selalu berkomitmen untuk menggunakan material berkualitas untuk hasil konstruksi yang optimal.",
     ],
     jenis: [
@@ -231,9 +231,9 @@ const data = {
       "• sebagai bahan perkerasan dimana bahan tersebut mampu menahan gaya lintang dari beban roda atau pun beban lain yang melewati konstruksi tersebut nantinya.",
       "Itulah berbagai informasi mengenai batu base course yang perlu Anda ketahui.",
       "Keberadaan batu tersebut memang sangat penting dalam pengerjaan konstruksi.",
-      "Perusahaan jasa konstruksi Tinggi Jaya Abadi juga menggunakan material bahan tersebut sebagai konstruksi.",
+      "Perusahaan jasa konstruksi PT Tri Abadi Makmur juga menggunakan material bahan tersebut sebagai konstruksi.",
       "Pastinya material yang digunakan memiliki kualitas super sehingga konstruksi memiliki umur yang panjang atau awet.",
-      "Selain menggunakan material yang berkualitas, Tinggi Jaya Abadi juga menawarkan keunggulan lain.",
+      "Selain menggunakan material yang berkualitas, PT Tri Abadi Makmur juga menawarkan keunggulan lain.",
       "Pertama, kami selalu berkomitmen untuk mengerjakan konstruksi tepat waktu.",
       "Kedua, kami berkomitmen untuk menjadi kontraktor yang amanah atau terpercaya.",
       "Oleh karena itu, material yang didatangkan dan digunakan dalam pengerjaan proyek harus sesuai dengan apa yang telah disepakati dalam SPK atau RAB.",
@@ -249,7 +249,7 @@ const data = {
     thumbImage: "/produk/base-course.png",
     fallbackImage: "/produk/base-course.png",
     intro: [
-      "Base Course – One type of quality stone used by Tinggi Jaya Abadi as a construction material is base course stone.",
+      "Base Course – One type of quality stone used by PT Tri Abadi Makmur as a construction material is base course stone.",
       "Usually this stone is also called base course stone.",
       "This stone is a mixture of small stone fragments measuring 1 – 5 cm with stone dust specially formulated for land filtering.",
     ],
@@ -264,7 +264,7 @@ const data = {
       "Meanwhile, 30% of the stone contains a mixture of stone dust that is very small in size, like ash or dust.",
       "If the base course stone contains a mixture of dirt or soil, it can be said that the stone does not have good quality.",
       "Do not use this material for your construction.",
-      "Therefore, make sure you have a trustworthy contractor like Tinggi Jaya Abadi.",
+      "Therefore, make sure you have a trustworthy contractor like PT Tri Abadi Makmur.",
       "Because we are always committed to using quality materials for optimal construction results.",
     ],
     jenis: [
@@ -289,9 +289,9 @@ const data = {
       "• as a pavement material where the material is able to withstand lateral forces from wheel loads or other loads that will pass over the construction later.",
       "That is various information about base course stone that you need to know.",
       "The existence of this stone is indeed very important in construction work.",
-      "The construction service company Tinggi Jaya Abadi also uses this material as construction material.",
+      "The construction service company PT Tri Abadi Makmur also uses this material as construction material.",
       "Certainly the material used has super quality so that the construction has a long or durable life.",
-      "Besides using quality materials, Tinggi Jaya Abadi also offers other advantages.",
+      "Besides using quality materials, PT Tri Abadi Makmur also offers other advantages.",
       "First, we are always committed to completing construction on time.",
       "Second, we are committed to being a trustworthy or reliable contractor.",
       "Therefore, the materials brought in and used in project work must comply with what has been agreed in the SPK or RAB.",

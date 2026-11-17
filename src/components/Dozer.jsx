@@ -1,4 +1,4 @@
-// src/components/Dozer.jsx
+﻿// src/components/Dozer.jsx
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
@@ -256,7 +256,7 @@ const data = {
           "Tahapan dalam pengoprasian alat besar ini memang harus di perhatikan dengan baik.",
           "Selain terhindar dari kecelakaan kerja, juga dapat menjaga alat besar ini tetap bisa di gunakan dalam jangka panjang.",
           "Traktor ini juga bisa di gunakan untuk membersihkan belukar yang tinggi dari lahan yang akan digunakan.",
-          "Kami melayani penggarapan lapangan dengan alat bulldozer ini, silakan buka website kami di www.konstruksi-jasa.com.",
+          "Kami melayani penggarapan lapangan dengan alat bulldozer ini, silakan buka website kami di spesialisaspal.com.",
           "Solusi yang tepat bagi anda yang ingin mengelola suatu lahan.",
           "Selain itu anda juga dapat memesan layanan pengaspalan jalan sempit seperti di daerah perkampungan.",
           "Tidak diragukan lagi harga di sini juga sangat bersaing dan kualitas pengerjaan yang bertaraf nasional.",
@@ -356,7 +356,7 @@ const data = {
           "The stages of operating this large machine must indeed be carefully observed.",
           "Besides avoiding work accidents, it can also keep this large machine usable in the long term.",
           "This tractor can also be used to clear tall bushes from land to be used.",
-          "We serve field work with this bulldozer, please visit our website at www.konstruksi-jasa.com.",
+          "We serve field work with this bulldozer, please visit our website at spesialisaspal.com.",
           "The right solution for those who want to manage a land area.",
           "In addition, you can also order narrow road asphalt paving services such as in residential areas.",
           "Undoubtedly the price here is also very competitive and the work quality is national standard.",

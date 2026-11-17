@@ -1,4 +1,4 @@
-// src/components/BatuMakadam.jsx
+﻿// src/components/BatuMakadam.jsx
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
@@ -284,9 +284,9 @@ const data = {
           "Tidak ada transaksi uang sebelum barang yang dipesan sampai di tempat anda.",
           "Harga yang dibandrol telah termasuk anggaran pengiriman dan penurunan.",
           "Dan yang lebih penting, anda harus mengukur kembali isi barang yang ada di dalam truk.",
-          "Sebut saja perusahaan Tinggi Jaya abadi yang profesional dalam melakukan transaksi dengan bijak, termasuk masalah harga.",
+          "Sebut saja perusahaan PT Tri Abadi Makmur yang profesional dalam melakukan transaksi dengan bijak, termasuk masalah harga.",
           "Demikianlah beberapa cara untuk mengetahui harga batu Makadam yang berlaku di pasaran.",
-          "Untuk pemesanan material anda dapat menghubungi kami di perusahaan Tinggi Jaya Abadi.",
+          "Untuk pemesanan material anda dapat menghubungi kami di perusahaan PT Tri Abadi Makmur.",
         ],
       },
     ],
@@ -366,9 +366,9 @@ const data = {
           "No money transaction before the ordered goods arrive at your place.",
           "The listed price already includes shipping and unloading costs.",
           "And more importantly, you must re-measure the contents of the goods in the truck.",
-          "Take for example the company Tinggi Jaya Abadi which is professional in conducting transactions wisely, including pricing.",
+          "Take for example the company PT Tri Abadi Makmur which is professional in conducting transactions wisely, including pricing.",
           "That is how to find out the current market price of Macadam stone.",
-          "To order materials, you can contact us at the Tinggi Jaya Abadi company.",
+          "To order materials, you can contact us at the PT Tri Abadi Makmur company.",
         ],
       },
     ],

@@ -1,4 +1,4 @@
-// src/components/AbuBatu.jsx
+﻿// src/components/AbuBatu.jsx
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
@@ -253,7 +253,7 @@ const data = {
           "Nah, jika Anda memilih material dari pasir, kelebihan ini tentu tidak akan Anda dapatkan.",
           "Kelebihan ini tentu sangat menguntungkan bagi Anda.",
           "Itulah pengertian dan kelebihan dari abu batu jika dibandingkan dengan material pasir.",
-          "Nah, jika Anda tertarik untuk melakukan paving block dengan material terbaik, Anda dapat mempercayakannya kepada kami, Jasa Konstruksi Tinggi Jaya Abadi.",
+          "Nah, jika Anda tertarik untuk melakukan paving block dengan material terbaik, Anda dapat mempercayakannya kepada kami, Jasa Konstruksi PT Tri Abadi Makmur.",
           "Selain pemasangan paving block, kami juga melayani pengaspalan jalan, pemasangan grass block, cor beton ready hot mix, konsteen trotoar, dan lainnya.",
           "Untuk informasi lebih lanjut, Anda dapat menghubungi kami pada kontak yang tertera pada website.",
         ],
@@ -329,7 +329,7 @@ const data = {
           "Now, if you choose sand as the material, you certainly won't get this advantage.",
           "This advantage is certainly very beneficial for you.",
           "That is the definition and advantages of stone dust compared to sand material.",
-          "Now, if you are interested in doing paving block with the best material, you can entrust it to us, Tinggi Jaya Abadi Construction Services.",
+          "Now, if you are interested in doing paving block with the best material, you can entrust it to us, PT Tri Abadi Makmur Construction Services.",
           "Besides paving block installation, we also serve road asphalt paving, grass block installation, ready hot mix concrete casting, sidewalk curbs, and more.",
           "For more information, you can contact us at the contact listed on the website.",
         ],
