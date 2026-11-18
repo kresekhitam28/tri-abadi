@@ -1,0 +1,68 @@
+export const WHATSAPP_URL = "https://wa.me/6282258089367";
+
+const requests = {
+  asphalt: {
+    id: "estimasi jasa pengaspalan",
+    en: "an asphalt paving quote",
+    fields: ["projectLocation", "area", "work", "start"],
+  },
+  paving: {
+    id: "estimasi jasa pasang paving block",
+    en: "a paving block installation quote",
+    fields: ["projectLocation", "area", "work", "start"],
+  },
+  pavingMaterial: {
+    id: "penawaran material paving block",
+    en: "a paving block supply quote",
+    fields: ["deliveryLocation", "area", "pavingSpec", "delivery"],
+  },
+  concrete: {
+    id: "estimasi jasa pengecoran beton",
+    en: "a concrete pouring quote",
+    fields: ["projectLocation", "concreteSize", "work", "start"],
+  },
+  concreteMaterial: {
+    id: "penawaran pasokan beton ready mix",
+    en: "a ready-mix concrete supply quote",
+    fields: ["deliveryLocation", "volume", "concreteSpec", "delivery"],
+  },
+};
+
+const labels = {
+  id: {
+    projectLocation: "Lokasi proyek",
+    deliveryLocation: "Lokasi pengiriman",
+    area: "Perkiraan luas (m²)",
+    work: "Jenis pekerjaan",
+    pavingSpec: "Model dan ketebalan paving",
+    concreteSize: "Perkiraan luas (m²) atau volume (m³)",
+    volume: "Perkiraan volume (m³)",
+    concreteSpec: "Mutu beton yang dibutuhkan",
+    start: "Target mulai",
+    delivery: "Target tanggal kirim",
+  },
+  en: {
+    projectLocation: "Project location",
+    deliveryLocation: "Delivery location",
+    area: "Approximate area (m²)",
+    work: "Type of work",
+    pavingSpec: "Paver style and thickness",
+    concreteSize: "Approximate area (m²) or volume (m³)",
+    volume: "Approximate volume (m³)",
+    concreteSpec: "Required concrete grade",
+    start: "Preferred start date",
+    delivery: "Preferred delivery date",
+  },
+};
+
+export function projectQuoteHref(request, lang) {
+  const language = lang === "en" ? "en" : "id";
+  const quote = requests[request];
+  const intro = language === "en"
+    ? `Hello PT Tri Abadi Makmur, I would like ${quote.en}.`
+    : `Halo PT Tri Abadi Makmur, saya ingin minta ${quote.id}.`;
+  const questions = quote.fields.map((field) => `${labels[language][field]}: `);
+  const message = [intro, "", ...questions].join("\n");
+
+  return `${WHATSAPP_URL}?text=${encodeURIComponent(message)}`;
+}

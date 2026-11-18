@@ -1,14 +1,14 @@
 // src/app/heavy-equipment/double-drum-roller/page.js
 import DoubleDrumRoller from "../../../components/DoubleDrumRoller";
+import { createPageMetadata } from "../../../lib/metadata";
 
-export const metadata = {
-  title: "Sewa Double Drum Roller | PT Tri Abadi Makmur",
+export const metadata = createPageMetadata({
+  path: "/heavy-equipment/double-drum-roller",
+  title: "Sewa Double Drum Roller",
   description:
     "Sewa double drum roller untuk pemadatan aspal dan hot mix. Cocok untuk proyek pengaspalan jalan dan perataan lahan.",
-  alternates: {
-    canonical: "/heavy-equipment/double-drum-roller",
-  },
-};
+  image: "/proyek/proyek-50.webp",
+});
 
 export default function DoubleDrumRollerPage() {
   return <DoubleDrumRoller />;

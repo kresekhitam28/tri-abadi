@@ -1,84 +1,20 @@
 // src/components/BlogDetail.jsx
 "use client";
 
-import { useEffect, useRef, useState, useCallback, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useLang } from "../context/LanguageContext";
 import { articles, getArticleBySlug } from "../data/articles";
-
-// ─────────────────────────────────────────────
-// KONFIGURASI SITE URL (untuk share link)
-// ─────────────────────────────────────────────
-const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL || "https://spesialisaspal.com"
-).replace(/\/$/, "");
+import { SITE_URL } from "../lib/metadata";
+import { useIsMobile } from "../hooks/useIsMobile";
+import { useReveal } from "../hooks/useReveal";
+import ArticleQuotePanel from "./ArticleQuotePanel";
 
 // ─────────────────────────────────────────────
 // HOOK: deteksi mobile
 // ─────────────────────────────────────────────
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(max-width: 768px)");
-    const update = () => setIsMobile(mq.matches);
-    update();
-    if (mq.addEventListener) {
-      mq.addEventListener("change", update);
-      return () => mq.removeEventListener("change", update);
-    } else {
-      mq.addListener(update);
-      return () => mq.removeListener(update);
-    }
-  }, []);
-  return isMobile;
-}
-
-// ─────────────────────────────────────────────
-// HOOK: REVEAL ON SCROLL
-// ─────────────────────────────────────────────
-function useReveal(options = {}) {
-  const {
-    threshold = 0.12,
-    rootMargin = "0px 0px -60px 0px",
-    once = true,
-    enabled = true,
-  } = options;
-
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(!enabled);
-
-  useEffect(() => {
-    if (!enabled) {
-      setVisible(true);
-      return;
-    }
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          if (once) io.unobserve(entry.target);
-        } else if (!once) {
-          setVisible(false);
-        }
-      },
-      { threshold, rootMargin }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [threshold, rootMargin, once, enabled]);
-
-  return [ref, visible];
-}
-
 // ─────────────────────────────────────────────
 // KOMPONEN: REVEAL WRAPPER
 // ─────────────────────────────────────────────
@@ -264,7 +200,7 @@ function TagItem({ tag, lang, className }) {
 // BODY RENDERER
 // ─────────────────────────────────────────────
 function ArticleBody({ body, lang }) {
-  let firstParagraphDone = false;
+  const firstParagraphIndex = body.findIndex((block) => block.type === "paragraph");
 
   return (
     <div className="space-y-6 sm:space-y-8">
@@ -273,7 +209,8 @@ function ArticleBody({ body, lang }) {
           return (
             <Reveal key={i} y={16}>
               <h2
-                className="pt-4 sm:pt-6 font-semibold text-slate-900 leading-snug tracking-tight"
+                id={block.id}
+                className="scroll-mt-24 pt-4 sm:pt-6 font-semibold text-slate-900 leading-snug tracking-tight"
                 style={{ fontSize: "clamp(1.0625rem, 2.2vw, 1.375rem)" }}
               >
                 {pick(block.text, lang)}
@@ -283,8 +220,7 @@ function ArticleBody({ body, lang }) {
         }
 
         if (block.type === "paragraph") {
-          const isFirst = !firstParagraphDone;
-          firstParagraphDone = true;
+          const isFirst = i === firstParagraphIndex;
           const text = pick(block.text, lang);
           const containsHtml = text.includes("<") && text.includes(">");
 
@@ -371,31 +307,24 @@ export default function BlogDetail() {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [slug]);
 
-  const pageUrl = useMemo(() => `${SITE_URL}/blog/${slug}`, [slug]);
-
+  const pageUrl = `${SITE_URL}/blog/${slug}`;
   const title = article ? pick(article.title, lang) : "";
-  const shareText = useMemo(
-    () => encodeURIComponent(title + " — " + pageUrl),
-    [title, pageUrl]
-  );
+  const illustration = pick(article?.illustration, lang);
+  const shareText = encodeURIComponent(`${title} — ${pageUrl}`);
 
-  const visibleTags = useMemo(() => {
-    if (!article?.tags?.length) return [];
-    return article.tags
-      .filter((tag) => {
-        const s = typeof tag === "object" && tag !== null ? tag.slug : null;
-        return !s || s !== article.slug;
-      })
-      .slice(0, 8);
-  }, [article]);
+  const visibleTags = article?.tags
+    .filter((tag) => {
+      const tagSlug = typeof tag === "object" && tag !== null ? tag.slug : null;
+      return !tagSlug || tagSlug !== article.slug;
+    })
+    .slice(0, 8) ?? [];
 
   // 3 artikel terkait untuk internal linking SEO
-  const relatedArticles = useMemo(() => {
-    if (!article) return [];
-    return articles.filter((a) => a.slug !== article.slug).slice(0, 3);
-  }, [article]);
+  const relatedArticles = article
+    ? articles.filter((item) => item.slug !== article.slug).slice(0, 3)
+    : [];
 
-  const handleShare = useCallback(async () => {
+  async function handleShare() {
     const shareData = { title, text: title, url: pageUrl };
 
     try {
@@ -417,9 +346,9 @@ export default function BlogDetail() {
     } catch (err) {
       console.error("Clipboard error:", err);
     }
-  }, [title, pageUrl]);
+  }
 
-  const handleCopyLink = useCallback(async () => {
+  async function handleCopyLink() {
     try {
       if (typeof navigator !== "undefined" && navigator.clipboard) {
         await navigator.clipboard.writeText(pageUrl);
@@ -429,9 +358,9 @@ export default function BlogDetail() {
     } catch (err) {
       console.error("Clipboard error:", err);
     }
-  }, [pageUrl]);
+  }
 
-  const openMailtoFallback = useCallback(() => {
+  function openMailtoFallback() {
     const subject = `Komentar Blog: ${title}`;
     const body =
       `Nama: ${name}\n` +
@@ -446,56 +375,53 @@ export default function BlogDetail() {
       `?subject=${encodeURIComponent(subject)}` +
       `&body=${encodeURIComponent(body)}`;
 
-    window.location.href = href;
-  }, [title, name, email, comment, pageUrl]);
+    window.location.assign(href);
+  }
 
-  const handleSubmit = useCallback(
-    async (e) => {
-      e.preventDefault();
-      setStatus("sending");
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setStatus("sending");
 
-      try {
-        const res = await fetch(
-          "https://formsubmit.co/ajax/triabadimakmur@gmail.com",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify({
-              _subject: `Komentar Blog: ${title}`,
-              _template: "table",
-              _captcha: "false",
-              Nama: name,
-              Email: email,
-              Komentar: comment,
-              Artikel: title,
-              Halaman: pageUrl,
-            }),
-          }
-        );
-
-        const json = await res.json().catch(() => ({}));
-
-        if (!res.ok || String(json.success) !== "true") {
-          throw new Error(json.message || "Gagal kirim");
+    try {
+      const res = await fetch(
+        "https://formsubmit.co/ajax/triabadimakmur@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            _subject: `Komentar Blog: ${title}`,
+            _template: "table",
+            _captcha: "false",
+            Nama: name,
+            Email: email,
+            Komentar: comment,
+            Artikel: title,
+            Halaman: pageUrl,
+          }),
         }
+      );
 
-        setStatus("success");
-        setName("");
-        setEmail("");
-        setComment("");
-        setTimeout(() => setStatus("idle"), 4000);
-      } catch (err) {
-        console.error("FormSubmit error:", err);
-        openMailtoFallback();
-        setStatus("error");
-        setTimeout(() => setStatus("idle"), 4000);
+      const json = await res.json().catch(() => ({}));
+
+      if (!res.ok || String(json.success) !== "true") {
+        throw new Error(json.message || "Gagal kirim");
       }
-    },
-    [title, name, email, comment, pageUrl, openMailtoFallback]
-  );
+
+      setStatus("success");
+      setName("");
+      setEmail("");
+      setComment("");
+      setTimeout(() => setStatus("idle"), 4000);
+    } catch (err) {
+      console.error("FormSubmit error:", err);
+      openMailtoFallback();
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
+    }
+  }
 
   if (!article) {
     return (
@@ -519,7 +445,7 @@ export default function BlogDetail() {
   return (
     <article className="bg-white" style={{ contain: "layout style" }}>
       {/* ═══ HERO ═══ */}
-      <section className="pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 lg:pb-12">
+      <section className={article.quote ? "pb-5 pt-24 sm:pb-6 sm:pt-28" : "pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 lg:pb-12"}>
         <div className="relative max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <Reveal delay={0} y={14}>
             <div className="inline-flex items-center gap-3">
@@ -558,26 +484,32 @@ export default function BlogDetail() {
         </div>
       </section>
 
+      {article.quote && (
+        <div className="mx-auto mb-6 max-w-4xl px-4 sm:px-6 lg:px-8">
+          <ArticleQuotePanel quote={article.quote} lang={lang} />
+        </div>
+      )}
+
       {/* ═══ COVER ═══ */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 sm:mt-8 lg:mt-12">
         <Reveal y={26} duration={800}>
           <figure
-            className="relative rounded-2xl overflow-hidden bg-slate-100
-                       ring-1 ring-slate-200 aspect-[16/9]"
+            className={`relative aspect-video overflow-hidden rounded-2xl ring-1 ring-slate-200 ${illustration ? "bg-white" : "bg-slate-100"}`}
           >
             <Image
               src={article.src}
-              alt={title}
+              alt={illustration || title}
               fill
-              priority
+              priority={!article.quote}
               sizes="(max-width: 1024px) 100vw, 896px"
-              className="object-cover"
+              className={illustration ? "object-scale-down p-5 pb-12" : "object-cover"}
               onError={(e) => {
                 e.currentTarget.onerror = null;
                 e.currentTarget.src =
                   "https://placehold.co/1200x675/e2e8f0/64748b?text=Blog";
               }}
             />
+            {illustration && <figcaption className="absolute inset-x-0 bottom-4 px-3 text-center text-sm text-slate-600">{illustration}</figcaption>}
           </figure>
         </Reveal>
       </section>

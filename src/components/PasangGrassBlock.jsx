@@ -1,62 +1,15 @@
 // src/components/PasangGrassBlock.jsx
 "use client";
 
-import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
+import { useState, useCallback, useMemo, memo } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import GrassBlockPricingPanel from "./GrassBlockPricingPanel";
+import { useIsMobile } from "../hooks/useIsMobile";
+import { useReveal } from "../hooks/useReveal";
 
 const WA_NUMBER = "6282258089367";
-
-// ─────────────────────────────────────────────
-// HOOK: DETEKSI MOBILE
-// ─────────────────────────────────────────────
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(max-width: 768px)");
-    const update = () => setIsMobile(mq.matches);
-    update();
-    if (mq.addEventListener) {
-      mq.addEventListener("change", update);
-      return () => mq.removeEventListener("change", update);
-    } else {
-      mq.addListener(update);
-      return () => mq.removeListener(update);
-    }
-  }, []);
-  return isMobile;
-}
-
-// ─────────────────────────────────────────────
-// HOOK: REVEAL ON SCROLL
-// ─────────────────────────────────────────────
-function useReveal(options = {}) {
-  const { threshold = 0.12, rootMargin = "0px 0px -60px 0px", once = true, enabled = true } = options;
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(!enabled);
-
-  useEffect(() => {
-    if (!enabled) { setVisible(true); return; }
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") { setVisible(true); return; }
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          if (once) io.unobserve(entry.target);
-        } else if (!once) setVisible(false);
-      },
-      { threshold, rootMargin }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [threshold, rootMargin, once, enabled]);
-
-  return [ref, visible];
-}
 
 const Reveal = memo(function Reveal({
   children, delay = 0, y = 28, x = 0, duration = 700, as: Tag = "div", className = "",
@@ -215,9 +168,9 @@ const content = {
     heroKicker: "Layanan Kami",
     heroTitle: "Pasang Grass Block",
     heroDesc: "Jasa pasang grass block untuk area parkir, jalan lingkungan, dan taman. Rapi, kuat, ramah lingkungan, dan hemat biaya.",
-    figKicker: "Proyek",
-    figAlt: "Pasang Grass Block",
-    figCaption: "Pemasangan Grass Block — Tri Abadi Makmur",
+    figKicker: "Ilustrasi Produk",
+    figAlt: "Diagram susunan grass block tipe Fullpave Set",
+    figCaption: "Grass Block Fullpave Set",
     priceKicker: "Paket Harga",
     priceTitleLight: "Jasa Pasang ",
     priceTitleBold: "Grass Block Jabodetabek",
@@ -265,9 +218,9 @@ const content = {
     heroKicker: "Our Services",
     heroTitle: "Grass Block Installation",
     heroDesc: "Grass block installation services for parking areas, neighborhood roads, and parks. Neat, strong, eco-friendly, and cost-effective.",
-    figKicker: "Project",
-    figAlt: "Grass Block Installation",
-    figCaption: "Grass Block Installation — Tri Abadi Makmur",
+    figKicker: "Product Illustration",
+    figAlt: "Diagram showing the Fullpave Set grass block layout",
+    figCaption: "Fullpave Set Grass Blocks",
     priceKicker: "Price Packages",
     priceTitleLight: "Grass Block Installation ",
     priceTitleBold: "Services in Jabodetabek",
@@ -445,32 +398,19 @@ export default function PasangGrassBlock() {
       <section className="py-16 lg:py-24">
         <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
 
-          {/* Foto utama */}
+          {/* Ilustrasi produk */}
           <Reveal y={40} duration={800}>
-            <figure className="relative rounded-2xl overflow-hidden bg-slate-100 mb-10 shadow-xl shadow-slate-200/50 ring-1 ring-slate-900/5">
-              <div className="aspect-[16/10]">
-                <img
-                  src="/proyek/proyek-38.webp"
-                  alt={data.figAlt}
-                  loading="eager"
-                  decoding="async"
-                  width={1200}
-                  height={750}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.onerror = null;
-                    e.currentTarget.src = "/proyek/proyek-1.webp";
-                  }}
-                />
-              </div>
-              <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 to-transparent px-5 sm:px-8 py-5 sm:py-8 pt-16 sm:pt-20">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <span className="w-6 sm:w-8 h-px bg-[#4da3ff]" aria-hidden="true" />
-                  <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.28em] text-[#4da3ff] font-bold">{data.figKicker}</span>
-                </div>
-                <p className="text-white font-semibold text-lg sm:text-xl" style={{ fontSize: "clamp(0.9375rem, 1.5vw, 1.125rem)" }}>
-                  {data.figCaption}
-                </p>
+            <figure className="mb-10 flex flex-wrap items-center gap-5 rounded-2xl border border-slate-200 bg-white p-5 sm:gap-7 sm:p-7">
+              <Image
+                src="/images/grass-fullpave-set.png"
+                alt={data.figAlt}
+                width={135}
+                height={103}
+                className="h-auto w-[135px]"
+              />
+              <figcaption>
+                <span className="text-sm font-medium text-blue-700">{data.figKicker}</span>
+                <p className="mt-1 text-lg font-semibold text-slate-950">{data.figCaption}</p>
               </figcaption>
             </figure>
           </Reveal>

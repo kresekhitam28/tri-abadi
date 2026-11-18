@@ -1,72 +1,11 @@
 // src/components/JasaArsitektur.jsx
 "use client";
 
-import { useState, useEffect, useRef, useCallback, useMemo, memo, useId } from "react";
+import { useState, useMemo, memo, useId } from "react";
 import Link from "next/link"; // <-- TAMBAHAN: Import Link
 import { useLang } from "../context/LanguageContext";
-
-// ─────────────────────────────────────────────
-// HOOK: DETEKSI MOBILE
-// ─────────────────────────────────────────────
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(max-width: 768px)");
-    const update = () => setIsMobile(mq.matches);
-    update();
-    if (mq.addEventListener) {
-      mq.addEventListener("change", update);
-      return () => mq.removeEventListener("change", update);
-    } else {
-      mq.addListener(update);
-      return () => mq.removeListener(update);
-    }
-  }, []);
-  return isMobile;
-}
-
-// ─────────────────────────────────────────────
-// HOOK: IN VIEW
-// ─────────────────────────────────────────────
-function useInView(options = {}) {
-  const {
-    threshold = 0.12,
-    rootMargin = "0px 0px -60px 0px",
-    once = true,
-    enabled = true,
-  } = options;
-  const ref = useRef(null);
-  const [inView, setInView] = useState(!enabled);
-
-  useEffect(() => {
-    if (!enabled) {
-      setInView(true);
-      return;
-    }
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setInView(true);
-      return;
-    }
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          if (once) observer.unobserve(entry.target);
-        } else if (!once) {
-          setInView(false);
-        }
-      },
-      { threshold, rootMargin }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [threshold, rootMargin, once, enabled]);
-
-  return [ref, inView];
-}
+import { useIsMobile } from "../hooks/useIsMobile";
+import { useReveal } from "../hooks/useReveal";
 
 // ─────────────────────────────────────────────
 // BASE: ANIMASI WRAPPER (memoized, no blur)
@@ -82,7 +21,7 @@ const AnimBase = memo(function AnimBase({
 }) {
   const isMobile = useIsMobile();
   const enabled = !isMobile;
-  const [ref, inView] = useInView({ enabled });
+  const [ref, inView] = useReveal({ enabled });
 
   const style = useMemo(() => {
     if (!enabled) {

@@ -1,63 +1,10 @@
 // src/components/HeavyEquipment.jsx
 "use client";
 
-import { useState, useEffect, useRef, memo } from "react";
+import { memo } from "react";
 import Link from "next/link";
-
-// ─────────────────────────────────────────────
-// HOOK: DETEKSI MOBILE
-// ─────────────────────────────────────────────
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(max-width: 768px)");
-    const update = () => setIsMobile(mq.matches);
-    update();
-    if (mq.addEventListener) {
-      mq.addEventListener("change", update);
-      return () => mq.removeEventListener("change", update);
-    } else {
-      mq.addListener(update);
-      return () => mq.removeListener(update);
-    }
-  }, []);
-  return isMobile;
-}
-
-// ─────────────────────────────────────────────
-// HOOK SCROLL
-// ─────────────────────────────────────────────
-function useInView(threshold = 0.1, enabled = true) {
-  const ref = useRef(null);
-  const [inView, setInView] = useState(!enabled);
-
-  useEffect(() => {
-    if (!enabled) {
-      setInView(true);
-      return;
-    }
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setInView(true);
-      return;
-    }
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold, rootMargin: "0px 0px -60px 0px" }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [threshold, enabled]);
-
-  return [ref, inView];
-}
+import { useIsMobile } from "../hooks/useIsMobile";
+import { useReveal } from "../hooks/useReveal";
 
 // ─────────────────────────────────────────────
 // KOMPONEN: FADE UP (memoized)
@@ -65,7 +12,7 @@ function useInView(threshold = 0.1, enabled = true) {
 const FadeUp = memo(function FadeUp({ children, delay = 0, className = "" }) {
   const isMobile = useIsMobile();
   const enabled = !isMobile;
-  const [ref, inView] = useInView(0.08, enabled);
+  const [ref, inView] = useReveal({ threshold: 0.08, enabled });
 
   return (
     <div
@@ -91,7 +38,7 @@ const FadeUp = memo(function FadeUp({ children, delay = 0, className = "" }) {
 const ScaleIn = memo(function ScaleIn({ children, delay = 0, className = "" }) {
   const isMobile = useIsMobile();
   const enabled = !isMobile;
-  const [ref, inView] = useInView(0.08, enabled);
+  const [ref, inView] = useReveal({ threshold: 0.08, enabled });
 
   return (
     <div

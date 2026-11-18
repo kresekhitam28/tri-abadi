@@ -1,273 +1,63 @@
-// src/components/Clients.jsx
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { useLang } from "../context/LanguageContext";
 
-// ─────────────────────────────────────────────
-// DAFTAR KLIEN
-// ─────────────────────────────────────────────
 const clients = [
-  { src: "/klien/totalindo.png",       alt: "Totalindo Building Construction" },
-  { src: "/klien/nrc.png",             alt: "Nusa Raya Cipta" },
-  { src: "/klien/ks.png",              alt: "Jaya Konstruksi" },
-  { src: "/klien/wika.png",            alt: "WIKA" },
-  { src: "/klien/pertamina.png",       alt: "Pertamina" },
-  { src: "/klien/waskita.png",         alt: "Waskita" },
-  { src: "/klien/yasa.png",            alt: "Yasa" },
-  { src: "/klien/alfa.png",            alt: "Alfa" },
-  { src: "/klien/sumar.png",           alt: "Sumar" },
-  { src: "/klien/sinarmas.png",        alt: "Sinarmas" },
-  { src: "/klien/marunda-center.png",  alt: "Marunda Center" },
-  { src: "/klien/kst.png",             alt: "Krakatau" },
-  { src: "/klien/jasa-marga.png",      alt: "Jasa Marga" },
-  { src: "/klien/dunkin-donuts.png",   alt: "Dunkin Donuts" },
-  { src: "/klien/frisian-flag.png",    alt: "Frisian Flag" },
-  { src: "/klien/polsatwa.png",        alt: "Polsatwa" },
-  { src: "/klien/mabes-tni.png",       alt: "Mabes TNI" },
+  { src: "/klien/pertamina.png", alt: "Pertamina" },
+  { src: "/klien/wika.png", alt: "WIKA" },
+  { src: "/klien/jasa-marga.png", alt: "Jasa Marga" },
+  { src: "/klien/waskita.png", alt: "Waskita" },
+  { src: "/klien/totalindo.png", alt: "Totalindo Building Construction" },
+  { src: "/klien/sinarmas.png", alt: "Sinarmas" },
+  { src: "/klien/nrc.png", alt: "Nusa Raya Cipta" },
+  { src: "/klien/ks.png", alt: "Jaya Konstruksi" },
+  { src: "/klien/yasa.png", alt: "Yasa" },
+  { src: "/klien/alfa.png", alt: "Alfa" },
+  { src: "/klien/sumar.png", alt: "Sumar" },
+  { src: "/klien/marunda-center.png", alt: "Marunda Center" },
+  { src: "/klien/kst.png", alt: "Krakatau" },
+  { src: "/klien/dunkin-donuts.png", alt: "Dunkin Donuts" },
+  { src: "/klien/frisian-flag.png", alt: "Frisian Flag" },
+  { src: "/klien/polsatwa.png", alt: "Polsatwa" },
+  { src: "/klien/mabes-tni.png", alt: "Mabes TNI" },
 ];
 
-// ─────────────────────────────────────────────
-// KONTEN BILINGUAL
-// ─────────────────────────────────────────────
 const content = {
-  id: {
-    kicker: "Mereka Selalu Mempercayai Kami",
-    titleBold: "Klien",
-    titleAfter: " Kami",
-    description:
-      "Dipercaya oleh perusahaan konstruksi & BUMN terkemuka di Indonesia.",
-  },
-  en: {
-    kicker: "They Always Trust Us",
-    titleLight: "Our ",
-    titleBold: "Clients",
-    titleAfter: "",
-    description:
-      "Trusted by leading construction companies & state-owned enterprises in Indonesia.",
-  },
+  id: { title: "Klien Kami", more: "Lihat klien lainnya" },
+  en: { title: "Our Clients", more: "View more clients" },
 };
 
-const SPEED = 80;
-
-// ─────────────────────────────────────────────
-// HOOK: deteksi reduced motion
-// ─────────────────────────────────────────────
-function useDisableMarquee() {
-  const [disabled, setDisabled] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setDisabled(mqReduce.matches);
-    update();
-    if (mqReduce.addEventListener) {
-      mqReduce.addEventListener("change", update);
-      return () => mqReduce.removeEventListener("change", update);
-    } else {
-      mqReduce.addListener(update);
-      return () => mqReduce.removeListener(update);
-    }
-  }, []);
-  return disabled;
+function ClientLogos({ list }) {
+  return (
+    <ul className="grid grid-cols-3 gap-2.5 sm:grid-cols-6 sm:gap-4">
+      {list.map(({ src, alt }) => (
+        <li key={src} className="grid h-16 place-items-center rounded-xl border border-slate-200 bg-white p-3 sm:h-20">
+          <Image src={src} alt={alt} width={140} height={56} className="h-10 w-full object-contain sm:h-12" />
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 export default function Clients() {
   const { lang } = useLang();
-  const data = content[lang] || content.id;
-  const disableMarquee = useDisableMarquee();
-
-  const trackRef = useRef(null);
-  const offsetRef = useRef(0);
-  const lastTimeRef = useRef(0);
-  const halfWidthRef = useRef(0);
-  const pausedRef = useRef(false);
-
-  useEffect(() => {
-    if (disableMarquee) {
-      const track = trackRef.current;
-      if (track) track.style.transform = "translateX(0px)";
-      return;
-    }
-
-    const track = trackRef.current;
-    if (!track) return;
-
-    const measure = () => {
-      halfWidthRef.current = track.scrollWidth / 2;
-    };
-
-    measure();
-    const t1 = setTimeout(measure, 100);
-    const t2 = setTimeout(measure, 500);
-
-    const ro = new ResizeObserver(measure);
-    ro.observe(track);
-
-    const onVisibility = () => {
-      pausedRef.current = document.visibilityState === "hidden";
-      lastTimeRef.current = 0;
-    };
-    document.addEventListener("visibilitychange", onVisibility);
-
-    let rafId;
-
-    const animate = (time) => {
-      if (pausedRef.current) {
-        rafId = requestAnimationFrame(animate);
-        return;
-      }
-
-      if (!lastTimeRef.current) lastTimeRef.current = time;
-      const delta = (time - lastTimeRef.current) / 1000;
-      lastTimeRef.current = time;
-
-      const safeDelta = Math.min(delta, 0.1);
-
-      offsetRef.current += SPEED * safeDelta;
-
-      const halfWidth = halfWidthRef.current;
-      if (halfWidth > 0 && offsetRef.current >= halfWidth) {
-        offsetRef.current -= halfWidth;
-      }
-
-      track.style.transform = `translate3d(${-halfWidth + offsetRef.current}px, 0, 0)`;
-      rafId = requestAnimationFrame(animate);
-    };
-
-    track.style.transform = "translate3d(0, 0, 0)";
-    offsetRef.current = 0;
-    lastTimeRef.current = 0;
-    rafId = requestAnimationFrame(animate);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      ro.disconnect();
-      document.removeEventListener("visibilitychange", onVisibility);
-      clearTimeout(t1);
-      clearTimeout(t2);
-    };
-  }, [disableMarquee]);
+  const t = content[lang];
 
   return (
-    <section
-      className="relative bg-white pt-10 sm:pt-12 lg:pt-14 pb-16 sm:pb-20 lg:pb-24"
-      style={{ contain: "layout style" }}
-    >
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
-        {/* ── HEADER ── */}
-        <div className="text-center mb-10 sm:mb-14 lg:mb-20">
-          <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-5">
-            <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
-            <span className="text-[10px] sm:text-xs uppercase
-                             tracking-[0.25em] sm:tracking-[0.3em]
-                             text-[#1e88e5] font-semibold">
-              {data.kicker}
-            </span>
-            <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
+    <section aria-labelledby="clients-title" className="border-y border-slate-200 bg-white py-7 sm:py-9">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 id="clients-title" className="mb-4 text-xl font-semibold tracking-tight text-slate-950 sm:mb-5 sm:text-2xl">{t.title}</h2>
+        <ClientLogos list={clients.slice(0, 6)} />
+        <details className="mt-3">
+          <summary className="w-fit cursor-pointer rounded py-2 text-sm font-semibold text-blue-700 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
+            {t.more}
+          </summary>
+          <div className="mt-2">
+            <ClientLogos list={clients.slice(6)} />
           </div>
-
-          <h2
-            className="font-light tracking-tight text-slate-900 leading-[1.05]"
-            style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}
-          >
-            {data.titleLight}
-            <span className="font-semibold">{data.titleBold}</span>
-            {data.titleAfter}
-            <span className="text-[#1e88e5]">.</span>
-          </h2>
-
-          <p
-            className="max-w-2xl mx-auto text-slate-600 leading-relaxed mt-5 sm:mt-6"
-            style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}
-          >
-            {data.description}
-          </p>
-        </div>
+        </details>
       </div>
-
-      {/* ═══ GRID STATIC — reduced-motion ═══ */}
-      {disableMarquee && (
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
-          <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 sm:gap-4">
-            {clients.map((item, i) => (
-              <div
-                key={i}
-                className="group flex items-center justify-center
-                           bg-white border border-slate-200
-                           hover:border-[#1e88e5]/60
-                           rounded-xl aspect-[4/3] p-3 sm:p-4
-                           transition-colors duration-200"
-                style={{ contain: "layout paint style" }}
-              >
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="max-w-full max-h-full object-contain
-                             opacity-80 group-hover:opacity-100
-                             transition-opacity duration-300"
-                  onError={(e) => (e.currentTarget.style.display = "none")}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* ═══ MARQUEE ═══ */}
-      {!disableMarquee && (
-        <div className="relative w-full">
-          {/* Fade edge kiri */}
-          <div
-            className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 z-10
-                       bg-gradient-to-r from-white to-transparent
-                       pointer-events-none"
-            aria-hidden="true"
-          />
-          {/* Fade edge kanan */}
-          <div
-            className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 z-10
-                       bg-gradient-to-l from-white to-transparent
-                       pointer-events-none"
-            aria-hidden="true"
-          />
-
-          <div className="overflow-hidden">
-            <div
-              ref={trackRef}
-              className="flex gap-4 sm:gap-6 lg:gap-8 py-1"
-              style={{ willChange: "transform" }}
-            >
-              {[...clients, ...clients].map((item, i) => (
-                <div
-                  key={i}
-                  className="group shrink-0
-                             w-[140px] sm:w-[180px] lg:w-[220px]
-                             aspect-[4/3] flex items-center justify-center
-                             bg-white border border-slate-200
-                             hover:border-[#1e88e5]/60
-                             rounded-xl
-                             p-5 sm:p-6
-                             transition-colors duration-200"
-                  style={{ contain: "layout paint style" }}
-                >
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    loading="lazy"
-                    decoding="async"
-                    className="max-w-full max-h-full object-contain
-                               opacity-80 group-hover:opacity-100
-                               transition-opacity duration-300"
-                    onError={(e) => (e.currentTarget.style.display = "none")}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

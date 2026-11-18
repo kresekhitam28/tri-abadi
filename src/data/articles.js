@@ -1259,6 +1259,21 @@ export const articles = [
       id: "Cek rincian estimasi biaya pengaspalan jalan per m² (overlay, tambal sulam, hingga jalan baru) serta cara menghitung anggaran proyek agar tidak bengkak.",
       en: "Check detailed road paving cost estimates per m² (overlay, patching, to new road construction) and how to budget accurately without overruns.",
     },
+    quote: {
+      title: { id: "Kisaran Biaya Pengaspalan per m²", en: "Estimated Paving Costs per m²" },
+      note: {
+        id: "Ini kisaran awal. Harga penawaran mengikuti luas, ketebalan aspal, dan kondisi lokasi.",
+        en: "These are starting estimates. Your quote depends on the area, asphalt thickness, and site conditions.",
+      },
+      ranges: [
+        { label: { id: "Overlay / Pelapisan ulang", en: "Overlay resurfacing" }, from: 75000, to: 100000 },
+        { label: { id: "Tambal sulam", en: "Asphalt patching" }, from: 95000, to: 120000 },
+        { label: { id: "Pengaspalan baru", en: "New hotmix paving" }, from: 150000, to: 250000 },
+      ],
+      options: [
+        { request: "asphalt", label: { id: "Minta Estimasi Proyek via WhatsApp", en: "Request a Project Quote on WhatsApp" } },
+      ],
+    },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
       phone: "082258089367",
@@ -1289,38 +1304,6 @@ export const articles = [
           id: "Biaya aspal per meter | Jasa pengaspalan | Aspal jalan murah – Memiliki jalan yang mulus dan enak dilalui adalah impian setiap orang. Utamanya mereka yang memiliki mobilitas kendaraan tinggi. Namun, berapa sebenarnya <strong>biaya aspal per meter</strong> terbaru? Jika Anda sedang mencari <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengaspalan murah</a> di Jabodetabek & sekitarnya untuk perumahan, pabrik, atau area parkir, PT Tri Abadi Makmur siap membantu dengan survei lokasi gratis.",
           en: "Asphalt cost per meter | Paving services | Affordable asphalt – Having a smooth and comfortable road is everyone's dream. Especially those with high vehicle mobility. But what is the actual asphalt cost per meter? If you are looking for affordable paving services in Greater Jakarta & surrounding areas, PT Tri Abadi Makmur is ready to help with a free site survey.",
         },
-      },
-      {
-        type: "heading",
-        text: {
-          id: "Berapa Sih Biaya Aspal Per Meter Terbaru?",
-          en: "What is the Latest Asphalt Cost Per Meter?",
-        },
-      },
-      {
-        type: "paragraph",
-        text: {
-          id: "Harga aspal sangat bervariasi tergantung pada ketebalan, jenis aspal (hotmix atau penetrasi), dan kondisi jalan. Secara umum, berikut adalah estimasi kisaran biaya aspal per meter untuk berbagai jenis pekerjaan:",
-          en: "Asphalt prices vary greatly depending on thickness, type of asphalt, and road conditions. Generally, here is the estimated cost per meter for various types of work:",
-        },
-      },
-      {
-        type: "list",
-        ordered: false,
-        items: [
-          {
-            id: "<strong>Overlay / Pelapisan Ulang:</strong> Rp 75.000 - Rp 100.000 / m²",
-            en: "<strong>Overlay:</strong> Rp 75,000 - Rp 100,000 / m²",
-          },
-          {
-            id: "<strong>Tambal Sulam (Pecingan):</strong> Rp 95.000 - Rp 120.000 / m²",
-            en: "<strong>Patching:</strong> Rp 95,000 - Rp 120,000 / m²",
-          },
-          {
-            id: "<strong>Pengaspalan Baru (Hotmix):</strong> Rp 150.000 - Rp 250.000 / m²",
-            en: "<strong>New Hotmix Paving:</strong> Rp 150,000 - Rp 250,000 / m²",
-          },
-        ],
       },
       {
         type: "paragraph",
@@ -1392,7 +1375,11 @@ export const articles = [
     slug: "pemasangan-grass-block",
     date: { id: "25 Oktober 2026", en: "October 25, 2026" },
     dateISO: "2026-10-25",
-    src: "/proyek/proyek-39.webp",
+    src: "/images/grass-fullpave-set.png",
+    illustration: {
+      id: "Ilustrasi susunan grass block tipe Fullpave Set",
+      en: "Illustration of the Fullpave Set grass block layout",
+    },
     category: { id: "Grass Block", en: "Grass Block" },
     title: {
       id: "Jasa Pasang Grass Block Parkir & Taman Ramah Lingkungan",
@@ -2185,6 +2172,25 @@ export const articles = [
       id: "Bandingkan harga material & jasa pasang paving block bata, cacing, hexagon, dan topi uskup per m² 2026. Survei lokasi & hitung kebutuhan gratis di Jabodetabek!",
       en: "Compare 2026 material & installation prices per m² for brick, worm, hexagon, and bishop's hat paving blocks. Free site survey & quantity calculation in Greater Jakarta!",
     },
+    quote: {
+      title: { id: "Harga Material & Jasa Pasang Paving", en: "Paving Supply & Installation Prices" },
+      note: {
+        id: "Pilih penawaran material atau estimasi pemasangan. Siapkan perkiraan luas dan lokasi agar tim bisa menghitung kebutuhan Anda.",
+        en: "Choose a supply or installation quote. Have your estimated area and location ready so our team can calculate quantities.",
+      },
+      options: [
+        {
+          request: "pavingMaterial",
+          label: { id: "Minta Harga Material via WhatsApp", en: "Request Supply Prices on WhatsApp" },
+          prices: { id: "harga-material-paving", label: { id: "Lihat daftar harga material", en: "View supply price list" } },
+        },
+        {
+          request: "paving",
+          label: { id: "Minta Estimasi Pasang via WhatsApp", en: "Request an Installation Quote on WhatsApp" },
+          prices: { id: "harga-pasang-paving", label: { id: "Lihat harga jasa dan paket", en: "View installation and package prices" } },
+        },
+      ],
+    },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
       phone: "082258089367",
@@ -2212,6 +2218,7 @@ export const articles = [
       },
       {
         type: "heading",
+        id: "harga-material-paving",
         text: {
           id: "Harga Material Paving Block per m²",
           en: "Paving Block Material Price per m²",
@@ -2351,6 +2358,7 @@ export const articles = [
       },
       {
         type: "heading",
+        id: "harga-pasang-paving",
         text: {
           id: "Harga Jasa Pasang & Paket Terima Beres",
           en: "Installation Service & Turnkey Package Prices",
@@ -2638,6 +2646,24 @@ export const articles = [
       id: "Daftar harga cor beton ready mix per kubik mulai K-225, K-250, K-300, K-350, K-375, K-400, hingga K-500 & Mini Mix. Layanan pengecoran Jabodetabek, Banten & Jawa Barat. Survei & hitung volume gratis!",
       en: "Ready-mix concrete price list per cubic meter from K-225, K-250, K-300, K-350, K-375, K-400, to K-500 & Mini Mix. Casting services across Greater Jakarta, Banten & West Java. Free survey & volume calculation!",
     },
+    quote: {
+      title: { id: "Harga Ready Mix & Estimasi Pengecoran", en: "Ready-Mix Prices & Pouring Quotes" },
+      note: {
+        id: "Untuk pasokan beton, siapkan mutu, volume perkiraan dalam m³, dan lokasi kirim. Untuk jasa cor, ceritakan jenis pekerjaan dan lokasi proyek.",
+        en: "For concrete supply, have your grade, estimated volume in m³, and delivery location ready. For pouring services, share the type of work and project location.",
+      },
+      options: [
+        {
+          request: "concreteMaterial",
+          label: { id: "Minta Harga Ready Mix via WhatsApp", en: "Request Ready-Mix Prices on WhatsApp" },
+          prices: { id: "harga-ready-mix", label: { id: "Lihat daftar harga per m³", en: "View prices per m³" } },
+        },
+        {
+          request: "concrete",
+          label: { id: "Minta Estimasi Jasa Cor via WhatsApp", en: "Request a Pouring Quote on WhatsApp" },
+        },
+      ],
+    },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
       phone: "082258089367",
@@ -2667,6 +2693,7 @@ export const articles = [
       },
       {
         type: "heading",
+        id: "harga-ready-mix",
         text: {
           id: "Daftar Harga Cor Beton Ready Mix per Kubik",
           en: "Ready-Mix Concrete Price List per Cubic Meter",

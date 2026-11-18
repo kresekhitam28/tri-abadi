@@ -1,73 +1,12 @@
 // src/components/PasangTiangPancang.jsx
 "use client";
 
-import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
+import { useState, useCallback, useMemo, memo } from "react";
 import Link from "next/link"; // <-- TAMBAHAN: Import Link
 import { useLang } from "../context/LanguageContext";
 import TiangPancangPricingPanel from "./TiangPancangPricingPanel";
-
-// ─────────────────────────────────────────────
-// HOOK: DETEKSI MOBILE
-// ─────────────────────────────────────────────
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(max-width: 768px)");
-    const update = () => setIsMobile(mq.matches);
-    update();
-    if (mq.addEventListener) {
-      mq.addEventListener("change", update);
-      return () => mq.removeEventListener("change", update);
-    } else {
-      mq.addListener(update);
-      return () => mq.removeListener(update);
-    }
-  }, []);
-  return isMobile;
-}
-
-// ─────────────────────────────────────────────
-// HOOK: REVEAL ON SCROLL
-// ─────────────────────────────────────────────
-function useReveal(options = {}) {
-  const {
-    threshold = 0.12,
-    rootMargin = "0px 0px -60px 0px",
-    once = true,
-    enabled = true,
-  } = options;
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(!enabled);
-
-  useEffect(() => {
-    if (!enabled) {
-      setVisible(true);
-      return;
-    }
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          if (once) io.unobserve(entry.target);
-        } else if (!once) {
-          setVisible(false);
-        }
-      },
-      { threshold, rootMargin }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [threshold, rootMargin, once, enabled]);
-
-  return [ref, visible];
-}
+import { useIsMobile } from "../hooks/useIsMobile";
+import { useReveal } from "../hooks/useReveal";
 
 // ─────────────────────────────────────────────
 // REVEAL WRAPPER (memoized)
@@ -634,7 +573,7 @@ export default function PasangTiangPancang() {
               <span className="absolute -top-4 left-1/2 -translate-x-1/2 leading-none
                                text-[#1e88e5]/15 font-serif select-none"
                     style={{ fontSize: "clamp(3rem, 8vw, 4rem)" }}>
-                "
+                &quot;
               </span>
               <p className="relative text-slate-700 leading-[1.9] italic font-medium"
                  style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}>

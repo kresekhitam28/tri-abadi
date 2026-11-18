@@ -1,73 +1,14 @@
 // src/components/PasangPavingBlock.jsx
 "use client";
 
-import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
+import { useState, useCallback, useMemo, memo } from "react";
 import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import PavingPricingPanel from "./PavingPricingPanel";
-
-// ─────────────────────────────────────────────
-// HOOK: DETEKSI MOBILE
-// ─────────────────────────────────────────────
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(max-width: 768px)");
-    const update = () => setIsMobile(mq.matches);
-    update();
-    if (mq.addEventListener) {
-      mq.addEventListener("change", update);
-      return () => mq.removeEventListener("change", update);
-    } else {
-      mq.addListener(update);
-      return () => mq.removeListener(update);
-    }
-  }, []);
-  return isMobile;
-}
-
-// ─────────────────────────────────────────────
-// HOOK: REVEAL ON SCROLL
-// ─────────────────────────────────────────────
-function useReveal(options = {}) {
-  const {
-    threshold = 0.12,
-    rootMargin = "0px 0px -60px 0px",
-    once = true,
-    enabled = true,
-  } = options;
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(!enabled);
-
-  useEffect(() => {
-    if (!enabled) {
-      setVisible(true);
-      return;
-    }
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          if (once) io.unobserve(entry.target);
-        } else if (!once) {
-          setVisible(false);
-        }
-      },
-      { threshold, rootMargin }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [threshold, rootMargin, once, enabled]);
-
-  return [ref, visible];
-}
+import ServiceQuoteHero from "./ServiceQuoteHero";
+import { projectQuoteHref } from "../lib/quote";
+import { useIsMobile } from "../hooks/useIsMobile";
+import { useReveal } from "../hooks/useReveal";
 
 // ─────────────────────────────────────────────
 // REVEAL WRAPPER (memoized)
@@ -339,10 +280,9 @@ function SectionKicker({ children }) {
 // ─────────────────────────────────────────────
   const content = {
   id: {
-    heroKicker: "Layanan Kami",
-    heroTitle: "Jasa Pasang Paving Block Murah & Rapi",
-    heroSubtitle: "Untuk Perumahan, Trotoar & Area Parkir di Jabodetabek, Banten & Jawa Barat.",
-    heroDesc: "Jasa pasang paving block untuk jalan perumahan, trotoar, dan area publik. Rapi, presisi, dan tahan lama dengan berbagai pilihan motif serta survei lokasi gratis.",
+    heroTitle: "Jasa Pasang Paving Block",
+    heroSubtitle: "Untuk pabrik, gudang, area parkir, dan perumahan di Jabodetabek, Banten & Jawa Barat.",
+    heroDesc: "Pilih paket jasa pasang atau paket dengan material. Kirim lokasi dan perkiraan luas untuk estimasi biaya serta survei lokasi.",
     figAlt: "Pasang Paving Block",
     figCaption: "Pemasangan Paving Block — Tri Abadi Makmur",
     introTitle: "Jasa Pasang Paving Block Jabodetabek, Banten & Jawa Barat",
@@ -376,13 +316,11 @@ function SectionKicker({ children }) {
     ctaTitleLight: "Butuh jasa pasang paving block? ",
     ctaTitleBold: "Kami siap membantu.",
     ctaBtn: "Tanya Harga & Survei via WA",
-    ctaWaMessage: "Halo Tri Abadi Makmur, saya ingin konsultasi & tanya estimasi harga Jasa Pasang Paving Block...",
   },
   en: {
-    heroKicker: "Our Services",
-    heroTitle: "Affordable & Neat Paving Block Installation",
-    heroSubtitle: "for Residential, Sidewalks & Parking Areas in Greater Jakarta, Banten & West Java.",
-    heroDesc: "Paving block installation services for housing roads, sidewalks, and public areas. Neat, precise, and durable with various pattern choices and free site survey.",
+    heroTitle: "Paving Block Installation Services",
+    heroSubtitle: "For factories, warehouses, parking areas, and residential sites in Greater Jakarta, Banten & West Java.",
+    heroDesc: "Choose installation or a package that includes materials. Share the location and estimated area for a quote and site survey.",
     figAlt: "Paving Block Installation",
     figCaption: "Paving Block Installation — Tri Abadi Makmur",
     introTitle: "Paving Block Installation Services in Jabodetabek, Banten & West Java",
@@ -416,7 +354,6 @@ function SectionKicker({ children }) {
     ctaTitleLight: "Need paving block installation? ",
     ctaTitleBold: "We are ready to help.",
     ctaBtn: "Ask Price & Survey via WA",
-    ctaWaMessage: "Hello Tri Abadi Makmur, I would like to consult about Paving Block Installation...",
   },
 };
 // ─────────────────────────────────────────────
@@ -576,50 +513,19 @@ export default function PasangPavingBlock() {
   }, [lang]);
 
   const [showArea, setShowArea] = useState(false);
+  const waHref = projectQuoteHref("paving", lang);
 
   return (
     <div className="bg-slate-50/50">
 
-      {/* ═══════ HERO ═══════ */}
-      <section className="pt-32 lg:pt-40 pb-12 lg:pb-16 bg-white border-b border-slate-100">
-        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
-          <Reveal delay={0} y={20}>
-            <div className="inline-flex items-center gap-3 mb-6">
-              <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" aria-hidden="true" />
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-bold">
-                {data.heroKicker}
-              </span>
-              <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" aria-hidden="true" />
-            </div>
-          </Reveal>
-
-          <Reveal delay={80} y={30}>
-            <h1
-              className="font-light tracking-tight text-slate-900 leading-[1.1] mb-6"
-              style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}
-            >
-              {data.heroTitle}<span className="text-[#1e88e5]">.</span>
-            </h1>
-            {data.heroSubtitle && (
-              <p
-                className="text-slate-600 max-w-2xl mx-auto mt-4 mb-6"
-                style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1.125rem)" }}
-              >
-                {data.heroSubtitle}
-              </p>
-            )}
-          </Reveal>
-
-          <Reveal delay={160} y={24}>
-            <p
-              className="text-slate-600 leading-relaxed max-w-2xl mx-auto"
-              style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1.0625rem)" }}
-            >
-              {data.heroDesc}
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <ServiceQuoteHero
+        lang={lang}
+        quoteHref={waHref}
+        title={data.heroTitle}
+        subtitle={data.heroSubtitle}
+        description={data.heroDesc}
+        pricesId="paket-harga-paving"
+      />
 
       {/* ═══════ KONTEN UTAMA ═══════ */}
       <section className="py-16 lg:py-24">
@@ -662,7 +568,7 @@ export default function PasangPavingBlock() {
         </div>
 
         {/* ═══════ PANEL HARGA (DIPINDAHKAN KE ATAS AGAR LANGSUNG TERLIHAT) ═══════ */}
-        <div className="mt-8 lg:mt-12 mb-16">
+        <div id="paket-harga-paving" className="mt-8 lg:mt-12 mb-16 scroll-mt-24">
           <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
             <Reveal y={26}>
               <div className="text-center mb-10">
@@ -954,7 +860,7 @@ export default function PasangPavingBlock() {
                   <span className="font-bold">{data.ctaTitleBold}</span>
                 </h3>
                 <a
-                  href={`https://wa.me/6282258089367?text=${encodeURIComponent(data.ctaWaMessage)}`}
+                  href={waHref}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={data.ctaBtn}

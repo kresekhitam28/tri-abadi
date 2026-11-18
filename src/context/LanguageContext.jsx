@@ -1,28 +1,55 @@
 // src/context/LanguageContext.jsx
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useSyncExternalStore } from "react";
 
 const LanguageContext = createContext(null);
+const LANGUAGE_KEY = "lang";
+const LANGUAGE_CHANGE = "tri-abadi:language-change";
+let temporaryLanguage;
+
+function getLanguage() {
+  if (temporaryLanguage) return temporaryLanguage;
+
+  try {
+    return window.localStorage.getItem(LANGUAGE_KEY) === "en" ? "en" : "id";
+  } catch {
+    return "id";
+  }
+}
+
+function subscribe(onChange) {
+  function onStorage(event) {
+    if (event.key === LANGUAGE_KEY || event.key === null) onChange();
+  }
+
+  window.addEventListener(LANGUAGE_CHANGE, onChange);
+  window.addEventListener("storage", onStorage);
+  return () => {
+    window.removeEventListener(LANGUAGE_CHANGE, onChange);
+    window.removeEventListener("storage", onStorage);
+  };
+}
+
+function setLang(language) {
+  if (language !== "id" && language !== "en") return;
+
+  try {
+    window.localStorage.setItem(LANGUAGE_KEY, language);
+    temporaryLanguage = undefined;
+  } catch {
+    temporaryLanguage = language;
+  }
+
+  window.dispatchEvent(new Event(LANGUAGE_CHANGE));
+}
+
+const getServerLanguage = () => "id";
 
 export function LanguageProvider({ children }) {
-  // Selalu mulai dengan "id" supaya konsisten antara server & client.
-  // localStorage hanya dibaca di client setelah mount.
-  const [lang, setLang] = useState("id");
+  const lang = useSyncExternalStore(subscribe, getLanguage, getServerLanguage);
 
-  // Baca preferensi bahasa dari localStorage setelah mount
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const saved = localStorage.getItem("lang");
-    if (saved === "id" || saved === "en") {
-      setLang(saved);
-    }
-  }, []);
-
-  // Simpan preferensi bahasa + set atribut <html lang>
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    localStorage.setItem("lang", lang);
     document.documentElement.lang = lang;
   }, [lang]);
 

@@ -1,8 +1,8 @@
 // src/app/blog/[slug]/page.js
+import { notFound } from "next/navigation";
 import BlogDetail from "../../../components/BlogDetail";
-import { articles } from "../../../data/articles";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://spesialisaspal.com";
+import { articles, getArticleBySlug } from "../../../data/articles";
+import { createPageMetadata, SITE_NAME, SITE_URL } from "../../../lib/metadata";
 
 const pick = (f) => {
   if (!f) return "";
@@ -16,118 +16,59 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const article = articles.find((a) => a.slug === slug);
+  const article = getArticleBySlug(slug);
+  if (!article) notFound();
 
-  if (!article) {
-    return {
-      title: "Artikel Tidak Ditemukan",
-      robots: { index: false, follow: false },
-    };
-  }
-
-  const title = pick(article.title);
-  const desc = pick(article.desc);
-  const imageUrl = article.src?.startsWith("http")
-    ? article.src
-    : `${SITE_URL}${article.src}`;
-
-  return {
-    title,
-    description: desc,
-    openGraph: {
-      title: `${title} | PT Tri Abadi Makmur`,
-      description: desc,
-      url: `${SITE_URL}/blog/${slug}`,
-      images: [imageUrl],
-      type: "article",
-      publishedTime: article.dateISO || undefined,
-      siteName: "PT Tri Abadi Makmur",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${title} | PT Tri Abadi Makmur`,
-      description: desc,
-      images: [imageUrl],
-    },
-    alternates: {
-      canonical: `${SITE_URL}/blog/${slug}`,
-    },
-  };
+  return createPageMetadata({
+    path: `/blog/${slug}`,
+    title: pick(article.title),
+    description: pick(article.desc),
+    image: article.src,
+    type: "article",
+    publishedTime: article.dateISO,
+  });
 }
 
 export default async function BlogDetailPage({ params }) {
   const { slug } = await params;
-  const article = articles.find((a) => a.slug === slug);
+  const article = getArticleBySlug(slug);
+  if (!article) notFound();
 
-  const title = article ? pick(article.title) : "";
-  const desc = article ? pick(article.desc) : "";
-  const imageUrl = article?.src?.startsWith("http")
-    ? article.src
-    : `${SITE_URL}${article?.src || "/proyek/hero-1.webp"}`;
-
-  const jsonLd = article
-    ? [
-        {
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          headline: title,
-          description: desc,
-          image: [imageUrl],
-          datePublished: article.dateISO || "2026-10-01",
-          dateModified: article.dateISO || "2026-10-01",
-          author: {
-            "@type": "Organization",
-            name: "PT Tri Abadi Makmur",
-            url: SITE_URL,
-          },
-          publisher: {
-            "@type": "Organization",
-            name: "PT Tri Abadi Makmur",
-            logo: {
-              "@type": "ImageObject",
-              url: `${SITE_URL}/logo.png`,
-            },
-          },
-          mainEntityOfPage: {
-            "@type": "WebPage",
-            "@id": `${SITE_URL}/blog/${slug}`,
-          },
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            {
-              "@type": "ListItem",
-              position: 1,
-              name: "Beranda",
-              item: SITE_URL,
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              name: "Blog",
-              item: `${SITE_URL}/blog`,
-            },
-            {
-              "@type": "ListItem",
-              position: 3,
-              name: title,
-              item: `${SITE_URL}/blog/${slug}`,
-            },
-          ],
-        },
-      ]
-    : null;
+  const title = pick(article.title);
+  const articleUrl = `${SITE_URL}/blog/${slug}`;
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: title,
+      description: pick(article.desc),
+      image: [new URL(article.src || "/logo.webp", SITE_URL).href],
+      datePublished: article.dateISO,
+      author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+      publisher: {
+        "@type": "Organization",
+        name: SITE_NAME,
+        logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png` },
+      },
+      mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Beranda", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+        { "@type": "ListItem", position: 3, name: title, item: articleUrl },
+      ],
+    },
+  ];
 
   return (
     <>
-      {jsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       <BlogDetail />
     </>
   );

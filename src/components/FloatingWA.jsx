@@ -1,8 +1,6 @@
 // src/components/FloatingWA.jsx
 "use client";
 
-import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
 import { useLang } from "../context/LanguageContext";
 
 const WA_NUMBER = "6282258089367";
@@ -22,16 +20,10 @@ const texts = {
 };
 
 export default function FloatingWA() {
-  const [mounted, setMounted] = useState(false);
   const { lang } = useLang();
   const t = texts[lang] || texts.id;
 
-  // Portal hanya di client (SSR safety)
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const content = (
+  return (
     <a
       href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(t.message)}`}
       target="_blank"
@@ -87,8 +79,4 @@ export default function FloatingWA() {
       </span>
     </a>
   );
-
-  // Render ke document.body → lepas dari wrapper yang punya `contain`
-  if (!mounted) return null;
-  return createPortal(content, document.body);
 }

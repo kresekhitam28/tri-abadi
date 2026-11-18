@@ -5,34 +5,36 @@ import { useEffect } from "react";
 
 export default function WATracker() {
   useEffect(() => {
-    const handleClick = (e) => {
-      // Cari elemen <a> terdekat dari yang diklik
-      const target = e.target.closest("a");
-      
-      // Jika itu adalah link WhatsApp (wa.me atau api.whatsapp.com)
-      if (
-        target && 
-        target.href && 
-        (target.href.includes("wa.me") || target.href.includes("api.whatsapp.com"))
-      ) {
-        // Kirim event ke GTM dataLayer
-        if (typeof window !== "undefined" && window.dataLayer) {
-          window.dataLayer.push({
-            event: "klik_whatsapp",
-          });
-          console.log("Event klik_whatsapp terkirim!"); // Opsional untuk ngecek
-        }
-      }
-    };
+    function trackDestination({ hostname, pathname, search }) {
+      const phone = hostname === "wa.me" ? pathname.slice(1)
+        : hostname === "api.whatsapp.com" ? new URLSearchParams(search).get("phone")
+        : null;
 
-    // Pasang event listener ke seluruh dokumen
+      // Share links to wa.me have no recipient.
+      if (!phone || !/^\+?\d{8,15}\/?$/.test(phone)) return;
+
+      (window.dataLayer ??= []).push({ event: "klik_whatsapp" });
+    }
+
+    function handleClick(event) {
+      const link = event.target instanceof Element ? event.target.closest("a[href]") : null;
+      if (link instanceof HTMLAnchorElement) trackDestination(link);
+    }
+
+    function handleSubmit(event) {
+      const form = event.target;
+      if (event.defaultPrevented || !(form instanceof HTMLFormElement) || !form.hasAttribute("data-whatsapp-draft")) return;
+
+      trackDestination(new URL(form.action));
+    }
+
     document.addEventListener("click", handleClick);
-
-    // Bersihkan listener saat komponen di-unmount
+    document.addEventListener("submit", handleSubmit);
     return () => {
       document.removeEventListener("click", handleClick);
+      document.removeEventListener("submit", handleSubmit);
     };
   }, []);
 
-  return null; // Komponen ini tidak menampilkan apa-apa di layar
+  return null;
 }

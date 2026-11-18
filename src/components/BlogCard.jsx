@@ -17,6 +17,7 @@ export default function BlogCard({ item }) {
   if (!item) return null;
 
   const title = pick(item.title, lang);
+  const illustration = pick(item.illustration, lang);
   const desc = pick(item.desc, lang);
   const category = pick(item.category, lang); // <-- Ambil data kategori
   const readMore = lang === "en" ? "Read Article" : "Baca Artikel";
@@ -32,18 +33,15 @@ export default function BlogCard({ item }) {
       {/* FOTO */}
       <Link
         href={href}
-        className="relative block w-full bg-slate-100 shrink-0
-                   aspect-[16/10] overflow-hidden"
+        className={`relative block aspect-[16/10] w-full shrink-0 overflow-hidden ${illustration ? "bg-white" : "bg-slate-100"}`}
         aria-label={title}
       >
         <Image
           src={item.src}
-          alt={title}
+          alt={illustration || title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover
-                     transition-transform duration-300 ease-out
-                     group-hover:scale-[1.03]"
+          className={illustration ? "object-scale-down p-4" : "object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"}
           onError={(e) => {
             e.currentTarget.onerror = null;
             e.currentTarget.src =

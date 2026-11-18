@@ -1,62 +1,11 @@
 // src/components/Kontak.jsx
 "use client";
 
-import { useState, useEffect, useRef, useCallback, memo } from "react";
-
-// ─────────────────────────────────────────────
-// HOOK: DETEKSI MOBILE
-// ─────────────────────────────────────────────
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(max-width: 768px)");
-    const update = () => setIsMobile(mq.matches);
-    update();
-    if (mq.addEventListener) {
-      mq.addEventListener("change", update);
-      return () => mq.removeEventListener("change", update);
-    } else {
-      mq.addListener(update);
-      return () => mq.removeListener(update);
-    }
-  }, []);
-  return isMobile;
-}
-
-// ─────────────────────────────────────────────
-// HOOK SCROLL
-// ─────────────────────────────────────────────
-function useInView(threshold = 0.1, enabled = true) {
-  const ref = useRef(null);
-  const [inView, setInView] = useState(!enabled);
-
-  useEffect(() => {
-    if (!enabled) {
-      setInView(true);
-      return;
-    }
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setInView(true);
-      return;
-    }
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold, rootMargin: "0px 0px -60px 0px" }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [threshold, enabled]);
-
-  return [ref, inView];
-}
+import { useState, memo } from "react";
+import { useLang } from "../context/LanguageContext";
+import { useIsMobile } from "../hooks/useIsMobile";
+import { useReveal } from "../hooks/useReveal";
+import { WHATSAPP_URL } from "../lib/quote";
 
 // ─────────────────────────────────────────────
 // KOMPONEN: FADE UP
@@ -64,7 +13,7 @@ function useInView(threshold = 0.1, enabled = true) {
 const FadeUp = memo(function FadeUp({ children, delay = 0, className = "" }) {
   const isMobile = useIsMobile();
   const enabled = !isMobile;
-  const [ref, inView] = useInView(0.08, enabled);
+  const [ref, inView] = useReveal({ threshold: 0.08, enabled });
 
   return (
     <div
@@ -90,7 +39,7 @@ const FadeUp = memo(function FadeUp({ children, delay = 0, className = "" }) {
 const ScaleIn = memo(function ScaleIn({ children, delay = 0, className = "" }) {
   const isMobile = useIsMobile();
   const enabled = !isMobile;
-  const [ref, inView] = useInView(0.08, enabled);
+  const [ref, inView] = useReveal({ threshold: 0.08, enabled });
 
   return (
     <div
@@ -127,9 +76,6 @@ function IconWhatsApp({ className = "w-4 h-4" }) {
 function IconArrowRight({ className = "w-3.5 h-3.5" }) {
   return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M5 12h14M13 5l7 7-7 7" /></svg>);
 }
-function IconCheck({ className = "w-5 h-5" }) {
-  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20 6 9 17l-5-5" /></svg>);
-}
 function IconExternalLink({ className = "w-4 h-4" }) {
   return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>);
 }
@@ -157,7 +103,7 @@ const kontakInfo = [
     Icon: IconPhone,
     label: "Telepon / WhatsApp",
     value: "+62 822-5808-9367",
-    href: "https://wa.me/6282258089367",
+    href: WHATSAPP_URL,
   },
   {
     Icon: IconMapPin,
@@ -166,6 +112,35 @@ const kontakInfo = [
     href: MAPS_HREF,
   },
 ];
+
+const draftCopy = {
+  id: {
+    title: "Konsultasi Proyek via WhatsApp",
+    intro: "Ceritakan kebutuhan Anda. Draf akan terbuka di WhatsApp untuk Anda periksa dan kirim.",
+    nameLabel: "Nama (opsional)",
+    nameField: "Nama",
+    messageLabel: "Kebutuhan proyek",
+    messageHint: "Sertakan lokasi, jenis pekerjaan, dan perkiraan luas atau volume jika sudah diketahui.",
+    requiredMessage: "Isi kebutuhan proyek Anda.",
+    submit: "Lanjut ke WhatsApp",
+    status: "Draf siap. Tekan Kirim di WhatsApp untuk meneruskan pesan kepada kami.",
+    greeting: "Halo PT Tri Abadi Makmur, saya ingin konsultasi proyek.",
+  },
+  en: {
+    title: "Project Consultation on WhatsApp",
+    intro: "Tell us what you need. WhatsApp will open a draft for you to review and send.",
+    nameLabel: "Name (optional)",
+    nameField: "Name",
+    messageLabel: "Project details",
+    messageHint: "Include the location, type of work, and estimated area or volume if known.",
+    requiredMessage: "Enter your project details.",
+    submit: "Continue to WhatsApp",
+    status: "Your draft is ready. Tap Send in WhatsApp to forward it to us.",
+    greeting: "Hello PT Tri Abadi Makmur, I would like to discuss a project.",
+  },
+};
+
+const fieldClassName = "w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-base text-slate-800 focus:border-blue-700 focus:bg-white focus:outline-2 focus:outline-offset-1 focus:outline-blue-700";
 
 // ─────────────────────────────────────────────
 // SUB-KOMPONEN: Contact Card
@@ -210,17 +185,33 @@ const ContactCard = memo(function ContactCard({ item }) {
 // HALAMAN
 // ─────────────────────────────────────────────
 export default function Kontak() {
-  const [form, setForm] = useState({ nama: "", email: "", pesan: "" });
-  const [sent, setSent] = useState(false);
+  const { lang } = useLang();
+  const t = draftCopy[lang];
+  const [draftReady, setDraftReady] = useState(false);
   const isMobile = useIsMobile();
 
-  const handleSubmit = useCallback((e) => {
-    e.preventDefault();
-    console.log(form);
-    setSent(true);
-    setForm({ nama: "", email: "", pesan: "" });
-    setTimeout(() => setSent(false), 5000);
-  }, [form]);
+  function handleSubmit(event) {
+    const form = event.currentTarget;
+    const messageField = form.elements.namedItem("text");
+    const message = messageField.value.trim();
+
+    if (!message) {
+      event.preventDefault();
+      messageField.setCustomValidity(t.requiredMessage);
+      messageField.reportValidity();
+      return;
+    }
+
+    const name = form.elements.namedItem("contact-name").value.trim();
+    const introduction = name ? `${t.greeting}\n${t.nameField}: ${name}` : t.greeting;
+
+    // Keep the native new-tab handoff and replace the textarea value only in the submitted data.
+    form.onformdata = ({ formData }) => {
+      formData.set("text", `${introduction}\n\n${message}`);
+      form.onformdata = null;
+    };
+    setDraftReady(true);
+  }
 
   return (
     <div className="bg-white">
@@ -301,7 +292,7 @@ export default function Kontak() {
 
               <FadeUp delay={300}>
                 <a
-                  href="https://wa.me/6282258089367?text=Halo%20Tri%20Abadi%20Makmur%2C%20saya%20ingin%20konsultasi"
+                  href={`${WHATSAPP_URL}?text=Halo%20Tri%20Abadi%20Makmur%2C%20saya%20ingin%20konsultasi`}
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Chat WhatsApp"
@@ -338,119 +329,70 @@ export default function Kontak() {
 
             <div className="lg:col-span-3">
               <FadeUp delay={80}>
-                <div className="relative p-5 sm:p-6 lg:p-8 rounded-2xl bg-white
+                <div lang={lang} className="relative p-5 sm:p-6 lg:p-8 rounded-2xl bg-white
                                 border border-slate-200 shadow-sm"
                      style={{ contain: "layout paint style" }}>
                   <h2
                     className="font-light tracking-tight text-slate-900 mb-2"
                     style={{ fontSize: "clamp(1.25rem, 3vw, 1.5rem)" }}
                   >
-                    Kirim <span className="font-semibold">Pesan</span>
+                    {t.title}
                   </h2>
                   <p className="text-slate-500 leading-relaxed mb-5 sm:mb-6"
                      style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.84375rem)" }}>
-                    Isi formulir berikut, kami akan merespons dalam 1×24 jam kerja.
+                    {t.intro}
                   </p>
 
-                  <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
-                      <div>
-                        <label className="block text-[11px] uppercase tracking-[0.15em]
-                                          text-slate-500 font-semibold mb-1.5">
-                          Nama Lengkap
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          placeholder="Nama Anda"
-                          value={form.nama}
-                          onChange={(e) => setForm({ ...form, nama: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl
-                                     bg-slate-50 border border-slate-200
-                                     text-[14px] text-slate-800
-                                     placeholder:text-slate-400
-                                     focus:outline-none focus:bg-white
-                                     focus:border-[#1e88e5]
-                                     focus:ring-2 focus:ring-[#1e88e5]/15
-                                     transition-colors duration-150"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-[11px] uppercase tracking-[0.15em]
-                                          text-slate-500 font-semibold mb-1.5">
-                          Email
-                        </label>
-                        <input
-                          type="email"
-                          required
-                          placeholder="email@contoh.com"
-                          value={form.email}
-                          onChange={(e) => setForm({ ...form, email: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl
-                                     bg-slate-50 border border-slate-200
-                                     text-[14px] text-slate-800
-                                     placeholder:text-slate-400
-                                     focus:outline-none focus:bg-white
-                                     focus:border-[#1e88e5]
-                                     focus:ring-2 focus:ring-[#1e88e5]/15
-                                     transition-colors duration-150"
-                        />
-                      </div>
+                  <form
+                    action={WHATSAPP_URL}
+                    method="get"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-whatsapp-draft
+                    onSubmit={handleSubmit}
+                    onInput={() => setDraftReady(false)}
+                    className="space-y-4"
+                  >
+                    <div>
+                      <label htmlFor="contact-name" className="mb-1.5 block text-sm font-semibold text-slate-700">
+                        {t.nameLabel}
+                      </label>
+                      <input id="contact-name" type="text" autoComplete="name" className={fieldClassName} />
                     </div>
 
                     <div>
-                      <label className="block text-[11px] uppercase tracking-[0.15em]
-                                        text-slate-500 font-semibold mb-1.5">
-                        Pesan
+                      <label htmlFor="contact-message" className="mb-1.5 block text-sm font-semibold text-slate-700">
+                        {t.messageLabel}
                       </label>
+                      <p id="contact-message-hint" className="mb-2 text-sm leading-relaxed text-slate-600">
+                        {t.messageHint}
+                      </p>
                       <textarea
+                        id="contact-message"
+                        name="text"
+                        aria-describedby="contact-message-hint"
                         required
                         rows={5}
-                        placeholder="Ceritakan kebutuhan proyek Anda…"
-                        value={form.pesan}
-                        onChange={(e) => setForm({ ...form, pesan: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl resize-none
-                                   bg-slate-50 border border-slate-200
-                                   text-[14px] text-slate-800
-                                   placeholder:text-slate-400
-                                   focus:outline-none focus:bg-white
-                                   focus:border-[#1e88e5]
-                                   focus:ring-2 focus:ring-[#1e88e5]/15
-                                   transition-colors duration-150"
+                        onInput={(event) => event.currentTarget.setCustomValidity("")}
+                        className={`${fieldClassName} resize-y`}
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="group w-full inline-flex items-center justify-center gap-2
-                                 px-6 py-3.5 rounded-xl
-                                 bg-[#1e88e5] hover:bg-[#1565c0]
-                                 text-white font-semibold text-[13px]
-                                 uppercase tracking-[0.15em]
-                                 shadow-lg shadow-[#1e88e5]/25
-                                 hover:shadow-xl hover:shadow-[#1e88e5]/30
-                                 transition-colors duration-200"
+                      className="group inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl
+                                 bg-blue-700 px-6 py-3.5 text-sm font-semibold text-white transition-colors
+                                 hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
                     >
-                      Kirim Pesan
+                      {t.submit}
                       <IconArrowRight className="w-3.5 h-3.5
                                                  transition-transform duration-200
                                                  group-hover:translate-x-1" />
                     </button>
 
-                    <div className={`transition-opacity duration-300 overflow-hidden
-                                     ${sent ? "max-h-20 opacity-100 mt-2" : "max-h-0 opacity-0"}`}>
-                      <div className="flex items-center gap-2.5 p-3 rounded-xl
-                                      bg-emerald-50 border border-emerald-200">
-                        <span className="shrink-0 w-6 h-6 rounded-full
-                                         bg-emerald-500 text-white
-                                         flex items-center justify-center">
-                          <IconCheck className="w-3.5 h-3.5" />
-                        </span>
-                        <span className="text-[13px] text-emerald-700 font-medium">
-                          Pesan berhasil dikirim. Terima kasih!
-                        </span>
-                      </div>
-                    </div>
+                    <p role="status" className="text-sm leading-relaxed text-slate-700 empty:m-0">
+                      {draftReady ? t.status : ""}
+                    </p>
                   </form>
                 </div>
               </FadeUp>

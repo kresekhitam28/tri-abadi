@@ -1,73 +1,14 @@
 // src/components/CorBetonReadyMix.jsx
 "use client";
 
-import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
+import { useState, useCallback, useMemo, memo } from "react";
 import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import BetonPricingPanel from "./BetonPricingPanel";
-
-// ─────────────────────────────────────────────
-// HOOK: DETEKSI MOBILE
-// ─────────────────────────────────────────────
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(max-width: 768px)");
-    const update = () => setIsMobile(mq.matches);
-    update();
-    if (mq.addEventListener) {
-      mq.addEventListener("change", update);
-      return () => mq.removeEventListener("change", update);
-    } else {
-      mq.addListener(update);
-      return () => mq.removeListener(update);
-    }
-  }, []);
-  return isMobile;
-}
-
-// ─────────────────────────────────────────────
-// HOOK: REVEAL ON SCROLL
-// ─────────────────────────────────────────────
-function useReveal(options = {}) {
-  const {
-    threshold = 0.12,
-    rootMargin = "0px 0px -60px 0px",
-    once = true,
-    enabled = true,
-  } = options;
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(!enabled);
-
-  useEffect(() => {
-    if (!enabled) {
-      setVisible(true);
-      return;
-    }
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          if (once) io.unobserve(entry.target);
-        } else if (!once) {
-          setVisible(false);
-        }
-      },
-      { threshold, rootMargin }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [threshold, rootMargin, once, enabled]);
-
-  return [ref, visible];
-}
+import ServiceQuoteHero from "./ServiceQuoteHero";
+import { projectQuoteHref } from "../lib/quote";
+import { useIsMobile } from "../hooks/useIsMobile";
+import { useReveal } from "../hooks/useReveal";
 
 // ─────────────────────────────────────────────
 // REVEAL WRAPPER (memoized)
@@ -377,10 +318,9 @@ function SectionKicker({ children }) {
 // ─────────────────────────────────────────────
 const content = {
   id: {
-    heroKicker: "Layanan Kami",
     heroTitle: "Jasa Cor Beton Ready Mix & Minimix",
-    heroSubtitle: "Untuk Jalan, Lantai Gudang, Dak Rumah & Konstruksi di Jabodetabek, Banten & Jawa Barat.",
-    heroDesc: "Jasa cor beton ready mix murah untuk konstruksi infrastruktur, jalan rigid, dan renovasi rumah. Kualitas SNI, presisi, armada lengkap, dan gratis survei lokasi.",
+    heroSubtitle: "Untuk lantai pabrik dan gudang, jalan industri, serta area parkir di Jabodetabek, Banten & Jawa Barat.",
+    heroDesc: "Konsultasikan lokasi, perkiraan luas atau volume, dan target pengerjaan. Tim kami membantu menyiapkan estimasi biaya dan jadwal cor.",
     figAlt: "Cor Beton Ready Mix",
     figCaption: "Pengecoran Beton Ready Mix — Tri Abadi Makmur",
     intro: "Jasa cor beton ready mix Jabodetabek, Banten & Jawa Barat — pada abad ke-21 ini kebutuhan jasa cor beton ready mix ataupun harga ready mix concrete per kubik (m³) sangat dibutuhkan sekali, baik untuk pengecoran jalan rigid beton, lantai pabrik/gudang, maupun dak rumah bertingkat.",
@@ -424,13 +364,11 @@ const content = {
     ctaTitleLight: "Butuh cor beton ready mix? ",
     ctaTitleBold: "Kami siap membantu.",
     ctaBtn: "Tanya Harga & Jadwal Cor via WA",
-    ctaWaMessage: "Halo Tri Abadi Makmur, saya ingin konsultasi & tanya harga Cor Beton Ready Mix...",
   },
   en: {
-    heroKicker: "Our Services",
-    heroTitle: "Ready-Mix & Minimix Concrete Services",
-    heroSubtitle: "for Roads, Warehouse Floors, Roof Slabs & Construction in Greater Jakarta, Banten & West Java.",
-    heroDesc: "Affordable ready-mix concrete services for infrastructure construction, rigid roads, and home renovation. SNI quality, precise, and free site survey.",
+    heroTitle: "Ready-Mix & Minimix Concrete Pouring",
+    heroSubtitle: "For factory and warehouse floors, industrial roads, and parking areas in Greater Jakarta, Banten & West Java.",
+    heroDesc: "Share the location, estimated area or volume, and preferred start date. We can help estimate the cost and plan the pour.",
     figAlt: "Ready-Mix Concrete",
     figCaption: "Ready-Mix Concrete Casting — Tri Abadi Makmur",
     intro: "Ready-mix concrete services in Jabodetabek, Banten & West Java — the need for ready-mix concrete casting services and prices per cubic meter (m³) is essential for rigid concrete roads, factory/warehouse floors, and multi-storey residential slabs.",
@@ -474,7 +412,6 @@ const content = {
     ctaTitleLight: "Need ready-mix concrete? ",
     ctaTitleBold: "We are ready to help.",
     ctaBtn: "Ask Price & Schedule via WA",
-    ctaWaMessage: "Hello Tri Abadi Makmur, I would like to consult about Ready-Mix Concrete...",
   },
 };
 
@@ -633,50 +570,19 @@ export default function CorBetonReadyMix() {
   }, [lang]);
 
   const [showArea, setShowArea] = useState(false);
+  const waHref = projectQuoteHref("concrete", lang);
 
   return (
     <div className="bg-slate-50/50">
 
-      {/* ═══════ HERO ═══════ */}
-      <section className="pt-32 lg:pt-40 pb-12 lg:pb-16 bg-white border-b border-slate-100">
-        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
-          <Reveal delay={0} y={20}>
-            <div className="inline-flex items-center gap-3 mb-6">
-              <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" aria-hidden="true" />
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-bold">
-                {data.heroKicker}
-              </span>
-              <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" aria-hidden="true" />
-            </div>
-          </Reveal>
-
-          <Reveal delay={80} y={30}>
-            <h1
-              className="font-light tracking-tight text-slate-900 leading-[1.1] mb-6"
-              style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}
-            >
-              {data.heroTitle}<span className="text-[#1e88e5]">.</span>
-            </h1>
-            {data.heroSubtitle && (
-              <p
-                className="text-slate-600 max-w-2xl mx-auto mt-4 mb-6"
-                style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1.125rem)" }}
-              >
-                {data.heroSubtitle}
-              </p>
-            )}
-          </Reveal>
-
-          <Reveal delay={160} y={24}>
-            <p
-              className="text-slate-600 leading-relaxed max-w-2xl mx-auto"
-              style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1.0625rem)" }}
-            >
-              {data.heroDesc}
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <ServiceQuoteHero
+        lang={lang}
+        quoteHref={waHref}
+        title={data.heroTitle}
+        subtitle={data.heroSubtitle}
+        description={data.heroDesc}
+        pricesId="paket-harga-cor-beton"
+      />
 
       {/* ═══════ KONTEN ═══════ */}
       <section className="py-16 lg:py-24">
@@ -719,7 +625,7 @@ export default function CorBetonReadyMix() {
         </div>
 
         {/* ═══════ PANEL HARGA (DIPINDAHKAN KE ATAS AGAR LANGSUNG TERLIHAT) ═══════ */}
-        <div className="mt-8 lg:mt-12 mb-16">
+        <div id="paket-harga-cor-beton" className="mt-8 lg:mt-12 mb-16 scroll-mt-24">
           <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
             <Reveal y={26}>
               <div className="text-center mb-10">
@@ -919,7 +825,7 @@ export default function CorBetonReadyMix() {
             
             <Reveal delay={200}>
               <div className="text-center mt-8">
-                <a href={`https://wa.me/6282258089367?text=${encodeURIComponent(data.ctaWaMessage)}`} 
+                <a href={waHref}
                    target="_blank" rel="noreferrer"
                    className="inline-flex items-center gap-2 text-[#1e88e5] font-semibold hover:underline">
                   {data.faqLinkText} <IconArrowRight className="w-4 h-4" />
@@ -1009,7 +915,7 @@ export default function CorBetonReadyMix() {
                   <span className="font-bold">{data.ctaTitleBold}</span>
                 </h3>
                 <a
-                  href={`https://wa.me/6282258089367?text=${encodeURIComponent(data.ctaWaMessage)}`}
+                  href={waHref}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={data.ctaBtn}

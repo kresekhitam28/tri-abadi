@@ -1,14 +1,14 @@
 // src/app/supplier/batu-split/page.js
 import BatuSplit from "../../../components/BatuSplit";
+import { createPageMetadata } from "../../../lib/metadata";
 
-export const metadata = {
-  title: "Batu Split | PT Tri Abadi Makmur",
+export const metadata = createPageMetadata({
+  path: "/supplier/batu-split",
+  title: "Batu Split",
   description:
     "Jual batu split segala bentuk dan ukuran untuk konstruksi, pengaspalan, cor beton, dan lainnya. Siap antar.",
-  alternates: {
-    canonical: "/supplier/batu-split",
-  },
-};
+  image: "/produk/batu-split.png",
+});
 
 export default function BatuSplitPage() {
   return <BatuSplit />;

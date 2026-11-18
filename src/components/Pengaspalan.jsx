@@ -1,75 +1,14 @@
 // src/components/Pengaspalan.jsx
 "use client";
 
-import { useState, useEffect, useRef, useCallback, useMemo, memo, useId } from "react";
+import { useState, useCallback, useMemo, memo, useId } from "react";
 import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import ServicePricingPanel from "./ServicePricingPanel";
-
-const WA_NUMBER = "6282258089367";
-
-// ─────────────────────────────────────────────
-// HOOK: DETEKSI MOBILE
-// ─────────────────────────────────────────────
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(max-width: 768px)");
-    const update = () => setIsMobile(mq.matches);
-    update();
-    if (mq.addEventListener) {
-      mq.addEventListener("change", update);
-      return () => mq.removeEventListener("change", update);
-    } else {
-      mq.addListener(update);
-      return () => mq.removeListener(update);
-    }
-  }, []);
-  return isMobile;
-}
-
-// ─────────────────────────────────────────────
-// HOOK: REVEAL ON SCROLL
-// ─────────────────────────────────────────────
-function useReveal(options = {}) {
-  const {
-    threshold = 0.12,
-    rootMargin = "0px 0px -60px 0px",
-    once = true,
-    enabled = true,
-  } = options;
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(!enabled);
-
-  useEffect(() => {
-    if (!enabled) {
-      setVisible(true);
-      return;
-    }
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          if (once) io.unobserve(entry.target);
-        } else if (!once) {
-          setVisible(false);
-        }
-      },
-      { threshold, rootMargin }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [threshold, rootMargin, once, enabled]);
-
-  return [ref, visible];
-}
+import ServiceQuoteHero from "./ServiceQuoteHero";
+import { projectQuoteHref } from "../lib/quote";
+import { useIsMobile } from "../hooks/useIsMobile";
+import { useReveal } from "../hooks/useReveal";
 
 // ─────────────────────────────────────────────
 // KOMPONEN: REVEAL WRAPPER (memoized)
@@ -315,12 +254,10 @@ function SectionKicker({ children }) {
 // ─────────────────────────────────────────────
 const content = {
   id: {
-    heroKicker: "Layanan Utama Kami",
     heroTitle: "Jasa Pengaspalan Jalan & Aspal Hotmix",
-    heroSubtitle: "untuk Perumahan, Pabrik, Gudang, Kawasan Industri, Area Parkir, hingga Proyek Pemerintah.",
-    heroDesc: "PT Tri Abadi Makmur melayani jasa pengaspalan jalan, aspal hotmix, perbaikan jalan, dan overlay untuk berbagai skala proyek. Melayani Jabodetabek, Banten, dan berbagai wilayah Indonesia.",
-    heroWaBtn: "Konsultasi & Minta Penawaran",
-    heroPriceBtn: "Lihat Paket Harga / m²",
+    heroSubtitle: "Untuk jalan pabrik, gudang, kawasan industri, dan area parkir di Jabodetabek, Banten & Jawa Barat.",
+    heroDesc: "Kami menangani pelapisan ulang, perbaikan jalan, dan pengaspalan baru. Kirim lokasi dan perkiraan luas untuk estimasi biaya dan survei lokasi.",
+    heroPriceNote: "Paket overlay mulai Rp75.000/m². Harga akhir mengikuti spesifikasi dan kondisi lokasi.",
     figKicker: "Proyek Lapangan",
     figCaption: "Proyek Pengaspalan — Tri Abadi Makmur",
     figAlt: "Jasa Pengaspalan",
@@ -389,15 +326,12 @@ const content = {
     ctaTitleLight: "Butuh jasa pengaspalan? ",
     ctaTitleBold: "Kami siap membantu.",
     ctaBtn: "Hubungi via WhatsApp",
-    ctaWaMessage: "Halo Tri Abadi Makmur, saya ingin konsultasi estimasi biaya & survey pengaspalan untuk lokasi di...",
   },
   en: {
-    heroKicker: "Our Main Service",
-    heroTitle: "Asphalt Paving & Hotmix Solutions",
-    heroSubtitle: "for Residential, Factory, Warehouse, Industrial Areas, Parking Lots, up to Government Projects.",
-    heroDesc: "PT Tri Abadi Makmur provides asphalt paving, hotmix, road repair, and overlay services for various project scales. Serving Greater Jakarta, Banten, and various regions across Indonesia.",
-    heroWaBtn: "Consult & Request Quote",
-    heroPriceBtn: "View Price Packages / m²",
+    heroTitle: "Hotmix Asphalt Paving Services",
+    heroSubtitle: "For factory roads, warehouses, industrial estates, and parking areas in Greater Jakarta, Banten & West Java.",
+    heroDesc: "We handle resurfacing, road repairs, and new paving. Share the location and estimated area for a quote and site survey.",
+    heroPriceNote: "Overlay packages start at Rp75,000/m². The final price depends on specifications and site conditions.",
     figKicker: "Field Project",
     figCaption: "Asphalt Paving Project — Tri Abadi Makmur",
     figAlt: "Asphalt Paving Service",
@@ -466,7 +400,6 @@ const content = {
     ctaTitleLight: "Need asphalt paving? ",
     ctaTitleBold: "We are ready to help.",
     ctaBtn: "Contact via WhatsApp",
-    ctaWaMessage: "Hello Tri Abadi Makmur, I would like to consult about asphalt paving cost & site survey in...",
   },
 };
 
@@ -599,73 +532,20 @@ export default function Pengaspalan() {
 
   const [showArea, setShowArea] = useState(false);
   const areaPanelId = useId();
-  const waHref = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(data.ctaWaMessage)}`;
+  const waHref = projectQuoteHref("asphalt", lang);
 
   return (
     <div className="bg-slate-50/50">
 
-      {/* ═══════ HERO ═══════ */}
-      <section className="pt-32 lg:pt-40 pb-14 lg:pb-20 bg-white border-b border-slate-100">
-        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
-          <Reveal delay={0} y={20}>
-            <div className="inline-flex items-center gap-3 mb-6">
-              <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" aria-hidden="true" />
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-bold">
-                {data.heroKicker}
-              </span>
-              <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" aria-hidden="true" />
-            </div>
-          </Reveal>
-
-          <Reveal delay={80} y={30}>
-            <h1
-              className="font-light tracking-tight text-slate-900 leading-[1.1] mb-6"
-              style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}
-            >
-              {data.heroTitle}<span className="text-[#1e88e5]">.</span>
-            </h1>
-            {data.heroSubtitle && (
-              <p
-                className="text-slate-600 max-w-2xl mx-auto mt-4"
-                style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1.125rem)" }}
-              >
-                {data.heroSubtitle}
-              </p>
-            )}
-          </Reveal>
-
-          <Reveal delay={140} y={24}>
-            <p
-              className="text-slate-600 leading-relaxed max-w-2xl mx-auto mt-5"
-              style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1.0625rem)" }}
-            >
-              {data.heroDesc}
-            </p>
-          </Reveal>
-
-          {/* CTA ABOVE THE FOLD */}
-          <Reveal delay={200} y={20}>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5">
-              <a
-                href={waHref}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 min-h-[48px] rounded-xl bg-[#25D366] text-white hover:bg-[#20bd5a] font-bold text-xs sm:text-sm uppercase tracking-[0.12em] shadow-lg shadow-[#25D366]/25 hover:shadow-[#25D366]/40 hover:-translate-y-0.5 transition-all duration-200"
-              >
-                <IconWhatsApp className="w-5 h-5 shrink-0" />
-                {data.heroWaBtn}
-              </a>
-              <a
-                href="#paket-harga-aspal"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[48px] rounded-xl bg-slate-50 text-slate-700 border border-slate-200 hover:border-[#1e88e5] hover:text-[#1e88e5] font-bold text-xs sm:text-sm uppercase tracking-[0.12em] transition-all duration-200"
-              >
-                {data.heroPriceBtn}
-                <IconArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <ServiceQuoteHero
+        lang={lang}
+        quoteHref={waHref}
+        title={data.heroTitle}
+        subtitle={data.heroSubtitle}
+        description={data.heroDesc}
+        priceNote={data.heroPriceNote}
+        pricesId="paket-harga-aspal"
+      />
 
       {/* ═══════ PAKET HARGA (DI ATAS AGAR LANGSUNG TERLIHAT) ═══════ */}
       <section id="paket-harga-aspal" className="py-14 lg:py-20 bg-white border-b border-slate-100 scroll-mt-24">

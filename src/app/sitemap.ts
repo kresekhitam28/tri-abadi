@@ -1,10 +1,9 @@
 import { MetadataRoute } from 'next';
 import { articles } from '../data/articles';
+import { SITE_URL } from '../lib/metadata';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
-
-const BASE_URL = 'https://spesialisaspal.com';
 
 // ⚠️ Hanya update tanggal saat halaman BENAR-BENAR diubah.
 // Google abaikan lastmod kalau tidak sesuai perubahan aktual.
@@ -25,6 +24,7 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/layanan/infrastruktur/pasang-tiang-pancang': '2025-06-01',
   '/layanan/bangunan': '2025-06-01',
   '/layanan/arsitektur': '2025-06-01',
+  '/alat-berat': '2026-11-18',
   '/supplier/abu-batu': '2025-06-01',
   '/supplier/base-course': '2025-06-01',
   '/supplier/batu-kali': '2025-06-01',
@@ -65,7 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         'monthly';
 
       return {
-        url: `${BASE_URL}${path}`,
+        url: `${SITE_URL}${path}`,
         lastModified,
         changeFrequency,
         priority,
@@ -73,10 +73,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   );
 
-  const blogRoutes: MetadataRoute.Sitemap = articles.map((post: any) => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: post.dateISO || new Date().toISOString().split('T')[0],
-    changeFrequency: 'monthly' as ChangeFreq,
+  const blogRoutes: MetadataRoute.Sitemap = articles.map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: post.dateISO,
+    changeFrequency: 'monthly',
     priority: 0.7,
   }));
 

@@ -5,18 +5,11 @@ import Footer from "../components/Footer";
 import FloatingWA from "../components/FloatingWA";
 import WATracker from "../components/WATracker"; // <-- Tambahan untuk tracking WA
 import Script from "next/script";
+import { SITE_NAME, SITE_URL } from "../lib/metadata";
 
 export const metadata = {
-  metadataBase: new URL("https://spesialisaspal.com"),
-  alternates: {
-    canonical: "/",
-  },
-  title: {
-    default: "Jasa Pengaspalan Jalan Hotmix & Kontraktor Aspal | PT Tri Abadi Makmur",
-    template: "%s | PT Tri Abadi Makmur",
-  },
-  description:
-    "Kontraktor jasa pengaspalan jalan hotmix, paving block, kanstin & cor beton bergaransi di Jabodetabek, Banten & Jawa Barat. Mulai Rp 75rb/m², gratis survei lokasi!",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_NAME,
   keywords: [
     "jasa pengaspalan",
     "jasa pengaspalan jalan",
@@ -27,23 +20,7 @@ export const metadata = {
     "kanstin",
     "cor beton ready mix",
   ],
-  authors: [{ name: "PT Tri Abadi Makmur" }],
-  openGraph: {
-    type: "website",
-    siteName: "PT Tri Abadi Makmur",
-    title: "Jasa Pengaspalan Jalan Hotmix & Kontraktor Aspal | PT Tri Abadi Makmur",
-    description:
-      "Kontraktor jasa pengaspalan jalan hotmix, paving block, kanstin & cor beton bergaransi di Jabodetabek, Banten & Jawa Barat. Gratis survei lokasi!",
-    images: ["/logo.webp"],
-    locale: "id_ID",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Jasa Pengaspalan Jalan Hotmix & Kontraktor Aspal | PT Tri Abadi Makmur",
-    description:
-      "Kontraktor jasa pengaspalan jalan hotmix, paving block, kanstin & cor beton bergaransi di Jabodetabek, Banten & Jawa Barat.",
-    images: ["/logo.webp"],
-  },
+  authors: [{ name: SITE_NAME }],
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -60,7 +37,7 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "GeneralContractor",
     "name": "PT Tri Abadi Makmur - Spesialis Aspal",
-    "url": "https://spesialisaspal.com/",
+    "url": `${SITE_URL}/`,
     "telephone": "+6282258089367",
     "address": {
       "@type": "PostalAddress",
@@ -88,16 +65,6 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-
-        {/* Preload gambar LCP (hero) — biar browser mulai download sebelum React hydrate */}
-        <link
-          rel="preload"
-          as="image"
-          href="/proyek/hero-1-1024.webp"
-          imageSrcSet="/proyek/hero-1-320.webp 320w, /proyek/hero-1-640.webp 640w, /proyek/hero-1-1024.webp 1024w"
-          imageSizes="100vw"
-          fetchPriority="high"
         />
 
         {/* Tag GTM untuk <head> */}

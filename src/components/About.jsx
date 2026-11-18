@@ -1,29 +1,10 @@
 // src/components/About.jsx
 "use client";
 
-import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
+import { useState, memo } from "react";
 import { useLang } from "../context/LanguageContext";
-
-// ─────────────────────────────────────────────
-// HOOK: DETEKSI MOBILE
-// ─────────────────────────────────────────────
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(max-width: 768px)");
-    const update = () => setIsMobile(mq.matches);
-    update();
-    if (mq.addEventListener) {
-      mq.addEventListener("change", update);
-      return () => mq.removeEventListener("change", update);
-    } else {
-      mq.addListener(update);
-      return () => mq.removeListener(update);
-    }
-  }, []);
-  return isMobile;
-}
+import { useIsMobile } from "../hooks/useIsMobile";
+import { useReveal } from "../hooks/useReveal";
 
 // ─────────────────────────────────────────────
 // IKON
@@ -167,40 +148,6 @@ const content = {
 };
 
 // ─────────────────────────────────────────────
-// HOOK: REVEAL ON SCROLL
-// ─────────────────────────────────────────────
-function useReveal(threshold = 0.12, enabled = true) {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(!enabled);
-
-  useEffect(() => {
-    if (!enabled) {
-      setVisible(true);
-      return;
-    }
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
-    }
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold, rootMargin: "0px 0px -60px 0px" }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [threshold, enabled]);
-
-  return [ref, visible];
-}
-
-// ─────────────────────────────────────────────
 // ACCORDION ITEM (memoized)
 // ─────────────────────────────────────────────
 const AccordionItem = memo(function AccordionItem({ title, defaultOpen = false, children }) {
@@ -325,9 +272,9 @@ export default function About() {
   const data = content[lang] || content.id;
   const isMobile = useIsMobile();
 
-  const [heroRef, heroVisible]   = useReveal(0.1, !isMobile);
-  const [introRef, introVisible] = useReveal(0.15, !isMobile);
-  const [cardsRef, cardsVisible] = useReveal(0.1, !isMobile);
+  const [heroRef, heroVisible]   = useReveal({ threshold: 0.1, enabled: !isMobile });
+  const [introRef, introVisible] = useReveal({ threshold: 0.15, enabled: !isMobile });
+  const [cardsRef, cardsVisible] = useReveal({ threshold: 0.1, enabled: !isMobile });
 
   return (
     <>

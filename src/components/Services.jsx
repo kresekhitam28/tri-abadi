@@ -1,9 +1,8 @@
 // src/components/Services.jsx
 "use client";
 
-import { useState, useRef, useEffect, lazy, Suspense, useMemo, useCallback } from "react";
+import { useState, useRef, useEffect, lazy, Suspense } from "react";
 import { useLang } from "../context/LanguageContext";
-import { useIsMobile } from "../hooks/useIsMobile";
 
 // ─────────────────────────────────────────────
 // LAZY-LOAD PANEL PRICING
@@ -96,14 +95,14 @@ function IconChevronDown({ className = "w-4 h-4" }) {
 
 // ─────────────────────────────────────────────
 // KONTEN BILINGUAL
-// `featured: true` → selalu terbuka (tidak bisa ditutup)
 // ─────────────────────────────────────────────
 const content = {
   id: {
-    kicker: "Yang Bisa Kami Kerjakan",
-    description:
-      "Kami menyediakan solusi konstruksi menyeluruh — dari perencanaan hingga eksekusi, dengan standar kualitas dan profesionalisme tinggi.",
-    featuredBadge: "Unggulan",
+    title: "Layanan dan Paket Harga",
+    description: "Pilih layanan untuk melihat paket harga dan lingkup pekerjaan.",
+    startingPrice: "Mulai Rp75.000/m²",
+    open: "Lihat Harga",
+    close: "Tutup Harga",
     services: [
       { Icon: IconRoad,    title: "Pengaspalan",          desc: "Pembangunan & perbaikan jalan dengan standar kualitas tinggi.", pricing: "aspal", featured: true },
       { Icon: IconCurb,    title: "Pasang Kanstin",       desc: "Pemasangan kanstin taman, trotoar, DKI, dan S dengan rapi.",   pricing: "kanstin" },
@@ -115,10 +114,11 @@ const content = {
     ],
   },
   en: {
-    kicker: "What We Can Do",
-    description:
-      "We provide end-to-end construction solutions — from planning to execution, with high standards of quality and professionalism.",
-    featuredBadge: "Featured",
+    title: "Services and Pricing",
+    description: "Choose a service to view package prices and the scope of work.",
+    startingPrice: "From Rp75,000/m²",
+    open: "View Prices",
+    close: "Hide Prices",
     services: [
       { Icon: IconRoad,    title: "Asphalt Paving",       desc: "Road construction & repair with high quality standards.",       pricing: "aspal", featured: true },
       { Icon: IconCurb,    title: "Curb Installation",    desc: "Neat installation of curbs for gardens, sidewalks, DKI, and S.", pricing: "kanstin" },
@@ -169,157 +169,65 @@ function PricingPanel({ type }) {
 // ─────────────────────────────────────────────
 export default function Services() {
   const { lang } = useLang();
-  const data = content[lang] || content.id;
-  const isMobile = useIsMobile();
-
-  // openIndex hanya untuk layanan buka-tutup (non-featured).
-  // Layanan featured (Pengaspalan) selalu terbuka.
+  const t = content[lang];
   const [openIndex, setOpenIndex] = useState(null);
   const panelRefs = useRef([]);
 
-  const toggle = useCallback(
-    (i) => setOpenIndex((prev) => (prev === i ? null : i)),
-    []
-  );
-
-  // Auto-scroll ke panel yang dibuka user
   useEffect(() => {
     if (openIndex === null) return;
-    const el = panelRefs.current[openIndex];
-    if (!el) return;
-    requestAnimationFrame(() => {
-      el.scrollIntoView({ behavior: "auto", block: "nearest" });
-    });
+    const panel = panelRefs.current[openIndex];
+    if (!panel) return;
+    const frame = requestAnimationFrame(() => panel.scrollIntoView({ block: "nearest" }));
+    return () => cancelAnimationFrame(frame);
   }, [openIndex]);
 
-  const btnOpen  = lang === "en" ? "Open"  : "Buka";
-  const btnClose = lang === "en" ? "Close" : "Tutup";
-
-  const services = useMemo(() => data.services, [data.services]);
-
   return (
-    <section className="relative bg-white pt-14 sm:pt-16 lg:pt-20 pb-14 sm:pb-16 lg:pb-24">
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-5 lg:px-8">
-        {/* ═══ HEADER ═══ */}
-        <div className="text-center mb-10 sm:mb-14 lg:mb-20">
-          <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-5 sm:mb-6">
-            <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" aria-hidden="true" />
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-semibold">
-              {data.kicker}
-            </span>
-            <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" aria-hidden="true" />
-          </div>
+    <section aria-labelledby="services-title" className="bg-white py-12 sm:py-16">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <header className="mb-7 sm:mb-9">
+          <h2 id="services-title" className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.title}</h2>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">{t.description}</p>
+        </header>
 
-          <h2
-            className="font-light tracking-tight text-slate-900 leading-[1.05] mb-5 sm:mb-6"
-            style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}
-          >
-            {lang === "en" ? (
-              <>
-                Our <span className="font-semibold">Services</span>
-                <span className="text-[#1e88e5]">.</span>
-              </>
-            ) : (
-              <>
-                <span className="font-semibold">Layanan</span> Kami
-                <span className="text-[#1e88e5]">.</span>
-              </>
-            )}
-          </h2>
-
-          <p
-            className="max-w-2xl mx-auto text-slate-600 leading-relaxed"
-            style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}
-          >
-            {data.description}
-          </p>
-        </div>
-
-        {/* ═══ DAFTAR LAYANAN ═══ */}
-        <div className="space-y-3 sm:space-y-3.5">
-          {services.map(({ Icon, title, desc, pricing, featured }, i) => {
-            const isExpandable = Boolean(pricing);
-            const isOpen = Boolean(featured) || openIndex === i;
-            const canToggle = isExpandable && !featured;
+        <div className="space-y-3">
+          {t.services.map(({ Icon, title, desc, pricing, featured }, index) => {
+            const open = openIndex === index;
+            const panelId = `service-panel-${index}`;
 
             return (
               <div
-                key={title}
-                ref={(el) => (panelRefs.current[i] = el)}
-                className={`bg-white border rounded-2xl overflow-hidden scroll-mt-20 sm:scroll-mt-24 transition-colors duration-200
-                  ${isOpen
-                    ? "border-[#1e88e5]"
-                    : "border-slate-200 hover:border-[#1e88e5]/50"}
-                  ${featured ? "shadow-sm shadow-[#1e88e5]/10" : ""}`}
+                key={pricing}
+                ref={(node) => { panelRefs.current[index] = node; }}
+                className={`scroll-mt-20 overflow-hidden rounded-xl border bg-white ${open || featured ? "border-blue-300" : "border-slate-200"}`}
               >
                 <button
                   type="button"
-                  onClick={() => canToggle && toggle(i)}
-                  disabled={!canToggle}
-                  aria-expanded={isOpen}
-                  aria-controls={`service-panel-${i}`}
-                  className={`w-full flex items-center gap-3 sm:gap-5 px-4 sm:px-6 py-4 sm:py-5 text-left transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1e88e5]
-                    ${canToggle ? "cursor-pointer" : "cursor-default"}`}
+                  onClick={() => setOpenIndex((current) => (current === index ? null : index))}
+                  aria-expanded={open}
+                  aria-controls={panelId}
+                  className="flex w-full cursor-pointer items-center gap-2.5 px-3 py-3.5 text-left focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-blue-600 sm:gap-5 sm:px-5 sm:py-4"
                 >
-                  <span
-                    className={`shrink-0 w-11 h-11 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-colors duration-200
-                      ${isOpen
-                        ? "bg-[#1e88e5] text-white"
-                        : "bg-[#1e88e5]/10 text-[#1e88e5]"}`}
-                  >
-                    <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-blue-50 text-blue-700 sm:size-11">
+                    <Icon className="size-4 sm:size-5" />
                   </span>
-
-                  <span className="flex-1 min-w-0">
-                    <span
-                      className={`block font-semibold leading-snug transition-colors duration-200 text-[15px] sm:text-[16px]
-                        ${isOpen ? "text-[#1e88e5]" : "text-slate-900"}`}
-                    >
-                      {title}
-                    </span>
-                    <span className="block text-[12px] sm:text-[12px] text-slate-500 leading-relaxed mt-0.5 sm:mt-1 line-clamp-2">
-                      {desc}
-                    </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-semibold text-slate-950 sm:text-base">{title}</span>
+                    <span className="mt-0.5 block text-xs leading-relaxed text-slate-600 sm:text-sm">{desc}</span>
+                    {featured && <span className="mt-1 block text-sm font-semibold text-blue-700">{t.startingPrice}</span>}
                   </span>
-
-                  {/* Featured: badge statis · Lainnya: tombol Buka/Tutup */}
-                  {featured ? (
-                    <span className="shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-full bg-[#1e88e5] text-white text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em]">
-                      {data.featuredBadge}
-                    </span>
-                  ) : (
-                    isExpandable && (
-                      <span
-                        className={`shrink-0 flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-full border text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] transition-colors duration-200
-                          ${isOpen
-                            ? "bg-[#1e88e5] text-white border-[#1e88e5]"
-                            : "bg-white text-slate-600 border-slate-300"}`}
-                      >
-                        {isOpen ? btnClose : btnOpen}
-                        <IconChevronDown
-                          className={`w-3 h-3 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-                        />
-                      </span>
-                    )
-                  )}
+                  <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-blue-50 px-2 py-1.5 text-[11px] font-semibold text-blue-700 sm:gap-1.5 sm:px-3 sm:text-xs">
+                    {open ? t.close : t.open}
+                    <IconChevronDown className={`size-3 transition-transform ${open ? "rotate-180" : ""}`} />
+                  </span>
                 </button>
 
-                {isExpandable && (
-                  <div
-                    id={`service-panel-${i}`}
-                    className="grid transition-[grid-template-rows,opacity] duration-300 ease-out"
-                    style={{
-                      gridTemplateRows: isOpen ? "1fr" : "0fr",
-                      opacity: isOpen ? 1 : 0,
-                    }}
-                  >
-                    <div className="overflow-hidden">
-                      <div className="border-t border-slate-100 bg-slate-50 px-3 sm:px-6 py-4 sm:py-6">
-                        {isOpen && <PricingPanel type={pricing} />}
-                      </div>
+                <div id={panelId} hidden={!open}>
+                  {open && (
+                    <div className="border-t border-slate-100 bg-slate-50 px-3 py-4 sm:px-6 sm:py-6">
+                      <PricingPanel type={pricing} />
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             );
           })}

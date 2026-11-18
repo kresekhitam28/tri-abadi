@@ -1,14 +1,14 @@
 // src/app/supplier/tanah-urug/page.js
 import TanahUrug from "../../../components/TanahUrug";
+import { createPageMetadata } from "../../../lib/metadata";
 
-export const metadata = {
-  title: "Tanah Urug | PT Tri Abadi Makmur",
+export const metadata = createPageMetadata({
+  path: "/supplier/tanah-urug",
+  title: "Tanah Urug",
   description:
     "Jual tanah urug untuk pengurugan lahan dan meninggikan permukaan tanah. Volume besar tersedia, harga ekonomis, pengiriman cepat.",
-  alternates: {
-    canonical: "/supplier/tanah-urug",
-  },
-};
+  image: "/produk/tanah-urug.png",
+});
 
 export default function TanahUrugPage() {
   return <TanahUrug />;
