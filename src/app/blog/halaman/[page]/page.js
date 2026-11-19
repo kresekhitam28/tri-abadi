@@ -25,5 +25,6 @@ export default async function PaginatedBlogPage({ params }) {
   const { page } = await params;
   if (!pages.includes(page)) notFound();
 
-  return <Blog {...getBlogListing(Number(page))} />;
+  const listing = await getBlogListing(Number(page));
+  return <Blog {...listing} />;
 }

@@ -198,7 +198,7 @@ export default function Services() {
   return (
     <section aria-labelledby="services-title" className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <header className="mb-7 sm:mb-9">
+        <header className="mx-auto mb-7 max-w-2xl text-center sm:mb-9">
           <h2 id="services-title" className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.title}</h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">{t.description}</p>
         </header>
@@ -219,28 +219,33 @@ export default function Services() {
                   onClick={() => setOpenIndex((current) => (current === index ? null : index))}
                   aria-expanded={open}
                   aria-controls={panelId}
-                  className="flex w-full cursor-pointer items-center gap-2.5 px-3 py-3.5 text-left focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-blue-600 sm:gap-5 sm:px-5 sm:py-4"
+                  className="group flex w-full cursor-pointer items-start gap-2.5 px-3 py-3.5 text-left transition-colors hover:bg-slate-50 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-blue-600 sm:items-center sm:gap-5 sm:px-5 sm:py-4"
                 >
                   <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-blue-50 text-blue-700 sm:size-11">
                     <Icon className="size-4 sm:size-5" />
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="block text-sm font-semibold text-slate-950 sm:text-base">{title}</span>
-                    <span className="mt-0.5 block text-xs leading-relaxed text-slate-600 sm:text-sm">{desc}</span>
+                    <span className="block text-base font-semibold leading-snug text-slate-950">{title}</span>
+                    <span className="mt-1 block text-xs leading-relaxed text-slate-600 sm:text-sm">{desc}</span>
                     {featured && <span className="mt-1 block text-sm font-semibold text-blue-700">{t.startingPrice}</span>}
                   </span>
-                  <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-blue-50 px-2 py-1.5 text-[11px] font-semibold text-blue-700 sm:gap-1.5 sm:px-3 sm:text-xs">
+                  <span className={`inline-flex min-h-9 shrink-0 items-center gap-1 rounded-lg border px-2 py-1.5 text-[11px] font-semibold group-hover:border-blue-300 sm:gap-1.5 sm:px-3 sm:text-xs ${open ? "border-blue-300 bg-blue-50 text-blue-900" : "border-blue-200 bg-white text-blue-800"}`}>
                     {open ? t.close : t.open}
                     <IconChevronDown className={`size-3 transition-transform ${open ? "rotate-180" : ""}`} />
                   </span>
                 </button>
 
-                <Link
-                  href={`/layanan/infrastruktur/${SERVICE_SLUGS[pricing]}`}
-                  className="ml-3 inline-flex min-h-10 items-center rounded px-2 pb-1 text-xs font-semibold text-blue-700 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-blue-700 sm:ml-5 sm:text-sm"
-                >
-                  {t.details} {title}
-                </Link>
+                <div className="border-t border-slate-100 px-3 sm:px-5">
+                  <Link
+                    href={`/layanan/infrastruktur/${SERVICE_SLUGS[pricing]}`}
+                    className="inline-flex min-h-11 items-center gap-2 rounded text-xs font-semibold text-blue-800 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:text-sm"
+                  >
+                    <span>{t.details} {title}</span>
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-3.5 shrink-0">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-5-5 5 5-5 5" />
+                    </svg>
+                  </Link>
+                </div>
 
                 <div id={panelId} hidden={!open}>
                   {open && (

@@ -6,7 +6,6 @@ import { projectQuoteHref } from "../lib/quote";
 
 const content = {
   id: {
-    area: "Jabodetabek, Banten & Jawa Barat",
     title: "Jasa Pengaspalan Jalan",
     emphasis: "Hotmix Bergaransi",
     description: `Pengaspalan untuk jalan, pabrik, perumahan, dan area parkir. Paket pelapisan ulang (overlay) mulai ${formatAsphaltPrice(asphaltPackagePrices.A)}/m².`,
@@ -40,9 +39,9 @@ export default function Hero() {
           alt=""
           fetchPriority="high"
           decoding="async"
-          className="h-full w-full object-cover object-[55%_55%]"
+          className="h-full w-full object-cover object-[68%_55%] sm:object-[55%_55%]"
         />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-[#071625]/80 via-[#071625]/72 to-[#071625] lg:bg-gradient-to-r lg:from-[#071625] lg:via-[#071625]/20 lg:to-transparent" />
+        <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,#071625b8_0%,#071625c7_30%,#071625bd_65%,#07162599_100%)] sm:bg-gradient-to-b sm:from-[#071625]/80 sm:via-[#071625]/72 sm:to-[#071625] lg:bg-gradient-to-r lg:from-[#071625] lg:via-[#071625]/20 lg:to-transparent" />
       </div>
 
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:py-28">
@@ -60,7 +59,7 @@ export default function Hero() {
               href={whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-center text-sm font-semibold hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-200 sm:text-base"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-center text-sm font-semibold transition-colors duration-150 hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-200 active:bg-blue-800 sm:text-base"
             >
               {t.consult}
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" className="size-4 shrink-0">
@@ -69,7 +68,7 @@ export default function Hero() {
             </a>
             <a
               href="#proyek-unggulan"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/40 bg-slate-950/25 px-5 py-3 text-center text-sm font-semibold hover:bg-white/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-200 sm:text-base"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/40 bg-slate-950/50 px-5 py-3 text-center text-sm font-semibold transition-colors duration-150 hover:bg-slate-950/65 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-200 active:bg-slate-950/80 sm:bg-slate-950/25 sm:hover:bg-white/15 sm:active:bg-white/20 sm:text-base"
             >
               {t.results}
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" className="size-4 shrink-0">

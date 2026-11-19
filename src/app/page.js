@@ -10,7 +10,7 @@ import { createPageMetadata } from "../lib/metadata";
 import { getProjectImageFiles } from "../lib/projectImages";
 import { getArticleSummaries } from "../lib/blog";
 
-const featuredProjects = [27, 25, 30].map((id) => projects.find((project) => project.id === id));
+const featuredProjects = [27, 25, 30, 1, 21, 59].map((id) => projects.find((project) => project.id === id));
 const previewArticles = getArticleSummaries([
   "aspal-jalan-murah",
   "pemasangan-kansteen",
@@ -29,14 +29,17 @@ export const metadata = createPageMetadata({
 });
 
 export default async function Home() {
-  const imageFiles = await getProjectImageFiles(featuredProjects);
+  const [imageFiles, articleImageFiles] = await Promise.all([
+    getProjectImageFiles(featuredProjects),
+    getProjectImageFiles(previewArticles),
+  ]);
   return (
     <div className="pt-[72px] sm:pt-[76px]">
       <Hero />
       <ProjectsSection featured={featuredProjects} {...imageFiles} />
       <Clients />
       <Services />
-      <BlogPreview items={previewArticles} />
+      <BlogPreview items={previewArticles} variants={articleImageFiles.variants} />
     </div>
   );
 }

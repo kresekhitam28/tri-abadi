@@ -29,7 +29,7 @@ const content = {
   },
 };
 
-export default function BlogPreview({ items }) {
+export default function BlogPreview({ items, variants }) {
   const { lang } = useLang();
   const data = content[lang] || content.id;
 
@@ -39,7 +39,7 @@ export default function BlogPreview({ items }) {
       style={{ contain: "layout style" }}
     >
       <div className="relative max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
-        <div className="text-center mb-10 sm:mb-14 lg:mb-20">
+        <div className="mx-auto mb-6 max-w-3xl text-center sm:mb-14 lg:mb-20">
           <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-5">
             <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-semibold">
@@ -55,11 +55,20 @@ export default function BlogPreview({ items }) {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7" style={{ contain: "layout paint style" }}>
-          {items.map((item) => <BlogCard key={item.slug} item={item} />)}
+        <div className="grid grid-cols-2 gap-3 max-sm:auto-rows-fr sm:gap-6 lg:grid-cols-3 lg:gap-7" style={{ contain: "layout paint style" }}>
+          {items.map((item) => {
+            const imageBase = item.src.replace(/\.webp$/, "");
+            const thumbnailSrcSet = [320, 640].flatMap((size) => {
+              const src = `${imageBase}-${size}.webp`;
+              const width = variants[src.split("/").pop()];
+              return width ? [`${src} ${width}w`] : [];
+            }).join(", ");
+
+            return <BlogCard key={item.slug} item={item} compactMobile thumbnailSrcSet={thumbnailSrcSet} />;
+          })}
         </div>
 
-        <div className="text-center mt-12 sm:mt-16 lg:mt-20">
+        <div className="mt-7 text-center sm:mt-16 lg:mt-20">
           <Link
             href="/blog"
             className="group inline-flex items-center gap-2.5 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-slate-900 hover:bg-[#1e88e5] text-white font-semibold text-[11px] sm:text-sm uppercase tracking-[0.15em] transition-colors duration-200"

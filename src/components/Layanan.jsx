@@ -3,6 +3,7 @@
 
 import { memo } from "react";
 import Link from "next/link";
+import { useLang } from "../context/LanguageContext";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useReveal } from "../hooks/useReveal";
 
@@ -78,29 +79,35 @@ function IconTruck({ className = "w-5 h-5" }) {
 const layananUtama = [
   {
     title: "Konstruksi Infrastruktur",
+    titleEn: "Infrastructure Construction",
     desc: "Pengerjaan jalan, drainase, dan infrastruktur publik dengan standar kualitas tinggi — didukung alat berat & tenaga ahli.",
+    descEn: "Roadwork, drainage, and public infrastructure construction supported by skilled crews and heavy equipment.",
     to: "/layanan/infrastruktur/pengaspalan",
     Icon: IconRoad,
     items: [
-      { label: "Pengaspalan",          to: "/layanan/infrastruktur/pengaspalan",         Icon: IconRoad },
-      { label: "Pasang Kanstin",       to: "/layanan/infrastruktur/pasang-kanstin",      Icon: IconCurb },
-      { label: "Cor Beton Ready Mix",  to: "/layanan/infrastruktur/cor-beton-ready-mix", Icon: IconMixer },
-      { label: "Pasang Grass Block",   to: "/layanan/infrastruktur/pasang-grass-block",  Icon: IconGrass },
-      { label: "Pasang Paving Block",  to: "/layanan/infrastruktur/pasang-paving-block", Icon: IconPaving },
-      { label: "Pasang Pager Panel",   to: "/layanan/infrastruktur/pasang-pager-panel",  Icon: IconFence },
-      { label: "Pasang Tiang Pancang", to: "/layanan/infrastruktur/pasang-tiang-pancang", Icon: IconPile },
+      { label: "Pengaspalan", labelEn: "Asphalt Paving", to: "/layanan/infrastruktur/pengaspalan", Icon: IconRoad, primary: true },
+      { label: "Pasang Kanstin", labelEn: "Curb Installation", to: "/layanan/infrastruktur/pasang-kanstin", Icon: IconCurb },
+      { label: "Cor Beton Ready Mix", labelEn: "Ready-Mix Concrete Pouring", to: "/layanan/infrastruktur/cor-beton-ready-mix", Icon: IconMixer, primary: true },
+      { label: "Pasang Grass Block", labelEn: "Grass Block Installation", to: "/layanan/infrastruktur/pasang-grass-block", Icon: IconGrass },
+      { label: "Pasang Paving Block", labelEn: "Paving Block Installation", to: "/layanan/infrastruktur/pasang-paving-block", Icon: IconPaving, primary: true },
+      { label: "Pasang Pager Panel", labelEn: "Panel Fence Installation", to: "/layanan/infrastruktur/pasang-pager-panel", Icon: IconFence },
+      { label: "Pasang Tiang Pancang", labelEn: "Pile Installation", to: "/layanan/infrastruktur/pasang-tiang-pancang", Icon: IconPile },
     ],
   },
   {
     title: "Konstruksi Bangunan",
+    titleEn: "Building Construction",
     desc: "Pembangunan gedung, ruko, rumah tinggal, dan bangunan komersial dengan hasil rapi, kokoh, dan tepat waktu.",
+    descEn: "Construction of buildings, shophouses, homes, and commercial properties, with a focus on quality and timely delivery.",
     to: "/layanan/bangunan",
     Icon: IconBuilding,
     items: [],
   },
   {
     title: "Jasa Arsitektur",
+    titleEn: "Architectural Services",
     desc: "Desain rumah, bangunan komersial, 3D visualisasi, dan gambar kerja (DED) — fungsional, estetis, sesuai budget.",
+    descEn: "Residential and commercial design, 3D visualization, and detailed engineering drawings tailored to your needs and budget.",
     to: "/layanan/arsitektur",
     Icon: IconPencil,
     items: [],
@@ -113,24 +120,29 @@ const layananUtama = [
 const layananPendukung = [
   {
     title: "Supplier Material",
+    titleEn: "Material Supply",
     desc: "Jual berbagai material konstruksi: abu batu, base course, batu split, pasir, sirtu, tanah urug, dan lainnya.",
+    descEn: "Construction materials including stone dust, base course, crushed stone, sand, sand-gravel mix, and fill soil.",
     to: "/supplier",
     Icon: IconBox,
     count: "10+ Material",
+    countEn: "10+ Materials",
   },
   {
     title: "Heavy Equipment",
     desc: "Sewa alat berat untuk menunjang proyek: dozer, excavator, roller, asphalt finisher, dump truck, dll.",
+    descEn: "Heavy equipment rental including dozers, excavators, rollers, asphalt pavers, and dump trucks.",
     to: "/alat-berat",
     Icon: IconTruck,
     count: "9+ Alat Berat",
+    countEn: "9+ Equipment Types",
   },
 ];
 
 // ─────────────────────────────────────────────
 // SUB-KOMPONEN: LAYANAN CARD
 // ─────────────────────────────────────────────
-const LayananCard = memo(function LayananCard({ layanan }) {
+const LayananCard = memo(function LayananCard({ layanan, english }) {
   return (
     <div
       className="rounded-2xl border border-slate-200 bg-white
@@ -140,7 +152,7 @@ const LayananCard = memo(function LayananCard({ layanan }) {
     >
       <Link
         href={layanan.to}
-        className="flex items-start gap-3.5 sm:gap-4 p-4 sm:p-5 lg:p-6"
+        className="flex items-start gap-3.5 p-4 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-blue-700 sm:gap-4 sm:p-5 lg:p-6"
       >
         <span className="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl
                          bg-[#1e88e5]/10 text-[#1e88e5]
@@ -154,7 +166,7 @@ const LayananCard = memo(function LayananCard({ layanan }) {
               className="font-semibold text-slate-900"
               style={{ fontSize: "clamp(0.9375rem, 2vw, 1rem)" }}
             >
-              {layanan.title}
+              {english ? layanan.titleEn : layanan.title}
             </h3>
             <IconArrowRight className="w-3.5 h-3.5 text-slate-400" />
           </div>
@@ -162,29 +174,26 @@ const LayananCard = memo(function LayananCard({ layanan }) {
             className="text-slate-500 leading-relaxed"
             style={{ fontSize: "clamp(0.78125rem, 1.5vw, 0.8125rem)" }}
           >
-            {layanan.desc}
+            {english ? layanan.descEn : layanan.desc}
           </p>
         </div>
       </Link>
 
       {layanan.items.length > 0 && (
         <div className="px-4 sm:px-5 lg:px-6 pb-4 sm:pb-5 lg:pb-6 pt-0">
-          <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+          <div className="flex flex-wrap gap-2 border-t border-slate-100 pt-3">
             {layanan.items.map((item, i) => (
               <Link
                 key={i}
                 href={item.to}
-                className="inline-flex items-center gap-1.5
-                           px-2.5 sm:px-3 py-1.5 rounded-lg
-                           bg-slate-50 border border-slate-200
-                           text-slate-600
-                           hover:bg-[#1e88e5] hover:text-white
-                           hover:border-[#1e88e5]
-                           transition-colors duration-150"
-                style={{ fontSize: "clamp(0.71875rem, 1.4vw, 0.75rem)" }}
+                className={`inline-flex min-h-11 items-center gap-1.5 rounded-lg border px-2.5 py-2 text-xs transition-colors hover:border-blue-300 hover:bg-blue-100 hover:text-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:min-h-10 sm:px-3 ${
+                  item.primary ? "border-blue-200 bg-blue-50 font-semibold text-blue-800" : "border-slate-200 bg-slate-50 font-medium text-slate-700"
+                }`}
               >
-                <item.Icon className="w-3.5 h-3.5" />
-                {item.label}
+                <span aria-hidden="true" className="size-3.5 shrink-0">
+                  <item.Icon className="size-full" />
+                </span>
+                {english ? item.labelEn : item.label}
               </Link>
             ))}
           </div>
@@ -197,7 +206,7 @@ const LayananCard = memo(function LayananCard({ layanan }) {
 // ─────────────────────────────────────────────
 // SUB-KOMPONEN: PENDUKUNG CARD
 // ─────────────────────────────────────────────
-const PendukungCard = memo(function PendukungCard({ item }) {
+const PendukungCard = memo(function PendukungCard({ item, english }) {
   return (
     <Link
       href={item.to}
@@ -219,14 +228,14 @@ const PendukungCard = memo(function PendukungCard({ item }) {
             className="font-semibold text-slate-900"
             style={{ fontSize: "clamp(0.9375rem, 2vw, 1rem)" }}
           >
-            {item.title}
+            {english ? item.titleEn ?? item.title : item.title}
           </h3>
           <span
             className="shrink-0 uppercase tracking-[0.15em] font-bold
                        text-[#1e88e5] px-2 py-1 rounded-md bg-[#1e88e5]/10"
             style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
           >
-            {item.count}
+            {english ? item.countEn : item.count}
           </span>
         </div>
 
@@ -234,14 +243,14 @@ const PendukungCard = memo(function PendukungCard({ item }) {
           className="text-slate-500 leading-relaxed mb-3"
           style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.78125rem)" }}
         >
-          {item.desc}
+          {english ? item.descEn : item.desc}
         </p>
 
         <span className="inline-flex items-center gap-1.5
                          font-semibold uppercase tracking-[0.15em]
                          text-[#1e88e5]"
               style={{ fontSize: "clamp(0.625rem, 1.2vw, 0.6875rem)" }}>
-          Lihat Selengkapnya
+          {english ? "Learn More" : "Lihat Selengkapnya"}
           <IconArrowRight className="w-3 h-3" />
         </span>
       </div>
@@ -288,6 +297,8 @@ const SectionHeader = memo(function SectionHeader({ badge, title, subtitle }) {
 // HALAMAN
 // ─────────────────────────────────────────────
 export default function Layanan() {
+  const { lang } = useLang();
+  const english = lang === "en";
   return (
     <div className="bg-white">
 
@@ -301,7 +312,7 @@ export default function Layanan() {
               <span className="text-[10px] sm:text-[11px] uppercase
                                tracking-[0.25em] sm:tracking-[0.3em]
                                text-[#1e88e5] font-semibold">
-                Layanan Kami
+                {english ? "Our Services" : "Layanan Kami"}
               </span>
               <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
             </div>
@@ -312,7 +323,8 @@ export default function Layanan() {
               className="font-light tracking-tight text-slate-900 leading-[1.05] mb-5"
               style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}
             >
-              Solusi <span className="font-semibold">Konstruksi</span>
+              {english ? "Construction" : "Solusi"}{" "}
+              <span className="font-semibold">{english ? "Solutions" : "Konstruksi"}</span>
               <span className="text-[#1e88e5]">.</span>
             </h1>
           </FadeUp>
@@ -322,9 +334,7 @@ export default function Layanan() {
               className="text-slate-600 leading-relaxed max-w-2xl mx-auto"
               style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}
             >
-              Dari pengerjaan jalan hingga pembangunan gedung — kami siap
-              menangani setiap tahap proyek Anda dengan tenaga ahli, alat
-              berat lengkap, dan material berkualitas.
+              {english ? "From roadwork to building construction, we support each stage of your project with skilled crews, heavy equipment, and quality materials." : "Dari pengerjaan jalan hingga pembangunan gedung — kami siap menangani setiap tahap proyek Anda dengan tenaga ahli, alat berat lengkap, dan material berkualitas."}
             </p>
           </FadeUp>
         </div>
@@ -336,15 +346,15 @@ export default function Layanan() {
 
           <FadeUp>
             <SectionHeader
-              badge="Bidang Utama"
-              title={<>Tiga Pilar <span className="font-semibold">Layanan Kami</span></>}
+              badge={english ? "Core Services" : "Bidang Utama"}
+              title={<>{english ? "Our Three" : "Tiga Pilar"}{" "}<span className="font-semibold">{english ? "Service Areas" : "Layanan Kami"}</span></>}
             />
           </FadeUp>
 
           <div className="space-y-3.5 sm:space-y-4">
             {layananUtama.map((layanan, idx) => (
               <FadeUp key={idx} delay={idx * 80}>
-                <LayananCard layanan={layanan} />
+                <LayananCard layanan={layanan} english={english} />
               </FadeUp>
             ))}
           </div>
@@ -357,16 +367,16 @@ export default function Layanan() {
 
           <FadeUp>
             <SectionHeader
-              badge="Layanan Pendukung"
-              title={<>Material & <span className="font-semibold">Alat Berat</span></>}
-              subtitle="Menunjang kelancaran proyek Anda dari sisi material hingga kebutuhan alat berat di lapangan."
+              badge={english ? "Supporting Services" : "Layanan Pendukung"}
+              title={<>{english ? "Materials &" : "Material &"}{" "}<span className="font-semibold">{english ? "Heavy Equipment" : "Alat Berat"}</span></>}
+              subtitle={english ? "Support for your project, from material supply to on-site equipment needs." : "Menunjang kelancaran proyek Anda dari sisi material hingga kebutuhan alat berat di lapangan."}
             />
           </FadeUp>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-5">
             {layananPendukung.map((item, i) => (
               <FadeUp key={i} delay={i * 80}>
-                <PendukungCard item={item} />
+                <PendukungCard item={item} english={english} />
               </FadeUp>
             ))}
           </div>
@@ -380,14 +390,14 @@ export default function Layanan() {
             <div className="mt-14 sm:mt-16 text-center max-w-2xl mx-auto">
               <p className="text-[#1e88e5] text-[10px] uppercase tracking-[0.3em]
                             font-semibold mb-3">
-                Konsultasi Gratis
+                {english ? "Free Consultation" : "Konsultasi Gratis"}
               </p>
               <h3
                 className="text-slate-900 font-light tracking-tight mb-6"
                 style={{ fontSize: "clamp(1.25rem, 3vw, 1.5rem)" }}
               >
-                Punya proyek yang ingin dikerjakan?{" "}
-                <span className="font-semibold">Kami siap membantu.</span>
+                {english ? "Have a project in mind?" : "Punya proyek yang ingin dikerjakan?"}{" "}
+                <span className="font-semibold">{english ? "We can help." : "Kami siap membantu."}</span>
               </h3>
 
               <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
@@ -401,7 +411,7 @@ export default function Layanan() {
                              transition-colors duration-300"
                   style={{ fontSize: "clamp(0.6875rem, 1.3vw, 0.75rem)" }}
                 >
-                  Hubungi Kami
+                  {english ? "Contact Us" : "Hubungi Kami"}
                   <IconArrowRight className="w-3.5 h-3.5" />
                 </Link>
                 <Link
@@ -414,7 +424,7 @@ export default function Layanan() {
                              transition-colors duration-300"
                   style={{ fontSize: "clamp(0.6875rem, 1.3vw, 0.75rem)" }}
                 >
-                  Lihat Proyek
+                  {english ? "View Projects" : "Lihat Proyek"}
                 </Link>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import { articles, getArticleBySlug } from "../data/articles";
+import { getProjectImageFiles } from "./projectImages";
 
 const articlesPerPage = 6;
 const sortedArticles = [...articles].sort((a, b) => b.dateISO.localeCompare(a.dateISO));
@@ -16,10 +17,21 @@ export const blogPageNumbers = Array.from(
   (_, index) => index + 1,
 );
 
-export function getBlogListing(page) {
+export async function getBlogListing(page) {
   const start = (page - 1) * articlesPerPage;
+  const items = sortedArticles.slice(start, start + articlesPerPage).map(articleSummary);
+  const { variants } = await getProjectImageFiles(items);
   return {
-    items: sortedArticles.slice(start, start + articlesPerPage).map(articleSummary),
+    items: items.map((item) => {
+      const imageBase = item.src.replace(/\.webp$/, "");
+      const thumbnailSrcSet = [320, 640].flatMap((size) => {
+        const src = `${imageBase}-${size}.webp`;
+        const width = variants[src.split("/").pop()];
+        return width ? [`${src} ${width}w`] : [];
+      }).join(", ");
+
+      return { ...item, thumbnailSrcSet };
+    }),
     page,
     pageLinks: blogPageNumbers.map(blogPagePath),
   };

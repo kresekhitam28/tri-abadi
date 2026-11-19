@@ -204,23 +204,29 @@ const commentFieldClass = "block w-full rounded-xl border border-slate-500 bg-sl
 // ─────────────────────────────────────────────
 // BODY RENDERER
 // ─────────────────────────────────────────────
-function ArticleBody({ body, lang }) {
+function ArticleBody({ body, lang, priceGuide }) {
   const firstParagraphIndex = body.findIndex((block) => block.type === "paragraph");
 
   return (
-    <div className="space-y-6 sm:space-y-8">
+    <div className={priceGuide ? "min-w-0 space-y-4 sm:space-y-6" : "space-y-6 sm:space-y-8"}>
       {body.map((block, i) => {
         if (block.type === "heading") {
           return (
             <Reveal key={i} y={16}>
               <h2
                 id={block.id}
-                className="scroll-mt-24 pt-4 sm:pt-6 font-semibold text-slate-900 leading-snug tracking-tight"
+                className={`scroll-mt-24 font-semibold leading-snug tracking-tight text-slate-900 ${priceGuide ? "pt-3 sm:pt-4" : "pt-4 sm:pt-6"}`}
                 style={{ fontSize: "clamp(1.0625rem, 2.2vw, 1.375rem)" }}
               >
                 {pick(block.text, lang)}
               </h2>
             </Reveal>
+          );
+        }
+
+        if (priceGuide && block.type === "price-list") {
+          return (
+            <div key={i} className="min-w-0 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: pick(block.text, lang) }} />
           );
         }
 
@@ -231,7 +237,7 @@ function ArticleBody({ body, lang }) {
 
           return (
             <Reveal key={i} y={14}>
-              {isFirst && !containsHtml ? (
+              {isFirst && !containsHtml && !priceGuide ? (
                 <p
                   className="text-slate-700 leading-[1.9] sm:leading-[1.95]
                              first-letter:float-left first-letter:mr-3 first-letter:mt-1
@@ -297,6 +303,7 @@ function ArticleBody({ body, lang }) {
 // ─────────────────────────────────────────────
 export default function BlogDetail({ article, visibleTags, relatedArticles }) {
   const { slug } = article;
+  const priceGuide = Boolean(article.quote);
   const { lang } = useLang();
   const t = content[lang] || content.id;
 
@@ -433,7 +440,7 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
   return (
     <article className="bg-white" style={{ contain: "layout style" }}>
       {/* ═══ HERO ═══ */}
-      <section className={article.quote ? "pb-5 pt-24 sm:pb-6 sm:pt-28" : "pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 lg:pb-12"}>
+      <section className={priceGuide ? "pb-5 pt-23 sm:pb-6 sm:pt-26" : "pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 lg:pb-12"}>
         <div className="relative max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <nav aria-label={t.breadcrumb} className="mb-3 text-xs text-slate-600">
             <ol className="flex min-w-0 items-center justify-center gap-2">
@@ -452,13 +459,13 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
             <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
           </div>
           <h1
-            className="mt-5 sm:mt-7 font-light tracking-tight text-slate-900 leading-[1.18]"
+            className={`tracking-tight text-slate-900 leading-[1.18] ${priceGuide ? "mt-3 text-balance font-semibold sm:mt-4" : "mt-5 font-light sm:mt-7"}`}
             style={{ fontSize: "clamp(1.5rem, 5vw, 2.625rem)" }}
           >
             {title}
             <span className="text-[#1e88e5]">.</span>
           </h1>
-          <div className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-slate-600 sm:text-sm">
+          <div className={`flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-slate-600 sm:text-sm ${priceGuide ? "mt-3" : "mt-4"}`}>
             {formattedDate && (
               <p>
                 {t.publishedLabel}{" "}
@@ -486,7 +493,7 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
       )}
 
       {/* ═══ COVER ═══ */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 sm:mt-8 lg:mt-12">
+      <section className={`mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 ${priceGuide ? "mt-4 sm:mt-6" : "mt-4 sm:mt-8 lg:mt-12"}`}>
         <Reveal y={26} duration={800}>
           <figure
             className={`relative aspect-video overflow-hidden rounded-2xl ring-1 ring-slate-200 ${illustration ? "bg-white" : "bg-slate-100"}`}
@@ -510,18 +517,17 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
       </section>
 
       {/* ═══ BODY ═══ */}
-      <section className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 pt-10 sm:pt-12 lg:pt-16">
+      <section className={`mx-auto max-w-3xl px-5 sm:px-6 lg:px-8 ${priceGuide ? "pt-7 sm:pt-9" : "pt-10 sm:pt-12 lg:pt-16"}`}>
         <Reveal y={18}>
           <p
-            className="text-slate-600 leading-[1.85] italic
-                       border-l-2 border-[#1e88e5] pl-4 sm:pl-5 mb-8 sm:mb-10"
+            className={priceGuide ? "mb-5 rounded-r-lg border-l-2 border-blue-700 bg-slate-50 px-4 py-3 leading-relaxed text-slate-700 sm:mb-6 sm:px-5" : "mb-8 border-l-2 border-[#1e88e5] pl-4 italic leading-[1.85] text-slate-600 sm:mb-10 sm:pl-5"}
             style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.9375rem)" }}
           >
             {desc}
           </p>
         </Reveal>
 
-        <ArticleBody body={article.body} lang={lang} />
+        <ArticleBody body={article.body} lang={lang} priceGuide={priceGuide} />
 
         {/* ═══ TAGS & SHARE ═══ */}
         <Reveal y={20}>

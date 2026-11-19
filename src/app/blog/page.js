@@ -11,6 +11,7 @@ export const metadata = createPageMetadata({
   image: "/proyek/proyek-30.webp",
 });
 
-export default function BlogPage() {
-  return <Blog {...getBlogListing(1)} />;
+export default async function BlogPage() {
+  const listing = await getBlogListing(1);
+  return <Blog {...listing} />;
 }

@@ -147,6 +147,7 @@ const content = {
     colIsi: "Isi", colIsiLine2: "/ m²",
     footnoteTable: "Harga material dalam ribuan Rupiah per m²",
     mobileIsi: "Isi:", mobileNatural: "Natural", mobileWarna: "Warna",
+    installationAreaNote: "Harga tercantum untuk area di atas 100 m². Untuk area 100 m² atau kurang, hubungi kami untuk penawaran.",
     footerNote: "Gratis survei lokasi & konsultasi RAB. Harga dapat menyesuaikan luas area & kondisi lapangan.",
     ctaLabel: "Tanya Harga & Survei via WA",
     waText: "Halo Tri Abadi Makmur, saya mau tanya rincian harga pemasangan paving block & jadwalkan survei lokasi...",
@@ -162,6 +163,7 @@ const content = {
     colIsi: "Qty", colIsiLine2: "/ m²",
     footnoteTable: "Material prices are in thousands of Rupiah per m²",
     mobileIsi: "Qty:", mobileNatural: "Natural", mobileWarna: "Colored",
+    installationAreaNote: "Listed prices apply to areas above 100 m². For areas of 100 m² or less, contact us for a quote.",
     footerNote: "Free site survey & budget consultation. Prices may adjust based on area size & field conditions.",
     ctaLabel: "Ask Price & Survey via WA",
     waText: "Hello Tri Abadi Makmur, I would like to ask about paving block installation prices & schedule a site survey...",
@@ -369,7 +371,7 @@ export default function PavingPricingPanel({ hideCta = false }) {
               </div>
             </div>
             <p className="text-[11px] text-slate-500 italic">
-              * {lang === "en" ? "Price for area above 100 m²" : "Harga untuk ukuran di atas 100 m²"}
+              * {t.installationAreaNote}
             </p>
           </div>
         ),
@@ -417,11 +419,15 @@ export default function PavingPricingPanel({ hideCta = false }) {
               </li>
               <li className="flex gap-2">
                 <span className="text-slate-300" aria-hidden="true">•</span>
-                {lang === "en" ? (<>Color <b className="text-slate-700">natural</b> (other colors + Rp 10.000/m²)</>) : (<>Warna <b className="text-slate-700">natural</b> (warna merah/hitam + Rp 10.000/m²)</>)}
+                <span>
+                  {lang === "en"
+                    ? (<>Package prices use <b className="text-slate-700">natural-colored paving</b>. For red or black, confirm the estimated surcharge of <b className="text-slate-700">Rp 10,000/m²</b> when requesting a quote.</>)
+                    : (<>Harga paket menggunakan <b className="text-slate-700">paving warna natural</b>. Untuk warna merah atau hitam, konfirmasikan estimasi tambahan <b className="text-slate-700">Rp 10.000/m²</b> saat meminta penawaran.</>)}
+                </span>
               </li>
               <li className="flex gap-2">
                 <span className="text-slate-300" aria-hidden="true">•</span>
-                {lang === "en" ? (<>Price for area above <b className="text-slate-700">100 m²</b> (under 100 m² negotiable)</>) : (<>Harga untuk ukuran di atas <b className="text-slate-700">100 m²</b> (di bawah 100 m² silakan konsultasi)</>)}
+                <span>{t.installationAreaNote}</span>
               </li>
             </ul>
           </div>

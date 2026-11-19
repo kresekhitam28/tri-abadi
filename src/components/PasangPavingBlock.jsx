@@ -482,12 +482,11 @@ export default function PasangPavingBlock({ project }) {
         title={data.heroTitle}
         subtitle={data.heroSubtitle}
         description={data.heroDesc}
-        projectLocation={project.location}
         pricesId="paket-harga-paving"
       />
 
       {/* ═══════ KONTEN UTAMA ═══════ */}
-      <section className="py-16 lg:py-24">
+      <section className="pb-16 pt-7 sm:pt-10 lg:pb-24 lg:pt-14">
         <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
 
           <Reveal y={40} duration={800}>
@@ -499,7 +498,7 @@ export default function PasangPavingBlock({ project }) {
         <div id="paket-harga-paving" className="mt-8 lg:mt-12 mb-16 scroll-mt-24">
           <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
             <Reveal y={26}>
-              <div className="text-center mb-10">
+              <div className="text-center mb-6 sm:mb-8">
                 <SectionKicker>{data.priceKicker}</SectionKicker>
                 <h2
                   className="font-light tracking-tight text-slate-900 leading-tight max-w-2xl mx-auto"

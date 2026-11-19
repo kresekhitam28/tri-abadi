@@ -103,10 +103,10 @@ const DesktopTable = memo(function DesktopTable({ data, t, lang }) {
 // ─────────────────────────────────────────────
 // MOBILE CARD (memoized)
 // ─────────────────────────────────────────────
-const MobileCard = memo(function MobileCard({ b, t, lang }) {
+const MobileCard = memo(function MobileCard({ b, t, lang, compact }) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-4">
-      <div className="flex items-start justify-between gap-3 mb-2">
+    <div className={`rounded-xl border border-slate-200 bg-white ${compact ? "p-2.5 sm:p-3" : "p-4"}`}>
+      <div className={`flex items-start justify-between gap-3 ${compact ? "mb-1" : "mb-2"}`}>
         <div className="flex items-start gap-2.5 min-w-0">
           <span className="shrink-0 w-6 h-6 rounded-md bg-[#1e88e5]/10 text-[#1e88e5] text-[10.5px] font-bold font-mono flex items-center justify-center">
             {b.no}
@@ -114,8 +114,8 @@ const MobileCard = memo(function MobileCard({ b, t, lang }) {
           <h4 className="text-[13.5px] sm:text-[13px] font-bold text-slate-800 leading-snug">{b.nama}</h4>
         </div>
       </div>
-      <p className="text-[12.5px] sm:text-[12px] text-slate-600 leading-relaxed mb-3 pl-[34px]">{pick(b.ket, lang)}</p>
-      <div className="flex items-center justify-between gap-3 pl-[34px] pt-3 border-t border-slate-100">
+      <p className={`text-[12.5px] leading-relaxed text-slate-600 sm:text-xs ${compact ? "mb-1.5" : "mb-3 pl-[34px]"}`}>{pick(b.ket, lang)}</p>
+      <div className={`flex items-center justify-between border-t border-slate-100 pr-9 sm:pr-8 ${compact ? "gap-2 pt-1.5" : "gap-3 pt-3 sm:pl-[34px]"}`}>
         <div>
           <div className="text-[10.5px] sm:text-[9.5px] uppercase tracking-wider text-slate-400 font-semibold">{t.mobileSlump}</div>
           <div className="text-[12px] sm:text-[11.5px] text-slate-600 font-mono mt-0.5">{b.slump || "—"}</div>
@@ -131,10 +131,10 @@ const MobileCard = memo(function MobileCard({ b, t, lang }) {
   );
 });
 
-const MobileCards = memo(function MobileCards({ data, t, lang }) {
+const MobileCards = memo(function MobileCards({ data, t, lang, compact }) {
   return (
-    <div className="md:hidden space-y-3 sm:space-y-2.5">
-      {data.map((b) => (<MobileCard key={b.no} b={b} t={t} lang={lang} />))}
+    <div className={compact ? "space-y-2 md:hidden" : "space-y-3 sm:space-y-2.5 md:hidden"}>
+      {data.map((b) => <MobileCard key={b.no} b={b} t={t} lang={lang} compact={compact} />)}
     </div>
   );
 });
@@ -142,7 +142,7 @@ const MobileCards = memo(function MobileCards({ data, t, lang }) {
 // ─────────────────────────────────────────────
 // PANEL
 // ─────────────────────────────────────────────
-export default function BetonPricingPanel({ hideCta = false }) {
+export default function BetonPricingPanel({ hideCta = false, compact = false }) {
   const { lang } = useLang();
   const t = content[lang] || content.id;
   const data = useMemo(() => betonData, []);
@@ -177,7 +177,7 @@ export default function BetonPricingPanel({ hideCta = false }) {
       {/* Body */}
       <div className="p-4 sm:p-6">
         <DesktopTable data={data} t={t} lang={lang} />
-        <MobileCards data={data} t={t} lang={lang} />
+        <MobileCards data={data} t={t} lang={lang} compact={compact} />
       </div>
 
       {/* Footer */}

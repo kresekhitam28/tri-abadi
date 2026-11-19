@@ -1273,8 +1273,8 @@ export const articles = [
     quote: {
       title: { id: "Kisaran Biaya Pengaspalan per m²", en: "Estimated Paving Costs per m²" },
       note: {
-        id: "Ini kisaran awal. Harga penawaran mengikuti luas, ketebalan aspal, dan kondisi lokasi.",
-        en: "These are starting estimates. Your quote depends on the area, asphalt thickness, and site conditions.",
+        id: "Kisaran ini untuk pekerjaan pengaspalan per m². Harga penawaran mengikuti lingkup pekerjaan, luas, ketebalan aspal, dan kondisi lokasi.",
+        en: "These are estimates for asphalt paving work per m². Your quote depends on the scope, area, asphalt thickness, and site conditions.",
       },
       ranges: asphaltCostRanges,
       options: [
@@ -2194,11 +2194,13 @@ export const articles = [
       options: [
         {
           request: "pavingMaterial",
+          scope: { id: "Material paving block", en: "Paving block supply" },
           label: { id: "Minta Harga Material via WhatsApp", en: "Request Supply Prices on WhatsApp" },
           prices: { id: "harga-material-paving", label: { id: "Lihat daftar harga material", en: "View supply price list" } },
         },
         {
           request: "paving",
+          scope: { id: "Jasa pasang atau paket dengan material", en: "Installation or a package with materials" },
           label: { id: "Minta Estimasi Pasang via WhatsApp", en: "Request an Installation Quote on WhatsApp" },
           prices: { id: "harga-pasang-paving", label: { id: "Lihat harga jasa dan paket", en: "View installation and package prices" } },
         },
@@ -2245,125 +2247,125 @@ export const articles = [
         },
       },
       {
-        type: "paragraph",
+        type: "price-list",
         text: {
           id: `<span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
   <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
-    <span class='flex items-center gap-2 min-w-0'>
+    <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
       <span class='inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#1e88e5] text-white text-[11px] font-black shrink-0'>6</span>
-      <span class='text-sm font-bold text-slate-800 truncate'>Tebal 6 cm</span>
-      <span class='text-[11px] text-slate-500 truncate'>· Bata / Cacing / Hexagon</span>
+      <span class='text-sm font-semibold text-slate-800'>Tebal 6 cm</span>
+      <span class='text-xs text-slate-600'>· Bata / Cacing / Hexagon</span>
     </span>
     <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500 text-white shrink-0'>Populer</span>
   </span>
   <span class='flex'>
-    <span class='flex-1 px-4 py-3 border-r border-slate-100'>
+    <span class='min-w-0 flex-1 px-2.5 py-3 sm:px-4 border-r border-slate-100'>
       <span class='block text-[9px] uppercase tracking-widest text-slate-400 font-bold mb-1'>Natural</span>
-      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 75.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-slate-900 leading-none'>Rp 75.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
     </span>
-    <span class='flex-1 px-4 py-3 bg-[#1e88e5]'>
+    <span class='min-w-0 flex-1 px-2.5 py-3 sm:px-4 bg-[#1e88e5]'>
       <span class='block text-[9px] uppercase tracking-widest text-white/80 font-bold mb-1'>Warna</span>
-      <span class='block text-xl font-black text-white leading-none'>Rp 90.000<span class='text-[10px] font-semibold text-white/70 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-white leading-none'>Rp 90.000<span class='text-[10px] font-semibold text-white/70 ml-0.5'>/m²</span></span>
     </span>
   </span>
 </span>
 <span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
   <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
-    <span class='flex items-center gap-2 min-w-0'>
+    <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
       <span class='inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-700 text-white text-[11px] font-black shrink-0'>8</span>
-      <span class='text-sm font-bold text-slate-800 truncate'>Tebal 8 cm</span>
-      <span class='text-[11px] text-slate-500 truncate'>· Bata / Cacing / Hexagon</span>
+      <span class='text-sm font-semibold text-slate-800'>Tebal 8 cm</span>
+      <span class='text-xs text-slate-600'>· Bata / Cacing / Hexagon</span>
     </span>
   </span>
   <span class='flex'>
-    <span class='flex-1 px-4 py-3 border-r border-slate-100'>
+    <span class='min-w-0 flex-1 px-2.5 py-3 sm:px-4 border-r border-slate-100'>
       <span class='block text-[9px] uppercase tracking-widest text-slate-400 font-bold mb-1'>Natural</span>
-      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 85.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-slate-900 leading-none'>Rp 85.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
     </span>
-    <span class='flex-1 px-4 py-3 bg-[#1e88e5]'>
+    <span class='min-w-0 flex-1 px-2.5 py-3 sm:px-4 bg-[#1e88e5]'>
       <span class='block text-[9px] uppercase tracking-widest text-white/80 font-bold mb-1'>Warna</span>
-      <span class='block text-xl font-black text-white leading-none'>Rp 100.000<span class='text-[10px] font-semibold text-white/70 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-white leading-none'>Rp 100.000<span class='text-[10px] font-semibold text-white/70 ml-0.5'>/m²</span></span>
     </span>
   </span>
 </span>
 <span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
   <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
-    <span class='flex items-center gap-2 min-w-0'>
+    <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
       <span class='inline-flex items-center justify-center w-7 h-7 rounded-lg bg-amber-500 text-white text-[11px] font-black shrink-0'>◆</span>
-      <span class='text-sm font-bold text-slate-800 truncate'>Topi Uskup</span>
-      <span class='text-[11px] text-slate-500 truncate'>· Border / tepian</span>
+      <span class='text-sm font-semibold text-slate-800'>Topi Uskup</span>
+      <span class='text-xs text-slate-600'>· Border / tepian</span>
     </span>
     <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 shrink-0'>Per Buah</span>
   </span>
   <span class='block px-4 py-2 text-[11px] text-slate-500 border-b border-slate-100'>Ukuran 28 × 21 × 10.5 cm · dijual per pcs</span>
   <span class='flex'>
-    <span class='flex-1 px-4 py-3 border-r border-slate-100'>
+    <span class='min-w-0 flex-1 px-2.5 py-3 sm:px-4 border-r border-slate-100'>
       <span class='block text-[9px] uppercase tracking-widest text-slate-400 font-bold mb-1'>Tebal 6 cm</span>
-      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 8.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/pcs</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-slate-900 leading-none'>Rp 8.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/pcs</span></span>
     </span>
-    <span class='flex-1 px-4 py-3 bg-amber-50/60'>
+    <span class='min-w-0 flex-1 px-2.5 py-3 sm:px-4 bg-amber-50/60'>
       <span class='block text-[9px] uppercase tracking-widest text-amber-700 font-bold mb-1'>Tebal 8 cm</span>
-      <span class='block text-xl font-black text-amber-700 leading-none'>Rp 9.000<span class='text-[10px] font-semibold text-amber-700/60 ml-0.5'>/pcs</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-amber-700 leading-none'>Rp 9.000<span class='text-[10px] font-semibold text-amber-700/60 ml-0.5'>/pcs</span></span>
     </span>
   </span>
 </span>`,
           en: `<span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
   <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
-    <span class='flex items-center gap-2 min-w-0'>
+    <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
       <span class='inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#1e88e5] text-white text-[11px] font-black shrink-0'>6</span>
-      <span class='text-sm font-bold text-slate-800 truncate'>6 cm Thick</span>
-      <span class='text-[11px] text-slate-500 truncate'>· Brick / Worm / Hexagon</span>
+      <span class='text-sm font-semibold text-slate-800'>6 cm Thick</span>
+      <span class='text-xs text-slate-600'>· Brick / Worm / Hexagon</span>
     </span>
     <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500 text-white shrink-0'>Popular</span>
   </span>
   <span class='flex'>
-    <span class='flex-1 px-4 py-3 border-r border-slate-100'>
+    <span class='min-w-0 flex-1 px-2.5 py-3 sm:px-4 border-r border-slate-100'>
       <span class='block text-[9px] uppercase tracking-widest text-slate-400 font-bold mb-1'>Natural</span>
-      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 75,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-slate-900 leading-none'>Rp 75,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
     </span>
-    <span class='flex-1 px-4 py-3 bg-[#1e88e5]'>
+    <span class='min-w-0 flex-1 px-2.5 py-3 sm:px-4 bg-[#1e88e5]'>
       <span class='block text-[9px] uppercase tracking-widest text-white/80 font-bold mb-1'>Colored</span>
-      <span class='block text-xl font-black text-white leading-none'>Rp 90,000<span class='text-[10px] font-semibold text-white/70 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-white leading-none'>Rp 90,000<span class='text-[10px] font-semibold text-white/70 ml-0.5'>/m²</span></span>
     </span>
   </span>
 </span>
 <span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
   <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
-    <span class='flex items-center gap-2 min-w-0'>
+    <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
       <span class='inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-700 text-white text-[11px] font-black shrink-0'>8</span>
-      <span class='text-sm font-bold text-slate-800 truncate'>8 cm Thick</span>
-      <span class='text-[11px] text-slate-500 truncate'>· Brick / Worm / Hexagon</span>
+      <span class='text-sm font-semibold text-slate-800'>8 cm Thick</span>
+      <span class='text-xs text-slate-600'>· Brick / Worm / Hexagon</span>
     </span>
   </span>
   <span class='flex'>
-    <span class='flex-1 px-4 py-3 border-r border-slate-100'>
+    <span class='min-w-0 flex-1 px-2.5 py-3 sm:px-4 border-r border-slate-100'>
       <span class='block text-[9px] uppercase tracking-widest text-slate-400 font-bold mb-1'>Natural</span>
-      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 85,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-slate-900 leading-none'>Rp 85,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
     </span>
-    <span class='flex-1 px-4 py-3 bg-[#1e88e5]'>
+    <span class='min-w-0 flex-1 px-2.5 py-3 sm:px-4 bg-[#1e88e5]'>
       <span class='block text-[9px] uppercase tracking-widest text-white/80 font-bold mb-1'>Colored</span>
-      <span class='block text-xl font-black text-white leading-none'>Rp 100,000<span class='text-[10px] font-semibold text-white/70 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-white leading-none'>Rp 100,000<span class='text-[10px] font-semibold text-white/70 ml-0.5'>/m²</span></span>
     </span>
   </span>
 </span>
 <span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
   <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
-    <span class='flex items-center gap-2 min-w-0'>
+    <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
       <span class='inline-flex items-center justify-center w-7 h-7 rounded-lg bg-amber-500 text-white text-[11px] font-black shrink-0'>◆</span>
-      <span class='text-sm font-bold text-slate-800 truncate'>Bishop's Hat</span>
-      <span class='text-[11px] text-slate-500 truncate'>· Border / edging</span>
+      <span class='text-sm font-semibold text-slate-800'>Bishop's Hat</span>
+      <span class='text-xs text-slate-600'>· Border / edging</span>
     </span>
     <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 shrink-0'>Per Piece</span>
   </span>
   <span class='block px-4 py-2 text-[11px] text-slate-500 border-b border-slate-100'>Size 28 × 21 × 10.5 cm · sold per pc</span>
   <span class='flex'>
-    <span class='flex-1 px-4 py-3 border-r border-slate-100'>
+    <span class='min-w-0 flex-1 px-2.5 py-3 sm:px-4 border-r border-slate-100'>
       <span class='block text-[9px] uppercase tracking-widest text-slate-400 font-bold mb-1'>6 cm Thick</span>
-      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 8,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/pc</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-slate-900 leading-none'>Rp 8,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/pc</span></span>
     </span>
-    <span class='flex-1 px-4 py-3 bg-amber-50/60'>
+    <span class='min-w-0 flex-1 px-2.5 py-3 sm:px-4 bg-amber-50/60'>
       <span class='block text-[9px] uppercase tracking-widest text-amber-700 font-bold mb-1'>8 cm Thick</span>
-      <span class='block text-xl font-black text-amber-700 leading-none'>Rp 9,000<span class='text-[10px] font-semibold text-amber-700/60 ml-0.5'>/pc</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-amber-700 leading-none'>Rp 9,000<span class='text-[10px] font-semibold text-amber-700/60 ml-0.5'>/pc</span></span>
     </span>
   </span>
 </span>`,
@@ -2385,7 +2387,7 @@ export const articles = [
         },
       },
       {
-        type: "paragraph",
+        type: "price-list",
         text: {
           id: `<span class='not-prose block rounded-xl border border-slate-200 overflow-hidden mb-3 bg-white shadow-sm'>
   <span class='block px-4 py-2.5 bg-slate-50 border-b border-slate-200'>
@@ -2397,7 +2399,7 @@ export const articles = [
       <span class='block text-[11px] text-slate-500 mt-0.5'>Tenaga + Finishing Stamper</span>
     </span>
     <span class='shrink-0 inline-flex items-baseline gap-0.5 px-3 py-1.5 rounded-lg bg-slate-100 text-slate-900 whitespace-nowrap'>
-      <span class='text-base font-black leading-none'>Rp 30.000</span>
+      <span class='text-sm font-bold leading-snug tabular-nums sm:text-base'>Rp 30.000</span>
       <span class='text-[10px] font-semibold text-slate-500'>/m²</span>
     </span>
   </span>
@@ -2407,7 +2409,7 @@ export const articles = [
       <span class='block text-[11px] text-slate-500 mt-0.5'>Tenaga + Abu Batu + Finishing</span>
     </span>
     <span class='shrink-0 inline-flex items-baseline gap-0.5 px-3 py-1.5 rounded-lg bg-[#1e88e5] text-white whitespace-nowrap'>
-      <span class='text-base font-black leading-none'>Rp 40.000</span>
+      <span class='text-sm font-bold leading-snug tabular-nums sm:text-base'>Rp 40.000</span>
       <span class='text-[10px] font-semibold text-white/80'>/m²</span>
     </span>
   </span>
@@ -2423,7 +2425,7 @@ export const articles = [
         <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700'>Populer</span>
       </span>
       <span class='block text-[11px] text-slate-500 mb-1.5'>Tanpa Sirtu</span>
-      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 120.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-slate-900 leading-none'>Rp 120.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
     </span>
     <span class='flex-1 min-w-[140px] px-4 py-3 border-b border-slate-100'>
       <span class='flex items-center justify-between mb-1'>
@@ -2431,7 +2433,7 @@ export const articles = [
         <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-slate-600'>+ Sirtu</span>
       </span>
       <span class='block text-[11px] text-slate-500 mb-1.5'>Dengan Sirtu</span>
-      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 135.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-slate-900 leading-none'>Rp 135.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
     </span>
     <span class='flex-1 min-w-[140px] px-4 py-3 border-r border-slate-100'>
       <span class='flex items-center justify-between mb-1'>
@@ -2439,7 +2441,7 @@ export const articles = [
         <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-slate-600'>K-300</span>
       </span>
       <span class='block text-[11px] text-slate-500 mb-1.5'>Tanpa Sirtu</span>
-      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 130.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-slate-900 leading-none'>Rp 130.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
     </span>
     <span class='flex-1 min-w-[140px] px-4 py-3'>
       <span class='flex items-center justify-between mb-1'>
@@ -2447,7 +2449,7 @@ export const articles = [
         <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-slate-600'>+ Sirtu</span>
       </span>
       <span class='block text-[11px] text-slate-500 mb-1.5'>Dengan Sirtu</span>
-      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 145.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-slate-900 leading-none'>Rp 145.000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
     </span>
   </span>
 </span>`,
@@ -2461,7 +2463,7 @@ export const articles = [
       <span class='block text-[11px] text-slate-500 mt-0.5'>Labor + Stamper Finishing</span>
     </span>
     <span class='shrink-0 inline-flex items-baseline gap-0.5 px-3 py-1.5 rounded-lg bg-slate-100 text-slate-900 whitespace-nowrap'>
-      <span class='text-base font-black leading-none'>Rp 30,000</span>
+      <span class='text-sm font-bold leading-snug tabular-nums sm:text-base'>Rp 30,000</span>
       <span class='text-[10px] font-semibold text-slate-500'>/m²</span>
     </span>
   </span>
@@ -2471,7 +2473,7 @@ export const articles = [
       <span class='block text-[11px] text-slate-500 mt-0.5'>Labor + Stone Dust + Finishing</span>
     </span>
     <span class='shrink-0 inline-flex items-baseline gap-0.5 px-3 py-1.5 rounded-lg bg-[#1e88e5] text-white whitespace-nowrap'>
-      <span class='text-base font-black leading-none'>Rp 40,000</span>
+      <span class='text-sm font-bold leading-snug tabular-nums sm:text-base'>Rp 40,000</span>
       <span class='text-[10px] font-semibold text-white/80'>/m²</span>
     </span>
   </span>
@@ -2487,7 +2489,7 @@ export const articles = [
         <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700'>Popular</span>
       </span>
       <span class='block text-[11px] text-slate-500 mb-1.5'>Without Sirtu</span>
-      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 120,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-slate-900 leading-none'>Rp 120,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
     </span>
     <span class='flex-1 min-w-[140px] px-4 py-3 border-b border-slate-100'>
       <span class='flex items-center justify-between mb-1'>
@@ -2495,7 +2497,7 @@ export const articles = [
         <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-slate-600'>+ Sirtu</span>
       </span>
       <span class='block text-[11px] text-slate-500 mb-1.5'>With Sirtu</span>
-      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 135,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-slate-900 leading-none'>Rp 135,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
     </span>
     <span class='flex-1 min-w-[140px] px-4 py-3 border-r border-slate-100'>
       <span class='flex items-center justify-between mb-1'>
@@ -2503,7 +2505,7 @@ export const articles = [
         <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-slate-600'>K-300</span>
       </span>
       <span class='block text-[11px] text-slate-500 mb-1.5'>Without Sirtu</span>
-      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 130,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-slate-900 leading-none'>Rp 130,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
     </span>
     <span class='flex-1 min-w-[140px] px-4 py-3'>
       <span class='flex items-center justify-between mb-1'>
@@ -2511,7 +2513,7 @@ export const articles = [
         <span class='text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-slate-600'>+ Sirtu</span>
       </span>
       <span class='block text-[11px] text-slate-500 mb-1.5'>With Sirtu</span>
-      <span class='block text-xl font-black text-slate-900 leading-none'>Rp 145,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
+      <span class='block text-base font-bold tabular-nums sm:text-lg text-slate-900 leading-none'>Rp 145,000<span class='text-[10px] font-semibold text-slate-400 ml-0.5'>/m²</span></span>
     </span>
   </span>
 </span>`,
@@ -2522,11 +2524,11 @@ export const articles = [
         text: {
           id: `<span class='not-prose block my-4 p-4 rounded-r-xl border-l-4 border-amber-400 bg-amber-50'>
   <span class='block text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-1.5'>Catatan Penting</span>
-  <span class='block text-sm text-amber-900 leading-relaxed'>Harga material di atas berlaku untuk warna <b class='font-extrabold'>natural</b>. Untuk warna merah atau hitam, tambahkan <b class='font-extrabold'>Rp 10.000/m²</b>. Harga jasa pasang dan paket terima beres berlaku untuk luas area <b class='font-extrabold'>di atas 100 m²</b>; untuk area di bawah 100 m² silakan konsultasi terlebih dahulu.</span>
+  <span class='block text-sm text-amber-900 leading-relaxed'>Untuk pembelian material saja, bandingkan kolom <b class='font-extrabold'>Natural</b> dan <b class='font-extrabold'>Warna</b> pada daftar harga material. Harga paket terima beres menggunakan paving warna natural. Untuk warna merah atau hitam, konfirmasikan estimasi tambahan <b class='font-extrabold'>Rp 10.000/m²</b> saat meminta penawaran. Harga jasa pasang dan paket terima beres yang tercantum berlaku untuk area <b class='font-extrabold'>di atas 100 m²</b>. Untuk area <b class='font-extrabold'>100 m² atau kurang</b>, hubungi kami untuk penawaran.</span>
 </span>`,
           en: `<span class='not-prose block my-4 p-4 rounded-r-xl border-l-4 border-amber-400 bg-amber-50'>
   <span class='block text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-1.5'>Important Note</span>
-  <span class='block text-sm text-amber-900 leading-relaxed'>The material prices above apply to <b class='font-extrabold'>natural</b> color. For red or black colors, add <b class='font-extrabold'>Rp 10,000/m²</b>. Installation service and turnkey package prices apply to areas <b class='font-extrabold'>above 100 m²</b>; for areas below 100 m², please consult us first.</span>
+  <span class='block text-sm text-amber-900 leading-relaxed'>For material-only purchases, compare the <b class='font-extrabold'>Natural</b> and <b class='font-extrabold'>Colored</b> prices in the material price list. Turnkey package prices use natural-colored paving. For red or black, confirm the estimated surcharge of <b class='font-extrabold'>Rp 10,000/m²</b> when requesting a quote. Listed installation and turnkey package prices apply to areas <b class='font-extrabold'>above 100 m²</b>. For areas of <b class='font-extrabold'>100 m² or less</b>, contact us for a quote.</span>
 </span>`,
         },
       },
@@ -2594,12 +2596,12 @@ export const articles = [
         ordered: false,
         items: [
           {
-            id: "Ketebalan paving (6 cm atau 8 cm) dan warna (natural atau warna +Rp 10.000/m²).",
-            en: "Paving thickness (6 cm or 8 cm) and color (natural or colored +Rp 10,000/m²).",
+            id: "Ketebalan paving (6 cm atau 8 cm) dan pilihan warna sesuai daftar harga material atau penawaran paket.",
+            en: "Paving thickness (6 cm or 8 cm) and color choice based on the material price list or package quote.",
           },
           {
-            id: "Luas area. Harga jasa dan paket terima beres berlaku untuk area di atas 100 m².",
-            en: "Area size. Installation and turnkey package prices apply to areas above 100 m².",
+            id: "Luas area. Cantumkan perkiraan luas saat meminta penawaran jasa pasang atau paket terima beres.",
+            en: "Area size. Include the estimated area when requesting an installation or turnkey package quote.",
           },
           {
             id: "Kondisi tanah dan kebutuhan urugan atau pemadatan tambahan (sirtu).",
@@ -2669,11 +2671,13 @@ export const articles = [
       options: [
         {
           request: "concreteMaterial",
+          scope: { id: "Pasokan ready mix per m³", en: "Ready-mix supply per m³" },
           label: { id: "Minta Harga Ready Mix via WhatsApp", en: "Request Ready-Mix Prices on WhatsApp" },
           prices: { id: "harga-ready-mix", label: { id: "Lihat daftar harga per m³", en: "View prices per m³" } },
         },
         {
           request: "concrete",
+          scope: { id: "Jasa pengecoran sesuai lingkup proyek", en: "Pouring services based on project scope" },
           label: { id: "Minta Estimasi Jasa Cor via WhatsApp", en: "Request a Pouring Quote on WhatsApp" },
         },
       ],
@@ -2721,16 +2725,16 @@ export const articles = [
         },
       },
       {
-        type: "paragraph",
+        type: "price-list",
         text: {
           id: `<span class='not-prose block space-y-3'>
 
   <!-- TIER 1 -->
   <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
     <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800'>
-      <span class='flex items-center gap-2 min-w-0'>
+      <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
         <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/15 text-white text-[10px] font-black shrink-0'>1</span>
-        <span class='text-[13px] font-bold text-white truncate'>Struktur Berat & Jalan Raya</span>
+        <span class='text-[13px] font-semibold leading-snug text-white'>Struktur Berat & Jalan Raya</span>
       </span>
       <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/15 text-white shrink-0 whitespace-nowrap'>K 350–500</span>
     </span>
@@ -2755,7 +2759,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-900 text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1.200.000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 1.200.000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
       </span>
     </span>
@@ -2769,7 +2773,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-900 text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1.050.000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 1.050.000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
       </span>
     </span>
@@ -2783,7 +2787,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-900 text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1.000.000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 1.000.000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
       </span>
     </span>
@@ -2792,9 +2796,9 @@ export const articles = [
   <!-- TIER 2 -->
   <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
     <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-700 border-b border-slate-600'>
-      <span class='flex items-center gap-2 min-w-0'>
+      <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
         <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/15 text-white text-[10px] font-black shrink-0'>2</span>
-        <span class='text-[13px] font-bold text-white truncate'>Ruko & Bangunan Bertingkat</span>
+        <span class='text-[13px] font-semibold leading-snug text-white'>Ruko & Bangunan Bertingkat</span>
       </span>
       <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/15 text-white shrink-0 whitespace-nowrap'>K 275–325</span>
     </span>
@@ -2808,7 +2812,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-700 text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 950.000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 950.000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
       </span>
     </span>
@@ -2822,7 +2826,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-700 text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 920.000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 920.000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
       </span>
     </span>
@@ -2836,7 +2840,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-700 text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 880.000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 880.000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
       </span>
     </span>
@@ -2845,9 +2849,9 @@ export const articles = [
   <!-- TIER 3 -->
   <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
     <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-[#1e88e5] border-b border-[#1a76c7]'>
-      <span class='flex items-center gap-2 min-w-0'>
+      <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
         <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-white text-[10px] font-black shrink-0'>3</span>
-        <span class='text-[13px] font-bold text-white truncate'>Rumah Tinggal</span>
+        <span class='text-[13px] font-semibold leading-snug text-white'>Rumah Tinggal</span>
       </span>
       <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white text-[#1e88e5] shrink-0 whitespace-nowrap'>Populer</span>
     </span>
@@ -2861,7 +2865,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-[#1e88e5] text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 850.000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 850.000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/80'>/m³</span>
       </span>
     </span>
@@ -2875,7 +2879,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-[#1e88e5] text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 830.000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 830.000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/80'>/m³</span>
       </span>
     </span>
@@ -2884,9 +2888,9 @@ export const articles = [
   <!-- TIER 4 -->
   <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
     <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-amber-500 border-b border-amber-600'>
-      <span class='flex items-center gap-2 min-w-0'>
+      <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
         <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-white text-[10px] font-black shrink-0'>4</span>
-        <span class='text-[13px] font-bold text-white truncate'>Akses Jalan Sempit (Mini Mix)</span>
+        <span class='text-[13px] font-semibold leading-snug text-white'>Akses Jalan Sempit (Mini Mix)</span>
       </span>
       <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white text-amber-600 shrink-0 whitespace-nowrap'>Khusus</span>
     </span>
@@ -2900,7 +2904,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-amber-500 text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1.290.000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 1.290.000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/80'>/m³</span>
       </span>
     </span>
@@ -2909,9 +2913,9 @@ export const articles = [
   <!-- TIER 5 -->
   <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
     <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-500 border-b border-slate-600'>
-      <span class='flex items-center gap-2 min-w-0'>
+      <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
         <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/15 text-white text-[10px] font-black shrink-0'>5</span>
-        <span class='text-[13px] font-bold text-white truncate'>Konstruksi Ringan & LC</span>
+        <span class='text-[13px] font-semibold leading-snug text-white'>Konstruksi Ringan & LC</span>
       </span>
       <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/15 text-white shrink-0 whitespace-nowrap'>K 125–175 · B0</span>
     </span>
@@ -2956,9 +2960,9 @@ export const articles = [
   <!-- TIER 1 -->
   <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
     <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800'>
-      <span class='flex items-center gap-2 min-w-0'>
+      <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
         <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/15 text-white text-[10px] font-black shrink-0'>1</span>
-        <span class='text-[13px] font-bold text-white truncate'>Heavy Structures & Highways</span>
+        <span class='text-[13px] font-semibold leading-snug text-white'>Heavy Structures & Highways</span>
       </span>
       <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/15 text-white shrink-0 whitespace-nowrap'>K 350–500</span>
     </span>
@@ -2983,7 +2987,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-900 text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1,200,000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 1,200,000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
       </span>
     </span>
@@ -2997,7 +3001,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-900 text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1,050,000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 1,050,000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
       </span>
     </span>
@@ -3011,7 +3015,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-900 text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1,000,000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 1,000,000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
       </span>
     </span>
@@ -3020,9 +3024,9 @@ export const articles = [
   <!-- TIER 2 -->
   <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
     <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-700 border-b border-slate-600'>
-      <span class='flex items-center gap-2 min-w-0'>
+      <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
         <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/15 text-white text-[10px] font-black shrink-0'>2</span>
-        <span class='text-[13px] font-bold text-white truncate'>Shophouses & Multi-Story</span>
+        <span class='text-[13px] font-semibold leading-snug text-white'>Shophouses & Multi-Story</span>
       </span>
       <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/15 text-white shrink-0 whitespace-nowrap'>K 275–325</span>
     </span>
@@ -3036,7 +3040,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-700 text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 950,000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 950,000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
       </span>
     </span>
@@ -3050,7 +3054,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-700 text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 920,000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 920,000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
       </span>
     </span>
@@ -3064,7 +3068,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-700 text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 880,000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 880,000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/70'>/m³</span>
       </span>
     </span>
@@ -3073,9 +3077,9 @@ export const articles = [
   <!-- TIER 3 -->
   <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
     <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-[#1e88e5] border-b border-[#1a76c7]'>
-      <span class='flex items-center gap-2 min-w-0'>
+      <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
         <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-white text-[10px] font-black shrink-0'>3</span>
-        <span class='text-[13px] font-bold text-white truncate'>Residential Homes</span>
+        <span class='text-[13px] font-semibold leading-snug text-white'>Residential Homes</span>
       </span>
       <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white text-[#1e88e5] shrink-0 whitespace-nowrap'>Popular</span>
     </span>
@@ -3089,7 +3093,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-[#1e88e5] text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 850,000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 850,000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/80'>/m³</span>
       </span>
     </span>
@@ -3103,7 +3107,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-[#1e88e5] text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 830,000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 830,000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/80'>/m³</span>
       </span>
     </span>
@@ -3112,9 +3116,9 @@ export const articles = [
   <!-- TIER 4 -->
   <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
     <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-amber-500 border-b border-amber-600'>
-      <span class='flex items-center gap-2 min-w-0'>
+      <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
         <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-white text-[10px] font-black shrink-0'>4</span>
-        <span class='text-[13px] font-bold text-white truncate'>Narrow Access (Mini Mix)</span>
+        <span class='text-[13px] font-semibold leading-snug text-white'>Narrow Access (Mini Mix)</span>
       </span>
       <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white text-amber-600 shrink-0 whitespace-nowrap'>Special</span>
     </span>
@@ -3128,7 +3132,7 @@ export const articles = [
         </span>
       </span>
       <span class='shrink-0 inline-flex items-baseline gap-0.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-amber-500 text-white whitespace-nowrap'>
-        <span class='text-[11px] sm:text-[15px] font-black leading-none'>Rp 1,290,000</span>
+        <span class='text-xs font-bold leading-snug tabular-nums sm:text-sm'>Rp 1,290,000</span>
         <span class='hidden sm:inline text-[9px] font-semibold text-white/80'>/m³</span>
       </span>
     </span>
@@ -3137,9 +3141,9 @@ export const articles = [
   <!-- TIER 5 -->
   <span class='block rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm'>
     <span class='flex items-center justify-between gap-2 px-4 py-2.5 bg-slate-500 border-b border-slate-600'>
-      <span class='flex items-center gap-2 min-w-0'>
+      <span class='flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1'>
         <span class='inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/15 text-white text-[10px] font-black shrink-0'>5</span>
-        <span class='text-[13px] font-bold text-white truncate'>Light Structures & LC</span>
+        <span class='text-[13px] font-semibold leading-snug text-white'>Light Structures & LC</span>
       </span>
       <span class='text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/15 text-white shrink-0 whitespace-nowrap'>K 125–175 · B0</span>
     </span>

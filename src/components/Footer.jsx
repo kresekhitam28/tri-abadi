@@ -169,10 +169,10 @@ const WEBSITE_CREDIT_URL = "https://spesialisaspal.com";
 // ─────────────────────────────────────────────
 // SUB-KOMPONEN: Section Heading
 // ─────────────────────────────────────────────
-function SectionHeading({ children }) {
+function SectionHeading({ children, compactMobile = false }) {
   return (
-    <div className="mb-5">
-      <p className="inline-block text-white font-bold uppercase tracking-[0.18em] pb-1.5 border-b-2 border-[#4da3ff]"
+    <div className={compactMobile ? "mb-2 sm:mb-5" : "mb-5"}>
+      <p className={`inline-block text-white font-bold uppercase tracking-[0.18em] pb-1.5 border-b-2 border-[#4da3ff] ${compactMobile ? "max-sm:leading-snug max-sm:tracking-[0.1em]" : ""}`}
          style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.75rem)" }}>
         {children}
       </p>
@@ -198,7 +198,7 @@ function ContactCard({ href, Icon, label, value, secondary }) {
         <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
       </span>
       <div className="min-w-0 flex-1">
-        <p className="text-[10.5px] sm:text-[10px] uppercase tracking-[0.22em] text-slate-500 font-semibold mb-1 group-hover:text-[#4da3ff] transition-colors duration-200">
+        <p className="mb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300 transition-colors group-hover:text-[#4da3ff]">
           {label}
         </p>
         <p
@@ -223,17 +223,19 @@ function ContactCard({ href, Icon, label, value, secondary }) {
 // ─────────────────────────────────────────────
 // SUB-KOMPONEN: Link Column
 // ─────────────────────────────────────────────
-function LinkColumn({ title, links, t, onNavigate }) {
+function LinkColumn({ title, links, t, onNavigate, compactMobile = false }) {
   return (
-    <div>
-      <SectionHeading>{title}</SectionHeading>
-      <ul className="space-y-2.5 sm:space-y-3">
+    <div className={compactMobile ? "min-w-0" : undefined}>
+      <SectionHeading compactMobile={compactMobile}>{title}</SectionHeading>
+      <ul className={compactMobile ? "space-y-0.5 sm:space-y-3" : "space-y-2.5 sm:space-y-3"}>
         {links.map((item, i) => (
           <li key={i}>
             <Link
               href={item.href}
               onClick={onNavigate}
-              className="inline-block py-1 -my-1 text-slate-400 hover:text-[#4da3ff] transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4da3ff] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              className={`rounded transition-colors hover:text-[#4da3ff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4da3ff] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 ${
+                item.href === "/kontak" ? "inline-flex min-h-11 items-center border border-white/20 bg-white/5 px-3 font-semibold text-white" : "-my-1 inline-block py-1 text-slate-400"
+              } ${compactMobile ? "max-sm:my-0 max-sm:inline-flex max-sm:min-h-8 max-sm:items-center max-sm:py-0.5 max-sm:leading-snug" : ""}`}
               style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
             >
               {t(item.label)}
@@ -255,13 +257,13 @@ function ContactRow({ href, Icon, children, external }) {
         href={href}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
-        className="flex items-start gap-3 group rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4da3ff] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+        className="group flex min-h-11 items-start gap-3 rounded py-2.5 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4da3ff] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
       >
         <span className="shrink-0 mt-0.5 text-[#4da3ff]">
           <Icon className="w-4 h-4" />
         </span>
         <span
-          className="text-slate-400 leading-relaxed break-words group-hover:text-[#4da3ff] transition-colors duration-150"
+          className="min-w-0 break-words leading-relaxed text-slate-200 transition-colors group-hover:text-[#4da3ff]"
           style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
         >
           {children}
@@ -371,24 +373,25 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Kolom 2 — Layanan */}
-          <div className="lg:col-span-2">
-            <LinkColumn
-              title={data.sectionLayanan}
-              links={layananLinks}
-              t={t}
-              onNavigate={handleNavigate}
-            />
-          </div>
-
-          {/* Kolom 3 — Supplier & Alat Berat */}
-          <div className="lg:col-span-3">
-            <LinkColumn
-              title={t({ id: "Supplier & Alat Berat", en: "Supplier & Heavy Equip" })}
-              links={supplierLinks}
-              t={t}
-              onNavigate={handleNavigate}
-            />
+          <div className="grid grid-cols-2 gap-x-4 sm:contents">
+            <div className="min-w-0 lg:col-span-2">
+              <LinkColumn
+                title={data.sectionLayanan}
+                links={layananLinks}
+                t={t}
+                onNavigate={handleNavigate}
+                compactMobile
+              />
+            </div>
+            <div className="min-w-0 lg:col-span-3">
+              <LinkColumn
+                title={t({ id: "Supplier & Alat Berat", en: "Supplier & Heavy Equip" })}
+                links={supplierLinks}
+                t={t}
+                onNavigate={handleNavigate}
+                compactMobile
+              />
+            </div>
           </div>
 
           {/* Kolom 4 — Perusahaan */}
@@ -404,7 +407,7 @@ export default function Footer() {
           {/* Kolom 5 — Kontak */}
           <div className="sm:col-span-2 lg:col-span-2">
             <SectionHeading>{data.sectionKontak}</SectionHeading>
-            <ul className="space-y-3 sm:space-y-3.5">
+            <ul>
               <ContactRow href={MAPS_HREF} Icon={IconMap} external>
                 {ALAMAT}
               </ContactRow>
@@ -428,7 +431,7 @@ export default function Footer() {
 
       {/* ═══════════ BOTTOM BAR ═══════════ */}
       <div className="border-t border-white/10">
-        <div className="max-w-6xl md:max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 py-5 sm:py-6">
+        <div className="mx-auto max-w-6xl px-4 pb-20 pt-5 sm:px-5 sm:py-6 md:max-w-7xl lg:px-8">
           <p
             className="text-slate-500 text-center leading-relaxed"
             style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.8125rem)" }}

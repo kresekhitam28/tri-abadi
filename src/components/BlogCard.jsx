@@ -11,7 +11,7 @@ const pick = (field, lang) => {
   return field[lang] || field.id || field.en || "";
 };
 
-export default function BlogCard({ item, heading: Heading = "h3" }) {
+export default function BlogCard({ item, heading: Heading = "h3", compactMobile = false, fullCardLink = false, thumbnailSrcSet }) {
   const { lang } = useLang();
 
   if (!item) return null;
@@ -22,77 +22,78 @@ export default function BlogCard({ item, heading: Heading = "h3" }) {
   const category = pick(item.category, lang); // <-- Ambil data kategori
   const readMore = lang === "en" ? "Read Article" : "Baca Artikel";
   const href = `/blog/${item.slug}`;
+  const image = (
+    <Image
+      src={item.src}
+      alt={illustration || title}
+      fill
+      loading="lazy"
+      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      className={illustration ? `object-scale-down p-4 ${compactMobile ? "max-sm:p-2" : ""}` : "object-cover motion-safe:transition-transform motion-safe:duration-200 motion-safe:group-hover:scale-[1.03]"}
+      onError={(e) => {
+        e.currentTarget.onerror = null;
+        e.currentTarget.src = "https://placehold.co/800x500/f1f5f9/94a3b8?text=Blog";
+      }}
+    />
+  );
 
   return (
     <article
-      className="group h-full flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden
+      className={`group h-full flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden
                  transition-colors duration-200
-                 hover:border-[#1e88e5]/50"
+                 hover:border-[#1e88e5]/50 ${fullCardLink ? "relative" : ""}`}
       style={{ contain: "layout paint style" }}
     >
       {/* FOTO */}
       <Link
         href={href}
-        className={`relative block aspect-[16/10] w-full shrink-0 overflow-hidden ${illustration ? "bg-white" : "bg-slate-100"}`}
+        className={`relative block aspect-[16/10] w-full shrink-0 overflow-hidden focus-visible:z-10 focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-blue-700 ${illustration ? "bg-white" : "bg-slate-100"} ${compactMobile ? "max-sm:aspect-[4/3]" : ""}`}
         aria-label={title}
       >
-        <Image
-          src={item.src}
-          alt={illustration || title}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className={illustration ? "object-scale-down p-4" : "object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"}
-          onError={(e) => {
-            e.currentTarget.onerror = null;
-            e.currentTarget.src =
-              "https://placehold.co/800x500/f1f5f9/94a3b8?text=Blog";
-          }}
-        />
+        {thumbnailSrcSet ? (
+          <picture>
+            <source media="(max-width: 639px)" srcSet={thumbnailSrcSet} sizes="calc((100vw - 44px) / 2)" />
+            {image}
+          </picture>
+        ) : image}
       </Link>
 
-      <div className="flex flex-col flex-1 p-5 sm:p-6">
+      <div className={`flex flex-1 flex-col px-4 pt-4 sm:px-5 sm:pt-5 ${compactMobile ? "max-sm:px-2.5 max-sm:pt-2.5" : ""}`}>
         
         {/* KATEGORI (BARU) */}
         {category && (
-          <div className="mb-2.5">
-            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#1e88e5] bg-blue-50 px-2.5 py-1 rounded-md">
+          <div className={compactMobile ? "mb-1.5 sm:mb-2" : "mb-2"}>
+            <span className={`inline-block rounded-md bg-blue-50 px-2 py-1 text-[11px] font-semibold uppercase tracking-wide text-blue-800 ${compactMobile ? "max-sm:px-1.5 max-sm:py-0.5 max-sm:text-[10px]" : ""}`}>
               {category}
             </span>
           </div>
         )}
 
         <Heading
-          className="font-semibold text-slate-900 leading-snug tracking-tight
-                     line-clamp-2"
-          style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}
+          className={`text-[clamp(1rem,2vw,1.25rem)] font-semibold leading-snug tracking-tight text-slate-900 ${compactMobile ? "max-sm:mb-2 max-sm:line-clamp-3 max-sm:text-sm" : ""}`}
         >
-          <Link href={href} className="hover:text-[#1e88e5] transition-colors duration-150">
+          <Link href={href} className={`rounded-sm transition-colors hover:text-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 ${fullCardLink ? "after:absolute after:inset-0 after:content-['']" : ""}`}>
             {title}
           </Link>
         </Heading>
 
         <p
-          className="mt-2.5 sm:mt-3 text-slate-600 leading-relaxed flex-1
-                     line-clamp-3"
+          className={`mt-2 mb-4 line-clamp-3 leading-relaxed text-slate-600 ${compactMobile ? "max-sm:hidden" : ""}`}
           style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.84375rem)" }}
         >
           {desc}
         </p>
 
         {/* TOMBOL BACA (DIPERBARUI) */}
-        <div className="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-slate-100">
+        <div className="mt-auto border-t border-slate-100">
           <Link
             href={href}
-            className="inline-flex items-center gap-2
-                       text-[10.5px] sm:text-[11.5px]
-                       font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em]
-                       text-[#1e88e5] hover:text-blue-700
-                       transition-colors duration-150"
+            className={`inline-flex min-h-11 items-center gap-2 rounded-sm text-sm font-semibold text-blue-800 transition-colors hover:text-blue-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 ${compactMobile ? "max-sm:gap-1 max-sm:text-xs" : ""}`}
           >
             {readMore}
             <span
               aria-hidden="true"
-              className="transition-transform duration-200 group-hover:translate-x-1"
+              className="motion-safe:transition-transform motion-safe:duration-200 motion-safe:group-hover:translate-x-1"
             >
               →
             </span>

@@ -3,7 +3,7 @@ export default function ServiceProjectPhoto({ project, lang }) {
   const imageBase = project.src.replace(/\.webp$/, "");
 
   return (
-    <figure id="contoh-proyek" className="relative mb-10 scroll-mt-24 overflow-hidden rounded-2xl bg-slate-100 shadow-xl shadow-slate-200/50 ring-1 ring-slate-900/5 sm:mb-12">
+    <figure id="contoh-proyek" className="relative mb-6 scroll-mt-24 overflow-hidden rounded-2xl bg-slate-100 shadow-xl shadow-slate-200/50 ring-1 ring-slate-900/5 sm:mb-8">
       <div className="aspect-[16/10]">
         <img
           src={project.src}

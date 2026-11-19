@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import BlogCard from "./BlogCard";
+import FloatingWA from "./FloatingWA";
 
 const content = {
   id: {
@@ -63,20 +64,23 @@ export default function Blog({ items, page, pageLinks }) {
           >
             {data.description}
           </p>
+          <div className="mt-4 sm:hidden">
+            <FloatingWA inline />
+          </div>
         </div>
 
         {/* ═══ GRID ARTIKEL ═══ */}
         {items.length > 0 ? (
           <div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7"
+            className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3 lg:gap-7"
             style={{ contain: "layout paint style" }}
           >
             {items.map((item) => (
               <div
                 key={item.slug}
-                style={{ contentVisibility: "auto", containIntrinsicSize: "400px" }}
+                className="[content-visibility:auto] [contain-intrinsic-size:auto_12rem] sm:[contain-intrinsic-size:400px]"
               >
-                <BlogCard item={item} heading="h2" />
+                <BlogCard item={item} heading="h2" compactMobile fullCardLink thumbnailSrcSet={item.thumbnailSrcSet} />
               </div>
             ))}
           </div>
@@ -90,7 +94,7 @@ export default function Blog({ items, page, pageLinks }) {
         {pageLinks.length > 1 && (
           <nav
             aria-label={data.navigationLabel}
-            className="flex flex-wrap items-center justify-center gap-2 mt-12 sm:mt-16"
+            className="mt-8 flex flex-wrap items-center justify-center gap-2 max-sm:mx-auto max-sm:max-w-[calc(100%_-_5.5rem)] sm:mt-16"
           >
             {pageLinks.map((href, index) => (
               <Link
@@ -98,7 +102,7 @@ export default function Blog({ items, page, pageLinks }) {
                 href={href}
                 aria-label={`${data.pageLabel} ${index + 1}`}
                 aria-current={page === index + 1 ? "page" : undefined}
-                className={`flex size-11 items-center justify-center rounded-lg text-sm font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700
+                className={`flex size-11 items-center justify-center rounded-lg text-sm font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 max-sm:scroll-mb-20
                   ${
                     page === index + 1
                       ? "bg-blue-700 text-white shadow-md shadow-blue-700/30"

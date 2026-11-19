@@ -281,17 +281,16 @@ const content = {
   id: {
     heroTitle: "Jasa Cor Beton Ready Mix & Minimix",
     heroSubtitle: "Untuk lantai pabrik dan gudang, jalan industri, serta area parkir di Jabodetabek, Banten & Jawa Barat.",
-    heroDesc: "Konsultasikan lokasi, perkiraan luas atau volume, dan target pengerjaan. Tim kami membantu menyiapkan estimasi biaya dan jadwal cor.",
-    pricesLink: "Lihat Harga Ready Mix per m³",
-    intro: "Jasa cor beton ready mix Jabodetabek, Banten & Jawa Barat — pada abad ke-21 ini kebutuhan jasa cor beton ready mix ataupun harga ready mix concrete per kubik (m³) sangat dibutuhkan sekali, baik untuk pengecoran jalan rigid beton, lantai pabrik/gudang, maupun dak rumah bertingkat.",
+    heroDesc: "Butuh jasa pengecoran atau hanya pasokan beton? Kirim lokasi, perkiraan luas atau volume, dan jadwal yang diinginkan untuk meminta estimasi via WhatsApp.",
+    scopesTitle: "Jasa Pengecoran dan Pasokan Beton",
+    scopes: [
+      { title: "Jasa pengecoran", description: "Estimasi disusun sesuai lingkup proyek. Sampaikan kebutuhan tenaga kerja, pompa beton, dan finishing agar rinciannya dapat dikonfirmasi dalam penawaran." },
+      { title: "Pasokan material ready mix", description: "Harga pada tabel adalah referensi material per m³ berdasarkan mutu beton dan pilihan truk yang tercantum." },
+    ],
     infoKicker: "Informasi",
     infoTitleLight: "Mengenal ",
     infoTitleBold: "Beton Ready Mix",
-    infoP1: "Pertumbuhan pembuatan struktur bangunan yang kurang kokoh bisa sangat membahayakan penghuni rumah tersebut. Untuk menghindari hal yang tidak diinginkan, langkah paling tepat adalah memilih bahan yang berkualitas.",
-    infoP2: "Berikut informasi mengenai jasa harga beton cor K 225 hingga K 400. Perlu Anda ketahui bahwa kualitas beton K 225 tergolong dalam beton kelas 2 yang dapat digunakan untuk pembuatan bangunan struktur maupun atap sedang — misalnya pengecoran dak lantai, kolom, balok, hingga jalan lingkungan.",
-    infoP3Prefix: "Kualitas K 225 sendiri memiliki kuat tekan beton setelah umur beton 28 hari (setelah pengecoran) yang bisa mencapai ",
-    infoP3Bold: "225 kg per cm²",
-    infoP3Suffix: ".",
+    infoIntro: "Gunakan mutu beton yang tercantum dalam spesifikasi proyek saat meminta penawaran. Sertakan kondisi akses lokasi agar pilihan truk dapat dikonfirmasi.",
     factsKicker: "Fakta Teknis",
     faqTitle: "Pertanyaan Seputar Cor Beton Ready Mix",
     faqItems: [
@@ -304,10 +303,10 @@ const content = {
     acc1Title: "Keunggulan Jasa Cor Beton Ready Mix Kami",
     acc2Title: "Jenis Beton Ready Mix Yang Kami Sediakan",
     acc2Intro: "Kami menyediakan berbagai jenis beton ready mix dengan kelas yang berbeda sesuai kebutuhan proyek Anda:",
-    priceKicker: "Paket Harga",
-    priceTitleLight: "Referensi Harga ",
-    priceTitleBold: "Pasokan Beton Ready Mix per m³",
-    priceDesc: "Bandingkan harga beton menurut mutu dan pilihan truk. Untuk pekerjaan cor, minta estimasi sesuai lingkup proyek.",
+    priceTitle: "Referensi Harga Material Ready Mix per m³",
+    priceDesc: "Untuk mutu yang belum mencantumkan nominal, hubungi kami untuk meminta harga material.",
+    projectTitle: "Dokumentasi Pengecoran Beton",
+    projectLink: "Lihat Semua Proyek",
     articleKicker: "Informasi & Edukasi",
     articleTitleLight: "Butuh wawasan seputar ",
     articleTitleBold: "Konstruksi & Beton Ready Mix?",
@@ -328,17 +327,16 @@ const content = {
   en: {
     heroTitle: "Ready-Mix & Minimix Concrete Pouring",
     heroSubtitle: "For factory and warehouse floors, industrial roads, and parking areas in Greater Jakarta, Banten & West Java.",
-    heroDesc: "Share the location, estimated area or volume, and preferred start date. We can help estimate the cost and plan the pour.",
-    pricesLink: "View Ready-Mix Prices per m³",
-    intro: "Ready-mix concrete services in Jabodetabek, Banten & West Java — the need for ready-mix concrete casting services and prices per cubic meter (m³) is essential for rigid concrete roads, factory/warehouse floors, and multi-storey residential slabs.",
+    heroDesc: "Need concrete pouring or material supply only? Share your location, estimated area or volume, and preferred schedule on WhatsApp to request a quote.",
+    scopesTitle: "Concrete Pouring and Material Supply",
+    scopes: [
+      { title: "Concrete pouring services", description: "Quotes depend on the project scope. Include any labor, concrete pump, and finishing requirements so they can be confirmed in your quote." },
+      { title: "Ready-mix material supply", description: "The table lists reference material prices per m³ by concrete grade and the truck options shown." },
+    ],
     infoKicker: "Information",
     infoTitleLight: "Getting to Know ",
     infoTitleBold: "Ready-Mix Concrete",
-    infoP1: "The growth of building structures that are not sturdy enough can be very dangerous to the residents of the house. To avoid unwanted things, the most appropriate step is to choose quality materials.",
-    infoP2: "Here is information about K 225 to K 400 concrete casting service prices. You should know that K 225 concrete quality is classified as class 2 concrete, which can be used for structural buildings and medium roofs — for example, casting roads, floors, columns, beams, and so on.",
-    infoP3Prefix: "K 225 quality itself has a concrete compressive strength after 28 days of age (after casting) that can reach ",
-    infoP3Bold: "225 kg per cm²",
-    infoP3Suffix: ".",
+    infoIntro: "Include the concrete grade from your project specifications when requesting a quote. Describe site access so the truck option can be confirmed.",
     factsKicker: "Technical Facts",
     faqTitle: "Frequently Asked Questions About Ready-Mix Concrete",
     faqItems: [
@@ -351,10 +349,10 @@ const content = {
     acc1Title: "Advantages of Our Ready-Mix Concrete Service",
     acc2Title: "Types of Ready-Mix Concrete We Provide",
     acc2Intro: "We provide various types of ready-mix concrete with different classes according to your project needs:",
-    priceKicker: "Price Packages",
-    priceTitleLight: "Ready-Mix Concrete ",
-    priceTitleBold: "Supply Price Guide per m³",
-    priceDesc: "Compare concrete prices by grade and truck option. For pouring work, request a quote based on your project scope.",
+    priceTitle: "Ready-Mix Material Price Guide per m³",
+    priceDesc: "Contact us for material prices for grades without a listed amount.",
+    projectTitle: "Concrete Pouring Project",
+    projectLink: "View All Projects",
     articleKicker: "Information & Education",
     articleTitleLight: "Need insights on ",
     articleTitleBold: "Construction & Ready-Mix Concrete?",
@@ -540,64 +538,49 @@ export default function CorBetonReadyMix({ project }) {
         title={data.heroTitle}
         subtitle={data.heroSubtitle}
         description={data.heroDesc}
-        projectLocation={project.location}
         pricesId="paket-harga-cor-beton"
-        pricesLabel={data.pricesLink}
       />
 
       {/* ═══════ KONTEN ═══════ */}
-      <section className="py-16 lg:py-24">
-        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
-
-          <Reveal y={40} duration={800}>
-            <ServiceProjectPhoto project={project} lang={lang} />
-          </Reveal>
+      <section className="pb-14 pt-8 sm:pb-16 sm:pt-10 lg:pb-20">
+        <div className="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
+          <h2 className="mb-4 text-center text-2xl font-semibold tracking-tight text-slate-950">{data.scopesTitle}</h2>
+          <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
+            {data.scopes.map(({ title, description }) => (
+              <div key={title} className="rounded-xl border border-slate-200 bg-white p-4 sm:p-5">
+                <h3 className="font-semibold text-slate-950">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* ═══════ PANEL HARGA (DIPINDAHKAN KE ATAS AGAR LANGSUNG TERLIHAT) ═══════ */}
-        <div id="paket-harga-cor-beton" className="mt-8 lg:mt-12 mb-16 scroll-mt-24">
+        <section id="paket-harga-cor-beton" aria-labelledby="concrete-pricing-title" className="my-9 scroll-mt-24 sm:my-12">
           <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
             <Reveal y={26}>
-              <div className="text-center mb-10">
-                <SectionKicker>{data.priceKicker}</SectionKicker>
-                <h2
-                  className="font-light tracking-tight text-slate-900 leading-tight max-w-2xl mx-auto"
-                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
-                >
-                  {data.priceTitleLight}
-                  <span className="font-bold">{data.priceTitleBold}</span>
+              <div className="text-center mb-6 sm:mb-8">
+                <h2 id="concrete-pricing-title" className="mx-auto max-w-2xl text-balance text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+                  {data.priceTitle}
                 </h2>
-                <p
-                  className="text-slate-500 mt-4 max-w-xl mx-auto"
-                  style={{ fontSize: "clamp(0.875rem, 1.4vw, 0.9375rem)" }}
-                >
+                <p className="mx-auto mt-3 max-w-xl text-pretty text-sm leading-relaxed text-slate-600 sm:text-base">
                   {data.priceDesc}
                 </p>
               </div>
             </Reveal>
 
             <Reveal y={34} delay={80}>
-              <BetonPricingPanel />
+              <BetonPricingPanel compact />
             </Reveal>
           </div>
-        </div>
+        </section>
 
         <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
-
-          {/* Pengantar */}
-          <Reveal delay={100} y={24}>
-            <div className="max-w-3xl mb-14">
-              <p className="text-slate-700 leading-[1.9]"
-                 style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}>
-                {data.intro}
-              </p>
-            </div>
-          </Reveal>
 
           {/* MENGENAL BETON READY MIX */}
           <div className="mb-16">
             <Reveal y={26}>
-              <div className="text-center mb-10">
+              <div className="mb-4 text-center sm:mb-5">
                 <SectionKicker>{data.infoKicker}</SectionKicker>
                 <h2
                   className="font-light tracking-tight text-slate-900 leading-tight"
@@ -610,28 +593,9 @@ export default function CorBetonReadyMix({ project }) {
             </Reveal>
 
             <Reveal delay={100} y={22}>
-              <div className="max-w-3xl mx-auto text-center space-y-5 mb-12">
-                <p
-                  className="text-slate-600 leading-[1.85]"
-                  style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}
-                >
-                  {data.infoP1}
-                </p>
-                <p
-                  className="text-slate-600 leading-[1.85]"
-                  style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}
-                >
-                  {data.infoP2}
-                </p>
-                <p
-                  className="text-slate-600 leading-[1.85]"
-                  style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}
-                >
-                  {data.infoP3Prefix}
-                  <span className="font-bold text-slate-900">{data.infoP3Bold}</span>
-                  {data.infoP3Suffix}
-                </p>
-              </div>
+              <p className="mx-auto mb-7 max-w-2xl text-center text-sm leading-relaxed text-slate-600 sm:mb-9 sm:text-base">
+                {data.infoIntro}
+              </p>
             </Reveal>
 
             {/* Kartu keunggulan */}
@@ -826,6 +790,19 @@ export default function CorBetonReadyMix({ project }) {
               )}
             </Reveal>
           </div>
+
+          <section aria-labelledby="concrete-project-title" className="mx-auto max-w-xl">
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+              <h2 id="concrete-project-title" className="text-xl font-semibold tracking-tight text-slate-950 sm:text-2xl">
+                {data.projectTitle}
+              </h2>
+              <Link href="/proyek" className="inline-flex min-h-11 items-center gap-2 rounded text-sm font-semibold text-blue-800 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
+                {data.projectLink}
+                <IconArrowRight className="size-4" />
+              </Link>
+            </div>
+            <ServiceProjectPhoto project={project} lang={lang} />
+          </section>
 
           {/* ═══════ CTA (Premium) ═══════ */}
           <Reveal y={34}>

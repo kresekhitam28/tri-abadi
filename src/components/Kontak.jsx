@@ -95,19 +95,19 @@ const MAPS_EMBED_SRC =
 const kontakInfo = [
   {
     Icon: IconMail,
-    label: "Email",
+    label: { id: "Email", en: "Email" },
     value: EMAIL,
     href: `mailto:${EMAIL}`,
   },
   {
     Icon: IconPhone,
-    label: "Telepon / WhatsApp",
+    label: { id: "Telepon / WhatsApp", en: "Phone / WhatsApp" },
     value: "+62 822-5808-9367",
     href: WHATSAPP_URL,
   },
   {
     Icon: IconMapPin,
-    label: "Kantor",
+    label: { id: "Kantor", en: "Office" },
     value: ALAMAT,
     href: MAPS_HREF,
   },
@@ -115,6 +115,16 @@ const kontakInfo = [
 
 const draftCopy = {
   id: {
+    heading: ["Mari", "Berkolaborasi"],
+    contactHeading: ["Informasi", "Kontak"],
+    officeHeading: ["Kunjungi", "Kantor Kami"],
+    contact: "Hubungi Kami",
+    heroDescription: "Punya pertanyaan, butuh penawaran, atau ingin konsultasi proyek? Tim kami siap membantu Anda — dari kebutuhan material hingga pengerjaan konstruksi.",
+    quickResponse: "Respon Cepat",
+    chat: "Chat via WhatsApp",
+    contactDescription: "Hubungi kami melalui salah satu kanal di bawah ini.",
+    location: "Lokasi Kami",
+    maps: "Buka di Google Maps",
     title: "Konsultasi Proyek via WhatsApp",
     intro: "Ceritakan kebutuhan Anda. Draf akan terbuka di WhatsApp untuk Anda periksa dan kirim.",
     nameLabel: "Nama (opsional)",
@@ -127,6 +137,16 @@ const draftCopy = {
     greeting: "Halo PT Tri Abadi Makmur, saya ingin konsultasi proyek.",
   },
   en: {
+    heading: ["Let’s", "Work Together"],
+    contactHeading: ["Contact", "Information"],
+    officeHeading: ["Visit", "Our Office"],
+    contact: "Contact Us",
+    heroDescription: "Have a question, need a quote, or want to discuss a project? Our team can help with material supply and construction work.",
+    quickResponse: "Quick Response",
+    chat: "Chat on WhatsApp",
+    contactDescription: "You can reach us through any of the options below.",
+    location: "Our Location",
+    maps: "Open in Google Maps",
     title: "Project Consultation on WhatsApp",
     intro: "Tell us what you need. WhatsApp will open a draft for you to review and send.",
     nameLabel: "Name (optional)",
@@ -216,7 +236,7 @@ export default function Kontak() {
   return (
     <div className="bg-white">
 
-      <section className="relative pt-28 lg:pt-36 pb-12 lg:pb-16 overflow-hidden
+      <section className="relative pt-24 sm:pt-28 lg:pt-36 pb-7 sm:pb-10 lg:pb-16 overflow-hidden
                           bg-gradient-to-b from-slate-50 via-white to-white">
         {!isMobile && (
           <>
@@ -229,12 +249,12 @@ export default function Kontak() {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-5 lg:px-8 text-center">
           <FadeUp>
-            <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-5">
+            <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-5">
               <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
               <span className="text-[10px] sm:text-[11px] uppercase
                                tracking-[0.25em] sm:tracking-[0.3em]
                                text-[#1e88e5] font-semibold">
-                Hubungi Kami
+                {t.contact}
               </span>
               <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
             </div>
@@ -242,10 +262,10 @@ export default function Kontak() {
 
           <FadeUp delay={100}>
             <h1
-              className="font-light tracking-tight text-slate-900 leading-[1.05] mb-5"
+              className="font-light tracking-tight text-slate-900 leading-[1.05] mb-3 sm:mb-5"
               style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}
             >
-              Mari <span className="font-semibold">Berkolaborasi</span>
+              {t.heading[0]} <span className="font-semibold">{t.heading[1]}</span>
               <span className="text-[#1e88e5]">.</span>
             </h1>
           </FadeUp>
@@ -255,9 +275,7 @@ export default function Kontak() {
               className="text-slate-600 leading-relaxed max-w-2xl mx-auto"
               style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}
             >
-              Punya pertanyaan, butuh penawaran, atau ingin konsultasi proyek?
-              Tim kami siap membantu Anda — dari kebutuhan material hingga
-              pengerjaan konstruksi.
+              {t.heroDescription}
             </p>
           </FadeUp>
         </div>
@@ -266,41 +284,21 @@ export default function Kontak() {
       <section className="pb-16 sm:pb-20 lg:pb-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-5 lg:px-8">
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 sm:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 gap-5 sm:gap-6 lg:grid-cols-5 lg:grid-rows-[auto_1fr] lg:gap-x-8">
 
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1">
               <FadeUp>
-                <h2
-                  className="font-light tracking-tight text-slate-900 mb-2"
-                  style={{ fontSize: "clamp(1.25rem, 3vw, 1.5rem)" }}
-                >
-                  Informasi <span className="font-semibold">Kontak</span>
-                </h2>
-                <p className="text-slate-500 leading-relaxed mb-5 sm:mb-6"
-                   style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.84375rem)" }}>
-                  Hubungi kami melalui salah satu kanal di bawah ini.
-                </p>
-              </FadeUp>
-
-              <div className="space-y-2.5 sm:space-y-3">
-                {kontakInfo.map((item, i) => (
-                  <FadeUp key={i} delay={i * 60}>
-                    <ContactCard item={item} />
-                  </FadeUp>
-                ))}
-              </div>
-
-              <FadeUp delay={300}>
                 <a
                   href={`${WHATSAPP_URL}?text=Halo%20Tri%20Abadi%20Makmur%2C%20saya%20ingin%20konsultasi`}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label="Chat WhatsApp"
-                  className="group mt-5 sm:mt-6 flex items-center justify-between gap-3
+                  aria-label={t.chat}
+                  className="group flex items-center justify-between gap-3
                              p-4 rounded-2xl
                              bg-slate-900 text-white
                              hover:bg-blue-700
-                             transition-colors duration-200"
+                             transition-colors duration-200 focus-visible:outline-2
+                             focus-visible:outline-offset-2 focus-visible:outline-blue-700"
                   style={{ contain: "layout paint style" }}
                 >
                   <div className="flex items-center gap-3 min-w-0">
@@ -313,10 +311,10 @@ export default function Kontak() {
                       <div className="text-[10px] uppercase tracking-[0.2em]
                                       text-[#4da3ff] group-hover:text-white/80
                                       font-semibold mb-0.5 transition-colors">
-                        Respon Cepat
+                        {t.quickResponse}
                       </div>
                       <div className="text-[13px] font-semibold leading-snug">
-                        Chat via WhatsApp
+                        {t.chat}
                       </div>
                     </div>
                   </div>
@@ -327,7 +325,7 @@ export default function Kontak() {
               </FadeUp>
             </div>
 
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-3 lg:col-start-3 lg:row-span-2 lg:row-start-1">
               <FadeUp delay={80}>
                 <div lang={lang} className="relative p-5 sm:p-6 lg:p-8 rounded-2xl bg-white
                                 border border-slate-200 shadow-sm"
@@ -397,6 +395,29 @@ export default function Kontak() {
                 </div>
               </FadeUp>
             </div>
+
+            <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2">
+              <FadeUp>
+                <h2
+                  className="font-light tracking-tight text-slate-900 mb-2"
+                  style={{ fontSize: "clamp(1.25rem, 3vw, 1.5rem)" }}
+                >
+                  {t.contactHeading[0]} <span className="font-semibold">{t.contactHeading[1]}</span>
+                </h2>
+                <p className="text-slate-500 leading-relaxed mb-5 sm:mb-6"
+                   style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.84375rem)" }}>
+                  {t.contactDescription}
+                </p>
+              </FadeUp>
+
+              <div className="space-y-2.5 sm:space-y-3">
+                {kontakInfo.map((item, i) => (
+                  <FadeUp key={i} delay={i * 60}>
+                    <ContactCard item={{ ...item, label: item.label[lang] }} />
+                  </FadeUp>
+                ))}
+              </div>
+            </div>
           </div>
 
           <FadeUp delay={150}>
@@ -404,7 +425,7 @@ export default function Kontak() {
               <span className="flex-1 h-px bg-slate-200" />
               <span className="text-[10px] uppercase tracking-[0.3em]
                                text-slate-400 font-semibold">
-                Lokasi Kami
+                {t.location}
               </span>
               <span className="flex-1 h-px bg-slate-200" />
             </div>
@@ -416,7 +437,7 @@ export default function Kontak() {
                 className="font-light tracking-tight text-slate-900 mb-2"
                 style={{ fontSize: "clamp(1.25rem, 3vw, 1.5rem)" }}
               >
-                Kunjungi <span className="font-semibold">Kantor Kami</span>
+                {t.officeHeading[0]} <span className="font-semibold">{t.officeHeading[1]}</span>
               </h2>
               <p className="text-slate-500 leading-relaxed max-w-xl mx-auto"
                  style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.84375rem)" }}>
@@ -430,7 +451,7 @@ export default function Kontak() {
               href={MAPS_HREF}
               target="_blank"
               rel="noreferrer"
-              aria-label="Buka lokasi di Google Maps"
+              aria-label={t.maps}
               className="group block relative rounded-2xl overflow-hidden
                          border border-slate-200 shadow-sm
                          hover:shadow-lg hover:border-[#1e88e5]/40
@@ -439,7 +460,7 @@ export default function Kontak() {
             >
               <div className="aspect-[16/10] sm:aspect-[16/9] w-full bg-slate-100">
                 <iframe
-                  title="Lokasi Tri Abadi Makmur"
+                  title={`${t.location} — Tri Abadi Makmur`}
                   src={MAPS_EMBED_SRC}
                   className="w-full h-full border-0 pointer-events-none"
                   loading="lazy"
@@ -456,7 +477,7 @@ export default function Kontak() {
                               group-hover:bg-[#1e88e5] group-hover:text-white
                               transition-colors duration-200">
                 <IconExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                Buka di Google Maps
+                {t.maps}
               </div>
 
               <div className="absolute bottom-0 inset-x-0

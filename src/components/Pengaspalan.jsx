@@ -258,19 +258,17 @@ const content = {
   id: {
     heroTitle: "Jasa Pengaspalan Jalan & Aspal Hotmix",
     heroSubtitle: "Untuk jalan pabrik, gudang, kawasan industri, dan area parkir di Jabodetabek, Banten & Jawa Barat.",
-    heroDesc: "Kami menangani pelapisan ulang, perbaikan jalan, dan pengaspalan baru. Kirim lokasi dan perkiraan luas untuk estimasi biaya dan survei lokasi.",
-    heroPriceNote: `Paket overlay mulai ${formatAsphaltPrice(asphaltPackagePrices.A)}/m². Harga akhir mengikuti spesifikasi dan kondisi lokasi.`,
+    heroDesc: "Kirim lokasi, kondisi permukaan jalan, dan perkiraan luas area melalui WhatsApp untuk meminta estimasi biaya dan survei lokasi.",
+    heroPriceNote: `Paket A: pelapisan ulang (overlay) permukaan aspal yang sudah ada, mulai ${formatAsphaltPrice(asphaltPackagePrices.A)}/m².`,
     faqPriceQuestion: "Berapa biaya pengaspalan hotmix per meter persegi?",
     faqPriceAnswer: "Harga bergantung pada jenis pekerjaan, luas area, ketebalan aspal, dan kondisi lokasi. Lihat kisaran berdasarkan pekerjaan atau minta estimasi sesuai kebutuhan proyek Anda.",
     faqPriceLink: "Lihat kisaran biaya overlay, tambal sulam, dan pengaspalan baru",
-    priceKicker: "Paket Harga",
-    priceTitleLight: "Berikut kami tawarkan ",
-    priceTitleBold: "harga paket jasa pengaspalan & perbaikan aspal",
-    priceWaBtn: "Hitung Biaya Sesuai Luas Area (m²)",
-    introTitle: "Jasa Pengaspalan Berkualitas Tinggi Harga Bersaing",
-    introP1: "— didukung tenaga konstruksi berpengalaman serta peralatan berat lengkap untuk hasil jalan yang rata, padat, dan tahan lama.",
-    introP2Prefix: "Dari tim kontraktor ",
-    introP2Mid: ", kami melayani pengaspalan hotmix baru, pelapisan ulang (overlay), hingga perbaikan jalan rusak untuk berbagai kebutuhan proyek.",
+    priceTitle: "Paket Pengaspalan dan Perbaikan Aspal",
+    priceScope: "Paket A mencakup pembersihan permukaan, penyemprotan emulsi, penghamparan hotmix, dan pemadatan. Tambal sulam dan pengaspalan baru memiliki paket tersendiri. Estimasi akhir mengikuti spesifikasi, luas, dan kondisi lokasi.",
+    priceWaBtn: "Minta Estimasi Sesuai Luas Area",
+    servicesTitle: "Jenis Pekerjaan Pengaspalan",
+    projectTitle: "Dokumentasi Pengaspalan",
+    projectLink: "Lihat Semua Proyek",
     otherKicker: "Bukan hanya aspal",
     acc1Title: "Kami melayani berbagai kebutuhan pengaspalan untuk",
     acc1Intro: "Cakupan area & jenis proyek yang kami kerjakan:",
@@ -282,13 +280,10 @@ const content = {
       "Jalan lingkungan & gang",
       "Landasan & area khusus",
     ],
-    acc2Title: "Layanan Jasa Pengaspalan",
-    acc2Items: [
-      "Pengaspalan hotmix baru",
-      "Perbaikan & penambalan aspal rusak",
-      "Overlay / pelapisan ulang aspal",
-      "Pembersihan & pemadatan area kerja",
-      "Finishing & perapihan hasil akhir",
+    workTypes: [
+      { title: "Overlay (pelapisan ulang)", description: "Menambah lapisan hotmix di atas permukaan aspal yang masih layak dilapisi ulang." },
+      { title: "Perbaikan jalan (tambal sulam)", description: "Menangani bagian aspal yang rusak atau berlubang pada titik tertentu." },
+      { title: "Pengaspalan baru", description: "Membangun perkerasan aspal dari tahap persiapan dasar hingga penghamparan dan pemadatan hotmix." },
     ],
     methodKicker: "Metode Kerja",
     methodTitleLight: "Cara ",
@@ -332,19 +327,17 @@ const content = {
   en: {
     heroTitle: "Hotmix Asphalt Paving Services",
     heroSubtitle: "For factory roads, warehouses, industrial estates, and parking areas in Greater Jakarta, Banten & West Java.",
-    heroDesc: "We handle resurfacing, road repairs, and new paving. Share the location and estimated area for a quote and site survey.",
-    heroPriceNote: `Overlay packages start at ${formatAsphaltPrice(asphaltPackagePrices.A, "en")}/m². The final price depends on specifications and site conditions.`,
+    heroDesc: "Share your site location, surface condition, and estimated area on WhatsApp to request a quote and a site survey.",
+    heroPriceNote: `Package A covers resurfacing an existing asphalt surface, starting at ${formatAsphaltPrice(asphaltPackagePrices.A, "en")}/m².`,
     faqPriceQuestion: "How much does hotmix asphalt paving cost per square meter?",
     faqPriceAnswer: "Your quote depends on the type of work, area, asphalt thickness, and site conditions. Compare the estimates by type of work or request a quote for your project.",
     faqPriceLink: "View cost ranges for resurfacing, patching, and new paving",
-    priceKicker: "Price Packages",
-    priceTitleLight: "Here we offer ",
-    priceTitleBold: "asphalt paving & repair service package prices",
-    priceWaBtn: "Calculate Cost by Area Size (m²)",
-    introTitle: "High-Quality Asphalt Paving at Competitive Prices",
-    introP1: "— backed by experienced construction crews and complete heavy equipment for smooth, dense, and long-lasting roads.",
-    introP2Prefix: "From the contractor team ",
-    introP2Mid: ", we provide new hotmix paving, asphalt overlay, and damaged road repairs for various project requirements.",
+    priceTitle: "Asphalt Paving and Repair Packages",
+    priceScope: "Package A includes surface cleaning, emulsion application, hotmix placement, and compaction. Patching and new paving have separate packages. The final quote depends on specifications, area, and site conditions.",
+    priceWaBtn: "Request a Quote for Your Area",
+    servicesTitle: "Types of Asphalt Work",
+    projectTitle: "Asphalt Paving Project",
+    projectLink: "View All Projects",
     otherKicker: "Not just asphalt",
     acc1Title: "Asphalt Paving For",
     acc1Intro: "We serve various asphalt paving needs for:",
@@ -356,13 +349,10 @@ const content = {
       "Neighborhood roads & alleys",
       "Runways & special areas",
     ],
-    acc2Title: "Our Asphalt Paving Services",
-    acc2Items: [
-      "New hotmix asphalt paving",
-      "Repair & patching of damaged asphalt",
-      "Overlay / asphalt re-layering",
-      "Cleaning & compaction of work area",
-      "Finishing & final trim",
+    workTypes: [
+      { title: "Overlay resurfacing", description: "Adds a hotmix layer over an existing asphalt surface suitable for resurfacing." },
+      { title: "Road repair and patching", description: "Repairs localized asphalt damage and potholes." },
+      { title: "New asphalt paving", description: "Builds a new asphalt surface, from preparing the base through hotmix placement and compaction." },
     ],
     methodKicker: "Work Method",
     methodTitleLight: "How We ",
@@ -545,24 +535,19 @@ export default function Pengaspalan({ project }) {
         title={data.heroTitle}
         subtitle={data.heroSubtitle}
         description={data.heroDesc}
-        projectLocation={project.location}
         priceNote={data.heroPriceNote}
         pricesId="paket-harga-aspal"
       />
 
       {/* ═══════ PAKET HARGA (DI ATAS AGAR LANGSUNG TERLIHAT) ═══════ */}
-      <section id="paket-harga-aspal" className="py-14 lg:py-20 bg-white border-b border-slate-100 scroll-mt-24">
+      <section id="paket-harga-aspal" aria-labelledby="asphalt-pricing-title" className="scroll-mt-24 border-b border-slate-100 bg-white py-9 sm:py-12 lg:py-14">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <Reveal y={26}>
-            <div className="text-center mb-10">
-              <SectionKicker>{data.priceKicker}</SectionKicker>
-              <h2
-                className="font-light tracking-tight text-slate-900 leading-tight max-w-2xl mx-auto"
-                style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
-              >
-                {data.priceTitleLight}
-                <span className="font-bold">{data.priceTitleBold}</span>
+            <div className="text-center mb-6 sm:mb-10">
+              <h2 id="asphalt-pricing-title" className="mx-auto max-w-2xl text-balance text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+                {data.priceTitle}
               </h2>
+              <p className="mx-auto mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-slate-600 sm:text-base">{data.priceScope}</p>
             </div>
           </Reveal>
 
@@ -571,7 +556,7 @@ export default function Pengaspalan({ project }) {
           </Reveal>
 
           <Reveal y={20} delay={120}>
-            <div className="mt-8 text-center">
+            <div className="mt-6 sm:mt-8 text-center">
               <a
                 href={waHref}
                 target="_blank"
@@ -588,38 +573,22 @@ export default function Pengaspalan({ project }) {
       </section>
 
       {/* ═══════ KONTEN UTAMA ═══════ */}
-      <section className="py-16 lg:py-24">
+      <section className="pb-16 pt-8 sm:pt-12 lg:pb-24 lg:pt-16">
         <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
 
-          <Reveal y={40} duration={800}>
-            <ServiceProjectPhoto project={project} lang={lang} />
-          </Reveal>
-
-          {/* Paragraf pengantar */}
-          <Reveal delay={100} y={24}>
-            <div className="max-w-3xl mb-14">
-              <p
-                className="text-slate-700 leading-[1.9] mb-5"
-                style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}
-              >
-                <span className="font-bold text-slate-900 text-lg sm:text-xl block mb-2">
-                  {data.introTitle}
-                </span>{" "}
-                {data.introP1}
-              </p>
-              <p
-                className="text-slate-700 leading-[1.9]"
-                style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1rem)" }}
-              >
-                {data.introP2Prefix}
-                <span className="font-bold text-slate-900">PT Tri Abadi Makmur</span>
-                {data.introP2Mid}
-              </p>
-            </div>
-          </Reveal>
-
           {/* Daftar Cakupan & Layanan */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+          <div className="mb-12 grid gap-4 md:grid-cols-2 md:gap-6 lg:mb-16">
+            <div className="rounded-xl border border-slate-200 bg-white p-5 sm:p-6">
+              <h2 className="text-lg font-semibold tracking-tight text-slate-950 sm:text-xl">{data.servicesTitle}</h2>
+              <dl className="mt-2 divide-y divide-slate-100">
+                {data.workTypes.map(({ title, description }) => (
+                  <div key={title} className="py-3 last:pb-0">
+                    <dt className="text-sm font-semibold text-slate-900">{title}</dt>
+                    <dd className="mt-1 text-sm leading-relaxed text-slate-600">{description}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
             <Reveal delay={120} y={24}>
               <div className="border border-slate-200 rounded-xl overflow-hidden bg-white h-full">
                 <div className="w-full px-5 sm:px-6 py-4 sm:py-5 border-b border-slate-100">
@@ -636,20 +605,6 @@ export default function Pengaspalan({ project }) {
               </div>
             </Reveal>
 
-            <Reveal delay={180} y={24}>
-              <div className="border border-slate-200 rounded-xl overflow-hidden bg-white h-full">
-                <div className="w-full px-5 sm:px-6 py-4 sm:py-5 border-b border-slate-100">
-                  <span className="font-semibold uppercase tracking-[0.12em] text-slate-800" style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
-                    {data.acc2Title}
-                  </span>
-                </div>
-                <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-4 text-slate-700 leading-[1.85] space-y-3.5" style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
-                  <ul className="list-disc list-outside pl-5 space-y-2 marker:text-[#1e88e5]">
-                    {data.acc2Items.map((it, i) => <li key={i}>{it}</li>)}
-                  </ul>
-                </div>
-              </div>
-            </Reveal>
           </div>
 
           {/* SECTION: CARA PENGERJAAN */}
@@ -774,7 +729,8 @@ export default function Pengaspalan({ project }) {
                   className="font-light tracking-tight text-slate-900 leading-tight"
                   style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}
                 >
-                  Pertanyaan yang Sering <span className="font-bold">Diajukan</span>
+                  {lang === "en" ? "Frequently Asked" : "Pertanyaan yang Sering"}{" "}
+                  <span className="font-bold">{lang === "en" ? "Questions" : "Diajukan"}</span>
                 </h2>
               </div>
             </Reveal>
@@ -918,6 +874,19 @@ export default function Pengaspalan({ project }) {
               )}
             </Reveal>
           </div>
+
+          <section aria-labelledby="asphalt-project-title" className="mx-auto max-w-xl">
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+              <h2 id="asphalt-project-title" className="text-xl font-semibold tracking-tight text-slate-950 sm:text-2xl">
+                {data.projectTitle}
+              </h2>
+              <Link href="/proyek" className="inline-flex min-h-11 items-center gap-2 rounded text-sm font-semibold text-blue-800 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
+                {data.projectLink}
+                <IconArrowRight className="size-4" />
+              </Link>
+            </div>
+            <ServiceProjectPhoto project={project} lang={lang} />
+          </section>
 
           {/* ═══════ CTA BAWAH ═══════ */}
           <Reveal y={34}>
