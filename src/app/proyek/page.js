@@ -14,6 +14,7 @@ export const metadata = createPageMetadata({
     "Dokumentasi proyek nyata PT Tri Abadi Makmur di Jabodetabek: pengaspalan jalan hotmix, pemasangan paving block, kanstin & cor beton.",
 });
 
-export default function ProyekPage() {
-  return <Projects {...getProjectImageFiles(projects)} />;
+export default async function ProyekPage() {
+  const imageFiles = await getProjectImageFiles(projects);
+  return <Projects {...imageFiles} />;
 }

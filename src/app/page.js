@@ -28,11 +28,12 @@ export const metadata = createPageMetadata({
   image: "/proyek/proyek-30.webp",
 });
 
-export default function Home() {
+export default async function Home() {
+  const imageFiles = await getProjectImageFiles(featuredProjects);
   return (
     <div className="pt-[72px] sm:pt-[76px]">
       <Hero />
-      <ProjectsSection featured={featuredProjects} {...getProjectImageFiles(featuredProjects)} />
+      <ProjectsSection featured={featuredProjects} {...imageFiles} />
       <Clients />
       <Services />
       <BlogPreview items={previewArticles} />

@@ -232,4 +232,3 @@ export default function ProjectLightbox({ list, selectedIndex, setSelectedIndex,
     document.body,
   );
 }
-

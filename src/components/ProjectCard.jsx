@@ -6,9 +6,11 @@ export default function ProjectCard({ project, lang, category, viewPhoto, varian
   const fileName = project.src.split("/").pop();
   const small = fileName.replace(/\.webp$/, "-320.webp");
   const medium = fileName.replace(/\.webp$/, "-640.webp");
+  const smallWidth = variants[small];
+  const mediumWidth = variants[medium];
   const srcSet = [
-    variants.includes(small) && `/proyek/${small} 320w`,
-    variants.includes(medium) && `/proyek/${medium} 640w`,
+    smallWidth && `/proyek/${small} ${smallWidth}w`,
+    mediumWidth && mediumWidth !== smallWidth && `/proyek/${medium} ${mediumWidth}w`,
   ].filter(Boolean).join(", ");
 
   return (
