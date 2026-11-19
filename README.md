@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SpesialisAspal.com
 
-## Getting Started
+Website PT Tri Abadi Makmur menggunakan Next.js App Router, Tailwind CSS, dan static export. Kode route ada di `src/app`. Hasil build untuk Cloudflare ada di `out/`.
 
-First, run the development server:
+## Pengembangan dan verifikasi
 
-```bash
+Gunakan Node.js LTS 22 atau 24. Jalankan perintah dari root proyek.
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Next.js dev server biasanya berjalan di `http://localhost:3000`. Untuk menguji ekspor statis dan aturan Cloudflare secara lokal:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```sh
+npm run lint
+npm run build
+npm start -- --port 8787
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`npm start` menjalankan Wrangler lokal di `http://localhost:8787` pada contoh ini. `public/_redirects` dan `public/_headers` ikut disalin ke `out/`. `NEXT_PUBLIC_SITE_URL` opsional, dengan default `https://spesialisaspal.com` sebagai origin untuk canonical, metadata, dan sitemap.
 
-## Learn More
+## Foto proyek
 
-To learn more about Next.js, take a look at the following resources:
+Untuk membuat varian gambar dan thumbnail dari satu foto WebP yang sudah ada:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+node scripts/optimize-projects.js proyek-92.webp
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Perintah tanpa nama file memproses semua foto asli WebP di `public/proyek`. Skrip hanya menulis file varian dan thumbnail.

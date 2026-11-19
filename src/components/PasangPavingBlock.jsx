@@ -1,53 +1,14 @@
 // src/components/PasangPavingBlock.jsx
 "use client";
 
-import { useState, useCallback, useMemo, memo } from "react";
+import { useState, useCallback, memo } from "react";
 import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import PavingPricingPanel from "./PavingPricingPanel";
 import ServiceQuoteHero from "./ServiceQuoteHero";
 import ServiceProjectPhoto from "./ServiceProjectPhoto";
 import { projectQuoteHref } from "../lib/quote";
-import { useIsMobile } from "../hooks/useIsMobile";
-import { useReveal } from "../hooks/useReveal";
-
-// ─────────────────────────────────────────────
-// REVEAL WRAPPER (memoized)
-// ─────────────────────────────────────────────
-const Reveal = memo(function Reveal({
-  children,
-  delay = 0,
-  y = 28,
-  duration = 700,
-  as: Tag = "div",
-  className = "",
-}) {
-  const isMobile = useIsMobile();
-  const enabled = !isMobile;
-  const [ref, visible] = useReveal({ enabled });
-
-  const style = useMemo(() => {
-    if (!enabled) {
-      return { contain: "layout paint style" };
-    }
-    return {
-      transitionProperty: "opacity, transform",
-      transitionDuration: `${duration}ms`,
-      transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
-      transitionDelay: `${delay}ms`,
-      opacity: visible ? 1 : 0,
-      transform: visible ? "translateY(0)" : `translateY(${y}px)`,
-      willChange: visible ? "auto" : "opacity, transform",
-      contain: "layout paint style",
-    };
-  }, [enabled, visible, duration, delay, y]);
-
-  return (
-    <Tag ref={ref} style={style} className={className}>
-      {children}
-    </Tag>
-  );
-});
+import Reveal from "./Reveal";
 
 // ─────────────────────────────────────────────
 // IKON

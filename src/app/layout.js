@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import FloatingWA from "../components/FloatingWA";
 import WATracker from "../components/WATracker"; // <-- Tambahan untuk tracking WA
 import Script from "next/script";
-import { SITE_ENTITY_ID, SITE_NAME, SITE_URL } from "../lib/metadata";
+import { serializeJsonLd, SITE_ENTITY_ID, SITE_NAME, SITE_URL } from "../lib/metadata";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -65,7 +65,7 @@ export default function RootLayout({ children }) {
         {/* JSON-LD untuk SEO Google */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
         />
 
         {/* Tag GTM untuk <head> */}

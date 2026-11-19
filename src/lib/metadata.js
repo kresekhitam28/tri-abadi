@@ -4,6 +4,10 @@ export const SITE_URL = new URL(
 ).origin;
 export const SITE_ENTITY_ID = `${SITE_URL}/#perusahaan`;
 
+export function serializeJsonLd(data) {
+  return JSON.stringify(data).replace(/</g, "\\u003c");
+}
+
 export function createPageMetadata({
   path,
   title,

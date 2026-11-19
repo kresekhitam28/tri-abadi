@@ -8,12 +8,6 @@ const nextConfig = {
     unoptimized: true,
   },
 
-  // ✅ Fitur kompatibel dengan static export:
-  experimental: {
-    inlineCss: true,             // hilangkan render-blocking CSS
-    optimizePackageImports: ["lucide-react"], // kurangi bundle size
-  },
-
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },

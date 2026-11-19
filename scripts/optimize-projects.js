@@ -5,13 +5,19 @@ const path = require('path');
 
 const SRC = path.join('public', 'proyek');
 const THUMBS = path.join(SRC, 'thumbs');
-if (!fs.existsSync(THUMBS)) fs.mkdirSync(THUMBS, { recursive: true });
 
-const files = fs.readdirSync(SRC).filter(f =>
-  f.endsWith('.webp') && !f.includes('-min') && !/-(320|640|1024)\.webp$/.test(f)
-);
+async function optimizeProjects(requested = process.argv.slice(2)) {
+  const originals = fs.readdirSync(SRC).filter((file) =>
+    file.endsWith('.webp') && !file.includes('-min') && !/-(320|640|1024)\.webp$/.test(file),
+  );
+  const files = requested.length ? [...new Set(requested)] : originals;
+  const unknown = files.filter((file) => !originals.includes(file));
+  if (unknown.length) {
+    throw new Error(`Foto asli tidak ditemukan: ${unknown.join(', ')}`);
+  }
+  if (files.length === 0) throw new Error('Tidak ada foto proyek WebP untuk diproses.');
 
-(async () => {
+  fs.mkdirSync(THUMBS, { recursive: true });
   for (const file of files) {
     const srcPath = path.join(SRC, file);
     const base = path.basename(file, '.webp');
@@ -37,4 +43,9 @@ const files = fs.readdirSync(SRC).filter(f =>
     console.log(`✅ ${file} (asli ${meta.width}×${meta.height})`);
   }
   console.log('Selesai.');
-})().catch(console.error);
+}
+
+optimizeProjects().catch((error) => {
+  console.error(error.message);
+  process.exitCode = 1;
+});

@@ -1,7 +1,7 @@
 // src/components/BlogDetail.jsx
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLang } from "../context/LanguageContext";
@@ -129,13 +129,15 @@ const content = {
     ctaWaMsg:
       "Halo PT Tri Abadi Makmur, saya baru saja membaca artikel Anda dan ingin berkonsultasi mengenai proyek saya.",
     commentTitle: "Tinggalkan Komentar",
-    commentNote: "Komentar Anda akan dikirim ke email kami.",
+    commentNote: "Nama, email, dan komentar dikirim ke tim kami melalui FormSubmit.",
     commentLabel: "Komentar",
     nameLabel: "Nama",
     emailLabel: "Email",
     btnSending: "Mengirim...",
     btnSuccess: "Terkirim!",
-    btnError: "Gagal. Coba lagi.",
+    btnError: "Komentar belum terkirim. Coba lagi atau hubungi kami melalui halaman Kontak.",
+    invalidComment: "Isi nama dan komentar Anda.",
+    contactLink: "Buka halaman Kontak",
     btnIdle: "Kirim Komentar",
     authorBio:
       "PT Tri Abadi Makmur merupakan perusahaan kontraktor pengaspalan jalan dan konstruksi umum di Jabodetabek, Banten & Jawa Barat yang mengedepankan kualitas material, ketepatan waktu, dan garansi hasil pekerjaan.",
@@ -162,13 +164,15 @@ const content = {
     ctaWaMsg:
       "Hello PT Tri Abadi Makmur, I just read your article and would like to consult about my project.",
     commentTitle: "Leave a Comment",
-    commentNote: "Your comment will be sent to our email.",
+    commentNote: "Your name, email, and comment go to our team through FormSubmit.",
     commentLabel: "Comment",
     nameLabel: "Name",
     emailLabel: "Email",
     btnSending: "Sending...",
     btnSuccess: "Sent!",
-    btnError: "Failed. Try again.",
+    btnError: "Your comment could not be sent. Try again or use our Contact page.",
+    invalidComment: "Enter your name and comment.",
+    contactLink: "Open the Contact page",
     btnIdle: "Send Comment",
     authorBio:
       "PT Tri Abadi Makmur is an asphalt paving and general construction contractor across Greater Jakarta, Banten & West Java prioritizing material quality, punctuality, and guaranteed workmanship.",
@@ -301,16 +305,31 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
   const [comment, setComment] = useState("");
   const [status, setStatus] = useState("idle");
   const [copied, setCopied] = useState(false);
+  const copyTimer = useRef(null);
+  const submission = useRef(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [slug]);
 
+  useEffect(() => () => {
+    clearTimeout(copyTimer.current);
+    const request = submission.current;
+    submission.current = null;
+    request?.abort();
+  }, []);
+
   const pageUrl = `${SITE_URL}/blog/${slug}`;
   const title = pick(article.title, lang);
   const illustration = pick(article.illustration, lang);
   const shareText = encodeURIComponent(`${title} — ${pageUrl}`);
+
+  function showCopied() {
+    clearTimeout(copyTimer.current);
+    setCopied(true);
+    copyTimer.current = setTimeout(() => setCopied(false), 2000);
+  }
 
   async function handleShare() {
     const shareData = { title, text: title, url: pageUrl };
@@ -328,8 +347,7 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
     try {
       if (typeof navigator !== "undefined" && navigator.clipboard) {
         await navigator.clipboard.writeText(`${title} — ${pageUrl}`);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+        showCopied();
       }
     } catch (err) {
       console.error("Clipboard error:", err);
@@ -340,34 +358,29 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
     try {
       if (typeof navigator !== "undefined" && navigator.clipboard) {
         await navigator.clipboard.writeText(pageUrl);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+        showCopied();
       }
     } catch (err) {
       console.error("Clipboard error:", err);
     }
   }
 
-  function openMailtoFallback() {
-    const subject = `Komentar Blog: ${title}`;
-    const body =
-      `Nama: ${name}\n` +
-      `Email: ${email}\n\n` +
-      `Komentar:\n${comment}\n\n` +
-      `────────────────────\n` +
-      `Artikel: ${title}\n` +
-      `Halaman: ${pageUrl}`;
+  async function handleSubmit(event) {
+    event.preventDefault();
+    if (submission.current) return;
 
-    const href =
-      `mailto:triabadimakmur@gmail.com` +
-      `?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`;
+    const form = new FormData(event.currentTarget);
+    if (form.get("_honey")) return;
+    const sender = name.trim();
+    const message = comment.trim();
+    if (!sender || !message) {
+      setStatus("invalid");
+      return;
+    }
 
-    window.location.assign(href);
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
+    const request = new AbortController();
+    submission.current = request;
+    const timeout = setTimeout(() => request.abort(), 15_000);
     setStatus("sending");
 
     try {
@@ -375,6 +388,7 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
         "https://formsubmit.co/ajax/triabadimakmur@gmail.com",
         {
           method: "POST",
+          signal: request.signal,
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
@@ -382,10 +396,10 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
           body: JSON.stringify({
             _subject: `Komentar Blog: ${title}`,
             _template: "table",
-            _captcha: "false",
-            Nama: name,
-            Email: email,
-            Komentar: comment,
+            _honey: "",
+            Nama: sender,
+            Email: email.trim(),
+            Komentar: message,
             Artikel: title,
             Halaman: pageUrl,
           }),
@@ -395,19 +409,19 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
       const json = await res.json().catch(() => ({}));
 
       if (!res.ok || String(json.success) !== "true") {
-        throw new Error(json.message || "Gagal kirim");
+        throw new Error("Comment submission failed");
       }
 
+      if (submission.current !== request) return;
       setStatus("success");
       setName("");
       setEmail("");
       setComment("");
-      setTimeout(() => setStatus("idle"), 4000);
-    } catch (err) {
-      console.error("FormSubmit error:", err);
-      openMailtoFallback();
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 4000);
+    } catch {
+      if (submission.current === request) setStatus("error");
+    } finally {
+      clearTimeout(timeout);
+      if (submission.current === request) submission.current = null;
     }
   }
 
@@ -726,6 +740,7 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
             </p>
 
             <form onSubmit={handleSubmit} aria-describedby="article-comment-note" className="space-y-4">
+              <input className="hidden" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" />
               <div>
                 <label htmlFor="article-comment" className="mb-2 block text-sm font-semibold text-slate-700">{t.commentLabel}</label>
                 <textarea
@@ -757,14 +772,18 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
                 {t.btnIdle}
               </button>
               <p role="status" className="text-sm font-medium text-slate-700 empty:m-0">
-                {status === "sending"
-                  ? t.btnSending
-                  : status === "success"
-                  ? t.btnSuccess
-                  : status === "error"
-                  ? t.btnError
-                  : ""}
+                {{
+                  sending: t.btnSending,
+                  success: t.btnSuccess,
+                  error: t.btnError,
+                  invalid: t.invalidComment,
+                }[status]}
               </p>
+              {status === "error" && (
+                <Link href="/kontak" className="inline-flex min-h-11 items-center rounded font-semibold text-blue-700 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-blue-700">
+                  {t.contactLink}
+                </Link>
+              )}
             </form>
           </div>
         </Reveal>

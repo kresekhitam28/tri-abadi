@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import BlogDetail from "../../../components/BlogDetail";
 import { articles, getArticleBySlug } from "../../../data/articles";
 import { getArticleNavigation } from "../../../lib/blog";
-import { createPageMetadata, SITE_ENTITY_ID, SITE_NAME, SITE_URL } from "../../../lib/metadata";
+import { createPageMetadata, serializeJsonLd, SITE_ENTITY_ID, SITE_NAME, SITE_URL } from "../../../lib/metadata";
 
 const pick = (f) => {
   if (!f) return "";
@@ -71,7 +71,7 @@ export default async function BlogDetailPage({ params }) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <BlogDetail key={slug} article={article} {...getArticleNavigation(article)} />
     </>
