@@ -1,11 +1,8 @@
-// src/components/Blog.jsx
 "use client";
 
-import { useEffect, useMemo, lazy, Suspense, useState } from "react";
+import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
-import { articles } from "../data/articles";
-
-const BlogCard = lazy(() => import("./BlogCard"));
+import BlogCard from "./BlogCard";
 
 const content = {
   id: {
@@ -16,6 +13,7 @@ const content = {
       "Temukan panduan biaya, tips teknis, dan berita terbaru seputar konstruksi jalan, pengaspalan hotmix, paving block, dan perbaikan jalan dari PT Tri Abadi Makmur untuk area Jabodetabek, Banten & Jawa Barat.",
     empty: "Belum ada artikel.",
     pageLabel: "Halaman",
+    navigationLabel: "Navigasi halaman artikel",
   },
   en: {
     kicker: "Articles & News",
@@ -25,53 +23,13 @@ const content = {
       "Find pricing guides, technical tips, and the latest news about road construction, hotmix asphalt paving, paving blocks, and road repair from PT Tri Abadi Makmur for Greater Jakarta, Banten & West Java.",
     empty: "No articles found yet.",
     pageLabel: "Page",
+    navigationLabel: "Article pages",
   },
 };
 
-const ARTICLES_PER_PAGE = 6; // Menampilkan 6 artikel per halaman
-
-function CardSkeleton() {
-  return (
-    <div className="rounded-2xl border border-slate-200 overflow-hidden animate-pulse bg-white">
-      <div className="aspect-[16/10] bg-slate-200" />
-      <div className="p-5 space-y-3">
-        <div className="h-3 w-1/3 bg-slate-200 rounded" />
-        <div className="h-4 w-3/4 bg-slate-200 rounded" />
-        <div className="h-3 w-full bg-slate-200 rounded" />
-        <div className="h-3 w-2/3 bg-slate-200 rounded" />
-      </div>
-    </div>
-  );
-}
-
-export default function Blog() {
+export default function Blog({ items, page, pageLinks }) {
   const { lang } = useLang();
   const data = content[lang] || content.id;
-
-  // State halaman aktif (0 = Halaman 1, 1 = Halaman 2, dst)
-  const [activePage, setActivePage] = useState(0);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, [activePage]);
-
-  // Urutkan artikel dari tanggal terbaru agar panduan harga tampil di halaman pertama
-  const sortedArticles = useMemo(() => {
-    return [...articles].sort((a, b) =>
-      (b.dateISO || "").localeCompare(a.dateISO || "")
-    );
-  }, []);
-
-  // Hitung total halaman berdasarkan jumlah artikel
-  const totalPages = Math.ceil(sortedArticles.length / ARTICLES_PER_PAGE);
-
-  // Potong array artikel sesuai halaman yang aktif
-  const currentArticles = useMemo(() => {
-    const start = activePage * ARTICLES_PER_PAGE;
-    const end = start + ARTICLES_PER_PAGE;
-    return sortedArticles.slice(start, end);
-  }, [activePage, sortedArticles]);
 
   return (
     <section
@@ -95,6 +53,7 @@ export default function Blog() {
           >
             <span className="font-semibold">{data.titleLight}</span>{" "}
             {data.titleBold}
+            {page > 1 && ` – ${data.pageLabel} ${page}`}
             <span className="text-[#1e88e5]">.</span>
           </h1>
 
@@ -107,19 +66,17 @@ export default function Blog() {
         </div>
 
         {/* ═══ GRID ARTIKEL ═══ */}
-        {currentArticles.length > 0 ? (
+        {items.length > 0 ? (
           <div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7"
             style={{ contain: "layout paint style" }}
           >
-            {currentArticles.map((item) => (
+            {items.map((item) => (
               <div
                 key={item.slug}
                 style={{ contentVisibility: "auto", containIntrinsicSize: "400px" }}
               >
-                <Suspense fallback={<CardSkeleton />}>
-                  <BlogCard item={item} />
-                </Suspense>
+                <BlogCard item={item} heading="h2" />
               </div>
             ))}
           </div>
@@ -130,27 +87,26 @@ export default function Blog() {
         )}
 
         {/* ═══ NAVIGASI ANGKA 1, 2, 3... ═══ */}
-        {totalPages > 1 && (
+        {pageLinks.length > 1 && (
           <nav
-            aria-label="Navigasi halaman artikel"
+            aria-label={data.navigationLabel}
             className="flex flex-wrap items-center justify-center gap-2 mt-12 sm:mt-16"
           >
-            {Array.from({ length: totalPages }).map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                onClick={() => setActivePage(index)}
+            {pageLinks.map((href, index) => (
+              <Link
+                key={href}
+                href={href}
                 aria-label={`${data.pageLabel} ${index + 1}`}
-                aria-current={activePage === index ? "page" : undefined}
-                className={`w-10 h-10 flex items-center justify-center rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer
+                aria-current={page === index + 1 ? "page" : undefined}
+                className={`flex size-11 items-center justify-center rounded-lg text-sm font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700
                   ${
-                    activePage === index
-                      ? "bg-[#1e88e5] text-white shadow-md shadow-[#1e88e5]/30 scale-110"
+                    page === index + 1
+                      ? "bg-blue-700 text-white shadow-md shadow-blue-700/30"
                       : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                   }`}
               >
                 {index + 1}
-              </button>
+              </Link>
             ))}
           </nav>
         )}

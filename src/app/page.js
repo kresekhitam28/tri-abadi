@@ -8,8 +8,17 @@ import { asphaltPackagePrices, formatAsphaltPrice } from "../data/asphaltPricing
 import { projects } from "../data/projects";
 import { createPageMetadata } from "../lib/metadata";
 import { getProjectImageFiles } from "../lib/projectImages";
+import { getArticleSummaries } from "../lib/blog";
 
 const featuredProjects = [27, 25, 30].map((id) => projects.find((project) => project.id === id));
+const previewArticles = getArticleSummaries([
+  "aspal-jalan-murah",
+  "pemasangan-kansteen",
+  "pemasangan-paving-block",
+  "jasa-pengecoran-beton",
+  "pemasangan-tiang-pancang",
+  "pemasangan-pagar-panel",
+]);
 
 export const metadata = createPageMetadata({
   path: "/",
@@ -26,7 +35,7 @@ export default function Home() {
       <ProjectsSection featured={featuredProjects} {...getProjectImageFiles(featuredProjects)} />
       <Clients />
       <Services />
-      <BlogPreview />
+      <BlogPreview items={previewArticles} />
     </div>
   );
 }

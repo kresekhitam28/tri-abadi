@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import FloatingWA from "../components/FloatingWA";
 import WATracker from "../components/WATracker"; // <-- Tambahan untuk tracking WA
 import Script from "next/script";
-import { SITE_NAME, SITE_URL } from "../lib/metadata";
+import { SITE_ENTITY_ID, SITE_NAME, SITE_URL } from "../lib/metadata";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -36,6 +36,7 @@ export default function RootLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "GeneralContractor",
+    "@id": SITE_ENTITY_ID,
     "name": "PT Tri Abadi Makmur - Spesialis Aspal",
     "url": `${SITE_URL}/`,
     "telephone": "+6282258089367",

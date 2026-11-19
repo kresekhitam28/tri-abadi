@@ -1,12 +1,9 @@
 // src/components/BlogPreview.jsx
 "use client";
 
-import { useMemo, lazy, Suspense } from "react";
 import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
-import { articles } from "../data/articles";
-
-const BlogCard = lazy(() => import("./BlogCard"));
+import BlogCard from "./BlogCard";
 
 function IconArrowRight({ className = "w-4 h-4" }) {
   return (
@@ -32,44 +29,9 @@ const content = {
   },
 };
 
-// =========================================================================
-// ⚠️ DI SINI ANDA MENGATUR 3 KARTU UNTUK BERANDA ⚠️
-// Masukkan "slug" dari artikel yang ingin Anda tampilkan.
-// Pastikan slug ini persis sama dengan yang ada di src/data/articles.js
-// =========================================================================
-const HOMEPAGE_SLUGS = [
-  "aspal-jalan-murah",       // Kartu 1 (Kiri)
-  "pemasangan-kansteen",  // Kartu 2 (Tengah) - Ganti dengan slug kanstin Anda
-  "pemasangan-paving-block",
-  "jasa-pengecoran-beton",  
-  "pemasangan-tiang-pancang",
-  "pemasangan-pagar-panel",  // Kartu 3 (Kanan) - Ganti dengan slug cor beton Anda
-];
-
-function CardSkeleton() {
-  return (
-    <div className="rounded-2xl border border-slate-200 overflow-hidden animate-pulse bg-white">
-      <div className="aspect-[16/10] bg-slate-200" />
-      <div className="p-5 space-y-3">
-        <div className="h-3 w-1/3 bg-slate-200 rounded" />
-        <div className="h-4 w-3/4 bg-slate-200 rounded" />
-        <div className="h-3 w-full bg-slate-200 rounded" />
-      </div>
-    </div>
-  );
-}
-
-export default function BlogPreview() {
+export default function BlogPreview({ items }) {
   const { lang } = useLang();
   const data = content[lang] || content.id;
-
-  // Logika mengambil artikel berdasarkan urutan HOMEPAGE_SLUGS di atas
-  const previewArticles = useMemo(() => {
-    return HOMEPAGE_SLUGS.map((slug) => {
-      // Cari artikel yang slug-nya cocok
-      return articles.find((article) => article.slug === slug);
-    }).filter(Boolean); // filter(Boolean) untuk membuang data yang tidak ketemu (undefined)
-  }, []);
 
   return (
     <section
@@ -94,11 +56,7 @@ export default function BlogPreview() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7" style={{ contain: "layout paint style" }}>
-          {previewArticles.map((item) => (
-            <Suspense key={item.slug} fallback={<CardSkeleton />}>
-              <BlogCard item={item} />
-            </Suspense>
-          ))}
+          {items.map((item) => <BlogCard key={item.slug} item={item} />)}
         </div>
 
         <div className="text-center mt-12 sm:mt-16 lg:mt-20">

@@ -2,6 +2,10 @@
   RewriteEngine On
   RewriteBase /
   RewriteRule ^heavy-equipment(?:\.html|/)?$ /alat-berat [R=301,L]
+  RewriteRule ^blog/halaman/1/?$ /blog [R=301,L]
+  RewriteRule ^blog/harga-paving-block-per-m2/?$ /blog/harga-paving-block-bata-hexagon-topi-uskup [R=301,L]
+  RewriteRule ^blog/cor-beton-ready-mix/?$ /layanan/infrastruktur/cor-beton-ready-mix [R=301,L]
+  RewriteRule ^blog/harga-cor-beton/?$ /blog/harga-cor-beton-ready-mix [R=301,L]
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME}.html -f

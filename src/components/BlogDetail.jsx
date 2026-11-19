@@ -4,9 +4,7 @@
 import { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useParams } from "next/navigation";
 import { useLang } from "../context/LanguageContext";
-import { articles, getArticleBySlug } from "../data/articles";
 import { SITE_URL } from "../lib/metadata";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useReveal } from "../hooks/useReveal";
@@ -103,7 +101,7 @@ const formatDate = (dateISO, lang) => {
   try {
     return new Date(dateISO).toLocaleDateString(
       lang === "en" ? "en-US" : "id-ID",
-      { day: "numeric", month: "long", year: "numeric" }
+      { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }
     );
   } catch {
     return dateISO;
@@ -115,8 +113,10 @@ const formatDate = (dateISO, lang) => {
 // ─────────────────────────────────────────────
 const content = {
   id: {
-    notFoundTitle: "Artikel tidak ditemukan",
+    breadcrumb: "Jejak navigasi",
+    home: "Beranda",
     publishedLabel: "Dipublikasikan pada",
+    modifiedLabel: "Diperbarui pada",
     tagsLabel: "Tag",
     shareLabel: "Bagikan",
     relatedTitle: "Artikel Terkait Lainnya",
@@ -146,8 +146,10 @@ const content = {
     copyLink: "Salin Link",
   },
   en: {
-    notFoundTitle: "Article not found",
+    breadcrumb: "Breadcrumb",
+    home: "Home",
     publishedLabel: "Published on",
+    modifiedLabel: "Updated on",
     tagsLabel: "Tags",
     shareLabel: "Share",
     relatedTitle: "Related Articles",
@@ -182,13 +184,10 @@ const content = {
 // RENDER TAG ITEM
 // ─────────────────────────────────────────────
 function TagItem({ tag, lang, className }) {
-  const isObj = typeof tag === "object" && tag !== null;
-  const label = isObj ? pick(tag, lang) : tag;
-  const slug = isObj && tag.slug ? tag.slug : null;
-
-  if (slug) {
+  const label = pick(tag.label, lang);
+  if (tag.href) {
     return (
-      <Link href={`/blog/${slug}`} className={className}>
+      <Link href={tag.href} className={className}>
         {label}
       </Link>
     );
@@ -290,10 +289,9 @@ function ArticleBody({ body, lang }) {
 // ─────────────────────────────────────────────
 // HALAMAN
 // ─────────────────────────────────────────────
-export default function BlogDetail() {
-  const { slug } = useParams();
+export default function BlogDetail({ article, visibleTags, relatedArticles }) {
+  const { slug } = article;
   const { lang } = useLang();
-  const article = getArticleBySlug(slug);
   const t = content[lang] || content.id;
 
   const [name, setName] = useState("");
@@ -308,21 +306,9 @@ export default function BlogDetail() {
   }, [slug]);
 
   const pageUrl = `${SITE_URL}/blog/${slug}`;
-  const title = article ? pick(article.title, lang) : "";
-  const illustration = pick(article?.illustration, lang);
+  const title = pick(article.title, lang);
+  const illustration = pick(article.illustration, lang);
   const shareText = encodeURIComponent(`${title} — ${pageUrl}`);
-
-  const visibleTags = article?.tags
-    .filter((tag) => {
-      const tagSlug = typeof tag === "object" && tag !== null ? tag.slug : null;
-      return !tagSlug || tagSlug !== article.slug;
-    })
-    .slice(0, 8) ?? [];
-
-  // 3 artikel terkait untuk internal linking SEO
-  const relatedArticles = article
-    ? articles.filter((item) => item.slug !== article.slug).slice(0, 3)
-    : [];
 
   async function handleShare() {
     const shareData = { title, text: title, url: pageUrl };
@@ -423,64 +409,57 @@ export default function BlogDetail() {
     }
   }
 
-  if (!article) {
-    return (
-      <section className="min-h-[60vh] flex items-center justify-center px-5">
-        <div className="text-center">
-          <p className="text-[11px] uppercase tracking-[0.3em] text-[#1e88e5] font-semibold mb-3">
-            Blog
-          </p>
-          <h1 className="text-2xl font-light text-slate-900">
-            {t.notFoundTitle}
-          </h1>
-        </div>
-      </section>
-    );
-  }
-
   const category = pick(article.category, lang);
   const desc = pick(article.desc, lang);
   const formattedDate = formatDate(article.dateISO, lang);
+  const modifiedDate = formatDate(article.modifiedDateISO, lang);
 
   return (
     <article className="bg-white" style={{ contain: "layout style" }}>
       {/* ═══ HERO ═══ */}
       <section className={article.quote ? "pb-5 pt-24 sm:pb-6 sm:pt-28" : "pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 lg:pb-12"}>
         <div className="relative max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
-          <Reveal delay={0} y={14}>
-            <div className="inline-flex items-center gap-3">
-              <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
-              <span
-                className="text-[10px] sm:text-[11px] uppercase
-                           tracking-[0.25em] sm:tracking-[0.3em]
-                           text-[#1e88e5] font-semibold"
-              >
-                {category}
-              </span>
-              <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
-            </div>
-          </Reveal>
-
-          <Reveal delay={80} y={22}>
-            <h1
-              className="mt-5 sm:mt-7 font-light tracking-tight text-slate-900 leading-[1.18]"
-              style={{ fontSize: "clamp(1.5rem, 5vw, 2.625rem)" }}
-            >
-              {title}
-              <span className="text-[#1e88e5]">.</span>
-            </h1>
-          </Reveal>
-
-          {formattedDate && (
-            <Reveal delay={130} y={16}>
-              <p className="mt-4 text-xs sm:text-sm text-slate-500">
+          <nav aria-label={t.breadcrumb} className="mb-3 text-xs text-slate-600">
+            <ol className="flex min-w-0 items-center justify-center gap-2">
+              <li><Link href="/" className="hover:underline">{t.home}</Link></li>
+              <li aria-hidden="true">/</li>
+              <li><Link href="/blog" className="hover:underline">Blog</Link></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="min-w-0 truncate text-left">{title}</li>
+            </ol>
+          </nav>
+          <div className="inline-flex items-center gap-3">
+            <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
+            <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#1e88e5] sm:text-[11px] sm:tracking-[0.3em]">
+              {category}
+            </span>
+            <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
+          </div>
+          <h1
+            className="mt-5 sm:mt-7 font-light tracking-tight text-slate-900 leading-[1.18]"
+            style={{ fontSize: "clamp(1.5rem, 5vw, 2.625rem)" }}
+          >
+            {title}
+            <span className="text-[#1e88e5]">.</span>
+          </h1>
+          <div className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-slate-600 sm:text-sm">
+            {formattedDate && (
+              <p>
                 {t.publishedLabel}{" "}
                 <time dateTime={article.dateISO} className="font-medium text-slate-700">
                   {formattedDate}
                 </time>
               </p>
-            </Reveal>
-          )}
+            )}
+            {modifiedDate && (
+              <p>
+                {t.modifiedLabel}{" "}
+                <time dateTime={article.modifiedDateISO} className="font-medium text-slate-700">
+                  {modifiedDate}
+                </time>
+              </p>
+            )}
+          </div>
         </div>
       </section>
 
@@ -647,9 +626,9 @@ export default function BlogDetail() {
             )}
 
             <div className="flex-1 min-w-0">
-              <h3 className="text-[16px] lg:text-[17px] font-semibold text-slate-900 mb-2">
+              <h2 className="text-[16px] lg:text-[17px] font-semibold text-slate-900 mb-2">
                 {article.author?.name || "PT Tri Abadi Makmur"}
-              </h3>
+              </h2>
 
               <p
                 className="text-slate-600 leading-[1.8] mb-2 sm:mb-3"
@@ -678,12 +657,12 @@ export default function BlogDetail() {
               <p className="text-[#4da3ff] text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-bold mb-4">
                 {t.ctaKicker}
               </p>
-              <h3
+              <h2
                 className="text-white font-light tracking-tight mb-4"
                 style={{ fontSize: "clamp(1.25rem, 3vw, 1.75rem)" }}
               >
                 {t.ctaTitleLight} <span className="font-bold">{t.ctaTitleBold}</span>
-              </h3>
+              </h2>
               <p
                 className="text-slate-400 mb-8 max-w-lg mx-auto"
                 style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}
@@ -708,9 +687,9 @@ export default function BlogDetail() {
         {relatedArticles.length > 0 && (
           <Reveal y={22}>
             <div className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-slate-200">
-              <h3 className="text-[17px] sm:text-[18px] font-semibold text-slate-900 mb-6">
+              <h2 className="text-[17px] sm:text-[18px] font-semibold text-slate-900 mb-6">
                 {t.relatedTitle}
-              </h3>
+              </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {relatedArticles.map((rel) => (
                   <Link
@@ -721,9 +700,9 @@ export default function BlogDetail() {
                     <p className="text-[10px] uppercase tracking-wider text-[#1e88e5] font-semibold mb-1.5">
                       {pick(rel.category, lang)}
                     </p>
-                    <h4 className="text-sm font-semibold text-slate-900 group-hover:text-[#1e88e5] line-clamp-2 leading-snug transition-colors">
+                    <h3 className="text-sm font-semibold text-slate-900 group-hover:text-[#1e88e5] line-clamp-2 leading-snug transition-colors">
                       {pick(rel.title, lang)}
-                    </h4>
+                    </h3>
                   </Link>
                 ))}
               </div>
@@ -735,9 +714,9 @@ export default function BlogDetail() {
         <Reveal y={22}>
           <div className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-slate-200 pb-16 sm:pb-20 lg:pb-28">
             <div className="flex items-baseline gap-3 mb-2">
-              <h3 className="text-[17px] sm:text-[18px] font-semibold text-slate-900">
+              <h2 className="text-[17px] sm:text-[18px] font-semibold text-slate-900">
                 {t.commentTitle}
-              </h3>
+              </h2>
               <span className="h-px flex-1 bg-slate-100" />
             </div>
             <p className="text-[12.5px] sm:text-[13px] text-slate-500 mb-6 sm:mb-8">

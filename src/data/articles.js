@@ -4,17 +4,18 @@ import { asphaltCostRanges, asphaltPackagePrices, formatAsphaltPrice } from "./a
 export const articles = [
   {
     slug: "aspal-jalan-murah",
+    modifiedDateISO: "2026-11-19",
     date: { id: "28 September 2026", en: "September 28, 2026" },
     dateISO: "2026-10-14",
     src: "/proyek/proyek-1.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
     title: {
-      id: "Jasa Aspal Jalan Murah & Bergaransi (Mulai Rp 75rb/m²)",
-      en: "Affordable & Guaranteed Asphalt Paving (From Rp 75k/m²)",
+      id: "Cara Menghemat Biaya Pengaspalan Jalan",
+      en: "How to Save on Road Paving Costs",
     },
     desc: {
-      id: "Butuh jasa pengaspalan jalan murah tapi awet? PT Tri Abadi Makmur melayani pengaspalan hotmix Jabodetabek. Gratis survei lokasi & konsultasi!",
-      en: "Need affordable yet durable road paving services? PT Tri Abadi Makmur provides hotmix paving across Greater Jakarta. Free site survey & consultation!",
+      id: "Pelajari cara merencanakan pengaspalan yang sesuai anggaran, mulai dari memilih waktu pengerjaan hingga membandingkan material dan penawaran.",
+      en: "Learn how to plan asphalt paving within your budget, from choosing a work schedule to comparing materials and project quotes.",
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -43,8 +44,8 @@ export const articles = [
       {
         type: "paragraph",
         text: {
-          id: "Aspal Jalan Murah — Mendapatkan jalan aspal yang mulus tidak harus menguras kantong. Banyak orang mengira pengaspalan itu mahal, padahal dengan perencanaan yang tepat, Anda bisa mendapatkan aspal jalan murah tapi tetap berkualitas. Jika Anda mencari <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengaspalan murah</a> di Jabodetabek & sekitarnya, PT Tri Abadi Makmur menawarkan harga transparan tanpa mengurangi kualitas material.",
-          en: "Affordable Asphalt — Getting a smooth asphalt road doesn't have to break the bank. Many people think paving is expensive, but with proper planning, you can get cheap but quality asphalt. If you are looking for affordable paving services in Greater Jakarta & surrounding areas, PT Tri Abadi Makmur offers transparent prices without reducing material quality.",
+          id: "Saat membandingkan penawaran, periksa kondisi jalan, luas area, dan lingkup pekerjaan yang dicakup. Gunakan <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>panduan biaya pengaspalan per m²</a> untuk gambaran awal, lalu lihat <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>jasa pengaspalan hotmix</a> jika Anda membutuhkan survei atau estimasi proyek.",
+          en: "When comparing quotes, check the condition of the road, the project area, and what each quote covers. Use the <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>road paving cost guide</a> for an initial estimate, then see our <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>hotmix asphalt paving services</a> if you need a survey or project quote.",
         },
       },
       {
@@ -294,6 +295,7 @@ export const articles = [
   },
   {
     slug: "perbaikan-jalan-aspal",
+    modifiedDateISO: "2026-11-19",
     date: { id: "20 Oktober 2026", en: "October 20, 2026" },
     dateISO: "2026-10-22",
     src: "/proyek/proyek-2.webp",
@@ -340,6 +342,13 @@ export const articles = [
       {
         type: "heading",
         text: { id: "Perbaikan Jalan Aspal Hotmix", en: "Hotmix Asphalt Road Repair" },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Jika Anda membutuhkan perbaikan jalan, lihat <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>layanan tambal sulam dan overlay</a> atau bandingkan <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>kisaran biaya per jenis pekerjaan</a> sebelum meminta estimasi.",
+          en: "If you need road repairs, see our <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>patching and resurfacing services</a> or compare the <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>cost ranges by type of work</a> before requesting a quote.",
+        },
       },
       {
         type: "paragraph",
@@ -1248,6 +1257,7 @@ export const articles = [
   },
   {
     slug: "biaya-aspal-per-meter",
+    modifiedDateISO: "2026-11-19",
     date: { id: "15 Oktober 2026", en: "October 15, 2026" },
     dateISO: "2026-10-18",
     src: "/proyek/proyek-22.webp",
@@ -1793,6 +1803,7 @@ export const articles = [
   },
   {
     slug: "harga-aspal-hotmix",
+    modifiedDateISO: "2026-11-19",
     date: { id: "1 November 2026", en: "November 1, 2026" },
     dateISO: "2026-11-01",
     src: "/proyek/proyek-22.webp",
@@ -1837,6 +1848,10 @@ export const articles = [
       },
 
       // --- GRID KATEGORI (4 KOLOM SEJAJAR) ---
+      {
+        type: "heading",
+        text: { id: "Perbandingan Paket Aspal Hotmix", en: "Hotmix Asphalt Package Comparison" },
+      },
       {
         type: "paragraph",
         text: {
@@ -2157,6 +2172,7 @@ export const articles = [
   },
       {
     slug: "harga-paving-block-bata-hexagon-topi-uskup",
+    modifiedDateISO: "2026-11-19",
     date: { id: "17 November 2026", en: "November 17, 2026" },
     dateISO: "2026-11-17",
     src: "/proyek/proyek-88.webp",
@@ -2200,7 +2216,7 @@ export const articles = [
     },
     tags: [
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
-      { id: "Harga Paving Block per m²", en: "Paving Block Price per m²", slug: "harga-paving-block-per-m2" },
+      { id: "Jasa Pasang Paving Block", en: "Paving Block Installation Services", href: "/layanan/infrastruktur/pasang-paving-block" },
       { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide", slug: "pemasangan-grass-block" },
       { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },
@@ -2616,8 +2632,8 @@ export const articles = [
       {
         type: "paragraph",
         text: {
-          id: "Untuk gambaran umum harga dan tahapan pekerjaan, baca juga artikel kami tentang <a href='/blog/harga-paving-block-per-m2' class='text-[#1e88e5] hover:underline font-semibold'>Harga Paving Block per m²</a> dan <a href='/blog/pemasangan-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>tahapan pemasangan paving block</a>.",
-          en: "For a general price overview and work stages, also read our article on <a href='/blog/harga-paving-block-per-m2' class='text-[#1e88e5] hover:underline font-semibold'>Paving Block Price per m²</a> and the <a href='/blog/pemasangan-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>paving block installation stages</a>.",
+          id: "Untuk membandingkan pilihan sebelum memesan, lihat <a href='#harga-material-paving' class='text-[#1e88e5] hover:underline font-semibold'>harga material per m²</a> dan <a href='/blog/pemasangan-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>tahapan pemasangan paving block</a>.",
+          en: "Before ordering, compare the <a href='#harga-material-paving' class='text-[#1e88e5] hover:underline font-semibold'>supply prices per m²</a> and review the <a href='/blog/pemasangan-paving-block' class='text-[#1e88e5] hover:underline font-semibold'>paving block installation stages</a>.",
         },
       },
       {
@@ -2631,6 +2647,7 @@ export const articles = [
   },
       {
     slug: "harga-cor-beton-ready-mix",
+    modifiedDateISO: "2026-11-19",
     date: { id: "17 November 2026", en: "November 17, 2026" },
     dateISO: "2026-11-17",
     src: "/proyek/proyek-13.webp",
@@ -2673,8 +2690,8 @@ export const articles = [
     },
     tags: [
       { id: "Jasa Pengecoran Beton", en: "Concrete Casting Services", slug: "jasa-pengecoran-beton" },
-      { id: "Cor Beton Ready Mix", en: "Ready-Mix Concrete", slug: "cor-beton-ready-mix" },
-      { id: "Harga Cor Beton", en: "Concrete Price", slug: "harga-cor-beton" },
+      { id: "Jasa Cor Beton Ready Mix", en: "Ready-Mix Concrete Pouring", href: "/layanan/infrastruktur/cor-beton-ready-mix" },
+      { id: "Harga Pasokan Beton", en: "Concrete Supply Prices", href: "#harga-ready-mix" },
       { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
       { id: "Pemasangan Grass Block", en: "Grass Block Installation Guide", slug: "pemasangan-grass-block" },
       { id: "Pengaspalan Jalan Perumahan", en: "Residential Road Asphalt Paving", slug: "pengaspalan-jalan-perumahan" },

@@ -2,7 +2,9 @@
 "use client";
 
 import { useState, useRef, useEffect, lazy, Suspense } from "react";
+import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
+import { asphaltPackagePrices, formatAsphaltPrice } from "../data/asphaltPricing";
 
 // ─────────────────────────────────────────────
 // LAZY-LOAD PANEL PRICING
@@ -100,7 +102,8 @@ const content = {
   id: {
     title: "Layanan dan Paket Harga",
     description: "Pilih layanan untuk melihat paket harga dan lingkup pekerjaan.",
-    startingPrice: "Mulai Rp75.000/m²",
+    startingPrice: `Overlay mulai ${formatAsphaltPrice(asphaltPackagePrices.A)}/m²`,
+    details: "Lihat detail",
     open: "Lihat Harga",
     close: "Tutup Harga",
     services: [
@@ -116,7 +119,8 @@ const content = {
   en: {
     title: "Services and Pricing",
     description: "Choose a service to view package prices and the scope of work.",
-    startingPrice: "From Rp75,000/m²",
+    startingPrice: `Overlay from ${formatAsphaltPrice(asphaltPackagePrices.A, "en")}/m²`,
+    details: "View details for",
     open: "View Prices",
     close: "Hide Prices",
     services: [
@@ -142,6 +146,16 @@ const PANEL_MAP = {
   grassblock: GrassBlockPricingPanel,
   panel: PanelPricingPanel,
   tiangpancang: TiangPancangPricingPanel,
+};
+
+const SERVICE_SLUGS = {
+  aspal: "pengaspalan",
+  kanstin: "pasang-kanstin",
+  beton: "cor-beton-ready-mix",
+  grassblock: "pasang-grass-block",
+  paving: "pasang-paving-block",
+  panel: "pasang-pager-panel",
+  tiangpancang: "pasang-tiang-pancang",
 };
 
 function PanelSkeleton() {
@@ -220,6 +234,13 @@ export default function Services() {
                     <IconChevronDown className={`size-3 transition-transform ${open ? "rotate-180" : ""}`} />
                   </span>
                 </button>
+
+                <Link
+                  href={`/layanan/infrastruktur/${SERVICE_SLUGS[pricing]}`}
+                  className="ml-3 inline-flex min-h-10 items-center rounded px-2 pb-1 text-xs font-semibold text-blue-700 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-blue-700 sm:ml-5 sm:text-sm"
+                >
+                  {t.details} {title}
+                </Link>
 
                 <div id={panelId} hidden={!open}>
                   {open && (

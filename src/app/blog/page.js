@@ -1,5 +1,6 @@
 // src/app/blog/page.js
 import Blog from "../../components/BlogPage";
+import { getBlogListing } from "../../lib/blog";
 import { createPageMetadata } from "../../lib/metadata";
 
 export const metadata = createPageMetadata({
@@ -11,5 +12,5 @@ export const metadata = createPageMetadata({
 });
 
 export default function BlogPage() {
-  return <Blog />;
+  return <Blog {...getBlogListing(1)} />;
 }

@@ -51,12 +51,12 @@ const ProductItem = memo(function ProductItem({ item, index }) {
         </span>
 
         <div className="min-w-0 flex-1">
-          <h3
+          <h2
             className="font-semibold text-slate-900 leading-snug truncate"
             style={{ fontSize: "clamp(0.875rem, 1.8vw, 0.90625rem)" }}
           >
             {item.alt}
-          </h3>
+          </h2>
           <p
             className="text-slate-500 mt-0.5 truncate"
             style={{ fontSize: "clamp(0.71875rem, 1.4vw, 0.75rem)" }}
@@ -106,13 +106,13 @@ export default function Supplier() {
             <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
           </div>
 
-          <h2
+          <h1
             className="font-light tracking-tight text-slate-900 leading-[1.05] mb-5 sm:mb-6"
             style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}
           >
-            Supplier
+            Supplier Material Konstruksi
             <span className="text-[#1e88e5]">.</span>
-          </h2>
+          </h1>
 
           <p
             className="max-w-2xl mx-auto text-slate-600 leading-relaxed"

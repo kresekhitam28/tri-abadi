@@ -432,13 +432,13 @@ export default function AbuBatu() {
             >
               {d.ctaBadge}
             </p>
-            <h3
+            <h2
               className="text-slate-900 font-light tracking-tight mb-6"
               style={{ fontSize: "clamp(1.25rem, 3vw, 1.5rem)" }}
             >
               {d.ctaTitle1}
               <span className="font-semibold">{d.ctaTitle2}</span>
-            </h3>
+            </h2>
 
             <a
               href={`https://wa.me/6282258089367?text=${d.ctaWaText}`}

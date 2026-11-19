@@ -140,6 +140,7 @@ export default function Projects({ variants, thumbnails }) {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((project, index) => (
             <ProjectCard
+              heading="h2"
               key={project.id}
               project={project}
               lang={lang}

@@ -421,12 +421,12 @@ const TahapanCard = memo(function TahapanCard({ item, t }) {
       <span className="relative w-10 h-10 rounded-lg bg-blue-50 text-[#1e88e5] flex items-center justify-center mb-4">
         <item.Icon className="w-5 h-5" />
       </span>
-      <h4
+      <h3
         className="font-bold text-slate-900 mb-2 leading-snug pr-8"
         style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.9375rem)" }}
       >
         {t(item.title)}
-      </h4>
+      </h3>
       <p
         className="text-slate-600 leading-relaxed"
         style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.8125rem)" }}

@@ -2,6 +2,7 @@ export const SITE_NAME = "PT Tri Abadi Makmur";
 export const SITE_URL = new URL(
   process.env.NEXT_PUBLIC_SITE_URL || "https://spesialisaspal.com",
 ).origin;
+export const SITE_ENTITY_ID = `${SITE_URL}/#perusahaan`;
 
 export function createPageMetadata({
   path,
@@ -11,6 +12,7 @@ export function createPageMetadata({
   socialDescription = description,
   type = "website",
   publishedTime,
+  modifiedTime,
 }) {
   const url = new URL(path, SITE_URL).href;
   const social = {
@@ -30,6 +32,7 @@ export function createPageMetadata({
       siteName: SITE_NAME,
       locale: "id_ID",
       ...(publishedTime ? { publishedTime } : {}),
+      ...(modifiedTime ? { modifiedTime } : {}),
     },
     twitter: { ...social, card: "summary_large_image" },
   };

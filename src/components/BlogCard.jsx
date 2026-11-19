@@ -11,7 +11,7 @@ const pick = (field, lang) => {
   return field[lang] || field.id || field.en || "";
 };
 
-export default function BlogCard({ item }) {
+export default function BlogCard({ item, heading: Heading = "h3" }) {
   const { lang } = useLang();
 
   if (!item) return null;
@@ -61,7 +61,7 @@ export default function BlogCard({ item }) {
           </div>
         )}
 
-        <h3
+        <Heading
           className="font-semibold text-slate-900 leading-snug tracking-tight
                      line-clamp-2"
           style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}
@@ -69,7 +69,7 @@ export default function BlogCard({ item }) {
           <Link href={href} className="hover:text-[#1e88e5] transition-colors duration-150">
             {title}
           </Link>
-        </h3>
+        </Heading>
 
         <p
           className="mt-2.5 sm:mt-3 text-slate-600 leading-relaxed flex-1

@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { articles } from '../data/articles';
+import { blogPageNumbers, blogPagePath } from '../lib/blog';
 import { SITE_URL } from '../lib/metadata';
 
 export const dynamic = 'force-static';
@@ -8,18 +9,18 @@ export const revalidate = false;
 // ⚠️ Hanya update tanggal saat halaman BENAR-BENAR diubah.
 // Google abaikan lastmod kalau tidak sesuai perubahan aktual.
 const STATIC_LAST_MODIFIED: Record<string, string> = {
-  '/': '2026-01-15',
-  '/tentang-kami': '2025-06-01',
+  '/': '2026-11-19',
+  '/tentang-kami': '2026-11-19',
   '/layanan': '2026-01-15',
-  '/proyek': '2026-01-15',
-  '/supplier': '2025-06-01',
-  '/kontak': '2025-06-01',
-  '/blog': '2026-11-01',
-  '/layanan/infrastruktur/pengaspalan': '2026-01-15',
+  '/proyek': '2026-11-19',
+  '/supplier': '2026-11-19',
+  '/kontak': '2026-11-19',
+  '/blog': '2026-11-19',
+  '/layanan/infrastruktur/pengaspalan': '2026-11-19',
   '/layanan/infrastruktur/pasang-kanstin': '2025-06-01',
-  '/layanan/infrastruktur/cor-beton-ready-mix': '2025-06-01',
+  '/layanan/infrastruktur/cor-beton-ready-mix': '2026-11-19',
   '/layanan/infrastruktur/pasang-grass-block': '2025-06-01',
-  '/layanan/infrastruktur/pasang-paving-block': '2026-01-15',
+  '/layanan/infrastruktur/pasang-paving-block': '2026-11-19',
   '/layanan/infrastruktur/pasang-pager-panel': '2025-06-01',
   '/layanan/infrastruktur/pasang-tiang-pancang': '2025-06-01',
   '/layanan/bangunan': '2025-06-01',
@@ -75,10 +76,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogRoutes: MetadataRoute.Sitemap = articles.map((post) => ({
     url: `${SITE_URL}/blog/${post.slug}`,
-    lastModified: post.dateISO,
+    lastModified: post.modifiedDateISO ?? post.dateISO,
     changeFrequency: 'monthly',
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...blogRoutes];
+  const paginatedBlogRoutes = blogPageNumbers.slice(1).map((page) => ({
+    url: `${SITE_URL}${blogPagePath(page)}`,
+  }));
+
+  return [...staticRoutes, ...paginatedBlogRoutes, ...blogRoutes];
 }

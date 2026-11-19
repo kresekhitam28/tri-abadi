@@ -2,7 +2,8 @@
 import { notFound } from "next/navigation";
 import BlogDetail from "../../../components/BlogDetail";
 import { articles, getArticleBySlug } from "../../../data/articles";
-import { createPageMetadata, SITE_NAME, SITE_URL } from "../../../lib/metadata";
+import { getArticleNavigation } from "../../../lib/blog";
+import { createPageMetadata, SITE_ENTITY_ID, SITE_NAME, SITE_URL } from "../../../lib/metadata";
 
 const pick = (f) => {
   if (!f) return "";
@@ -26,6 +27,7 @@ export async function generateMetadata({ params }) {
     image: article.src,
     type: "article",
     publishedTime: article.dateISO,
+    modifiedTime: article.modifiedDateISO,
   });
 }
 
@@ -44,8 +46,10 @@ export default async function BlogDetailPage({ params }) {
       description: pick(article.desc),
       image: [new URL(article.src || "/logo.webp", SITE_URL).href],
       datePublished: article.dateISO,
-      author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+      ...(article.modifiedDateISO ? { dateModified: article.modifiedDateISO } : {}),
+      author: { "@id": SITE_ENTITY_ID, "@type": "Organization", name: SITE_NAME, url: SITE_URL },
       publisher: {
+        "@id": SITE_ENTITY_ID,
         "@type": "Organization",
         name: SITE_NAME,
         logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png` },
@@ -69,7 +73,7 @@ export default async function BlogDetailPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
-      <BlogDetail />
+      <BlogDetail key={slug} article={article} {...getArticleNavigation(article)} />
     </>
   );
 }

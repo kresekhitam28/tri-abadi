@@ -166,13 +166,13 @@ const AccordionItem = memo(function AccordionItem({ title, defaultOpen = false, 
         aria-controls={panelId}
         className="w-full flex items-center justify-between gap-3 sm:gap-4 px-4 sm:px-5 py-3.5 sm:py-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1e88e5]"
       >
-        <h4
+        <h3
           className={`font-semibold transition-colors duration-150
             ${open ? "text-[#1e88e5]" : "text-slate-900"}`}
           style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.9375rem)" }}
         >
           {title}
-        </h4>
+        </h3>
         <span
           className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-colors duration-200
             ${open

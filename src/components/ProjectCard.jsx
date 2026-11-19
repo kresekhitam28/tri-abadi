@@ -1,4 +1,4 @@
-export default function ProjectCard({ project, lang, category, viewPhoto, variants, onOpen }) {
+export default function ProjectCard({ project, lang, category, viewPhoto, variants, onOpen, heading: Heading = "h3" }) {
   const title = project.title[lang];
   const detail = project.detail?.[lang];
   const fileName = project.src.split("/").pop();
@@ -47,7 +47,7 @@ export default function ProjectCard({ project, lang, category, viewPhoto, varian
           )}
           <span>{project.location}</span>
         </p>
-        <h3 className="mt-2 text-base font-semibold leading-snug text-slate-950 sm:text-[1.0625rem]">{title}</h3>
+        <Heading className="mt-2 text-base font-semibold leading-snug text-slate-950 sm:text-[1.0625rem]">{title}</Heading>
         {detail && <p className="mt-2 text-sm leading-relaxed text-slate-600">{detail}</p>}
       </div>
     </article>
