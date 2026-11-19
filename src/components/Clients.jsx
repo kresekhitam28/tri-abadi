@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { useLang } from "../context/LanguageContext";
+import styles from "./Clients.module.css";
 
 const clients = [
   { src: "/klien/pertamina.png", alt: "Pertamina", scale: "scale-[1.35]" },
@@ -28,24 +30,20 @@ const content = {
     eyebrow: "Kepercayaan & Kolaborasi",
     title: "Klien Kami",
     description: "Kepercayaan klien menjadi bagian penting dari setiap pekerjaan yang kami tangani. Kami berkomitmen memberikan hasil konstruksi yang berkualitas, profesional, dan sesuai kebutuhan proyek.",
-    more: "Lihat klien lainnya",
-    less: "Tampilkan lebih sedikit",
   },
   en: {
     eyebrow: "Trust & Collaboration",
     title: "Our Clients",
     description: "Client trust is central to every project we undertake. We are committed to delivering quality construction with professionalism and meeting each project's needs.",
-    more: "View more clients",
-    less: "Show fewer clients",
   },
 };
 
-function ClientLogos({ list }) {
+function ClientLogos({ duplicate = false }) {
   return (
-    <ul className="grid grid-cols-3 gap-2 sm:gap-3 md:grid-cols-6 lg:gap-4">
-      {list.map(({ src, alt, scale }) => (
-        <li key={src} className="grid h-[4.5rem] min-w-0 place-items-center rounded-xl border border-slate-200 bg-white px-1.5 py-2 transition-colors hover:border-slate-300 sm:h-[5.5rem] sm:px-3 lg:h-24">
-          <Image src={src} alt={alt} width={144} height={64} className={`h-13 w-full max-w-36 object-contain sm:h-16 ${scale ?? ""}`} />
+    <ul role="list" aria-hidden={duplicate || undefined} className={styles.logos}>
+      {clients.map(({ src, alt, scale }) => (
+        <li key={src} className={`${styles.card} grid h-[4.5rem] min-w-0 place-items-center overflow-hidden rounded-xl border border-slate-200 bg-white px-1.5 py-2 transition-colors hover:border-slate-300 sm:h-[5.5rem] sm:px-3 lg:h-24`}>
+          <Image src={src} alt={duplicate ? "" : alt} width={144} height={64} loading="eager" fetchPriority="low" draggable={false} className={`pointer-events-none h-13 w-full max-w-36 object-contain sm:h-16 ${scale ?? ""}`} />
         </li>
       ))}
     </ul>
@@ -55,12 +53,24 @@ function ClientLogos({ list }) {
 export default function Clients() {
   const { lang } = useLang();
   const t = content[lang];
+  const [mouseOver, setMouseOver] = useState(false);
+  const [touching, setTouching] = useState(false);
+
+  function pauseOnTouch(event) {
+    if (event.pointerType === "mouse" || !event.isPrimary) return;
+    event.currentTarget.setPointerCapture(event.pointerId);
+    setTouching(true);
+  }
+
+  function resumeAfterTouch(event) {
+    if (event.pointerType !== "mouse" && event.isPrimary) setTouching(false);
+  }
 
   return (
     <section aria-labelledby="clients-title" className="border-b border-slate-200 bg-slate-50 pb-10 sm:pb-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-slate-200 bg-white px-3.5 pb-4 pt-6 shadow-sm sm:px-6 sm:pb-6 sm:pt-8 lg:px-8 lg:pb-8 lg:pt-9">
-          <header className="mx-auto mb-6 max-w-2xl px-1 text-center sm:mb-8">
+        <div className="rounded-2xl border border-slate-200 bg-white px-3.5 pb-5 pt-6 shadow-sm sm:px-6 sm:py-7 lg:px-8">
+          <header className="mx-auto mb-5 max-w-2xl px-1 text-center sm:mb-7">
             <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-blue-700 sm:text-xs">
               {t.eyebrow}
             </p>
@@ -71,19 +81,25 @@ export default function Clients() {
               {t.description}
             </p>
           </header>
-          <ClientLogos list={clients.slice(0, 6)} />
-          <details className="group/clients mt-4 sm:mt-5">
-            <summary className="flex min-h-11 w-fit cursor-pointer list-none items-center gap-2 rounded-lg border border-slate-300 bg-white px-3.5 text-sm font-semibold text-blue-800 transition-colors hover:border-blue-300 hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 [&::-webkit-details-marker]:hidden">
-              <span className="group-open/clients:hidden">{t.more}</span>
-              <span className="hidden group-open/clients:inline">{t.less}</span>
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-4 shrink-0 group-open/clients:rotate-180 motion-safe:transition-transform motion-safe:duration-200">
-                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-              </svg>
-            </summary>
-            <div className="mt-4 sm:mt-5">
-              <ClientLogos list={clients.slice(6)} />
+          <div
+            className={styles.viewport}
+            data-paused={mouseOver || touching}
+            onPointerEnter={(event) => {
+              if (event.pointerType === "mouse") setMouseOver(true);
+            }}
+            onPointerLeave={(event) => {
+              if (event.pointerType === "mouse") setMouseOver(false);
+            }}
+            onPointerDown={pauseOnTouch}
+            onPointerUp={resumeAfterTouch}
+            onPointerCancel={resumeAfterTouch}
+            onLostPointerCapture={resumeAfterTouch}
+          >
+            <div className={styles.track}>
+              <ClientLogos />
+              <ClientLogos duplicate />
             </div>
-          </details>
+          </div>
         </div>
       </div>
     </section>

@@ -1,0 +1,57 @@
+.viewport {
+  --logo-gap: clamp(0.5rem, 1vw, 0.875rem);
+  --logo-width: clamp(6rem, 34vw, 11.75rem);
+
+  overflow: clip;
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: clientLogos 40s linear infinite;
+}
+
+.logos {
+  display: flex;
+  flex: none;
+  gap: var(--logo-gap);
+  /* Include the gap between the copies in each half of the track. */
+  padding-inline-end: var(--logo-gap);
+}
+
+.card {
+  flex: 0 0 var(--logo-width);
+  width: var(--logo-width);
+}
+
+.viewport[data-paused="true"] .track {
+  animation-play-state: paused;
+}
+
+@keyframes clientLogos {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    display: block;
+    width: auto;
+    animation: none;
+  }
+
+  .logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--logo-width), 1fr));
+    padding: 0;
+  }
+
+  .logos[aria-hidden="true"] {
+    display: none;
+  }
+
+  .card {
+    width: auto;
+  }
+}

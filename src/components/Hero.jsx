@@ -31,30 +31,30 @@ export default function Hero() {
 
   return (
     <section aria-labelledby="home-title" className="relative isolate overflow-hidden bg-[#071625] text-white">
-      <div className="absolute inset-0 -z-10 lg:left-[43%]">
+      <div className="absolute inset-0 -z-10">
         <img
           src="/proyek/proyek-30.webp"
           srcSet="/proyek/proyek-30-320.webp 320w, /proyek/proyek-30-640.webp 640w, /proyek/proyek-30.webp 800w"
-          sizes="(min-width: 1024px) 57vw, 100vw"
+          sizes="100vw"
           alt=""
           fetchPriority="high"
           decoding="async"
           className="h-full w-full object-cover object-[68%_55%] sm:object-[55%_55%]"
         />
-        <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,#071625b8_0%,#071625c7_30%,#071625bd_65%,#07162599_100%)] sm:bg-gradient-to-b sm:from-[#071625]/80 sm:via-[#071625]/72 sm:to-[#071625] lg:bg-gradient-to-r lg:from-[#071625] lg:via-[#071625]/20 lg:to-transparent" />
+        <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,#071625bf_0%,#071625c9_54%,#071625b8_100%)] lg:bg-[radial-gradient(ellipse_at_center,#071625d9_0%,#071625bd_40%,#07162585_100%)]" />
       </div>
 
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:py-28">
-        <div className="max-w-[43rem]">
+        <div className="mx-auto max-w-4xl text-center">
           <p className="mb-4 text-sm font-semibold text-blue-200">{t.area}</p>
           <h1 id="home-title" className="text-balance text-[clamp(2.2rem,5.1vw,4.5rem)] font-semibold leading-[1.04] tracking-[-0.045em]">
             {t.title} <span className="block text-blue-200">{t.emphasis}</span>
           </h1>
-          <p className="mt-5 max-w-[31rem] text-pretty text-base leading-relaxed text-slate-100 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-relaxed text-slate-100 sm:text-lg">
             {t.description}
           </p>
 
-          <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
+          <div className="mx-auto mt-7 flex max-w-sm flex-col justify-center gap-3 sm:mt-8 sm:max-w-none sm:flex-row sm:flex-wrap">
             <a
               href={whatsapp}
               target="_blank"
@@ -78,7 +78,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <p className="absolute bottom-5 right-5 hidden rounded-md bg-slate-950/75 px-3 py-2 text-xs font-medium text-white lg:block">
+      <p className="absolute inset-x-0 bottom-5 mx-auto hidden w-fit rounded-md bg-slate-950/75 px-3 py-2 text-xs font-medium text-white lg:block">
         {t.photo}
       </p>
     </section>
