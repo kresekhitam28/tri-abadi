@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import PavingPricingPanel from "./PavingPricingPanel";
 import ServiceQuoteHero from "./ServiceQuoteHero";
+import ServiceProjectPhoto from "./ServiceProjectPhoto";
 import { projectQuoteHref } from "../lib/quote";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useReveal } from "../hooks/useReveal";
@@ -282,9 +283,7 @@ function SectionKicker({ children }) {
   id: {
     heroTitle: "Jasa Pasang Paving Block",
     heroSubtitle: "Untuk pabrik, gudang, area parkir, dan perumahan di Jabodetabek, Banten & Jawa Barat.",
-    heroDesc: "Pilih paket jasa pasang atau paket dengan material. Kirim lokasi dan perkiraan luas untuk estimasi biaya serta survei lokasi.",
-    figAlt: "Pasang Paving Block",
-    figCaption: "Pemasangan Paving Block — Tri Abadi Makmur",
+    heroDesc: "Pilih upah pasang saja atau paket pemasangan dengan material. Kirim lokasi dan perkiraan luas untuk estimasi biaya serta survei lokasi.",
     introTitle: "Jasa Pasang Paving Block Jabodetabek, Banten & Jawa Barat",
     introBody: " — atau conblock adalah material bangunan yang dibuat dari komposisi bahan material kasar seperti campuran semen dan pasir yang dipress dengan tekanan tertentu dan dibuat dengan berbagai bentuk dan warna.",
     quote: "Konstruksi Paving Block / Conblock juga merupakan metode yang umum digunakan untuk pembangunan jalan maupun infrastruktur lainnya — sekaligus memberikan nilai estetika pada area terbuka.",
@@ -320,9 +319,7 @@ function SectionKicker({ children }) {
   en: {
     heroTitle: "Paving Block Installation Services",
     heroSubtitle: "For factories, warehouses, parking areas, and residential sites in Greater Jakarta, Banten & West Java.",
-    heroDesc: "Choose installation or a package that includes materials. Share the location and estimated area for a quote and site survey.",
-    figAlt: "Paving Block Installation",
-    figCaption: "Paving Block Installation — Tri Abadi Makmur",
+    heroDesc: "Choose labor only or installation with materials. Share the location and estimated area for a quote and site survey.",
     introTitle: "Paving Block Installation Services in Jabodetabek, Banten & West Java",
     introBody: " — or conblock is a building material made from a composition of coarse materials such as a mixture of cement and sand, pressed under specific pressure and made in various shapes and colors.",
     quote: "Paving Block / Conblock construction is also a common method used for road construction and other infrastructure — while also adding aesthetic value to open areas.",
@@ -502,7 +499,7 @@ const AreaRow = memo(function AreaRow({ area, data }) {
 // ─────────────────────────────────────────────
 // HALAMAN
 // ─────────────────────────────────────────────
-export default function PasangPavingBlock() {
+export default function PasangPavingBlock({ project }) {
   const { lang } = useLang();
   const data = content[lang] || content.id;
 
@@ -524,6 +521,7 @@ export default function PasangPavingBlock() {
         title={data.heroTitle}
         subtitle={data.heroSubtitle}
         description={data.heroDesc}
+        projectLocation={project.location}
         pricesId="paket-harga-paving"
       />
 
@@ -531,39 +529,8 @@ export default function PasangPavingBlock() {
       <section className="py-16 lg:py-24">
         <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
 
-          {/* Foto utama */}
           <Reveal y={40} duration={800}>
-            <figure className="relative rounded-2xl overflow-hidden bg-slate-100 mb-12 shadow-xl shadow-slate-200/50 ring-1 ring-slate-900/5">
-              <div className="aspect-[16/10]">
-                <img
-                  src="/proyek/proyek-40.webp"
-                  alt={data.figAlt}
-                  loading="eager"
-                  decoding="async"
-                  width={1200}
-                  height={750}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.onerror = null;
-                    e.currentTarget.src = "/proyek/proyek-40.webp";
-                  }}
-                />
-              </div>
-              <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 to-transparent px-5 sm:px-8 py-5 sm:py-8 pt-16 sm:pt-20">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <span className="w-6 sm:w-8 h-px bg-[#4da3ff]" aria-hidden="true" />
-                  <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.28em] text-[#4da3ff] font-bold">
-                    {"Proyek"}
-                  </span>
-                </div>
-                <p
-                  className="text-white font-semibold text-lg sm:text-xl"
-                  style={{ fontSize: "clamp(0.9375rem, 1.5vw, 1.125rem)" }}
-                >
-                  {data.figCaption}
-                </p>
-              </figcaption>
-            </figure>
+            <ServiceProjectPhoto project={project} lang={lang} />
           </Reveal>
         </div>
 

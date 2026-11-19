@@ -1,15 +1,18 @@
 // src/app/layanan/infrastruktur/pasang-paving-block/page.js
 import PasangPavingBlock from "../../../../components/PasangPavingBlock";
+import { projects } from "../../../../data/projects";
 import { createPageMetadata } from "../../../../lib/metadata";
+
+const project = projects.find(({ id }) => id === 40);
 
 export const metadata = createPageMetadata({
   path: "/layanan/infrastruktur/pasang-paving-block",
-  title: "Jasa Pasang Paving Block Murah Tangerang & Jabodetabek",
+  title: "Jasa Pasang Paving Block untuk Parkir dan Jalan",
   description:
-    "Jasa pasang paving block untuk perumahan, trotoar, parkir & industri di Tangerang & Jabodetabek. Rapi, presisi, harga murah, dan bergaransi. Konsultasi gratis via WhatsApp.",
-  image: "/proyek/proyek-40.webp",
+    "Jasa pemasangan paving block untuk area parkir, jalan lingkungan, dan industri. Bandingkan upah pasang dan paket dengan material. Minta estimasi via WhatsApp.",
+  image: project.src,
 });
 
 export default function PasangPavingBlockPage() {
-  return <PasangPavingBlock />;
+  return <PasangPavingBlock project={project} />;
 }

@@ -4,6 +4,7 @@ import Services from "../components/Services";
 import ProjectsSection from "../components/ProjectsSection";
 import Clients from "../components/Clients";
 import BlogPreview from "../components/BlogPreview";
+import { asphaltPackagePrices, formatAsphaltPrice } from "../data/asphaltPricing";
 import { projects } from "../data/projects";
 import { createPageMetadata } from "../lib/metadata";
 import { getProjectImageFiles } from "../lib/projectImages";
@@ -14,7 +15,7 @@ export const metadata = createPageMetadata({
   path: "/",
   title: "Jasa Pengaspalan Jalan Hotmix & Kontraktor Aspal",
   description:
-    "Kontraktor jasa pengaspalan jalan hotmix, paving block, kanstin & cor beton bergaransi di Jabodetabek, Banten & Jawa Barat. Mulai Rp 75rb/m², gratis survei lokasi!",
+    `Kontraktor aspal hotmix, paving, dan cor beton di Jabodetabek, Banten & Jawa Barat. Paket overlay mulai ${formatAsphaltPrice(asphaltPackagePrices.A)}/m². Survei lokasi gratis.`,
   image: "/proyek/proyek-30.webp",
 });
 

@@ -1,4 +1,5 @@
 // src/data/articles.js
+import { asphaltCostRanges, asphaltPackagePrices, formatAsphaltPrice } from "./asphaltPricing";
 
 export const articles = [
   {
@@ -1252,12 +1253,12 @@ export const articles = [
     src: "/proyek/proyek-22.webp",
     category: { id: "Pengaspalan", en: "Asphalt Paving" },
     title: {
-      id: "Biaya Aspal Per Meter Terbaru 2026 & Faktor Penentunya",
-      en: "Latest 2026 Asphalt Cost Per Meter & Key Pricing Factors",
+      id: "Biaya Pengaspalan Jalan per m²: Overlay, Tambal Sulam & Jalan Baru",
+      en: "Road Paving Costs per m²: Resurfacing, Patching & New Paving",
     },
     desc: {
-      id: "Cek rincian estimasi biaya pengaspalan jalan per m² (overlay, tambal sulam, hingga jalan baru) serta cara menghitung anggaran proyek agar tidak bengkak.",
-      en: "Check detailed road paving cost estimates per m² (overlay, patching, to new road construction) and how to budget accurately without overruns.",
+      id: "Bandingkan kisaran biaya overlay, tambal sulam, dan pengaspalan baru per m². Cek faktor biaya lalu minta estimasi sesuai luas dan kondisi lokasi.",
+      en: "Compare costs per m² for resurfacing, patching, and new paving. Check the factors and request a quote based on the area and site conditions.",
     },
     quote: {
       title: { id: "Kisaran Biaya Pengaspalan per m²", en: "Estimated Paving Costs per m²" },
@@ -1265,11 +1266,7 @@ export const articles = [
         id: "Ini kisaran awal. Harga penawaran mengikuti luas, ketebalan aspal, dan kondisi lokasi.",
         en: "These are starting estimates. Your quote depends on the area, asphalt thickness, and site conditions.",
       },
-      ranges: [
-        { label: { id: "Overlay / Pelapisan ulang", en: "Overlay resurfacing" }, from: 75000, to: 100000 },
-        { label: { id: "Tambal sulam", en: "Asphalt patching" }, from: 95000, to: 120000 },
-        { label: { id: "Pengaspalan baru", en: "New hotmix paving" }, from: 150000, to: 250000 },
-      ],
+      ranges: asphaltCostRanges,
       options: [
         { request: "asphalt", label: { id: "Minta Estimasi Proyek via WhatsApp", en: "Request a Project Quote on WhatsApp" } },
       ],
@@ -1805,8 +1802,8 @@ export const articles = [
       en: "2026 Hotmix Asphalt Paving Package Price List (Per m²)",
     },
     desc: {
-      id: "Transparansi harga paket aspal hotmix mulai Rp 75.000/m² (Kategori A–D) sudah termasuk material & alat berat. Cek paket yang sesuai kondisi jalan Anda!",
-      en: "Transparent hotmix asphalt package prices starting from Rp 75,000/m² (Categories A–D) including materials & heavy equipment. Find the right package for your road!",
+      id: `Paket overlay (Kategori A) mulai ${formatAsphaltPrice(asphaltPackagePrices.A)}/m². Bandingkan paket hotmix A–D berdasarkan lingkup pekerjaan dan kondisi jalan.`,
+      en: `The overlay package (Category A) starts at ${formatAsphaltPrice(asphaltPackagePrices.A, "en")}/m². Compare packages A–D by scope and site conditions.`,
     },
     author: {
       name: "PT. Tri Abadi Makmur Indonesia",
@@ -1857,7 +1854,7 @@ export const articles = [
                 <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Overlay / pelapisan ulang hotmix</p>
                 
                 <div style="margin-bottom: 4px; z-index: 1;">
-                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 75.000</span>
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">${formatAsphaltPrice(asphaltPackagePrices.A)}</span>
                   <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
                 </div>
                 <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Meter²</p>
@@ -1883,7 +1880,7 @@ export const articles = [
                 <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Pecingan / tambal sulam batu split / makadam dan hotmix</p>
                 
                 <div style="margin-bottom: 4px; z-index: 1;">
-                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 95.000</span>
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">${formatAsphaltPrice(asphaltPackagePrices.B)}</span>
                   <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
                 </div>
                 <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Meter²</p>
@@ -1910,7 +1907,7 @@ export const articles = [
                 <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Pengaspalan penetrasi</p>
                 
                 <div style="margin-bottom: 4px; z-index: 1;">
-                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 100.000</span>
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">${formatAsphaltPrice(asphaltPackagePrices.C)}</span>
                   <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
                 </div>
                 <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Meter²</p>
@@ -1939,7 +1936,7 @@ export const articles = [
                 <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Tahap dasar bikin baru dari pemadatan tanah / 0%</p>
                 
                 <div style="margin-bottom: 4px; z-index: 1;">
-                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 150.000</span>
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">${formatAsphaltPrice(asphaltPackagePrices.D)}</span>
                   <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
                 </div>
                 <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Meter²</p>
@@ -1973,7 +1970,7 @@ export const articles = [
                 <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Overlay / hotmix resurfacing</p>
                 
                 <div style="margin-bottom: 4px; z-index: 1;">
-                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 75,000</span>
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">${formatAsphaltPrice(asphaltPackagePrices.A, "en")}</span>
                   <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
                 </div>
                 <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Square Meter</p>
@@ -1999,7 +1996,7 @@ export const articles = [
                 <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Patching / split stone / macadam and hotmix</p>
                 
                 <div style="margin-bottom: 4px; z-index: 1;">
-                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 95,000</span>
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">${formatAsphaltPrice(asphaltPackagePrices.B, "en")}</span>
                   <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
                 </div>
                 <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Square Meter</p>
@@ -2026,7 +2023,7 @@ export const articles = [
                 <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Penetration asphalt paving</p>
                 
                 <div style="margin-bottom: 4px; z-index: 1;">
-                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 100,000</span>
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">${formatAsphaltPrice(asphaltPackagePrices.C, "en")}</span>
                   <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
                 </div>
                 <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Square Meter</p>
@@ -2055,7 +2052,7 @@ export const articles = [
                 <p style="font-size: 11px; color: #64748b; font-style: italic; margin: 0 0 16px 0; line-height: 1.4; min-height: 32px; z-index: 1;">Base stage of making new from soil compaction / 0%</p>
                 
                 <div style="margin-bottom: 4px; z-index: 1;">
-                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">Rp 150,000</span>
+                  <span style="font-size: 22px; font-weight: 800; color: #0f172a;">${formatAsphaltPrice(asphaltPackagePrices.D, "en")}</span>
                   <span style="font-size: 12px; color: #94a3b8;"> / m²</span>
                 </div>
                 <p style="font-size: 11px; color: #94a3b8; margin: 0 0 16px 0;">Per Square Meter</p>
@@ -2175,8 +2172,8 @@ export const articles = [
     quote: {
       title: { id: "Harga Material & Jasa Pasang Paving", en: "Paving Supply & Installation Prices" },
       note: {
-        id: "Pilih penawaran material atau estimasi pemasangan. Siapkan perkiraan luas dan lokasi agar tim bisa menghitung kebutuhan Anda.",
-        en: "Choose a supply or installation quote. Have your estimated area and location ready so our team can calculate quantities.",
+        id: "Bandingkan harga material 6 cm dan 8 cm. Untuk pemasangan, pilih upah pasang saja atau paket dengan material. Siapkan lokasi dan perkiraan luas.",
+        en: "Compare supply prices for 6 cm and 8 cm pavers. For installation, choose labor only or a package with materials. Have the location and estimated area ready.",
       },
       options: [
         {
@@ -2639,12 +2636,12 @@ export const articles = [
     src: "/proyek/proyek-13.webp",
     category: { id: "Cor Beton", en: "Ready-Mix Concrete" },
     title: {
-      id: "Harga Cor Beton Ready Mix per Kubik 2026 Terbaru & Bergaransi",
-      en: "Latest 2026 Ready-Mix Concrete Price per Cubic Meter & Guaranteed",
+      id: "Harga Beton Ready Mix per m³: Mutu Beton dan Minimix",
+      en: "Ready-Mix Concrete Prices per m³ by Grade and Truck Type",
     },
     desc: {
-      id: "Daftar harga cor beton ready mix per kubik mulai K-225, K-250, K-300, K-350, K-375, K-400, hingga K-500 & Mini Mix. Layanan pengecoran Jabodetabek, Banten & Jawa Barat. Survei & hitung volume gratis!",
-      en: "Ready-mix concrete price list per cubic meter from K-225, K-250, K-300, K-350, K-375, K-400, to K-500 & Mini Mix. Casting services across Greater Jakarta, Banten & West Java. Free survey & volume calculation!",
+      id: "Bandingkan harga pasokan beton ready mix per m³ menurut mutu, termasuk pilihan Minimix. Minta harga material atau estimasi jasa cor sesuai kebutuhan proyek.",
+      en: "Compare ready-mix supply prices per m³ by concrete grade, including Minimix. Request a supply or pouring quote based on your project needs.",
     },
     quote: {
       title: { id: "Harga Ready Mix & Estimasi Pengecoran", en: "Ready-Mix Prices & Pouring Quotes" },
@@ -2695,15 +2692,15 @@ export const articles = [
         type: "heading",
         id: "harga-ready-mix",
         text: {
-          id: "Daftar Harga Cor Beton Ready Mix per Kubik",
+          id: "Daftar Harga Pasokan Beton Ready Mix per m³",
           en: "Ready-Mix Concrete Price List per Cubic Meter",
         },
       },
       {
         type: "paragraph",
         text: {
-          id: "Harga disusun per kelompok penggunaan agar mudah dibandingkan. Semua harga di bawah adalah per meter kubik (m³) dengan slump standar 12 ± 2 cm:",
-          en: "Prices are grouped by usage tier for easy comparison. All prices below are per cubic meter (m³) with a standard slump of 12 ± 2 cm:",
+          id: "Tabel ini memberi referensi harga pasokan per m³ berdasarkan mutu beton, dengan slump standar 12 ± 2 cm. Untuk estimasi jasa cor, konfirmasi kebutuhan tenaga, pompa, dan finishing dalam penawaran proyek.",
+          en: "This table lists supply price estimates per m³ by concrete grade, with a standard slump of 12 ± 2 cm. For a pouring quote, discuss labor, pumping, and finishing based on your project.",
         },
       },
       {

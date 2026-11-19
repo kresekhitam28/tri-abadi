@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import BetonPricingPanel from "./BetonPricingPanel";
 import ServiceQuoteHero from "./ServiceQuoteHero";
+import ServiceProjectPhoto from "./ServiceProjectPhoto";
 import { projectQuoteHref } from "../lib/quote";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useReveal } from "../hooks/useReveal";
@@ -321,8 +322,7 @@ const content = {
     heroTitle: "Jasa Cor Beton Ready Mix & Minimix",
     heroSubtitle: "Untuk lantai pabrik dan gudang, jalan industri, serta area parkir di Jabodetabek, Banten & Jawa Barat.",
     heroDesc: "Konsultasikan lokasi, perkiraan luas atau volume, dan target pengerjaan. Tim kami membantu menyiapkan estimasi biaya dan jadwal cor.",
-    figAlt: "Cor Beton Ready Mix",
-    figCaption: "Pengecoran Beton Ready Mix — Tri Abadi Makmur",
+    pricesLink: "Lihat Harga Ready Mix per m³",
     intro: "Jasa cor beton ready mix Jabodetabek, Banten & Jawa Barat — pada abad ke-21 ini kebutuhan jasa cor beton ready mix ataupun harga ready mix concrete per kubik (m³) sangat dibutuhkan sekali, baik untuk pengecoran jalan rigid beton, lantai pabrik/gudang, maupun dak rumah bertingkat.",
     infoKicker: "Informasi",
     infoTitleLight: "Mengenal ",
@@ -335,7 +335,7 @@ const content = {
     factsKicker: "Fakta Teknis",
     faqTitle: "Pertanyaan Seputar Cor Beton Ready Mix",
     faqItems: [
-      { q: "Berapa harga cor beton ready mix per kubik?", a: "Harga cor beton ready mix bervariasi tergantung kelas mutu beton (B0, K 225, K 250, K 300, K 350, hingga K 400) dan jarak lokasi proyek dari batching plant. Rincian harga terbaru dapat Anda lihat langsung pada tabel harga di bagian atas halaman ini." },
+      { q: "Bagaimana membedakan harga ready mix dan biaya jasa cor?", a: "Tabel harga memberi referensi pasokan beton per m³ menurut mutu. Untuk estimasi pekerjaan cor, kirim lokasi, jenis pekerjaan, dan luas atau volume. Konfirmasi kebutuhan tenaga, pompa, dan finishing dalam penawaran proyek." },
       { q: "Berapa lama beton ready mix mengering?", a: "Beton akan mengeras dalam 24 jam pertama, namun mencapai kekuatan maksimal (kuat tekan penuh) setelah 28 hari. Selama masa tersebut, sebaiknya hindari beban berat di atasnya." },
       { q: "Apakah pengiriman beton termasuk dalam harga?", a: "Untuk wilayah Jabodetabek, Banten & Jawa Barat yang masuk dalam radius jangkauan batching plant terdekat kami, harga sudah termasuk pengiriman truk mixer. Tim kami akan mengecek titik lokasi proyek Anda terlebih dahulu." },
       { q: "Berapa volume minimal pemesanan?", a: "Volume minimal pemesanan beton ready mix standar adalah 1 truk mixer (sekitar 6–7 m³). Untuk akses jalan sempit atau volume kecil (sekitar 3 m³), kami juga menyediakan armada truk Minimix." }
@@ -345,9 +345,9 @@ const content = {
     acc2Title: "Jenis Beton Ready Mix Yang Kami Sediakan",
     acc2Intro: "Kami menyediakan berbagai jenis beton ready mix dengan kelas yang berbeda sesuai kebutuhan proyek Anda:",
     priceKicker: "Paket Harga",
-    priceTitleLight: "Harga Jasa ",
-    priceTitleBold: "Cor Beton Ready Mix Jabodetabek, Banten & Jawa Barat",
-    priceDesc: "Pilih kelas mutu beton (K-175 s/d K-500) sesuai kebutuhan struktur proyek Anda — harga per meter kubik (m³).",
+    priceTitleLight: "Referensi Harga ",
+    priceTitleBold: "Pasokan Beton Ready Mix per m³",
+    priceDesc: "Bandingkan harga beton menurut mutu dan pilihan truk. Untuk pekerjaan cor, minta estimasi sesuai lingkup proyek.",
     articleKicker: "Informasi & Edukasi",
     articleTitleLight: "Butuh wawasan seputar ",
     articleTitleBold: "Konstruksi & Beton Ready Mix?",
@@ -369,8 +369,7 @@ const content = {
     heroTitle: "Ready-Mix & Minimix Concrete Pouring",
     heroSubtitle: "For factory and warehouse floors, industrial roads, and parking areas in Greater Jakarta, Banten & West Java.",
     heroDesc: "Share the location, estimated area or volume, and preferred start date. We can help estimate the cost and plan the pour.",
-    figAlt: "Ready-Mix Concrete",
-    figCaption: "Ready-Mix Concrete Casting — Tri Abadi Makmur",
+    pricesLink: "View Ready-Mix Prices per m³",
     intro: "Ready-mix concrete services in Jabodetabek, Banten & West Java — the need for ready-mix concrete casting services and prices per cubic meter (m³) is essential for rigid concrete roads, factory/warehouse floors, and multi-storey residential slabs.",
     infoKicker: "Information",
     infoTitleLight: "Getting to Know ",
@@ -383,7 +382,7 @@ const content = {
     factsKicker: "Technical Facts",
     faqTitle: "Frequently Asked Questions About Ready-Mix Concrete",
     faqItems: [
-      { q: "How much does ready-mix concrete cost per cubic meter?", a: "The price of ready-mix concrete varies depending on the concrete quality class (K 225, K 300, etc.) and the distance to the project site. Please see the price table at the top of this page or contact us for an official quote." },
+      { q: "How do ready-mix prices and pouring costs differ?", a: "The table gives estimated supply prices per m³ by concrete grade. For a pouring quote, share the location, type of work, and area or volume. Discuss labor, pumping, and finishing in your project quote." },
       { q: "How long does ready-mix concrete take to dry?", a: "Concrete will harden within the first 24 hours, but reaches maximum strength (full compressive strength) after 28 days. During this period, heavy loads should be avoided." },
       { q: "Is concrete delivery included in the price?", a: "For Jabodetabek, Banten & West Java areas within our nearest batching plant delivery radius, the price includes mixer truck delivery." },
       { q: "What is the minimum order volume?", a: "The minimum order volume for standard ready-mix concrete is 1 mixer truck (around 6-7 m³). For narrow road access or smaller volumes (around 3 m³), we also provide Minimix trucks." }
@@ -394,8 +393,8 @@ const content = {
     acc2Intro: "We provide various types of ready-mix concrete with different classes according to your project needs:",
     priceKicker: "Price Packages",
     priceTitleLight: "Ready-Mix Concrete ",
-    priceTitleBold: "Service Pricing in Jabodetabek, Banten & West Java",
-    priceDesc: "Choose the concrete class according to your needs — price per cubic meter (m³).",
+    priceTitleBold: "Supply Price Guide per m³",
+    priceDesc: "Compare concrete prices by grade and truck option. For pouring work, request a quote based on your project scope.",
     articleKicker: "Information & Education",
     articleTitleLight: "Need insights on ",
     articleTitleBold: "Construction & Ready-Mix Concrete?",
@@ -559,7 +558,7 @@ const AreaRow = memo(function AreaRow({ area, data }) {
 // ─────────────────────────────────────────────
 // HALAMAN: COR BETON READY MIX
 // ─────────────────────────────────────────────
-export default function CorBetonReadyMix() {
+export default function CorBetonReadyMix({ project }) {
   const { lang } = useLang();
   const data = content[lang] || content.id;
 
@@ -581,46 +580,17 @@ export default function CorBetonReadyMix() {
         title={data.heroTitle}
         subtitle={data.heroSubtitle}
         description={data.heroDesc}
+        projectLocation={project.location}
         pricesId="paket-harga-cor-beton"
+        pricesLabel={data.pricesLink}
       />
 
       {/* ═══════ KONTEN ═══════ */}
       <section className="py-16 lg:py-24">
         <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
 
-          {/* Foto utama */}
           <Reveal y={40} duration={800}>
-            <figure className="relative rounded-2xl overflow-hidden bg-slate-100 mb-10 shadow-xl shadow-slate-200/50 ring-1 ring-slate-900/5">
-              <div className="aspect-[16/10]">
-                <img
-                  src="/proyek/proyek-10.webp"
-                  alt={data.figAlt}
-                  loading="eager"
-                  decoding="async"
-                  width={1200}
-                  height={750}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.onerror = null;
-                    e.currentTarget.src = "/proyek/proyek-10.webp";
-                  }}
-                />
-              </div>
-              <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 to-transparent px-5 sm:px-8 py-5 sm:py-8 pt-16 sm:pt-20">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <span className="w-6 sm:w-8 h-px bg-[#4da3ff]" aria-hidden="true" />
-                  <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.28em] text-[#4da3ff] font-bold">
-                    {"Proyek"}
-                  </span>
-                </div>
-                <p
-                  className="text-white font-semibold text-lg sm:text-xl"
-                  style={{ fontSize: "clamp(0.9375rem, 1.5vw, 1.125rem)" }}
-                >
-                  {data.figCaption}
-                </p>
-              </figcaption>
-            </figure>
+            <ServiceProjectPhoto project={project} lang={lang} />
           </Reveal>
         </div>
 

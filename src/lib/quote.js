@@ -1,10 +1,17 @@
 export const WHATSAPP_URL = "https://wa.me/6282258089367";
 
+const asphaltFields = ["projectLocation", "area", "work", "start"];
+
 const requests = {
   asphalt: {
     id: "estimasi jasa pengaspalan",
     en: "an asphalt paving quote",
-    fields: ["projectLocation", "area", "work", "start"],
+    fields: asphaltFields,
+  },
+  asphaltSurvey: {
+    id: "konsultasi dan survei lokasi untuk pengaspalan",
+    en: "an asphalt paving consultation and site survey",
+    fields: asphaltFields,
   },
   paving: {
     id: "estimasi jasa pasang paving block",

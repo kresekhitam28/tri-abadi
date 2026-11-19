@@ -6,6 +6,8 @@ import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import ServicePricingPanel from "./ServicePricingPanel";
 import ServiceQuoteHero from "./ServiceQuoteHero";
+import ServiceProjectPhoto from "./ServiceProjectPhoto";
+import { asphaltPackagePrices, formatAsphaltPrice } from "../data/asphaltPricing";
 import { projectQuoteHref } from "../lib/quote";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useReveal } from "../hooks/useReveal";
@@ -257,10 +259,10 @@ const content = {
     heroTitle: "Jasa Pengaspalan Jalan & Aspal Hotmix",
     heroSubtitle: "Untuk jalan pabrik, gudang, kawasan industri, dan area parkir di Jabodetabek, Banten & Jawa Barat.",
     heroDesc: "Kami menangani pelapisan ulang, perbaikan jalan, dan pengaspalan baru. Kirim lokasi dan perkiraan luas untuk estimasi biaya dan survei lokasi.",
-    heroPriceNote: "Paket overlay mulai Rp75.000/m². Harga akhir mengikuti spesifikasi dan kondisi lokasi.",
-    figKicker: "Proyek Lapangan",
-    figCaption: "Proyek Pengaspalan — Tri Abadi Makmur",
-    figAlt: "Jasa Pengaspalan",
+    heroPriceNote: `Paket overlay mulai ${formatAsphaltPrice(asphaltPackagePrices.A)}/m². Harga akhir mengikuti spesifikasi dan kondisi lokasi.`,
+    faqPriceQuestion: "Berapa biaya pengaspalan hotmix per meter persegi?",
+    faqPriceAnswer: "Harga bergantung pada jenis pekerjaan, luas area, ketebalan aspal, dan kondisi lokasi. Lihat kisaran berdasarkan pekerjaan atau minta estimasi sesuai kebutuhan proyek Anda.",
+    faqPriceLink: "Lihat kisaran biaya overlay, tambal sulam, dan pengaspalan baru",
     priceKicker: "Paket Harga",
     priceTitleLight: "Berikut kami tawarkan ",
     priceTitleBold: "harga paket jasa pengaspalan & perbaikan aspal",
@@ -331,10 +333,10 @@ const content = {
     heroTitle: "Hotmix Asphalt Paving Services",
     heroSubtitle: "For factory roads, warehouses, industrial estates, and parking areas in Greater Jakarta, Banten & West Java.",
     heroDesc: "We handle resurfacing, road repairs, and new paving. Share the location and estimated area for a quote and site survey.",
-    heroPriceNote: "Overlay packages start at Rp75,000/m². The final price depends on specifications and site conditions.",
-    figKicker: "Field Project",
-    figCaption: "Asphalt Paving Project — Tri Abadi Makmur",
-    figAlt: "Asphalt Paving Service",
+    heroPriceNote: `Overlay packages start at ${formatAsphaltPrice(asphaltPackagePrices.A, "en")}/m². The final price depends on specifications and site conditions.`,
+    faqPriceQuestion: "How much does hotmix asphalt paving cost per square meter?",
+    faqPriceAnswer: "Your quote depends on the type of work, area, asphalt thickness, and site conditions. Compare the estimates by type of work or request a quote for your project.",
+    faqPriceLink: "View cost ranges for resurfacing, patching, and new paving",
     priceKicker: "Price Packages",
     priceTitleLight: "Here we offer ",
     priceTitleBold: "asphalt paving & repair service package prices",
@@ -520,7 +522,7 @@ const AreaRow = memo(function AreaRow({ area, data }) {
 // ─────────────────────────────────────────────
 // HALAMAN
 // ─────────────────────────────────────────────
-export default function Pengaspalan() {
+export default function Pengaspalan({ project }) {
   const { lang } = useLang();
   const data = content[lang] || content.id;
 
@@ -543,6 +545,7 @@ export default function Pengaspalan() {
         title={data.heroTitle}
         subtitle={data.heroSubtitle}
         description={data.heroDesc}
+        projectLocation={project.location}
         priceNote={data.heroPriceNote}
         pricesId="paket-harga-aspal"
       />
@@ -588,35 +591,8 @@ export default function Pengaspalan() {
       <section className="py-16 lg:py-24">
         <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
 
-          {/* Foto utama */}
           <Reveal y={40} duration={800}>
-            <figure className="relative rounded-2xl overflow-hidden bg-slate-100 mb-10 shadow-xl shadow-slate-200/50 ring-1 ring-slate-900/5">
-              <div className="aspect-[16/10]">
-                <img
-                  src="/proyek/proyek-1.webp"
-                  alt={data.figAlt}
-                  loading="lazy"
-                  decoding="async"
-                  width={1200}
-                  height={750}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 to-transparent px-5 sm:px-8 py-5 sm:py-8 pt-16 sm:pt-20">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <span className="w-6 sm:w-8 h-px bg-[#4da3ff]" aria-hidden="true" />
-                  <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.28em] text-[#4da3ff] font-bold">
-                    {data.figKicker}
-                  </span>
-                </div>
-                <p
-                  className="text-white font-semibold text-lg sm:text-xl"
-                  style={{ fontSize: "clamp(0.9375rem, 1.5vw, 1.125rem)" }}
-                >
-                  {data.figCaption}
-                </p>
-              </figcaption>
-            </figure>
+            <ServiceProjectPhoto project={project} lang={lang} />
           </Reveal>
 
           {/* Paragraf pengantar */}
@@ -805,7 +781,7 @@ export default function Pengaspalan() {
 
             <div className="max-w-3xl mx-auto">
               {[
-                { q: "Berapa biaya pengaspalan hotmix per meter?", a: "Biaya pengaspalan hotmix berkisar Rp 75.000 – Rp 150.000 per m², tergantung luas area, ketebalan aspal, jenis pekerjaan (overlay, tambal sulam, atau baru), dan lokasi proyek. Untuk penawaran akurat, kami melakukan survei lokasi gratis terlebih dahulu." },
+                { q: data.faqPriceQuestion, a: data.faqPriceAnswer, link: data.faqPriceLink },
                 { q: "Apakah bisa survei lokasi dulu sebelum order?", a: "Ya, kami menyediakan survei lokasi gratis untuk memastikan kebutuhan, mengukur luas area, dan memberikan estimasi biaya yang akurat. Survei bisa dijadwalkan via WhatsApp." },
                 { q: "Berapa lama proses pengerjaan pengaspalan?", a: "Tergantung luas dan kondisi lahan. Untuk jalan perumahan standar (100–500 m²), biasanya 1–3 hari kerja. Untuk proyek lebih besar, kami berikan estimasi waktu setelah survei." },
                 { q: "Apakah ada garansi pengerjaan?", a: "Ya, kami memberikan garansi pengerjaan hingga 2 tahun untuk pengaspalan hotmix, tergantung jenis pekerjaan dan kondisi lapangan. Detail garansi dijelaskan dalam penawaran." },
@@ -817,6 +793,11 @@ export default function Pengaspalan() {
                 <Reveal key={i} delay={i * 60} y={20}>
                   <Accordion title={faq.q} defaultOpen={i === 0}>
                     <p>{faq.a}</p>
+                    {faq.link && (
+                      <Link href="/blog/biaya-aspal-per-meter" className="inline-block rounded font-semibold text-blue-700 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-blue-700">
+                        {faq.link}
+                      </Link>
+                    )}
                   </Accordion>
                 </Reveal>
               ))}

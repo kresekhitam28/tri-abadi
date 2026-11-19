@@ -4,15 +4,14 @@
 import { memo } from "react";
 import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
-
-const WA_NUMBER = "6282258089367";
+import { asphaltPackagePrices, formatAsphaltPrice } from "../data/asphaltPricing";
+import { WHATSAPP_URL } from "../lib/quote";
 
 // ─── KATEGORI BILINGUAL ─────────────────────
 const categories = [
   {
     code: "A",
     accent: "#e11d48",
-    price: "Rp 75.000",
     name: { id: "KATEGORI A", en: "CATEGORY A" },
     tag: {
       id: "Overlay / pelapisan ulang hotmix",
@@ -29,7 +28,6 @@ const categories = [
   {
     code: "B",
     accent: "#16a34a",
-    price: "Rp 95.000",
     name: { id: "KATEGORI B", en: "CATEGORY B" },
     tag: {
       id: "Pecingan / tambal sulam batu split / makadam dan hotmix",
@@ -47,7 +45,6 @@ const categories = [
   {
     code: "C",
     accent: "#eab308",
-    price: "Rp 100.000",
     name: { id: "KATEGORI C", en: "CATEGORY C" },
     tag: { id: "Pengaspalan penetrasi", en: "Penetration asphalt paving" },
     unit: { id: "Per Meter²", en: "Per Square Meter" },
@@ -64,7 +61,6 @@ const categories = [
   {
     code: "D",
     accent: "#f97316",
-    price: "Rp 150.000",
     name: { id: "KATEGORI D", en: "CATEGORY D" },
     tag: {
       id: "Tahap dasar bikin baru dari pemadatan tanah / 0%",
@@ -132,12 +128,13 @@ function IconWhatsApp({ className = "w-3.5 h-3.5" }) {
 const CategoryCard = memo(function CategoryCard({ c, lang, btnLabel }) {
   const pkgName = pick(c.name, lang);
   const pkgTag = pick(c.tag, lang);
+  const price = formatAsphaltPrice(asphaltPackagePrices[c.code], lang);
   const waMsg =
     lang === "en"
-      ? `Hello PT Tri Abadi Makmur, I am interested in ${pkgName} (${pkgTag} - ${c.price}/m²). Could you provide an estimate and site survey schedule for my project at...`
-      : `Halo PT Tri Abadi Makmur, saya tertarik dengan Paket ${pkgName} (${pkgTag} - ${c.price}/m²). Mohon info estimasi biaya & jadwal survey untuk lokasi di...`;
+      ? `Hello PT Tri Abadi Makmur, I am interested in ${pkgName} (${pkgTag} - ${price}/m²). Could you provide an estimate and site survey schedule?\n\nProject location: \nApproximate area (m²): \nPreferred start date: `
+      : `Halo PT Tri Abadi Makmur, saya tertarik dengan Paket ${pkgName} (${pkgTag} - ${price}/m²). Mohon info estimasi biaya dan jadwal survei.\n\nLokasi proyek: \nPerkiraan luas (m²): \nTarget mulai: `;
 
-  const waHref = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waMsg)}`;
+  const waHref = `${WHATSAPP_URL}?text=${encodeURIComponent(waMsg)}`;
 
   return (
     <article className="relative flex flex-col h-full overflow-hidden bg-white border border-slate-200 rounded-xl hover:border-slate-300 hover:shadow-md transition-all duration-200">
@@ -185,7 +182,7 @@ const CategoryCard = memo(function CategoryCard({ c, lang, btnLabel }) {
               className="font-extrabold text-slate-900 tracking-tight leading-none"
               style={{ fontSize: "clamp(1.35rem, 3vw, 1.5rem)" }}
             >
-              {c.price}
+              {price}
             </span>
             <span className="text-[11px] text-slate-400 font-medium">/ m²</span>
           </div>

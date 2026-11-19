@@ -1,34 +1,34 @@
 "use client";
 
 import { useLang } from "../context/LanguageContext";
+import { asphaltPackagePrices, formatAsphaltPrice } from "../data/asphaltPricing";
+import { projectQuoteHref } from "../lib/quote";
 
 const content = {
   id: {
     area: "Jabodetabek, Banten & Jawa Barat",
     title: "Jasa Pengaspalan Jalan",
     emphasis: "Hotmix Bergaransi",
-    description: "Pengaspalan untuk jalan, pabrik, perumahan, dan area parkir. Paket mulai Rp75.000/m².",
+    description: `Pengaspalan untuk jalan, pabrik, perumahan, dan area parkir. Paket pelapisan ulang (overlay) mulai ${formatAsphaltPrice(asphaltPackagePrices.A)}/m².`,
     consult: "Konsultasi & Survei Gratis",
     results: "Lihat Hasil Proyek",
     photo: "Pengaspalan Perumahan Sevilage, Bogor",
-    message: "Halo PT Tri Abadi Makmur, saya ingin konsultasi dan menjadwalkan survei gratis untuk proyek pengaspalan.",
   },
   en: {
     area: "Greater Jakarta, Banten & West Java",
     title: "Asphalt Road Paving",
     emphasis: "Guaranteed Hotmix Work",
-    description: "Asphalt paving for roads, factories, housing estates, and parking areas. Packages start at Rp75,000/m².",
+    description: `Asphalt paving for roads, factories, housing estates, and parking areas. Overlay resurfacing starts at ${formatAsphaltPrice(asphaltPackagePrices.A, "en")}/m².`,
     consult: "Free Consultation & Site Survey",
     results: "View Completed Projects",
     photo: "Paving at the Sevilage Housing Estate, Bogor",
-    message: "Hello PT Tri Abadi Makmur, I would like a free consultation and site survey for an asphalt paving project.",
   },
 };
 
 export default function Hero() {
   const { lang } = useLang();
   const t = content[lang];
-  const whatsapp = `https://wa.me/6282258089367?text=${encodeURIComponent(t.message)}`;
+  const whatsapp = projectQuoteHref("asphaltSurvey", lang);
 
   return (
     <section aria-labelledby="home-title" className="relative isolate overflow-hidden bg-[#071625] text-white">

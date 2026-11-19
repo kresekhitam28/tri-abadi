@@ -3,6 +3,7 @@
 
 import { memo, useMemo } from "react";
 import { useLang } from "../context/LanguageContext";
+import { projectQuoteHref } from "../lib/quote";
 
 // ─── HELPER: pick bilingual ─────────────────
 const pick = (field, lang) => {
@@ -40,26 +41,24 @@ const betonData = [
 // ─── KONTEN BILINGUAL ────────────────────────
 const content = {
   id: {
-    headerBadge: "Paket Harga",
-    headerTitle: "Harga Jasa Cor Beton Ready Mix (Jabodetabek, Banten & Jawa Barat)",
+    headerBadge: "Harga Material",
+    headerTitle: "Pasokan Beton Ready Mix & Minimix",
     colNo: "No", colKelas: "Kelas", colKegunaan: "Kegunaan",
     colSlump: "Slump", colHarga: "Harga / m³",
     mobileSlump: "Slump", mobileHarga: "Harga / m³",
     priceOnCall: "Hubungi Kami",
     footerNote: "Harga dapat berubah sesuai jarak batching plant, kondisi akses lokasi & volume (m³).",
-    ctaLabel: "Tanya Harga & Jadwal Cor via WA",
-    ctaWaMessage: "Halo Tri Abadi Makmur, saya tertarik dengan paket Cor Beton Ready Mix. Boleh minta info harga & jadwal pengiriman ke lokasi saya?",
+    ctaLabel: "Minta Penawaran Pasokan via WhatsApp",
   },
   en: {
-    headerBadge: "Price Package",
-    headerTitle: "Ready Mix Concrete Casting Price (Jabodetabek, Banten & West Java)",
+    headerBadge: "Supply Prices",
+    headerTitle: "Ready-Mix & Minimix Concrete Supply",
     colNo: "No", colKelas: "Class", colKegunaan: "Usage",
     colSlump: "Slump", colHarga: "Price / m³",
     mobileSlump: "Slump", mobileHarga: "Price / m³",
     priceOnCall: "Contact Us",
     footerNote: "Prices may vary depending on batching plant distance, site access & volume (m³).",
-    ctaLabel: "Ask Price & Schedule via WA",
-    ctaWaMessage: "Hello Tri Abadi Makmur, I am interested in your Ready-Mix Concrete package. Could you share the pricing and delivery schedule for my site?",
+    ctaLabel: "Request a Supply Quote on WhatsApp",
   },
 };
 
@@ -195,7 +194,7 @@ export default function BetonPricingPanel({ hideCta = false }) {
 
         {!hideCta && (
           <a
-            href={`https://wa.me/6282258089367?text=${encodeURIComponent(t.ctaWaMessage)}`}
+            href={projectQuoteHref("concreteMaterial", lang)}
             target="_blank"
             rel="noreferrer"
             aria-label={t.ctaLabel}

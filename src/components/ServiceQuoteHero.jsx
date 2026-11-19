@@ -2,14 +2,16 @@ const copy = {
   id: {
     request: "Minta Estimasi via WhatsApp",
     prices: "Lihat Paket Harga",
+    project: "Lihat foto proyek di",
   },
   en: {
     request: "Request a Quote on WhatsApp",
     prices: "View Price Packages",
+    project: "View project photo from",
   },
 };
 
-export default function ServiceQuoteHero({ lang, quoteHref, title, subtitle, description, priceNote, pricesId }) {
+export default function ServiceQuoteHero({ lang, quoteHref, title, subtitle, description, priceNote, pricesId, pricesLabel, projectLocation }) {
   const t = copy[lang];
 
   return (
@@ -38,9 +40,12 @@ export default function ServiceQuoteHero({ lang, quoteHref, title, subtitle, des
             href={`#${pricesId}`}
             className="inline-flex min-h-12 items-center justify-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 hover:border-blue-500 hover:text-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
           >
-            {t.prices}
+            {pricesLabel ?? t.prices}
           </a>
         </div>
+        <a href="#contoh-proyek" className="mt-3 inline-flex min-h-11 items-center rounded px-2 text-sm font-medium text-blue-800 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-blue-700">
+          {t.project} {projectLocation}
+        </a>
       </div>
     </section>
   );
