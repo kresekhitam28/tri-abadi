@@ -19,7 +19,7 @@ export default function NavLink({ to, href, className, children, onClick, ...pro
       : className;
 
   return (
-    <Link href={url} className={resolvedClassName} onClick={onClick} {...props}>
+    <Link href={url} className={resolvedClassName} onClick={onClick} aria-current={pathname === url ? "page" : undefined} {...props}>
       {children}
     </Link>
   );

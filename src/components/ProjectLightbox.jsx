@@ -3,6 +3,9 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useLang } from "../context/LanguageContext";
+import { useBodyScrollLock } from "../hooks/useBodyScrollLock";
+import { containDialogTab } from "../lib/dialogFocus";
+import { WHATSAPP_URL } from "../lib/quote";
 
 function IconChevronLeft({ className = "w-6 h-6" }) {
   return (
@@ -39,33 +42,6 @@ export function IconWhatsApp({ className = "w-4 h-4" }) {
   );
 }
 
-function useBodyScrollLock() {
-  useEffect(() => {
-    const scrollY = window.scrollY;
-    const body = document.body;
-    const previousStyles = {
-      position: body.style.position,
-      top: body.style.top,
-      left: body.style.left,
-      right: body.style.right,
-      width: body.style.width,
-      overflow: body.style.overflow,
-    };
-
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}px`;
-    body.style.left = "0";
-    body.style.right = "0";
-    body.style.width = "100%";
-    body.style.overflow = "hidden";
-
-    return () => {
-      Object.assign(body.style, previousStyles);
-      window.scrollTo(0, scrollY);
-    };
-  }, []);
-}
-
 const copy = {
   id: {
     viewer: "Penampil foto proyek",
@@ -89,36 +65,45 @@ const copy = {
   },
 };
 
-export default function ProjectLightbox({ list, selectedIndex, setSelectedIndex, thumbnails }) {
+export default function ProjectLightbox({ list, selectedIndex, setSelectedIndex, thumbnails, openerRef }) {
   const { lang } = useLang();
   const dialogRef = useRef(null);
+  const thumbnailStripRef = useRef(null);
+  const focusThumbnailRef = useRef(false);
   const t = copy[lang];
   const selected = list[selectedIndex];
   const title = selected.title[lang];
   const detail = selected.detail?.[lang];
   const count = list.length;
-  const waHref = `https://wa.me/6282258089367?text=${encodeURIComponent(t.inquiry(title))}`;
+  const waHref = `${WHATSAPP_URL}?text=${encodeURIComponent(t.inquiry(title))}`;
 
   useBodyScrollLock();
 
   useEffect(() => {
     const dialog = dialogRef.current;
-    const opener = document.activeElement;
+    const opener = openerRef.current;
     dialog.showModal();
 
     return () => {
       dialog.close();
       opener?.focus({ preventScroll: true });
     };
-  }, []);
+  }, [openerRef]);
 
   useEffect(() => {
-    if (count < 2) return;
-    for (const index of [(selectedIndex + 1) % count, (selectedIndex - 1 + count) % count]) {
-      const image = new Image();
-      image.src = list[index].src;
+    const strip = thumbnailStripRef.current;
+    const active = strip?.querySelector('[aria-current="true"]');
+    if (!active) return;
+
+    const stripRect = strip.getBoundingClientRect();
+    const activeRect = active.getBoundingClientRect();
+    if (activeRect.left < stripRect.left || activeRect.right > stripRect.right) {
+      const offset = activeRect.left - stripRect.left - (strip.clientWidth - activeRect.width) / 2;
+      strip.scrollTo({ left: strip.scrollLeft + offset, behavior: "instant" });
     }
-  }, [count, list, selectedIndex]);
+    if (focusThumbnailRef.current) active.focus({ preventScroll: true });
+    focusThumbnailRef.current = false;
+  }, [selectedIndex]);
 
   function close() {
     setSelectedIndex(null);
@@ -129,8 +114,10 @@ export default function ProjectLightbox({ list, selectedIndex, setSelectedIndex,
   }
 
   function handleArrows(event) {
+    containDialogTab(event);
     if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
     event.preventDefault();
+    focusThumbnailRef.current = Boolean(event.target.closest("[data-project-thumbnail]"));
     step(event.key === "ArrowLeft" ? -1 : 1);
   }
 
@@ -152,7 +139,7 @@ export default function ProjectLightbox({ list, selectedIndex, setSelectedIndex,
         <button
           type="button"
           onClick={close}
-          className="grid size-10 cursor-pointer place-items-center rounded-full bg-white/10 hover:bg-white/20"
+          className="grid size-11 cursor-pointer place-items-center rounded-full bg-white/10 hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
           aria-label={t.close}
         >
           <IconClose />
@@ -180,7 +167,7 @@ export default function ProjectLightbox({ list, selectedIndex, setSelectedIndex,
                   type="button"
                   onClick={() => step(-1)}
                   aria-label={t.previous}
-                  className="absolute left-2 top-1/2 grid size-10 -translate-y-1/2 cursor-pointer place-items-center rounded-full border border-white/25 bg-slate-950/80 hover:bg-blue-700 sm:size-12"
+                  className="absolute left-2 top-1/2 grid size-11 -translate-y-1/2 cursor-pointer place-items-center rounded-full border border-white/25 bg-slate-950/80 hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-blue-300 sm:size-12"
                 >
                   <IconChevronLeft className="size-5" />
                 </button>
@@ -188,7 +175,7 @@ export default function ProjectLightbox({ list, selectedIndex, setSelectedIndex,
                   type="button"
                   onClick={() => step(1)}
                   aria-label={t.next}
-                  className="absolute right-2 top-1/2 grid size-10 -translate-y-1/2 cursor-pointer place-items-center rounded-full border border-white/25 bg-slate-950/80 hover:bg-blue-700 sm:size-12"
+                  className="absolute right-2 top-1/2 grid size-11 -translate-y-1/2 cursor-pointer place-items-center rounded-full border border-white/25 bg-slate-950/80 hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-blue-300 sm:size-12"
                 >
                   <IconChevronRight className="size-5" />
                 </button>
@@ -206,7 +193,7 @@ export default function ProjectLightbox({ list, selectedIndex, setSelectedIndex,
               href={waHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-lg bg-emerald-700 px-4 py-2.5 text-xs font-semibold hover:bg-emerald-600 sm:self-center"
+              className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 self-start rounded-lg bg-emerald-700 px-4 py-2.5 text-xs font-semibold hover:bg-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300 sm:self-center"
             >
               <IconWhatsApp />
               {t.cta}
@@ -216,7 +203,7 @@ export default function ProjectLightbox({ list, selectedIndex, setSelectedIndex,
       </div>
 
       {count > 1 && (
-        <div className="shrink-0 overflow-x-auto border-t border-white/10 p-3">
+        <div ref={thumbnailStripRef} className="shrink-0 overflow-x-auto overscroll-x-contain border-t border-white/10 p-3">
           <div className="mx-auto flex w-max gap-2">
             {list.map((project, index) => {
               const fileName = project.src.split("/").pop();
@@ -227,6 +214,8 @@ export default function ProjectLightbox({ list, selectedIndex, setSelectedIndex,
                 <button
                   key={project.id}
                   type="button"
+                  data-project-thumbnail
+                  tabIndex={active ? 0 : -1}
                   onClick={() => setSelectedIndex(index)}
                   aria-label={`${t.photo} ${index + 1}: ${project.title[lang]}`}
                   aria-current={active ? "true" : undefined}

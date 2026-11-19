@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import ProjectCard from "./ProjectCard";
@@ -23,6 +23,7 @@ export default function ProjectsSection({ featured, variants, thumbnails }) {
   const { lang } = useLang();
   const t = content[lang];
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const openerRef = useRef(null);
 
   return (
     <section id="proyek-unggulan" aria-labelledby="featured-title" className="scroll-mt-[76px] bg-slate-50 py-12 sm:py-16">
@@ -47,7 +48,11 @@ export default function ProjectsSection({ featured, variants, thumbnails }) {
               lang={lang}
               viewPhoto={t.viewPhoto}
               variants={variants}
-              onOpen={() => setSelectedIndex(index)}
+              sizes="(min-width: 1280px) 392px, (min-width: 768px) calc((100vw - 104px) / 3), calc(100vw - 32px)"
+              onOpen={(event) => {
+                openerRef.current = event.currentTarget;
+                setSelectedIndex(index);
+              }}
             />
           ))}
         </div>
@@ -58,6 +63,7 @@ export default function ProjectsSection({ featured, variants, thumbnails }) {
           list={featured}
           selectedIndex={selectedIndex}
           setSelectedIndex={setSelectedIndex}
+          openerRef={openerRef}
           thumbnails={thumbnails}
         />
       )}

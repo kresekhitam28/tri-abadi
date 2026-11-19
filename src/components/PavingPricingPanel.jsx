@@ -307,7 +307,7 @@ const AccordionItem = memo(function AccordionItem({ item, index, isOpen, onToggl
           ${isOpen ? "bg-[#1e88e5]/[0.03]" : "hover:bg-slate-50"}`}
       >
         <span className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors duration-150
-          ${isOpen ? "bg-[#1e88e5] text-white" : "bg-slate-100 text-slate-600"}`}>
+          ${isOpen ? "bg-blue-700 text-white" : "bg-slate-100 text-slate-600"}`}>
           {isOpen ? <IconMinus className="w-3.5 h-3.5" /> : <IconPlus className="w-3.5 h-3.5" />}
         </span>
         <span className="flex-1 min-w-0">
@@ -498,7 +498,7 @@ export default function PavingPricingPanel({ hideCta = false }) {
             target="_blank"
             rel="noreferrer"
             aria-label={t.ctaLabel}
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 min-h-[44px] rounded-xl shrink-0 bg-[#25D366] text-white text-[12px] font-bold hover:bg-[#20bd5a] shadow-sm transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 min-h-[44px] rounded-xl shrink-0 bg-emerald-700 text-white text-[12px] font-bold hover:bg-emerald-800 shadow-sm transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
           >
             <IconWhatsApp className="w-4 h-4 shrink-0" />
             {t.ctaLabel}

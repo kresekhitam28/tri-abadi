@@ -124,7 +124,7 @@ const Accordion = memo(function Accordion({ title, children, defaultOpen = false
                       font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]
                       transition-colors duration-150
                       ${open
-                        ? "bg-[#1e88e5] text-white border-[#1e88e5]"
+                        ? "bg-blue-700 text-white border-blue-700"
                         : "bg-white text-slate-500 border-slate-300"}`}
           style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
         >
@@ -732,7 +732,7 @@ export default function PasangPavingBlock({ project }) {
                 </p>
                 <Link
                   href="/blog"
-                  className="inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-[#1e88e5] text-white 
+                  className="inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-blue-700 text-white
                              font-bold tracking-wide transition-all duration-300 
                              shadow-lg shadow-[#1e88e5]/30 hover:shadow-[#1e88e5]/50 hover:-translate-y-1 
                              hover:bg-[#1976d2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1e88e5] focus-visible:ring-offset-2"
@@ -787,7 +787,7 @@ export default function PasangPavingBlock({ project }) {
                               font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]
                               transition-colors duration-150
                               ${showArea
-                                ? "bg-[#1e88e5] text-white border-[#1e88e5]"
+                                ? "bg-blue-700 text-white border-blue-700"
                                 : "bg-slate-50 text-slate-500 border-slate-200"}`}
                   style={{ fontSize: "clamp(0.625rem, 1vw, 0.6875rem)" }}
                 >
@@ -831,7 +831,7 @@ export default function PasangPavingBlock({ project }) {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={data.ctaBtn}
-                  className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-4 min-h-[48px] rounded-xl bg-[#25D366] text-white hover:bg-[#20bd5a] font-bold uppercase tracking-[0.1em] sm:tracking-[0.15em] shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50 hover:-translate-y-0.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                  className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-4 min-h-[48px] rounded-xl bg-emerald-700 text-white hover:bg-emerald-800 font-bold uppercase tracking-[0.1em] sm:tracking-[0.15em] shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50 hover:-translate-y-0.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
                   style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.875rem)" }}
                 >
                   <IconWhatsApp className="w-5 h-5 shrink-0" />

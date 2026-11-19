@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
-const subscribe = () => () => {};
-const supportsObserver = () => typeof IntersectionObserver === "function";
+const reducedMotion = "(prefers-reduced-motion: reduce)";
+function subscribe(callback) {
+  const preference = window.matchMedia(reducedMotion);
+  preference.addEventListener("change", callback);
+  return () => preference.removeEventListener("change", callback);
+}
+const supportsObserver = () => typeof IntersectionObserver === "function" && !window.matchMedia(reducedMotion).matches;
 const getServerSnapshot = () => true;
 
 export function useReveal({ threshold = 0.12, enabled = true } = {}) {
@@ -11,7 +16,7 @@ export function useReveal({ threshold = 0.12, enabled = true } = {}) {
 
   useEffect(() => {
     const element = ref.current;
-    if (!enabled || !element || !supportsObserver()) return;
+    if (!enabled || !element || !canObserve) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -25,7 +30,7 @@ export function useReveal({ threshold = 0.12, enabled = true } = {}) {
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, [enabled, threshold]);
+  }, [enabled, threshold, canObserve]);
 
   return [ref, !enabled || !canObserve || hasEntered];
 }

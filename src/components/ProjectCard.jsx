@@ -1,9 +1,15 @@
-export default function ProjectCard({ project, lang, category, viewPhoto, variants, onOpen, heading: Heading = "h3" }) {
+const gridSizes = "(min-width: 1280px) 392px, (min-width: 1024px) calc((100vw - 104px) / 3), (min-width: 640px) calc((100vw - 68px) / 2), calc(100vw - 32px)";
+
+export default function ProjectCard({ project, lang, category, viewPhoto, variants, onOpen, heading: Heading = "h3", sizes = gridSizes }) {
   const title = project.title[lang];
   const detail = project.detail?.[lang];
   const fileName = project.src.split("/").pop();
   const small = fileName.replace(/\.webp$/, "-320.webp");
   const medium = fileName.replace(/\.webp$/, "-640.webp");
+  const srcSet = [
+    variants.includes(small) && `/proyek/${small} 320w`,
+    variants.includes(medium) && `/proyek/${medium} 640w`,
+  ].filter(Boolean).join(", ");
 
   return (
     <article className="h-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-colors hover:border-blue-300">
@@ -12,23 +18,17 @@ export default function ProjectCard({ project, lang, category, viewPhoto, varian
         onClick={onOpen}
         aria-haspopup="dialog"
         aria-label={`${viewPhoto}: ${title} (${project.location})`}
-        className="group relative block aspect-[16/10] w-full cursor-zoom-in overflow-hidden bg-slate-100 focus-visible:z-10 focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-blue-600"
+        className="group relative block aspect-[16/10] w-full cursor-zoom-in scroll-mt-24 overflow-hidden bg-slate-100 focus-visible:z-10 focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-blue-600"
       >
-        <picture>
-          {variants.includes(medium) && (
-            <source media="(max-width: 639px) and (min-resolution: 2dppx), (min-width: 421px) and (max-width: 639px)" srcSet={`/proyek/${medium}`} />
-          )}
-          {variants.includes(small) && (
-            <source media="(max-width: 639px)" srcSet={`/proyek/${small}`} />
-          )}
-          <img
-            src={project.src}
-            alt=""
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:scale-105"
-          />
-        </picture>
+        <img
+          src={project.src}
+          srcSet={srcSet || undefined}
+          sizes={srcSet ? sizes : undefined}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:scale-105"
+        />
         <span aria-hidden="true" className="absolute right-3 top-3 grid size-9 place-items-center rounded-full bg-slate-950/65 text-white">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="size-4">
             <circle cx="10.5" cy="10.5" r="6.5" />

@@ -38,9 +38,9 @@ export default function FloatingWA() {
     >
       {/* Label — hanya muncul di desktop saat hover / fokus keyboard */}
       <span
-        className="hidden sm:flex items-center relative px-4 py-2 bg-white text-slate-800 text-sm font-semibold
+        className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap sm:flex items-center px-4 py-2 bg-white text-slate-800 text-sm font-semibold
                    rounded-xl shadow-[0_10px_30px_-8px_rgba(0,0,0,0.25)] ring-1 ring-slate-900/5
-                   opacity-0 translate-x-3 pointer-events-none
+                   opacity-0 translate-x-3
                    group-hover:opacity-100 group-hover:translate-x-0
                    group-focus-visible:opacity-100 group-focus-visible:translate-x-0
                    transition-all duration-300 ease-out"

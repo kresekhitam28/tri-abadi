@@ -299,7 +299,7 @@ export default function Kontak() {
                   className="group mt-5 sm:mt-6 flex items-center justify-between gap-3
                              p-4 rounded-2xl
                              bg-slate-900 text-white
-                             hover:bg-[#1e88e5]
+                             hover:bg-blue-700
                              transition-colors duration-200"
                   style={{ contain: "layout paint style" }}
                 >

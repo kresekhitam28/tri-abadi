@@ -93,7 +93,7 @@ export default function RootLayout({ children }) {
 
         <LanguageProvider>
           <Navbar />
-          <main className="flex-1">
+          <main id="konten-utama" tabIndex={-1} className="flex-1 scroll-mt-20">
             {children}
           </main>
           <Footer />

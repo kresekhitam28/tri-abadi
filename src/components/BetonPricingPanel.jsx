@@ -198,7 +198,7 @@ export default function BetonPricingPanel({ hideCta = false }) {
             target="_blank"
             rel="noreferrer"
             aria-label={t.ctaLabel}
-            className="inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 min-h-[44px] sm:min-h-0 rounded-xl shrink-0 bg-[#25D366] text-white hover:bg-[#20bd5a] text-[12.5px] font-bold shadow-md shadow-[#25D366]/20 hover:shadow-[#25D366]/40 hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 min-h-[44px] sm:min-h-0 rounded-xl shrink-0 bg-emerald-700 text-white hover:bg-emerald-800 text-[12.5px] font-bold shadow-md shadow-[#25D366]/20 hover:shadow-[#25D366]/40 hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
           >
             <IconWhatsApp className="w-4 h-4 shrink-0" />
             {t.ctaLabel}

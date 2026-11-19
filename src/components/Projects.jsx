@@ -1,20 +1,25 @@
 // src/components/Projects.jsx
 "use client";
 
-import { useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { useLang } from "../context/LanguageContext";
 import { projects } from "../data/projects";
 import ProjectCard from "./ProjectCard";
 import ProjectLightbox, { IconWhatsApp } from "./ProjectLightbox";
 
 const ITEMS_PER_PAGE = 8;
+const featuredIds = [26, 30, 1];
+const orderedProjects = [
+  ...featuredIds.map((id) => projects.find((project) => project.id === id)),
+  ...projects.filter((project) => !featuredIds.includes(project.id)),
+];
 
 const content = {
   id: {
     titleLight: "Galeri Proyek",
     titleBold: "Pengaspalan & Konstruksi",
     subtitle:
-      "Dokumentasi hasil pengerjaan nyata proyek pengaspalan hotmix, pemasangan paving block, pagar panel beton, dan pemadatan lahan oleh tim PT Tri Abadi Makmur berstandar Bina Marga dan bergaransi resmi.",
+      "Dokumentasi pekerjaan pengaspalan hotmix, pemasangan paving block, pagar panel beton, dan pemadatan lahan oleh tim PT Tri Abadi Makmur.",
     filters: [
       { id: "all", label: "Semua Proyek" },
       { id: "aspal", label: "Pengaspalan Hotmix" },
@@ -96,14 +101,25 @@ export default function Projects({ variants, thumbnails }) {
   const [activeFilter, setActiveFilter] = useState("all");
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const gridRef = useRef(null);
+  const openerRef = useRef(null);
+  const firstNewIndexRef = useRef(null);
 
   const filtered = useMemo(
-    () => activeFilter === "all" ? projects : projects.filter((project) => project.category === activeFilter),
+    () => activeFilter === "all" ? orderedProjects : orderedProjects.filter((project) => project.category === activeFilter),
     [activeFilter],
   );
   const visible = filtered.slice(0, visibleCount);
   const remaining = filtered.length - visible.length;
   const waHref = `https://wa.me/6282258089367?text=${encodeURIComponent(data.waMessage)}`;
+
+  useEffect(() => {
+    const index = firstNewIndexRef.current;
+    if (index === null) return;
+
+    gridRef.current.querySelectorAll('button[aria-haspopup="dialog"]')[index]?.focus();
+    firstNewIndexRef.current = null;
+  }, [visibleCount]);
 
   function selectFilter(category) {
     setActiveFilter(category);
@@ -128,7 +144,7 @@ export default function Projects({ variants, thumbnails }) {
               type="button"
               aria-pressed={activeFilter === filter.id}
               onClick={() => selectFilter(filter.id)}
-              className={`cursor-pointer rounded-full border px-3.5 py-2 text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:px-4 sm:text-sm ${activeFilter === filter.id
+              className={`min-h-11 cursor-pointer rounded-full border px-3.5 py-2 text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:px-4 sm:text-sm ${activeFilter === filter.id
                 ? "border-blue-700 bg-blue-700 text-white"
                 : "border-slate-200 bg-white text-slate-700 hover:border-blue-400 hover:text-blue-700"}`}
             >
@@ -137,7 +153,7 @@ export default function Projects({ variants, thumbnails }) {
           ))}
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div ref={gridRef} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((project, index) => (
             <ProjectCard
               heading="h2"
@@ -147,7 +163,10 @@ export default function Projects({ variants, thumbnails }) {
               category={data.badges[project.category]}
               viewPhoto={data.viewPhoto}
               variants={variants}
-              onOpen={() => setSelectedIndex(index)}
+              onOpen={(event) => {
+                openerRef.current = event.currentTarget;
+                setSelectedIndex(index);
+              }}
             />
           ))}
         </div>
@@ -156,7 +175,10 @@ export default function Projects({ variants, thumbnails }) {
           {remaining > 0 && (
             <button
               type="button"
-              onClick={() => setVisibleCount((previous) => previous + ITEMS_PER_PAGE)}
+              onClick={() => {
+                firstNewIndexRef.current = visible.length;
+                setVisibleCount((previous) => previous + ITEMS_PER_PAGE);
+              }}
               className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 transition-colors hover:border-blue-400 hover:text-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             >
               {data.loadMore}
@@ -191,6 +213,7 @@ export default function Projects({ variants, thumbnails }) {
           list={filtered}
           selectedIndex={selectedIndex}
           setSelectedIndex={setSelectedIndex}
+          openerRef={openerRef}
           thumbnails={thumbnails}
         />
       )}

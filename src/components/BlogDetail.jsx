@@ -130,9 +130,9 @@ const content = {
       "Halo PT Tri Abadi Makmur, saya baru saja membaca artikel Anda dan ingin berkonsultasi mengenai proyek saya.",
     commentTitle: "Tinggalkan Komentar",
     commentNote: "Komentar Anda akan dikirim ke email kami.",
-    placeholderComment: "Komentar Anda...",
-    placeholderName: "Nama",
-    placeholderEmail: "Email",
+    commentLabel: "Komentar",
+    nameLabel: "Nama",
+    emailLabel: "Email",
     btnSending: "Mengirim...",
     btnSuccess: "Terkirim!",
     btnError: "Gagal. Coba lagi.",
@@ -163,9 +163,9 @@ const content = {
       "Hello PT Tri Abadi Makmur, I just read your article and would like to consult about my project.",
     commentTitle: "Leave a Comment",
     commentNote: "Your comment will be sent to our email.",
-    placeholderComment: "Your comment...",
-    placeholderName: "Name",
-    placeholderEmail: "Email",
+    commentLabel: "Comment",
+    nameLabel: "Name",
+    emailLabel: "Email",
     btnSending: "Sending...",
     btnSuccess: "Sent!",
     btnError: "Failed. Try again.",
@@ -194,6 +194,8 @@ function TagItem({ tag, lang, className }) {
   }
   return <span className={className}>{label}</span>;
 }
+
+const commentFieldClass = "block w-full rounded-xl border border-slate-500 bg-slate-50 px-4 py-3.5 text-base text-slate-800 focus:border-blue-700 focus:bg-white focus:outline-2 focus:outline-offset-1 focus:outline-blue-700";
 
 // ─────────────────────────────────────────────
 // BODY RENDERER
@@ -673,7 +675,7 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
                 href={`https://wa.me/6282258089367?text=${encodeURIComponent(t.ctaWaMsg)}`}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-4 min-h-[48px] rounded-xl bg-[#25D366] text-white hover:bg-[#20bd5a] font-bold uppercase tracking-[0.1em] sm:tracking-[0.15em] shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50 hover:-translate-y-0.5 transition-all duration-300"
+                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl bg-emerald-700 px-6 py-4 font-bold uppercase tracking-[0.1em] text-white transition-colors hover:bg-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:px-8 sm:tracking-[0.15em]"
                 style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.875rem)" }}
               >
                 <I.WA className="w-5 h-5 shrink-0" />
@@ -719,68 +721,50 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
               </h2>
               <span className="h-px flex-1 bg-slate-100" />
             </div>
-            <p className="text-[12.5px] sm:text-[13px] text-slate-500 mb-6 sm:mb-8">
+            <p id="article-comment-note" className="text-[12.5px] sm:text-[13px] text-slate-600 mb-6 sm:mb-8">
               {t.commentNote}
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <textarea
-                rows={4}
-                required
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-                placeholder={t.placeholderComment}
-                className="w-full px-4 py-3.5 rounded-xl border border-slate-200
-                           bg-slate-50 resize-none
-                           focus:bg-white focus:border-[#1e88e5] focus:ring-2 focus:ring-[#1e88e5]/20
-                           outline-none text-[14px] sm:text-[15px] text-slate-800 placeholder:text-slate-400
-                           transition-colors duration-150"
-              />
+            <form onSubmit={handleSubmit} aria-describedby="article-comment-note" className="space-y-4">
+              <div>
+                <label htmlFor="article-comment" className="mb-2 block text-sm font-semibold text-slate-700">{t.commentLabel}</label>
+                <textarea
+                  id="article-comment"
+                  rows={4}
+                  required
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                  className={`${commentFieldClass} resize-y`}
+                />
+              </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder={t.placeholderName}
-                  className="w-full px-4 py-3.5 rounded-xl border border-slate-200
-                             bg-slate-50
-                             focus:bg-white focus:border-[#1e88e5] focus:ring-2 focus:ring-[#1e88e5]/20
-                             outline-none text-[14px] sm:text-[15px] text-slate-800 placeholder:text-slate-400
-                             transition-colors duration-150"
-                />
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder={t.placeholderEmail}
-                  className="w-full px-4 py-3.5 rounded-xl border border-slate-200
-                             bg-slate-50
-                             focus:bg-white focus:border-[#1e88e5] focus:ring-2 focus:ring-[#1e88e5]/20
-                             outline-none text-[14px] sm:text-[15px] text-slate-800 placeholder:text-slate-400
-                             transition-colors duration-150"
-                />
+                <div>
+                  <label htmlFor="article-comment-name" className="mb-2 block text-sm font-semibold text-slate-700">{t.nameLabel}</label>
+                  <input id="article-comment-name" type="text" autoComplete="name" required value={name} onChange={(e) => setName(e.target.value)} className={commentFieldClass} />
+                </div>
+                <div>
+                  <label htmlFor="article-comment-email" className="mb-2 block text-sm font-semibold text-slate-700">{t.emailLabel}</label>
+                  <input id="article-comment-email" type="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} className={commentFieldClass} />
+                </div>
               </div>
 
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-3 rounded-xl
-                           bg-[#1e88e5] hover:bg-[#1976d2] text-white
-                           text-xs sm:text-sm font-semibold tracking-wide
-                           disabled:opacity-60 disabled:cursor-not-allowed
-                           transition-colors duration-150 mt-2"
+                className="mt-2 inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-blue-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 disabled:cursor-not-allowed disabled:bg-slate-600 sm:w-auto"
               >
+                {t.btnIdle}
+              </button>
+              <p role="status" className="text-sm font-medium text-slate-700 empty:m-0">
                 {status === "sending"
                   ? t.btnSending
                   : status === "success"
                   ? t.btnSuccess
                   : status === "error"
                   ? t.btnError
-                  : t.btnIdle}
-              </button>
+                  : ""}
+              </p>
             </form>
           </div>
         </Reveal>
