@@ -5,6 +5,7 @@ import { memo } from "react";
 import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import { asphaltPackagePrices, formatAsphaltPrice } from "../data/asphaltPricing";
+import { pricingConfig } from "../data/pricingConfig";
 import { WHATSAPP_URL } from "../lib/quote";
 
 // ─── KATEGORI BILINGUAL ─────────────────────
@@ -125,16 +126,22 @@ function IconWhatsApp({ className = "w-3.5 h-3.5" }) {
 // ─────────────────────────────────────────────
 // CATEGORY CARD (memoized)
 // ─────────────────────────────────────────────
-const CategoryCard = memo(function CategoryCard({ c, lang, btnLabel }) {
+function packageQuoteHref(c, lang, price) {
   const pkgName = pick(c.name, lang);
   const pkgTag = pick(c.tag, lang);
-  const price = formatAsphaltPrice(asphaltPackagePrices[c.code], lang);
   const waMsg =
     lang === "en"
       ? `Hello PT Tri Abadi Makmur, I am interested in ${pkgName} (${pkgTag} - ${price}/m²). Could you provide an estimate and site survey schedule?\n\nProject location: \nApproximate area (m²): \nPreferred start date: `
       : `Halo PT Tri Abadi Makmur, saya tertarik dengan Paket ${pkgName} (${pkgTag} - ${price}/m²). Mohon info estimasi biaya dan jadwal survei.\n\nLokasi proyek: \nPerkiraan luas (m²): \nTarget mulai: `;
 
-  const waHref = `${WHATSAPP_URL}?text=${encodeURIComponent(waMsg)}`;
+  return `${WHATSAPP_URL}?text=${encodeURIComponent(waMsg)}`;
+}
+
+const CategoryCard = memo(function CategoryCard({ c, lang, btnLabel }) {
+  const pkgName = pick(c.name, lang);
+  const pkgTag = pick(c.tag, lang);
+  const price = formatAsphaltPrice(asphaltPackagePrices[c.code], lang);
+  const waHref = packageQuoteHref(c, lang, price);
 
   return (
     <article className="relative flex flex-col h-full overflow-hidden bg-white border border-slate-200 rounded-xl hover:border-slate-300 hover:shadow-md transition-all duration-200">
@@ -229,7 +236,57 @@ const CategoryCard = memo(function CategoryCard({ c, lang, btnLabel }) {
 // ─────────────────────────────────────────────
 // PANEL
 // ─────────────────────────────────────────────
-export default function ServicePricingPanel({ hideCta = false }) {
+const suitableConditions = {
+  A: { id: "Aspal eksisting masih layak dilapisi ulang", en: "Existing asphalt suitable for resurfacing" },
+  B: { id: "Lubang atau kerusakan setempat", en: "Potholes or localized damage" },
+  C: { id: "Area yang sesuai untuk perkerasan penetrasi setelah survei", en: "Sites suitable for penetration paving after a survey" },
+  D: { id: "Jalan baru yang memerlukan pondasi agregat", en: "New roads that need an aggregate base" },
+};
+
+function PackageTable({ lang, label }) {
+  const en = lang === "en";
+  const headings = en
+    ? ["Package & work type", "Suitable site conditions", "Scope of work", "Estimated rate", "Maintenance warranty"]
+    : ["Paket & Jenis Pekerjaan", "Kondisi Lokasi Sesuai", "Lingkup Pekerjaan", "Estimasi Tarif", "Garansi Pemeliharaan"];
+  const caption = en ? "Compare asphalt paving packages A–D" : "Perbandingan Paket Pengaspalan A–D";
+
+  return (
+    <div role="region" aria-label={caption} tabIndex={0} className="min-w-0 overflow-x-auto rounded-lg border border-slate-200 focus-visible:outline-2 focus-visible:outline-blue-700">
+      <table className="w-full min-w-[50rem] text-left text-sm">
+        <caption className="p-3 text-left font-semibold text-slate-950">{caption}</caption>
+        <thead className="bg-slate-100 text-slate-900">
+          <tr>{headings.map((heading) => <th key={heading} scope="col" className="p-3 align-top">{heading}</th>)}</tr>
+        </thead>
+        <tbody className="divide-y divide-slate-200">
+          {categories.map((category) => {
+            const { code, tag, items } = category;
+            const { ratePerM2, warrantyMonths, warrantyMaxMonths } = pricingConfig.asphalt.packages[code];
+            const price = formatAsphaltPrice(ratePerM2, lang);
+            const warranty = warrantyMaxMonths
+              ? (en ? `Up to ${warrantyMaxMonths / 12} years` : `Hingga ${warrantyMaxMonths / 12} tahun`)
+              : `${warrantyMonths.join("–")} ${en ? "months" : "bulan"}`;
+
+            return (
+              <tr key={code} className="align-top even:bg-slate-50">
+                <th scope="row" className="p-3 text-slate-950">
+                  {en ? "Package" : "Paket"} {code}
+                  <span className="mt-1 block font-medium">{code === "D" ? (en ? "Full construction / new road" : "Konstruksi penuh / jalan baru") : pick(tag, lang)}</span>
+                  <a href={packageQuoteHref(category, lang, price)} target="_blank" rel="noreferrer" className="mt-2 inline-flex min-h-11 items-center text-blue-800 underline focus-visible:outline-2">{label}</a>
+                </th>
+                <td className="p-3">{pick(suitableConditions[code], lang)}</td>
+                <td className="p-3"><ul className="list-disc space-y-1 pl-4">{items.map((item) => <li key={item.id}>{pick(item, lang)}</li>)}</ul></td>
+                <td className="whitespace-nowrap p-3">{en ? "From" : "Mulai"} {price}/m²</td>
+                <td className="p-3">{warranty}{warrantyMaxMonths ? (en ? " (see terms below)" : " (lihat syarat di bawah)") : ""}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default function ServicePricingPanel({ hideCta = false, comparison = false }) {
   const { lang } = useLang();
   const t = content[lang] || content.id;
 
@@ -262,11 +319,11 @@ export default function ServicePricingPanel({ hideCta = false }) {
 
       {/* Grid kartu */}
       <div className="p-4 sm:p-5 lg:p-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 items-stretch">
+        {comparison ? <PackageTable lang={lang} label={t.cardWaBtn} /> : <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 items-stretch">
           {categories.map((c) => (
             <CategoryCard key={c.code} c={c} lang={lang} btnLabel={t.cardWaBtn} />
           ))}
-        </div>
+        </div>}
       </div>
 
       {/* Footer */}

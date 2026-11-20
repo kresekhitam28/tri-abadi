@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { articles } from '../data/articles';
+import { caseStudies } from '../data/caseStudies';
 import { blogPageNumbers, blogPagePath } from '../lib/blog';
 import { SITE_URL } from '../lib/metadata';
 
@@ -85,5 +86,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${SITE_URL}${blogPagePath(page)}`,
   }));
 
-  return [...staticRoutes, ...paginatedBlogRoutes, ...blogRoutes];
+  const caseStudyRoutes = caseStudies.flatMap(({ path, areaPath }) => [path, areaPath].map((route) => ({
+    url: `${SITE_URL}${route}`,
+  })));
+
+  return [...staticRoutes, ...paginatedBlogRoutes, ...blogRoutes, ...caseStudyRoutes];
 }

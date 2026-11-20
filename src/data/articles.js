@@ -1,5 +1,10 @@
 // src/data/articles.js
 import { asphaltCostRanges, asphaltPackagePrices, formatAsphaltPrice } from "./asphaltPricing";
+import { projectQuoteHref } from "../lib/quote";
+import { caseStudies } from "./caseStudies";
+
+const asphaltStudy = caseStudies.find(({ slug }) => slug === "pengaspalan-akses-pabrik-cikupa");
+const concreteStudy = caseStudies.find(({ slug }) => slug === "pengecoran-lantai-gudang-cikarang");
 
 export const articles = [
   {
@@ -237,8 +242,8 @@ export const articles = [
       {
         type: "paragraph",
         text: {
-          id: "Distributor Aspal — Membangun jalan yang berkualitas dimulai dari pemilihan material yang tepat. Jika Anda sedang mencari distributor aspal terpercaya untuk proyek perumahan, pabrik, atau jalan raya di area Jabodetabek & seluruh Indonesia, PT Tri Abadi Makmur siap menjadi mitra bisnis Anda. Kami menyediakan aspal berkualitas dengan pasokan yang konsisten. Lihat juga halaman <a href='/supplier' class='text-[#1e88e5] hover:underline font-semibold'>Supplier Kami</a>.",
-          en: "Asphalt Distributor — Building a quality road starts with choosing the right material. If you are looking for a trusted asphalt distributor for residential, factory, or highway projects in Greater Jakarta & across Indonesia, PT Tri Abadi Makmur is ready to be your business partner. We provide quality asphalt with consistent supply. Also see our Supplier page.",
+          id: "Pasokan aspal untuk proyek perumahan, pabrik, dan jalan di Jabodetabek serta kawasan industri sekitarnya tersedia berdasarkan penawaran. Lihat juga <a href='/supplier' class='text-[#1e88e5] hover:underline font-semibold'>halaman Supplier</a> untuk pilihan material konstruksi dan ketentuan pengiriman.",
+          en: "Asphalt supply for housing, factory, and road projects in Greater Jakarta and surrounding industrial areas is available by quotation. See our <a href='/supplier' class='text-[#1e88e5] hover:underline font-semibold'>Supplier page</a> for construction materials and delivery terms.",
         },
       },
       {
@@ -1253,6 +1258,13 @@ export const articles = [
           en: "Entrust your concrete casting needs to PT Tri Abadi Makmur. We provide high-quality ready-mix materials with a professional team. Contact us now via WhatsApp for consultation on volume, price, and casting schedule.",
         },
       },
+      {
+        type: "paragraph",
+        text: {
+          id: `Lihat bagaimana pengecoran lantai gudang di Cikarang dikerjakan per segmen. <a href='${concreteStudy.path}' class='text-blue-800 underline font-semibold'>Baca studi kasus proyek</a>.`,
+          en: `See how the Cikarang warehouse floor was poured in sections. <a href='${concreteStudy.path}' class='text-blue-800 underline font-semibold'>Read the project case study</a>.`,
+        },
+      },
     ],
   },
   {
@@ -1372,8 +1384,15 @@ export const articles = [
       {
         type: "paragraph",
         text: {
-          id: "Butuh konsultasi atau penawaran harga pasti untuk proyek Anda? Hubungi tim kami sekarang via WhatsApp untuk mendapatkan survei lokasi gratis. Dapatkan aspal jalan murah dan berkualitas hanya di PT Tri Abadi Makmur.",
-          en: "Need consultation or a definite price quote for your project? Contact our team now via WhatsApp to get a free site survey. Get affordable and quality asphalt only at PT Tri Abadi Makmur.",
+          id: `Bandingkan <a href='/layanan/infrastruktur/pengaspalan#paket-harga-aspal' class='text-blue-800 underline font-semibold'>paket pengaspalan A–D</a> berdasarkan kondisi jalan. Untuk estimasi proyek, <a href='${projectQuoteHref("asphaltSurvey", "id")}' target='_blank' rel='noopener noreferrer' class='text-blue-800 underline font-semibold'>minta survei lokasi via WhatsApp</a> dan sertakan lokasi serta perkiraan luas.`,
+          en: `Compare <a href='/layanan/infrastruktur/pengaspalan#paket-harga-aspal' class='text-blue-800 underline font-semibold'>paving packages A–D</a> based on road conditions. For a project estimate, <a href='${projectQuoteHref("asphaltSurvey", "en")}' target='_blank' rel='noopener noreferrer' class='text-blue-800 underline font-semibold'>request a site survey on WhatsApp</a> with your location and estimated area.`,
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: `Lihat pekerjaan akses pabrik di Cikupa dan cara tim membagi jadwal pengerjaannya. <a href='${asphaltStudy.path}' class='text-blue-800 underline font-semibold'>Baca studi kasus proyek</a>.`,
+          en: `See the Cikupa factory access project and how the crew phased the work. <a href='${asphaltStudy.path}' class='text-blue-800 underline font-semibold'>Read the project case study</a>.`,
         },
       },
     ],
@@ -1795,8 +1814,8 @@ export const articles = [
       {
         type: "paragraph",
         text: {
-          id: "Setiap lapisan saling bergantung. Jika tanah dasar tidak dipadatkan dengan baik, lapisan di atasnya akan cepat rusak. PT Tri Abadi Makmur selalu memastikan setiap tahapan dikerjakan dengan alat berat yang sesuai standar. Butuh jasa pengaspalan hotmix profesional? Hubungi kami sekarang untuk konsultasi dan penawaran terbaik.",
-          en: "Each layer depends on one another. If the subgrade is not properly compacted, the layers above it will quickly deteriorate. PT Tri Abadi Makmur always ensures every stage is carried out with heavy equipment that meets standards. Need professional hotmix asphalt services? Contact us now for consultation and the best offer.",
+          id: `Struktur lapisan perlu disesuaikan dengan kondisi tanah dan beban kendaraan. Lihat <a href='/layanan/infrastruktur/pengaspalan#paket-harga-aspal' class='text-blue-800 underline font-semibold'>lingkup paket pengaspalan hotmix</a> atau <a href='${projectQuoteHref("asphaltSurvey", "id")}' target='_blank' rel='noopener noreferrer' class='text-blue-800 underline font-semibold'>minta survei lokasi via WhatsApp</a> untuk membahas kebutuhan proyek.`,
+          en: `The pavement structure depends on ground conditions and vehicle loads. See the <a href='/layanan/infrastruktur/pengaspalan#paket-harga-aspal' class='text-blue-800 underline font-semibold'>hotmix paving package scopes</a> or <a href='${projectQuoteHref("asphaltSurvey", "en")}' target='_blank' rel='noopener noreferrer' class='text-blue-800 underline font-semibold'>request a site survey on WhatsApp</a> to discuss your project.`,
         },
       },
     ],
@@ -3280,6 +3299,13 @@ export const articles = [
         text: {
           id: "Butuh cor beton untuk jalan, halaman, parkir, atau struktur bangunan? Konsultasikan kebutuhan Anda dengan PT Tri Abadi Makmur. Kami melayani pengecoran ready mix di Jabodetabek, Banten, dan Jawa Barat dengan tim profesional serta material berkualitas. Hubungi kami via WhatsApp untuk survei lokasi, perhitungan volume gratis, dan penawaran terbaik.",
           en: "Need concrete casting for roads, yards, parking, or building structures? Consult your needs with PT Tri Abadi Makmur. We provide ready-mix casting in Greater Jakarta, Banten, and West Java with a professional team and quality materials. Contact us via WhatsApp for a site survey, free volume calculation, and the best offer.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: `Lihat contoh lingkup cor dan finishing lantai gudang di Cikarang. <a href='${concreteStudy.path}' class='text-blue-800 underline font-semibold'>Baca studi kasus proyek</a>.`,
+          en: `See an example of warehouse floor casting and finishing in Cikarang. <a href='${concreteStudy.path}' class='text-blue-800 underline font-semibold'>Read the project case study</a>.`,
         },
       },
     ],

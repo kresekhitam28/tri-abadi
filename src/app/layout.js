@@ -38,8 +38,14 @@ export default function RootLayout({ children }) {
     "@type": "GeneralContractor",
     "@id": SITE_ENTITY_ID,
     "name": "PT Tri Abadi Makmur - Spesialis Aspal",
+    "legalName": "PT Tri Abadi Makmur",
     "url": `${SITE_URL}/`,
     "telephone": "+6282258089367",
+    "sameAs": [
+      "https://www.instagram.com/triabadi.makmur/",
+      "https://www.tiktok.com/@spesialisaspal",
+      "https://www.google.com/maps/place/Jasa+Pengaspalan+Tri+Abadi+Makmur/@-6.26941,106.718938,3a,76.8y,90t/data=!3m8!1e2!3m6!1sCIHM0ogKEICAgID8vIfQ4gE!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fgrass-cs%2FAABkmLeU-c-ojdzGX1qc673FoBPUi_RCWADNdNqTnzJwYi5eCPGLk3K6jkLQYiGmRkZwzCwVEkX_Vxw_sA__wTHnkXO1IwDyDWi6iwbmkKNUaKMOU-T_PBWwM48fgdT7ggIV2VWhlVVy_Q%3Dw114-h86-k-no!7i1032!8i774!4m7!3m6!1s0x2e69fa837518530d:0x6f054f333f762104!8m2!3d-6.26941!4d106.718938!10e5!16s%2Fg%2F11f3tjdqdc",
+    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Jl. Al Hidayah RT.06 RW.02, Pondok Jaya, Pondok Aren",

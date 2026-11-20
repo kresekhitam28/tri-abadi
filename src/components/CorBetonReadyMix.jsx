@@ -4,8 +4,10 @@
 import { useState, useCallback, memo } from "react";
 import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
+import { caseStudies } from "../data/caseStudies";
 import BetonPricingPanel from "./BetonPricingPanel";
 import ServiceQuoteHero from "./ServiceQuoteHero";
+import { pricingConfig } from "../data/pricingConfig";
 import ServiceProjectPhoto from "./ServiceProjectPhoto";
 import { projectQuoteHref } from "../lib/quote";
 import Reveal from "./Reveal";
@@ -277,6 +279,10 @@ function SectionKicker({ children }) {
 // ─────────────────────────────────────────────
 // KONTEN BILINGUAL
 // ─────────────────────────────────────────────
+const { standard, minimix } = pricingConfig.readyMix;
+const standardMinimum = standard.minimumOrderM3.join("–");
+const localStudy = caseStudies.find(({ slug }) => slug === "pengecoran-lantai-gudang-cikarang");
+
 const content = {
   id: {
     heroTitle: "Jasa Cor Beton Ready Mix & Minimix",
@@ -297,7 +303,7 @@ const content = {
       { q: "Bagaimana membedakan harga ready mix dan biaya jasa cor?", a: "Tabel harga memberi referensi pasokan beton per m³ menurut mutu. Untuk estimasi pekerjaan cor, kirim lokasi, jenis pekerjaan, dan luas atau volume. Konfirmasi kebutuhan tenaga, pompa, dan finishing dalam penawaran proyek." },
       { q: "Berapa lama beton ready mix mengering?", a: "Beton akan mengeras dalam 24 jam pertama, namun mencapai kekuatan maksimal (kuat tekan penuh) setelah 28 hari. Selama masa tersebut, sebaiknya hindari beban berat di atasnya." },
       { q: "Apakah pengiriman beton termasuk dalam harga?", a: "Untuk wilayah Jabodetabek, Banten & Jawa Barat yang masuk dalam radius jangkauan batching plant terdekat kami, harga sudah termasuk pengiriman truk mixer. Tim kami akan mengecek titik lokasi proyek Anda terlebih dahulu." },
-      { q: "Berapa volume minimal pemesanan?", a: "Volume minimal pemesanan beton ready mix standar adalah 1 truk mixer (sekitar 6–7 m³). Untuk akses jalan sempit atau volume kecil (sekitar 3 m³), kami juga menyediakan armada truk Minimix." }
+      { q: "Berapa volume minimal pemesanan?", a: `Minimum mixer standar ${standardMinimum} m³ per rit, sesuai armada. Minimum Minimix ${minimix.minimumOrderM3} m³.` }
     ],
     faqLinkText: "Butuh simulasi volume (m³) dan estimasi biaya? Konsultasikan dengan tim kami.",
     acc1Title: "Keunggulan Jasa Cor Beton Ready Mix Kami",
@@ -343,7 +349,7 @@ const content = {
       { q: "How do ready-mix prices and pouring costs differ?", a: "The table gives estimated supply prices per m³ by concrete grade. For a pouring quote, share the location, type of work, and area or volume. Discuss labor, pumping, and finishing in your project quote." },
       { q: "How long does ready-mix concrete take to dry?", a: "Concrete will harden within the first 24 hours, but reaches maximum strength (full compressive strength) after 28 days. During this period, heavy loads should be avoided." },
       { q: "Is concrete delivery included in the price?", a: "For Jabodetabek, Banten & West Java areas within our nearest batching plant delivery radius, the price includes mixer truck delivery." },
-      { q: "What is the minimum order volume?", a: "The minimum order volume for standard ready-mix concrete is 1 mixer truck (around 6-7 m³). For narrow road access or smaller volumes (around 3 m³), we also provide Minimix trucks." }
+      { q: "What is the minimum order volume?", a: `The standard mixer minimum is ${standardMinimum} m³ per load, depending on the truck. The Minimix minimum is ${minimix.minimumOrderM3} m³.` }
     ],
     faqLinkText: "Need a volume (m³) and cost simulation? Consult with our team.",
     acc1Title: "Advantages of Our Ready-Mix Concrete Service",
@@ -553,6 +559,29 @@ export default function CorBetonReadyMix({ project }) {
               </div>
             ))}
           </div>
+          <section aria-labelledby="concrete-trucks-title" className="mt-6 rounded-xl border border-slate-200 bg-white p-4 sm:p-5">
+            <h2 id="concrete-trucks-title" className="text-lg font-semibold text-slate-950">{lang === "en" ? "Choosing a standard mixer or Minimix" : "Memilih Truk Mixer Standar atau Minimix"}</h2>
+            <dl className="mt-3 grid gap-3 text-sm leading-relaxed text-slate-700 sm:grid-cols-2">
+              <div>
+                <dt className="font-semibold">{lang === "en" ? "Standard mixer truck" : "Truk Mixer Standar"}</dt>
+                <dd>{lang === "en"
+                  ? `Minimum ${standardMinimum} m³ per full load, depending on the truck. Best suited to roads wider than ${standard.recommendedAccessWidthOverM} m.`
+                  : `Minimum ${standardMinimum} m³ per rit penuh, sesuai armada. Ideal untuk akses jalan lebih lebar dari ${standard.recommendedAccessWidthOverM} m.`}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold">Minimix</dt>
+                <dd>{lang === "en"
+                  ? `Minimum ${minimix.minimumOrderM3} m³. Suitable for residential roads, narrow lanes, or sites with access gates, subject to an access check.`
+                  : `Minimum ${minimix.minimumOrderM3} m³. Cocok untuk jalan perumahan, gang, atau lokasi dengan keterbatasan portal, setelah akses diperiksa.`}</dd>
+              </div>
+            </dl>
+            <p className="mt-3 text-sm leading-relaxed text-slate-700">{lang === "en"
+              ? "For supply only, specify the concrete grade, volume, truck type, and delivery location. For pouring and finishing, confirm labour, pump requirements, and finishing scope in the quote."
+              : "Untuk pasokan saja, sertakan mutu, volume, jenis armada, dan lokasi kirim. Untuk paket cor dan finishing, konfirmasikan tenaga kerja, kebutuhan pompa, serta lingkup finishing dalam penawaran."}</p>
+            <Link href="/blog/jasa-pengecoran-beton" className="mt-2 inline-flex min-h-11 items-center text-sm font-semibold text-blue-800 underline">
+              {lang === "en" ? "How to calculate concrete volume" : "Cara menghitung kubikasi beton"}
+            </Link>
+          </section>
         </div>
 
         {/* ═══════ PANEL HARGA (DIPINDAHKAN KE ATAS AGAR LANGSUNG TERLIHAT) ═══════ */}
@@ -746,6 +775,9 @@ export default function CorBetonReadyMix({ project }) {
                 >
                   {data.areaDesc}
                 </p>
+                <Link href={localStudy.areaPath} className="mt-2 inline-flex min-h-11 items-center text-sm font-semibold text-blue-800 underline">
+                  {localStudy.area.title[lang]}
+                </Link>
               </div>
             </Reveal>
 
@@ -802,6 +834,9 @@ export default function CorBetonReadyMix({ project }) {
               </Link>
             </div>
             <ServiceProjectPhoto project={project} lang={lang} />
+            <Link href={localStudy.path} className="mr-4 inline-flex min-h-11 items-center text-sm font-semibold text-blue-800 underline">
+              {localStudy.title[lang]}
+            </Link>
           </section>
 
           {/* ═══════ CTA (Premium) ═══════ */}

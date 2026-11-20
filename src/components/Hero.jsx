@@ -11,7 +11,6 @@ const content = {
     description: `Pengaspalan untuk jalan, pabrik, perumahan, dan area parkir. Paket pelapisan ulang (overlay) mulai ${formatAsphaltPrice(asphaltPackagePrices.A)}/m².`,
     consult: "Konsultasi & Survei Gratis",
     results: "Lihat Hasil Proyek",
-    photo: "Pengaspalan Perumahan Sevilage, Bogor",
   },
   en: {
     area: "Greater Jakarta, Banten & West Java",
@@ -20,7 +19,6 @@ const content = {
     description: `Asphalt paving for roads, factories, housing estates, and parking areas. Overlay resurfacing starts at ${formatAsphaltPrice(asphaltPackagePrices.A, "en")}/m².`,
     consult: "Free Consultation & Site Survey",
     results: "View Completed Projects",
-    photo: "Paving at the Sevilage Housing Estate, Bogor",
   },
 };
 
@@ -78,9 +76,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <p className="absolute inset-x-0 bottom-5 mx-auto hidden w-fit rounded-md bg-slate-950/75 px-3 py-2 text-xs font-medium text-white lg:block">
-        {t.photo}
-      </p>
     </section>
   );
 }

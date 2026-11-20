@@ -1,9 +1,8 @@
-export const asphaltPackagePrices = {
-  A: 75000,
-  B: 95000,
-  C: 100000,
-  D: 150000,
-};
+import { pricingConfig } from "./pricingConfig";
+
+export const asphaltPackagePrices = Object.fromEntries(
+  Object.entries(pricingConfig.asphalt.packages).map(([code, { ratePerM2 }]) => [code, ratePerM2]),
+);
 
 export const asphaltCostRanges = [
   { label: { id: "Overlay / Pelapisan ulang", en: "Overlay resurfacing" }, from: asphaltPackagePrices.A, to: 100000 },

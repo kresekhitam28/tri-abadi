@@ -3,6 +3,7 @@
 
 import { useState, memo } from "react";
 import { useLang } from "../context/LanguageContext";
+import { trackWhatsApp } from "./WATracker";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useReveal } from "../hooks/useReveal";
 import { WHATSAPP_URL } from "../lib/quote";
@@ -230,6 +231,7 @@ export default function Kontak() {
     const fullText = `${introduction}\n\n${message}`;
 
     const waLink = `${WHATSAPP_URL}?text=${encodeURIComponent(fullText)}`;
+    trackWhatsApp();
     window.open(waLink, "_blank", "noopener,noreferrer");
     setDraftReady(true);
   }
@@ -347,7 +349,6 @@ export default function Kontak() {
                     method="get"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-whatsapp-draft
                     onSubmit={handleSubmit}
                     onInput={() => setDraftReady(false)}
                     className="space-y-4"

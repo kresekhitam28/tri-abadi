@@ -1,6 +1,7 @@
 // src/app/proyek/page.js
 import Projects from "../../components/Projects";
 import { projects } from "../../data/projects";
+import { caseStudies } from "../../data/caseStudies";
 import { createPageMetadata } from "../../lib/metadata";
 import { getProjectImageFiles } from "../../lib/projectImages";
 
@@ -16,5 +17,5 @@ export const metadata = createPageMetadata({
 
 export default async function ProyekPage() {
   const imageFiles = await getProjectImageFiles(projects);
-  return <Projects {...imageFiles} />;
+  return <Projects {...imageFiles} caseStudies={caseStudies} />;
 }

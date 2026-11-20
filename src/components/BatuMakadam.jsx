@@ -1,9 +1,10 @@
-﻿// src/components/BatuMakadam.jsx
+// src/components/BatuMakadam.jsx
 "use client";
 
 import { useState, useCallback, memo } from "react";
 import Image from "next/image";
 import { useLang } from "../context/LanguageContext";
+import MaterialDeliveryInfo from "./MaterialDeliveryInfo";
 import Reveal from "./Reveal";
 // INTEGRASI DENGAN METADATA HELPER MILIKMU
 import { SITE_URL, SITE_NAME, SITE_ENTITY_ID, serializeJsonLd } from "../lib/metadata";
@@ -430,20 +431,6 @@ function buildJsonLd(d) {
           name: SITE_NAME 
         },
         category: "Construction Materials",
-        offers: {
-          "@type": "Offer",
-          url: PRODUCT_URL,
-          priceCurrency: "IDR",
-          price: "180000", // DIISI ANGKA REALISTIS
-          priceValidUntil: "2027-12-31",
-          availability: "https://schema.org/InStock",
-          itemCondition: "https://schema.org/NewCondition",
-          seller: { 
-            "@type": "Organization", 
-            "@id": SITE_ENTITY_ID, 
-            name: SITE_NAME 
-          },
-        },
       },
       {
         "@type": "BreadcrumbList",
@@ -556,6 +543,11 @@ export default function BatuMakadam() {
             </div>
           </div>
         </Reveal>
+
+        <MaterialDeliveryInfo
+          lang={lang}
+          specification={{ id: "Batu pecah berfraksi kasar untuk lapis pondasi. Konfirmasi fraksi yang dibutuhkan.", en: "Coarse crushed stone for the road base. Confirm the required fraction." }}
+        />
 
         {/* ═══ 2. INTRO CARD ═══ */}
         <Reveal y={28} duration={600}>

@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useMemo, useRef } from "react";
+import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
 import { projects } from "../data/projects";
 import ProjectCard from "./ProjectCard";
@@ -77,7 +78,7 @@ function IconArrowRight({ className = "w-4 h-4" }) {
   );
 }
 
-export default function Projects({ variants, thumbnails }) {
+export default function Projects({ variants, thumbnails, caseStudies }) {
   const { lang } = useLang();
   const data = content[lang];
   const [activeFilter, setActiveFilter] = useState("all");
@@ -107,6 +108,19 @@ export default function Projects({ variants, thumbnails }) {
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-slate-600 sm:text-base">{data.subtitle}</p>
         </header>
+
+        <section aria-labelledby="portfolio-case-studies" className="mx-auto mt-6 max-w-4xl">
+          <h2 id="portfolio-case-studies" className="text-lg font-semibold text-slate-950">{lang === "en" ? "Project case studies" : "Studi Kasus Proyek"}</h2>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {caseStudies.map((study) => (
+              <li key={study.slug}>
+                <Link href={study.path} className="inline-flex h-full min-h-11 w-full items-center rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-blue-800 hover:underline">
+                  {study.title[lang]}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <div role="group" aria-label={data.filterLabel} className="my-5 grid grid-cols-6 gap-1.5 sm:my-9 sm:flex sm:flex-wrap sm:justify-center sm:gap-2">
           {data.filters.map((filter) => (

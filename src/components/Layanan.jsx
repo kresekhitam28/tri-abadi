@@ -85,11 +85,11 @@ const layananUtama = [
     to: "/layanan/infrastruktur/pengaspalan",
     Icon: IconRoad,
     items: [
-      { label: "Pengaspalan", labelEn: "Asphalt Paving", to: "/layanan/infrastruktur/pengaspalan", Icon: IconRoad, primary: true },
+      { label: "Pengaspalan Hotmix", labelEn: "Hotmix Asphalt Paving", to: "/layanan/infrastruktur/pengaspalan", Icon: IconRoad, primary: true },
       { label: "Pasang Kanstin", labelEn: "Curb Installation", to: "/layanan/infrastruktur/pasang-kanstin", Icon: IconCurb },
-      { label: "Cor Beton Ready Mix", labelEn: "Ready-Mix Concrete Pouring", to: "/layanan/infrastruktur/cor-beton-ready-mix", Icon: IconMixer, primary: true },
+      { label: "Pengecoran Beton Ready Mix", labelEn: "Ready-Mix Concrete Pouring", to: "/layanan/infrastruktur/cor-beton-ready-mix", Icon: IconMixer, primary: true },
       { label: "Pasang Grass Block", labelEn: "Grass Block Installation", to: "/layanan/infrastruktur/pasang-grass-block", Icon: IconGrass },
-      { label: "Pasang Paving Block", labelEn: "Paving Block Installation", to: "/layanan/infrastruktur/pasang-paving-block", Icon: IconPaving, primary: true },
+      { label: "Pemasangan Paving Block", labelEn: "Paving Block Installation", to: "/layanan/infrastruktur/pasang-paving-block", Icon: IconPaving, primary: true },
       { label: "Pasang Pager Panel", labelEn: "Panel Fence Installation", to: "/layanan/infrastruktur/pasang-pager-panel", Icon: IconFence },
       { label: "Pasang Tiang Pancang", labelEn: "Pile Installation", to: "/layanan/infrastruktur/pasang-tiang-pancang", Icon: IconPile },
     ],
@@ -288,8 +288,8 @@ export default function Layanan() {
 
           <FadeUp delay={100}>
             <h1 className="font-light tracking-tight text-slate-900 leading-[1.05] mb-5 text-balance" style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}>
-              {english ? "Construction" : "Solusi"}{" "}
-              <span className="font-semibold">{english ? "Solutions" : "Konstruksi"}</span>
+              {english ? "Construction &" : "Layanan Konstruksi &"}{" "}
+              <span className="font-semibold">{english ? "Infrastructure Services" : "Infrastruktur"}</span>
               <span className="text-[#1e88e5]">.</span>
             </h1>
           </FadeUp>
@@ -311,6 +311,15 @@ export default function Layanan() {
               title={<>{english ? "Our Three" : "Tiga Pilar"}{" "}<span className="font-semibold">{english ? "Service Areas" : "Layanan Kami"}</span></>}
             />
           </FadeUp>
+          <ul className="mb-6 grid gap-3 sm:grid-cols-3">
+            {layananUtama[0].items.filter(({ primary }) => primary).map(({ to, label, labelEn }) => (
+              <li key={to}>
+                <Link href={to} className="flex min-h-12 items-center rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-semibold text-blue-900 hover:underline focus-visible:outline-2">
+                  {english ? labelEn : label}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
           <div className="space-y-4 sm:space-y-5">
             {layananUtama.map((layanan, idx) => (

@@ -4,10 +4,12 @@
 import { useState, useCallback, useMemo, memo, useId } from "react";
 import Link from "next/link";
 import { useLang } from "../context/LanguageContext";
+import { caseStudies } from "../data/caseStudies";
 import ServicePricingPanel from "./ServicePricingPanel";
 import ServiceQuoteHero from "./ServiceQuoteHero";
 import ServiceProjectPhoto from "./ServiceProjectPhoto";
 import { asphaltPackagePrices, formatAsphaltPrice } from "../data/asphaltPricing";
+import { pricingConfig } from "../data/pricingConfig";
 import { projectQuoteHref } from "../lib/quote";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useReveal } from "../hooks/useReveal";
@@ -254,12 +256,13 @@ function SectionKicker({ children }) {
 // ─────────────────────────────────────────────
 // KONTEN BILINGUAL HALAMAN
 // ─────────────────────────────────────────────
+const localStudy = caseStudies.find(({ slug }) => slug === "pengaspalan-akses-pabrik-cikupa");
+
 const content = {
   id: {
     heroTitle: "Jasa Pengaspalan Jalan & Aspal Hotmix",
     heroSubtitle: "Untuk jalan pabrik, gudang, kawasan industri, dan area parkir di Jabodetabek, Banten & Jawa Barat.",
-    heroDesc: "Kirim lokasi, kondisi permukaan jalan, dan perkiraan luas area melalui WhatsApp untuk meminta estimasi biaya dan survei lokasi.",
-    heroPriceNote: `Paket A: pelapisan ulang (overlay) permukaan aspal yang sudah ada, mulai ${formatAsphaltPrice(asphaltPackagePrices.A)}/m².`,
+    heroDesc: `Jasa pengaspalan hotmix di Jabodetabek mencakup overlay, tambal sulam, pengaspalan penetrasi, dan konstruksi jalan baru. Overlay permukaan aspal yang masih layak dimulai dari ${formatAsphaltPrice(asphaltPackagePrices.A)}/m², mencakup pembersihan permukaan, penyemprotan emulsi, penghamparan hotmix, dan pemadatan. Estimasi akhir mengikuti hasil survei lokasi.`,
     faqPriceQuestion: "Berapa biaya pengaspalan hotmix per meter persegi?",
     faqPriceAnswer: "Harga bergantung pada jenis pekerjaan, luas area, ketebalan aspal, dan kondisi lokasi. Lihat kisaran berdasarkan pekerjaan atau minta estimasi sesuai kebutuhan proyek Anda.",
     faqPriceLink: "Lihat kisaran biaya overlay, tambal sulam, dan pengaspalan baru",
@@ -302,7 +305,7 @@ const content = {
       "Tenaga kerja berpengalaman & profesional",
       "Material hotmix berkualitas tinggi",
       "Harga bersaing & transparan",
-      "Garansi pengerjaan hingga 2 tahun",
+      "Garansi pemeliharaan sesuai paket dan ketentuan penawaran",
       "Pengerjaan tepat waktu & rapi",
     ],
     acc4Title: "Kami Siap Mengerjakan Semua Sebisa Mungkin",
@@ -327,8 +330,7 @@ const content = {
   en: {
     heroTitle: "Hotmix Asphalt Paving Services",
     heroSubtitle: "For factory roads, warehouses, industrial estates, and parking areas in Greater Jakarta, Banten & West Java.",
-    heroDesc: "Share your site location, surface condition, and estimated area on WhatsApp to request a quote and a site survey.",
-    heroPriceNote: `Package A covers resurfacing an existing asphalt surface, starting at ${formatAsphaltPrice(asphaltPackagePrices.A, "en")}/m².`,
+    heroDesc: `Our paving services in Greater Jakarta include hotmix resurfacing, patching, penetration paving, and new road construction. Resurfacing suitable existing asphalt starts at ${formatAsphaltPrice(asphaltPackagePrices.A, "en")}/m² and includes surface cleaning, emulsion application, hotmix placement, and compaction. The final estimate follows a site survey.`,
     faqPriceQuestion: "How much does hotmix asphalt paving cost per square meter?",
     faqPriceAnswer: "Your quote depends on the type of work, area, asphalt thickness, and site conditions. Compare the estimates by type of work or request a quote for your project.",
     faqPriceLink: "View cost ranges for resurfacing, patching, and new paving",
@@ -371,7 +373,7 @@ const content = {
       "Experienced & professional crews",
       "High-quality hotmix materials",
       "Competitive & transparent prices",
-      "Up to 2-year work warranty",
+      "Maintenance warranty based on the package and quote terms",
       "On-time & neat execution",
     ],
     acc4Title: "We Are Ready to Do Our Best",
@@ -512,6 +514,68 @@ const AreaRow = memo(function AreaRow({ area, data }) {
 // ─────────────────────────────────────────────
 // HALAMAN
 // ─────────────────────────────────────────────
+function AsphaltEstimates({ lang }) {
+  const en = lang === "en";
+  const { packages, simulations: { overlay, newRoad } } = pricingConfig.asphalt;
+  const format = new Intl.NumberFormat(en ? "en-US" : "id-ID");
+  const totalHotmixCm = newRoad.acBcCm + newRoad.acWcCm;
+  const estimates = [
+    {
+      ...overlay,
+      title: en ? "Hotmix resurfacing" : "Overlay Hotmix",
+      scope: en
+        ? `Surface cleaning, tack coat, ${overlay.compactedThicknessCm} cm compacted AC-WC, and tandem roller compaction.`
+        : `Pembersihan permukaan, penyemprotan tack coat, penghamparan AC-WC tebal padat ${overlay.compactedThicknessCm} cm, dan pemadatan tandem roller.`,
+    },
+    {
+      ...newRoad,
+      title: en ? "New road construction" : "Konstruksi Jalan Baru",
+      scope: en
+        ? `Subgrade compaction, ${newRoad.baseCourseCm} cm base course, prime coat, and ${totalHotmixCm} cm of hotmix (${newRoad.acBcCm} cm AC-BC + ${newRoad.acWcCm} cm AC-WC).`
+        : `Pemadatan tanah dasar, Base Course ${newRoad.baseCourseCm} cm, prime coat, dan hotmix ${totalHotmixCm} cm (AC-BC ${newRoad.acBcCm} cm + AC-WC ${newRoad.acWcCm} cm).`,
+    },
+  ];
+
+  return (
+    <>
+      <section aria-labelledby="asphalt-warranty-title" className="mt-6 rounded-xl border border-slate-200 p-4 text-sm leading-relaxed text-slate-700 sm:p-5">
+        <h3 id="asphalt-warranty-title" className="font-semibold text-slate-950">{en ? "Maintenance warranty terms" : "Syarat Garansi Pemeliharaan"}</h3>
+        <p className="mt-2">
+          {en
+            ? `Package D qualifies for up to ${packages.D.warrantyMaxMonths / 12} years of maintenance warranty with an aggregate base and a minimum structural thickness of ${packages.D.minimumStructuralThicknessCm} cm, subject to the team's technical recommendations.`
+            : `Garansi Paket D hingga ${packages.D.warrantyMaxMonths / 12} tahun berlaku dengan pondasi agregat dan ketebalan struktural minimal ${packages.D.minimumStructuralThicknessCm} cm sesuai rekomendasi teknis tim.`}
+        </p>
+        <p className="mt-2">
+          {en
+            ? "Exclusions include vehicle loads above the design limit, prolonged standing water due to blocked or inadequate drainage, natural ground movement, and utility excavation by third parties after handover."
+            : "Pengecualian mencakup beban kendaraan melebihi tonase desain, genangan berkepanjangan karena drainase sekitar tersumbat atau tidak memadai, pergeseran tanah alami, dan galian utilitas pihak lain setelah serah terima."}
+        </p>
+      </section>
+      <section id="simulasi-rab-aspal" aria-labelledby="asphalt-estimates-title" className="mt-8 scroll-mt-24">
+        <h3 id="asphalt-estimates-title" className="text-xl font-semibold text-slate-950">{en ? "Paving cost examples" : "Simulasi RAB Pengaspalan"}</h3>
+        <p className="mt-2 text-sm font-medium text-slate-700">{en ? "Indicative Cost Examples — Final costs depend on the site survey" : "Simulasi Estimasi Indikatif — Nilai final mengikuti hasil survei lapangan"}</p>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          {estimates.map(({ title, scope, areaM2, ratePerM2 }) => (
+            <div key={title} className="rounded-xl border border-slate-200 bg-white p-4 sm:p-5">
+              <h4 className="font-semibold text-slate-950">{title} · {format.format(areaM2)} m²</h4>
+              <p className="mt-2 text-sm leading-relaxed text-slate-700">{scope}</p>
+              <p className="mt-3 text-sm font-semibold text-slate-950">
+                {formatAsphaltPrice(ratePerM2, lang)}/m² × {format.format(areaM2)} m² = {formatAsphaltPrice(areaM2 * ratePerM2, lang)}
+              </p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-3 text-sm leading-relaxed text-slate-700">
+          <strong>{en ? "Priced separately: " : "Dihitung terpisah: "}</strong>
+          {en
+            ? "Remediation or cut and fill on exceptionally soft ground, drainage works, equipment mobilization outside Greater Jakarta, removal of existing concrete, and VAT as applicable."
+            : "Perbaikan atau cut-and-fill tanah lunak ekstrem, pekerjaan saluran drainase, mobilisasi alat berat ke luar Jabodetabek, pembongkaran beton eksisting, dan PPN sesuai transaksi."}
+        </p>
+      </section>
+    </>
+  );
+}
+
 export default function Pengaspalan({ project }) {
   const { lang } = useLang();
   const data = content[lang] || content.id;
@@ -525,6 +589,7 @@ export default function Pengaspalan({ project }) {
   const [showArea, setShowArea] = useState(false);
   const areaPanelId = useId();
   const waHref = projectQuoteHref("asphalt", lang);
+  const surveyHref = projectQuoteHref("asphaltSurvey", lang);
 
   return (
     <div className="bg-slate-50/50">
@@ -535,7 +600,6 @@ export default function Pengaspalan({ project }) {
         title={data.heroTitle}
         subtitle={data.heroSubtitle}
         description={data.heroDesc}
-        priceNote={data.heroPriceNote}
         pricesId="paket-harga-aspal"
       />
 
@@ -552,8 +616,10 @@ export default function Pengaspalan({ project }) {
           </Reveal>
 
           <Reveal y={34} delay={80}>
-            <ServicePricingPanel hideCta />
+            <ServicePricingPanel hideCta comparison />
           </Reveal>
+
+          <AsphaltEstimates lang={lang} />
 
           <Reveal y={20} delay={120}>
             <div className="mt-6 sm:mt-8 text-center">
@@ -740,7 +806,7 @@ export default function Pengaspalan({ project }) {
                 { q: data.faqPriceQuestion, a: data.faqPriceAnswer, link: data.faqPriceLink },
                 { q: "Apakah bisa survei lokasi dulu sebelum order?", a: "Ya, kami menyediakan survei lokasi gratis untuk memastikan kebutuhan, mengukur luas area, dan memberikan estimasi biaya yang akurat. Survei bisa dijadwalkan via WhatsApp." },
                 { q: "Berapa lama proses pengerjaan pengaspalan?", a: "Tergantung luas dan kondisi lahan. Untuk jalan perumahan standar (100–500 m²), biasanya 1–3 hari kerja. Untuk proyek lebih besar, kami berikan estimasi waktu setelah survei." },
-                { q: "Apakah ada garansi pengerjaan?", a: "Ya, kami memberikan garansi pengerjaan hingga 2 tahun untuk pengaspalan hotmix, tergantung jenis pekerjaan dan kondisi lapangan. Detail garansi dijelaskan dalam penawaran." },
+                { q: "Apakah ada garansi pengerjaan?", a: "Ada garansi pemeliharaan sesuai paket. Lihat durasi tiap paket dan pengecualiannya di bagian Paket Pengaspalan dan Perbaikan Aspal." },
                 { q: "Area mana saja yang dilayani?", a: "Kami melayani Jabodetabek (Jakarta, Bogor, Depok, Tangerang, Bekasi) dan sekitarnya. Untuk area di luar Jabodetabek, silakan konsultasi via WhatsApp untuk memastikan ketersediaan." },
                 { q: "Apa beda pengaspalan hotmix dan aspal biasa?", a: "Aspal hotmix dicampur dan dipanaskan pada suhu tertentu sebelum dihampar, sehingga daya lekat dan kepadatannya jauh lebih baik. Hasilnya lebih rata, kuat, dan tahan lama dibanding aspal dingin atau aspal biasa." },
                 { q: "Apakah bisa mengerjakan proyek skala besar seperti jalan pabrik?", a: "Ya, kami melayani proyek dari skala kecil (jalan lingkungan) hingga besar (jalan pabrik, kawasan industri, area parkir gedung). Kami didukung alat berat modern dan tim berpengalaman." },
@@ -832,6 +898,9 @@ export default function Pengaspalan({ project }) {
                 >
                   {data.areaDesc}
                 </p>
+                <Link href={localStudy.areaPath} className="mt-2 inline-flex min-h-11 items-center text-sm font-semibold text-blue-800 underline">
+                  {localStudy.area.title[lang]}
+                </Link>
               </div>
             </Reveal>
 
@@ -886,6 +955,12 @@ export default function Pengaspalan({ project }) {
               </Link>
             </div>
             <ServiceProjectPhoto project={project} lang={lang} />
+            <Link href={localStudy.path} className="mr-4 inline-flex min-h-11 items-center text-sm font-semibold text-blue-800 underline">
+              {localStudy.title[lang]}
+            </Link>
+            <a href={surveyHref} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-blue-800 underline">
+              {lang === "en" ? "Request a site survey for a similar project" : "Minta survei lokasi untuk proyek serupa"}
+            </a>
           </section>
 
           {/* ═══════ CTA BAWAH ═══════ */}

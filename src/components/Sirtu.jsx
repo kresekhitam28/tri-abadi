@@ -4,6 +4,7 @@
 import { useState, useCallback, memo } from "react";
 import Image from "next/image";
 import { useLang } from "../context/LanguageContext";
+import MaterialDeliveryInfo from "./MaterialDeliveryInfo";
 import Reveal from "./Reveal";
 // INTEGRASI METADATA HELPER MILIKMU
 import { SITE_URL, SITE_NAME, SITE_ENTITY_ID, serializeJsonLd } from "../lib/metadata";
@@ -378,20 +379,6 @@ function buildJsonLd(d) {
           name: SITE_NAME 
         },
         category: "Construction Materials",
-        offers: {
-          "@type": "Offer",
-          url: PRODUCT_URL,
-          priceCurrency: "IDR",
-          price: "150000", // Silakan sesuaikan dengan harga riil sirtu
-          priceValidUntil: "2027-12-31",
-          availability: "https://schema.org/InStock",
-          itemCondition: "https://schema.org/NewCondition",
-          seller: { 
-            "@type": "Organization", 
-            "@id": SITE_ENTITY_ID, 
-            name: SITE_NAME 
-          },
-        },
       },
       {
         "@type": "BreadcrumbList",
@@ -504,6 +491,11 @@ export default function Sirtu() {
             </div>
           </div>
         </Reveal>
+
+        <MaterialDeliveryInfo
+          lang={lang}
+          specification={{ id: "Campuran pasir kasar dan kerikil kecil hingga sedang.", en: "A blend of coarse sand and small to medium gravel." }}
+        />
 
         {/* ═══ 2. INTRO CARD ═══ */}
         <Reveal y={28} duration={600}>

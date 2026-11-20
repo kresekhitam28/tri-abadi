@@ -518,6 +518,9 @@ export default function PasangPavingBlock({ project }) {
 
             <Reveal y={34} delay={80}>
               <PavingPricingPanel />
+              <Link href="/blog/harga-paving-block-bata-hexagon-topi-uskup" className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-blue-800 underline">
+                {lang === "en" ? "View the paving block price guide" : "Lihat panduan estimasi harga paving block"}
+              </Link>
             </Reveal>
           </div>
         </div>

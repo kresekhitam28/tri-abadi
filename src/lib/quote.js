@@ -28,6 +28,11 @@ const requests = {
     en: "a concrete pouring quote",
     fields: ["projectLocation", "concreteSize", "work", "start"],
   },
+  concreteSurvey: {
+    id: "survei lokasi untuk jasa pengecoran beton",
+    en: "a site survey for concrete pouring",
+    fields: ["projectLocation", "concreteSize", "work", "start"],
+  },
   concreteMaterial: {
     id: "penawaran pasokan beton ready mix",
     en: "a ready-mix concrete supply quote",
@@ -62,13 +67,13 @@ const labels = {
   },
 };
 
-export function projectQuoteHref(request, lang) {
+export function projectQuoteHref(request, lang, location = "") {
   const language = lang === "en" ? "en" : "id";
   const quote = requests[request];
   const intro = language === "en"
     ? `Hello PT Tri Abadi Makmur, I would like ${quote.en}.`
     : `Halo PT Tri Abadi Makmur, saya ingin minta ${quote.id}.`;
-  const questions = quote.fields.map((field) => `${labels[language][field]}: `);
+  const questions = quote.fields.map((field) => `${labels[language][field]}: ${field === "projectLocation" ? location : ""}`);
   const message = [intro, "", ...questions].join("\n");
 
   return `${WHATSAPP_URL}?text=${encodeURIComponent(message)}`;

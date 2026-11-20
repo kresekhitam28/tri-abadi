@@ -3,6 +3,7 @@
 
 import { memo, useMemo } from "react";
 import Link from "next/link";
+import { useLang } from "../context/LanguageContext";
 
 // ─────────────────────────────────────────────
 // DATA PRODUK
@@ -79,6 +80,7 @@ const ProductItem = memo(function ProductItem({ item, index }) {
 // SUPPLIER
 // ─────────────────────────────────────────────
 export default function Supplier() {
+  const { lang } = useLang();
   const list = useMemo(() => products, []);
 
   return (
@@ -118,9 +120,9 @@ export default function Supplier() {
             className="max-w-2xl mx-auto text-slate-600 leading-[1.8]"
             style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}
           >
-            Kami menyediakan berbagai material konstruksi berkualitas —
-            dari batu split hingga pasir beton, siap antar ke lokasi proyek
-            Anda di seluruh Indonesia.
+            {lang === "en"
+              ? "We quote loose material deliveries in Greater Jakarta and surrounding industrial areas, including Cikarang and Karawang. Construction work focuses on Greater Jakarta and western West Java."
+              : "Kami memasok material lepas melalui penawaran untuk Jabodetabek & Kawasan Industri Sekitarnya, termasuk Cikarang dan Karawang. Pengerjaan konstruksi berfokus di Jabodetabek dan Jawa Barat bagian barat."}
           </p>
         </div>
 
