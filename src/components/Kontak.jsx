@@ -211,25 +211,26 @@ export default function Kontak() {
   const isMobile = useIsMobile();
 
   function handleSubmit(event) {
+    event.preventDefault();
     const form = event.currentTarget;
     const messageField = form.elements.namedItem("text");
-    const message = messageField.value.trim();
+    const message = messageField?.value?.trim() || "";
 
     if (!message) {
-      event.preventDefault();
-      messageField.setCustomValidity(t.requiredMessage);
-      messageField.reportValidity();
+      if (messageField) {
+        messageField.setCustomValidity(t.requiredMessage);
+        messageField.reportValidity();
+      }
       return;
     }
 
-    const name = form.elements.namedItem("contact-name").value.trim();
+    const nameInput = form.elements.namedItem("contact-name");
+    const name = nameInput?.value?.trim() || "";
     const introduction = name ? `${t.greeting}\n${t.nameField}: ${name}` : t.greeting;
+    const fullText = `${introduction}\n\n${message}`;
 
-    // Keep the native new-tab handoff and replace the textarea value only in the submitted data.
-    form.onformdata = ({ formData }) => {
-      formData.set("text", `${introduction}\n\n${message}`);
-      form.onformdata = null;
-    };
+    const waLink = `${WHATSAPP_URL}?text=${encodeURIComponent(fullText)}`;
+    window.open(waLink, "_blank", "noopener,noreferrer");
     setDraftReady(true);
   }
 
@@ -355,7 +356,7 @@ export default function Kontak() {
                       <label htmlFor="contact-name" className="mb-1.5 block text-sm font-semibold text-slate-700">
                         {t.nameLabel}
                       </label>
-                      <input id="contact-name" type="text" autoComplete="name" className={fieldClassName} />
+                      <input id="contact-name" name="contact-name" type="text" autoComplete="name" className={fieldClassName} />
                     </div>
 
                     <div>

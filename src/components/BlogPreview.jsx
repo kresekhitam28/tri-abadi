@@ -83,7 +83,7 @@ export default function BlogPreview({ items = [], variants = {}, limit = 6 }) {
         <div className="mx-auto mb-6 max-w-3xl text-center sm:mb-14 lg:mb-20">
           <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-5">
             <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" aria-hidden="true" />
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-semibold">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-blue-700 font-semibold">
               {data.kicker}
             </span>
             <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" aria-hidden="true" />

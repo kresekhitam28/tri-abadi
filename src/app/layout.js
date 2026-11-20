@@ -69,26 +69,31 @@ export default function RootLayout({ children }) {
         />
 
         
-{/* GTM Production - hanya aktif di spesialisaspal.com */}
+{/* GTM Production - dioptimalkan agar tidak memblokir render awal */}
 <Script id="gtm-script" strategy="lazyOnload">
   {`
     (function(w,d,s,l,i){
-      // Jangan memuat GTM di localhost, Cloudflare preview, atau staging
       if (w.location.hostname !== 'spesialisaspal.com') return;
-
       w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-
-      var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-
-      j.async = true;
-      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
+      var loaded = false;
+      function initGTM() {
+        if (loaded) return;
+        loaded = true;
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      }
+      var evs = ['scroll', 'mousemove', 'touchstart', 'click'];
+      function trigger() {
+        initGTM();
+        evs.forEach(function(e) { w.removeEventListener(e, trigger, { passive: true }); });
+      }
+      evs.forEach(function(e) { w.addEventListener(e, trigger, { passive: true, once: true }); });
+      setTimeout(initGTM, 3500);
     })(window,document,'script','dataLayer','GTM-5D8KPG65');
   `}
 </Script>

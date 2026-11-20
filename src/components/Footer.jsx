@@ -433,18 +433,18 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-4 pb-20 pt-5 sm:px-5 sm:py-6 md:max-w-7xl lg:px-8">
           <p
-            className="text-slate-500 text-center leading-relaxed"
+            className="text-slate-400 text-center leading-relaxed"
             style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.8125rem)" }}
           >
             © {currentYear}{" "}
-            <span className="text-slate-300 font-medium">
+            <span className="text-slate-200 font-medium">
               {COMPANY_LEGAL_NAME}
             </span>
             . All Rights Reserved
           </p>
 
           <p
-            className="text-slate-500 text-center leading-relaxed mt-1.5"
+            className="text-slate-400 text-center leading-relaxed mt-1.5"
             style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.8125rem)" }}
           >
             Website by{" "}
@@ -452,7 +452,7 @@ export default function Footer() {
               href={WEBSITE_CREDIT_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 hover:text-[#4da3ff] transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4da3ff] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              className="text-slate-200 hover:text-[#4da3ff] transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4da3ff] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
             >
               {WEBSITE_CREDIT_NAME}
             </a>

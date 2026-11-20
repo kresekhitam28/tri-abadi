@@ -29,6 +29,43 @@
 }
 
 /* ═════════════════════════════════════════════ */
+/* CLIENT LOGOS MARQUEE */
+/* ═════════════════════════════════════════════ */
+@keyframes clientLogos {
+  to { transform: translateX(-50%); }
+}
+
+.client-viewport {
+  --logo-gap: clamp(0.5rem, 1vw, 0.875rem);
+  --logo-width: clamp(6rem, 34vw, 11.75rem);
+  overflow: clip;
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+}
+
+.client-track {
+  display: flex;
+  width: max-content;
+  animation: clientLogos 40s linear infinite;
+}
+
+.client-logos {
+  display: flex;
+  flex: none;
+  gap: var(--logo-gap);
+  padding-inline-end: var(--logo-gap);
+}
+
+.client-card {
+  flex: 0 0 var(--logo-width);
+  width: var(--logo-width);
+}
+
+.client-viewport[data-paused="true"] .client-track {
+  animation-play-state: paused;
+}
+
+/* ═════════════════════════════════════════════ */
 /* RESET DASAR */
 /* ═════════════════════════════════════════════ */
 * {
@@ -66,6 +103,26 @@ html {
 
   .services-marquee {
     animation: none;
+  }
+
+  .client-track {
+    display: block;
+    width: auto;
+    animation: none;
+  }
+
+  .client-logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--logo-width), 1fr));
+    padding: 0;
+  }
+
+  .client-logos[aria-hidden="true"] {
+    display: none;
+  }
+
+  .client-card {
+    width: auto;
   }
 
   *,

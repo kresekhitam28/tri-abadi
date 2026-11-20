@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useLang } from "../context/LanguageContext";
-import styles from "./Clients.module.css";
 
 const clients = [
   { src: "/klien/pertamina.png", alt: "Pertamina", scale: "scale-[1.35]" },
@@ -40,10 +39,10 @@ const content = {
 
 function ClientLogos({ duplicate = false }) {
   return (
-    <ul role="list" aria-hidden={duplicate || undefined} className={styles.logos}>
+    <ul role="list" aria-hidden={duplicate || undefined} className="client-logos">
       {clients.map(({ src, alt, scale }) => (
-        <li key={src} className={`${styles.card} grid h-[4.5rem] min-w-0 place-items-center overflow-hidden rounded-xl border border-slate-200 bg-white px-1.5 py-2 transition-colors hover:border-slate-300 sm:h-[5.5rem] sm:px-3 lg:h-24`}>
-          <Image src={src} alt={duplicate ? "" : alt} width={144} height={64} loading="eager" fetchPriority="low" draggable={false} className={`pointer-events-none h-13 w-full max-w-36 object-contain sm:h-16 ${scale ?? ""}`} />
+        <li key={src} className="client-card grid h-[4.5rem] min-w-0 place-items-center overflow-hidden rounded-xl border border-slate-200 bg-white px-1.5 py-2 transition-colors hover:border-slate-300 sm:h-[5.5rem] sm:px-3 lg:h-24">
+          <Image src={src} alt={duplicate ? "" : alt} width={144} height={64} loading="lazy" decoding="async" fetchPriority="low" draggable={false} className={`pointer-events-none h-13 w-full max-w-36 object-contain sm:h-16 ${scale ?? ""}`} />
         </li>
       ))}
     </ul>
@@ -82,7 +81,7 @@ export default function Clients() {
             </p>
           </header>
           <div
-            className={styles.viewport}
+            className="client-viewport"
             data-paused={mouseOver || touching}
             onPointerEnter={(event) => {
               if (event.pointerType === "mouse") setMouseOver(true);
@@ -95,7 +94,7 @@ export default function Clients() {
             onPointerCancel={resumeAfterTouch}
             onLostPointerCapture={resumeAfterTouch}
           >
-            <div className={styles.track}>
+            <div className="client-track">
               <ClientLogos />
               <ClientLogos duplicate />
             </div>

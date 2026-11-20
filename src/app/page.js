@@ -35,6 +35,14 @@ export default async function Home() {
   ]);
   return (
     <div className="pt-[72px] sm:pt-[76px]">
+      <link
+        rel="preload"
+        as="image"
+        href="/proyek/proyek-30.webp"
+        imageSrcSet="/proyek/proyek-30-320.webp 320w, /proyek/proyek-30-640.webp 640w, /proyek/proyek-30.webp 800w"
+        imageSizes="100vw"
+        fetchPriority="high"
+      />
       <Hero />
       <ProjectsSection featured={featuredProjects} {...imageFiles} />
       <Clients />
