@@ -7,7 +7,7 @@ import { useIsMobile } from "../hooks/useIsMobile";
 import { useReveal } from "../hooks/useReveal";
 
 // ─────────────────────────────────────────────
-// KOMPONEN: FADE UP (memoized)
+// KOMPONEN: FADE UP (memoized - Animasi Tetap)
 // ─────────────────────────────────────────────
 const FadeUp = memo(function FadeUp({ children, delay = 0, className = "" }) {
   const isMobile = useIsMobile();
@@ -17,14 +17,13 @@ const FadeUp = memo(function FadeUp({ children, delay = 0, className = "" }) {
   return (
     <div
       ref={ref}
-      className={`${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
-                  ${className}`}
+      className={`${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"} ${className}`}
       style={{
         transitionProperty: "opacity, transform",
         transitionDuration: "600ms",
-        transitionTimingFunction: "ease-out",
+        transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
         transitionDelay: `${delay}ms`,
-        contain: "layout paint style",
+        willChange: "opacity, transform",
       }}
     >
       {children}
@@ -33,7 +32,7 @@ const FadeUp = memo(function FadeUp({ children, delay = 0, className = "" }) {
 });
 
 // ─────────────────────────────────────────────
-// KOMPONEN: SCALE IN (memoized)
+// KOMPONEN: SCALE IN (memoized - Animasi Tetap)
 // ─────────────────────────────────────────────
 const ScaleIn = memo(function ScaleIn({ children, delay = 0, className = "" }) {
   const isMobile = useIsMobile();
@@ -43,14 +42,13 @@ const ScaleIn = memo(function ScaleIn({ children, delay = 0, className = "" }) {
   return (
     <div
       ref={ref}
-      className={`${inView ? "opacity-100 scale-100" : "opacity-0 scale-[0.98]"}
-                  ${className}`}
+      className={`${inView ? "opacity-100 scale-100" : "opacity-0 scale-[0.98]"} ${className}`}
       style={{
         transitionProperty: "opacity, transform",
         transitionDuration: "600ms",
-        transitionTimingFunction: "ease-out",
+        transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
         transitionDelay: `${delay}ms`,
-        contain: "layout paint style",
+        willChange: "opacity, transform",
       }}
     >
       {children}
@@ -195,55 +193,55 @@ const keunggulan = [
 ];
 
 // ─────────────────────────────────────────────
-// SUB-KOMPONEN: ALAT CARD (memoized)
+// SUB-KOMPONEN: ALAT CARD (Visual Upgraded)
 // ─────────────────────────────────────────────
 const AlatCard = memo(function AlatCard({ item }) {
   return (
     <Link
       href={`/heavy-equipment/${item.slug}`}
-      className="group relative flex flex-col h-full p-4 sm:p-5
-                 rounded-2xl bg-white border border-slate-200
-                 hover:border-[#1e88e5]/60
-                 transition-colors duration-200 overflow-hidden"
-      style={{ contain: "layout paint style" }}
+      // ✅ FIX: Menghapus 'contain', menambah efek shadow, ring, dan translate (3D effect)
+      className="group relative flex flex-col h-full p-5 sm:p-6
+                 rounded-3xl bg-white ring-1 ring-slate-200 shadow-sm
+                 hover:ring-2 hover:ring-[#1e88e5]/40 hover:shadow-[0_8px_30px_-4px_rgba(30,136,229,0.15)]
+                 hover:-translate-y-1 transition-all duration-300 ease-out overflow-hidden"
     >
-      <div className="relative shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl
+      {/* Efek gradient tipis di background saat hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-blue-50/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+      <div className="relative z-10 shrink-0 w-12 h-12 rounded-xl
                       bg-[#1e88e5]/10 text-[#1e88e5]
-                      group-hover:bg-[#1e88e5] group-hover:text-white
-                      flex items-center justify-center
-                      mb-3.5 sm:mb-4
-                      transition-colors duration-200">
-        <item.Icon className="w-5 h-5" />
+                      group-hover:bg-[#1e88e5] group-hover:text-white group-hover:scale-110 group-hover:shadow-md group-hover:shadow-[#1e88e5]/30
+                      flex items-center justify-center mb-4 transition-all duration-300">
+        <item.Icon className="w-6 h-6" />
       </div>
 
-      <div className="relative flex items-start justify-between gap-2 mb-2">
+      <div className="relative z-10 flex items-start justify-between gap-2 mb-2">
         <h3
-          className="font-semibold text-slate-900 leading-snug
-                     group-hover:text-[#1e88e5] transition-colors duration-150"
-          style={{ fontSize: "clamp(0.875rem, 1.8vw, 0.90625rem)" }}
+          className="font-bold text-slate-900 leading-snug
+                     group-hover:text-[#1e88e5] transition-colors duration-300 text-base sm:text-lg"
         >
           {item.title}
         </h3>
-        <IconArrowRight className="shrink-0 mt-0.5 w-3.5 h-3.5 text-slate-300
-                                   group-hover:text-[#1e88e5]
-                                   transition-colors duration-150" />
+        <IconArrowRight className="shrink-0 mt-1 w-4 h-4 text-slate-300
+                                   group-hover:text-[#1e88e5] group-hover:translate-x-1
+                                   transition-all duration-300" />
       </div>
 
       <p
-        className="relative text-slate-500 leading-relaxed mb-3.5 sm:mb-4 flex-1"
-        style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.78125rem)" }}
+        className="relative z-10 text-slate-500 leading-relaxed mb-4 flex-1 text-sm sm:text-base"
       >
         {item.desc}
       </p>
 
-      <div className="relative flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+      <div className="relative z-10 flex flex-wrap gap-2 pt-4 border-t border-slate-100">
         {item.tags.map((tag, i) => (
           <span
             key={i}
-            className="inline-block px-2 py-0.5 rounded-md
-                       bg-slate-100 text-slate-600
-                       font-medium tracking-wide"
-            style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
+            className="inline-block px-2.5 py-1 rounded-full
+                       bg-slate-50 border border-slate-100 text-slate-600
+                       font-bold tracking-wide uppercase text-[10px]
+                       group-hover:bg-blue-50 group-hover:text-[#1e88e5] group-hover:border-blue-100
+                       transition-colors duration-300"
           >
             {tag}
           </span>
@@ -254,32 +252,33 @@ const AlatCard = memo(function AlatCard({ item }) {
 });
 
 // ─────────────────────────────────────────────
-// SUB-KOMPONEN: KEUNGGULAN CARD (memoized)
+// SUB-KOMPONEN: KEUNGGULAN CARD (Visual Upgraded)
 // ─────────────────────────────────────────────
 const KeunggulanCard = memo(function KeunggulanCard({ item }) {
   return (
     <div
-      className="flex flex-col items-center text-center gap-3 p-5 sm:p-6
-                 rounded-2xl bg-white border border-slate-200
-                 hover:border-[#1e88e5]/50
-                 transition-colors duration-200 h-full"
-      style={{ contain: "layout paint style" }}
+      className="group flex flex-col items-center text-center gap-4 p-6 sm:p-8
+                 rounded-3xl bg-white ring-1 ring-slate-200 shadow-sm
+                 hover:ring-2 hover:ring-[#1e88e5]/40 hover:shadow-[0_8px_30px_-4px_rgba(30,136,229,0.15)]
+                 hover:-translate-y-1 transition-all duration-300 ease-out h-full relative overflow-hidden"
     >
-      <span className="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+      <span className="relative z-10 shrink-0 w-14 h-14 rounded-2xl
                        bg-[#1e88e5]/10 text-[#1e88e5]
-                       flex items-center justify-center">
-        <item.Icon className="w-5 h-5" />
+                       group-hover:bg-[#1e88e5] group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#1e88e5]/30
+                       flex items-center justify-center transition-all duration-300">
+        <item.Icon className="w-7 h-7" />
       </span>
-      <div>
+      <div className="relative z-10">
         <h3
-          className="font-semibold text-slate-900 mb-1.5 leading-snug"
-          style={{ fontSize: "clamp(0.84375rem, 1.6vw, 0.875rem)" }}
+          className="font-bold text-slate-900 mb-2 leading-snug text-base sm:text-lg
+                     group-hover:text-[#1e88e5] transition-colors duration-300"
         >
           {item.title}
         </h3>
         <p
-          className="text-slate-500 leading-relaxed"
-          style={{ fontSize: "clamp(0.71875rem, 1.3vw, 0.75rem)" }}
+          className="text-slate-500 leading-relaxed text-sm sm:text-base"
         >
           {item.desc}
         </p>
@@ -295,48 +294,38 @@ export default function HeavyEquipment() {
   const isMobile = useIsMobile();
 
   return (
-    <div className="bg-white">
+    // Background halaman dibuat sangat muda (slate-50/50) agar kartu putih menonjol
+    <div className="bg-slate-50/50 overflow-hidden">
 
       {/* ═══════ HERO ═══════ */}
-      <section className="relative pt-28 lg:pt-36 pb-12 lg:pb-16 overflow-hidden
-                          bg-gradient-to-b from-slate-50 via-white to-white">
+      <section className="relative pt-28 lg:pt-36 pb-16 lg:pb-20 bg-gradient-to-b from-white to-slate-50/50">
         {!isMobile && (
           <>
-            <div className="absolute -right-40 -top-40 w-[600px] h-[600px] rounded-full
-                            bg-[#1e88e5]/[0.04] blur-3xl pointer-events-none" />
-            <div className="absolute -left-40 -bottom-20 w-[500px] h-[500px] rounded-full
-                            bg-[#1e88e5]/[0.03] blur-3xl pointer-events-none" />
+            <div className="absolute -right-40 -top-40 w-[600px] h-[600px] rounded-full bg-[#1e88e5]/[0.04] blur-3xl pointer-events-none" />
+            <div className="absolute -left-40 -bottom-20 w-[500px] h-[500px] rounded-full bg-[#1e88e5]/[0.03] blur-3xl pointer-events-none" />
           </>
         )}
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-5 lg:px-8 text-center">
           <FadeUp>
             <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-5">
-              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
-              <span className="text-[10px] sm:text-[11px] uppercase
-                               tracking-[0.25em] sm:tracking-[0.3em]
-                               text-[#1e88e5] font-semibold">
+              <span className="w-8 sm:w-10 h-px bg-[#1e88e5]" />
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-bold">
                 Heavy Equipment
               </span>
-              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
+              <span className="w-8 sm:w-10 h-px bg-[#1e88e5]" />
             </div>
           </FadeUp>
 
           <FadeUp delay={100}>
-            <h1
-              className="font-light tracking-tight text-slate-900 leading-[1.05] mb-5"
-              style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}
-            >
+            <h1 className="font-light tracking-tight text-slate-900 leading-[1.05] mb-5 text-balance" style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}>
               Sewa <span className="font-semibold">Alat Berat</span>
               <span className="text-[#1e88e5]">.</span>
             </h1>
           </FadeUp>
 
           <FadeUp delay={150}>
-            <p
-              className="text-slate-600 leading-relaxed max-w-2xl mx-auto"
-              style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}
-            >
+            <p className="text-slate-600 leading-[1.8] max-w-2xl mx-auto" style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}>
               Menyediakan berbagai alat berat untuk menunjang proyek konstruksi
               Anda — dengan operator berpengalaman, teknisi siap, dan armada
               yang terawat.
@@ -346,41 +335,30 @@ export default function HeavyEquipment() {
       </section>
 
       {/* ═══════ GRID ALAT BERAT ═══════ */}
-      <section className="pb-16 lg:pb-20">
+      <section className="pb-16 lg:pb-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-5 lg:px-8">
 
           <FadeUp>
-            <div className="text-center mb-8 sm:mb-10">
-              <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-3">
+            <div className="text-center mb-10 sm:mb-12">
+              <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-4">
                 <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
-                <span className="text-[10px] sm:text-[11px] uppercase
-                                 tracking-[0.25em] sm:tracking-[0.3em]
-                                 text-[#1e88e5] font-semibold">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-bold">
                   Katalog Unit
                 </span>
                 <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
               </div>
-              <h2
-                className="font-light tracking-tight text-slate-900 leading-tight"
-                style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.875rem)" }}
-              >
+              <h2 className="font-light tracking-tight text-slate-900 leading-tight text-balance max-w-2xl mx-auto" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}>
                 Pilihan <span className="font-semibold">Alat Berat Kami</span>
               </h2>
-              <p
-                className="text-slate-500 mt-3 max-w-xl mx-auto"
-                style={{ fontSize: "clamp(0.78125rem, 1.4vw, 0.8125rem)" }}
-              >
+              <p className="text-slate-500 mt-3 max-w-xl mx-auto text-sm sm:text-base">
                 Pilih alat berat sesuai kebutuhan proyek Anda.
               </p>
             </div>
           </FadeUp>
 
-          <div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4"
-            style={{ contain: "layout paint style" }}
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {alatBerat.map((item, idx) => (
-              <FadeUp key={idx} delay={idx * 40}>
+              <FadeUp key={idx} delay={idx * 60} className="h-full">
                 <AlatCard item={item} />
               </FadeUp>
             ))}
@@ -389,32 +367,27 @@ export default function HeavyEquipment() {
       </section>
 
       {/* ═══════ KEUNGGULAN ═══════ */}
-      <section className="bg-slate-50/70 border-y border-slate-200/70">
-        <div className="max-w-5xl mx-auto px-4 sm:px-5 lg:px-8 py-14 sm:py-16 lg:py-20">
+      <section className="relative bg-white border-y border-slate-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-5 lg:px-8 py-16 lg:py-24">
 
           <FadeUp>
-            <div className="text-center mb-8 sm:mb-10">
-              <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-3">
+            <div className="text-center mb-10 sm:mb-12">
+              <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-4">
                 <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
-                <span className="text-[10px] sm:text-[11px] uppercase
-                                 tracking-[0.25em] sm:tracking-[0.3em]
-                                 text-[#1e88e5] font-semibold">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-bold">
                   Keunggulan
                 </span>
                 <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
               </div>
-              <h2
-                className="font-light tracking-tight text-slate-900 leading-tight"
-                style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.875rem)" }}
-              >
+              <h2 className="font-light tracking-tight text-slate-900 leading-tight text-balance max-w-2xl mx-auto" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)" }}>
                 Kenapa <span className="font-semibold">Memilih Kami</span>
               </h2>
             </div>
           </FadeUp>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
             {keunggulan.map((item, i) => (
-              <FadeUp key={i} delay={i * 80}>
+              <FadeUp key={i} delay={i * 80} className="h-full">
                 <KeunggulanCard item={item} />
               </FadeUp>
             ))}
@@ -423,63 +396,51 @@ export default function HeavyEquipment() {
       </section>
 
       {/* ═══════ CTA BANNER ═══════ */}
-      <section className="pb-16 lg:pb-20">
+      <section className="pb-16 lg:pb-20 pt-10 sm:pt-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-5 lg:px-8">
           <ScaleIn delay={80}>
-            <div className="mt-14 sm:mt-16 p-6 sm:p-8 lg:p-9 rounded-3xl bg-slate-900
-                            text-center relative overflow-hidden">
-              {!isMobile && (
-                <>
-                  <div className="absolute -right-24 -top-24 w-56 h-56 rounded-full
-                                  bg-[#1e88e5]/25 blur-3xl pointer-events-none" />
-                  <div className="absolute -left-24 -bottom-24 w-56 h-56 rounded-full
-                                  bg-[#1e88e5]/15 blur-3xl pointer-events-none" />
-                </>
-              )}
+            <div className="relative mt-4 rounded-3xl overflow-hidden bg-slate-900 p-8 sm:p-14 text-center shadow-2xl shadow-slate-900/40">
+              
+              {/* Efek Pendaran Premium */}
+              <div aria-hidden="true" className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-[#1e88e5] rounded-full blur-3xl opacity-30 pointer-events-none" />
+              <div aria-hidden="true" className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-emerald-500 rounded-full blur-3xl opacity-20 pointer-events-none" />
 
-              <div className="relative">
-                <p className="text-[#4da3ff] text-[10px] uppercase tracking-[0.3em]
-                              font-semibold mb-3">
+              <div className="relative z-10">
+                <p className="text-[#4da3ff] text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-bold mb-3">
                   Konsultasi Gratis
                 </p>
-                <h3
-                  className="text-white font-light tracking-tight mb-5"
-                  style={{ fontSize: "clamp(1.125rem, 2.8vw, 1.5rem)" }}
-                >
+                <h3 className="text-white font-light tracking-tight mb-8 text-balance" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)" }}>
                   Butuh sewa alat berat untuk proyek Anda?{" "}
-                  <span className="font-semibold">Kami siap membantu.</span>
+                  <span className="font-bold">Kami siap membantu.</span>
                 </h3>
 
-                <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+                <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
                   <a
                     href="https://wa.me/6282258089367?text=Halo%20Tri%20Abadi%20Makmur%2C%20saya%20ingin%20sewa%20alat%20berat"
                     target="_blank"
                     rel="noreferrer"
-                    aria-label="Hubungi via WhatsApp"
-                    className="group inline-flex items-center justify-center gap-2
-                               px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl
-                               bg-white text-slate-900
-                               font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em]
-                               hover:bg-[#1e88e5] hover:text-white
-                               transition-colors duration-200
-                               shadow-lg shadow-black/20"
+                    className="inline-flex items-center justify-center gap-2.5 min-h-12
+                               px-7 sm:px-9 py-3.5 rounded-xl
+                               bg-[#25D366] text-slate-900
+                               hover:bg-[#20bd5a] hover:scale-[1.02]
+                               font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em]
+                               shadow-lg shadow-[#25D366]/30
+                               transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                     style={{ fontSize: "clamp(0.6875rem, 1.3vw, 0.75rem)" }}
                   >
-                    <IconWhatsApp className="w-4 h-4 shrink-0" />
+                    <IconWhatsApp className="w-5 h-5 shrink-0" />
                     Hubungi via WhatsApp
-                    <IconArrowRight className="w-3.5 h-3.5 shrink-0
-                                               transition-transform duration-200
-                                               group-hover:translate-x-1" />
+                    <IconArrowRight className="w-4 h-4 shrink-0" />
                   </a>
 
                   <Link
                     href="/kontak"
-                    className="inline-flex items-center justify-center gap-2
-                               px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl
-                               bg-white/5 text-white border border-white/15
-                               font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em]
-                               hover:bg-white/10 hover:border-white/30
-                               transition-colors duration-200"
+                    className="inline-flex items-center justify-center gap-2 min-h-12
+                               px-7 sm:px-9 py-3.5 rounded-xl
+                               bg-white/10 text-white border border-white/20 backdrop-blur-md
+                               hover:bg-white/20 hover:scale-[1.02]
+                               font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em]
+                               transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                     style={{ fontSize: "clamp(0.6875rem, 1.3vw, 0.75rem)" }}
                   >
                     Form Kontak

@@ -4,9 +4,9 @@ import { createPageMetadata } from "../../../lib/metadata";
 
 export const metadata = createPageMetadata({
   path: "/supplier/sirtu",
-  title: "Sirtu (Pasir Batu)",
+  title: "Jual Sirtu (Pasir Batu) untuk Urugan Jalan & Lahan",
   description:
-    "Jual sirtu untuk urugan jalan dan pengurugan lahan. Kuat, stabil, ekonomis untuk proyek bervolume besar.",
+    "Jual Sirtu (pasir batu) berkualitas untuk urugan jalan, peninggian lahan, dan lapis pondasi bawah. Cepat padat, ekonomis, siap antar ke lokasi proyek.",
   image: "/produk/sirtu.png",
 });
 

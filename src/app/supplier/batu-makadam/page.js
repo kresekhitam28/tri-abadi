@@ -4,9 +4,9 @@ import { createPageMetadata } from "../../../lib/metadata";
 
 export const metadata = createPageMetadata({
   path: "/supplier/batu-makadam",
-  title: "Batu Makadam",
+  title: "Jual Batu Makadam Siap Antar",
   description:
-    "Jual batu makadam murah untuk pengerasan jalan, bantalan rel, dan konstruksi. Kualitas terjamin, siap antar.",
+    "Jual batu makadam murah berkualitas untuk lapisan pondasi jalan (base course), area parkir, dan konstruksi. Siap antar ke lokasi proyek Anda.",
   image: "/produk/batu-makadam.png",
 });
 

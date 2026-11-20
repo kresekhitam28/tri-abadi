@@ -4,9 +4,9 @@ import { createPageMetadata } from "../../../lib/metadata";
 
 export const metadata = createPageMetadata({
   path: "/supplier/pasir-beton",
-  title: "Pasir Beton",
+  title: "Jual Pasir Beton Halus untuk Cor",
   description:
-    "Jual pasir beton halus untuk cor beton, plesteran, dan acian. Butiran seragam, bersih dari kotoran, kualitas terjamin.",
+    "Jual pasir beton halus, bersih dari lumpur, cocok untuk cor struktural, plesteran, dan acian. Kualitas terjamin, siap antar ke lokasi proyek Anda.",
   image: "/produk/pasir-beton.png",
 });
 

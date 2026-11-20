@@ -4,10 +4,10 @@ import { createPageMetadata } from "../../../lib/metadata";
 
 export const metadata = createPageMetadata({
   path: "/supplier/kerikil",
-  title: "Kerikil",
+  title: "Jual Kerikil untuk Cor Beton & Drainase",
   description:
-    "Jual kerikil untuk campuran beton, pengerasan jalan, dan drainase. Berbagai ukuran tersedia, siap antar.",
-  image: "/produk/kerikil.png",
+    "Jual kerikil berkualitas untuk campuran beton, pengerasan jalan, dan sistem drainase. Tersedia berbagai ukuran, siap antar ke lokasi proyek Anda.",
+  image: "/produk/kerikil.webp",
 });
 
 export default function KerikilPage() {

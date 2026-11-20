@@ -27,54 +27,47 @@ const ProductItem = memo(function ProductItem({ item, index }) {
   return (
     <Link
       href={`/supplier/${item.slug}`}
+      // ✅ DESAIN STATIS: Garis tegas (ring-2), tanpa animasi transisi.
       className="group relative flex items-center justify-between gap-3 sm:gap-4
-                 bg-white border border-slate-200 rounded-xl
-                 px-4 sm:px-5 py-3.5 sm:py-4
-                 hover:border-[#1e88e5] hover:bg-slate-50/60
-                 active:bg-slate-50
-                 transition-colors duration-150"
-      style={{
-        contain: "layout paint style",
-        contentVisibility: "auto",
-        containIntrinsicSize: "70px",
-      }}
+                 bg-white rounded-2xl p-3.5 sm:p-4
+                 ring-2 ring-slate-100 shadow-sm
+                 hover:ring-[#1e88e5] hover:bg-slate-50
+                 active:bg-slate-100"
     >
-      <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+      <div className="flex items-center gap-3.5 sm:gap-4 min-w-0 flex-1">
+        
+        {/* Indikator Angka */}
         <span
-          className="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-lg
-                     bg-[#1e88e5]/10 text-[#1e88e5]
-                     font-bold font-mono
-                     flex items-center justify-center"
-          style={{ fontSize: "clamp(0.6875rem, 1.3vw, 0.75rem)" }}
+          className="shrink-0 w-10 h-10 rounded-xl
+                     bg-blue-50 text-[#1e88e5] border border-blue-100
+                     font-bold font-mono text-sm sm:text-base
+                     flex items-center justify-center
+                     group-hover:bg-[#1e88e5] group-hover:text-white group-hover:border-[#1e88e5]"
         >
           {String(index + 1).padStart(2, "0")}
         </span>
 
+        {/* Teks Produk */}
         <div className="min-w-0 flex-1">
           <h2
-            className="font-semibold text-slate-900 leading-snug truncate"
-            style={{ fontSize: "clamp(0.875rem, 1.8vw, 0.90625rem)" }}
+            className="font-bold text-slate-800 leading-snug truncate
+                       group-hover:text-[#1e88e5] text-sm sm:text-base"
           >
             {item.alt}
           </h2>
-          <p
-            className="text-slate-500 mt-0.5 truncate"
-            style={{ fontSize: "clamp(0.71875rem, 1.4vw, 0.75rem)" }}
-          >
+          <p className="text-slate-500 mt-0.5 truncate text-xs sm:text-sm group-hover:text-slate-700">
             {item.desc}
           </p>
         </div>
       </div>
 
+      {/* Tombol Buka (Pill) */}
       <span
-        className="shrink-0 px-2.5 sm:px-3 py-1.5 rounded-lg
-                   border border-slate-300
-                   font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em]
+        className="shrink-0 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full
+                   border-2 border-slate-200
+                   font-bold uppercase tracking-wider text-[10px] sm:text-xs
                    text-slate-600 bg-white
-                   group-hover:bg-[#1e88e5] group-hover:text-white
-                   group-hover:border-[#1e88e5]
-                   transition-colors duration-150"
-        style={{ fontSize: "clamp(0.625rem, 1.2vw, 0.65625rem)" }}
+                   group-hover:bg-[#1e88e5] group-hover:text-white group-hover:border-[#1e88e5]"
       >
         Buka
       </span>
@@ -89,25 +82,32 @@ export default function Supplier() {
   const list = useMemo(() => products, []);
 
   return (
-    <section
-      className="bg-white pt-10 sm:pt-12 lg:pt-16 pb-16 sm:pb-20 lg:pb-28"
-      style={{ contain: "layout style" }}
-    >
-      <div className="max-w-5xl mx-auto px-4 sm:px-5 lg:px-8">
+    <section className="relative bg-white pt-16 sm:pt-24 pb-20 sm:pb-28 overflow-hidden">
+      
+      {/* Ornamen background statis (tanpa animasi) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-50 rounded-full blur-3xl opacity-60"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 right-0 w-[500px] h-[500px] bg-amber-50 rounded-full blur-3xl opacity-50"
+      />
 
-        <div className="text-center mb-10 sm:mb-14 lg:mb-20">
-          <div className="inline-flex items-center gap-3 mb-4 sm:mb-6">
-            <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
-            <span className="text-[10px] sm:text-xs uppercase
-                             tracking-[0.25em] sm:tracking-[0.3em]
-                             text-[#1e88e5] font-semibold">
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* ═══ HEADER ═══ */}
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-3 mb-5">
+            <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" />
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-bold">
               Produk
             </span>
-            <span className="w-6 sm:w-8 h-px bg-[#1e88e5]" />
+            <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" />
           </div>
 
           <h1
-            className="font-light tracking-tight text-slate-900 leading-[1.05] mb-5 sm:mb-6"
+            className="font-light tracking-tight text-slate-900 leading-[1.1] mb-5 sm:mb-6 text-balance max-w-3xl mx-auto"
             style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}
           >
             Supplier Material Konstruksi
@@ -115,7 +115,7 @@ export default function Supplier() {
           </h1>
 
           <p
-            className="max-w-2xl mx-auto text-slate-600 leading-relaxed"
+            className="max-w-2xl mx-auto text-slate-600 leading-[1.8]"
             style={{ fontSize: "clamp(0.875rem, 1.6vw, 1rem)" }}
           >
             Kami menyediakan berbagai material konstruksi berkualitas —
@@ -124,10 +124,8 @@ export default function Supplier() {
           </p>
         </div>
 
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3"
-          style={{ contain: "layout paint style" }}
-        >
+        {/* ═══ GRID PRODUK ═══ */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
           {list.map((item, i) => (
             <ProductItem key={item.slug} item={item} index={i} />
           ))}

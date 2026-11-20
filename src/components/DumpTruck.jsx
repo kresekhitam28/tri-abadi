@@ -2,489 +2,713 @@
 "use client";
 
 import { useState, useCallback, useMemo, memo } from "react";
+import Image from "next/image";
 import { useLang } from "../context/LanguageContext";
 import Reveal from "./Reveal";
 
-// ─── IKON ────────────────────────────────────
-function IconWhatsApp({ className = "w-4 h-4" }) {
+// ─────────────────────────────────────────────
+// IKON
+// ─────────────────────────────────────────────
+function IconWhatsApp({ className = "w-5 h-5" }) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
     </svg>
   );
 }
-function IconArrowRight({ className = "w-3.5 h-3.5" }) {
+function IconArrowRight({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
-      strokeLinecap="round" strokeLinejoin="round" className={className}>
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M5 12h14M13 5l7 7-7 7" />
     </svg>
   );
 }
+function IconChevron({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  );
+}
+function IconInfo({ className = "w-5 h-5" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 16v-4M12 8h.01" />
+    </svg>
+  );
+}
 
-// ─── ACCORDION (memoized) ────────────────────
+const BODY_FONT = { fontSize: "clamp(0.875rem, 1.5vw, 0.9375rem)" };
+const BODY_CLASS = "text-slate-700 leading-[1.9]";
+
+// ─────────────────────────────────────────────
+// ACCORDION — WAI-ARIA + animated grid-rows
+// ─────────────────────────────────────────────
 const Accordion = memo(function Accordion({
-  title, isOpen, onToggle, children, labels,
+  id, index, number, title, isOpen, onToggle, children,
 }) {
+  const buttonId = `dump-btn-${id}`;
+  const panelId = `dump-panel-${id}`;
+
   return (
     <div
-      className={`border rounded-xl overflow-hidden mb-2.5 bg-white
-                  transition-colors duration-200
-                  ${isOpen ? "border-[#1e88e5]" : "border-slate-200"}`}
-      style={{ contain: "layout paint style" }}
+      className={`group relative rounded-2xl border-2 mb-3 overflow-hidden bg-white
+                  transition-all duration-300
+                  ${isOpen
+                    ? "border-[#1e88e5] shadow-lg shadow-[#1e88e5]/10"
+                    : "border-slate-200 hover:border-slate-300 hover:shadow-md hover:shadow-slate-200/60"}`}
     >
-      <button
-        type="button"
-        onClick={onToggle}
-        aria-expanded={isOpen}
-        className="w-full flex items-center gap-3 sm:gap-4
-                   px-4 sm:px-5 py-3.5 sm:py-4
-                   text-left cursor-pointer transition-colors duration-150"
-      >
-        <span
-          className={`flex-1 font-semibold uppercase tracking-[0.12em]
-                      ${isOpen ? "text-[#1e88e5]" : "text-slate-800"}`}
-          style={{ fontSize: "clamp(0.75rem, 1.5vw, 0.84375rem)" }}
+      <h3 className="m-0 p-0 text-base font-normal leading-normal">
+        <button
+          id={buttonId}
+          type="button"
+          onClick={() => onToggle(index)}
+          aria-expanded={isOpen}
+          aria-controls={panelId}
+          className="w-full flex items-center gap-3 sm:gap-4
+                     px-4 sm:px-5 py-4 sm:py-5
+                     text-left cursor-pointer
+                     focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-blue-700"
         >
-          {title}
-        </span>
-        <span
-          className={`shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-full border
-                      font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]
-                      transition-colors duration-150
-                      ${isOpen
-                        ? "bg-[#1e88e5] text-white border-[#1e88e5]"
-                        : "bg-white text-slate-500 border-slate-300"}`}
-          style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
-        >
-          {isOpen ? labels.close : labels.open}
-        </span>
-      </button>
+          <span
+            aria-hidden="true"
+            className={`shrink-0 flex items-center justify-center
+                        w-10 h-10 sm:w-11 sm:h-11 rounded-xl
+                        text-xs sm:text-sm font-bold tracking-wider
+                        transition-all duration-300
+                        ${isOpen
+                          ? "bg-[#1e88e5] text-white shadow-md shadow-[#1e88e5]/30 scale-105"
+                          : "bg-slate-100 text-slate-500 group-hover:bg-slate-200"}`}
+          >
+            {number}
+          </span>
 
-      {isOpen && (
-        <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-1
-                        text-slate-700 leading-[1.85]
-                        border-t border-slate-100 space-y-4"
-             style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
-          {children}
+          <span
+            className={`flex-1 font-semibold leading-snug
+                        text-sm sm:text-base
+                        transition-colors duration-200
+                        ${isOpen ? "text-[#1e88e5]" : "text-slate-800"}`}
+          >
+            {title}
+          </span>
+
+          <span
+            aria-hidden="true"
+            className={`shrink-0 flex items-center justify-center w-8 h-8 rounded-full
+                        transition-all duration-300
+                        ${isOpen
+                          ? "bg-[#1e88e5]/10 text-[#1e88e5] rotate-180"
+                          : "bg-slate-100 text-slate-500 group-hover:bg-slate-200"}`}
+          >
+            <IconChevron className="w-4 h-4" />
+          </span>
+        </button>
+      </h3>
+
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={buttonId}
+        aria-hidden={!isOpen}
+        className="grid transition-[grid-template-rows] duration-300 ease-out"
+        style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+      >
+        <div className="overflow-hidden">
+          <div
+            className="px-4 sm:px-6 pb-5 sm:pb-6 pt-3
+                       text-slate-700 leading-[1.85]
+                       border-t border-slate-100
+                       ml-4 sm:ml-6 mr-4 sm:mr-6 mb-4"
+            style={BODY_FONT}
+          >
+            {children}
+          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 });
 
-// ─── RENDER CONTENT (memoized) ───────────────
+// ─────────────────────────────────────────────
+// RENDER CONTENT — paragraph + numbered + bullets
+// ─────────────────────────────────────────────
 const RenderContent = memo(function RenderContent({ text }) {
-  const parsed = useMemo(() => {
+  const blocks = useMemo(() => {
     if (!text) return null;
     const lines = text.split("\n");
-    const items = [];
+    const result = [];
+    let numberedItems = [];
     let currentItem = null;
-    let beforeItems = [];
-    let afterItems = [];
-    let inAfter = false;
+    let bullets = [];
+    let paragraph = [];
+
+    const flushParagraph = () => {
+      if (paragraph.length > 0) {
+        result.push({ type: "paragraph", content: paragraph.join(" ") });
+        paragraph = [];
+      }
+    };
+    const flushBullets = () => {
+      if (bullets.length > 0) {
+        result.push({ type: "bullets", items: [...bullets] });
+        bullets = [];
+      }
+    };
+    const flushNumbered = () => {
+      if (currentItem) {
+        numberedItems.push(currentItem);
+        currentItem = null;
+      }
+      if (numberedItems.length > 0) {
+        result.push({ type: "numbered", items: [...numberedItems] });
+        numberedItems = [];
+      }
+    };
 
     lines.forEach((line) => {
-      const match = line.match(/^(\d+)\.\s+(.+)$/);
-      if (match) {
-        if (currentItem) items.push(currentItem);
-        currentItem = { number: match[1], title: match[2], desc: [] };
-        inAfter = false;
-      } else if (currentItem && !inAfter) {
-        if (line.trim() === "") inAfter = true;
-        else currentItem.desc.push(line);
-      } else if (inAfter) {
-        if (line.trim() !== "") afterItems.push(line);
+      const trimmed = line.trim();
+      const numberedMatch = trimmed.match(/^(\d+)\.\s+(.+)$/);
+      const bulletMatch = trimmed.startsWith("• ") || trimmed.startsWith("- ");
+
+      if (numberedMatch) {
+        flushParagraph();
+        flushBullets();
+        if (currentItem) numberedItems.push(currentItem);
+        currentItem = { number: numberedMatch[1], title: numberedMatch[2], desc: [] };
+      } else if (bulletMatch) {
+        flushParagraph();
+        flushNumbered();
+        bullets.push(trimmed.slice(2));
+      } else if (trimmed === "") {
+        flushParagraph();
+        flushBullets();
+        flushNumbered();
       } else {
-        if (line.trim() !== "") beforeItems.push(line);
+        if (currentItem) {
+          currentItem.desc.push(trimmed);
+        } else {
+          flushBullets();
+          paragraph.push(trimmed);
+        }
       }
     });
-    if (currentItem) items.push(currentItem);
+    flushParagraph();
+    flushBullets();
+    flushNumbered();
 
-    return { items, beforeItems, afterItems };
+    return result;
   }, [text]);
 
-  if (!text || !parsed) return null;
-  const { items, beforeItems, afterItems } = parsed;
-
-  if (items.length === 0) {
-    return (
-      <p className="text-slate-700 leading-[1.85] whitespace-pre-line"
-         style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
-        {text}
-      </p>
-    );
-  }
+  if (!text || !blocks) return null;
 
   return (
-    <div className="text-slate-700 leading-[1.85]"
-         style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}>
-      {beforeItems.length > 0 && (<p className="mb-4">{beforeItems.join(" ")}</p>)}
-      <div className="space-y-3 sm:space-y-4">
-        {items.map((item, i) => (
-          <div key={i} className="flex gap-2">
-            <span className="shrink-0 w-5 text-slate-700">{item.number}.</span>
-            <div className="flex-1 min-w-0">
-              <div className="font-medium text-slate-800">{item.title}</div>
-              {item.desc.length > 0 && (
-                <div className="text-slate-600 mt-0.5">
-                  {item.desc.map((d, j) => (<p key={j}>{d}</p>))}
+    <div className="text-slate-700 leading-[1.85] space-y-3" style={BODY_FONT}>
+      {blocks.map((block, i) => {
+        if (block.type === "paragraph") {
+          return <p key={i}>{block.content}</p>;
+        }
+        if (block.type === "bullets") {
+          return (
+            <ul key={i} className="space-y-1.5 pl-1">
+              {block.items.map((item, j) => (
+                <li key={j} className="flex gap-2">
+                  <span aria-hidden="true" className="text-[#1e88e5] shrink-0 font-bold">•</span>
+                  <span className="flex-1">{item}</span>
+                </li>
+              ))}
+            </ul>
+          );
+        }
+        if (block.type === "numbered") {
+          return (
+            <div key={i} className="space-y-2">
+              {block.items.map((item, j) => (
+                <div key={j} className="flex gap-2">
+                  <span className="shrink-0 w-5 text-[#1e88e5] font-semibold">{item.number}.</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-semibold text-slate-800">{item.title}</div>
+                    {item.desc.length > 0 && (
+                      <div className="text-slate-600 mt-0.5 space-y-1">
+                        {item.desc.map((d, k) => (<p key={k}>{d}</p>))}
+                      </div>
+                    )}
+                  </div>
                 </div>
-              )}
+              ))}
             </div>
-          </div>
-        ))}
-      </div>
-      {afterItems.length > 0 && (<p className="mt-4">{afterItems.join(" ")}</p>)}
+          );
+        }
+        return null;
+      })}
     </div>
   );
 });
 
-// ─── DATA BILINGUAL ──────────────────────────
+// ─────────────────────────────────────────────
+// DATA BILINGUAL
+// (subtitle H1 TIDAK diubah · intro diperkaya · fragment dikonsolidasi)
+// ─────────────────────────────────────────────
 const data = {
   id: {
     title: "Troncon / Dump Truck",
     subtitle: "Sewa Tronton atau Dump Truck Murah Jabodetabek",
     thumbImage: "/proyek/proyek-54.webp",
-    fallbackImage: "/proyek/proyek-54.webp",
+    sectionWhat: "Mengenal Dump Truck",
+
+    sectionGuide: "Panduan Dump Truck",
+    sectionGuideTitle1: "Jenis & ",
+    sectionGuideTitle2: "Kegunaan",
+    sectionGuideTitle3: " Dump Truck",
+
+    // ✅ Intro 3 paragraf padat (~150 kata) — sebelumnya hanya 2 paragraf promosi
     intro: [
-      "Dump Truck – Anda sedang mencari dump truck? Langsung saja buka website spesialisaspal.com, di sini Anda akan menemukan dump truck yang bisa disewa untuk pekerjaan Anda.",
-      "Dump truck ini dirancang untuk mengangkut bahan bangunan dan mengangkut tanah dan batu.",
+      "Dump truck (atau tronton untuk konfigurasi sumbu roda tertentu) adalah kendaraan angkut berat yang dirancang khusus untuk mengangkut material curah seperti tanah, pasir, batu, agregat, dan bahan bangunan. Bedanya dengan truk biasa: bak muatannya bisa diangkat secara hidrolik untuk menumpahkan isi dengan cepat — tanpa perlu bongkar manual.",
+      "Sistem kerjanya mengandalkan komponen hidrolik berupa ram (silinder) yang dipasang di antara kabin dan bak. Saat ram diaktifkan, bak terangkat dan material meluncur keluar karena gravitasi. Efisiensi bongkar-muat inilah yang menjadikan dump truck tulang punggung proyek konstruksi, pertambangan, dan pekerjaan infrastruktur jalan.",
+      "Dump truck tersedia dalam banyak varian — dari standar jalan raya (on-road), off-road untuk tambang, hingga konfigurasi trailer untuk kapasitas ekstra. PT Tri Abadi Makmur menyediakan sewa dump truck dan tronton terawat untuk kebutuhan proyek Anda di Jabodetabek dengan harga kompetitif dan operator berpengalaman.",
     ],
+
+    // ✅ Callout pembuka
+    afterIntro: [
+      "Memilih tipe dump truck yang tepat sangat menentukan efisiensi biaya dan kelancaran proyek — karena setiap varian punya kapasitas, medan operasi, dan batasan regulasi yang berbeda. Berikut ulasan lengkap kegunaan dan berbagai varian dump truck yang kami sediakan.",
+    ],
+
     accordionItems: [
       {
         title: "Kegunaan Dump Truck",
         paragraphs: [
-          "Banyak proyek dibangun yang membutuhkan peralatan untuk membantu penyelesaian pekerjaan.",
-          "Dump truck digunakan untuk memindahkan agregat dari satu titik ke titik lain dan menggunakan sistem kerja atau komponen hidrolik untuk mengangkat isi belakang sehingga muatan dapat diturunkan.",
+          // ✅ Konsolidasi 2 fragment → 2 paragraf utuh
+          "Hampir semua proyek konstruksi — mulai dari pembangunan gedung, jalan, jembatan, hingga pekerjaan tambang — membutuhkan dump truck untuk kelancaran operasional. Tanpa alat ini, proses pemindahan material akan jauh lebih lambat dan mahal.",
+          "Dump truck berfungsi memindahkan agregat (pasir, kerikil, batu, tanah) dari satu titik ke titik lain secara efisien. Sistem hidrolik pada bagian belakang memungkinkan bak terangkat dan menumpahkan muatan dengan cepat — menghemat waktu dan tenaga kerja bongkar-muat secara signifikan.",
         ],
       },
       {
         title: "Dump Truck Dan Berbagai Variannya",
         paragraphs: [
-          "Dump truck ini tersedia dalam banyak bentuk dan ukuran, apakah anda tahu jenis-jenisnya?",
-          "Kalau belum, berikut akan dijelaskan jenis-jenisnya yang biasa digunakan dalam industri konstruksi yang bisa anda dapatkan di spesialisaspal.com.",
+          // ✅ Konsolidasi + diperkaya sedikit
+          "Dump truck tersedia dalam banyak bentuk dan ukuran — disesuaikan dengan medan operasi, kapasitas muatan, dan regulasi jalan raya setempat. Memahami jenis-jenisnya akan membantu Anda memilih unit yang paling efisien untuk proyek.",
+          "Berikut akan dijelaskan jenis-jenis dump truck yang biasa digunakan dalam industri konstruksi dan bisa Anda dapatkan di spesialisaspal.com — mulai dari off-road, transfer, side dump, standar, hingga konfigurasi trailer khusus.",
         ],
       },
       {
         title: "Dump Truck Off Road",
         paragraphs: [
-          "Juga dikenal sebagai truk artikulasi, off-road dump truck adalah truk besar yang digunakan untuk operasi penambangan atau dalam situasi di mana sejumlah besar agregat harus diangkut.",
-          "Ukurannya yang besar dan body-nya yang berat membuatnya ideal untuk situasi off-road (medan kasar) dan tidak disarankan untuk digunakan di jalan perkotaan.",
-          "Jenis ini mampu menangani/mengangkut beban hingga 60 ton.",
-          "Dump truck artikulasi memiliki engsel di antara kabin dan ruang kemudi.",
+          // ✅ Konsolidasi 4 fragment → 2 paragraf
+          "Off-road dump truck — juga dikenal sebagai truk artikulasi (articulated dump truck) — adalah truk berukuran besar yang digunakan untuk operasi penambangan atau situasi di mana sejumlah besar agregat harus diangkut di medan kasar. Ukurannya yang masif dan body yang berat membuatnya ideal untuk medan off-road, namun tidak disarankan untuk jalan perkotaan.",
+          "Jenis ini mampu mengangkut beban hingga 60 ton per trip. Konstruksinya dilengkapi engsel (articulation joint) di antara kabin dan ruang kemudi — memungkinkan truk bermanuver di jalur sempit dan berbelok tajam meski bertubuh besar.",
         ],
       },
       {
         title: "Transfer Dump Truck",
         paragraphs: [
-          "Transfer dump truck adalah truk yang ditarik oleh trailer terpisah.",
-          "Karakteristik utama dari jenis ini adalah bahwa trailer terpisah memiliki kontainer kargo yang dapat dipindahkan.",
-          "Konfigurasi ini akan memaksimalkan kapasitas muatan tanpa kehilangan kemampuan untuk bermanuver.",
-          "Wadah yang terpisah ini didukung oleh motor listrik yang dipasang pada traktor yang berjalan di atas roda yang menggelinding ke kerangka trailer dari dump truck utama.",
-          "Ada variasi dari jenis yang memungkinkan anda untuk menambahkan kontainer kargo lain ke truk utama.",
-          "Hati-hati, karena jenis konfigurasi ini tidak diperbolehkan di semua negara karena pembatasan beratnya.",
+          // ✅ Konsolidasi 6 fragment → 3 paragraf
+          "Transfer dump truck adalah truk yang ditarik oleh trailer terpisah. Karakteristik utamanya: trailer memiliki kontainer kargo yang bisa dipindahkan secara mandiri dari truk utama. Konfigurasi ini memaksimalkan kapasitas muatan tanpa mengorbankan kemampuan manuver.",
+          "Kontainer terpisah ini didukung motor listrik yang dipasang pada traktor dan berjalan di atas roda yang menggelinding ke kerangka trailer dump truck utama. Ada variasi yang memungkinkan penambahan kontainer kargo lain ke truk utama — menghasilkan kapasitas angkut berganda.",
+          "Perhatian: konfigurasi transfer dump truck tidak diizinkan di semua negara karena pembatasan berat kendaraan. Pastikan Anda memeriksa regulasi setempat sebelum menggunakan tipe ini di jalan raya umum.",
         ],
       },
       {
         title: "Side Dump Truk",
         paragraphs: [
-          "Side Dump Truk adalah salah satu dump truk tercepat untuk membongkar muatan.",
-          "Truk ini merupakan kendaraan yang memiliki salah satu kapasitas terbesar dari jenis truk dan truk ini memiliki karakteristik yang mana wadahnya akan miring ke samping untuk membuang materialnya.",
-          "Truk ini memiliki kemampuan manuver yang terbatas.",
-          "Karena karakteristiknya, truk ini tidak selalu dapat digunakan dalam kegiatan proyek.",
-          "Jenis ini bermuatan lebih sedikit bila dibandingkan dengan muatan yang bisa diangkut oleh dump truck Standard.",
+          // ✅ Konsolidasi 5 fragment → 2 paragraf
+          "Side dump truck adalah salah satu dump truck tercepat untuk membongkar muatan — karena baknya miring ke samping (bukan ke belakang) untuk membuang material. Truk ini memiliki salah satu kapasitas terbesar di antara semua jenis dump truck.",
+          "Namun, side dump truck punya keterbatasan: kemampuan manuver yang lebih rendah dibanding tipe standar, dan muatannya lebih sedikit dibanding dump truck standar. Karena karakteristiknya, tipe ini tidak selalu cocok untuk semua kegiatan proyek — lebih ideal untuk pekerjaan di area terbuka dengan ruang bongkar yang lebar.",
         ],
       },
       {
         title: "Dump Truk Standar",
         paragraphs: [
-          "Truk jenis ini adalah truk yang paling umum digunakan dalam industri konstruksi.",
-          "Sasis dump truk diangkat oleh ram hidrolik yang dipasang di antara kabin dan badan truk.",
-          "Jenis ini memiliki satu as roda depan dan satu atau lebih as belakang.",
-          "Konfigurasi umum untuk jenis ini mempunyai roda enam dan roda sepuluh.",
-          "Truk jenis ini mempunyai kemampuan untuk bermanuver yang luar biasa, namun, truk jenis ini tidak dapat digunakan di atas tanah yang lunak.",
+          // ✅ Konsolidasi 5 fragment → 2 paragraf
+          "Dump truck standar adalah jenis yang paling umum digunakan di industri konstruksi. Sasis truk diangkat oleh ram hidrolik yang dipasang di antara kabin dan bodi truk — memungkinkan pembongkaran cepat dan efisien ke arah belakang.",
+          "Jenis ini memiliki satu as roda depan dan satu atau lebih as belakang, dengan konfigurasi umum roda enam (6x4) atau roda sepuluh (10x4). Dump truck standar punya kemampuan bermanuver yang sangat baik di jalan raya, namun tidak dapat dioperasikan di atas tanah lunak atau medan off-road ekstrem.",
         ],
       },
       {
         title: "Truck Dan PUP",
         paragraphs: [
-          "Kendaraan ini sangat mirip dengan dump truk tetapi mempunyai perbedaan yaitu memiliki ram hidrolik sendiri. Truk ini mampu melakukan dumping yang berdiri sendiri.",
+          // ✅ 1 kalimat diperkaya konteks (PUP = Pup Trailer)
+          "Truk dan PUP (Pup Trailer) sangat mirip dengan dump truck standar, namun memiliki perbedaan utama: trailer PUP dilengkapi ram hidrolik sendiri — sehingga mampu melakukan dumping secara mandiri tanpa bergantung pada hidrolik truk utama. Konfigurasi ini meningkatkan fleksibilitas operasional dan kapasitas angkut total, dengan catatan membutuhkan keterampilan operator lebih tinggi saat bermanuver.",
         ],
       },
       {
         title: "Superdump Truck",
         paragraphs: [
-          "Dump truk yang unik yang mampu membawa beban besar.",
-          "Truk Superdump sangat berguna untuk aplikasi aspal dan paving beton.",
+          // ✅ Konsolidasi 2 fragment → 1 paragraf padat
+          "Superdump truck adalah varian unik yang dirancang untuk membawa beban besar dengan distribusi berat yang lebih baik di sepanjang sasis. Truk ini sangat berguna untuk aplikasi aspal dan paving beton — karena mampu mengangkut hot mix dalam volume besar sekaligus menjaga kualitas material tetap konsisten hingga tiba di lokasi hamparan.",
         ],
       },
       {
         title: "Semi Trailer End",
         paragraphs: [
-          "Truk jenis ini memiliki trailer dua poros memiliki hidrolik sendiri.",
+          // ✅ 1 kalimat diperkaya
+          "Semi trailer end (end dump semi trailer) adalah truk dengan trailer dua poros yang memiliki sistem hidrolik sendiri. Pembongkaran dilakukan dengan mengangkat bagian depan trailer ke atas — material meluncur keluar dari ujung belakang. Konfigurasi ini cocok untuk pengangkutan material curah jarak jauh dengan kapasitas besar, dan banyak digunakan di proyek infrastruktur skala besar.",
         ],
       },
       {
         title: "Semi Trailer Bottom",
         paragraphs: [
-          "Truk ini serupa dengan dump truk end semi trailer di mana fitur dump adalah dump gate clamshell di bagian tengah bawah trailer.",
-          "Keuntungan terbesar dari jenis ini adalah kemampuannya untuk meletakkan material dalam lokasi spesifik dan area yang sempit.",
+          // ✅ Konsolidasi 2 fragment → 1 paragraf
+          "Semi trailer bottom serupa dengan semi trailer end, namun sistem dump-nya menggunakan clamshell dump gate di bagian tengah bawah trailer — bukan di ujung belakang. Keuntungan terbesar dari tipe ini adalah kemampuannya meletakkan material di lokasi spesifik dan area sempit, seperti untuk pengaspalan jalan dengan elevasi presisi atau penimbunan area terbatas.",
         ],
       },
       {
         title: "Double And Triple Trailer Bottom",
         paragraphs: [
-          "Terdiri dari traktor dua poros yang menarik semi-trailer gandar tunggal atau antara satu sampai dua trailer penuh.",
-          "Kekurangan dari truk ini adalah kesulitan untuk mundur.",
+          // ✅ Konsolidasi 2 fragment → 1 paragraf
+          "Double and triple trailer bottom terdiri dari traktor dua poros yang menarik semi-trailer gandar tunggal hingga dua trailer penuh — menghasilkan kapasitas angkut yang sangat besar dalam sekali perjalanan. Kekurangan utama tipe ini adalah kesulitan bermanuver, terutama saat harus mundur di area sempit atau berbelok tajam.",
         ],
       },
     ],
+
+    // ✅ Penutup baru — recap + CTA
+    penutup: [
+      "Itulah berbagai jenis dan kegunaan dump truck yang kami sediakan di PT Tri Abadi Makmur. Setiap tipe memiliki keunggulan spesifik — pemilihan yang tepat akan mengoptimalkan biaya operasional dan memperlancar proyek Anda.",
+      "Untuk informasi lebih lanjut, konsultasi pemilihan tipe, atau penawaran harga sewa dump truck dan tronton, kunjungi spesialisaspal.com atau hubungi WhatsApp kami untuk konsultasi gratis.",
+    ],
+
     ctaBadge: "Konsultasi Gratis",
     ctaTitle1: "Butuh sewa Dump Truck? ",
     ctaTitle2: "Kami siap membantu.",
     ctaButton: "Hubungi via WhatsApp",
-    ctaWaText: "Halo%20Tri%20Abadi%20Makmur%2c%20saya%20ingin%20konsultasi%20sewa%20dump%20truck...",
+    ctaWaText: "Halo Tri Abadi Makmur, saya ingin konsultasi sewa dump truck...",
   },
+
   en: {
-    title: "Tronton / Dump Truck",
+    title: "Troncon / Dump Truck",
     subtitle: "Affordable Tronton or Dump Truck Rental in Jabodetabek",
     thumbImage: "/proyek/proyek-54.webp",
-    fallbackImage: "/proyek/proyek-54.webp",
+    sectionWhat: "About Dump Truck",
+
+    sectionGuide: "Dump Truck Guide",
+    sectionGuideTitle1: "Types & ",
+    sectionGuideTitle2: "Uses",
+    sectionGuideTitle3: " of Dump Truck",
+
+    // ✅ Intro diperkaya
     intro: [
-      "Dump Truck – Are you looking for a dump truck? Just open the spesialisaspal.com website, here you will find a dump truck you can rent for your work.",
-      "This dump truck is designed to transport building materials and transport soil and stone.",
+      "A dump truck (or tronton for certain axle configurations) is a heavy transport vehicle specifically designed to haul bulk materials such as soil, sand, stone, aggregate, and construction materials. The key difference from a regular truck: its cargo bed can be lifted hydraulically to dump the contents quickly — without manual unloading.",
+      "The working system relies on a hydraulic component called a ram (cylinder) mounted between the cabin and the bed. When the ram is activated, the bed lifts and material slides out by gravity. This loading-unloading efficiency is what makes dump trucks the backbone of construction projects, mining operations, and road infrastructure work.",
+      "Dump trucks come in many variants — from standard on-road trucks, off-road for mining, to trailer configurations for extra capacity. PT Tri Abadi Makmur provides well-maintained dump truck and tronton rentals for your project needs in Jabodetabek with competitive prices and experienced operators.",
     ],
+
+    afterIntro: [
+      "Choosing the right dump truck type greatly determines cost efficiency and project smoothness — because each variant has different capacity, operating terrain, and regulatory restrictions. Here is a complete review of the uses and various dump truck variants we provide.",
+    ],
+
     accordionItems: [
       {
         title: "Uses of Dump Truck",
         paragraphs: [
-          "Many built projects require equipment to help complete the work.",
-          "Dump trucks are used to move aggregates from one point to another and use a working system or hydraulic components to lift the rear contents so the load can be lowered.",
+          "Almost all construction projects — from building construction, roads, bridges, to mining work — require dump trucks for operational smoothness. Without this machine, the material transfer process would be much slower and more expensive.",
+          "Dump trucks function to move aggregates (sand, gravel, stone, soil) from one point to another efficiently. The hydraulic system at the rear allows the bed to lift and dump the load quickly — significantly saving unloading time and labor.",
         ],
       },
       {
         title: "Dump Truck and Its Various Variants",
         paragraphs: [
-          "These dump trucks are available in many shapes and sizes, do you know the types?",
-          "If not, the following will explain the types commonly used in the construction industry that you can get at spesialisaspal.com.",
+          "Dump trucks come in many shapes and sizes — tailored to operating terrain, load capacity, and local road regulations. Understanding the types will help you choose the most efficient unit for your project.",
+          "Here we will explain the types of dump trucks commonly used in the construction industry that you can get at spesialisaspal.com — from off-road, transfer, side dump, standard, to special trailer configurations.",
         ],
       },
       {
         title: "Off-Road Dump Truck",
         paragraphs: [
-          "Also known as articulated trucks, off-road dump trucks are large trucks used for mining operations or in situations where large amounts of aggregate must be transported.",
-          "Their large size and heavy body make them ideal for off-road (rough terrain) situations and are not recommended for use on urban roads.",
-          "This type is capable of handling/transporting loads up to 60 tons.",
-          "Articulated dump trucks have a hinge between the cabin and the cab.",
+          "An off-road dump truck — also known as an articulated dump truck — is a large truck used for mining operations or situations where large amounts of aggregate must be hauled on rough terrain. Its massive size and heavy body make it ideal for off-road conditions, but not recommended for urban roads.",
+          "This type can haul loads up to 60 tons per trip. Its construction features an articulation joint between the cabin and the cab — allowing the truck to maneuver on narrow paths and make sharp turns despite its large body.",
         ],
       },
       {
         title: "Transfer Dump Truck",
         paragraphs: [
-          "A transfer dump truck is a truck pulled by a separate trailer.",
-          "The main characteristic of this type is that the separate trailer has a removable cargo container.",
-          "This configuration will maximize load capacity without losing the ability to maneuver.",
-          "This separate container is supported by an electric motor mounted on the tractor which runs on wheels that roll onto the trailer frame of the main dump truck.",
-          "There are variations of this type that allow you to add other cargo containers to the main truck.",
-          "Be careful, as this type of configuration is not allowed in all countries due to its weight restrictions.",
+          "A transfer dump truck is a truck pulled by a separate trailer. Its main characteristic: the trailer has a cargo container that can be moved independently from the main truck. This configuration maximizes load capacity without sacrificing maneuverability.",
+          "This separate container is supported by an electric motor mounted on the tractor and runs on wheels that roll onto the trailer frame of the main dump truck. There are variations that allow adding another cargo container to the main truck — resulting in multiplied hauling capacity.",
+          "Caution: the transfer dump truck configuration is not permitted in all countries due to vehicle weight restrictions. Make sure to check local regulations before using this type on public roads.",
         ],
       },
       {
         title: "Side Dump Truck",
         paragraphs: [
-          "Side Dump Truck is one of the fastest dump trucks for unloading loads.",
-          "This truck is a vehicle that has one of the largest capacities of any truck type and this truck has the characteristic that its container tilts to the side to dispose of its material.",
-          "This truck has limited maneuverability.",
-          "Because of its characteristics, this truck cannot always be used in project activities.",
-          "This type carries less load compared to the load that can be carried by a Standard dump truck.",
+          "The side dump truck is one of the fastest dump trucks for unloading loads — because its bed tilts to the side (not rearward) to dispose of material. This truck has one of the largest capacities among all dump truck types.",
+          "However, side dump trucks have limitations: lower maneuverability compared to standard types, and their load is smaller than what standard dump trucks can carry. Because of its characteristics, this type is not always suitable for all project activities — more ideal for work in open areas with wide unloading space.",
         ],
       },
       {
         title: "Standard Dump Truck",
         paragraphs: [
-          "This type of truck is the most commonly used truck in the construction industry.",
-          "The dump truck chassis is lifted by a hydraulic ram mounted between the cabin and the truck body.",
-          "This type has one front axle and one or more rear axles.",
-          "Common configurations for this type have six wheels and ten wheels.",
-          "This type of truck has outstanding maneuverability, however, this type of truck cannot be used on soft ground.",
+          "The standard dump truck is the most commonly used type in the construction industry. The truck chassis is lifted by a hydraulic ram mounted between the cabin and the truck body — allowing quick and efficient rearward dumping.",
+          "This type has one front axle and one or more rear axles, with common six-wheel (6x4) or ten-wheel (10x4) configurations. Standard dump trucks have excellent maneuverability on roads, but cannot be operated on soft ground or extreme off-road terrain.",
         ],
       },
       {
         title: "Truck and PUP",
         paragraphs: [
-          "This vehicle is very similar to a dump truck but has a difference, namely having its own hydraulic ram. This truck is capable of performing dumping independently.",
+          "Truck and PUP (Pup Trailer) is very similar to a standard dump truck, but with a key difference: the PUP trailer is equipped with its own hydraulic ram — so it can perform dumping independently without relying on the main truck's hydraulics. This configuration increases operational flexibility and total hauling capacity, though it requires higher operator skill when maneuvering.",
         ],
       },
       {
         title: "Superdump Truck",
         paragraphs: [
-          "A unique dump truck capable of carrying large loads.",
-          "The Superdump truck is very useful for asphalt and concrete paving applications.",
+          "The superdump truck is a unique variant designed to carry large loads with better weight distribution along the chassis. This truck is very useful for asphalt and concrete paving applications — because it can haul hot mix in large volumes while maintaining material quality consistently until it reaches the paving site.",
         ],
       },
       {
         title: "Semi Trailer End",
         paragraphs: [
-          "This type of truck has a two-axle trailer with its own hydraulics.",
+          "The semi trailer end (end dump semi trailer) is a truck with a two-axle trailer that has its own hydraulic system. Dumping is done by lifting the front of the trailer upward — material slides out from the rear end. This configuration is suitable for long-distance bulk material transport with large capacity, and is widely used in large-scale infrastructure projects.",
         ],
       },
       {
         title: "Semi Trailer Bottom",
         paragraphs: [
-          "This truck is similar to the semi trailer end dump truck where the dump feature is a clamshell dump gate in the middle bottom of the trailer.",
-          "The biggest advantage of this type is its ability to place material in specific locations and narrow areas.",
+          "Semi trailer bottom is similar to semi trailer end, but its dump system uses a clamshell dump gate at the middle bottom of the trailer — not at the rear end. The biggest advantage of this type is its ability to place material at specific locations and narrow areas, such as for precise-elevation road paving or limited-area backfilling.",
         ],
       },
       {
         title: "Double and Triple Trailer Bottom",
         paragraphs: [
-          "Consists of a two-axle tractor pulling a single-axle semi-trailer or between one to two full trailers.",
-          "The disadvantage of this truck is the difficulty of reversing.",
+          "Double and triple trailer bottom consists of a two-axle tractor pulling a single-axle semi-trailer up to two full trailers — producing very large hauling capacity in a single trip. The main disadvantage of this type is maneuvering difficulty, especially when reversing in tight areas or making sharp turns.",
         ],
       },
     ],
+
+    penutup: [
+      "Those are the various types and uses of dump trucks we provide at PT Tri Abadi Makmur. Each type has specific advantages — the right choice will optimize operational costs and smooth your project.",
+      "For further information, type selection consultation, or dump truck and tronton rental quotes, visit spesialisaspal.com or contact us via WhatsApp for a free consultation.",
+    ],
+
     ctaBadge: "Free Consultation",
     ctaTitle1: "Need to rent a Dump Truck? ",
     ctaTitle2: "We're ready to help.",
     ctaButton: "Contact via WhatsApp",
-    ctaWaText: "Hello%20Tri%20Abadi%20Makmur%2c%20would%20like%20to%20consult%20about%20dump%20truck%20rental...",
+    ctaWaText: "Hello Tri Abadi Makmur, would like to consult about dump truck rental...",
   },
 };
 
-const labels = {
-  id: { open: "Buka", close: "Tutup" },
-  en: { open: "Open", close: "Close" },
-};
-
-// ─── HALAMAN ─────────────────────────────────
+// ─────────────────────────────────────────────
+// HALAMAN: DUMP TRUCK
+// ─────────────────────────────────────────────
 export default function DumpTruck() {
   const { lang } = useLang();
   const d = data[lang] || data.id;
-  const L = labels[lang] || labels.id;
 
   const [openIndex, setOpenIndex] = useState(0);
-  const toggle = useCallback((i) => {
-    setOpenIndex((prev) => (prev === i ? null : i));
-  }, []);
+  const [imgError, setImgError] = useState(false);
+
+  const toggle = useCallback(
+    (i) => setOpenIndex((prev) => (prev === i ? null : i)),
+    []
+  );
 
   return (
     <section
-      className="bg-white pt-28 lg:pt-36 pb-20 lg:pb-28"
-      style={{ contain: "layout style" }}
+      aria-labelledby="dump-heading"
+      className="relative bg-white pt-28 lg:pt-36 pb-20 lg:pb-28 overflow-hidden"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-5 lg:px-8">
+      {/* Ornamen background halus */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-40 -left-32 w-80 h-80 bg-[#1e88e5] rounded-full blur-3xl opacity-[0.04]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-40 -right-32 w-80 h-80 bg-amber-500 rounded-full blur-3xl opacity-[0.05]"
+      />
 
-        {/* ═══ HEADER ═══ */}
-        <Reveal delay={80} y={24}>
-          <div className="text-center mb-8 sm:mb-10">
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-5 lg:px-8">
+
+        {/* ═══ 1. HEADER ═══ */}
+        <Reveal delay={100} y={24}>
+          <div className="text-center mb-10 sm:mb-14">
             <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-4">
-              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
-              <span className="text-[10px] sm:text-[11px] uppercase
-                               tracking-[0.25em] sm:tracking-[0.3em]
-                               text-[#1e88e5] font-semibold">
+              <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" aria-hidden="true" />
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#1e88e5] font-bold">
                 {d.title}
               </span>
-              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
+              <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" aria-hidden="true" />
             </div>
             <h1
-              className="font-light tracking-tight text-slate-900 leading-tight max-w-3xl mx-auto"
-              style={{ fontSize: "clamp(1.25rem, 4vw, 2.25rem)" }}
+              id="dump-heading"
+              className="font-light tracking-tight text-slate-900 leading-[1.15] text-balance max-w-3xl mx-auto"
+              style={{ fontSize: "clamp(1.5rem, 4vw, 2.25rem)" }}
             >
-              {d.subtitle}<span className="text-[#1e88e5]">.</span>
+              {d.subtitle}
+              <span className="text-[#1e88e5]">.</span>
             </h1>
           </div>
         </Reveal>
 
-        <Reveal delay={120} y={18}>
-          <hr className="border-slate-300 mb-6 sm:mb-8" />
+        {/* ═══ 2. INTRO CARD ═══ */}
+        <Reveal y={34} duration={800}>
+          <div className="rounded-3xl bg-gradient-to-br from-slate-50 via-white to-blue-50/40 border border-slate-200 shadow-xl shadow-slate-200/40 p-6 sm:p-8 lg:p-10 mb-8 sm:mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-6 md:gap-8 lg:gap-10 items-start">
+              <div className="relative w-full max-w-[260px] mx-auto md:mx-0 aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 ring-1 ring-slate-200/80 shadow-lg shadow-slate-300/30">
+                {imgError ? (
+                  <div className="absolute inset-0 flex items-center justify-center text-slate-400 text-xs font-semibold uppercase tracking-[0.2em] text-center px-3">
+                    {d.title}
+                  </div>
+                ) : (
+                  <Image
+                    src={d.thumbImage}
+                    alt={`${d.title} — ${d.subtitle}`}
+                    width={520}
+                    height={520}
+                    priority
+                    sizes="(max-width: 768px) 260px, 260px"
+                    className="w-full h-full object-cover"
+                    onError={() => setImgError(true)}
+                  />
+                )}
+              </div>
+
+              <div>
+                <p className="text-[#1e88e5] uppercase tracking-[0.25em] text-[10px] sm:text-[11px] font-bold mb-3">
+                  {d.sectionWhat}
+                </p>
+                <div className="space-y-3.5">
+                  {d.intro.map((p, i) => (
+                    <p key={i} className={BODY_CLASS} style={BODY_FONT}>
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </Reveal>
 
-        {/* ═══ INTRO + GAMBAR ═══ */}
-        <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr]
-                        gap-4 sm:gap-5 mt-5 sm:mt-6 mb-8 sm:mb-10">
-          <Reveal y={34} duration={800}>
-            <div className="w-full sm:w-[180px] aspect-square overflow-hidden
-                            border border-slate-300 rounded-xl bg-slate-100"
-                 style={{ contain: "layout paint style" }}>
-              <img
-                src={d.thumbImage}
-                alt={d.title}
-                loading="eager"
-                decoding="async"
-                width={180}
-                height={180}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.currentTarget.onerror = null;
-                  e.currentTarget.src = d.fallbackImage;
-                }}
-              />
+        {/* ═══ 3. CALLOUT PEMBUKA ═══ */}
+        <Reveal y={24}>
+          <div className="relative rounded-2xl bg-slate-50 border border-slate-200 p-5 sm:p-7 mb-12 sm:mb-16 overflow-hidden">
+            <span
+              aria-hidden="true"
+              className="absolute left-0 top-0 bottom-0 w-1 bg-[#1e88e5]"
+            />
+            <div className="flex items-start gap-3">
+              <span className="shrink-0 w-9 h-9 rounded-lg bg-[#1e88e5]/10 text-[#1e88e5]
+                              flex items-center justify-center mt-0.5">
+                <IconInfo className="w-5 h-5" />
+              </span>
+              <div className="space-y-3 flex-1">
+                {d.afterIntro.map((p, i) => (
+                  <p key={i} className="text-slate-600 leading-[1.85]" style={BODY_FONT}>
+                    {p}
+                  </p>
+                ))}
+              </div>
             </div>
-          </Reveal>
+          </div>
+        </Reveal>
 
-          <div className="space-y-2.5 sm:space-y-3">
-            {d.intro.map((p, i) => (
-              <Reveal key={i} delay={i * 50} y={20}>
-                <p
-                  className="text-slate-700 leading-[1.85]"
-                  style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
-                >
-                  {p}
-                </p>
-              </Reveal>
+        {/* ═══ 4. SECTION: PANDUAN DUMP TRUCK ═══ */}
+
+        {/* 4a. Kicker + H2 */}
+        <Reveal y={20}>
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" aria-hidden="true" />
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-[#1e88e5] font-bold">
+                {d.sectionGuide}
+              </span>
+              <span className="w-8 sm:w-12 h-px bg-[#1e88e5]" aria-hidden="true" />
+            </div>
+
+            <h2
+              className="font-light tracking-tight text-slate-900 leading-tight text-balance max-w-2xl mx-auto"
+              style={{ fontSize: "clamp(1.25rem, 3vw, 1.75rem)" }}
+            >
+              {d.sectionGuideTitle1}
+              <span className="font-semibold">{d.sectionGuideTitle2}</span>
+              {d.sectionGuideTitle3}
+            </h2>
+          </div>
+        </Reveal>
+
+        {/* 4b. ACCORDION ITEMS */}
+        {d.accordionItems.map((item, i) => {
+          const number = String(i + 1).padStart(2, "0");
+          return (
+            <Reveal key={item.title} delay={80 + i * 60} y={24}>
+              <Accordion
+                id={`item-${i + 1}`}
+                index={i}
+                number={number}
+                title={item.title}
+                isOpen={openIndex === i}
+                onToggle={toggle}
+              >
+                <div className="space-y-4">
+                  {item.paragraphs.map((p, j) => (
+                    <RenderContent key={j} text={p} />
+                  ))}
+                </div>
+              </Accordion>
+            </Reveal>
+          );
+        })}
+
+        {/* ═══ 5. PENUTUP ═══ */}
+        <Reveal y={24}>
+          <div className="mt-10 sm:mt-14 rounded-2xl bg-slate-50 border border-slate-200 p-5 sm:p-7 space-y-3">
+            {d.penutup.map((p, i) => (
+              <RenderContent key={i} text={p} />
             ))}
           </div>
-        </div>
+        </Reveal>
 
-        {/* ═══ ACCORDION ═══ */}
-        {d.accordionItems.map((item, i) => (
-          <Reveal key={i} delay={i * 40} y={24}>
-            <Accordion
-              title={item.title}
-              isOpen={openIndex === i}
-              onToggle={() => toggle(i)}
-              labels={L}
-            >
-              {item.paragraphs.map((p, j) => (
-                <RenderContent key={j} text={p} />
-              ))}
-            </Accordion>
-          </Reveal>
-        ))}
-
-        {/* ═══ CTA ═══ */}
+        {/* ═══ 6. CTA PREMIUM ═══ */}
         <Reveal y={34}>
-          <div className="mt-12 sm:mt-16 pb-12 sm:pb-16 text-center max-w-2xl mx-auto">
-            <p className="text-[#1e88e5] text-[10px] uppercase tracking-[0.3em]
-                          font-semibold mb-3">
-              {d.ctaBadge}
-            </p>
-            <h2
-              className="text-slate-900 font-light tracking-tight mb-5 sm:mb-6"
-              style={{ fontSize: "clamp(1.125rem, 2.8vw, 1.5rem)" }}
-            >
-              {d.ctaTitle1}
-              <span className="font-semibold">{d.ctaTitle2}</span>
-            </h2>
+          <div className="relative mt-12 sm:mt-16 rounded-3xl overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 p-8 sm:p-12 lg:p-14 text-center shadow-2xl shadow-slate-900/30">
+            <div
+              aria-hidden="true"
+              className="absolute top-0 right-0 w-72 h-72 bg-[#1e88e5] rounded-full blur-3xl opacity-25 pointer-events-none"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute bottom-0 left-0 w-72 h-72 bg-[#25D366] rounded-full blur-3xl opacity-[0.12] pointer-events-none"
+            />
 
-            <a
-              href={`https://wa.me/6282258089367?text=${d.ctaWaText}`}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={d.ctaButton}
-              className="inline-flex items-center justify-center gap-2
-                         px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl
-                         bg-slate-900 text-white
-                         hover:bg-[#1e88e5]
-                         font-semibold text-[11px] sm:text-[12px]
-                         uppercase tracking-[0.12em] sm:tracking-[0.15em]
-                         transition-colors duration-200"
-            >
-              <IconWhatsApp className="w-4 h-4 shrink-0" />
-              {d.ctaButton}
-              <IconArrowRight className="w-3.5 h-3.5 shrink-0" />
-            </a>
+            <div className="relative z-10">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4da3ff]/10 border border-[#4da3ff]/25 mb-5">
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"
+                  aria-hidden="true"
+                />
+                <span className="text-[#4da3ff] text-[10px] sm:text-[11px] uppercase tracking-[0.25em] font-bold">
+                  {d.ctaBadge}
+                </span>
+              </div>
+
+              <h2
+                className="text-white font-light tracking-tight leading-snug mb-6 sm:mb-8 text-balance"
+                style={{ fontSize: "clamp(1.5rem, 4vw, 2rem)" }}
+              >
+                {d.ctaTitle1}
+                <span className="font-bold">{d.ctaTitle2}</span>
+              </h2>
+
+              <a
+                href={`https://wa.me/6282258089367?text=${encodeURIComponent(d.ctaWaText)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-12 items-center justify-center gap-2.5
+                           px-7 sm:px-9 py-4 rounded-xl
+                           bg-emerald-700 hover:bg-emerald-600
+                           text-white font-bold
+                           uppercase tracking-[0.12em] sm:tracking-[0.15em]
+                           shadow-xl shadow-emerald-900/30
+                           transition-all duration-300
+                           hover:scale-[1.02]
+                           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                style={{ fontSize: "clamp(0.75rem, 1.2vw, 0.875rem)" }}
+              >
+                <IconWhatsApp className="w-5 h-5 shrink-0" />
+                {d.ctaButton}
+                <IconArrowRight className="w-4 h-4 shrink-0" />
+              </a>
+            </div>
           </div>
         </Reveal>
 

@@ -4,9 +4,9 @@ import { createPageMetadata } from "../../../lib/metadata";
 
 export const metadata = createPageMetadata({
   path: "/supplier/batu-split",
-  title: "Batu Split",
+  title: "Jual Batu Split Segala Ukuran",
   description:
-    "Jual batu split segala bentuk dan ukuran untuk konstruksi, pengaspalan, cor beton, dan lainnya. Siap antar.",
+    "Jual batu split ukuran 0-5mm hingga 30-50mm untuk cor beton, pengaspalan, dan base course. Kualitas terjamin, siap antar ke lokasi proyek.",
   image: "/produk/batu-split.png",
 });
 

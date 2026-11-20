@@ -4,9 +4,9 @@ import { createPageMetadata } from "../../../lib/metadata";
 
 export const metadata = createPageMetadata({
   path: "/supplier/pasir-pasang",
-  title: "Pasir Pasang",
+  title: "Jual Pasir Pasang untuk Bata & Plester",
   description:
-    "Jual pasir pasang untuk pemasangan bata, plesteran, dan acian. Tekstur kasar, daya rekat kuat, harga terjangkau.",
+    "Jual pasir pasang berkualitas untuk pemasangan bata merah, batako, dan bata ringan (hebel). Daya rekat kuat, harga terjangkau, siap antar ke lokasi proyek.",
   image: "/produk/pasir-pasang.png",
 });
 

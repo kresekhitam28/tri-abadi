@@ -4,9 +4,9 @@ import { createPageMetadata } from "../../../lib/metadata";
 
 export const metadata = createPageMetadata({
   path: "/supplier/base-course",
-  title: "Base Course",
+  title: "Jual Base Course Siap Antar",
   description:
-    "Jual batu base course untuk kebutuhan konstruksi jalan, lahan parkir, dan lainnya. Kualitas super, siap antar.",
+    "Jual batu base course Kelas A & Kelas B untuk konstruksi jalan, lahan parkir, dan area industri. Kualitas terjamin, siap antar ke lokasi proyek.",
   image: "/produk/base-course.png",
 });
 

@@ -4,9 +4,9 @@ import { createPageMetadata } from "../../../lib/metadata";
 
 export const metadata = createPageMetadata({
   path: "/supplier/tanah-urug",
-  title: "Tanah Urug",
+  title: "Jual Tanah Urug untuk Peninggian Lahan",
   description:
-    "Jual tanah urug untuk pengurugan lahan dan meninggikan permukaan tanah. Volume besar tersedia, harga ekonomis, pengiriman cepat.",
+    "Jual tanah urug berkualitas untuk peninggian lahan, perataan kontur tanah, dan proyek konstruksi. Bebas sampah organik, siap antar volume besar.",
   image: "/produk/tanah-urug.png",
 });
 

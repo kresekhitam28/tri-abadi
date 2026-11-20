@@ -11,9 +11,6 @@ import { useReveal } from "../hooks/useReveal";
 import ArticleQuotePanel from "./ArticleQuotePanel";
 
 // ─────────────────────────────────────────────
-// HOOK: deteksi mobile
-// ─────────────────────────────────────────────
-// ─────────────────────────────────────────────
 // KOMPONEN: REVEAL WRAPPER
 // ─────────────────────────────────────────────
 function Reveal({
@@ -40,7 +37,8 @@ function Reveal({
       opacity: visible ? 1 : 0,
       transform: visible ? "translateY(0)" : `translateY(${y}px)`,
       willChange: visible ? "auto" : "opacity, transform",
-      contain: "layout paint style",
+      // paint dihapus saat visible supaya focus outline tidak ter-clip
+      contain: visible ? "layout style" : "layout paint style",
     };
   }, [enabled, visible, duration, delay, y]);
 
@@ -139,6 +137,7 @@ const content = {
     invalidComment: "Isi nama dan komentar Anda.",
     contactLink: "Buka halaman Kontak",
     btnIdle: "Kirim Komentar",
+    commentThanks: "Terima kasih! Pesan Anda sudah kami terima.",
     authorBio:
       "PT Tri Abadi Makmur merupakan perusahaan kontraktor pengaspalan jalan dan konstruksi umum di Jabodetabek, Banten & Jawa Barat yang mengedepankan kualitas material, ketepatan waktu, dan garansi hasil pekerjaan.",
     authorDesc:
@@ -146,6 +145,7 @@ const content = {
     copied: "Link disalin!",
     share: "Bagikan",
     copyLink: "Salin Link",
+    imageFallback: "PT Tri Abadi Makmur",
   },
   en: {
     breadcrumb: "Breadcrumb",
@@ -174,6 +174,7 @@ const content = {
     invalidComment: "Enter your name and comment.",
     contactLink: "Open the Contact page",
     btnIdle: "Send Comment",
+    commentThanks: "Thank you! We have received your message.",
     authorBio:
       "PT Tri Abadi Makmur is an asphalt paving and general construction contractor across Greater Jakarta, Banten & West Java prioritizing material quality, punctuality, and guaranteed workmanship.",
     authorDesc:
@@ -181,6 +182,7 @@ const content = {
     copied: "Link copied!",
     share: "Share",
     copyLink: "Copy Link",
+    imageFallback: "PT Tri Abadi Makmur",
   },
 };
 
@@ -199,6 +201,46 @@ function TagItem({ tag, lang, className }) {
   return <span className={className}>{label}</span>;
 }
 
+// ─────────────────────────────────────────────
+// KARTU ARTIKEL TERKAIT
+// ─────────────────────────────────────────────
+function RelatedCard({ rel, lang }) {
+  const [imgError, setImgError] = useState(false);
+  const alt = pick(rel.illustration, lang) || pick(rel.title, lang);
+
+  return (
+    <Link
+      href={`/blog/${rel.slug}`}
+      className="group flex flex-col rounded-xl overflow-hidden border border-slate-200 hover:border-[#1e88e5]/60 bg-slate-50/50 hover:bg-white transition-all"
+    >
+      <div className="relative aspect-video bg-slate-100 overflow-hidden">
+        {rel.src && !imgError ? (
+          <Image
+            src={rel.src}
+            alt={alt}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-slate-400 text-[10px] font-semibold uppercase tracking-[0.2em]">
+            PT Tri Abadi Makmur
+          </div>
+        )}
+      </div>
+      <div className="p-4 flex-1">
+        <p className="text-[10px] uppercase tracking-wider text-[#1e88e5] font-semibold mb-1.5">
+          {pick(rel.category, lang)}
+        </p>
+        <h3 className="text-sm font-semibold text-slate-900 group-hover:text-[#1e88e5] line-clamp-2 leading-snug transition-colors">
+          {pick(rel.title, lang)}
+        </h3>
+      </div>
+    </Link>
+  );
+}
+
 const commentFieldClass = "block w-full rounded-xl border border-slate-500 bg-slate-50 px-4 py-3.5 text-base text-slate-800 focus:border-blue-700 focus:bg-white focus:outline-2 focus:outline-offset-1 focus:outline-blue-700";
 
 // ─────────────────────────────────────────────
@@ -212,7 +254,7 @@ function ArticleBody({ body, lang, priceGuide }) {
       {body.map((block, i) => {
         if (block.type === "heading") {
           return (
-            <Reveal key={i} y={16}>
+            <Reveal key={block.id || `${block.type}-${i}`} y={16}>
               <h2
                 id={block.id}
                 className={`scroll-mt-24 font-semibold leading-snug tracking-tight text-slate-900 ${priceGuide ? "pt-3 sm:pt-4" : "pt-4 sm:pt-6"}`}
@@ -226,7 +268,11 @@ function ArticleBody({ body, lang, priceGuide }) {
 
         if (priceGuide && block.type === "price-list") {
           return (
-            <div key={i} className="min-w-0 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: pick(block.text, lang) }} />
+            <div
+              key={`${block.type}-${i}`}
+              className="min-w-0 text-sm leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: pick(block.text, lang) }}
+            />
           );
         }
 
@@ -236,7 +282,7 @@ function ArticleBody({ body, lang, priceGuide }) {
           const containsHtml = text.includes("<") && text.includes(">");
 
           return (
-            <Reveal key={i} y={14}>
+            <Reveal key={`${block.type}-${i}`} y={14}>
               {isFirst && !containsHtml && !priceGuide ? (
                 <p
                   className="text-slate-700 leading-[1.9] sm:leading-[1.95]
@@ -270,7 +316,7 @@ function ArticleBody({ body, lang, priceGuide }) {
         if (block.type === "list") {
           const Tag = block.ordered ? "ol" : "ul";
           return (
-            <Reveal key={i} y={14}>
+            <Reveal key={`${block.type}-${i}`} y={14}>
               <Tag
                 className={`${block.ordered ? "list-decimal" : "list-disc"}
                             list-outside pl-5 sm:pl-6 space-y-3 sm:space-y-3.5
@@ -281,9 +327,7 @@ function ArticleBody({ body, lang, priceGuide }) {
                 {block.items.map((it, j) => {
                   const itemText = pick(it, lang);
                   if (itemText.includes("<") && itemText.includes(">")) {
-                    return (
-                      <li key={j} dangerouslySetInnerHTML={{ __html: itemText }} />
-                    );
+                    return <li key={j} dangerouslySetInnerHTML={{ __html: itemText }} />;
                   }
                   return <li key={j}>{itemText}</li>;
                 })}
@@ -312,13 +356,18 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
   const [comment, setComment] = useState("");
   const [status, setStatus] = useState("idle");
   const [copied, setCopied] = useState(false);
+  const [coverError, setCoverError] = useState(false);
   const copyTimer = useRef(null);
   const submission = useRef(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    window.scrollTo({ top: 0, behavior: "instant" });
+    window.scrollTo({ top: 0, behavior: "auto" });
   }, [slug]);
+
+  useEffect(() => {
+    setCoverError(false);
+  }, [article.src]);
 
   useEffect(() => () => {
     clearTimeout(copyTimer.current);
@@ -331,6 +380,9 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
   const title = pick(article.title, lang);
   const illustration = pick(article.illustration, lang);
   const shareText = encodeURIComponent(`${title} — ${pageUrl}`);
+
+  const hasModifiedDate =
+    modifiedDateExists(article) && article.modifiedDateISO !== article.dateISO;
 
   function showCopied() {
     clearTimeout(copyTimer.current);
@@ -440,7 +492,7 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
   return (
     <article className="bg-white" style={{ contain: "layout style" }}>
       {/* ═══ HERO ═══ */}
-      <section className={priceGuide ? "pb-5 pt-23 sm:pb-6 sm:pt-26" : "pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 lg:pb-12"}>
+      <section className={priceGuide ? "pb-5 pt-[92px] sm:pb-6 sm:pt-[104px]" : "pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 lg:pb-12"}>
         <div className="relative max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <nav aria-label={t.breadcrumb} className="mb-3 text-xs text-slate-600">
             <ol className="flex min-w-0 items-center justify-center gap-2">
@@ -474,7 +526,7 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
                 </time>
               </p>
             )}
-            {modifiedDate && (
+            {hasModifiedDate && (
               <p>
                 {t.modifiedLabel}{" "}
                 <time dateTime={article.modifiedDateISO} className="font-medium text-slate-700">
@@ -487,31 +539,31 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
       </section>
 
       {article.quote && (
-        <div className="mx-auto mb-6 max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-6 max-w-4xl px-5 sm:px-6 lg:px-8">
           <ArticleQuotePanel quote={article.quote} lang={lang} />
         </div>
       )}
 
       {/* ═══ COVER ═══ */}
-      <section className={`mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 ${priceGuide ? "mt-4 sm:mt-6" : "mt-4 sm:mt-8 lg:mt-12"}`}>
+      <section className={`mx-auto max-w-4xl px-5 sm:px-6 lg:px-8 ${priceGuide ? "mt-4 sm:mt-6" : "mt-4 sm:mt-8 lg:mt-12"}`}>
         <Reveal y={26} duration={800}>
           <figure
-            className={`relative aspect-video overflow-hidden rounded-2xl ring-1 ring-slate-200 ${illustration ? "bg-white" : "bg-slate-100"}`}
+            className={`relative aspect-video overflow-hidden rounded-2xl ring-1 ring-slate-200 ${illustration && !coverError ? "bg-white" : "bg-slate-100"}`}
           >
             <Image
-              src={article.src}
+              src={coverError ? "https://placehold.co/1200x675/e2e8f0/64748b?text=Blog" : article.src}
               alt={illustration || title}
               fill
               priority={!article.quote}
               sizes="(max-width: 1024px) 100vw, 896px"
-              className={illustration ? "object-scale-down p-5 pb-12" : "object-cover"}
-              onError={(e) => {
-                e.currentTarget.onerror = null;
-                e.currentTarget.src =
-                  "https://placehold.co/1200x675/e2e8f0/64748b?text=Blog";
-              }}
+              className={illustration && !coverError ? "object-scale-down p-5 pb-12" : "object-cover"}
+              onError={() => setCoverError(true)}
             />
-            {illustration && <figcaption className="absolute inset-x-0 bottom-4 px-3 text-center text-sm text-slate-600">{illustration}</figcaption>}
+            {illustration && !coverError && (
+              <figcaption className="absolute inset-x-0 bottom-4 px-3 text-center text-sm text-slate-600">
+                {illustration}
+              </figcaption>
+            )}
           </figure>
         </Reveal>
       </section>
@@ -531,11 +583,7 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
 
         {/* ═══ TAGS & SHARE ═══ */}
         <Reveal y={20}>
-          <div
-            className="mt-12 sm:mt-14 pt-6 sm:pt-8 border-t border-slate-200
-                       flex flex-col sm:flex-row sm:items-start
-                       sm:justify-between gap-8 sm:gap-10"
-          >
+          <div className="mt-12 sm:mt-14 pt-6 sm:pt-8 border-t border-slate-200 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8 sm:gap-10">
             {visibleTags.length > 0 ? (
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-3 text-slate-400">
@@ -550,11 +598,7 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
                       key={i}
                       tag={tag}
                       lang={lang}
-                      className="inline-block px-3 py-1.5 rounded-md
-                                 bg-slate-50 border border-slate-200
-                                 text-[11px] sm:text-xs text-slate-600 font-medium
-                                 hover:border-[#1e88e5]/50 hover:text-[#1e88e5]
-                                 transition-colors"
+                      className="inline-block px-3 py-1.5 rounded-md bg-slate-50 border border-slate-200 text-[11px] sm:text-xs text-slate-600 font-medium hover:border-[#1e88e5]/50 hover:text-[#1e88e5] transition-colors"
                     />
                   ))}
                 </div>
@@ -577,10 +621,7 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
                   onClick={handleShare}
                   aria-label={t.share}
                   title={t.share}
-                  className="w-10 h-10 flex items-center justify-center rounded-full
-                             border border-slate-200 text-slate-600
-                             hover:bg-slate-900 hover:text-white hover:border-slate-900
-                             transition-colors"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-colors"
                 >
                   <I.Share className="w-4 h-4" />
                 </button>
@@ -591,10 +632,7 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
                   rel="noreferrer"
                   aria-label="WhatsApp"
                   title="WhatsApp"
-                  className="w-10 h-10 flex items-center justify-center rounded-full
-                             border border-slate-200 text-slate-600
-                             hover:bg-slate-900 hover:text-white hover:border-slate-900
-                             transition-colors"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-colors"
                 >
                   <I.WA className="w-4 h-4" />
                 </a>
@@ -604,10 +642,7 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
                   onClick={handleCopyLink}
                   aria-label={t.copyLink}
                   title={t.copyLink}
-                  className="w-10 h-10 flex items-center justify-center rounded-full
-                             border border-slate-200 text-slate-600
-                             hover:bg-slate-900 hover:text-white hover:border-slate-900
-                             transition-colors"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-colors"
                 >
                   {copied ? (
                     <I.Check className="w-4 h-4 text-emerald-500" />
@@ -628,15 +663,9 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
 
         {/* ═══ AUTHOR ═══ */}
         <Reveal y={22}>
-          <div
-            className="mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-slate-200
-                       flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 sm:gap-6"
-          >
+          <div className="mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-slate-200 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 sm:gap-6">
             {article.author?.avatar && (
-              <div
-                className="relative w-20 h-20 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden shrink-0
-                           bg-slate-100 ring-1 ring-slate-200"
-              >
+              <div className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden shrink-0 bg-slate-100 ring-1 ring-slate-200">
                 <Image
                   src={article.author.avatar}
                   alt={article.author?.name || "PT Tri Abadi Makmur"}
@@ -712,20 +741,9 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
               <h2 className="text-[17px] sm:text-[18px] font-semibold text-slate-900 mb-6">
                 {t.relatedTitle}
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {relatedArticles.map((rel) => (
-                  <Link
-                    key={rel.slug}
-                    href={`/blog/${rel.slug}`}
-                    className="group block p-4 rounded-xl border border-slate-200 hover:border-[#1e88e5]/60 bg-slate-50/50 hover:bg-white transition-all"
-                  >
-                    <p className="text-[10px] uppercase tracking-wider text-[#1e88e5] font-semibold mb-1.5">
-                      {pick(rel.category, lang)}
-                    </p>
-                    <h3 className="text-sm font-semibold text-slate-900 group-hover:text-[#1e88e5] line-clamp-2 leading-snug transition-colors">
-                      {pick(rel.title, lang)}
-                    </h3>
-                  </Link>
+                  <RelatedCard key={rel.slug} rel={rel} lang={lang} />
                 ))}
               </div>
             </div>
@@ -745,55 +763,102 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
               {t.commentNote}
             </p>
 
-            <form onSubmit={handleSubmit} aria-describedby="article-comment-note" className="space-y-4">
-              <input className="hidden" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" />
-              <div>
-                <label htmlFor="article-comment" className="mb-2 block text-sm font-semibold text-slate-700">{t.commentLabel}</label>
-                <textarea
-                  id="article-comment"
-                  rows={4}
-                  required
-                  value={comment}
-                  onChange={(e) => setComment(e.target.value)}
-                  className={`${commentFieldClass} resize-y`}
-                />
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="article-comment-name" className="mb-2 block text-sm font-semibold text-slate-700">{t.nameLabel}</label>
-                  <input id="article-comment-name" type="text" autoComplete="name" required value={name} onChange={(e) => setName(e.target.value)} className={commentFieldClass} />
-                </div>
-                <div>
-                  <label htmlFor="article-comment-email" className="mb-2 block text-sm font-semibold text-slate-700">{t.emailLabel}</label>
-                  <input id="article-comment-email" type="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} className={commentFieldClass} />
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="mt-2 inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-blue-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 disabled:cursor-not-allowed disabled:bg-slate-600 sm:w-auto"
+            {status === "success" ? (
+              <div
+                role="status"
+                className="rounded-2xl border border-emerald-200 bg-emerald-50 px-6 py-5"
               >
-                {t.btnIdle}
-              </button>
-              <p role="status" className="text-sm font-medium text-slate-700 empty:m-0">
-                {{
-                  sending: t.btnSending,
-                  success: t.btnSuccess,
-                  error: t.btnError,
-                  invalid: t.invalidComment,
-                }[status]}
-              </p>
-              {status === "error" && (
-                <Link href="/kontak" className="inline-flex min-h-11 items-center rounded font-semibold text-blue-700 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-blue-700">
-                  {t.contactLink}
-                </Link>
-              )}
-            </form>
+                <p className="font-semibold text-emerald-800 flex items-center gap-2">
+                  <I.Check className="w-4 h-4 text-emerald-600" />
+                  {t.btnSuccess}
+                </p>
+                <p className="mt-1 text-sm text-emerald-700">{t.commentThanks}</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} aria-describedby="article-comment-note" className="space-y-4">
+                <input className="hidden" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+                <div>
+                  <label htmlFor="article-comment" className="mb-2 block text-sm font-semibold text-slate-700">
+                    {t.commentLabel}
+                  </label>
+                  <textarea
+                    id="article-comment"
+                    rows={4}
+                    required
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                    className={`${commentFieldClass} resize-y`}
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="article-comment-name" className="mb-2 block text-sm font-semibold text-slate-700">
+                      {t.nameLabel}
+                    </label>
+                    <input
+                      id="article-comment-name"
+                      type="text"
+                      autoComplete="name"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className={commentFieldClass}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="article-comment-email" className="mb-2 block text-sm font-semibold text-slate-700">
+                      {t.emailLabel}
+                    </label>
+                    <input
+                      id="article-comment-email"
+                      type="email"
+                      autoComplete="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className={commentFieldClass}
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  className="mt-2 inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-blue-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 disabled:cursor-not-allowed disabled:bg-slate-600 sm:w-auto"
+                >
+                  {status === "sending" ? t.btnSending : t.btnIdle}
+                </button>
+
+                {status === "error" && (
+                  <div className="space-y-2">
+                    <p role="alert" className="text-sm font-medium text-red-600">
+                      {t.btnError}
+                    </p>
+                    <Link
+                      href="/kontak"
+                      className="inline-flex min-h-11 items-center rounded font-semibold text-blue-700 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-blue-700"
+                    >
+                      {t.contactLink}
+                    </Link>
+                  </div>
+                )}
+
+                {status === "invalid" && (
+                  <p role="alert" className="text-sm font-medium text-red-600">
+                    {t.invalidComment}
+                  </p>
+                )}
+              </form>
+            )}
           </div>
         </Reveal>
       </section>
     </article>
   );
+}
+
+// helper kecil di luar komponen
+function modifiedDateExists(article) {
+  return Boolean(article && article.modifiedDateISO);
 }

@@ -2,291 +2,508 @@
 "use client";
 
 import { useState, useCallback, memo } from "react";
+import Image from "next/image";
 import { useLang } from "../context/LanguageContext";
 import Reveal from "./Reveal";
+// INTEGRASI DENGAN METADATA HELPER MILIKMU
+import { SITE_URL, SITE_NAME, SITE_ENTITY_ID, serializeJsonLd } from "../lib/metadata";
 
 // ─────────────────────────────────────────────
-// ACCORDION (controlled — memoized)
+// KONFIG — DISESUAIKAN DENGAN ROUTE /supplier/
+// ─────────────────────────────────────────────
+const PRODUCT_SLUG = "batu-kali";
+const PRODUCT_URL = `${SITE_URL}/supplier/${PRODUCT_SLUG}`;
+const PRODUCT_IMAGE = `${SITE_URL}/produk/batu-kali.png`;
+
+// ─────────────────────────────────────────────
+// IKON
+// ─────────────────────────────────────────────
+function IconWhatsApp({ className = "w-5 h-5" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+  );
+}
+function IconArrowRight({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M5 12h14M13 5l7 7-7 7" />
+    </svg>
+  );
+}
+function IconChevron({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  );
+}
+function IconInfo({ className = "w-5 h-5" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 16v-4M12 8h.01" />
+    </svg>
+  );
+}
+function IconCheck({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3}
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M5 12l5 5L20 7" />
+    </svg>
+  );
+}
+
+const BODY_FONT = { fontSize: "clamp(0.875rem, 1.5vw, 0.9375rem)" };
+const BODY_CLASS = "text-slate-700 leading-[1.9]";
+
+// ─────────────────────────────────────────────
+// ACCORDION
 // ─────────────────────────────────────────────
 const Accordion = memo(function Accordion({
-  title,
-  isOpen,
-  onToggle,
-  children,
-  labels,
+  id, index, number, title, isOpen, onToggle, children,
 }) {
+  const buttonId = `batu-kali-btn-${id}`;
+  const panelId = `batu-kali-panel-${id}`;
+
   return (
     <div
-      className={`border rounded-xl overflow-hidden mb-2.5 bg-white
+      className={`group relative rounded-2xl border mb-4 overflow-hidden
                   transition-colors duration-200
-                  ${isOpen ? "border-[#1e88e5]" : "border-slate-200"}`}
-      style={{ contain: "layout paint style" }}
+                  ${isOpen
+                    ? "border-[#1e88e5]/30 bg-gradient-to-br from-white to-blue-50/40 shadow-lg shadow-[#1e88e5]/10"
+                    : "border-slate-200 bg-white hover:border-[#1e88e5]/30"}`}
     >
-      <button
-        type="button"
-        onClick={onToggle}
-        aria-expanded={isOpen}
-        aria-label={title}
-        className="w-full flex items-center gap-3 sm:gap-4
-                   px-4 sm:px-5 py-3.5 sm:py-4
-                   text-left cursor-pointer transition-colors duration-150"
-      >
-        <span
-          className={`flex-1 font-semibold uppercase tracking-[0.12em]
-                      ${isOpen ? "text-[#1e88e5]" : "text-slate-800"}`}
-          style={{ fontSize: "clamp(0.75rem, 1.5vw, 0.84375rem)" }}
-        >
-          {title}
-        </span>
-        <span
-          className={`shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-full border
-                      font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]
-                      transition-colors duration-150
-                      ${isOpen
-                        ? "bg-[#1e88e5] text-white border-[#1e88e5]"
-                        : "bg-white text-slate-500 border-slate-300"}`}
-          style={{ fontSize: "clamp(0.5625rem, 1vw, 0.625rem)" }}
-        >
-          {isOpen ? labels.close : labels.open}
-        </span>
-      </button>
+      <span
+        aria-hidden="true"
+        className={`absolute left-0 top-0 bottom-0 w-1
+                    bg-gradient-to-b from-[#1e88e5] to-[#1565c0]
+                    transition-opacity duration-200
+                    ${isOpen ? "opacity-100" : "opacity-0"}`}
+      />
 
-      {isOpen && (
-        <div
-          className="px-4 sm:px-5 pb-4 sm:pb-5 pt-1
-                     text-slate-700 leading-[1.85]
-                     border-t border-slate-100"
-          style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
+      <h3 className="m-0 p-0 text-base font-normal leading-normal">
+        <button
+          id={buttonId}
+          type="button"
+          onClick={() => onToggle(index)}
+          aria-expanded={isOpen}
+          aria-controls={panelId}
+          className="w-full flex items-center gap-3 sm:gap-4
+                     px-4 sm:px-6 py-4 sm:py-5
+                     text-left cursor-pointer
+                     focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-blue-700"
         >
-          {children}
+          <span
+            aria-hidden="true"
+            className={`shrink-0 flex items-center justify-center
+                        w-10 h-10 sm:w-11 sm:h-11 rounded-xl
+                        font-mono tabular-nums text-xs sm:text-[13px] font-bold tracking-tight
+                        transition-colors duration-200
+                        ${isOpen
+                          ? "bg-gradient-to-br from-[#1e88e5] to-[#1565c0] text-white shadow-md shadow-[#1e88e5]/30"
+                          : "bg-slate-100 text-slate-500"}`}
+          >
+            {number}
+          </span>
+
+          <span
+            className={`flex-1 font-semibold leading-snug tracking-tight
+                        text-[0.9375rem] sm:text-base
+                        ${isOpen ? "text-slate-900" : "text-slate-800"}`}
+          >
+            {title}
+          </span>
+
+          <span
+            aria-hidden="true"
+            className={`shrink-0 flex items-center justify-center w-9 h-9 rounded-full
+                        transition-colors duration-200
+                        ${isOpen ? "bg-[#1e88e5] text-white" : "bg-slate-50 text-slate-400"}`}
+          >
+            <IconChevron
+              className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+            />
+          </span>
+        </button>
+      </h3>
+
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={buttonId}
+        aria-hidden={!isOpen}
+        className="grid transition-[grid-template-rows] duration-200 ease-out"
+        style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+      >
+        <div className="overflow-hidden">
+          <div
+            className="px-4 sm:px-6 pb-5 sm:pb-6
+                       ml-4 sm:ml-6 mr-4 sm:mr-6 mb-4
+                       border-t border-slate-200/70"
+            style={BODY_FONT}
+          >
+            <div className="pt-5 text-slate-600 leading-[1.9] space-y-3.5">
+              {children}
+            </div>
+          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 });
 
 // ─────────────────────────────────────────────
-// SUB-KOMPONEN: PARAGRAPH (memoized)
-// ─────────────────────────────────────────────
-const Paragraph = memo(function Paragraph({ text }) {
-  return (
-    <p
-      className="text-slate-700 leading-[1.85]"
-      style={{ fontSize: "clamp(0.8125rem, 1.5vw, 0.875rem)" }}
-    >
-      {text}
-    </p>
-  );
-});
-
-// ─────────────────────────────────────────────
-// SUB-KOMPONEN: JENIS ITEM (memoized)
-// ─────────────────────────────────────────────
-const JenisItem = memo(function JenisItem({ item, index, isOpen, onToggle, labels }) {
-  return (
-    <Accordion
-      title={item.title}
-      isOpen={isOpen}
-      onToggle={onToggle}
-      labels={labels}
-    >
-      <div className="space-y-3.5">
-        {item.paragraphs.map((p, j) => (
-          <Paragraph key={j} text={p} />
-        ))}
-      </div>
-    </Accordion>
-  );
-});
-
-// ─────────────────────────────────────────────
-// DATA BILINGUAL
+// DATA
 // ─────────────────────────────────────────────
 const data = {
   id: {
     title: "Batu Kali / Batu Belah",
     subtitle: "Jual Batu Kali atau Batu Belah Murah Berkualitas",
     thumbImage: "/produk/batu-kali.png",
-    fallbackImage: "/produk/batu-kali.png",
+    imageAlt: "Tumpukan batu kali dan batu belah untuk pondasi bangunan",
+    sectionWhat: "Mengenal Batu Kali",
+
+    sectionManfaat: "Manfaat Batu Kali",
+    sectionManfaatTitle1: "Manfaat ",
+    sectionManfaatTitle2: "Batu Kali",
+    sectionManfaatTitle3: " untuk Konstruksi",
+
+    sectionJenis: "Jenis-Jenis Batu Belah",
+    sectionJenisTitle1: "Jenis-Jenis ",
+    sectionJenisTitle2: "Batu Belah",
+    sectionJenisTitle3: " Berdasarkan Ukuran",
+
     intro: [
-      "Batu Kali – PT Tri Abadi Makmur merupakan salah satu perusahaan yang bergerak dalam bidang konstruksi.",
-      "Selain berpengalaman dan proses pengerjaan yang signifikan, kami mengutamakan material yang berkualitas.",
-      "Salah satu material berkualitas yang kami gunakan adalah batu kali atau batu belah.",
-      "Batu belah tersebut merupakan material alam yang diproduksi dan proses pembelahan batu besar menjadi bagian-bagian yang lebih kecil.",
+      "Batu Kali (batu belah) merupakan material alam yang dihasilkan dari proses pembelahan bongkahan batu besar menjadi bongkahan yang lebih kecil dengan ukuran beragam.",
+      "Material ini banyak digunakan sebagai bahan campuran beton, material pondasi bangunan, hingga lapis pondasi jalan.",
+      "Kami menyediakan batu kali dan batu belah dengan kualitas terjamin, siap antar ke lokasi proyek Anda.",
     ],
-    after: [
-      "Batuannya sendiri bisa berasal dari kali atau sungai.",
-      "Berikut akan diulas lebih lanjut informasi mengenai jenis batu tersebut.",
+
+    generalIntro: [
+      "Batu kali umumnya berasal dari sungai atau kali, sedangkan batu belah berasal dari batu gunung yang dibelah.",
+      "Berdasarkan ukurannya, batu belah dikelompokkan menjadi beberapa jenis dengan aplikasi yang berbeda-beda.",
+      "Berikut manfaat dan jenis-jenis batu kali yang perlu Anda ketahui.",
     ],
+
     manfaat: [
-      "Pada umumnya, batu digunakan sebagai bahan campuran dalam pembangunan atau konstruksi, sama halnya dengan batu kali.",
-      "Batu jenis ini mempunyai manfaat yang sama yaitu sebagai bahan campuran dalam material beton, pasir, semen, atau material lain.",
-      "Campuran dari material beton memiliki banyak manfaat dalam dunia konstruksi.",
-      "Betonnya memiliki banyak sekali kegunaan, seperti pembangunan jalan, pembangunan berbagai jenis konstruksi sipil, jembatan, dan lain sebagainya.",
-      "Akan tetapi kelebihan manfaat yang dimiliki batu ini untuk material konstruksi yaitu:",
-      "Salah satu diantaranya yaitu bila di dalam material konstruksi memiliki material koral dan sangat kuat.",
-      "Selain itu, konstruksi juga akan memiliki umur yang lama dan tidak mudah rapuh bila komposisi adonan tepat.",
+      "Bahan campuran beton (agregat kasar) bersama pasir, semen, dan air untuk menghasilkan struktur yang kokoh.",
+      "Material pondasi bangunan — baik pondasi menerus, pondasi batu kali, maupun pondasi telapak.",
+      "Lapis pondasi bawah (sub-base) pada konstruksi jalan sebelum ditutup material aspal atau paving.",
+      "Bahan pengisi (rip-rap) pada tanggul, bantaran sungai, dan struktur pemecah gelombang.",
+      "Pemberat pipa dasar laut, bantalan rel kereta api, dan pengisi struktur bawah air lainnya.",
+      "Menghasilkan konstruksi yang kokoh, tahan lama, dan tidak mudah rapuh bila komposisi campuran tepat.",
     ],
+
     jenisIntro: [
-      "Pada umumnya, ada beberapa jenis batu kali atau batu belah yang digunakan untuk kebutuhan konstruksi.",
-      "Namun, berdasarkan ukurannya, ada 5 jenis batu belah yang biasanya digunakan.",
-      "Berikut akan diulas mengenai berbagai jenis batu tersebut.",
+      "Berdasarkan ukurannya, batu belah dikelompokkan menjadi beberapa jenis.",
+      "Setiap ukuran memiliki kegunaan yang berbeda, mulai dari campuran aspal hingga pondasi bangunan.",
+      "Berikut jenis-jenis batu belah yang umum digunakan dalam konstruksi.",
     ],
+
     jenisItems: [
       {
-        title: "Ukuran 0 – 5 mm",
+        title: "Ukuran 0 – 5 mm (Abu Batu Halus)",
         paragraphs: [
-          "Bentuk batu ini ukurannya sangat lembut dan hampir menyerupai pasir yang halus.",
-          "Nah, batu ini biasanya digunakan sebagai campuran material untuk konstruksi pengaspalan jalan.",
-          "Pada umumnya, material ini digunakan sebagai material pengganti pasir, pembuatan batako, pemasangan paving block, dan lain sebagainya.",
-          "Hal ini tak terlepas dari banyaknya kelebihan yang dimiliki jika dibandingkan dengan pasir.",
-          "Beberapa kelebihan tersebut yaitu memiliki daya ikat yang lebih kuat dan harganya lebih ekonomis.",
+          "Butirannya sangat halus dan hampir menyerupai pasir halus atau abu.",
+          "Umumnya digunakan sebagai campuran material pengaspalan jalan, pengganti pasir, pembuatan batako, dan pemasangan paving block.",
+          "Dibandingkan pasir, material ini memiliki daya ikat yang lebih kuat dan harga yang lebih ekonomis.",
+          "Karena itulah abu batu halus banyak dipakai pada pekerjaan paving block dan beton non-struktural.",
         ],
       },
       {
-        title: "Ukuran 5 – 10 mm",
+        title: "Ukuran 5 – 10 mm (Screening)",
         paragraphs: [
-          "Jenis batu ini memiliki ukuran yang lebih besar dari jenis batu sebelumnya tetapi memiliki fungsi yang sama.",
-          "Selain itu, batu ini juga digunakan sebagai campuran untuk pembuatan aspal karena ukurannya yang relatif kecil.",
-          "Nah, biasanya batu ini disebut dengan screening.",
+          "Ukurannya sedikit lebih besar dari jenis sebelumnya, namun fungsinya serupa.",
+          "Material ini sering digunakan sebagai campuran aspal karena ukurannya relatif kecil dan mudah dipadatkan.",
+          "Dalam dunia konstruksi, ukuran ini umum disebut sebagai screening.",
+          "Screening juga cocok untuk campuran beton halus dan lapisan perataan.",
         ],
       },
       {
-        title: "Ukuran 10 – 20 mm",
+        title: "Ukuran 10 – 20 mm (Split Beton)",
         paragraphs: [
-          "Biasanya batu ini digunakan untuk pengecoran beton.",
-          "Namun, tak sedikit yang menggunakan batu ini untuk konstruksi ringan hingga berat.",
-          "Sedangkan, batu berukuran 10 - 20 mm ini digunakan untuk campuran beton mutu K-200 ke bawah dalam produksi ready mix.",
+          "Ukuran ini paling umum digunakan sebagai agregat kasar untuk pengecoran beton struktural.",
+          "Cocok untuk konstruksi ringan hingga berat, seperti kolom, balok, plat lantai, dan pondasi beton bertulang.",
+          "Pada produksi beton ready mix, ukuran ini digunakan untuk campuran beton mutu K-200 ke bawah.",
+          "Butirannya yang seragam memudahkan proses pengadukan dan menghasilkan beton yang lebih padat.",
         ],
       },
       {
-        title: "Ukuran 20 – 30 mm",
+        title: "Ukuran 20 – 30 mm (Split Besar)",
         paragraphs: [
-          "Jenis batu berikutnya yaitu batu belah ukuran 20 – 30 mm.",
-          "Jenis batu ini biasanya digunakan untuk pengecoran lantai.",
-          "Selain itu, batu jenis ini juga banyak digunakan untuk pembentonan yang berbentuk horizontal seperti pondasi, kolom, tiang, paku bumi, dan lain sebagainya.",
+          "Ukuran ini umum digunakan untuk pengecoran lantai kerja (lean concrete) dan struktur beton massal.",
+          "Cocok untuk pembetonan horizontal seperti pondasi, kolom besar, tiang pancang, dan struktur sejenis.",
+          "Ukuran yang lebih besar membantu mengisi volume besar dengan lebih efisien.",
+          "Aplikasi biasanya dipadukan dengan alat bantu pengecoran berkapasitas besar.",
         ],
       },
       {
-        title: "Ukuran 30 – 50 mm",
+        title: "Ukuran 30 – 50 mm (Batu Belah Besar)",
         paragraphs: [
-          "Batu ini memiliki ukuran yang cukup besar sehingga batu jenis ini biasanya digunakan sebagai bahan campuran beton.",
-          "Selain itu, bahan batu ini juga digunakan sebagai bahan dasar dalam pembuatan jalan sebelum ditimpa bahan atau material lainnya.",
-          "Bahkan, batu jenis ini juga digunakan sebagai penyangga bantalan kereta api dan pemberat pipa yang berada di dasar laut.",
+          "Ukuran cukup besar sehingga umum digunakan sebagai bahan dasar lapisan perkerasan jalan sebelum ditutup material lain.",
+          "Berfungsi sebagai lapisan pertama yang memberikan kestabilan struktur bawah jalan.",
+          "Selain itu, batu jenis ini juga digunakan sebagai penyangga bantalan rel kereta api.",
+          "Aplikasi lain meliputi pemberat pipa bawah laut dan struktur penahan tanah.",
         ],
       },
       {
-        title: "Batu Kali Hitam 10 – 40 cm",
+        title: "Batu Kali Hitam 10 – 40 cm (Batu Belah Pondasi)",
         paragraphs: [
-          "Pada umumnya, jenis batu ini diperoleh dari belahan batu kali atau pun batu gunung.",
-          "Nah, batu tersebut memiliki kualitas yang sangat baik sebagai pondasi atau jembatan.",
-          "Selain itu, batu jenis ini memiliki pinggiran batu dengan bentuk yang runcing.",
-          "Dengan kelebihan tersebut, batu ini akan membentuk ikatan yang sangat erat jika dicampurkan dengan material semen.",
+          "Jenis ini diperoleh dari belahan batu kali atau batu gunung berwarna hitam keabu-abuan.",
+          "Kualitasnya sangat baik sebagai material pondasi bangunan dan struktur jembatan.",
+          "Memiliki pinggiran yang runcing sehingga mampu mengikat dengan erat saat dicampur dengan mortar semen.",
+          "Karena ikatannya kuat, batu ini banyak digunakan untuk pondasi menerus, pondasi umpak, dan dinding penahan tanah.",
         ],
       },
     ],
-    manfaatTitle1: "Manfaat ",
-    manfaatTitle2: "Batu Kali",
-    jenisTitle1: "Jenis-Jenis ",
-    jenisTitle2: "Batu Kali",
+
+    ctaBadge: "Konsultasi Gratis",
+    ctaTitle1: "Butuh Batu Kali? ",
+    ctaTitle2: "Kami siap membantu.",
+    ctaButton: "Hubungi via WhatsApp",
+    ctaWaText: "Halo Tri Abadi Makmur, saya ingin pesan batu kali...",
+
+    relatedTitle: "Produk Lainnya",
+    relatedSubtitle: "Material konstruksi lain yang sering dipesan bersama batu kali.",
+    relatedItems: [
+      {
+        slug: "abu-batu",
+        name: "Abu Batu",
+        desc: "Material pengganti pasir halus untuk campuran beton dan pengaspalan.",
+        image: "/produk/abu-batu.png",
+        alt: "Tumpukan abu batu halus untuk campuran konstruksi",
+      },
+      {
+        slug: "base-course",
+        name: "Base Course",
+        desc: "Lapis pondasi atas jalan dari campuran batu pecah dan abu batu.",
+        image: "/produk/base-course.png",
+        alt: "Tumpukan batu base course untuk lapis pondasi jalan",
+      },
+      {
+        slug: "batu-makadam",
+        name: "Batu Makadam",
+        desc: "Batu pecah ukuran 5–10 cm untuk lapis pondasi jalan dan area parkir.",
+        image: "/produk/batu-makadam.png",
+        alt: "Batu makadam pecah untuk lapis pondasi jalan",
+      },
+    ],
   },
 
   en: {
     title: "River Stone / Split Stone",
     subtitle: "Selling Cheap & Quality River Stone or Split Stone",
     thumbImage: "/produk/batu-kali.png",
-    fallbackImage: "/produk/batu-kali.png",
+    imageAlt: "Pile of river stones and split stones for building foundations",
+    sectionWhat: "About River Stone",
+
+    sectionManfaat: "Benefits of River Stone",
+    sectionManfaatTitle1: "Benefits of ",
+    sectionManfaatTitle2: "River Stone",
+    sectionManfaatTitle3: " for Construction",
+
+    sectionJenis: "Types of Split Stone",
+    sectionJenisTitle1: "Types of ",
+    sectionJenisTitle2: "Split Stone",
+    sectionJenisTitle3: " by Size",
+
     intro: [
-      "River Stone – PT Tri Abadi Makmur is a company engaged in the construction sector.",
-      "Besides being experienced and having a significant work process, we prioritize quality materials.",
-      "One of the quality materials we use is river stone or split stone.",
-      "This split stone is a natural material produced by splitting large stones into smaller pieces.",
+      "River Stone (split stone) is a natural material produced by splitting large stone boulders into smaller chunks of various sizes.",
+      "This material is widely used as a concrete mixture, building foundation material, and road foundation layer.",
+      "We provide river stone and split stone with guaranteed quality, ready for delivery to your project site.",
     ],
-    after: [
-      "The stones themselves can come from rivers or streams.",
-      "Below we will further review information about this type of stone.",
+
+    generalIntro: [
+      "River stone generally comes from rivers or streams, while split stone comes from mountain stone that has been split.",
+      "Based on size, split stone is grouped into several types with different applications.",
+      "Here are the benefits and types of river stone you should know.",
     ],
+
     manfaat: [
-      "Generally, stone is used as a mixture material in building or construction, just like river stone.",
-      "This type of stone has the same benefit, namely as a mixture material in concrete, sand, cement, or other materials.",
-      "The mixture of concrete materials has many benefits in the world of construction.",
-      "Concrete has many uses, such as road construction, various types of civil construction, bridges, and so on.",
-      "However, the advantages of this stone for construction materials are:",
-      "One of them is that the construction material contains coral material and is very strong.",
-      "In addition, the construction will also have a long life and not be easily brittle if the mixture composition is right.",
+      "Concrete mixture material (coarse aggregate) together with sand, cement, and water to produce a solid structure.",
+      "Building foundation material — continuous foundation, river stone foundation, or pad foundation.",
+      "Sub-base layer in road construction before being covered with asphalt or paving.",
+      "Fill material (rip-rap) for embankments, riverbanks, and breakwater structures.",
+      "Ballast for submarine pipelines, railway bearings, and underwater structure fillers.",
+      "Produces solid, durable construction that is not easily brittle when the mix composition is correct.",
     ],
+
     jenisIntro: [
-      "Generally, there are several types of river stone or split stone used for construction needs.",
-      "However, based on size, there are 5 types of split stone commonly used.",
-      "Below we will review the various types of these stones.",
+      "Based on size, split stone is grouped into several types.",
+      "Each size has a different use, ranging from asphalt mixtures to building foundations.",
+      "Here are the types of split stone commonly used in construction.",
     ],
+
     jenisItems: [
       {
-        title: "Size 0 – 5 mm",
+        title: "Size 0 – 5 mm (Fine Stone Dust)",
         paragraphs: [
-          "This stone is very smooth in size and almost resembles fine sand.",
-          "Well, this stone is usually used as a mixture material for road asphalt paving construction.",
-          "Generally, this material is used as a substitute for sand, making bricks, installing paving blocks, and so on.",
-          "This is inseparable from the many advantages it has compared to sand.",
-          "Some of these advantages are stronger binding power and more economical price.",
+          "Its grains are very fine and almost resemble fine sand or ash.",
+          "Generally used as a mixture material for road asphalt paving, sand substitute, brick making, and paving block installation.",
+          "Compared to sand, this material has stronger binding power and a more economical price.",
+          "That is why fine stone dust is widely used in paving block work and non-structural concrete.",
         ],
       },
       {
-        title: "Size 5 – 10 mm",
+        title: "Size 5 – 10 mm (Screening)",
         paragraphs: [
-          "This type of stone is larger in size than the previous type but has the same function.",
-          "In addition, this stone is also used as a mixture for asphalt making because of its relatively small size.",
-          "Well, usually this stone is called screening.",
+          "Slightly larger than the previous type, but with a similar function.",
+          "This material is often used as an asphalt mixture because of its relatively small size and easy compaction.",
+          "In construction, this size is commonly called screening.",
+          "Screening is also suitable for fine concrete mixtures and leveling layers.",
         ],
       },
       {
-        title: "Size 10 – 20 mm",
+        title: "Size 10 – 20 mm (Concrete Split)",
         paragraphs: [
-          "Usually this stone is used for concrete casting.",
-          "However, not a few use this stone for light to heavy construction.",
-          "Meanwhile, stone measuring 10 - 20 mm is used for concrete mixtures of grade K-200 and below in ready mix production.",
+          "This size is the most commonly used as coarse aggregate for structural concrete casting.",
+          "Suitable for light to heavy construction, such as columns, beams, floor slabs, and reinforced concrete foundations.",
+          "In ready mix concrete production, this size is used for concrete mixtures of grade K-200 and below.",
+          "Its uniform grains make mixing easier and produce denser concrete.",
         ],
       },
       {
-        title: "Size 20 – 30 mm",
+        title: "Size 20 – 30 mm (Large Split)",
         paragraphs: [
-          "The next type of stone is split stone size 20 – 30 mm.",
-          "This type of stone is usually used for floor casting.",
-          "In addition, this type of stone is also widely used for horizontal formwork such as foundations, columns, pillars, earth nails, and so on.",
+          "This size is commonly used for lean concrete casting and mass concrete structures.",
+          "Suitable for horizontal concreting such as foundations, large columns, piles, and similar structures.",
+          "The larger size helps fill large volumes more efficiently.",
+          "Applications are usually combined with high-capacity casting equipment.",
         ],
       },
       {
-        title: "Size 30 – 50 mm",
+        title: "Size 30 – 50 mm (Large Split Stone)",
         paragraphs: [
-          "This stone is quite large in size so this type of stone is usually used as a concrete mixture.",
-          "In addition, this stone material is also used as a base material in road construction before being covered with other materials.",
-          "In fact, this type of stone is also used as a support for railway bearings and ballast for pipes at the bottom of the sea.",
+          "Its size is quite large, so it is commonly used as the base layer of road pavement before being covered with other materials.",
+          "It functions as the first layer providing stability to the road sub-structure.",
+          "In addition, this stone is also used as a support for railway bearings.",
+          "Other applications include submarine pipe ballast and retaining structures.",
         ],
       },
       {
-        title: "Black River Stone 10 – 40 cm",
+        title: "Black River Stone 10 – 40 cm (Foundation Split Stone)",
         paragraphs: [
-          "Generally, this type of stone is obtained from split river stone or mountain stone.",
-          "Well, this stone has very good quality as a foundation or bridge.",
-          "In addition, this type of stone has sharp edges.",
-          "With these advantages, this stone will form a very tight bond when mixed with cement material.",
+          "This type is obtained from split river stone or grayish-black mountain stone.",
+          "Its quality is excellent as a material for building foundations and bridge structures.",
+          "It has sharp edges that can bind tightly when mixed with cement mortar.",
+          "Because of its strong bond, this stone is widely used for continuous foundations, pad foundations, and retaining walls.",
         ],
       },
     ],
-    manfaatTitle1: "Benefits of ",
-    manfaatTitle2: "River Stone",
-    jenisTitle1: "Types of ",
-    jenisTitle2: "River Stone",
+
+    ctaBadge: "Free Consultation",
+    ctaTitle1: "Need River Stone? ",
+    ctaTitle2: "We're ready to help.",
+    ctaButton: "Contact via WhatsApp",
+    ctaWaText: "Hello Tri Abadi Makmur, I would like to order river stone...",
+
+    relatedTitle: "Other Products",
+    relatedSubtitle: "Other construction materials frequently ordered together with river stone.",
+    relatedItems: [
+      {
+        slug: "abu-batu",
+        name: "Stone Dust",
+        desc: "Fine sand substitute material for concrete mixtures and asphalt paving.",
+        image: "/produk/abu-batu.png",
+        alt: "Pile of fine stone dust for construction mixtures",
+      },
+      {
+        slug: "base-course",
+        name: "Base Course",
+        desc: "Road upper foundation layer made from a mixture of crushed stone and stone dust.",
+        image: "/produk/base-course.png",
+        alt: "Pile of base course stone for road foundation layer",
+      },
+      {
+        slug: "batu-makadam",
+        name: "Macadam Stone",
+        desc: "5–10 cm crushed stone for road base layers and parking areas.",
+        image: "/produk/batu-makadam.png",
+        alt: "Crushed macadam stone for road base layer",
+      },
+    ],
   },
 };
 
 // ─────────────────────────────────────────────
-// LABEL BILINGUAL
+// JSON-LD HELPER
 // ─────────────────────────────────────────────
-const labels = {
-  id: { open: "Buka", close: "Tutup" },
-  en: { open: "Open", close: "Close" },
-};
+function buildJsonLd(d) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Product",
+        "@id": `${PRODUCT_URL}#product`,
+        name: d.title,
+        image: [PRODUCT_IMAGE],
+        description: d.intro.join(" "),
+        brand: { 
+          "@type": "Brand", 
+          "@id": SITE_ENTITY_ID, 
+          name: SITE_NAME 
+        },
+        category: "Construction Materials",
+        offers: {
+          "@type": "Offer",
+          url: PRODUCT_URL,
+          priceCurrency: "IDR",
+          price: "150000", // DIISI ANGKA REALISTIS, JANGAN "0"
+          priceValidUntil: "2027-12-31",
+          availability: "https://schema.org/InStock",
+          itemCondition: "https://schema.org/NewCondition",
+          seller: { 
+            "@type": "Organization", 
+            "@id": SITE_ENTITY_ID, 
+            name: SITE_NAME 
+          },
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${PRODUCT_URL}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Beranda",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Supplier",
+            item: `${SITE_URL}/supplier`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: d.title,
+            item: PRODUCT_URL,
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${PRODUCT_URL}#faq`,
+        mainEntity: d.jenisItems.map((item) => ({
+          "@type": "Question",
+          name: item.title,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.paragraphs.join(" "),
+          },
+        })),
+      },
+    ],
+  };
+}
 
 // ─────────────────────────────────────────────
 // HALAMAN: BATU KALI
@@ -294,145 +511,464 @@ const labels = {
 export default function BatuKali() {
   const { lang } = useLang();
   const d = data[lang] || data.id;
-  const L = labels[lang] || labels.id;
 
-  // openIndex: null = semua tertutup, 0..N = salah satu terbuka
   const [openIndex, setOpenIndex] = useState(0);
+  const [imgError, setImgError] = useState(false);
 
   const toggle = useCallback(
     (i) => setOpenIndex((prev) => (prev === i ? null : i)),
     []
   );
 
-  return (
-    <section className="bg-white pt-28 lg:pt-36 pb-20 lg:pb-28">
-      <div className="max-w-4xl mx-auto px-4 sm:px-5 lg:px-8">
+  const jsonLd = buildJsonLd(d);
 
-        {/* Judul center */}
-        <Reveal delay={100} y={24}>
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-4">
-              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
-              <span className="text-[10px] sm:text-[11px] uppercase
-                               tracking-[0.25em] sm:tracking-[0.3em]
-                               text-[#1e88e5] font-semibold">
+  return (
+    <section
+      aria-labelledby="batu-kali-heading"
+      className="relative bg-gradient-to-b from-slate-50 via-white to-slate-50/70
+                 pt-28 lg:pt-36 pb-20 lg:pb-28 overflow-hidden antialiased
+                 selection:bg-[#1e88e5]/20 [text-wrap:pretty]"
+    >
+      {/* ── JSON-LD: Product + Breadcrumb + FAQ ── */}
+      <script
+        type="application/ld+json"
+        // GUNAKAN serializeJsonLd MILIKMU
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+      />
+
+      {/* Ornamen background */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-32 -left-40 w-[24rem] h-[24rem] bg-[#1e88e5] rounded-full blur-3xl opacity-[0.06]"
+      />
+
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-5 lg:px-8">
+
+        {/* ═══ 1. HERO HEADER ═══ */}
+        <Reveal delay={50} y={20}>
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-5">
+              <span
+                className="w-8 sm:w-12 h-px bg-gradient-to-r from-transparent to-[#1565c0]"
+                aria-hidden="true"
+              />
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.28em] sm:tracking-[0.32em] text-[#1565c0] font-bold">
                 {d.title}
               </span>
-              <span className="w-6 sm:w-10 h-px bg-[#1e88e5]" />
+              <span
+                className="w-8 sm:w-12 h-px bg-gradient-to-l from-transparent to-[#1565c0]"
+                aria-hidden="true"
+              />
             </div>
             <h1
-              className="font-light tracking-tight text-slate-900 leading-tight max-w-3xl mx-auto"
-              style={{ fontSize: "clamp(1.5rem, 4vw, 2.25rem)" }}
+              id="batu-kali-heading"
+              className="font-semibold tracking-tight text-slate-900 leading-[1.15] text-balance max-w-3xl mx-auto"
+              style={{ fontSize: "clamp(1.75rem, 4.5vw, 2.5rem)" }}
             >
-              {d.subtitle}<span className="text-[#1e88e5]">.</span>
+              {d.subtitle}
+              <span className="text-[#1e88e5]">.</span>
             </h1>
+
+            <div className="flex items-center justify-center gap-1.5 mt-6" aria-hidden="true">
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
+              <span className="w-8 h-1.5 rounded-full bg-[#1e88e5]" />
+            </div>
           </div>
         </Reveal>
 
-        {/* Garis pemisah */}
-        <Reveal delay={150} y={18}>
-          <hr className="border-slate-300 mb-8" />
-        </Reveal>
-
-        {/* Gambar kiri + paragraf kanan */}
-        <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-5 mt-6 mb-6">
-          <Reveal y={34} duration={800}>
+        {/* ═══ 2. INTRO CARD ═══ */}
+        <Reveal y={28} duration={600}>
+          <div
+            className="relative rounded-3xl bg-white border border-slate-200/80
+                       shadow-xl shadow-slate-300/30
+                       mb-10 sm:mb-14 overflow-hidden"
+          >
             <div
-              className="w-full sm:w-[180px] aspect-square overflow-hidden
-                         border border-slate-300 rounded-xl bg-slate-100"
-              style={{ contain: "layout paint style" }}
+              aria-hidden="true"
+              className="absolute top-0 left-0 right-0 h-1.5
+                         bg-gradient-to-r from-[#1e88e5] via-blue-400 to-violet-400"
+            />
+
+            <div className="p-6 sm:p-8 lg:p-10">
+              <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 md:gap-8 lg:gap-10 items-start">
+
+                <div className="relative">
+                  <div
+                    className="relative w-full max-w-[240px] mx-auto md:mx-0
+                               aspect-square rounded-2xl overflow-hidden
+                               bg-gradient-to-br from-slate-100 to-slate-200
+                               shadow-lg shadow-slate-400/25 ring-1 ring-slate-200"
+                  >
+                    {imgError ? (
+                      <div className="absolute inset-0 flex items-center justify-center text-slate-400 text-xs font-semibold uppercase tracking-[0.2em] text-center px-3">
+                        {d.title}
+                      </div>
+                    ) : (
+                      <Image
+                        src={d.thumbImage}
+                        alt={d.imageAlt}
+                        width={520}
+                        height={520}
+                        priority
+                        sizes="(max-width: 768px) 240px, 240px"
+                        className="w-full h-full object-cover"
+                        onError={() => setImgError(true)}
+                      />
+                    )}
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    className="hidden md:block absolute -top-3 -left-3 w-8 h-8
+                               border-t-2 border-l-2 border-[#1e88e5]/60 rounded-tl-xl"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="hidden md:block absolute -bottom-3 -right-3 w-8 h-8
+                               border-b-2 border-r-2 border-[#1e88e5]/60 rounded-br-xl"
+                  />
+                </div>
+
+                <div>
+                  <div className="flex items-center gap-2.5 mb-4">
+                    <span className="w-8 h-0.5 rounded-full bg-[#1565c0]" aria-hidden="true" />
+                    <p className="text-[#1565c0] uppercase tracking-[0.25em] text-[10px] sm:text-xs font-bold">
+                      {d.sectionWhat}
+                    </p>
+                  </div>
+                  <div className="space-y-3.5">
+                    {d.intro.map((p, i) => (
+                      <p key={i} className={`${BODY_CLASS} first:text-slate-900 first:font-medium`} style={BODY_FONT}>
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* ═══ 3. CALLOUT PEMBUKA ═══ */}
+        <Reveal y={20}>
+          <aside
+            className="relative rounded-2xl
+                       bg-gradient-to-br from-slate-50 via-white to-violet-50/60
+                       border border-slate-200 shadow-sm
+                       p-5 sm:p-7 mb-12 sm:mb-16 overflow-hidden"
+          >
+            <span
+              aria-hidden="true"
+              className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#1e88e5] to-[#1565c0]"
+            />
+            <div aria-hidden="true" className="absolute top-3 right-3 opacity-[0.08]">
+              <svg width="80" height="80" viewBox="0 0 80 80">
+                <pattern id="dots-kali-1" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+                  <circle cx="2" cy="2" r="1" fill="#1e88e5" />
+                </pattern>
+                <rect width="80" height="80" fill="url(#dots-kali-1)" />
+              </svg>
+            </div>
+
+            <div className="relative flex items-start gap-4 pl-0 sm:pl-2">
+              <span
+                className="shrink-0 w-11 h-11 rounded-xl bg-white border border-slate-200
+                           text-[#1565c0] flex items-center justify-center mt-0.5"
+              >
+                <IconInfo className="w-5 h-5" />
+              </span>
+              <div className="space-y-3 flex-1">
+                {d.generalIntro.map((p, i) => (
+                  <p key={i} className="text-slate-600 leading-[1.85] first:text-slate-800 first:font-medium" style={BODY_FONT}>
+                    {p}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </aside>
+        </Reveal>
+
+        {/* ═══ 4. MANFAAT BATU KALI ═══ */}
+        <Reveal y={16}>
+          <div className="text-center mb-6 sm:mb-8">
+            <div
+              className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full
+                         bg-white border border-[#1e88e5]/20 shadow-sm"
             >
-              <img
-                src={d.thumbImage}
-                alt={d.title}
-                loading="eager"
-                decoding="async"
-                width={180}
-                height={180}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.currentTarget.onerror = null;
-                  e.currentTarget.src = d.fallbackImage;
-                }}
-              />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1e88e5]" aria-hidden="true" />
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#1565c0] font-bold">
+                {d.sectionManfaat}
+              </span>
             </div>
-          </Reveal>
 
-          <div className="space-y-3">
-            {d.intro.map((p, i) => (
-              <Reveal key={i} delay={i * 80} y={20}>
-                <Paragraph text={p} />
-              </Reveal>
-            ))}
+            <h2
+              className="font-light tracking-tight text-slate-900 leading-tight text-balance max-w-2xl mx-auto"
+              style={{ fontSize: "clamp(1.35rem, 3.2vw, 1.9rem)" }}
+            >
+              {d.sectionManfaatTitle1}
+              <span className="relative inline-block font-semibold text-slate-900">
+                {d.sectionManfaatTitle2}
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 right-0 -bottom-1 h-1.5 bg-gradient-to-r from-[#1e88e5]/40 to-[#1e88e5]/10 rounded-full"
+                />
+              </span>
+              {d.sectionManfaatTitle3}
+            </h2>
           </div>
-        </div>
+        </Reveal>
 
-        {/* Paragraf lanjutan */}
-        <div className="space-y-3 mb-10">
-          {d.after.map((p, i) => (
-            <Reveal key={i} delay={i * 80} y={18}>
-              <Paragraph text={p} />
-            </Reveal>
-          ))}
-        </div>
-
-        {/* Section Manfaat */}
-        <div className="mb-12">
-          <Reveal y={26}>
-            <div className="text-center mb-6">
-              <h2
-                className="font-light tracking-tight text-slate-900 leading-tight"
-                style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.875rem)" }}
+        {/* 4b. MANFAAT GRID */}
+        <Reveal y={20}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 mb-12 sm:mb-16">
+            {d.manfaat.map((item, i) => (
+              <div
+                key={i}
+                className="group/card flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl
+                           border border-slate-200 bg-white shadow-sm
+                           hover:border-[#1e88e5]/40 hover:shadow-md
+                           transition-colors duration-200"
               >
-                {d.manfaatTitle1}
-                <span className="font-semibold">{d.manfaatTitle2}</span>
-              </h2>
-            </div>
-          </Reveal>
-          <div className="space-y-3.5">
-            {d.manfaat.map((p, i) => (
-              <Reveal key={i} delay={i * 60} y={18}>
-                <Paragraph text={p} />
-              </Reveal>
+                <span
+                  aria-hidden="true"
+                  className="shrink-0 mt-0.5 w-6 h-6 rounded-full bg-[#1e88e5]/10 text-[#1565c0]
+                             flex items-center justify-center
+                             transition-colors duration-200
+                             group-hover/card:bg-[#1e88e5] group-hover/card:text-white"
+                >
+                  <IconCheck className="w-3.5 h-3.5" />
+                </span>
+                <span className="text-slate-700 leading-[1.7]" style={BODY_FONT}>
+                  {item}
+                </span>
+              </div>
             ))}
           </div>
-        </div>
+        </Reveal>
 
-        {/* Section Jenis-Jenis */}
-        <div className="mb-10">
-          <Reveal y={26}>
-            <div className="text-center mb-6">
-              <h2
-                className="font-light tracking-tight text-slate-900 leading-tight"
-                style={{ fontSize: "clamp(1.5rem, 3.5vw, 1.875rem)" }}
+        {/* ═══ 5. JENIS-JENIS BATU BELAH ═══ */}
+        <Reveal y={16}>
+          <div className="text-center mb-6 sm:mb-8">
+            <div
+              className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full
+                         bg-white border border-[#1e88e5]/20 shadow-sm"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1e88e5]" aria-hidden="true" />
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#1565c0] font-bold">
+                {d.sectionJenis}
+              </span>
+            </div>
+
+            <h2
+              className="font-light tracking-tight text-slate-900 leading-tight text-balance max-w-2xl mx-auto"
+              style={{ fontSize: "clamp(1.35rem, 3.2vw, 1.9rem)" }}
+            >
+              {d.sectionJenisTitle1}
+              <span className="relative inline-block font-semibold text-slate-900">
+                {d.sectionJenisTitle2}
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 right-0 -bottom-1 h-1.5 bg-gradient-to-r from-[#1e88e5]/40 to-[#1e88e5]/10 rounded-full"
+                />
+              </span>
+              {d.sectionJenisTitle3}
+            </h2>
+          </div>
+        </Reveal>
+
+        <Reveal y={20}>
+          <aside
+            className="relative rounded-2xl
+                       bg-gradient-to-br from-slate-50 via-white to-violet-50/60
+                       border border-slate-200 shadow-sm
+                       p-5 sm:p-7 mb-8 sm:mb-10 overflow-hidden"
+          >
+            <span
+              aria-hidden="true"
+              className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#1e88e5] to-[#1565c0]"
+            />
+            <div aria-hidden="true" className="absolute top-3 right-3 opacity-[0.08]">
+              <svg width="80" height="80" viewBox="0 0 80 80">
+                <pattern id="dots-kali-2" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+                  <circle cx="2" cy="2" r="1" fill="#1e88e5" />
+                </pattern>
+                <rect width="80" height="80" fill="url(#dots-kali-2)" />
+              </svg>
+            </div>
+
+            <div className="relative flex items-start gap-4 pl-0 sm:pl-2">
+              <span
+                className="shrink-0 w-11 h-11 rounded-xl bg-white border border-slate-200
+                           text-[#1565c0] flex items-center justify-center mt-0.5"
               >
-                {d.jenisTitle1}
-                <span className="font-semibold">{d.jenisTitle2}</span>
-              </h2>
+                <IconInfo className="w-5 h-5" />
+              </span>
+              <div className="space-y-3 flex-1">
+                {d.jenisIntro.map((p, i) => (
+                  <p key={i} className="text-slate-600 leading-[1.85] first:text-slate-800 first:font-medium" style={BODY_FONT}>
+                    {p}
+                  </p>
+                ))}
+              </div>
             </div>
-          </Reveal>
+          </aside>
+        </Reveal>
 
-          <div className="space-y-3.5 mb-6">
-            {d.jenisIntro.map((p, i) => (
-              <Reveal key={i} delay={i * 60} y={18}>
-                <Paragraph text={p} />
-              </Reveal>
-            ))}
+        {/* 5c. ACCORDION JENIS */}
+        <Reveal y={20}>
+          <div>
+            {d.jenisItems.map((item, i) => {
+              const number = String(i + 1).padStart(2, "0");
+              return (
+                <Accordion
+                  key={item.title}
+                  id={`jenis-${i + 1}`}
+                  index={i}
+                  number={number}
+                  title={item.title}
+                  isOpen={openIndex === i}
+                  onToggle={toggle}
+                >
+                  <div className="space-y-3.5">
+                    {item.paragraphs.map((p, j) => (
+                      <p key={j}>{p}</p>
+                    ))}
+                  </div>
+                </Accordion>
+              );
+            })}
           </div>
+        </Reveal>
 
-          {/* Accordion jenis — eksklusif */}
-          {d.jenisItems.map((item, i) => (
-            <Reveal key={i} delay={i * 60} y={24}>
-              <JenisItem
-                item={item}
-                index={i}
-                isOpen={openIndex === i}
-                onToggle={() => toggle(i)}
-                labels={L}
-              />
-            </Reveal>
-          ))}
-        </div>
+        {/* ═══ 6. RELATED PRODUCTS ═══ */}
+        <Reveal y={24}>
+          <section
+            aria-labelledby="related-heading"
+            className="mt-16 sm:mt-24"
+          >
+            <div className="text-center mb-8 sm:mb-10">
+              <h2
+                id="related-heading"
+                className="font-semibold tracking-tight text-slate-900 leading-tight text-balance"
+                style={{ fontSize: "clamp(1.4rem, 3.2vw, 1.9rem)" }}
+              >
+                {d.relatedTitle}
+              </h2>
+              <p
+                className="text-slate-600 mt-2 max-w-xl mx-auto"
+                style={BODY_FONT}
+              >
+                {d.relatedSubtitle}
+              </p>
+            </div>
+
+            <ul
+              role="list"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6"
+            >
+              {d.relatedItems.map((item) => (
+                <li key={item.slug}>
+                  <a
+                    href={`/supplier/${item.slug}`} // RUTE DIPERBAIKI
+                    className="group block h-full rounded-2xl bg-white
+                               border border-slate-200 overflow-hidden
+                               hover:border-[#1e88e5]/40
+                               transition-colors duration-200
+                               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+                  >
+                    <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.alt}
+                        width={400}
+                        height={300}
+                        sizes="(max-width: 640px) 100vw, 33vw"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 sm:p-5">
+                      <h3 className="font-semibold text-slate-900 text-[0.9375rem] sm:text-base leading-snug">
+                        {item.name}
+                      </h3>
+                      <p className="text-slate-600 mt-1.5 text-sm leading-relaxed">
+                        {item.desc}
+                      </p>
+                      <span className="inline-flex items-center gap-1 mt-3 text-[#1565c0] text-xs font-semibold">
+                        {lang === "en" ? "View detail" : "Lihat detail"}
+                        <IconArrowRight className="w-3.5 h-3.5" />
+                      </span>
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </Reveal>
+
+        {/* ═══ 7. CTA (Paling Bawah) ═══ */}
+        <Reveal y={24}>
+          <div
+            className="relative mt-16 sm:mt-24 rounded-3xl overflow-hidden
+                       bg-gradient-to-br from-slate-900 via-slate-900 to-[#0f2744]
+                       p-9 sm:p-14 lg:p-16 text-center
+                       shadow-xl shadow-slate-900/30 border border-slate-800 ring-1 ring-white/5"
+          >
+            <div
+              aria-hidden="true"
+              className="absolute -top-10 right-0 w-72 h-72 bg-[#1e88e5] rounded-full blur-3xl opacity-30 pointer-events-none"
+            />
+            <div aria-hidden="true" className="absolute inset-0 opacity-[0.05]">
+              <svg className="w-full h-full">
+                <pattern id="cta-grid-kali" width="32" height="32" patternUnits="userSpaceOnUse">
+                  <path d="M 32 0 L 0 0 0 32" fill="none" stroke="white" strokeWidth="0.5" />
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#cta-grid-kali)" />
+              </svg>
+            </div>
+
+            <div className="relative z-10">
+              <div
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full
+                           bg-white/10 border border-white/15 mb-6"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
+                <span className="text-[#4da3ff] text-[10px] sm:text-xs uppercase tracking-[0.25em] font-bold">
+                  {d.ctaBadge}
+                </span>
+              </div>
+
+              <h2
+                className="text-white font-light tracking-tight leading-snug mb-8 sm:mb-10 text-balance"
+                style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)" }}
+              >
+                {d.ctaTitle1}
+                <span className="font-bold">{d.ctaTitle2}</span>
+              </h2>
+
+              <a
+                href={`https://wa.me/6282258089367?text=${encodeURIComponent(d.ctaWaText)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${d.ctaButton} (buka di tab baru)`}
+                className="inline-flex min-h-14 items-center justify-center gap-2.5
+                           px-8 sm:px-10 py-4 rounded-xl
+                           bg-gradient-to-r from-[#25D366] to-[#1fbe5c]
+                           hover:from-[#2be172] hover:to-[#25D366]
+                           text-slate-900 font-bold
+                           uppercase tracking-[0.12em] sm:tracking-[0.15em]
+                           shadow-lg shadow-[#25D366]/30 ring-1 ring-white/20
+                           transition-colors duration-200
+                           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                style={{ fontSize: "clamp(0.75rem, 1.2vw, 0.875rem)" }}
+              >
+                <IconWhatsApp className="w-5 h-5 shrink-0" />
+                {d.ctaButton}
+                <IconArrowRight className="w-4 h-4 shrink-0" />
+              </a>
+            </div>
+          </div>
+        </Reveal>
+
       </div>
     </section>
   );
