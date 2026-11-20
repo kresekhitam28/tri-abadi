@@ -13,6 +13,11 @@ const requests = {
     en: "an asphalt paving consultation and site survey",
     fields: asphaltFields,
   },
+  industrialPavementSurvey: {
+    id: "survei lokasi untuk membandingkan aspal hotmix dan cor beton untuk akses truk",
+    en: "a site survey to compare hotmix asphalt and concrete for truck access",
+    fields: asphaltFields,
+  },
   paving: {
     id: "estimasi jasa pasang paving block",
     en: "a paving block installation quote",

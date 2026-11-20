@@ -2,11 +2,13 @@
 import { asphaltCostRanges, asphaltPackagePrices, formatAsphaltPrice } from "./asphaltPricing";
 import { projectQuoteHref } from "../lib/quote";
 import { caseStudies } from "./caseStudies";
+import { technicalComparisonArticles } from "./technicalComparisonArticles";
 
 const asphaltStudy = caseStudies.find(({ slug }) => slug === "pengaspalan-akses-pabrik-cikupa");
 const concreteStudy = caseStudies.find(({ slug }) => slug === "pengecoran-lantai-gudang-cikarang");
 
 export const articles = [
+  ...technicalComparisonArticles,
   {
     slug: "aspal-jalan-murah",
     modifiedDateISO: "2026-11-19",

@@ -5,6 +5,7 @@ import { useEffect, useState, useMemo, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLang } from "../context/LanguageContext";
+import { projectQuoteHref } from "../lib/quote";
 import { SITE_URL } from "../lib/metadata";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useReveal } from "../hooks/useReveal";
@@ -276,6 +277,28 @@ function ArticleBody({ body, lang, priceGuide }) {
           );
         }
 
+        if (block.type === "table") {
+          const caption = pick(block.caption, lang);
+          return (
+            <div key={block.id} role="region" aria-label={caption} tabIndex={0} className="min-w-0 overflow-x-auto rounded-lg border border-slate-200 focus-visible:outline-2 focus-visible:outline-blue-700">
+              <table className="w-full min-w-[36rem] border-collapse text-left text-sm leading-relaxed text-slate-700">
+                <caption className="p-3 font-semibold text-slate-950">{caption}</caption>
+                <thead className="bg-slate-100 text-slate-950">
+                  <tr>{block.columns.map((column) => <th key={column.id} scope="col" className="p-3 align-top">{pick(column, lang)}</th>)}</tr>
+                </thead>
+                <tbody>
+                  {block.rows.map(([label, ...cells]) => (
+                    <tr key={label.id} className="border-t border-slate-200 align-top">
+                      <th scope="row" className="p-3 font-semibold text-slate-950">{pick(label, lang)}</th>
+                      {cells.map((cell, index) => <td key={block.columns[index + 1].id} className="p-3">{pick(cell, lang)}</td>)}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          );
+        }
+
         if (block.type === "paragraph") {
           const isFirst = i === firstParagraphIndex;
           const text = pick(block.text, lang);
@@ -535,6 +558,16 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
               </p>
             )}
           </div>
+          {article.answer && (
+            <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-relaxed text-slate-700">
+              {pick(article.answer, lang)}
+            </p>
+          )}
+          {article.technicalReviewer && (
+            <p className="mt-3 text-sm text-slate-700">
+              <strong>{lang === "en" ? "Technical review" : "Pemeriksa teknis"}</strong> · {article.technicalReviewer}
+            </p>
+          )}
         </div>
       </section>
 
@@ -570,16 +603,26 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
 
       {/* ═══ BODY ═══ */}
       <section className={`mx-auto max-w-3xl px-5 sm:px-6 lg:px-8 ${priceGuide ? "pt-7 sm:pt-9" : "pt-10 sm:pt-12 lg:pt-16"}`}>
-        <Reveal y={18}>
+        {!article.answer && <Reveal y={18}>
           <p
             className={priceGuide ? "mb-5 rounded-r-lg border-l-2 border-blue-700 bg-slate-50 px-4 py-3 leading-relaxed text-slate-700 sm:mb-6 sm:px-5" : "mb-8 border-l-2 border-[#1e88e5] pl-4 italic leading-[1.85] text-slate-600 sm:mb-10 sm:pl-5"}
             style={{ fontSize: "clamp(0.875rem, 1.6vw, 0.9375rem)" }}
           >
             {desc}
           </p>
-        </Reveal>
+        </Reveal>}
 
         <ArticleBody body={article.body} lang={lang} priceGuide={priceGuide} />
+        {article.surveyRequest && (
+          <a
+            href={projectQuoteHref(article.surveyRequest, lang)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex min-h-12 items-center justify-center rounded-lg bg-blue-700 px-5 py-3 text-center text-sm font-semibold text-white hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+          >
+            {lang === "en" ? "Request a site survey on WhatsApp" : "Minta Survei Lokasi via WhatsApp"}
+          </a>
+        )}
 
         {/* ═══ TAGS & SHARE ═══ */}
         <Reveal y={20}>

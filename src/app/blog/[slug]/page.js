@@ -54,7 +54,13 @@ export default async function BlogDetailPage({ params }) {
         name: SITE_NAME,
         logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png` },
       },
-      mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": articleUrl,
+        ...(article.technicalReviewer && {
+          reviewedBy: { "@type": "Organization", name: article.technicalReviewer, parentOrganization: { "@id": SITE_ENTITY_ID } },
+        }),
+      },
     },
     {
       "@context": "https://schema.org",
