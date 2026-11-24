@@ -3312,6 +3312,1270 @@ export const articles = [
       },
     ],
   },
+  {
+  slug: "harga-kanstin-2026",
+  modifiedDateISO: "2026-11-24",
+  date: { id: "24 November 2026", en: "November 24, 2026" },
+  dateISO: "2026-11-24",
+  canonical: "https://triabadimakmur.co.id/blog/harga-kanstin-2026",
+  src: "/proyek/pasang-kanstin.webp",
+  category: { id: "Kanstin", en: "Curb" },
+
+  meta: {
+    title: {
+      id: "Harga Kanstin 2026: Rp42.500–Rp99.200/m Lari (Taman, Trotoar, DKI, S)",
+      en: "Curb Prices 2026: Rp42,500–Rp99,200 per Running Meter (Garden, Sidewalk, DKI, S)",
+    },
+    description: {
+      id: "Daftar harga kanstin 2026 per buah & per meter lari: taman Rp42.500, trotoar Rp67.500, DKI Rp99.200, kanstin S Rp75.000. Lengkap rumus estimasi biaya, faktor waste, mutu beton SNI, dan survei gratis Jabodetabek.",
+      en: "2026 curb price list per piece & per running meter: garden Rp42,500, sidewalk Rp67,500, DKI Rp99,200, S curb Rp75,000. Includes a full cost estimation formula, waste factor, SNI concrete grades, and free surveys in Greater Jakarta.",
+    },
+  },
+
+  title: {
+    id: "Harga Kanstin 2026 per Meter: DKI, S, Trotoar & Taman",
+    en: "Curb Prices 2026 per Meter: DKI, S, Sidewalk & Garden",
+  },
+  desc: {
+    id: "Harga kanstin 2026 per buah dan per meter lari untuk taman, trotoar, DKI, dan S. Cara hitung estimasi dan survei gratis di Jabodetabek.",
+    en: "2026 curb prices per piece and per running meter for garden, sidewalk, DKI, and S types. How to estimate costs and a free survey in Greater Jakarta.",
+  },
+
+  author: {
+    name: "PT. Tri Abadi Makmur Indonesia",
+    phone: "082258089367",
+    avatar: "/logo.webp",
+    lastUpdated: { id: "24 November 2026", en: "November 24, 2026" },
+    bio: {
+      id: "Tri Abadi Makmur merupakan perusahaan yang bergerak di bidang konstruksi, dengan pengalaman yang sudah bertahun – tahun kami kembangkan, tahapan proses yang mengedepankan kualitas dan kehati-hatian, serta eksekusi pengerjaan proyek yang signifikan, demi tercapainya kepuasan client sehingga terwujudnya jalinan kerjasama yang continue dan berkelanjutan.",
+      en: "Tri Abadi Makmur is a construction company with years of experience we have developed, a process that prioritizes quality and prudence, as well as the execution of significant projects, in order to achieve client satisfaction so that continuous and long-term cooperation is realized.",
+    },
+  },
+
+  tags: [
+    { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+    { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
+    { id: "Biaya Aspal Per Meter", en: "Asphalt Cost Per Meter", slug: "biaya-aspal-per-meter" },
+    { id: "Layanan Pasang Kanstin", en: "Curb Installation Service", href: "/layanan/infrastruktur/pasang-kanstin" },
+  ],
+
+  schema: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Harga Kanstin 2026 per Meter: DKI, S, Trotoar & Taman",
+      "description": "Harga kanstin 2026 per buah dan per meter lari untuk taman, trotoar, DKI, dan S, lengkap dengan rumus estimasi biaya, faktor waste, mutu beton SNI, dan survei gratis Jabodetabek.",
+      "image": "https://triabadimakmur.co.id/proyek/pasang-kanstin.webp",
+      "datePublished": "2026-11-24",
+      "dateModified": "2026-11-24",
+      "author": {
+        "@type": "Organization",
+        "name": "PT. Tri Abadi Makmur Indonesia",
+        "telephone": "082258089367",
+        "logo": "https://triabadimakmur.co.id/logo.webp"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PT. Tri Abadi Makmur Indonesia",
+        "logo": { "@type": "ImageObject", "url": "https://triabadimakmur.co.id/logo.webp" }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://triabadimakmur.co.id/blog/harga-kanstin-2026"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Kanstin Beton 2026 (Taman, Trotoar, DKI, S)",
+      "image": "https://triabadimakmur.co.id/proyek/pasang-kanstin.webp",
+      "description": "Kanstin beton precast untuk taman, trotoar, jalan lingkungan, dan pembatas. Tersedia tipe Taman, Trotoar, DKI, dan S dengan harga Rp42.500–Rp99.200 per meter lari.",
+      "brand": { "@type": "Brand", "name": "Tri Abadi Makmur" },
+      "category": "Kanstin Beton / Concrete Curb",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "IDR",
+        "lowPrice": "42500",
+        "highPrice": "99200",
+        "offerCount": "7",
+        "availability": "https://schema.org/InStock",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "IDR",
+          "unitText": "running meter",
+          "unitCode": "MTR"
+        }
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Berapa harga kanstin per meter di 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Perkiraan harga kanstin mulai dari Rp42.500 per meter lari (taman 40 × 20 × 10 cm) sampai Rp99.200 per meter lari (DKI 60 × 30 × 25 × 20 cm). Harga final mengikuti volume dan lokasi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah harga sudah termasuk pemasangan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tabel menampilkan harga kanstin per buah dan konversinya per meter lari. Jasa pasang, pekerjaan dasar, dan mobilisasi dihitung terpisah dalam penawaran."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah survei lokasi gratis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ya. Survei mengukur panjang, melihat kondisi tanah, dan memberi estimasi awal tanpa biaya di area Jabodetabek, Banten, dan Jawa Barat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Berapa lama pemasangan kanstin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tergantung panjang dan akses lokasi. Estimasi waktu diberikan setelah survei."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apa beda kanstin dan kansteen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Keduanya merujuk pada benda yang sama. Kanstin adalah ejaan yang lebih umum di daftar harga, sedangkan kansteen sering dipakai di spesifikasi teknis dan RAB proyek. Istilah lain yang juga dipakai adalah kerb atau curb."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mutu beton apa yang dipakai untuk kanstin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kanstin umumnya dicetak dengan mutu beton K-250 hingga K-350 (setara f'c sekitar 20–30 MPa). Kanstin taman cukup K-250, sedangkan kanstin DKI yang menahan beban kendaraan disarankan K-300 ke atas dengan metode cetak vibro press."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://triabadimakmur.co.id/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://triabadimakmur.co.id/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Harga Kanstin 2026", "item": "https://triabadimakmur.co.id/blog/harga-kanstin-2026" }
+      ]
+    }
+  ],
+
+  body: [
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-6 rounded-2xl border-l-4 border-[#1e88e5] bg-blue-50/70 p-5 sm:p-6'><span class='block text-base leading-relaxed text-slate-800'>Harga kanstin 2026 berkisar <strong>Rp42.500 – Rp99.200 per meter lari</strong>, tergantung jenis, ukuran, dan kondisi lokasi. Artikel ini merinci harga kanstin taman, trotoar, DKI, dan S per buah, cara menghitung estimasi kansteen (kanstin) untuk proyek Anda, serta layanan pemasangan di Jabodetabek, Banten, dan Jawa Barat.</span></div>`,
+        en: `<div class='not-prose my-6 rounded-2xl border-l-4 border-[#1e88e5] bg-blue-50/70 p-5 sm:p-6'><span class='block text-base leading-relaxed text-slate-800'>Curb prices in 2026 range from <strong>Rp42,500 to Rp99,200 per running meter</strong>, depending on type, size, and site conditions. This article covers garden, sidewalk, DKI, and S curb prices per piece, how to estimate curb (kansteen) costs for your project, and our installation services in Greater Jakarta, Banten, and West Java.</span></div>`,
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<figure class='not-prose my-6 overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-900/5'><img src='/proyek/pasang-kanstin.webp' alt='Pemasangan kanstin di lokasi proyek PT Tri Abadi Makmur' loading='lazy' decoding='async' class='h-auto w-full object-cover' style='aspect-ratio:16/9'><figcaption class='bg-slate-50 px-4 py-2.5 text-xs text-slate-500'>Pemasangan kanstin di lokasi proyek.</figcaption></figure>`,
+        en: `<figure class='not-prose my-6 overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-900/5'><img src='/proyek/pasang-kanstin.webp' alt='Curb installation at a PT Tri Abadi Makmur project site' loading='lazy' decoding='async' class='h-auto w-full object-cover' style='aspect-ratio:16/9'><figcaption class='bg-slate-50 px-4 py-2.5 text-xs text-slate-500'>Curb installation at a project site.</figcaption></figure>`,
+      },
+    },
+    {
+      type: "heading",
+      text: { id: "Kenapa kanstin dihitung per meter lari?", en: "Why are curbs priced per running meter?" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "Kanstin berbentuk memanjang, jadi satuan yang paling tepat adalah panjang, bukan luas. Itu sebabnya harga kanstin disebut <strong>per meter lari</strong>. Pengaspalan dan <a href='/blog/pemasangan-paving-block' class='font-semibold text-[#1e88e5] underline underline-offset-2'>paving block</a> dihitung per m² karena menutup area, sedangkan kanstin mengikuti garis tepi.",
+        en: "Curbs are linear, so length is the most accurate unit, not area. That is why curb prices are quoted <strong>per running meter</strong>. Asphalt and <a href='/blog/pemasangan-paving-block' class='font-semibold text-[#1e88e5] underline underline-offset-2'>paving blocks</a> are priced per m² because they cover an area, while curbs follow an edge line.",
+      },
+    },
+    {
+      type: "heading",
+      text: { id: "Jenis kanstin dan kegunaannya", en: "Curb types and their uses" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-5 grid gap-4 sm:grid-cols-2'>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block h-1 w-10 rounded-full bg-[#16a34a]'></span><span class='mt-3 block font-bold text-slate-900'>Kanstin Taman</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Ukuran paling kecil untuk batas taman, bedengan, dan area tanaman.</span></div>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block h-1 w-10 rounded-full bg-[#3b82f6]'></span><span class='mt-3 block font-bold text-slate-900'>Kanstin Trotoar</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Dirancang untuk tepi trotoar dan jalur pejalan kaki yang rapi.</span></div>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block h-1 w-10 rounded-full bg-[#e11d48]'></span><span class='mt-3 block font-bold text-slate-900'>Kanstin DKI</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Ukuran paling besar dan kokoh untuk jalan lingkungan, jalan kawasan, dan pembatas yang menahan beban.</span></div>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block h-1 w-10 rounded-full bg-[#d97706]'></span><span class='mt-3 block font-bold text-slate-900'>Kanstin S</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Berprofil S yang khas, sering dipakai sebagai pembatas jalan dan trotoar dengan tampilan lebih lembut.</span></div>
+</div>`,
+        en: `<div class='not-prose my-5 grid gap-4 sm:grid-cols-2'>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block h-1 w-10 rounded-full bg-[#16a34a]'></span><span class='mt-3 block font-bold text-slate-900'>Garden Curb</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>The smallest size, used as a border for gardens, planters, and planting areas.</span></div>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block h-1 w-10 rounded-full bg-[#3b82f6]'></span><span class='mt-3 block font-bold text-slate-900'>Sidewalk Curb</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Designed for sidewalk edges and neat pedestrian paths.</span></div>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block h-1 w-10 rounded-full bg-[#e11d48]'></span><span class='mt-3 block font-bold text-slate-900'>DKI Curb</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>The largest and sturdiest size for neighborhood roads, estate roads, and load-bearing borders.</span></div>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block h-1 w-10 rounded-full bg-[#d97706]'></span><span class='mt-3 block font-bold text-slate-900'>S Curb</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Distinctive S-shaped profile, often used as road and sidewalk edging for a softer look.</span></div>
+</div>`,
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "<span class='not-prose block text-sm leading-relaxed text-slate-600'>Di lapangan, istilah <strong>kansteen</strong>, <strong>kanstin</strong>, dan <strong>kerb</strong> dipakai bergantian untuk benda yang sama. Jika Anda menyusun RAB, pastikan spesifikasi menulis satu istilah secara konsisten agar tidak terjadi salah tafsir saat pengadaan.</span>",
+        en: "<span class='not-prose block text-sm leading-relaxed text-slate-600'>On site, the terms <strong>kansteen</strong>, <strong>kanstin</strong>, and <strong>kerb</strong> are used interchangeably for the same item. If you are drafting a bill of quantities, keep one term consistent to avoid procurement misunderstandings.</span>",
+      },
+    },
+    {
+      type: "heading",
+      id: "harga-per-meter",
+      text: {
+        id: "Harga kanstin 2026 per buah dan per meter lari",
+        en: "2026 curb prices per piece and per running meter",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-6'>
+<div class='rounded-2xl bg-slate-900 p-6 text-white sm:p-7'>
+<span class='block text-[10px] font-bold uppercase tracking-[0.25em] text-[#4da3ff]'>Kisaran perkiraan harga kanstin per meter lari</span>
+<span class='mt-2 block text-2xl font-extrabold tabular-nums sm:text-3xl'>Rp42.500 – Rp99.200 <span class='text-sm font-medium text-slate-300'>/m lari</span></span>
+<span class='mt-2 block text-xs leading-relaxed text-slate-300'>Dari harga per buah × buah per meter. Jasa pasang, pekerjaan dasar, dan mobilisasi dihitung terpisah.</span>
+</div>
+<div class='mt-4 grid gap-4 sm:grid-cols-2'>
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='px-5 py-4' style='background:#f0fdf4'><span class='text-xs font-bold uppercase tracking-[0.18em]' style='color:#15803d'>Kanstin Taman</span></div>
+<div class='px-5'>
+<div class='border-t border-slate-100 py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>40 × 20 × 10 cm</span><span class='text-base font-extrabold tabular-nums text-slate-950'>Rp42.500<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m lari</span></span></div><div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:43%;background:#16a34a'></div></div><span class='mt-1.5 block text-[11px] text-slate-500'>Rp17.000 per buah · 2,5 buah per meter</span></div>
+<div class='border-t border-slate-100 py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>40 × 20 × 15 × 13 cm</span><span class='text-base font-extrabold tabular-nums text-slate-950'>Rp57.500<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m lari</span></span></div><div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:58%;background:#16a34a'></div></div><span class='mt-1.5 block text-[11px] text-slate-500'>Rp23.000 per buah · 2,5 buah per meter</span></div>
+</div>
+</div>
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='px-5 py-4' style='background:#eff6ff'><span class='text-xs font-bold uppercase tracking-[0.18em]' style='color:#1d4ed8'>Kanstin Trotoar</span></div>
+<div class='px-5'>
+<div class='border-t border-slate-100 py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>40 × 25 × 16 × 13 cm</span><span class='text-base font-extrabold tabular-nums text-slate-950'>Rp67.500<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m lari</span></span></div><div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:68%;background:#3b82f6'></div></div><span class='mt-1.5 block text-[11px] text-slate-500'>Rp27.000 per buah · 2,5 buah per meter</span></div>
+<div class='border-t border-slate-100 py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>40 × 28 × 15 × 13 cm</span><span class='text-base font-extrabold tabular-nums text-slate-950'>Rp72.500<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m lari</span></span></div><div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:73%;background:#3b82f6'></div></div><span class='mt-1.5 block text-[11px] text-slate-500'>Rp29.000 per buah · 2,5 buah per meter</span></div>
+</div>
+</div>
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='px-5 py-4' style='background:#fff1f2'><span class='text-xs font-bold uppercase tracking-[0.18em]' style='color:#be123c'>Kanstin DKI</span></div>
+<div class='px-5'>
+<div class='border-t border-slate-100 py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>60 × 25 × 22 × 18 cm</span><span class='text-base font-extrabold tabular-nums text-slate-950'>Rp92.800<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m lari</span></span></div><div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:94%;background:#e11d48'></div></div><span class='mt-1.5 block text-[11px] text-slate-500'>Rp58.000 per buah · 1,6 buah per meter</span></div>
+<div class='border-t border-slate-100 py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>60 × 30 × 25 × 20 cm</span><span class='text-base font-extrabold tabular-nums text-slate-950'>Rp99.200<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m lari</span></span></div><div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:100%;background:#e11d48'></div></div><span class='mt-1.5 block text-[11px] text-slate-500'>Rp62.000 per buah · 1,6 buah per meter</span></div>
+</div>
+</div>
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='px-5 py-4' style='background:#fffbeb'><span class='text-xs font-bold uppercase tracking-[0.18em]' style='color:#b45309'>Kanstin S</span></div>
+<div class='px-5'>
+<div class='border-t border-slate-100 py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>40 × 30 × 16 cm</span><span class='text-base font-extrabold tabular-nums text-slate-950'>Rp75.000<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m lari</span></span></div><div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:76%;background:#d97706'></div></div><span class='mt-1.5 block text-[11px] text-slate-500'>Rp30.000 per buah · 2,5 buah per meter</span></div>
+</div>
+</div>
+</div>
+</div>`,
+        en: `<div class='not-prose my-6'>
+<div class='rounded-2xl bg-slate-900 p-6 text-white sm:p-7'>
+<span class='block text-[10px] font-bold uppercase tracking-[0.25em] text-[#4da3ff]'>Estimated curb price range per running meter</span>
+<span class='mt-2 block text-2xl font-extrabold tabular-nums sm:text-3xl'>Rp42,500 – Rp99,200 <span class='text-sm font-medium text-slate-300'>/running m</span></span>
+<span class='mt-2 block text-xs leading-relaxed text-slate-300'>Price per piece × pieces per meter. Installation, base work, and mobilization are quoted separately.</span>
+</div>
+<div class='mt-4 grid gap-4 sm:grid-cols-2'>
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='px-5 py-4' style='background:#f0fdf4'><span class='text-xs font-bold uppercase tracking-[0.18em]' style='color:#15803d'>Garden Curb</span></div>
+<div class='px-5'>
+<div class='border-t border-slate-100 py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>40 × 20 × 10 cm</span><span class='text-base font-extrabold tabular-nums text-slate-950'>Rp42,500<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/running m</span></span></div><div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:43%;background:#16a34a'></div></div><span class='mt-1.5 block text-[11px] text-slate-500'>Rp17,000 per piece · 2.5 pieces per meter</span></div>
+<div class='border-t border-slate-100 py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>40 × 20 × 15 × 13 cm</span><span class='text-base font-extrabold tabular-nums text-slate-950'>Rp57,500<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/running m</span></span></div><div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:58%;background:#16a34a'></div></div><span class='mt-1.5 block text-[11px] text-slate-500'>Rp23,000 per piece · 2.5 pieces per meter</span></div>
+</div>
+</div>
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='px-5 py-4' style='background:#eff6ff'><span class='text-xs font-bold uppercase tracking-[0.18em]' style='color:#1d4ed8'>Sidewalk Curb</span></div>
+<div class='px-5'>
+<div class='border-t border-slate-100 py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>40 × 25 × 16 × 13 cm</span><span class='text-base font-extrabold tabular-nums text-slate-950'>Rp67,500<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/running m</span></span></div><div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:68%;background:#3b82f6'></div></div><span class='mt-1.5 block text-[11px] text-slate-500'>Rp27,000 per piece · 2.5 pieces per meter</span></div>
+<div class='border-t border-slate-100 py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>40 × 28 × 15 × 13 cm</span><span class='text-base font-extrabold tabular-nums text-slate-950'>Rp72,500<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/running m</span></span></div><div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:73%;background:#3b82f6'></div></div><span class='mt-1.5 block text-[11px] text-slate-500'>Rp29,000 per piece · 2.5 pieces per meter</span></div>
+</div>
+</div>
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='px-5 py-4' style='background:#fff1f2'><span class='text-xs font-bold uppercase tracking-[0.18em]' style='color:#be123c'>DKI Curb</span></div>
+<div class='px-5'>
+<div class='border-t border-slate-100 py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>60 × 25 × 22 × 18 cm</span><span class='text-base font-extrabold tabular-nums text-slate-950'>Rp92,800<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/running m</span></span></div><div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:94%;background:#e11d48'></div></div><span class='mt-1.5 block text-[11px] text-slate-500'>Rp58,000 per piece · 1.6 pieces per meter</span></div>
+<div class='border-t border-slate-100 py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>60 × 30 × 25 × 20 cm</span><span class='text-base font-extrabold tabular-nums text-slate-950'>Rp99,200<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/running m</span></span></div><div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:100%;background:#e11d48'></div></div><span class='mt-1.5 block text-[11px] text-slate-500'>Rp62,000 per piece · 1.6 pieces per meter</span></div>
+</div>
+</div>
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='px-5 py-4' style='background:#fffbeb'><span class='text-xs font-bold uppercase tracking-[0.18em]' style='color:#b45309'>S Curb</span></div>
+<div class='px-5'>
+<div class='border-t border-slate-100 py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>40 × 30 × 16 cm</span><span class='text-base font-extrabold tabular-nums text-slate-950'>Rp75,000<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/running m</span></span></div><div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:76%;background:#d97706'></div></div><span class='mt-1.5 block text-[11px] text-slate-500'>Rp30,000 per piece · 2.5 pieces per meter</span></div>
+</div>
+</div>
+</div>
+</div>`,
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "<span class='not-prose block text-xs leading-relaxed text-slate-500'>Harga per buah mengikuti daftar harga kami. Harga final tergantung volume pekerjaan dan kondisi lokasi.</span>",
+        en: "<span class='not-prose block text-xs leading-relaxed text-slate-500'>Prices per piece follow our price list. The final price depends on work volume and site conditions.</span>",
+      },
+    },
+
+    {
+      type: "heading",
+      text: {
+        id: "Cara menghitung estimasi biaya (rumus + 3 contoh)",
+        en: "How to estimate the cost (formula + 3 worked examples)",
+      },
+    },
+    {
+      type: "list",
+      ordered: true,
+      items: [
+        {
+          id: "Ukur panjang tepi yang akan dipasang, termasuk sudut dan belokan. Ukur mengikuti garis tepi aktual, bukan garis lurus terpendek.",
+          en: "Measure the edge length to be installed, including corners and bends. Measure along the actual edge line, not the shortest straight line.",
+        },
+        {
+          id: "Tentukan faktor cadangan (waste): 5% untuk jalur lurus, 10% untuk 1–4 sudut, 15% untuk pola taman dengan banyak tikungan.",
+          en: "Set the waste factor: 5% for straight runs, 10% for 1–4 corners, 15% for garden patterns with many bends.",
+        },
+        {
+          id: "Kalikan panjang setelah cadangan dengan harga per meter lari sesuai tabel di atas.",
+          en: "Multiply the length after waste by the running meter price in the table above.",
+        },
+        {
+          id: "Tambahkan jasa pasang (per meter), pekerjaan dasar (lantai kerja + pemadatan), dan mobilisasi alat/material.",
+          en: "Add installation (per meter), base work (bedding + compaction), and mobilization of tools/materials.",
+        },
+      ],
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-5 rounded-2xl bg-slate-900 p-5 text-center sm:p-6'>
+<span class='block text-[10px] font-bold uppercase tracking-[0.25em] text-[#4da3ff]'>Rumus lengkap</span>
+<span class='mt-2 block font-mono text-sm text-white sm:text-base'>Total = (P × (1 + w) × H) + (P × J) + D + M</span>
+<span class='mt-2 block text-[11px] text-slate-400'>P = panjang (m) · w = faktor cadangan · H = harga/m lari · J = jasa pasang/m · D = pekerjaan dasar · M = mobilisasi</span>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-blue-50 px-5 py-3.5 text-sm font-bold text-blue-900'>Arti setiap variabel</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>P</span><span class='text-right text-slate-600'>Panjang tepi aktual yang dipasang, termasuk keliling sudut dan belokan</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>w</span><span class='text-right text-slate-600'>Faktor cadangan: 5% lurus · 10% 1–4 sudut · 15% banyak tikungan</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>H</span><span class='text-right text-slate-600'>Harga kanstin per meter lari sesuai jenis & ukuran (lihat tabel)</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>J</span><span class='text-right text-slate-600'>Jasa pasang per meter (tenaga, mortar, alat bantu)</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>D</span><span class='text-right text-slate-600'>Pekerjaan dasar: lantai kerja, pasir, dan pemadatan</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>M</span><span class='text-right text-slate-600'>Mobilisasi: angkut material, alat, dan bongkaran kanstin lama bila ada</span></div>
+</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-emerald-50 px-5 py-3.5 text-sm font-bold text-emerald-900'>Panduan cepat menentukan faktor cadangan (w)</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Jalur lurus, tanpa potongan sudut</span><span class='font-bold text-slate-950'>5%</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>1–4 sudut 90° atau belokan</span><span class='font-bold text-slate-950'>10%</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Banyak sudut, tikungan radius kecil, atau pola taman</span><span class='font-bold text-slate-950'>15%</span></div>
+</div>
+</div>`,
+        en: `<div class='not-prose my-5 rounded-2xl bg-slate-900 p-5 text-center sm:p-6'>
+<span class='block text-[10px] font-bold uppercase tracking-[0.25em] text-[#4da3ff]'>Full formula</span>
+<span class='mt-2 block font-mono text-sm text-white sm:text-base'>Total = (P × (1 + w) × H) + (P × J) + D + M</span>
+<span class='mt-2 block text-[11px] text-slate-400'>P = length (m) · w = waste factor · H = price per running m · J = installation per m · D = base work · M = mobilization</span>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-blue-50 px-5 py-3.5 text-sm font-bold text-blue-900'>What each variable means</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>P</span><span class='text-right text-slate-600'>Actual edge length installed, including corner perimeters and bends</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>w</span><span class='text-right text-slate-600'>Waste factor: 5% straight · 10% 1–4 corners · 15% many bends</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>H</span><span class='text-right text-slate-600'>Curb price per running meter by type & size (see table)</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>J</span><span class='text-right text-slate-600'>Installation per meter (labor, mortar, hand tools)</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>D</span><span class='text-right text-slate-600'>Base work: bedding, sand, and compaction</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>M</span><span class='text-right text-slate-600'>Mobilization: material transport, tools, and old curb demolition if any</span></div>
+</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-emerald-50 px-5 py-3.5 text-sm font-bold text-emerald-900'>Quick guide to choosing the waste factor (w)</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Straight run, no cut corners</span><span class='font-bold text-slate-950'>5%</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>1–4 right angles or bends</span><span class='font-bold text-slate-950'>10%</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Many corners, tight radius bends, or garden patterns</span><span class='font-bold text-slate-950'>15%</span></div>
+</div>
+</div>`,
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Contoh 1 — Taman lurus, 20 meter</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Jenis & ukuran</span><span class='font-bold text-slate-950'>Kanstin taman 40 × 20 × 10 cm</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Panjang + cadangan 5%</span><span class='font-bold text-slate-950'>20 × 1,05 = 21 meter</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Biaya kanstin</span><span class='font-bold text-slate-950'>21 × Rp42.500 = Rp892.500</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Jasa pasang (asumsi Rp15.000/m)</span><span class='font-bold text-slate-950'>20 × Rp15.000 = Rp300.000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Pekerjaan dasar (asumsi)</span><span class='font-bold text-slate-950'>Rp300.000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Mobilisasi (asumsi)</span><span class='font-bold text-slate-950'>Rp250.000</span></div>
+</div>
+<div class='bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-900'>Total estimasi ≈ Rp1.742.500</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Contoh 2 — Trotoar dengan 4 sudut, 40 meter</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Jenis & ukuran</span><span class='font-bold text-slate-950'>Kanstin trotoar 40 × 25 × 16 × 13 cm</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Panjang + cadangan 10%</span><span class='font-bold text-slate-950'>40 × 1,10 = 44 meter</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Biaya kanstin</span><span class='font-bold text-slate-950'>44 × Rp67.500 = Rp2.970.000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Jasa pasang (asumsi Rp20.000/m)</span><span class='font-bold text-slate-950'>40 × Rp20.000 = Rp800.000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Pekerjaan dasar (asumsi)</span><span class='font-bold text-slate-950'>Rp800.000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Mobilisasi (asumsi)</span><span class='font-bold text-slate-950'>Rp400.000</span></div>
+</div>
+<div class='bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-900'>Total estimasi ≈ Rp4.970.000</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Contoh 3 — Jalan kawasan, DKI, 100 meter, tanah lunak</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Jenis & ukuran</span><span class='font-bold text-slate-950'>Kanstin DKI 60 × 30 × 25 × 20 cm</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Panjang + cadangan 10%</span><span class='font-bold text-slate-950'>100 × 1,10 = 110 meter</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Biaya kanstin</span><span class='font-bold text-slate-950'>110 × Rp99.200 = Rp10.912.000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Jasa pasang (asumsi Rp25.000/m)</span><span class='font-bold text-slate-950'>100 × Rp25.000 = Rp2.500.000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Pekerjaan dasar tanah lunak (asumsi)</span><span class='font-bold text-slate-950'>Rp2.500.000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Mobilisasi (asumsi)</span><span class='font-bold text-slate-950'>Rp700.000</span></div>
+</div>
+<div class='bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-900'>Total estimasi ≈ Rp16.612.000</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-900 px-5 py-3.5 text-sm font-bold text-white'>Rekap ketiga contoh</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Taman 20 m · lurus</span><span class='font-bold text-slate-950'>Rp1.742.500</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Trotoar 40 m · 4 sudut</span><span class='font-bold text-slate-950'>Rp4.970.000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>DKI 100 m · tanah lunak</span><span class='font-bold text-slate-950'>Rp16.612.000</span></div>
+</div>
+<div class='bg-slate-50 px-5 py-3 text-xs text-slate-500'>Nilai J, D, dan M di atas hanya ilustrasi. Nilai sebenarnya diberikan setelah survei lokasi.</div>
+</div>`,
+        en: `<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Example 1 — Straight garden edge, 20 meters</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Type & size</span><span class='font-bold text-slate-950'>Garden curb 40 × 20 × 10 cm</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Length + 5% waste</span><span class='font-bold text-slate-950'>20 × 1.05 = 21 meters</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Curb cost</span><span class='font-bold text-slate-950'>21 × Rp42,500 = Rp892,500</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Installation (assumed Rp15,000/m)</span><span class='font-bold text-slate-950'>20 × Rp15,000 = Rp300,000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Base work (assumed)</span><span class='font-bold text-slate-950'>Rp300,000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Mobilization (assumed)</span><span class='font-bold text-slate-950'>Rp250,000</span></div>
+</div>
+<div class='bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-900'>Estimated total ≈ Rp1,742,500</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Example 2 — Sidewalk with 4 corners, 40 meters</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Type & size</span><span class='font-bold text-slate-950'>Sidewalk curb 40 × 25 × 16 × 13 cm</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Length + 10% waste</span><span class='font-bold text-slate-950'>40 × 1.10 = 44 meters</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Curb cost</span><span class='font-bold text-slate-950'>44 × Rp67,500 = Rp2,970,000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Installation (assumed Rp20,000/m)</span><span class='font-bold text-slate-950'>40 × Rp20,000 = Rp800,000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Base work (assumed)</span><span class='font-bold text-slate-950'>Rp800,000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Mobilization (assumed)</span><span class='font-bold text-slate-950'>Rp400,000</span></div>
+</div>
+<div class='bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-900'>Estimated total ≈ Rp4,970,000</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Example 3 — Estate road, DKI, 100 meters, soft soil</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Type & size</span><span class='font-bold text-slate-950'>DKI curb 60 × 30 × 25 × 20 cm</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Length + 10% waste</span><span class='font-bold text-slate-950'>100 × 1.10 = 110 meters</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Curb cost</span><span class='font-bold text-slate-950'>110 × Rp99,200 = Rp10,912,000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Installation (assumed Rp25,000/m)</span><span class='font-bold text-slate-950'>100 × Rp25,000 = Rp2,500,000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Base work on soft soil (assumed)</span><span class='font-bold text-slate-950'>Rp2,500,000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Mobilization (assumed)</span><span class='font-bold text-slate-950'>Rp700,000</span></div>
+</div>
+<div class='bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-900'>Estimated total ≈ Rp16,612,000</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-900 px-5 py-3.5 text-sm font-bold text-white'>Summary of the three examples</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Garden 20 m · straight</span><span class='font-bold text-slate-950'>Rp1,742,500</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Sidewalk 40 m · 4 corners</span><span class='font-bold text-slate-950'>Rp4,970,000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>DKI 100 m · soft soil</span><span class='font-bold text-slate-950'>Rp16,612,000</span></div>
+</div>
+<div class='bg-slate-50 px-5 py-3 text-xs text-slate-500'>The J, D, and M values above are illustrative only. Actual values are given after a site survey.</div>
+</div>`,
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "<span class='not-prose block text-sm leading-relaxed text-slate-600'>Catatan sudut: setiap belokan 90° memotong satu buah kanstin, sehingga panjang aktual bertambah dan sisa potongan tidak bisa dipakai. Itulah alasan faktor cadangan naik dari 5% ke 10–15% pada jalur bersudut banyak.</span>",
+        en: "<span class='not-prose block text-sm leading-relaxed text-slate-600'>Corner note: each 90° bend cuts one curb piece, so the actual length increases and the offcut cannot be reused. This is why the waste factor rises from 5% to 10–15% on edges with many corners.</span>",
+      },
+    },
+
+    {
+      type: "heading",
+      text: { id: "Mutu beton dan standar SNI", en: "Concrete grade and SNI standards" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "Selisih harga kanstin tidak hanya soal ukuran. Mutu beton dan metode cetak menentukan daya tahan, dan itulah yang membedakan produk murah dari produk yang benar-benar awet. Kanstin umumnya mengacu pada SNI beton (SNI 2847:2019) dengan mutu K-250 hingga K-350.",
+        en: "Curb price differences are not only about size. Concrete grade and casting method determine durability, and that is what separates cheap products from genuinely long-lasting ones. Curbs generally follow the Indonesian concrete standard (SNI 2847:2019) with grades from K-250 to K-350.",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Mutu beton, penggunaan, dan dampaknya ke harga</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>K-250 (≈ f'c 20 MPa)</span><span class='text-xs font-bold text-emerald-700'>Paling ekonomis</span></div><span class='mt-1 block text-xs text-slate-500'>Cocok untuk kanstin taman dan pembatas area tanaman.</span></div>
+<div class='py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>K-300 (≈ f'c 25 MPa)</span><span class='text-xs font-bold text-blue-700'>Standar trotoar</span></div><span class='mt-1 block text-xs text-slate-500'>Umum dipakai untuk trotoar dan tepi jalur pejalan kaki.</span></div>
+<div class='py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>K-350 (≈ f'c 30 MPa)</span><span class='text-xs font-bold text-rose-700'>Paling kuat</span></div><span class='mt-1 block text-xs text-slate-500'>Disarankan untuk kanstin DKI yang menahan beban kendaraan dan gesekan ban.</span></div>
+</div>
+<div class='bg-slate-50 px-5 py-3 text-xs text-slate-500'>Semakin tinggi mutu, semakin banyak semen dan semakin lama curing, sehingga harga naik.</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Metode cetak</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-semibold text-slate-800'>Cetak manual</span><span class='text-right text-slate-600'>Lebih murah, kepadatan beton kurang merata, permukaan bisa sedikit bergelombang</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-semibold text-slate-800'>Vibro press / hidrolik</span><span class='text-right text-slate-600'>Lebih padat dan presisi, permukaan rapi, harga di kisaran atas tabel</span></div>
+</div>
+<div class='bg-amber-50 px-5 py-3 text-xs text-amber-800'>Kanstin dengan harga jauh di bawah Rp42.500/m patut dicurigai mutunya—bisa jadi K-175 atau cetak manual tanpa curing yang cukup.</div>
+</div>`,
+        en: `<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Concrete grade, use, and price impact</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>K-250 (≈ f'c 20 MPa)</span><span class='text-xs font-bold text-emerald-700'>Most economical</span></div><span class='mt-1 block text-xs text-slate-500'>Suitable for garden curbs and planting-area borders.</span></div>
+<div class='py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>K-300 (≈ f'c 25 MPa)</span><span class='text-xs font-bold text-blue-700'>Sidewalk standard</span></div><span class='mt-1 block text-xs text-slate-500'>Commonly used for sidewalks and pedestrian path edges.</span></div>
+<div class='py-3.5'><div class='flex items-baseline justify-between gap-3'><span class='text-sm font-semibold text-slate-800'>K-350 (≈ f'c 30 MPa)</span><span class='text-xs font-bold text-rose-700'>Strongest</span></div><span class='mt-1 block text-xs text-slate-500'>Recommended for DKI curbs that carry vehicle loads and tire abrasion.</span></div>
+</div>
+<div class='bg-slate-50 px-5 py-3 text-xs text-slate-500'>Higher grades require more cement and longer curing, which raises the price.</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Casting method</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-semibold text-slate-800'>Manual casting</span><span class='text-right text-slate-600'>Cheaper, less uniform density, surface may be slightly uneven</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-semibold text-slate-800'>Vibro press / hydraulic</span><span class='text-right text-slate-600'>Denser and more precise, clean surface, priced at the upper end of the table</span></div>
+</div>
+<div class='bg-amber-50 px-5 py-3 text-xs text-amber-800'>Curbs priced far below Rp42,500/m warrant suspicion—they may be K-175 or manually cast without adequate curing.</div>
+</div>`,
+      },
+    },
+
+    {
+      type: "heading",
+      text: { id: "Yang membuat harga naik atau turun", en: "What makes prices go up or down" },
+    },
+    {
+      type: "list",
+      ordered: false,
+      items: [
+        {
+          id: "<strong>Ukuran buah:</strong> profil yang lebih besar memakai beton lebih banyak, sehingga biaya naik.",
+          en: "<strong>Piece size:</strong> larger profiles use more concrete, which raises the cost.",
+        },
+        {
+          id: "<strong>Mutu beton:</strong> K-350 memerlukan semen lebih banyak dan curing lebih lama dibanding K-250.",
+          en: "<strong>Concrete grade:</strong> K-350 requires more cement and longer curing than K-250.",
+        },
+        {
+          id: "<strong>Panjang pekerjaan:</strong> pekerjaan panjang lebih efisien per meter karena biaya mobilisasi terbagi.",
+          en: "<strong>Length of work:</strong> longer jobs are more efficient per meter because mobilization is shared.",
+        },
+        {
+          id: "<strong>Kondisi tanah:</strong> tanah lunak butuh dudukan dan pemadatan tambahan agar kanstin tidak bergeser.",
+          en: "<strong>Ground condition:</strong> soft soil needs extra bedding and compaction so the curb does not shift.",
+        },
+        {
+          id: "<strong>Akses dan bongkaran:</strong> lokasi sempit menambah waktu kerja, dan kanstin lama yang harus dibongkar menambah biaya.",
+          en: "<strong>Access and demolition:</strong> narrow access adds work time, and removing old curbs adds cost.",
+        },
+      ],
+    },
+    {
+      type: "heading",
+      text: { id: "Tips agar anggaran lebih hemat", en: "Tips to keep the budget lean" },
+    },
+    {
+      type: "list",
+      ordered: false,
+      items: [
+        {
+          id: "Pilih jenis sesuai fungsi. Kanstin taman tidak untuk jalur kendaraan.",
+          en: "Choose the type that fits the function. Garden curbs are not meant for vehicle lanes.",
+        },
+        {
+          id: "Gabungkan dengan pekerjaan lain di lokasi yang sama, seperti <a href='/blog/biaya-aspal-per-meter' class='font-semibold text-[#1e88e5] underline underline-offset-2'>pengaspalan</a> atau paving, agar mobilisasi tidak ganda.",
+          en: "Combine with other work on the same site, such as <a href='/blog/biaya-aspal-per-meter' class='font-semibold text-[#1e88e5] underline underline-offset-2'>asphalt paving</a> or paving blocks, so mobilization is not doubled.",
+        },
+        {
+          id: "Bandingkan penawaran dengan spesifikasi yang sama: jenis, ukuran, mutu beton, panjang, dan pekerjaan dasar.",
+          en: "Compare quotes with the same specifications: type, size, concrete grade, length, and base work.",
+        },
+        {
+          id: "Pasang saat cuaca kering. Pekerjaan dasar lebih mudah dan lebih cepat selesai.",
+          en: "Install in dry weather. Base work is easier and faster to finish.",
+        },
+        {
+          id: "Minta survei lebih dulu agar faktor waste dan pekerjaan dasar dihitung realistis, bukan sekadar perkiraan.",
+          en: "Request a survey first so the waste factor and base work are calculated realistically, not just guessed.",
+        },
+      ],
+    },
+    {
+      type: "heading",
+      text: { id: "Pertanyaan yang sering diajukan", en: "Frequently asked questions" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-5 space-y-3'>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Berapa harga kanstin per meter di 2026?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Perkiraan harga kanstin mulai dari Rp42.500 per meter lari (taman 40 × 20 × 10 cm) sampai Rp99.200 per meter lari (DKI 60 × 30 × 25 × 20 cm). Harga final mengikuti volume dan lokasi.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Apakah harga sudah termasuk pemasangan?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Tabel menampilkan harga kanstin per buah dan konversinya per meter lari. Jasa pasang, pekerjaan dasar, dan mobilisasi dihitung terpisah dalam penawaran.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Bagaimana cara menghitung kebutuhan kanstin kalau lokasi banyak sudut?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Ukur panjang mengikuti garis tepi aktual, lalu tambahkan cadangan 10% untuk 1–4 sudut atau 15% untuk banyak tikungan. Setiap belokan 90° memotong satu buah kanstin dan sisa potongannya tidak bisa dipakai ulang.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Apa beda kanstin dan kansteen?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Keduanya merujuk pada benda yang sama. Kanstin lebih umum dipakai di daftar harga, sedangkan kansteen sering muncul di spesifikasi teknis dan RAB proyek. Istilah lain yang juga dipakai adalah kerb atau curb.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Mutu beton apa yang dipakai untuk kanstin?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Umumnya K-250 hingga K-350. Kanstin taman cukup K-250, sedangkan kanstin DKI yang menahan beban kendaraan disarankan K-300 ke atas dengan metode cetak vibro press agar lebih padat dan tidak mudah retak.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Apakah survei lokasi gratis?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Ya. Survei mengukur panjang, melihat kondisi tanah, dan memberi estimasi awal tanpa biaya di area Jabodetabek, Banten, dan Jawa Barat.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Berapa lama pemasangan kanstin?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Tergantung panjang dan akses lokasi. Estimasi waktu diberikan setelah survei.</div>
+</details>
+</div>`,
+        en: `<div class='not-prose my-5 space-y-3'>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>How much is curb per meter in 2026?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Estimated curb prices start at Rp42,500 per running meter (garden 40 × 20 × 10 cm) up to Rp99,200 (DKI 60 × 30 × 25 × 20 cm). The final price depends on volume and location.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Does the price include installation?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>The table shows the curb price per piece and its running-meter equivalent. Installation, base work, and mobilization are quoted separately.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>How do I calculate curb needs when the site has many corners?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Measure along the actual edge line, then add 10% waste for 1–4 corners or 15% for many bends. Each 90° turn cuts one curb piece and the offcut cannot be reused.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>What is the difference between kanstin and kansteen?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>They refer to the same item. Kanstin is more common in price lists, while kansteen often appears in technical specifications and project bills of quantities. Other terms used are kerb and curb.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>What concrete grade is used for curbs?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Generally K-250 to K-350. Garden curbs are fine with K-250, while DKI curbs carrying vehicle loads are best at K-300 or above using vibro press casting for higher density and crack resistance.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Is the site survey free?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Yes. The survey measures the length, checks soil conditions, and gives an initial estimate at no cost in Greater Jakarta, Banten, and West Java.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>How long does curb installation take?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>It depends on the length and site access. A time estimate is given after the survey.</div>
+</details>
+</div>`,
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose relative my-8 overflow-hidden rounded-3xl bg-slate-900 p-7 text-center text-white sm:p-10'>
+<div aria-hidden='true' class='pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#1e88e5] opacity-20 blur-3xl'></div>
+<div class='relative'>
+<span class='block text-[11px] font-bold uppercase tracking-[0.3em] text-[#4da3ff]'>Estimasi gratis</span>
+<span class='mt-3 block text-xl font-bold sm:text-2xl'>Mau tahu total biaya untuk lokasi Anda?</span>
+<span class='mx-auto mt-3 block max-w-xl text-sm leading-relaxed text-slate-300'>Kirim panjang, jenis kanstin, jumlah sudut, dan lokasi proyek. Tim kami bantu hitung estimasinya, lalu survei lapangan bila diperlukan.</span>
+<a href='https://wa.me/6282258089367?text=Halo%2C%20saya%20ingin%20estimasi%20harga%20kanstin%20untuk%20proyek%20saya.' target='_blank' rel='noopener noreferrer' class='mt-6 inline-flex min-h-12 items-center justify-center rounded-xl bg-emerald-700 px-7 py-3 text-sm font-bold text-white hover:bg-emerald-800'>Estimasi via WhatsApp</a>
+<span class='mt-6 block text-xs text-slate-400'>Baca juga: <a href='/layanan/infrastruktur/pasang-kanstin' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Layanan pasang kanstin</a> · <a href='/blog/pemasangan-kansteen' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Pemasangan kansteen</a> · <a href='/blog/pemasangan-paving-block' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Pemasangan paving block</a> · <a href='/blog/biaya-aspal-per-meter' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Biaya aspal per meter</a></span>
+</div>
+</div>`,
+        en: `<div class='not-prose relative my-8 overflow-hidden rounded-3xl bg-slate-900 p-7 text-center text-white sm:p-10'>
+<div aria-hidden='true' class='pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#1e88e5] opacity-20 blur-3xl'></div>
+<div class='relative'>
+<span class='block text-[11px] font-bold uppercase tracking-[0.3em] text-[#4da3ff]'>Free estimate</span>
+<span class='mt-3 block text-xl font-bold sm:text-2xl'>Want to know the total cost for your site?</span>
+<span class='mx-auto mt-3 block max-w-xl text-sm leading-relaxed text-slate-300'>Send us the length, curb type, number of corners, and project location. We will help estimate it and arrange a site survey if needed.</span>
+<a href='https://wa.me/6282258089367?text=Hello%2C%20I%20would%20like%20a%20curb%20price%20estimate%20for%20my%20project.' target='_blank' rel='noopener noreferrer' class='mt-6 inline-flex min-h-12 items-center justify-center rounded-xl bg-emerald-700 px-7 py-3 text-sm font-bold text-white hover:bg-emerald-800'>Get an estimate on WhatsApp</a>
+<span class='mt-6 block text-xs text-slate-400'>Read also: <a href='/layanan/infrastruktur/pasang-kanstin' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Curb installation service</a> · <a href='/blog/pemasangan-kansteen' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Curb installation guide</a> · <a href='/blog/pemasangan-paving-block' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Paving block installation</a> · <a href='/blog/biaya-aspal-per-meter' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Asphalt cost per meter</a></span>
+</div>
+</div>`,
+      },
+    },
+  ],
+},
+{
+  slug: "pentingnya-k3-proyek-konstruksi",
+  modifiedDateISO: "2026-11-24",
+  date: { id: "24 November 2026", en: "November 24, 2026" },
+  dateISO: "2026-11-24",
+  canonical: "https://triabadimakmur.co.id/blog/pentingnya-k3-proyek-konstruksi",
+  src: "/proyek/proyek-93.jpg",
+  category: { id: "K3 Konstruksi", en: "Construction Safety" },
+
+  meta: {
+    title: {
+      id: "Pentingnya K3 di Proyek Konstruksi: 6 Contoh Nyata & Hitungan Biayanya",
+      en: "Why Construction Safety Matters: 6 Real Cases & the True Cost",
+    },
+    description: {
+      id: "K3 bukan formalitas. Lihat 6 contoh kecelakaan kerja konstruksi nyata, penyebabnya, cara mencegahnya, dan hitungan biaya kecelakaan vs biaya pencegahan. Dasar hukum UU 1/1970, UU 2/2017, dan Permen PUPR 10/2021.",
+      en: "Safety is not paperwork. See 6 real construction accidents, their causes, how to prevent them, and the cost of an accident vs the cost of prevention. Legal basis: UU 1/1970, UU 2/2017, and Permen PUPR 10/2021.",
+    },
+  },
+
+  title: {
+    id: "Pentingnya K3 di Proyek Konstruksi: Contoh Nyata, Biaya, dan Konsekuensinya",
+    en: "Why Construction Safety Matters: Real Cases, Costs, and Consequences",
+  },
+  desc: {
+    id: "K3 konstruksi bukan formalitas. 6 contoh kecelakaan nyata, penyebab, pencegahan, dan hitungan biaya kecelakaan vs pencegahan.",
+    en: "Construction safety is not paperwork. 6 real accidents, their causes, prevention, and the cost of an accident vs prevention.",
+  },
+
+  author: {
+    name: "PT. Tri Abadi Makmur Indonesia",
+    phone: "082258089367",
+    avatar: "/logo.webp",
+    lastUpdated: { id: "24 November 2026", en: "November 24, 2026" },
+    bio: {
+      id: "Tri Abadi Makmur merupakan perusahaan yang bergerak di bidang konstruksi, dengan pengalaman yang sudah bertahun – tahun kami kembangkan, tahapan proses yang mengedepankan kualitas dan kehati-hatian, serta eksekusi pengerjaan proyek yang signifikan, demi tercapainya kepuasan client sehingga terwujudnya jalinan kerjasama yang continue dan berkelanjutan.",
+      en: "Tri Abadi Makmur is a construction company with years of experience we have developed, a process that prioritizes quality and prudence, as well as the execution of significant projects, in order to achieve client satisfaction so that continuous and long-term cooperation is realized.",
+    },
+  },
+
+  tags: [
+    { id: "K3 Konstruksi", en: "Construction Safety", slug: "k3-konstruksi" },
+    { id: "Manajemen Proyek", en: "Project Management", slug: "manajemen-proyek" },
+    { id: "Keselamatan Kerja", en: "Workplace Safety", slug: "keselamatan-kerja" },
+    { id: "Layanan Konsultasi K3", en: "Safety Consulting Service", href: "/layanan/konsultasi-k3" },
+  ],
+
+  schema: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Pentingnya K3 di Proyek Konstruksi: Contoh Nyata, Biaya, dan Konsekuensinya",
+      "description": "K3 konstruksi bukan formalitas. 6 contoh kecelakaan nyata, penyebab, pencegahan, dan hitungan biaya kecelakaan vs pencegahan.",
+      "image": "https://triabadimakmur.co.id/proyek/k3-proyek-konstruksi.webp",
+      "datePublished": "2026-11-24",
+      "dateModified": "2026-11-24",
+      "author": {
+        "@type": "Organization",
+        "name": "PT. Tri Abadi Makmur Indonesia",
+        "telephone": "082258089367",
+        "logo": "https://triabadimakmur.co.id/logo.webp"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PT. Tri Abadi Makmur Indonesia",
+        "logo": { "@type": "ImageObject", "url": "https://triabadimakmur.co.id/logo.webp" }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://triabadimakmur.co.id/blog/pentingnya-k3-proyek-konstruksi"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Apakah proyek kecil juga wajib menerapkan K3?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wajib. UU No. 1 Tahun 1970 berlaku untuk semua tempat kerja, termasuk proyek kecil. Skala penerapannya boleh disesuaikan, tetapi kewajiban identifikasi bahaya, penyediaan APD, dan prosedur kerja aman tetap ada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Berapa minimal alokasi biaya K3 dalam RAB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Permen PUPR No. 10/2021 mengatur Biaya Penerapan SMKK yang dihitung terpisah dalam RAB, bukan bagian dari overhead. Besarannya bervariasi tergantung skala dan risiko proyek, umumnya berkisar 1–3% dari nilai kontrak untuk proyek bangunan gedung dan infrastruktur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apa sanksi jika proyek tidak menerapkan K3?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sanksi berlapis: administratif (teguran, denda, penghentian pekerjaan, blacklist dari proyek pemerintah), perdata (ganti rugi kepada pekerja atau keluarga korban), dan pidana (kurungan atau denda berdasarkan UU 1/1970 dan UU 2/2017)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apa beda HIRADC dan JSA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HIRADC (Hazard Identification, Risk Assessment, and Determining Control) menilai risiko secara menyeluruh per area atau aktivitas. JSA (Job Safety Analysis) mengurai satu pekerjaan menjadi langkah-langkah dan bahaya di tiap langkah. HIRADC dipakai di level manajemen, JSA dipakai di level pelaksana."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah kecelakaan ringan tetap harus dilaporkan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ya. Semua kecelakaan kerja, termasuk yang hanya menyebabkan hilangnya hari kerja (lost time injury), wajib dicatat dan dilaporkan. Pencatatan ini menjadi bahan evaluasi dan bukti kepatuhan saat audit K3."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Siapa yang bertanggung jawab atas K3 di proyek?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tanggung jawab utama ada pada pengusaha atau kontraktor utama, bukan hanya petugas K3. Pengawas pekerjaan dan pemilik proyek juga memiliki tanggung jawab sesuai perannya. Petugas K3 bertugas memfasilitasi, bukan menanggung seluruh risiko sendirian."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://triabadimakmur.co.id/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://triabadimakmur.co.id/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Pentingnya K3 di Proyek Konstruksi", "item": "https://triabadimakmur.co.id/blog/pentingnya-k3-proyek-konstruksi" }
+      ]
+    }
+  ],
+
+  body: [
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-6 rounded-2xl border-l-4 border-[#e11d48] bg-rose-50/70 p-5 sm:p-6'><span class='block text-base leading-relaxed text-slate-800'>Konstruksi adalah salah satu sektor dengan risiko kecelakaan kerja tertinggi di Indonesia. Masalahnya, banyak kontraktor masih memperlakukan K3 sebagai <strong>dokumen untuk memenuhi syarat tender</strong>, bukan sebagai bagian dari cara kerja. Artikel ini menunjukkan <strong>enam contoh kecelakaan nyata</strong>, penyebabnya, cara mencegahnya, dan <strong>hitungan biaya</strong> antara kecelakaan vs pencegahan — supaya terlihat jelas bahwa K3 bukan biaya, tapi penghematan.</span></div>`,
+        en: `<div class='not-prose my-6 rounded-2xl border-l-4 border-[#e11d48] bg-rose-50/70 p-5 sm:p-6'><span class='block text-base leading-relaxed text-slate-800'>Construction is one of the highest-risk sectors for workplace accidents in Indonesia. The problem is that many contractors still treat safety as <strong>paperwork to pass a tender</strong>, not as part of how work is done. This article shows <strong>six real accident scenarios</strong>, their causes, how to prevent them, and the <strong>cost comparison</strong> between an accident and prevention — so it becomes clear that safety is not a cost, but a saving.</span></div>`,
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<figure class='not-prose my-6 overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-900/5'><img src='/proyek/k3-proyek-konstruksi.webp' alt='Penerapan K3 di proyek konstruksi PT Tri Abadi Makmur' loading='lazy' decoding='async' class='h-auto w-full object-cover' style='aspect-ratio:16/9'><figcaption class='bg-slate-50 px-4 py-2.5 text-xs text-slate-500'>Briefing K3 sebelum pekerjaan dimulai.</figcaption></figure>`,
+        en: `<figure class='not-prose my-6 overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-900/5'><img src='/proyek/k3-proyek-konstruksi.webp' alt='Safety implementation at a PT Tri Abadi Makmur construction project' loading='lazy' decoding='async' class='h-auto w-full object-cover' style='aspect-ratio:16/9'><figcaption class='bg-slate-50 px-4 py-2.5 text-xs text-slate-500'>Safety briefing before work begins.</figcaption></figure>`,
+      },
+    },
+
+    {
+      type: "heading",
+      text: { id: "kenapa-k3-penting", en: "Why safety matters on site" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "Ada tiga alasan mengapa K3 di proyek konstruksi tidak bisa ditawar. <strong>Pertama, manusia.</strong> Setiap kecelakaan berarti ada orang yang terluka, kehilangan penghasilan, atau bahkan nyawa. <strong>Kedua, hukum.</strong> K3 bukan imbauan, tetapi kewajiban yang diatur UU dan peraturan menteri, dengan sanksi berlapis. <strong>Ketiga, uang.</strong> Biaya satu kecelakaan serius hampir selalu lebih besar daripada biaya pencegahan sepanjang proyek.",
+        en: "There are three reasons why construction safety is non-negotiable. <strong>First, people.</strong> Every accident means someone is injured, loses income, or worse. <strong>Second, law.</strong> Safety is not a suggestion; it is a legal obligation with layered sanctions. <strong>Third, money.</strong> The cost of one serious accident almost always exceeds the cost of prevention for the entire project.",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-5 grid gap-4 sm:grid-cols-3'>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block text-3xl font-extrabold text-rose-600'>1</span><span class='mt-2 block font-bold text-slate-900'>Manusia</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Cedera, kehilangan hari kerja, hingga kematian. Dampaknya tidak berhenti di pekerja—keluarga ikut menanggung.</span></div>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block text-3xl font-extrabold text-amber-600'>2</span><span class='mt-2 block font-bold text-slate-900'>Hukum</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Teguran, denda, penghentian proyek, blacklist, hingga pidana bagi penanggung jawab.</span></div>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block text-3xl font-extrabold text-emerald-600'>3</span><span class='mt-2 block font-bold text-slate-900'>Uang</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Biaya langsung dan tidak langsung kecelakaan bisa 4–10× lipat biaya pencegahan.</span></div>
+</div>`,
+        en: `<div class='not-prose my-5 grid gap-4 sm:grid-cols-3'>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block text-3xl font-extrabold text-rose-600'>1</span><span class='mt-2 block font-bold text-slate-900'>People</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Injury, lost workdays, even death. The impact does not stop at the worker—families bear it too.</span></div>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block text-3xl font-extrabold text-amber-600'>2</span><span class='mt-2 block font-bold text-slate-900'>Law</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Warnings, fines, project stoppage, blacklisting, even criminal liability for those in charge.</span></div>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block text-3xl font-extrabold text-emerald-600'>3</span><span class='mt-2 block font-bold text-slate-900'>Money</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Direct and indirect accident costs can be 4–10× the cost of prevention.</span></div>
+</div>`,
+      },
+    },
+
+    {
+      type: "heading",
+      text: { id: "enam-contoh", en: "Six real accident scenarios" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "Enam contoh di bawah adalah skenario yang paling sering terjadi di proyek konstruksi Indonesia. Semuanya bisa dicegah dengan kontrol sederhana—tetapi sering dilewatkan karena dianggap 'tidak akan terjadi'.",
+        en: "The six scenarios below are the most common on Indonesian construction sites. All are preventable with simple controls—but are often skipped because 'it won't happen'.",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-6 space-y-4'>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='flex items-center gap-3 bg-rose-50 px-5 py-3.5'><span class='flex h-7 w-7 items-center justify-center rounded-full bg-rose-600 text-xs font-bold text-white'>1</span><span class='text-sm font-bold text-rose-900'>Jatuh dari ketinggian saat pemasangan bekisting</span></div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Skenario:</span> <span class='text-slate-600'>Pekerja memasang bekisting di lantai 3 tanpa <em>safety harness</em> karena 'hanya sebentar'. Pijakan tergelincir, jatuh setinggi 9 meter.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Penyebab:</span> <span class='text-slate-600'>Tidak ada <em>guardrail</em>, tidak ada <em>lifeline</em>, pengawasan lemah, APD tidak dipakai karena dianggap menghambat.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Pencegahan:</span> <span class='text-slate-600'>Pasang <em>guardrail</em> di semua tepi lantai, sediakan <em>anchor point</em> bersertifikat, lakukan <em>toolbox meeting</em> harian, dan terapkan <em>zero tolerance</em> untuk pekerjaan ketinggian tanpa harness.</span></div>
+</div>
+</div>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='flex items-center gap-3 bg-amber-50 px-5 py-3.5'><span class='flex h-7 w-7 items-center justify-center rounded-full bg-amber-600 text-xs font-bold text-white'>2</span><span class='text-sm font-bold text-amber-900'>Kejatuhan material dari atas</span></div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Skenario:</span> <span class='text-slate-600'>Besi beton ukuran 12 mm terjatuh dari lantai 2 saat diangkat dengan tali tanpa ikatan ganda. Pekerja di bawah tertimpa.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Penyebab:</span> <span class='text-slate-600'>Tidak ada <em>toe board</em>, area di bawah tidak steril, metode ikatan tidak sesuai, tidak ada <em>flagman</em>.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Pencegahan:</span> <span class='text-slate-600'>Pasang jaring pengaman dan <em>toe board</em>, sterilkan area di bawah, gunakan ikatan ganda untuk material panjang, dan wajibkan helm SNI di seluruh area proyek.</span></div>
+</div>
+</div>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='flex items-center gap-3 bg-blue-50 px-5 py-3.5'><span class='flex h-7 w-7 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white'>3</span><span class='text-sm font-bold text-blue-900'>Tertabrak alat berat saat <em>spotting</em></span></div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Skenario:</span> <span class='text-slate-600'>Pekerja berjalan di belakang <em>excavator</em> yang sedang mundur. Operator tidak melihat karena <em>blind spot</em> besar dan tidak ada pengawas.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Penyebab:</span> <span class='text-slate-600'>Jalur pejalan kaki dan jalur alat berat tidak dipisah, tidak ada <em>spotter</em>, alarm mundur mati, operator tanpa SIO.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Pencegahan:</span> <span class='text-slate-600'>Pisahkan jalur pejalan kaki dengan <em>barrier</em> fisik, wajibkan <em>spotter</em> saat alat mundur, pastikan alarm mundur berfungsi, dan verifikasi SIO operator.</span></div>
+</div>
+</div>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='flex items-center gap-3 bg-orange-50 px-5 py-3.5'><span class='flex h-7 w-7 items-center justify-center rounded-full bg-orange-600 text-xs font-bold text-white'>4</span><span class='text-sm font-bold text-orange-900'>Sengatan listrik saat kerja dekat jaringan udara</span></div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Skenario:</span> <span class='text-slate-600'>Boom truk mixer menyentuh kabel listrik 20 kV saat pengecoran. Operator dan pekerja di sekitar terkena aliran.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Penyebab:</span> <span class='text-slate-600'>Tidak ada survei utilitas bawah/atas tanah, tidak ada <em>goalpost</em> atau pembatas ketinggian, jarak aman tidak diketahui.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Pencegahan:</span> <span class='text-slate-600'>Lakukan survei utilitas sebelum mobilisasi alat, pasang pembatas ketinggian (<em>goalpost</em>), koordinasi dengan PLN untuk <em>outage</em> jika perlu, dan briefing khusus ke operator.</span></div>
+</div>
+</div>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='flex items-center gap-3 bg-violet-50 px-5 py-3.5'><span class='flex h-7 w-7 items-center justify-center rounded-full bg-violet-600 text-xs font-bold text-white'>5</span><span class='text-sm font-bold text-violet-900'>Keruntuhan galian tanpa penahan</span></div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Skenario:</span> <span class='text-slate-600'>Galian sedalam 2,5 meter untuk pondasi dibiarkan terbuka tanpa <em>shoring</em> selama dua hari. Tanah longsor menimpa pekerja.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Penyebab:</span> <span class='text-slate-600'>Tidak ada analisis stabilitas tanah, tidak ada penahan (<em>shoring</em>/<em>sheet pile</em>), area galian tidak dibatasi, air hujan tidak dikelola.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Pencegahan:</span> <span class='text-slate-600'>Pasang penahan galian sesuai desain, batasi area dengan <em>barricade</em> dan rambu, kendalikan air hujan, dan lakukan inspeksi harian sebelum pekerja masuk.</span></div>
+</div>
+</div>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='flex items-center gap-3 bg-teal-50 px-5 py-3.5'><span class='flex h-7 w-7 items-center justify-center rounded-full bg-teal-600 text-xs font-bold text-white'>6</span><span class='text-sm font-bold text-teal-900'>Kebakaran dari pekerjaan panas di area mudah terbakar</span></div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Skenario:</span> <span class='text-slate-600'>Pengelasan di dekat tumpukan bekisting kayu dan drum solvent. Percikan api memicu kebakaran kecil yang membesar cepat.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Penyebab:</span> <span class='text-slate-600'>Tidak ada <em>hot work permit</em>, tidak ada pemisahan material mudah terbakar, APAR tidak tersedia di lokasi kerja.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Pencegahan:</span> <span class='text-slate-600'>Terapkan <em>hot work permit</em>, pindahkan material mudah terbakar minimal 10 meter, sediakan APAR dan <em>fire watch</em> selama dan 30 menit setelah pekerjaan panas selesai.</span></div>
+</div>
+</div>
+
+</div>`,
+        en: `<div class='not-prose my-6 space-y-4'>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='flex items-center gap-3 bg-rose-50 px-5 py-3.5'><span class='flex h-7 w-7 items-center justify-center rounded-full bg-rose-600 text-xs font-bold text-white'>1</span><span class='text-sm font-bold text-rose-900'>Fall from height during formwork installation</span></div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Scenario:</span> <span class='text-slate-600'>A worker installs formwork on the 3rd floor without a safety harness because 'it's just a moment'. The footing slips, and he falls 9 meters.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Cause:</span> <span class='text-slate-600'>No guardrail, no lifeline, weak supervision, PPE not worn because it is seen as slowing work.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Prevention:</span> <span class='text-slate-600'>Install guardrails on all floor edges, provide certified anchor points, run daily toolbox meetings, and enforce zero tolerance for height work without a harness.</span></div>
+</div>
+</div>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='flex items-center gap-3 bg-amber-50 px-5 py-3.5'><span class='flex h-7 w-7 items-center justify-center rounded-full bg-amber-600 text-xs font-bold text-white'>2</span><span class='text-sm font-bold text-amber-900'>Falling material from above</span></div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Scenario:</span> <span class='text-slate-600'>A 12 mm rebar falls from the 2nd floor while being lifted with a single-tie rope. A worker below is struck.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Cause:</span> <span class='text-slate-600'>No toe board, area below not cleared, wrong tying method, no flagman.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Prevention:</span> <span class='text-slate-600'>Install safety nets and toe boards, clear the area below, use double ties for long materials, and require SNI helmets site-wide.</span></div>
+</div>
+</div>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='flex items-center gap-3 bg-blue-50 px-5 py-3.5'><span class='flex h-7 w-7 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white'>3</span><span class='text-sm font-bold text-blue-900'>Struck by heavy equipment during spotting</span></div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Scenario:</span> <span class='text-slate-600'>A worker walks behind a reversing excavator. The operator cannot see due to the large blind spot and no spotter.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Cause:</span> <span class='text-slate-600'>Pedestrian and equipment paths not separated, no spotter, reverse alarm broken, unlicensed operator.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Prevention:</span> <span class='text-slate-600'>Separate pedestrian paths with physical barriers, require a spotter during reversing, ensure reverse alarms work, and verify operator SIO licenses.</span></div>
+</div>
+</div>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='flex items-center gap-3 bg-orange-50 px-5 py-3.5'><span class='flex h-7 w-7 items-center justify-center rounded-full bg-orange-600 text-xs font-bold text-white'>4</span><span class='text-sm font-bold text-orange-900'>Electric shock near overhead lines</span></div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Scenario:</span> <span class='text-slate-600'>A mixer truck boom touches a 20 kV power line during pouring. The operator and nearby workers are electrocuted.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Cause:</span> <span class='text-slate-600'>No utility survey, no goalpost or height barrier, safe distance unknown.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Prevention:</span> <span class='text-slate-600'>Survey utilities before mobilizing equipment, install height barriers (goalposts), coordinate with the utility for outages if needed, and brief operators specifically.</span></div>
+</div>
+</div>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='flex items-center gap-3 bg-violet-50 px-5 py-3.5'><span class='flex h-7 w-7 items-center justify-center rounded-full bg-violet-600 text-xs font-bold text-white'>5</span><span class='text-sm font-bold text-violet-900'>Excavation collapse without shoring</span></div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Scenario:</span> <span class='text-slate-600'>A 2.5-meter foundation excavation is left open without shoring for two days. The soil collapses onto a worker.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Cause:</span> <span class='text-slate-600'>No soil stability analysis, no shoring or sheet pile, excavation area not bounded, rainwater unmanaged.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Prevention:</span> <span class='text-slate-600'>Install shoring per design, bound the area with barricades and signs, manage rainwater, and conduct daily inspections before entry.</span></div>
+</div>
+</div>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='flex items-center gap-3 bg-teal-50 px-5 py-3.5'><span class='flex h-7 w-7 items-center justify-center rounded-full bg-teal-600 text-xs font-bold text-white'>6</span><span class='text-sm font-bold text-teal-900'>Fire from hot work in a flammable area</span></div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Scenario:</span> <span class='text-slate-600'>Welding near stacked wooden formwork and solvent drums. Sparks ignite a small fire that spreads rapidly.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Cause:</span> <span class='text-slate-600'>No hot work permit, no separation of flammable materials, no fire extinguisher on site.</span></div>
+<div class='py-3 text-sm'><span class='font-semibold text-slate-900'>Prevention:</span> <span class='text-slate-600'>Apply a hot work permit, move flammable materials at least 10 meters away, and provide extinguishers and a fire watch during and 30 minutes after hot work.</span></div>
+</div>
+</div>
+
+</div>`,
+      },
+    },
+
+    {
+      type: "heading",
+      text: { id: "biaya-kecelakaan", en: "The cost of an accident vs prevention" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "Banyak kontraktor hanya menghitung <strong>biaya langsung</strong> kecelakaan: rumah sakit, santunan, dan perbaikan alat. Padahal <strong>biaya tidak langsung</strong>—proyek berhenti, denda keterlambatan, penyelidikan, hilangnya jam kerja, hingga reputasi yang membuat klien ragu—bisa jauh lebih besar. Piramida kecelakaan kerja klasik (Heinrich/Bird) menunjukkan bahwa setiap kecelakaan berat didahului ratusan kejadian hampir celaka yang tidak pernah dicatat.",
+        en: "Many contractors only count the <strong>direct costs</strong> of an accident: hospital bills, compensation, and equipment repair. Yet the <strong>indirect costs</strong>—project stoppage, delay penalties, investigations, lost work hours, and a reputation that makes clients hesitate—can be far larger. The classic accident pyramid (Heinrich/Bird) shows that every serious accident is preceded by hundreds of unrecorded near misses.",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-900 px-5 py-3.5 text-sm font-bold text-white'>Contoh hitungan: kecelakaan jatuh dari ketinggian di proyek 20 pekerja</div>
+<div class='overflow-x-auto'>
+<table class='w-full text-sm'>
+<thead><tr class='bg-slate-50 text-left text-xs uppercase tracking-wide text-slate-500'><th class='px-5 py-2.5'>Komponen</th><th class='px-5 py-2.5 text-right'>Biaya Kecelakaan</th><th class='px-5 py-2.5 text-right'>Biaya Pencegahan</th></tr></thead>
+<tbody class='divide-y divide-slate-100'>
+<tr><td class='px-5 py-3 text-slate-700'>Pengobatan & rumah sakit</td><td class='px-5 py-3 text-right font-semibold text-slate-900'>Rp35.000.000</td><td class='px-5 py-3 text-right text-slate-500'>—</td></tr>
+<tr><td class='px-5 py-3 text-slate-700'>Santunan / kompensasi</td><td class='px-5 py-3 text-right font-semibold text-slate-900'>Rp50.000.000</td><td class='px-5 py-3 text-right text-slate-500'>—</td></tr>
+<tr><td class='px-5 py-3 text-slate-700'>Proyek berhenti 5 hari (investigasi)</td><td class='px-5 py-3 text-right font-semibold text-slate-900'>Rp40.000.000</td><td class='px-5 py-3 text-right text-slate-500'>—</td></tr>
+<tr><td class='px-5 py-3 text-slate-700'>Denda keterlambatan</td><td class='px-5 py-3 text-right font-semibold text-slate-900'>Rp25.000.000</td><td class='px-5 py-3 text-right text-slate-500'>—</td></tr>
+<tr><td class='px-5 py-3 text-slate-700'>Penggantian pekerja pengganti & training ulang</td><td class='px-5 py-3 text-right font-semibold text-slate-900'>Rp15.000.000</td><td class='px-5 py-3 text-right text-slate-500'>—</td></tr>
+<tr><td class='px-5 py-3 text-slate-700'>Guardrail, lifeline, dan anchor point</td><td class='px-5 py-3 text-right text-slate-500'>—</td><td class='px-5 py-3 text-right font-semibold text-emerald-700'>Rp12.000.000</td></tr>
+<tr><td class='px-5 py-3 text-slate-700'>Pelatihan pekerja ketinggian & sertifikasi</td><td class='px-5 py-3 text-right text-slate-500'>—</td><td class='px-5 py-3 text-right font-semibold text-emerald-700'>Rp8.000.000</td></tr>
+<tr><td class='px-5 py-3 text-slate-700'>Toolbox meeting & pengawasan harian</td><td class='px-5 py-3 text-right text-slate-500'>—</td><td class='px-5 py-3 text-right font-semibold text-emerald-700'>Rp5.000.000</td></tr>
+<tr class='bg-slate-50'><td class='px-5 py-3 font-bold text-slate-900'>Total</td><td class='px-5 py-3 text-right font-extrabold text-rose-700'>Rp165.000.000</td><td class='px-5 py-3 text-right font-extrabold text-emerald-700'>Rp25.000.000</td></tr>
+</tbody>
+</table>
+</div>
+<div class='bg-amber-50 px-5 py-3 text-xs text-amber-800'>Selisih: biaya kecelakaan <strong>6,6× lebih besar</strong> daripada biaya pencegahan. Belum termasuk kerugian reputasi dan potensi kehilangan tender berikutnya.</div>
+</div>`,
+        en: `<div class='not-prose my-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-900 px-5 py-3.5 text-sm font-bold text-white'>Worked example: a fall-from-height accident on a 20-worker project</div>
+<div class='overflow-x-auto'>
+<table class='w-full text-sm'>
+<thead><tr class='bg-slate-50 text-left text-xs uppercase tracking-wide text-slate-500'><th class='px-5 py-2.5'>Component</th><th class='px-5 py-2.5 text-right'>Accident Cost</th><th class='px-5 py-2.5 text-right'>Prevention Cost</th></tr></thead>
+<tbody class='divide-y divide-slate-100'>
+<tr><td class='px-5 py-3 text-slate-700'>Medical & hospital</td><td class='px-5 py-3 text-right font-semibold text-slate-900'>Rp35,000,000</td><td class='px-5 py-3 text-right text-slate-500'>—</td></tr>
+<tr><td class='px-5 py-3 text-slate-700'>Compensation / benefits</td><td class='px-5 py-3 text-right font-semibold text-slate-900'>Rp50,000,000</td><td class='px-5 py-3 text-right text-slate-500'>—</td></tr>
+<tr><td class='px-5 py-3 text-slate-700'>Project stoppage 5 days (investigation)</td><td class='px-5 py-3 text-right font-semibold text-slate-900'>Rp40,000,000</td><td class='px-5 py-3 text-right text-slate-500'>—</td></tr>
+<tr><td class='px-5 py-3 text-slate-700'>Delay penalties</td><td class='px-5 py-3 text-right font-semibold text-slate-900'>Rp25,000,000</td><td class='px-5 py-3 text-right text-slate-500'>—</td></tr>
+<tr><td class='px-5 py-3 text-slate-700'>Replacement worker & retraining</td><td class='px-5 py-3 text-right font-semibold text-slate-900'>Rp15,000,000</td><td class='px-5 py-3 text-right text-slate-500'>—</td></tr>
+<tr><td class='px-5 py-3 text-slate-700'>Guardrails, lifeline, anchor points</td><td class='px-5 py-3 text-right text-slate-500'>—</td><td class='px-5 py-3 text-right font-semibold text-emerald-700'>Rp12,000,000</td></tr>
+<tr><td class='px-5 py-3 text-slate-700'>Height work training & certification</td><td class='px-5 py-3 text-right text-slate-500'>—</td><td class='px-5 py-3 text-right font-semibold text-emerald-700'>Rp8,000,000</td></tr>
+<tr><td class='px-5 py-3 text-slate-700'>Daily toolbox meetings & supervision</td><td class='px-5 py-3 text-right text-slate-500'>—</td><td class='px-5 py-3 text-right font-semibold text-emerald-700'>Rp5,000,000</td></tr>
+<tr class='bg-slate-50'><td class='px-5 py-3 font-bold text-slate-900'>Total</td><td class='px-5 py-3 text-right font-extrabold text-rose-700'>Rp165,000,000</td><td class='px-5 py-3 text-right font-extrabold text-emerald-700'>Rp25,000,000</td></tr>
+</tbody>
+</table>
+</div>
+<div class='bg-amber-50 px-5 py-3 text-xs text-amber-800'>Difference: the accident costs <strong>6.6× more</strong> than prevention. This excludes reputation loss and the potential loss of the next tender.</div>
+</div>`,
+      },
+    },
+
+    {
+      type: "heading",
+      text: { id: "dasar-hukum", en: "Legal basis" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "K3 konstruksi bukan kebijakan internal perusahaan. Ada dasar hukum yang mengikat, dan pelanggarannya berlapis sanksinya.",
+        en: "Construction safety is not an internal company policy. There is binding legal basis, with layered sanctions for violations.",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3.5'><span class='text-sm font-bold text-slate-900'>UU No. 1 Tahun 1970 tentang Keselamatan Kerja</span><span class='mt-1 block text-xs leading-relaxed text-slate-600'>Dasar utama. Mewajibkan pengusaha menyediakan tempat kerja aman, APD, dan prosedur kerja. Sanksi pidana hingga 3 bulan kurungan atau denda.</span></div>
+<div class='py-3.5'><span class='text-sm font-bold text-slate-900'>UU No. 2 Tahun 2017 tentang Jasa Konstruksi</span><span class='mt-1 block text-xs leading-relaxed text-slate-600'>Mewajibkan penerapan SMKK (Sistem Manajemen Keselamatan Konstruksi). Pelanggaran bisa berujung pada blacklist dari proyek pemerintah.</span></div>
+<div class='py-3.5'><span class='text-sm font-bold text-slate-900'>PP No. 50 Tahun 2012 tentang SMK3</span><span class='mt-1 block text-xs leading-relaxed text-slate-600'>Mengatur penerapan SMK3 untuk perusahaan dengan 100 pekerja atau lebih, atau yang memiliki risiko bahaya tinggi—termasuk proyek konstruksi.</span></div>
+<div class='py-3.5'><span class='text-sm font-bold text-slate-900'>Permen PUPR No. 10 Tahun 2021 tentang SMKK</span><span class='mt-1 block text-xs leading-relaxed text-slate-600'>Mengatur teknis SMKK, termasuk kewajiban Biaya Penerapan SMKK yang dihitung terpisah dalam RAB, bukan bagian dari overhead.</span></div>
+<div class='py-3.5'><span class='text-sm font-bold text-slate-900'>Permenaker No. 1 Tahun 1980 tentang K3 pada Konstruksi Bangunan</span><span class='mt-1 block text-xs leading-relaxed text-slate-600'>Mengatur keselamatan pada pekerjaan konstruksi: penggalian, ketinggian, alat berat, dan pekerjaan panas.</span></div>
+</div>
+</div>`,
+        en: `<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='py-3.5'><span class='text-sm font-bold text-slate-900'>UU No. 1 of 1970 on Occupational Safety</span><span class='mt-1 block text-xs leading-relaxed text-slate-600'>The primary basis. Requires employers to provide a safe workplace, PPE, and safe work procedures. Criminal sanctions up to 3 months' imprisonment or fines.</span></div>
+<div class='py-3.5'><span class='text-sm font-bold text-slate-900'>UU No. 2 of 2017 on Construction Services</span><span class='mt-1 block text-xs leading-relaxed text-slate-600'>Mandates SMKK (Construction Safety Management System). Violations can lead to blacklisting from government projects.</span></div>
+<div class='py-3.5'><span class='text-sm font-bold text-slate-900'>PP No. 50 of 2012 on SMK3</span><span class='mt-1 block text-xs leading-relaxed text-slate-600'>Governs SMK3 implementation for companies with 100+ workers or high-risk hazards—including construction projects.</span></div>
+<div class='py-3.5'><span class='text-sm font-bold text-slate-900'>Permen PUPR No. 10 of 2021 on SMKK</span><span class='mt-1 block text-xs leading-relaxed text-slate-600'>Governs SMKK technicalities, including mandatory SMKK Implementation Cost in the budget (RAB), not part of overhead.</span></div>
+<div class='py-3.5'><span class='text-sm font-bold text-slate-900'>Permenaker No. 1 of 1980 on Construction Safety</span><span class='mt-1 block text-xs leading-relaxed text-slate-600'>Governs safety in construction work: excavation, height work, heavy equipment, and hot work.</span></div>
+</div>
+</div>`,
+      },
+    },
+
+    {
+      type: "heading",
+      text: { id: "kesalahan-umum", en: "Common mistakes on site" },
+    },
+    {
+      type: "list",
+      ordered: false,
+      items: [
+        {
+          id: "<strong>JSA dibuat sekali, dipakai selamanya.</strong> JSA harus diperbarui setiap kali metode kerja, alat, atau kondisi lokasi berubah. JSA tahun lalu tidak berlaku untuk pekerjaan bulan ini.",
+          en: "<strong>JSA written once, used forever.</strong> A JSA must be updated whenever the method, tool, or site condition changes. Last year's JSA does not apply to this month's work.",
+        },
+        {
+          id: "<strong>APD hanya dipakai saat ada tamu.</strong> Jika APD dipakai hanya saat audit, yang rusak adalah budayanya, bukan APD-nya.",
+          en: "<strong>PPE only worn when guests arrive.</strong> If PPE is worn only during audits, the culture is broken—not the PPE.",
+        },
+        {
+          id: "<strong>Safety officer dijadikan 'polisi', bukan 'penasihat'.</strong> Jika peran K3 hanya menghukum, pekerja akan menyembunyikan bahaya, bukan melaporkannya.",
+          en: "<strong>Safety officers turned into 'police', not 'advisors'.</strong> If safety only punishes, workers hide hazards instead of reporting them.",
+        },
+        {
+          id: "<strong>Tidak ada pencatatan near miss.</strong> Kejadian hampir celaka adalah peringatan gratis. Jika tidak dicatat, kecelakaan besar berikutnya hanya soal waktu.",
+          en: "<strong>No near-miss reporting.</strong> A near miss is a free warning. If it is not recorded, the next serious accident is only a matter of time.",
+        },
+        {
+          id: "<strong>Alokasi biaya K3 di bawah 1%.</strong> Ini sering terjadi karena Biaya Penerapan SMKK dimasukkan ke overhead. Akibatnya, anggaran K3 habis sebelum pekerjaan berisiko dimulai.",
+          en: "<strong>Safety budget below 1%.</strong> This often happens because SMKK cost is folded into overhead. As a result, the safety budget runs out before high-risk work even begins.",
+        },
+      ],
+    },
+
+    {
+      type: "heading",
+      text: { id: "checklist", en: "Practical daily checklist" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "Berikut checklist minimal yang bisa dipakai <em>setiap hari</em> sebelum pekerjaan dimulai. Tidak perlu panjang—yang penting konsisten.",
+        en: "Here is the minimal checklist you can use <em>every day</em> before work starts. It does not need to be long—consistency matters more.",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>Toolbox meeting 5–10 menit: bahaya hari ini, kontrol, dan jalur evakuasi</span></div>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>APD lengkap: helm SNI, safety shoes, rompi, sarung tangan sesuai pekerjaan</span></div>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>Area kerja steril: tidak ada material menumpuk di jalur evakuasi</span></div>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>Alat berat: SIO operator, alarm mundur, lampu, dan rem dicek</span></div>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>Pekerjaan ketinggian: harness, lifeline, dan anchor point diperiksa</span></div>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>Galian: penahan galian terpasang, tidak ada air tergenang, area dibatasi</span></div>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>Pekerjaan panas: hot work permit, APAR, fire watch siap</span></div>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>Cuaca: jika hujan/angin kencang, pekerjaan ketinggian dan alat berat ditinjau ulang</span></div>
+</div>
+<div class='bg-slate-50 px-5 py-3 text-xs text-slate-500'>Checklist ini bukan pengganti HIRADC/JSA, tetapi pelengkap harian agar kontrol benar-benar dijalankan di lapangan.</div>
+</div>`,
+        en: `<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>Toolbox meeting 5–10 min: today's hazards, controls, and evacuation routes</span></div>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>Complete PPE: SNI helmet, safety shoes, vest, task-appropriate gloves</span></div>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>Clear work area: no material blocking evacuation routes</span></div>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>Heavy equipment: operator SIO, reverse alarms, lights, and brakes checked</span></div>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>Height work: harness, lifeline, and anchor points inspected</span></div>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>Excavation: shoring in place, no standing water, area bounded</span></div>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>Hot work: permit, extinguishers, and fire watch ready</span></div>
+<div class='flex items-start gap-3 py-3 text-sm'><span class='mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-slate-300 text-xs text-slate-400'>✓</span><span class='text-slate-700'>Weather: in rain/strong wind, review height work and heavy equipment</span></div>
+</div>
+<div class='bg-slate-50 px-5 py-3 text-xs text-slate-500'>This checklist does not replace HIRADC/JSA, but complements it so controls are actually executed on site.</div>
+</div>`,
+      },
+    },
+
+    {
+      type: "heading",
+      text: { id: "faq", en: "Frequently asked questions" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-5 space-y-3'>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Apakah proyek kecil juga wajib menerapkan K3?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Wajib. UU No. 1 Tahun 1970 berlaku untuk semua tempat kerja, termasuk proyek kecil. Skala penerapannya boleh disesuaikan, tetapi kewajiban identifikasi bahaya, penyediaan APD, dan prosedur kerja aman tetap ada.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Berapa minimal alokasi biaya K3 dalam RAB?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Permen PUPR No. 10/2021 mengatur Biaya Penerapan SMKK yang dihitung terpisah dalam RAB, bukan bagian dari overhead. Besarannya bervariasi tergantung skala dan risiko proyek, umumnya berkisar 1–3% dari nilai kontrak.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Apa sanksi jika proyek tidak menerapkan K3?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Sanksi berlapis: administratif (teguran, denda, penghentian pekerjaan, blacklist dari proyek pemerintah), perdata (ganti rugi kepada pekerja atau keluarga korban), dan pidana (kurungan atau denda berdasarkan UU 1/1970 dan UU 2/2017).</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Apa beda HIRADC dan JSA?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>HIRADC menilai risiko secara menyeluruh per area atau aktivitas. JSA mengurai satu pekerjaan menjadi langkah-langkah dan bahaya di tiap langkah. HIRADC dipakai di level manajemen, JSA dipakai di level pelaksana.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Apakah kecelakaan ringan tetap harus dilaporkan?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Ya. Semua kecelakaan kerja, termasuk yang hanya menyebabkan hilangnya hari kerja (lost time injury), wajib dicatat dan dilaporkan. Pencatatan ini menjadi bahan evaluasi dan bukti kepatuhan saat audit K3.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Siapa yang bertanggung jawab atas K3 di proyek?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Tanggung jawab utama ada pada pengusaha atau kontraktor utama, bukan hanya petugas K3. Pengawas pekerjaan dan pemilik proyek juga memiliki tanggung jawab sesuai perannya. Petugas K3 bertugas memfasilitasi, bukan menanggung seluruh risiko sendirian.</div>
+</details>
+</div>`,
+        en: `<div class='not-prose my-5 space-y-3'>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Are small projects also required to implement safety?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Yes. UU No. 1 of 1970 applies to all workplaces, including small projects. The scale of implementation can be adjusted, but the obligations to identify hazards, provide PPE, and establish safe work procedures remain.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>What is the minimum safety budget in the RAB?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Permen PUPR No. 10/2021 mandates a SMKK Implementation Cost calculated separately in the RAB, not part of overhead. The amount varies by project scale and risk, generally around 1–3% of the contract value.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>What are the sanctions if safety is not implemented?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Layered sanctions: administrative (warnings, fines, work stoppage, blacklisting from government projects), civil (compensation to workers or victims' families), and criminal (imprisonment or fines under UU 1/1970 and UU 2/2017).</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>What is the difference between HIRADC and JSA?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>HIRADC assesses risk comprehensively per area or activity. JSA breaks a single job into steps and hazards at each step. HIRADC is used at the management level; JSA is used at the execution level.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Do minor accidents still need to be reported?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Yes. All workplace accidents, including those that only cause lost workdays (lost time injury), must be recorded and reported. This record serves as evaluation material and compliance evidence during safety audits.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Who is responsible for safety on site?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Primary responsibility lies with the employer or main contractor, not only the safety officer. Supervisors and project owners also bear responsibility according to their roles. Safety officers facilitate; they do not carry the entire risk alone.</div>
+</details>
+</div>`,
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose relative my-8 overflow-hidden rounded-3xl bg-slate-900 p-7 text-center text-white sm:p-10'>
+<div aria-hidden='true' class='pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#1e88e5] opacity-20 blur-3xl'></div>
+<div class='relative'>
+<span class='block text-[11px] font-bold uppercase tracking-[0.3em] text-[#4da3ff]'>Konsultasi K3</span>
+<span class='mt-3 block text-xl font-bold sm:text-2xl'>Ingin proyek Anda siap audit K3?</span>
+<span class='mx-auto mt-3 block max-w-xl text-sm leading-relaxed text-slate-300'>Tim kami membantu menyusun HIRADC, JSA, checklist harian, dan pendampingan penerapan SMKK di lapangan—bukan hanya dokumen, tapi benar-benar dijalankan.</span>
+<a href='https://wa.me/6282258089367?text=Halo%2C%20saya%20ingin%20konsultasi%20K3%20untuk%20proyek%20saya.' target='_blank' rel='noopener noreferrer' class='mt-6 inline-flex min-h-12 items-center justify-center rounded-xl bg-emerald-700 px-7 py-3 text-sm font-bold text-white hover:bg-emerald-800'>Konsultasi via WhatsApp</a>
+<span class='mt-6 block text-xs text-slate-400'>Baca juga: <a href='/layanan/infrastruktur/pasang-kanstin' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Layanan konstruksi</a> · <a href='/blog/pemasangan-kansteen' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Panduan pemasangan</a></span>
+</div>
+</div>`,
+        en: `<div class='not-prose relative my-8 overflow-hidden rounded-3xl bg-slate-900 p-7 text-center text-white sm:p-10'>
+<div aria-hidden='true' class='pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#1e88e5] opacity-20 blur-3xl'></div>
+<div class='relative'>
+<span class='block text-[11px] font-bold uppercase tracking-[0.3em] text-[#4da3ff]'>Safety Consultation</span>
+<span class='mt-3 block text-xl font-bold sm:text-2xl'>Want your project ready for a safety audit?</span>
+<span class='mx-auto mt-3 block max-w-xl text-sm leading-relaxed text-slate-300'>Our team helps prepare HIRADC, JSA, daily checklists, and on-site SMKK implementation support—not just documents, but real execution.</span>
+<a href='https://wa.me/6282258089367?text=Hello%2C%20I%20would%20like%20a%20safety%20consultation%20for%20my%20project.' target='_blank' rel='noopener noreferrer' class='mt-6 inline-flex min-h-12 items-center justify-center rounded-xl bg-emerald-700 px-7 py-3 text-sm font-bold text-white hover:bg-emerald-800'>Consult on WhatsApp</a>
+<span class='mt-6 block text-xs text-slate-400'>Read also: <a href='/layanan/infrastruktur/pasang-kanstin' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Construction services</a> · <a href='/blog/pemasangan-kansteen' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Installation guide</a></span>
+</div>
+</div>`,
+      },
+    },
+  ],
+}
 ];
 
 export function getArticleBySlug(slug) {
