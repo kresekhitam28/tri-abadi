@@ -411,7 +411,7 @@ export const articles = [
     date: { id: "25 Oktober 2026", en: "October 25, 2026" },
     dateISO: "2026-10-25",
     src: "/proyek/pasang-kanstin.webp",
-    category: { id: "Paving", en: "Paving" },
+    category: { id: "Kanstin", en: "kanstin" },
     title: {
       id: "Jasa Pasang Kanstin Beton Jalan & Taman Rapi Presisi",
       en: "Precise Concrete Road & Garden Curb Installation Services",
@@ -1403,11 +1403,7 @@ export const articles = [
     slug: "pemasangan-grass-block",
     date: { id: "25 Oktober 2026", en: "October 25, 2026" },
     dateISO: "2026-10-25",
-    src: "/images/grass-fullpave-set.png",
-    illustration: {
-      id: "Ilustrasi susunan grass block tipe Fullpave Set",
-      en: "Illustration of the Fullpave Set grass block layout",
-    },
+    src: "/proyek/proyek-94.jpg",
     category: { id: "Grass Block", en: "Grass Block" },
     title: {
       id: "Jasa Pasang Grass Block Parkir & Taman Ramah Lingkungan",
@@ -4570,6 +4566,796 @@ export const articles = [
 <span class='mx-auto mt-3 block max-w-xl text-sm leading-relaxed text-slate-300'>Our team helps prepare HIRADC, JSA, daily checklists, and on-site SMKK implementation support—not just documents, but real execution.</span>
 <a href='https://wa.me/6282258089367?text=Hello%2C%20I%20would%20like%20a%20safety%20consultation%20for%20my%20project.' target='_blank' rel='noopener noreferrer' class='mt-6 inline-flex min-h-12 items-center justify-center rounded-xl bg-emerald-700 px-7 py-3 text-sm font-bold text-white hover:bg-emerald-800'>Consult on WhatsApp</a>
 <span class='mt-6 block text-xs text-slate-400'>Read also: <a href='/layanan/infrastruktur/pasang-kanstin' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Construction services</a> · <a href='/blog/pemasangan-kansteen' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Installation guide</a></span>
+</div>
+</div>`,
+      },
+    },
+  ],
+},
+ {
+  slug: "harga-grass-block-2026",
+  modifiedDateISO: "2026-11-24",
+  date: { id: "24 November 2026", en: "November 24, 2026" },
+  dateISO: "2026-11-24",
+  canonical: "https://triabadimakmur.co.id/blog/harga-grass-block-2026",
+  src: "/proyek/proyek-39-1024.webp",
+  category: { id: "Grass Block", en: "Grass Block" },
+
+  meta: {
+    title: {
+      id: "Harga Grass Block 2026 per m²: Fullpave, Halfpave & Set",
+      en: "Grass Block Prices 2026 per m²: Fullpave, Halfpave & Set",
+    },
+    description: {
+      id: "Harga grass block 2026 per m²: Fullpave, Halfpave, dan Fullpave Set, tebal 6 cm dan 8 cm, natural maupun warna. Plus jasa pasang Jabodetabek, rumus estimasi, dan survei gratis.",
+      en: "2026 grass block prices per m²: Fullpave, Halfpave, and Fullpave Set, in 6 cm and 8 cm, natural or colored. Plus Jabodetabek installation rates, an estimation formula, and a free survey.",
+    },
+  },
+
+  title: {
+    id: "Harga Grass Block 2026 per m²: Fullpave, Halfpave & Set",
+    en: "Grass Block Prices 2026 per m²: Fullpave, Halfpave & Set",
+  },
+  desc: {
+    id: "Harga grass block 2026 per m² tebal 6 cm dan 8 cm, natural dan warna, plus jasa pasang Jabodetabek. Cara hitung estimasi dan survei gratis.",
+    en: "2026 grass block prices per m² in 6 cm and 8 cm, natural and colored, plus Jabodetabek installation rates. How to estimate costs and a free survey.",
+  },
+
+  author: {
+    name: "PT. Tri Abadi Makmur Indonesia",
+    phone: "082258089367",
+    avatar: "/logo.webp",
+    lastUpdated: { id: "24 November 2026", en: "November 24, 2026" },
+    bio: {
+      id: "Tri Abadi Makmur merupakan perusahaan yang bergerak di bidang konstruksi, dengan pengalaman yang sudah bertahun – tahun kami kembangkan, tahapan proses yang mengedepankan kualitas dan kehati-hatian, serta eksekusi pengerjaan proyek yang signifikan, demi tercapainya kepuasan client sehingga terwujudnya jalinan kerjasama yang continue dan berkelanjutan.",
+      en: "Tri Abadi Makmur is a construction company with years of experience we have developed, a process that prioritizes quality and prudence, as well as the execution of significant projects, in order to achieve client satisfaction so that continuous and long-term cooperation is realized.",
+    },
+  },
+
+  tags: [
+    { id: "Grass Block", en: "Grass Block", slug: "grass-block" },
+    { id: "Pemasangan Paving Block", en: "Paving Block Installation", slug: "pemasangan-paving-block" },
+    { id: "Biaya Aspal Per Meter", en: "Asphalt Cost Per Meter", slug: "biaya-aspal-per-meter" },
+    { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+  ],
+
+  schema: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Harga Grass Block 2026 per m²: Fullpave, Halfpave & Set",
+      "description": "Harga grass block 2026 per m² untuk Fullpave, Halfpave, dan Fullpave Set, tebal 6 cm dan 8 cm, natural maupun warna, lengkap dengan harga jasa pasang dan rumus estimasi.",
+      "image": "https://triabadimakmur.co.id/proyek/pasang-grass-block.webp",
+      "datePublished": "2026-11-24",
+      "dateModified": "2026-11-24",
+      "author": {
+        "@type": "Organization",
+        "name": "PT. Tri Abadi Makmur Indonesia",
+        "telephone": "082258089367",
+        "logo": "https://triabadimakmur.co.id/logo.webp"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PT. Tri Abadi Makmur Indonesia",
+        "logo": { "@type": "ImageObject", "url": "https://triabadimakmur.co.id/logo.webp" }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://triabadimakmur.co.id/blog/harga-grass-block-2026"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Grass Block 2026 (Fullpave, Halfpave, Fullpave Set)",
+      "image": "https://triabadimakmur.co.id/proyek/pasang-grass-block.webp",
+      "description": "Grass block untuk taman dan area halaman. Tersedia tipe Fullpave, Halfpave, dan Fullpave Set, tebal 6 cm dan 8 cm, natural maupun warna, dengan harga Rp75.000–Rp115.000 per m².",
+      "brand": { "@type": "Brand", "name": "Tri Abadi Makmur" },
+      "category": "Grass Block / Paving Grass Block",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "IDR",
+        "lowPrice": "75000",
+        "highPrice": "115000",
+        "offerCount": "6",
+        "availability": "https://schema.org/InStock",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "IDR",
+          "unitText": "square metre",
+          "unitCode": "MTK"
+        }
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Berapa harga grass block per m² di 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Harga bahan mulai Rp75.000 per m² untuk Halfpave dan Fullpave tebal 6 cm natural, hingga Rp115.000 per m² untuk Fullpave Set tebal 8 cm warna. Harga jasa pasang dihitung terpisah."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah harga per m² sudah termasuk jasa pasang?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tidak. Harga per m² adalah harga bahan. Jasa pasang Rp30.000 per m² (tenaga saja) atau Rp40.000 per m² (tenaga + abu batu) untuk area di atas 100 m²."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apa beda harga natural dan warna?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Harga warna Rp15.000 per m² lebih tinggi dibanding natural pada setiap tipe dan tebal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apa beda tebal 6 cm dan 8 cm?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tebal 8 cm Rp10.000 per m² lebih tinggi dibanding 6 cm pada tipe yang sama, baik natural maupun warna."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Berapa harga jasa pasang untuk area di bawah 100 m²?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Harga jasa pasang yang tercantum berlaku untuk area di atas 100 m². Untuk area yang lebih kecil, tanyakan harganya kepada tim kami."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apa beda grass block dan paving block?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Paving block menutup permukaan secara penuh. Grass block berlubang sehingga bisa ditumbuhi rumput."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah survei lokasi gratis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ya. Survei mengukur luas, melihat kondisi lokasi, dan memberi estimasi awal tanpa biaya di area Jabodetabek, Banten, dan Jawa Barat."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://triabadimakmur.co.id/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://triabadimakmur.co.id/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Harga Grass Block 2026", "item": "https://triabadimakmur.co.id/blog/harga-grass-block-2026" }
+      ]
+    }
+  ],
+
+  body: [
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-6 rounded-2xl border-l-4 border-[#16a34a] bg-emerald-50/70 p-5 sm:p-6'><span class='block text-base leading-relaxed text-slate-800'>Harga grass block 2026 mulai <strong>Rp75.000 per m²</strong> untuk bahan (Halfpave atau Fullpave tebal 6 cm, natural) hingga <strong>Rp115.000 per m²</strong> (Fullpave Set tebal 8 cm, warna). Artikel ini merinci harga per tipe, tebal, dan warna, rumus estimasi biaya, serta harga jasa pasang di Jabodetabek.</span></div>`,
+        en: `<div class='not-prose my-6 rounded-2xl border-l-4 border-[#16a34a] bg-emerald-50/70 p-5 sm:p-6'><span class='block text-base leading-relaxed text-slate-800'>Grass block prices in 2026 start at <strong>Rp75,000 per m²</strong> for material (Halfpave or Fullpave, 6 cm thick, natural) and go up to <strong>Rp115,000 per m²</strong> (Fullpave Set, 8 cm thick, colored). This article covers prices by type, thickness, and color, how to estimate costs, and installation rates in Greater Jakarta.</span></div>`,
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<figure class='not-prose my-6 overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-900/5'><img src='/proyek/pasang-grass-block.webp' alt='Pemasangan grass block di lokasi proyek PT Tri Abadi Makmur' loading='lazy' decoding='async' class='h-auto w-full object-cover' style='aspect-ratio:16/9'><figcaption class='bg-slate-50 px-4 py-2.5 text-xs text-slate-500'>Pemasangan grass block di lokasi proyek.</figcaption></figure>`,
+        en: `<figure class='not-prose my-6 overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-900/5'><img src='/proyek/pasang-grass-block.webp' alt='Grass block installation at a PT Tri Abadi Makmur project site' loading='lazy' decoding='async' class='h-auto w-full object-cover' style='aspect-ratio:16/9'><figcaption class='bg-slate-50 px-4 py-2.5 text-xs text-slate-500'>Grass block installation at a project site.</figcaption></figure>`,
+      },
+    },
+    {
+      type: "heading",
+      text: { id: "Kenapa grass block dihitung per m²?", en: "Why are grass blocks priced per m²?" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "Grass block menutup sebuah bidang, jadi satuan yang paling tepat adalah luas. Karena itu harga bahan dan jasa pasang grass block disebut <strong>per m²</strong>. Kanstin berbeda karena mengikuti garis tepi dan dihitung per meter lari, lihat <a href='/blog/harga-kanstin-2026' class='font-semibold text-[#1e88e5] underline underline-offset-2'>harga kanstin 2026</a>. Grass block juga berbeda dengan <a href='/blog/pemasangan-paving-block' class='font-semibold text-[#1e88e5] underline underline-offset-2'>paving block</a> yang menutup permukaan secara penuh, karena grass block berlubang sehingga bisa ditumbuhi rumput.",
+        en: "Grass blocks cover a surface, so area is the most accurate unit. That is why both material and installation for grass block are priced <strong>per m²</strong>. Curbs are different: they follow an edge line and are priced per running meter, see <a href='/blog/harga-kanstin-2026' class='font-semibold text-[#1e88e5] underline underline-offset-2'>curb prices 2026</a>. Grass block also differs from <a href='/blog/pemasangan-paving-block' class='font-semibold text-[#1e88e5] underline underline-offset-2'>paving block</a>, which covers the surface completely, because grass block has openings where grass can grow.",
+      },
+    },
+    {
+      type: "heading",
+      text: { id: "Tipe grass block", en: "Grass block types" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-5 grid gap-4 sm:grid-cols-3'>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block h-1 w-10 rounded-full bg-[#16a34a]'></span><span class='mt-3 block font-bold text-slate-900'>Fullpave</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Ukuran 21 × 21 cm. Tersedia tebal 6 cm dan 8 cm, natural atau warna.</span></div>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block h-1 w-10 rounded-full bg-[#3b82f6]'></span><span class='mt-3 block font-bold text-slate-900'>Halfpave</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Ukuran 10,5 × 10,5 cm, setengah dari Fullpave, dengan jumlah buah per m² lebih banyak. Tersedia tebal 6 cm dan 8 cm.</span></div>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block h-1 w-10 rounded-full bg-[#e11d48]'></span><span class='mt-3 block font-bold text-slate-900'>Fullpave Set</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Set kombinasi dengan tebal 6 cm dan 8 cm, natural atau warna. Tipe dengan harga tertinggi di daftar ini.</span></div>
+</div>`,
+        en: `<div class='not-prose my-5 grid gap-4 sm:grid-cols-3'>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block h-1 w-10 rounded-full bg-[#16a34a]'></span><span class='mt-3 block font-bold text-slate-900'>Fullpave</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Size 21 × 21 cm. Available in 6 cm and 8 cm thickness, natural or colored.</span></div>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block h-1 w-10 rounded-full bg-[#3b82f6]'></span><span class='mt-3 block font-bold text-slate-900'>Halfpave</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Size 10.5 × 10.5 cm, half of Fullpave, with more pieces per m². Available in 6 cm and 8 cm thickness.</span></div>
+<div class='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'><span class='block h-1 w-10 rounded-full bg-[#e11d48]'></span><span class='mt-3 block font-bold text-slate-900'>Fullpave Set</span><span class='mt-1.5 block text-sm leading-relaxed text-slate-600'>Combination set in 6 cm and 8 cm thickness, natural or colored. The highest-priced type in this list.</span></div>
+</div>`,
+      },
+    },
+    {
+      type: "heading",
+      id: "harga-per-m2",
+      text: { id: "Harga grass block 2026 per m²", en: "2026 grass block prices per m²" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-6'>
+
+<div class='rounded-2xl bg-slate-900 p-6 text-white sm:p-7'>
+<span class='block text-[10px] font-bold uppercase tracking-[0.25em] text-[#4da3ff]'>Kisaran harga grass block per m²</span>
+<span class='mt-2 block text-2xl font-extrabold tabular-nums sm:text-3xl'>Rp75.000 – Rp115.000 <span class='text-sm font-medium text-slate-300'>/m²</span></span>
+<span class='mt-2 block text-xs leading-relaxed text-slate-300'>Harga bahan. Jasa pasang Rp30.000–Rp40.000 per m² dihitung terpisah.</span>
+</div>
+
+<div class='mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='px-5 py-4' style='background:#f0fdf4'>
+<div class='flex items-center justify-between gap-2'>
+<span class='text-xs font-bold uppercase tracking-[0.18em]' style='color:#15803d'>Fullpave</span>
+<span class='rounded-full bg-white/70 px-2 py-0.5 text-[10px] font-bold' style='color:#15803d'>22 pcs/m²</span>
+</div>
+<span class='mt-1 block text-[11px] text-slate-500'>21 × 21 cm</span>
+</div>
+<div class='px-5'>
+<div class='border-t border-slate-100 py-3.5'>
+<div class='flex items-start justify-between gap-3'>
+<span class='text-sm font-semibold text-slate-800'>6 cm</span>
+<div class='text-right'>
+<span class='block text-base font-extrabold tabular-nums text-slate-950'>Rp75.000<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m²</span></span>
+<span class='block text-[11px] text-slate-500'>Warna Rp90.000</span>
+</div>
+</div>
+<div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:65%;background:#16a34a'></div></div>
+</div>
+<div class='border-t border-slate-100 py-3.5'>
+<div class='flex items-start justify-between gap-3'>
+<span class='text-sm font-semibold text-slate-800'>8 cm</span>
+<div class='text-right'>
+<span class='block text-base font-extrabold tabular-nums text-slate-950'>Rp85.000<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m²</span></span>
+<span class='block text-[11px] text-slate-500'>Warna Rp100.000</span>
+</div>
+</div>
+<div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:74%;background:#16a34a'></div></div>
+</div>
+</div>
+</div>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='px-5 py-4' style='background:#eff6ff'>
+<div class='flex items-center justify-between gap-2'>
+<span class='text-xs font-bold uppercase tracking-[0.18em]' style='color:#1d4ed8'>Halfpave</span>
+<span class='rounded-full bg-white/70 px-2 py-0.5 text-[10px] font-bold' style='color:#1d4ed8'>88 pcs/m²</span>
+</div>
+<span class='mt-1 block text-[11px] text-slate-500'>10,5 × 10,5 cm</span>
+</div>
+<div class='px-5'>
+<div class='border-t border-slate-100 py-3.5'>
+<div class='flex items-start justify-between gap-3'>
+<span class='text-sm font-semibold text-slate-800'>6 cm</span>
+<div class='text-right'>
+<span class='block text-base font-extrabold tabular-nums text-slate-950'>Rp75.000<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m²</span></span>
+<span class='block text-[11px] text-slate-500'>Warna Rp90.000</span>
+</div>
+</div>
+<div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:65%;background:#3b82f6'></div></div>
+</div>
+<div class='border-t border-slate-100 py-3.5'>
+<div class='flex items-start justify-between gap-3'>
+<span class='text-sm font-semibold text-slate-800'>8 cm</span>
+<div class='text-right'>
+<span class='block text-base font-extrabold tabular-nums text-slate-950'>Rp85.000<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m²</span></span>
+<span class='block text-[11px] text-slate-500'>Warna Rp100.000</span>
+</div>
+</div>
+<div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:74%;background:#3b82f6'></div></div>
+</div>
+</div>
+</div>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm sm:col-span-2 lg:col-span-1'>
+<div class='px-5 py-4' style='background:#fff1f2'>
+<div class='flex items-center justify-between gap-2'>
+<span class='text-xs font-bold uppercase tracking-[0.18em]' style='color:#be123c'>Fullpave Set</span>
+<span class='rounded-full bg-white/70 px-2 py-0.5 text-[10px] font-bold' style='color:#be123c'>Premium</span>
+</div>
+<span class='mt-1 block text-[11px] text-slate-500'>Set kombinasi</span>
+</div>
+<div class='px-5'>
+<div class='border-t border-slate-100 py-3.5'>
+<div class='flex items-start justify-between gap-3'>
+<span class='text-sm font-semibold text-slate-800'>6 cm</span>
+<div class='text-right'>
+<span class='block text-base font-extrabold tabular-nums text-slate-950'>Rp90.000<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m²</span></span>
+<span class='block text-[11px] text-slate-500'>Warna Rp105.000</span>
+</div>
+</div>
+<div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:78%;background:#e11d48'></div></div>
+</div>
+<div class='border-t border-slate-100 py-3.5'>
+<div class='flex items-start justify-between gap-3'>
+<span class='text-sm font-semibold text-slate-800'>8 cm</span>
+<div class='text-right'>
+<span class='block text-base font-extrabold tabular-nums text-slate-950'>Rp100.000<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m²</span></span>
+<span class='block text-[11px] text-slate-500'>Warna Rp115.000</span>
+</div>
+</div>
+<div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:87%;background:#e11d48'></div></div>
+</div>
+</div>
+</div>
+
+</div>
+<span class='mt-4 block text-xs leading-relaxed text-slate-500'>Harga per m² di atas adalah harga bahan. Harga final tergantung volume pekerjaan dan kondisi lokasi.</span>
+</div>`,
+        en: `<div class='not-prose my-6'>
+
+<div class='rounded-2xl bg-slate-900 p-6 text-white sm:p-7'>
+<span class='block text-[10px] font-bold uppercase tracking-[0.25em] text-[#4da3ff]'>Estimated grass block price range per m²</span>
+<span class='mt-2 block text-2xl font-extrabold tabular-nums sm:text-3xl'>Rp75,000 – Rp115,000 <span class='text-sm font-medium text-slate-300'>/m²</span></span>
+<span class='mt-2 block text-xs leading-relaxed text-slate-300'>Material prices only. Installation is Rp30,000–Rp40,000 per m², quoted separately.</span>
+</div>
+
+<div class='mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='px-5 py-4' style='background:#f0fdf4'>
+<div class='flex items-center justify-between gap-2'>
+<span class='text-xs font-bold uppercase tracking-[0.18em]' style='color:#15803d'>Fullpave</span>
+<span class='rounded-full bg-white/70 px-2 py-0.5 text-[10px] font-bold' style='color:#15803d'>22 pcs/m²</span>
+</div>
+<span class='mt-1 block text-[11px] text-slate-500'>21 × 21 cm</span>
+</div>
+<div class='px-5'>
+<div class='border-t border-slate-100 py-3.5'>
+<div class='flex items-start justify-between gap-3'>
+<span class='text-sm font-semibold text-slate-800'>6 cm</span>
+<div class='text-right'>
+<span class='block text-base font-extrabold tabular-nums text-slate-950'>Rp75,000<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m²</span></span>
+<span class='block text-[11px] text-slate-500'>Colored Rp90,000</span>
+</div>
+</div>
+<div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:65%;background:#16a34a'></div></div>
+</div>
+<div class='border-t border-slate-100 py-3.5'>
+<div class='flex items-start justify-between gap-3'>
+<span class='text-sm font-semibold text-slate-800'>8 cm</span>
+<div class='text-right'>
+<span class='block text-base font-extrabold tabular-nums text-slate-950'>Rp85,000<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m²</span></span>
+<span class='block text-[11px] text-slate-500'>Colored Rp100,000</span>
+</div>
+</div>
+<div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:74%;background:#16a34a'></div></div>
+</div>
+</div>
+</div>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='px-5 py-4' style='background:#eff6ff'>
+<div class='flex items-center justify-between gap-2'>
+<span class='text-xs font-bold uppercase tracking-[0.18em]' style='color:#1d4ed8'>Halfpave</span>
+<span class='rounded-full bg-white/70 px-2 py-0.5 text-[10px] font-bold' style='color:#1d4ed8'>88 pcs/m²</span>
+</div>
+<span class='mt-1 block text-[11px] text-slate-500'>10.5 × 10.5 cm</span>
+</div>
+<div class='px-5'>
+<div class='border-t border-slate-100 py-3.5'>
+<div class='flex items-start justify-between gap-3'>
+<span class='text-sm font-semibold text-slate-800'>6 cm</span>
+<div class='text-right'>
+<span class='block text-base font-extrabold tabular-nums text-slate-950'>Rp75,000<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m²</span></span>
+<span class='block text-[11px] text-slate-500'>Colored Rp90,000</span>
+</div>
+</div>
+<div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:65%;background:#3b82f6'></div></div>
+</div>
+<div class='border-t border-slate-100 py-3.5'>
+<div class='flex items-start justify-between gap-3'>
+<span class='text-sm font-semibold text-slate-800'>8 cm</span>
+<div class='text-right'>
+<span class='block text-base font-extrabold tabular-nums text-slate-950'>Rp85,000<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m²</span></span>
+<span class='block text-[11px] text-slate-500'>Colored Rp100,000</span>
+</div>
+</div>
+<div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:74%;background:#3b82f6'></div></div>
+</div>
+</div>
+</div>
+
+<div class='overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm sm:col-span-2 lg:col-span-1'>
+<div class='px-5 py-4' style='background:#fff1f2'>
+<div class='flex items-center justify-between gap-2'>
+<span class='text-xs font-bold uppercase tracking-[0.18em]' style='color:#be123c'>Fullpave Set</span>
+<span class='rounded-full bg-white/70 px-2 py-0.5 text-[10px] font-bold' style='color:#be123c'>Premium</span>
+</div>
+<span class='mt-1 block text-[11px] text-slate-500'>Combination set</span>
+</div>
+<div class='px-5'>
+<div class='border-t border-slate-100 py-3.5'>
+<div class='flex items-start justify-between gap-3'>
+<span class='text-sm font-semibold text-slate-800'>6 cm</span>
+<div class='text-right'>
+<span class='block text-base font-extrabold tabular-nums text-slate-950'>Rp90,000<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m²</span></span>
+<span class='block text-[11px] text-slate-500'>Colored Rp105,000</span>
+</div>
+</div>
+<div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:78%;background:#e11d48'></div></div>
+</div>
+<div class='border-t border-slate-100 py-3.5'>
+<div class='flex items-start justify-between gap-3'>
+<span class='text-sm font-semibold text-slate-800'>8 cm</span>
+<div class='text-right'>
+<span class='block text-base font-extrabold tabular-nums text-slate-950'>Rp100,000<span class='ml-0.5 text-[11px] font-semibold text-slate-400'>/m²</span></span>
+<span class='block text-[11px] text-slate-500'>Colored Rp115,000</span>
+</div>
+</div>
+<div class='mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100'><div class='h-full rounded-full' style='width:87%;background:#e11d48'></div></div>
+</div>
+</div>
+</div>
+
+</div>
+<span class='mt-4 block text-xs leading-relaxed text-slate-500'>Prices per m² above are material only. The final price depends on work volume and site conditions.</span>
+</div>`,
+      },
+    },
+    {
+      type: "heading",
+      text: { id: "Harga jasa pasang grass block", en: "Grass block installation rates" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-900 px-5 py-3.5 text-sm font-bold text-white'>Harga jasa pasang grass block per m²</div>
+<div class='grid grid-cols-1 divide-y divide-slate-100 sm:grid-cols-2 sm:divide-x sm:divide-y-0'>
+<div class='p-5 text-center'>
+<span class='block text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500'>Tenaga saja</span>
+<span class='mt-2 block text-2xl font-extrabold tabular-nums text-slate-950 sm:text-3xl'>Rp30.000<span class='ml-1 text-sm font-semibold text-slate-400'>/m²</span></span>
+<span class='mt-1 block text-[11px] text-slate-500'>Pemasangan oleh tukang</span>
+</div>
+<div class='p-5 text-center'>
+<span class='block text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500'>Tenaga + Abu Batu</span>
+<span class='mt-2 block text-2xl font-extrabold tabular-nums text-slate-950 sm:text-3xl'>Rp40.000<span class='ml-1 text-sm font-semibold text-slate-400'>/m²</span></span>
+<span class='mt-1 block text-[11px] text-slate-500'>Termasuk material abu batu</span>
+</div>
+</div>
+<div class='bg-amber-50 px-5 py-3 text-xs text-amber-800'>Harga jasa berlaku untuk area di atas 100 m². Untuk area yang lebih kecil, tanyakan harganya kepada tim kami.</div>
+</div>`,
+        en: `<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-900 px-5 py-3.5 text-sm font-bold text-white'>Grass block installation rates per m²</div>
+<div class='grid grid-cols-1 divide-y divide-slate-100 sm:grid-cols-2 sm:divide-x sm:divide-y-0'>
+<div class='p-5 text-center'>
+<span class='block text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500'>Labor only</span>
+<span class='mt-2 block text-2xl font-extrabold tabular-nums text-slate-950 sm:text-3xl'>Rp30,000<span class='ml-1 text-sm font-semibold text-slate-400'>/m²</span></span>
+<span class='mt-1 block text-[11px] text-slate-500'>Installation by workers</span>
+</div>
+<div class='p-5 text-center'>
+<span class='block text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500'>Labor + Stone Dust</span>
+<span class='mt-2 block text-2xl font-extrabold tabular-nums text-slate-950 sm:text-3xl'>Rp40,000<span class='ml-1 text-sm font-semibold text-slate-400'>/m²</span></span>
+<span class='mt-1 block text-[11px] text-slate-500'>Stone dust material included</span>
+</div>
+</div>
+<div class='bg-amber-50 px-5 py-3 text-xs text-amber-800'>Installation rates apply to areas above 100 m². For smaller areas, ask our team for a price.</div>
+</div>`,
+      },
+    },
+    {
+      type: "heading",
+      text: {
+        id: "Cara menghitung estimasi biaya (rumus + 3 contoh)",
+        en: "How to estimate the cost (formula + 3 worked examples)",
+      },
+    },
+    {
+      type: "list",
+      ordered: true,
+      items: [
+        {
+          id: "Ukur luas area yang akan dipasang (panjang × lebar tiap bidang), lalu jumlahkan. Area yang tidak ditutup grass block, seperti pohon atau bak kontrol, dikurangi.",
+          en: "Measure the area to be installed (length × width of each section) and add them together. Areas not covered by grass block, such as trees or manholes, are subtracted.",
+        },
+        {
+          id: "Tentukan faktor cadangan (waste): 5% untuk area persegi tanpa potongan, 10% untuk area dengan potongan tepi atau sudut, 15% untuk area dengan banyak bukaan atau pola melengkung.",
+          en: "Set the waste factor: 5% for square areas without cuts, 10% for areas with edge or corner cuts, 15% for areas with many openings or curved patterns.",
+        },
+        {
+          id: "Pilih tipe, tebal, dan warna (natural atau warna), lalu ambil harga per m² dari tabel di atas.",
+          en: "Choose the type, thickness, and finish (natural or colored), then take the price per m² from the table above.",
+        },
+        {
+          id: "Tambahkan jasa pasang per m²: Rp30.000 (tenaga saja) atau Rp40.000 (tenaga + abu batu).",
+          en: "Add installation per m²: Rp30,000 (labor only) or Rp40,000 (labor + stone dust).",
+        },
+      ],
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-5 rounded-2xl bg-slate-900 p-5 text-center sm:p-6'>
+<span class='block text-[10px] font-bold uppercase tracking-[0.25em] text-[#4da3ff]'>Rumus</span>
+<span class='mt-2 block font-mono text-sm text-white sm:text-base'>Total = (A × (1 + w) × H) + (A × J)</span>
+<span class='mt-2 block text-[11px] text-slate-400'>A = luas (m²) · w = faktor cadangan · H = harga bahan per m² · J = jasa pasang per m²</span>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-blue-50 px-5 py-3.5 text-sm font-bold text-blue-900'>Arti setiap variabel</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>A</span><span class='text-right text-slate-600'>Luas area yang dipasang, dihitung per bidang lalu dijumlahkan</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>w</span><span class='text-right text-slate-600'>Faktor cadangan: 5% persegi · 10% potongan tepi atau sudut · 15% banyak bukaan atau pola melengkung</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>H</span><span class='text-right text-slate-600'>Harga bahan per m² sesuai tipe, tebal, dan warna (lihat tabel)</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>J</span><span class='text-right text-slate-600'>Jasa pasang per m²: Rp30.000 tenaga saja atau Rp40.000 tenaga + abu batu</span></div>
+</div>
+</div>`,
+        en: `<div class='not-prose my-5 rounded-2xl bg-slate-900 p-5 text-center sm:p-6'>
+<span class='block text-[10px] font-bold uppercase tracking-[0.25em] text-[#4da3ff]'>Formula</span>
+<span class='mt-2 block font-mono text-sm text-white sm:text-base'>Total = (A × (1 + w) × H) + (A × J)</span>
+<span class='mt-2 block text-[11px] text-slate-400'>A = area (m²) · w = waste factor · H = material price per m² · J = installation per m²</span>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-blue-50 px-5 py-3.5 text-sm font-bold text-blue-900'>What each variable means</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>A</span><span class='text-right text-slate-600'>Area installed, measured per section and added together</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>w</span><span class='text-right text-slate-600'>Waste factor: 5% square areas · 10% edge or corner cuts · 15% many openings or curved patterns</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>H</span><span class='text-right text-slate-600'>Material price per m² by type, thickness, and finish (see table)</span></div>
+<div class='flex items-start justify-between gap-4 py-3 text-sm'><span class='font-bold text-slate-950'>J</span><span class='text-right text-slate-600'>Installation per m²: Rp30,000 labor only or Rp40,000 labor + stone dust</span></div>
+</div>
+</div>`,
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Contoh 1 — Area 120 m², Halfpave 6 cm natural</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Tipe, tebal & warna</span><span class='font-bold text-slate-950'>Halfpave 10,5 × 10,5 cm, 6 cm, natural</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Luas + cadangan 5%</span><span class='font-bold text-slate-950'>120 × 1,05 = 126 m²</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Biaya bahan</span><span class='font-bold text-slate-950'>126 × Rp75.000 = Rp9.450.000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Jasa pasang tenaga saja</span><span class='font-bold text-slate-950'>120 × Rp30.000 = Rp3.600.000</span></div>
+</div>
+<div class='bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-900'>Estimasi total ≈ Rp13.050.000</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Contoh 2 — Area 150 m², Fullpave 8 cm natural</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Tipe, tebal & warna</span><span class='font-bold text-slate-950'>Fullpave 21 × 21 cm, 8 cm, natural</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Luas + cadangan 10%</span><span class='font-bold text-slate-950'>150 × 1,10 = 165 m²</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Biaya bahan</span><span class='font-bold text-slate-950'>165 × Rp85.000 = Rp14.025.000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Jasa pasang tenaga + abu batu</span><span class='font-bold text-slate-950'>150 × Rp40.000 = Rp6.000.000</span></div>
+</div>
+<div class='bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-900'>Estimasi total ≈ Rp20.025.000</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Contoh 3 — Area 200 m², Fullpave Set 8 cm warna</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Tipe, tebal & warna</span><span class='font-bold text-slate-950'>Fullpave Set, 8 cm, warna</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Luas + cadangan 15%</span><span class='font-bold text-slate-950'>200 × 1,15 = 230 m²</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Biaya bahan</span><span class='font-bold text-slate-950'>230 × Rp115.000 = Rp26.450.000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Jasa pasang tenaga saja</span><span class='font-bold text-slate-950'>200 × Rp30.000 = Rp6.000.000</span></div>
+</div>
+<div class='bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-900'>Estimasi total ≈ Rp32.450.000</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-900 px-5 py-3.5 text-sm font-bold text-white'>Rekap ketiga contoh</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Halfpave 6 cm natural · 120 m²</span><span class='font-bold text-slate-950'>Rp13.050.000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Fullpave 8 cm natural · 150 m²</span><span class='font-bold text-slate-950'>Rp20.025.000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Fullpave Set 8 cm warna · 200 m²</span><span class='font-bold text-slate-950'>Rp32.450.000</span></div>
+</div>
+<div class='bg-slate-50 px-5 py-3 text-xs text-slate-500'>Harga bahan dan jasa mengikuti daftar harga kami. Total final ditentukan setelah survei lokasi.</div>
+</div>`,
+        en: `<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Example 1 — 120 m² area, Halfpave 6 cm natural</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Type, thickness & finish</span><span class='font-bold text-slate-950'>Halfpave 10.5 × 10.5 cm, 6 cm, natural</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Area + 5% waste</span><span class='font-bold text-slate-950'>120 × 1.05 = 126 m²</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Material cost</span><span class='font-bold text-slate-950'>126 × Rp75,000 = Rp9,450,000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Labor only installation</span><span class='font-bold text-slate-950'>120 × Rp30,000 = Rp3,600,000</span></div>
+</div>
+<div class='bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-900'>Estimated total ≈ Rp13,050,000</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Example 2 — 150 m² area, Fullpave 8 cm natural</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Type, thickness & finish</span><span class='font-bold text-slate-950'>Fullpave 21 × 21 cm, 8 cm, natural</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Area + 10% waste</span><span class='font-bold text-slate-950'>150 × 1.10 = 165 m²</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Material cost</span><span class='font-bold text-slate-950'>165 × Rp85,000 = Rp14,025,000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Labor + stone dust installation</span><span class='font-bold text-slate-950'>150 × Rp40,000 = Rp6,000,000</span></div>
+</div>
+<div class='bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-900'>Estimated total ≈ Rp20,025,000</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-50 px-5 py-3.5 text-sm font-bold text-slate-900'>Example 3 — 200 m² area, Fullpave Set 8 cm colored</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Type, thickness & finish</span><span class='font-bold text-slate-950'>Fullpave Set, 8 cm, colored</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Area + 15% waste</span><span class='font-bold text-slate-950'>200 × 1.15 = 230 m²</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Material cost</span><span class='font-bold text-slate-950'>230 × Rp115,000 = Rp26,450,000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Labor only installation</span><span class='font-bold text-slate-950'>200 × Rp30,000 = Rp6,000,000</span></div>
+</div>
+<div class='bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-900'>Estimated total ≈ Rp32,450,000</div>
+</div>
+<div class='not-prose my-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm'>
+<div class='bg-slate-900 px-5 py-3.5 text-sm font-bold text-white'>Summary of the three examples</div>
+<div class='divide-y divide-slate-100 px-5'>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Halfpave 6 cm natural · 120 m²</span><span class='font-bold text-slate-950'>Rp13,050,000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Fullpave 8 cm natural · 150 m²</span><span class='font-bold text-slate-950'>Rp20,025,000</span></div>
+<div class='flex items-center justify-between gap-4 py-3 text-sm'><span class='text-slate-600'>Fullpave Set 8 cm colored · 200 m²</span><span class='font-bold text-slate-950'>Rp32,450,000</span></div>
+</div>
+<div class='bg-slate-50 px-5 py-3 text-xs text-slate-500'>Material and installation follow our price list. The final total is determined after a site survey.</div>
+</div>`,
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "<span class='not-prose block text-sm leading-relaxed text-slate-600'>Catatan potongan: grass block yang dipotong di tepi meninggalkan sisa yang tidak selalu bisa dipakai kembali. Itu sebabnya faktor cadangan naik dari 5% ke 10–15% ketika area memiliki banyak sudut, tepi tidak lurus, atau bukaan.</span>",
+        en: "<span class='not-prose block text-sm leading-relaxed text-slate-600'>Cutting note: grass blocks cut along edges leave offcuts that cannot always be reused. This is why the waste factor rises from 5% to 10–15% when an area has many corners, uneven edges, or openings.</span>",
+      },
+    },
+    {
+      type: "heading",
+      text: { id: "Yang membuat harga berbeda", en: "What makes prices differ" },
+    },
+    {
+      type: "list",
+      ordered: false,
+      items: [
+        {
+          id: "<strong>Tebal:</strong> tebal 8 cm Rp10.000 per m² lebih mahal dibanding 6 cm, untuk natural maupun warna.",
+          en: "<strong>Thickness:</strong> 8 cm is Rp10,000 per m² more expensive than 6 cm, for both natural and colored.",
+        },
+        {
+          id: "<strong>Warna:</strong> warna Rp15.000 per m² lebih mahal dibanding natural, di semua tipe dan tebal.",
+          en: "<strong>Color:</strong> colored is Rp15,000 per m² more expensive than natural, for every type and thickness.",
+        },
+        {
+          id: "<strong>Tipe:</strong> Fullpave Set adalah tipe dengan harga tertinggi. Halfpave dan Fullpave memiliki harga yang sama pada tebal yang sama.",
+          en: "<strong>Type:</strong> Fullpave Set has the highest price. Halfpave and Fullpave have the same price at the same thickness.",
+        },
+        {
+          id: "<strong>Jasa pasang:</strong> tambahan abu batu Rp10.000 per m², dari Rp30.000 menjadi Rp40.000.",
+          en: "<strong>Installation:</strong> adding stone dust costs Rp10,000 per m² more, from Rp30,000 to Rp40,000.",
+        },
+        {
+          id: "<strong>Kondisi lapangan dan volume:</strong> harga dapat berubah sesuai kondisi lapangan dan volume pekerjaan.",
+          en: "<strong>Site conditions and volume:</strong> prices may change according to field conditions and work volume.",
+        },
+      ],
+    },
+    {
+      type: "heading",
+      text: { id: "Tips agar anggaran lebih hemat", en: "Tips to keep the budget lean" },
+    },
+    {
+      type: "list",
+      ordered: false,
+      items: [
+        {
+          id: "Pilih natural jika warna tidak diperlukan. Harganya Rp15.000 per m² lebih rendah dibanding warna.",
+          en: "Choose natural if color is not needed. It costs Rp15,000 per m² less than colored.",
+        },
+        {
+          id: "Pilih tebal sesuai kebutuhan. Tebal 6 cm lebih hemat Rp10.000 per m² dibanding 8 cm.",
+          en: "Choose the thickness that fits your needs. 6 cm saves Rp10,000 per m² compared with 8 cm.",
+        },
+        {
+          id: "Hitung luas bersih dan gunakan cadangan sesuai kondisi area. Cadangan yang berlebih menambah biaya bahan.",
+          en: "Calculate the net area and use a waste factor that matches the site. Excess waste adds to material cost.",
+        },
+        {
+          id: "Area di atas 100 m² mendapat harga jasa yang tercantum. Untuk area lebih kecil, tanyakan harga kepada tim kami.",
+          en: "Areas above 100 m² get the listed installation rates. For smaller areas, ask our team for a price.",
+        },
+        {
+          id: "Bandingkan penawaran dengan tipe, tebal, dan warna yang sama agar perbandingannya adil.",
+          en: "Compare quotes with the same type, thickness, and finish so the comparison is fair.",
+        },
+      ],
+    },
+    {
+      type: "heading",
+      text: { id: "Pertanyaan yang sering diajukan", en: "Frequently asked questions" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose my-5 space-y-3'>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Berapa harga grass block per m² di 2026?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Harga bahan mulai Rp75.000 per m² untuk Halfpave dan Fullpave tebal 6 cm natural, hingga Rp115.000 per m² untuk Fullpave Set tebal 8 cm warna. Harga jasa pasang dihitung terpisah.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Apakah harga per m² sudah termasuk jasa pasang?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Tidak. Harga per m² adalah harga bahan. Jasa pasang Rp30.000 per m² (tenaga saja) atau Rp40.000 per m² (tenaga + abu batu) untuk area di atas 100 m².</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Apa beda harga natural dan warna?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Harga warna Rp15.000 per m² lebih tinggi dibanding natural pada setiap tipe dan tebal.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Apa beda tebal 6 cm dan 8 cm?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Tebal 8 cm Rp10.000 per m² lebih tinggi dibanding 6 cm pada tipe yang sama, baik natural maupun warna.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Berapa harga jasa pasang untuk area di bawah 100 m²?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Harga jasa pasang yang tercantum berlaku untuk area di atas 100 m². Untuk area yang lebih kecil, tanyakan harganya kepada tim kami.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Apa beda grass block dan paving block?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Paving block menutup permukaan secara penuh. Grass block berlubang sehingga bisa ditumbuhi rumput.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Apakah survei lokasi gratis?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Ya. Survei mengukur luas, melihat kondisi lokasi, dan memberi estimasi awal tanpa biaya di area Jabodetabek, Banten, dan Jawa Barat.</div>
+</details>
+</div>`,
+        en: `<div class='not-prose my-5 space-y-3'>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>How much is grass block per m² in 2026?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Material prices start at Rp75,000 per m² for Halfpave and Fullpave, 6 cm natural, and go up to Rp115,000 per m² for Fullpave Set, 8 cm colored. Installation is calculated separately.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Does the price per m² include installation?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>No. The price per m² is for material. Installation is Rp30,000 per m² (labor only) or Rp40,000 per m² (labor + stone dust) for areas above 100 m².</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>What is the difference between natural and colored prices?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Colored is Rp15,000 per m² more expensive than natural for every type and thickness.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>What is the difference between 6 cm and 8 cm thickness?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>8 cm is Rp10,000 per m² more expensive than 6 cm for the same type, for both natural and colored.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>What are the installation rates for areas under 100 m²?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>The listed installation rates apply to areas above 100 m². For smaller areas, ask our team for a price.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>What is the difference between grass block and paving block?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Paving block covers the surface completely. Grass block has openings, so grass can grow in it.</div>
+</details>
+<details class='group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm'>
+<summary class='flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden'>Is the site survey free?<span aria-hidden='true' class='text-xl leading-none text-[#1e88e5] transition-transform duration-200 group-open:rotate-45'>+</span></summary>
+<div class='mt-3 text-sm leading-relaxed text-slate-600'>Yes. The survey measures the area, checks site conditions, and gives an initial estimate at no cost in Greater Jakarta, Banten, and West Java.</div>
+</details>
+</div>`,
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: `<div class='not-prose relative my-8 overflow-hidden rounded-3xl bg-slate-900 p-7 text-center text-white sm:p-10'>
+<div aria-hidden='true' class='pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#1e88e5] opacity-20 blur-3xl'></div>
+<div class='relative'>
+<span class='block text-[11px] font-bold uppercase tracking-[0.3em] text-[#4da3ff]'>Estimasi gratis</span>
+<span class='mt-3 block text-xl font-bold sm:text-2xl'>Mau tahu total biaya untuk area Anda?</span>
+<span class='mx-auto mt-3 block max-w-xl text-sm leading-relaxed text-slate-300'>Kirim luas area, tipe, tebal, dan warna yang diinginkan, serta lokasi proyek. Tim kami bantu hitung estimasinya dan survei lapangan bila diperlukan.</span>
+<a href='https://wa.me/6282258089367?text=Halo%2C%20saya%20ingin%20estimasi%20harga%20grass%20block%20untuk%20proyek%20saya.' target='_blank' rel='noopener noreferrer' class='mt-6 inline-flex min-h-12 items-center justify-center rounded-xl bg-emerald-700 px-7 py-3 text-sm font-bold text-white hover:bg-emerald-800'>Estimasi via WhatsApp</a>
+<span class='mt-6 block text-xs text-slate-400'>Baca juga: <a href='/blog/harga-kanstin-2026' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Harga kanstin 2026</a> · <a href='/blog/pemasangan-paving-block' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Pemasangan paving block</a> · <a href='/blog/biaya-aspal-per-meter' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Biaya aspal per meter</a></span>
+</div>
+</div>`,
+        en: `<div class='not-prose relative my-8 overflow-hidden rounded-3xl bg-slate-900 p-7 text-center text-white sm:p-10'>
+<div aria-hidden='true' class='pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#1e88e5] opacity-20 blur-3xl'></div>
+<div class='relative'>
+<span class='block text-[11px] font-bold uppercase tracking-[0.3em] text-[#4da3ff]'>Free estimate</span>
+<span class='mt-3 block text-xl font-bold sm:text-2xl'>Want to know the total cost for your area?</span>
+<span class='mx-auto mt-3 block max-w-xl text-sm leading-relaxed text-slate-300'>Send us the area size, the type, thickness, and finish you want, and the project location. We will help estimate it and arrange a site survey if needed.</span>
+<a href='https://wa.me/6282258089367?text=Hello%2C%20I%20would%20like%20a%20grass%20block%20price%20estimate%20for%20my%20project.' target='_blank' rel='noopener noreferrer' class='mt-6 inline-flex min-h-12 items-center justify-center rounded-xl bg-emerald-700 px-7 py-3 text-sm font-bold text-white hover:bg-emerald-800'>Get an estimate on WhatsApp</a>
+<span class='mt-6 block text-xs text-slate-400'>Read also: <a href='/blog/harga-kanstin-2026' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Curb prices 2026</a> · <a href='/blog/pemasangan-paving-block' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Paving block installation</a> · <a href='/blog/biaya-aspal-per-meter' class='font-semibold text-[#4da3ff] underline underline-offset-4 hover:text-white'>Asphalt cost per meter</a></span>
 </div>
 </div>`,
       },
