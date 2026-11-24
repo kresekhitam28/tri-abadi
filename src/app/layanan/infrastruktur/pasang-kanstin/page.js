@@ -4,9 +4,9 @@ import { createPageMetadata } from "../../../../lib/metadata";
 
 export const metadata = createPageMetadata({
   path: "/layanan/infrastruktur/pasang-kanstin",
-  title: "Pasang Kanstin",
+  title: "Jasa Pasang Kanstin",
   description:
-    "Jasa harga dan pasang kanstin untuk trotoar, taman, DKI, dan S. Dikerjakan rapi, presisi, dan tahan lama oleh tenaga berpengalaman.",
+    "Jasa pemasangan kanstin untuk trotoar, taman, area parkir, jalan lingkungan, dan kawasan industri. Tim membantu menentukan tipe kanstin, mengukur lokasi, dan menyusun estimasi pekerjaan. Hubungi kami untuk konsultasi dan jadwalkan survei.",
   image: "/proyek/pasang-kanstin.webp",
 });
 
