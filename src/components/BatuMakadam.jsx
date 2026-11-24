@@ -7,14 +7,13 @@ import { useLang } from "../context/LanguageContext";
 import MaterialDeliveryInfo from "./MaterialDeliveryInfo";
 import Reveal from "./Reveal";
 // INTEGRASI DENGAN METADATA HELPER MILIKMU
-import { SITE_URL, SITE_NAME, SITE_ENTITY_ID, serializeJsonLd } from "../lib/metadata";
+import { SITE_URL, serializeJsonLd } from "../lib/metadata";
 
 // ─────────────────────────────────────────────
 // KONFIG — DISESUAIKAN DENGAN ROUTE /supplier/
 // ─────────────────────────────────────────────
 const PRODUCT_SLUG = "batu-makadam";
 const PRODUCT_URL = `${SITE_URL}/supplier/${PRODUCT_SLUG}`;
-const PRODUCT_IMAGE = `${SITE_URL}/produk/batu-makadam.png`;
 
 // ─────────────────────────────────────────────
 // IKON
@@ -420,19 +419,6 @@ function buildJsonLd(d) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Product",
-        "@id": `${PRODUCT_URL}#product`,
-        name: d.title,
-        image: [PRODUCT_IMAGE],
-        description: d.intro.join(" "),
-        brand: { 
-          "@type": "Brand", 
-          "@id": SITE_ENTITY_ID, 
-          name: SITE_NAME 
-        },
-        category: "Construction Materials",
-      },
-      {
         "@type": "BreadcrumbList",
         "@id": `${PRODUCT_URL}#breadcrumb`,
         itemListElement: [
@@ -496,7 +482,7 @@ export default function BatuMakadam() {
                  pt-28 lg:pt-36 pb-20 lg:pb-28 overflow-hidden antialiased
                  selection:bg-[#1e88e5]/20 [text-wrap:pretty]"
     >
-      {/* ── JSON-LD: Product + Breadcrumb + FAQ ── */}
+      {/* ── JSON-LD: Breadcrumb + FAQ ── */}
       <script
         type="application/ld+json"
         // GUNAKAN serializeJsonLd MILIKMU
