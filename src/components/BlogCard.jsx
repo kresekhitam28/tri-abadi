@@ -1,7 +1,7 @@
 // src/components/BlogCard.jsx
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLang } from "../context/LanguageContext";
@@ -24,6 +24,35 @@ const formatDate = (iso, lang) => {
   }
 };
 
+function CardPhoto({ src, alt, imageClassName, thumbnailSrcSet, thumbnailSizes }) {
+  const [imgError, setImgError] = useState(false);
+
+  return imgError ? (
+    <div className="absolute inset-0 flex items-center justify-center bg-slate-100 px-3 text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+      PT Tri Abadi Makmur
+    </div>
+  ) : (
+    <picture>
+      {thumbnailSrcSet && (
+        <source
+          media="(max-width: 639px)"
+          srcSet={thumbnailSrcSet}
+          sizes={thumbnailSizes}
+        />
+      )}
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        loading="lazy"
+        sizes="(max-width: 639px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className={imageClassName}
+        onError={() => setImgError(true)}
+      />
+    </picture>
+  );
+}
+
 export default function BlogCard({
   item,
   heading: Heading = "h3",
@@ -33,13 +62,6 @@ export default function BlogCard({
   thumbnailSizes = "calc((100vw - 44px) / 2)",
 }) {
   const { lang } = useLang();
-  const [imgError, setImgError] = useState(false);
-
-  // Reset fallback kalau src / thumbnail berubah (misal rerender dengan item berbeda)
-  useEffect(() => {
-    setImgError(false);
-  }, [item?.src, thumbnailSrcSet]);
-
   if (!item) return null;
 
   const title = pick(item.title, lang);
@@ -72,30 +94,14 @@ export default function BlogCard({
         {...mediaWrapperProps}
         className={`relative block aspect-[16/10] w-full shrink-0 overflow-hidden focus-visible:z-10 focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-blue-700 ${illustration ? "bg-white" : "bg-slate-100"} ${compactMobile ? "max-sm:aspect-[4/3]" : ""}`}
       >
-        {imgError ? (
-          <div className="absolute inset-0 flex items-center justify-center bg-slate-100 px-3 text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">
-            PT Tri Abadi Makmur
-          </div>
-        ) : (
-          <picture>
-            {thumbnailSrcSet && (
-              <source
-                media="(max-width: 639px)"
-                srcSet={thumbnailSrcSet}
-                sizes={thumbnailSizes}
-              />
-            )}
-            <Image
-              src={item.src}
-              alt={alt}
-              fill
-              loading="lazy"
-              sizes="(max-width: 639px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className={imageClassName}
-              onError={() => setImgError(true)}
-            />
-          </picture>
-        )}
+        <CardPhoto
+          key={JSON.stringify([item.src, thumbnailSrcSet])}
+          src={item.src}
+          alt={alt}
+          imageClassName={imageClassName}
+          thumbnailSrcSet={thumbnailSrcSet}
+          thumbnailSizes={thumbnailSizes}
+        />
       </MediaWrapper>
 
       <div className={`flex flex-1 flex-col px-4 pt-4 sm:px-5 sm:pt-5 ${compactMobile ? "max-sm:px-2.5 max-sm:pt-2.5" : ""}`}>

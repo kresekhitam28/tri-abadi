@@ -41,6 +41,20 @@ export function getArticleSummaries(slugs) {
   return slugs.map(getArticleBySlug).filter(Boolean).map(articleSummary);
 }
 
+export function getArticleDetail(article) {
+  return {
+    ...articleSummary(article),
+    dateISO: article.dateISO,
+    modifiedDateISO: article.modifiedDateISO,
+    author: article.author,
+    body: article.body,
+    answer: article.answer,
+    technicalReviewer: article.technicalReviewer,
+    quote: article.quote,
+    surveyRequest: article.surveyRequest,
+  };
+}
+
 export function getArticleNavigation(article) {
   const tags = (article.tags ?? []).flatMap((tag) => {
     if (typeof tag === "string") return [{ label: tag }];

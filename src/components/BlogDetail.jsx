@@ -368,6 +368,31 @@ function ArticleBody({ body, lang, priceGuide }) {
 // ─────────────────────────────────────────────
 // HALAMAN
 // ─────────────────────────────────────────────
+function ArticleCover({ src, title, illustration, priority }) {
+  const [coverError, setCoverError] = useState(false);
+
+  return (
+    <figure
+      className={`relative aspect-video overflow-hidden rounded-2xl ring-1 ring-slate-200 ${illustration && !coverError ? "bg-white" : "bg-slate-100"}`}
+    >
+      <Image
+        src={coverError ? "https://placehold.co/1200x675/e2e8f0/64748b?text=Blog" : src}
+        alt={illustration || title}
+        fill
+        priority={priority}
+        sizes="(max-width: 1024px) 100vw, 896px"
+        className={illustration && !coverError ? "object-scale-down p-5 pb-12" : "object-cover"}
+        onError={() => setCoverError(true)}
+      />
+      {illustration && !coverError && (
+        <figcaption className="absolute inset-x-0 bottom-4 px-3 text-center text-sm text-slate-600">
+          {illustration}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
 export default function BlogDetail({ article, visibleTags, relatedArticles }) {
   const { slug } = article;
   const priceGuide = Boolean(article.quote);
@@ -379,7 +404,6 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
   const [comment, setComment] = useState("");
   const [status, setStatus] = useState("idle");
   const [copied, setCopied] = useState(false);
-  const [coverError, setCoverError] = useState(false);
   const copyTimer = useRef(null);
   const submission = useRef(null);
 
@@ -387,10 +411,6 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
     if (typeof window === "undefined") return;
     window.scrollTo({ top: 0, behavior: "auto" });
   }, [slug]);
-
-  useEffect(() => {
-    setCoverError(false);
-  }, [article.src]);
 
   useEffect(() => () => {
     clearTimeout(copyTimer.current);
@@ -580,24 +600,7 @@ export default function BlogDetail({ article, visibleTags, relatedArticles }) {
       {/* ═══ COVER ═══ */}
       <section className={`mx-auto max-w-4xl px-5 sm:px-6 lg:px-8 ${priceGuide ? "mt-4 sm:mt-6" : "mt-4 sm:mt-8 lg:mt-12"}`}>
         <Reveal y={26} duration={800}>
-          <figure
-            className={`relative aspect-video overflow-hidden rounded-2xl ring-1 ring-slate-200 ${illustration && !coverError ? "bg-white" : "bg-slate-100"}`}
-          >
-            <Image
-              src={coverError ? "https://placehold.co/1200x675/e2e8f0/64748b?text=Blog" : article.src}
-              alt={illustration || title}
-              fill
-              priority={!article.quote}
-              sizes="(max-width: 1024px) 100vw, 896px"
-              className={illustration && !coverError ? "object-scale-down p-5 pb-12" : "object-cover"}
-              onError={() => setCoverError(true)}
-            />
-            {illustration && !coverError && (
-              <figcaption className="absolute inset-x-0 bottom-4 px-3 text-center text-sm text-slate-600">
-                {illustration}
-              </figcaption>
-            )}
-          </figure>
+          <ArticleCover key={article.src} src={article.src} title={title} illustration={illustration} priority={!article.quote} />
         </Reveal>
       </section>
 

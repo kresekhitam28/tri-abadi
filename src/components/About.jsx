@@ -1,6 +1,7 @@
 "use client";
 
 import { useLang } from "../context/LanguageContext";
+import Link from "next/link";
 
 function IconCheck({ className = "w-4 h-4" }) {
   return (
@@ -149,6 +150,9 @@ export default function About() {
         <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
           <h2 id="about-profile-title" className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">{data.profileTitle}</h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-slate-700 sm:text-base sm:leading-7">{data.intro}</p>
+          <Link href="/proyek" className="mt-3 inline-flex min-h-11 items-center font-semibold text-blue-800 underline">
+            {lang === "en" ? "View project photos and case studies" : "Lihat dokumentasi dan studi kasus proyek"}
+          </Link>
         </div>
       </section>
 

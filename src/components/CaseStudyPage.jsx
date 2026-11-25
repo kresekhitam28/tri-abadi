@@ -44,6 +44,9 @@ export default function CaseStudyPage({ study }) {
         <a href={projectQuoteHref(study.quoteRequest, lang, study.area.location)} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center rounded-lg bg-blue-700 px-4 py-2 text-center text-sm font-semibold text-white hover:bg-blue-800">
           {en ? "Request a site survey on WhatsApp" : "Minta survei lokasi via WhatsApp"}
         </a>
+        <Link href={study.servicePath} className="inline-flex min-h-11 items-center text-sm font-semibold text-blue-800 underline">
+          {en ? "Service scope and pricing" : `Lingkup dan harga ${study.serviceName.toLowerCase()}`}
+        </Link>
         <Link href={study.areaPath} className="inline-flex min-h-11 items-center text-sm font-semibold text-blue-800 underline">{study.area.title[lang]}</Link>
       </div>
     </article>

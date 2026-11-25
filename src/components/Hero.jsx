@@ -6,6 +6,7 @@ import { projectQuoteHref } from "../lib/quote";
 
 const content = {
   id: {
+    area: "Jabodetabek, Banten & Jawa Barat",
     title: "Jasa Pengaspalan Jalan",
     emphasis: "Hotmix Bergaransi",
     description: `Pengaspalan untuk jalan, pabrik, perumahan, dan area parkir. Paket pelapisan ulang (overlay) mulai ${formatAsphaltPrice(asphaltPackagePrices.A)}/m².`,

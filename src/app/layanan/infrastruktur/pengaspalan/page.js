@@ -12,7 +12,7 @@ export const metadata = createPageMetadata({
   path,
   title: "Jasa Pengaspalan Jalan & Aspal Hotmix Bergaransi",
   description:
-    `Jasa pengaspalan jalan dan parkiran di Jabodetabek, Banten & Jawa Barat. Overlay mulai ${formatAsphaltPrice(asphaltPackagePrices.A)}/m². Minta estimasi dan survei lokasi.`,
+    `Bandingkan paket pengaspalan jalan baru, tambal sulam, dan overlay mulai ${formatAsphaltPrice(asphaltPackagePrices.A)}/m² untuk permukaan yang masih layak. Minta estimasi sesuai kondisi jalan.`,
   image: project.src,
 });
 

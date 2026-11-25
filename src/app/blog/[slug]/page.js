@@ -2,7 +2,7 @@
 import { notFound } from "next/navigation";
 import BlogDetail from "../../../components/BlogDetail";
 import { articles, getArticleBySlug } from "../../../data/articles";
-import { getArticleNavigation } from "../../../lib/blog";
+import { getArticleDetail, getArticleNavigation } from "../../../lib/blog";
 import { createPageMetadata, serializeJsonLd, SITE_ENTITY_ID, SITE_NAME, SITE_URL } from "../../../lib/metadata";
 
 const pick = (f) => {
@@ -79,7 +79,7 @@ export default async function BlogDetailPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
-      <BlogDetail key={slug} article={article} {...getArticleNavigation(article)} />
+      <BlogDetail key={slug} article={getArticleDetail(article)} {...getArticleNavigation(article)} />
     </>
   );
 }

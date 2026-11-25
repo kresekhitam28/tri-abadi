@@ -116,11 +116,11 @@ const kontakInfo = [
 
 const draftCopy = {
   id: {
-    heading: ["Mari", "Berkolaborasi"],
+    heading: ["Konsultasi", "Proyek"],
     contactHeading: ["Informasi", "Kontak"],
     officeHeading: ["Kunjungi", "Kantor Kami"],
     contact: "Hubungi Kami",
-    heroDescription: "Punya pertanyaan, butuh penawaran, atau ingin konsultasi proyek? Tim kami siap membantu Anda — dari kebutuhan material hingga pengerjaan konstruksi.",
+    heroDescription: "Untuk meminta estimasi, sertakan lokasi proyek dan jenis pekerjaan. Jika luas jalan belum diketahui, Anda tetap bisa memulai konsultasi lewat WhatsApp.",
     quickResponse: "Respon Cepat",
     chat: "Chat via WhatsApp",
     contactDescription: "Hubungi kami melalui salah satu kanal di bawah ini.",
@@ -138,11 +138,11 @@ const draftCopy = {
     greeting: "Halo PT Tri Abadi Makmur, saya ingin konsultasi proyek.",
   },
   en: {
-    heading: ["Let’s", "Work Together"],
+    heading: ["Project", "Consultation"],
     contactHeading: ["Contact", "Information"],
     officeHeading: ["Visit", "Our Office"],
     contact: "Contact Us",
-    heroDescription: "Have a question, need a quote, or want to discuss a project? Our team can help with material supply and construction work.",
+    heroDescription: "For an estimate, share the project location and the work you need. You can start a WhatsApp consultation even if you do not yet know the area.",
     quickResponse: "Quick Response",
     chat: "Chat on WhatsApp",
     contactDescription: "You can reach us through any of the options below.",

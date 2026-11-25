@@ -11,7 +11,7 @@ export const articles = [
   ...technicalComparisonArticles,
   {
     slug: "aspal-jalan-murah",
-    modifiedDateISO: "2026-11-19",
+    modifiedDateISO: "2026-11-25",
     date: { id: "28 September 2026", en: "September 28, 2026" },
     dateISO: "2026-10-14",
     src: "/proyek/proyek-1.webp",
@@ -71,12 +71,12 @@ export const articles = [
             en: "<strong>Choose the Right Time:</strong> Avoiding the rainy season is highly recommended. Paving in sunny weather makes the process faster and saves operational costs.",
           },
           {
-            id: "<strong>Sesuaikan Ketebalan:</strong> Untuk jalan lingkungan perumahan, aspal hotmix dengan ketebalan 3-4 cm sudah cukup kuat dan lebih murah dibanding jalan pabrik.",
-            en: "<strong>Adjust Thickness:</strong> For residential neighborhood roads, 3-4 cm thick hotmix asphalt is strong enough and cheaper than factory roads.",
+            id: "<strong>Periksa dasar jalan:</strong> Minta kontraktor menunjukkan bagian yang cukup dilapis ulang dan bagian yang perlu diperbaiki lebih dulu. Diskusikan ketebalan lapisan berdasarkan kondisi dasar jalan dan kendaraan yang melintas.",
+            en: "<strong>Check the road base:</strong> Ask the contractor to identify which sections can be resurfaced and which need repairs first. Discuss layer thickness in light of the existing base and the vehicles that use the road.",
           },
           {
-            id: "<strong>Bandingkan Penawaran:</strong> Jangan langsung menerima harga pertama. Bandingkan penawaran dari beberapa kontraktor, tapi pastikan spesifikasi materialnya sama.",
-            en: "<strong>Compare Quotes:</strong> Don't just accept the first price. Compare quotes from several contractors, but make sure the material specifications are the same.",
+            id: "<strong>Bandingkan lingkup penawaran:</strong> Gunakan luas yang sama, lalu periksa ketebalan setelah pemadatan, persiapan permukaan, biaya mobilisasi, dan pekerjaan yang dikecualikan. Selisih tarif per m² bisa berasal dari perbedaan lingkup tersebut.",
+            en: "<strong>Compare the scope of each quote:</strong> Use the same area and check the compacted thickness, surface preparation, mobilization costs, and exclusions. These differences can explain a gap in the price per square meter.",
           },
         ],
       },
@@ -4051,7 +4051,7 @@ export const articles = [
     { id: "K3 Konstruksi", en: "Construction Safety", slug: "k3-konstruksi" },
     { id: "Manajemen Proyek", en: "Project Management", slug: "manajemen-proyek" },
     { id: "Keselamatan Kerja", en: "Workplace Safety", slug: "keselamatan-kerja" },
-    { id: "Layanan Konsultasi K3", en: "Safety Consulting Service", href: "/layanan/konsultasi-k3" },
+    { id: "Layanan Konstruksi", en: "Construction Services", href: "/layanan" },
   ],
 
   schema: [
@@ -4155,8 +4155,8 @@ export const articles = [
     {
       type: "paragraph",
       text: {
-        id: `<figure class='not-prose my-6 overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-900/5'><img src='/proyek/k3-proyek-konstruksi.webp' alt='Penerapan K3 di proyek konstruksi PT Tri Abadi Makmur' loading='lazy' decoding='async' class='h-auto w-full object-cover' style='aspect-ratio:16/9'><figcaption class='bg-slate-50 px-4 py-2.5 text-xs text-slate-500'>Briefing K3 sebelum pekerjaan dimulai.</figcaption></figure>`,
-        en: `<figure class='not-prose my-6 overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-900/5'><img src='/proyek/k3-proyek-konstruksi.webp' alt='Safety implementation at a PT Tri Abadi Makmur construction project' loading='lazy' decoding='async' class='h-auto w-full object-cover' style='aspect-ratio:16/9'><figcaption class='bg-slate-50 px-4 py-2.5 text-xs text-slate-500'>Safety briefing before work begins.</figcaption></figure>`,
+        id: `Mulai pekerjaan dengan briefing K3 agar tim memahami risiko di lokasi dan pembagian tugas.`,
+        en: `Start with a safety briefing so the crew understands site hazards and individual responsibilities.`,
       },
     },
 
@@ -4751,8 +4751,8 @@ export const articles = [
     {
       type: "paragraph",
       text: {
-        id: `<figure class='not-prose my-6 overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-900/5'><img src='/proyek/pasang-grass-block.webp' alt='Pemasangan grass block di lokasi proyek PT Tri Abadi Makmur' loading='lazy' decoding='async' class='h-auto w-full object-cover' style='aspect-ratio:16/9'><figcaption class='bg-slate-50 px-4 py-2.5 text-xs text-slate-500'>Pemasangan grass block di lokasi proyek.</figcaption></figure>`,
-        en: `<figure class='not-prose my-6 overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-900/5'><img src='/proyek/pasang-grass-block.webp' alt='Grass block installation at a PT Tri Abadi Makmur project site' loading='lazy' decoding='async' class='h-auto w-full object-cover' style='aspect-ratio:16/9'><figcaption class='bg-slate-50 px-4 py-2.5 text-xs text-slate-500'>Grass block installation at a project site.</figcaption></figure>`,
+        id: `<figure class='not-prose my-6 overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-900/5'><img src='/proyek/grass-fullpave%20(1).webp' alt='Grass block tipe Fullpave' loading='lazy' decoding='async' class='h-auto w-full object-cover' style='aspect-ratio:16/9'><figcaption class='bg-slate-50 px-4 py-2.5 text-xs text-slate-500'>Contoh grass block tipe Fullpave.</figcaption></figure>`,
+        en: `<figure class='not-prose my-6 overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-900/5'><img src='/proyek/grass-fullpave%20(1).webp' alt='Fullpave grass block' loading='lazy' decoding='async' class='h-auto w-full object-cover' style='aspect-ratio:16/9'><figcaption class='bg-slate-50 px-4 py-2.5 text-xs text-slate-500'>Example of a Fullpave grass block.</figcaption></figure>`,
       },
     },
     {
