@@ -21,14 +21,18 @@ export async function getBlogListing(page) {
   const start = (page - 1) * articlesPerPage;
   const items = sortedArticles.slice(start, start + articlesPerPage).map(articleSummary);
   const { variants } = await getProjectImageFiles(items);
+
   return {
     items: items.map((item) => {
-      const imageBase = item.src.replace(/\.webp$/, "");
-      const thumbnailSrcSet = [320, 640].flatMap((size) => {
-        const src = `${imageBase}-${size}.webp`;
-        const width = variants[src.split("/").pop()];
-        return width ? [`${src} ${width}w`] : [];
-      }).join(", ");
+      // FIX: strip SEMUA ekstensi gambar, bukan hanya .webp
+      const imageBase = item.src.replace(/\.(webp|jpeg|jpg|png)$/i, "");
+      const thumbnailSrcSet = [320, 640]
+        .flatMap((size) => {
+          const src = `${imageBase}-${size}.webp`;
+          const width = variants[src.split("/").pop()];
+          return width ? [`${src} ${width}w`] : [];
+        })
+        .join(", ");
 
       return { ...item, thumbnailSrcSet };
     }),

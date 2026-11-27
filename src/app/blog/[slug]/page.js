@@ -12,7 +12,14 @@ const pick = (f) => {
 };
 
 export async function generateStaticParams() {
-  return articles.map((article) => ({ slug: article.slug }));
+  // PENGAMAN: Pastikan articles adalah array dan punya slug
+  if (!Array.isArray(articles)) return [];
+  
+  return articles
+    .filter((article) => article && article.slug) // Saring jika ada data yang tidak punya slug
+    .map((article) => ({
+      slug: article.slug,
+    }));
 }
 
 export async function generateMetadata({ params }) {

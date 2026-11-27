@@ -5361,7 +5361,561 @@ export const articles = [
       },
     },
   ],
-}
+},
+{
+  slug: "pembuatan-jalan-di-cilangkap",
+  date: { id: "20 November 2026", en: "November 20, 2026" },
+  dateISO: "2026-11-20",
+  src: "/proyek/proyek-cilangkap-1.webp",
+  category: { id: "Pengaspalan", en: "Asphalt Paving" },
+  title: {
+    id: "Proses pembuatan Jalan Baru di Cilangkap: Dari Tanah Merah hingga Siap Diaspal",
+    en: "New Road Construction in Cilangkap: From Red Soil to Asphalt-Ready Base",
+  },
+  desc: {
+    id: "Butuh kontraktor pembuatan jalan di Cilangkap, Jakarta Timur? Lihat langsung proses perataan tanah merah, pemasangan batu belah, dan pemadatan dengan alat berat di proyek kami.",
+    en: "Need a road construction contractor in Cilangkap, East Jakarta? See how we level red soil, lay the base stone, and compact it with heavy equipment on our project.",
+  },
+  author: {
+    name: "PT. Tri Abadi Makmur Indonesia",
+    phone: "082258089367",
+    avatar: "/logo.webp",
+    lastUpdated: { id: "27 November 2026", en: "November 27, 2026" },
+    bio: {
+      id: "PT Tri Abadi Makmur Indonesia adalah perusahaan konstruksi yang telah bertahun-tahun berpengalaman. Kami mengutamakan kualitas dan ketelitian di setiap tahap pengerjaan, serta menangani proyek berskala besar dengan tujuan utama kepuasan klien dan kerja sama jangka panjang.",
+      en: "PT Tri Abadi Makmur Indonesia is a construction company with years of hands-on experience. We prioritize quality and precision at every stage and handle projects of significant scale, with client satisfaction and long-term partnerships as our core goals.",
+    },
+  },
+  tags: [
+    { id: "Pembuatan Jalan Baru", en: "New Road Construction", slug: "pembuatan-jalan-baru" },
+    { id: "Pengaspalan Cilangkap", en: "Cilangkap Asphalt Paving", slug: "pengaspalan-cilangkap" },
+    { id: "Kontraktor Jalan Jakarta Timur", en: "East Jakarta Road Contractor", slug: "kontraktor-jalan-jakarta-timur" },
+    { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works", slug: "pekerjaan-aspal-hotmix" },
+    { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+  ],
+  body: [
+    {
+      type: "paragraph",
+      text: {
+        id: "Membuka akses jalan baru di Cilangkap, Jakarta Timur, tidak bisa dikerjakan asal-asalan. Kondisi tanah merah yang kerap ditemui di lokasi seperti ini membutuhkan penanganan khusus agar jalan tidak mudah amblas saat dilintasi kendaraan berat. Jika Anda sedang mencari kontraktor untuk <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>pembuatan jalan baru</a>, berikut gambaran proses yang kami kerjakan di proyek ini.",
+        en: "Opening new road access in the Cilangkap area of East Jakarta is not a job to be done carelessly. Red soil, which is commonly found in locations like this, requires special handling so the road does not sink easily under heavy vehicles. If you are looking for a contractor for new road construction, here is an overview of how we handle a project like this.",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "Banyak orang mengira pembuatan jalan hanya soal menuang aspal. Padahal, kekuatan jalan sebagian besar ditentukan oleh lapisan di bawahnya. Berikut tahapan yang kami lakukan, dari perataan tanah hingga permukaan yang siap untuk diaspal.",
+        en: "Many people think road building is just about laying asphalt. In reality, a road's strength depends largely on the layers beneath it. Here are the stages we followed, from leveling the ground to a surface that is ready for paving.",
+      },
+    },
+    {
+      type: "heading",
+      text: {
+        id: "1. Pembersihan Lahan dan Perataan Tanah Dasar",
+        en: "1. Land Clearing and Subgrade Leveling",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "Tahap awal dimulai dengan membersihkan lahan dari pepohonan dan sisa tebangan. Tanah merah kemudian diratakan menggunakan excavator agar elevasinya sesuai rencana. Di sisi kiri dan kanan jalan dipasang <a href='/blog/pemasangan-kansteen' class='text-[#1e88e5] hover:underline font-semibold'>kanstin beton</a> berwarna putih. Kanstin berfungsi sebagai batas yang mengunci struktur jalan sekaligus mengarahkan aliran air. Tanah dasar yang sudah rata lalu dipadatkan agar tidak terjadi penurunan permukaan di kemudian hari.",
+        en: "The first stage starts with clearing the site of trees and leftover debris. The red soil is then leveled with an excavator so the elevation matches the plan. Concrete curbs (white kanstin) are installed along both sides of the road to lock in the road structure and guide water flow. The leveled subgrade is then compacted to prevent the surface from settling in the future.",
+      },
+    },
+    {
+      type: "heading",
+      text: {
+        id: "2. Penghamparan Lapisan Pondasi Bawah (Batu Belah)",
+        en: "2. Spreading the Lower Base Layer (Broken Stone)",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "Tahap krusial berikutnya adalah penghamparan batu belah berukuran besar (macadam). Lapisan ini menjadi pondasi utama yang menanggung beban kendaraan dari atas. Pekerja menata batu secara merata di atas tanah dasar sebelum ditutup dengan material yang lebih kecil.",
+        en: "The next crucial step is spreading large broken stone (macadam). This layer forms the main foundation that carries vehicle loads from above. Workers arrange the stones evenly over the subgrade before covering them with smaller material.",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "<figure class='my-6'><img src='/proyek/proyek-cilangkap-2.webp' alt='Penghamparan batu belah sebagai lapisan pondasi bawah jalan di Cilangkap' class='w-full rounded-xl shadow-md mb-2' loading='lazy' /><figcaption class='text-sm text-gray-500 text-center italic'>Batu belah ditata merata sebagai lapisan pondasi bawah untuk menahan beban kendaraan.</figcaption></figure>",
+        en: "<figure class='my-6'><img src='/proyek/proyek-cilangkap-2.webp' alt='Spreading broken stone as the lower base layer of a road in Cilangkap' class='w-full rounded-xl shadow-md mb-2' loading='lazy' /><figcaption class='text-sm text-gray-500 text-center italic'>Broken stone is spread evenly as the lower base layer to carry vehicle loads.</figcaption></figure>",
+      },
+    },
+    {
+      type: "heading",
+      text: {
+        id: "3. Penutupan dan Pemadatan Lapisan Pondasi",
+        en: "3. Covering and Compacting the Base Layer",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "Setelah batu belah tertutup material split atau sirtu, alat berat Tandem Roller dioperasikan untuk memadatkan lapisan ini secara berulang. Proses ini memastikan rongga antarbatu terisi rapat sehingga permukaan menjadi padat dan rata. Lapisan yang solid membantu mencegah jalan amblas dan menjadi dasar yang baik untuk pengaspalan hotmix.",
+        en: "Once the broken stone is covered with crushed stone or sirtu, a Tandem Roller is run over the surface repeatedly to compact the layer. This closes the gaps between the stones so the surface becomes dense and even. A solid base helps prevent the road from sinking and provides a good foundation for hotmix asphalt.",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "<figure class='my-6'><img src='/proyek/proyek-cilangkap-3.webp' alt='Pemadatan lapisan pondasi jalan menggunakan tandem roller di Cilangkap' class='w-full rounded-xl shadow-md mb-2' loading='lazy' /><figcaption class='text-sm text-gray-500 text-center italic'>Pemadatan dengan Tandem Roller memastikan permukaan padat dan rata.</figcaption></figure>",
+        en: "<figure class='my-6'><img src='/proyek/proyek-cilangkap-3.webp' alt='Compacting the road base layer with a tandem roller in Cilangkap' class='w-full rounded-xl shadow-md mb-2' loading='lazy' /><figcaption class='text-sm text-gray-500 text-center italic'>Compaction with a tandem roller ensures a dense and level surface.</figcaption></figure>",
+      },
+    },
+    {
+      type: "heading",
+      text: {
+        id: "4. Hasil Pemadatan, Siap untuk Tahap Berikutnya",
+        en: "4. Compacted Surface, Ready for the Next Stage",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "Permukaan yang sudah padat dan rata ini siap dilanjutkan ke tahap pengaspalan. Setiap tahap dikerjakan berurutan, karena kesalahan di lapisan bawah sulit diperbaiki setelah aspal terpasang. Di sinilah kualitas sebuah jalan sebenarnya ditentukan.",
+        en: "This compacted, level surface is ready for the paving stage. Each step is done in sequence, because mistakes in the lower layers are hard to fix once asphalt is laid. This is where the true quality of a road is determined.",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "<figure class='my-6'><img src='/proyek/proyek-cilangkap-4.webp' alt='Permukaan jalan di Cilangkap yang sudah dipadatkan dan siap diaspal' class='w-full rounded-xl shadow-md mb-2' loading='lazy' /><figcaption class='text-sm text-gray-500 text-center italic'>Permukaan yang sudah dipadatkan dan diratakan, siap untuk tahap pengaspalan.</figcaption></figure>",
+        en: "<figure class='my-6'><img src='/proyek/proyek-cilangkap-4.webp' alt='Compacted road surface in Cilangkap ready for asphalt paving' class='w-full rounded-xl shadow-md mb-2' loading='lazy' /><figcaption class='text-sm text-gray-500 text-center italic'>The compacted and leveled surface is ready for the asphalt paving stage.</figcaption></figure>",
+      },
+    },
+    {
+      type: "heading",
+      text: {
+        id: "Pertanyaan yang Sering Diajukan",
+        en: "Frequently Asked Questions",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "<strong>Apakah tanah merah bisa langsung diaspal?</strong> Sebaiknya tidak. Tanah merah perlu diratakan, dipadatkan, dan dilapisi material pondasi terlebih dahulu agar jalan tidak mudah amblas.",
+        en: "<strong>Can red soil be paved directly?</strong> It is not recommended. The red soil should first be leveled, compacted, and covered with base material so the road does not sink easily.",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "<strong>Mengapa lapisan bawah jalan begitu penting?</strong> Lapisan bawah menanggung beban kendaraan dari atas. Jika tidak cukup padat, retak dan penurunan bisa muncul lebih cepat, meskipun permukaan aspalnya terlihat baik.",
+        en: "<strong>Why is the lower layer of a road so important?</strong> The lower layers carry the loads from vehicles above. If they are not dense enough, cracks and sinking can appear sooner, even when the asphalt surface looks good.",
+      },
+    },
+    {
+      type: "heading",
+      text: {
+        id: "Butuh Jasa Pembuatan Jalan di Cilangkap?",
+        en: "Need Road Construction Services in Cilangkap?",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "PT Tri Abadi Makmur melayani pembangunan jalan perumahan, akses pabrik, dan jalan lingkungan di Cilangkap, Jakarta Timur, serta wilayah sekitarnya. Kami memulai dari struktur pondasi yang kuat sebelum melanjutkan ke <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>pengaspalan hotmix</a>, agar jalan yang dihasilkan lebih awet dan nyaman dilalui.",
+        en: "PT Tri Abadi Makmur handles residential road construction, factory access roads, and neighborhood roads in Cilangkap, East Jakarta, and nearby areas. We build a strong foundation first before proceeding to hotmix asphalt paving, so the finished road lasts longer and rides more smoothly.",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        id: "Punya lahan atau akses jalan yang perlu diperkeras? Hubungi kami melalui <a href='https://wa.me/6282258089367' target='_blank' rel='noopener noreferrer' class='text-[#1e88e5] hover:underline font-semibold'>WhatsApp</a> untuk survei lokasi dan penawaran harga yang sesuai dengan kebutuhan proyek Anda.",
+        en: "Have land or road access that needs reinforcing? Contact us on <a href='https://wa.me/6282258089367' target='_blank' rel='noopener noreferrer' class='text-[#1e88e5] hover:underline font-semibold'>WhatsApp</a> for a site survey and a price quote tailored to your project.",
+      },
+    },
+  ],
+},
+     {
+    // SLUG UNIK #1
+    slug: "pembuatan-jalan-di-cilangkap",
+    date: { id: "20 November 2026", en: "November 20, 2026" },
+    dateISO: "2026-11-20",
+    modifiedDateISO: "2026-11-27",
+    src: "/proyek/proyek-cilangkap-1.webp",
+    category: { id: "Pengaspalan", en: "Asphalt Paving" },
+    title: {
+      id: "proses pembuatan Jalan Baru di Cilangkap: Dari Tanah Merah hingga Siap Diaspal",
+      en: "New Road Construction in Cilangkap: From Red Soil to Asphalt-Ready Base",
+    },
+    desc: {
+      id: "Butuh kontraktor pembuatan jalan di Cilangkap, Jakarta Timur? Lihat langsung proses perataan tanah merah, pemasangan batu belah, dan pemadatan dengan alat berat di proyek kami.",
+      en: "Need a road construction contractor in Cilangkap, East Jakarta? See how we level red soil, lay the base stone, and compact it with heavy equipment on our project.",
+    },
+    author: {
+      name: "PT. Tri Abadi Makmur Indonesia",
+      phone: "082258089367",
+      avatar: "/logo.webp",
+      bio: {
+        id: "PT Tri Abadi Makmur Indonesia adalah perusahaan konstruksi yang telah bertahun-tahun berpengalaman. Kami mengutamakan kualitas dan ketelitian di setiap tahap pengerjaan, serta menangani proyek berskala besar dengan tujuan utama kepuasan klien dan kerja sama jangka panjang.",
+        en: "PT Tri Abadi Makmur Indonesia is a construction company with years of hands-on experience. We prioritize quality and precision at every stage and handle projects of significant scale, with client satisfaction and long-term partnerships as our core goals.",
+      },
+    },
+    tags: [
+      { id: "Pembuatan Jalan Baru", en: "New Road Construction", slug: "pembuatan-jalan-baru" },
+      { id: "Pengaspalan Cilangkap", en: "Cilangkap Asphalt Paving", slug: "pengaspalan-cilangkap" },
+      { id: "Kontraktor Jalan Jakarta Timur", en: "East Jakarta Road Contractor", slug: "kontraktor-jalan-jakarta-timur" },
+      { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works", slug: "pekerjaan-aspal-hotmix" },
+      { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+    ],
+    body: [
+      {
+        type: "paragraph",
+        text: {
+          id: "Membuka akses jalan baru di Cilangkap, Jakarta Timur, tidak bisa dikerjakan asal-asalan. Kondisi tanah merah yang kerap ditemui di lokasi seperti ini membutuhkan penanganan khusus agar jalan tidak mudah amblas saat dilintasi kendaraan berat. Jika Anda sedang mencari kontraktor untuk <a href='/layanan/infrastruktur/pengaspalan' class='text-[#1e88e5] hover:underline font-semibold'>pembuatan jalan baru</a>, berikut gambaran proses yang kami kerjakan di proyek ini.",
+          en: "Opening new road access in the Cilangkap area of East Jakarta is not a job to be done carelessly. Red soil, which is commonly found in locations like this, requires special handling so the road does not sink easily under heavy vehicles. If you are looking for a contractor for new road construction, here is an overview of how we handle a project like this.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Banyak orang mengira pembuatan jalan hanya soal menuang aspal. Padahal, kekuatan jalan sebagian besar ditentukan oleh lapisan di bawahnya. Berikut tahapan yang kami lakukan, dari perataan tanah hingga permukaan yang siap untuk diaspal.",
+          en: "Many people think road building is just about laying asphalt. In reality, a road's strength depends largely on the layers beneath it. Here are the stages we followed, from leveling the ground to a surface that is ready for paving.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "1. Pembersihan Lahan dan Perataan Tanah Dasar",
+          en: "1. Land Clearing and Subgrade Leveling",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Tahap awal dimulai dengan membersihkan lahan dari pepohonan dan sisa tebangan. Tanah merah kemudian diratakan menggunakan excavator agar elevasinya sesuai rencana. Di sisi kiri dan kanan jalan dipasang <a href='/blog/pemasangan-kansteen' class='text-[#1e88e5] hover:underline font-semibold'>kanstin beton</a> berwarna putih. Kanstin berfungsi sebagai batas yang mengunci struktur jalan sekaligus mengarahkan aliran air. Tanah dasar yang sudah rata lalu dipadatkan agar tidak terjadi penurunan permukaan di kemudian hari.",
+          en: "The first stage starts with clearing the site of trees and leftover debris. The red soil is then leveled with an excavator so the elevation matches the plan. Concrete curbs (white kanstin) are installed along both sides of the road to lock in the road structure and guide water flow. The leveled subgrade is then compacted to prevent the surface from settling in the future.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "2. Penghamparan Lapisan Pondasi Bawah (Batu Belah)",
+          en: "2. Spreading the Lower Base Layer (Broken Stone)",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Tahap krusial berikutnya adalah penghamparan batu belah berukuran besar (macadam). Lapisan ini menjadi pondasi utama yang menanggung beban kendaraan dari atas. Pekerja menata batu secara merata di atas tanah dasar sebelum ditutup dengan material yang lebih kecil.",
+          en: "The next crucial step is spreading large broken stone (macadam). This layer forms the main foundation that carries vehicle loads from above. Workers arrange the stones evenly over the subgrade before covering them with smaller material.",
+        },
+      },
+      {
+        type: "image",
+        src: "/proyek/proyek-cilangkap-2.webp`",
+        alt: {
+          id: "Penghamparan batu belah sebagai lapisan pondasi bawah jalan di Cilangkap",
+          en: "Spreading broken stone as the lower base layer of a road in Cilangkap",
+        },
+        caption: {
+          id: "Batu belah ditata merata sebagai lapisan pondasi bawah untuk menahan beban kendaraan.",
+          en: "Broken stone is spread evenly as the lower base layer to carry vehicle loads.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "3. Penutupan dan Pemadatan Lapisan Pondasi",
+          en: "3. Covering and Compacting the Base Layer",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Setelah batu belah tertutup material split atau sirtu, alat berat Tandem Roller dioperasikan untuk memadatkan lapisan ini secara berulang. Proses ini memastikan rongga antarbatu terisi rapat sehingga permukaan menjadi padat dan rata. Lapisan yang solid membantu mencegah jalan amblas dan menjadi dasar yang baik untuk pengaspalan hotmix.",
+          en: "Once the broken stone is covered with crushed stone or sirtu, a Tandem Roller is run over the surface repeatedly to compact the layer. This closes the gaps between the stones so the surface becomes dense and even. A solid base helps prevent the road from sinking and provides a good foundation for hotmix asphalt.",
+        },
+      },
+      {
+        type: "image",
+        src: "/proyek/proyek-cilangkap-3.jpeg",
+        alt: {
+          id: "Pemadatan lapisan pondasi jalan menggunakan tandem roller di Cilangkap",
+          en: "Compacting the road base layer with a tandem roller in Cilangkap",
+        },
+        caption: {
+          id: "Pemadatan dengan Tandem Roller memastikan permukaan padat dan rata.",
+          en: "Compaction with a tandem roller ensures a dense and level surface.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "4. Hasil Pemadatan, Siap untuk Tahap Berikutnya",
+          en: "4. Compacted Surface, Ready for the Next Stage",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Permukaan yang sudah padat dan rata ini siap dilanjutkan ke tahap pengaspalan. Setiap tahap dikerjakan berurutan, karena kesalahan di lapisan bawah sulit diperbaiki setelah aspal terpasang. Di sinilah kualitas sebuah jalan sebenarnya ditentukan.",
+          en: "This compacted, level surface is ready for the paving stage. Each step is done in sequence, because mistakes in the lower layers are hard to fix once asphalt is laid. This is where the true quality of a road is determined.",
+        },
+      },
+      {
+        type: "image",
+        src: "/proyek/proyek-cilangkap-4.jpeg",
+        alt: {
+          id: "Permukaan jalan di Cilangkap yang sudah dipadatkan dan siap diaspal",
+          en: "Compacted road surface in Cilangkap ready for asphalt paving",
+        },
+        caption: {
+          id: "Permukaan yang sudah dipadatkan dan diratakan, siap untuk tahap pengaspalan.",
+          en: "The compacted and leveled surface is ready for the asphalt paving stage.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Pertanyaan yang Sering Diajukan",
+          en: "Frequently Asked Questions",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "<strong>Apakah tanah merah bisa langsung diaspal?</strong> Sebaiknya tidak. Tanah merah perlu diratakan, dipadatkan, dan dilapisi material pondasi terlebih dahulu agar jalan tidak mudah amblas.",
+          en: "<strong>Can red soil be paved directly?</strong> It is not recommended. The red soil should first be leveled, compacted, and covered with base material so the road does not sink easily.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "<strong>Mengapa lapisan bawah jalan begitu penting?</strong> Lapisan bawah menanggung beban kendaraan dari atas. Jika tidak cukup padat, retak dan penurunan bisa muncul lebih cepat, meskipun permukaan aspalnya terlihat baik.",
+          en: "<strong>Why is the lower layer of a road so important?</strong> The lower layers carry the loads from vehicles above. If they are not dense enough, cracks and sinking can appear sooner, even when the asphalt surface looks good.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Butuh Jasa Pembuatan Jalan di Cilangkap?",
+          en: "Need Road Construction Services in Cilangkap?",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "PT Tri Abadi Makmur melayani pembangunan jalan perumahan, akses pabrik, dan jalan lingkungan di Cilangkap, Jakarta Timur, serta wilayah sekitarnya. Kami memulai dari struktur pondasi yang kuat sebelum melanjutkan ke <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>pengaspalan hotmix</a>, agar jalan yang dihasilkan lebih awet dan nyaman dilalui.",
+          en: "PT Tri Abadi Makmur handles residential road construction, factory access roads, and neighborhood roads in Cilangkap, East Jakarta, and nearby areas. We build a strong foundation first before proceeding to hotmix asphalt paving, so the finished road lasts longer and rides more smoothly.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Punya lahan atau akses jalan yang perlu diperkeras? Hubungi kami melalui <a href='https://wa.me/6282258089367' target='_blank' rel='noopener noreferrer' class='text-[#1e88e5] hover:underline font-semibold'>WhatsApp</a> untuk survei lokasi dan penawaran harga yang sesuai dengan kebutuhan proyek Anda.",
+          en: "Have land or road access that needs reinforcing? Contact us on <a href='https://wa.me/6282258089367' target='_blank' rel='noopener noreferrer' class='text-[#1e88e5] hover:underline font-semibold'>WhatsApp</a> for a site survey and a price quote tailored to your project.",
+        },
+      },
+    ],
+  },
+  {
+    // SLUG UNIK #2 (INI YANG BIKIN ERROR SEBELUMNYA)
+    slug: "catatan-lapangan-pembuatan-jalan-di-cilangkap",
+    date: { id: "20 November 2026", en: "November 20, 2026" },
+    dateISO: "2026-11-20",
+    modifiedDateISO: "2026-11-27",
+    src: "/proyek/proyek-cilangkap-1.webp",
+    category: { id: "Pengaspalan", en: "Asphalt Paving" },
+    title: {
+      id: "Dari Tanah Merah ke Jalan Siap Aspal: Catatan Lapangan Pembuatan Jalan di Cilangkap",
+      en: "From Red Soil to Asphalt-Ready Road: Field Notes from Cilangkap",
+    },
+    desc: {
+      id: "Catatan lapangan proyek pembuatan jalan baru di Cilangkap, Jakarta Timur: dari perataan tanah merah, penataan batu belah, hingga pemadatan dengan tandem roller.",
+      en: "Field notes from a new road project in Cilangkap, East Jakarta: from leveling red soil and laying broken stone to compaction with a tandem roller.",
+    },
+    author: {
+      name: "PT. Tri Abadi Makmur Indonesia",
+      phone: "082258089367",
+      avatar: "/logo.webp",
+      bio: {
+        id: "PT Tri Abadi Makmur Indonesia adalah perusahaan konstruksi yang telah bertahun-tahun berpengalaman. Kami mengutamakan kualitas dan ketelitian di setiap tahap pengerjaan, serta menangani proyek berskala besar dengan tujuan utama kepuasan klien dan kerja sama jangka panjang.",
+        en: "PT Tri Abadi Makmur Indonesia is a construction company with years of hands-on experience. We prioritize quality and precision at every stage and handle projects of significant scale, with client satisfaction and long-term partnerships as our core goals.",
+      },
+    },
+    tags: [
+      { id: "Pembuatan Jalan Baru", en: "New Road Construction", slug: "pembuatan-jalan-baru" },
+      { id: "Pengaspalan Cilangkap", en: "Cilangkap Asphalt Paving", slug: "pengaspalan-cilangkap" },
+      { id: "Kontraktor Jalan Jakarta Timur", en: "East Jakarta Road Contractor", slug: "kontraktor-jalan-jakarta-timur" },
+      { id: "Pekerjaan Aspal Hotmix", en: "Hotmix Asphalt Works", slug: "pekerjaan-aspal-hotmix" },
+      { id: "Pemasangan Kansteen", en: "Kansteen Installation", slug: "pemasangan-kansteen" },
+    ],
+    body: [
+      {
+        type: "paragraph",
+        text: {
+          id: "Dari luar, jalan baru terlihat seperti hamparan batu dan tanah yang rata. Tapi di bawah permukaannya, ada serangkaian keputusan kecil yang menentukan apakah jalan itu akan awet bertahun-tahun atau justru retak dan amblas sebelum waktunya. Berikut catatan lapangan dari pembangunan jalan baru di Cilangkap, Jakarta Timur, dari tanah merah yang masih apa adanya hingga permukaan yang siap diaspal.",
+          en: "From the outside, a new road looks like nothing more than a flat strip of stone and soil. Underneath, though, a series of small decisions determines whether it lasts for years or cracks and sinks long before its time. Here are field notes from a new road project in Cilangkap, East Jakarta, from raw red soil to a surface ready for paving.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Cilangkap menghadirkan lokasi yang menantang. Area ini sebelumnya dipenuhi pepohonan dan semak, dan tanah merah di bawahnya harus dibentuk ulang sebelum bisa menanggung beban kendaraan. Tanah yang belum dipadatkan cenderung turun saat dibebani dan mudah berubah ketika terkena air, sehingga setiap tahap di lapangan harus dikerjakan dengan urutan yang benar.",
+          en: "Cilangkap presents a demanding site. The area was once thick with trees and scrub, and the red soil beneath it has to be reshaped before it can carry the weight of vehicles. Soil that has not been compacted tends to settle under load and reacts to moisture, so every stage on site has to follow the right order.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Langkah 1: Membuka Lahan dan Meratakan Tanah Merah",
+          en: "Step 1: Clearing the Land and Leveling the Red Soil",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Pekerjaan dimulai dengan membersihkan sisa tebangan dan menata ulang permukaan tanah. Excavator bekerja menyebar dan meratakan tanah merah hingga mendekati elevasi rencana, sementara pekerja menyiapkan tepi jalan. Di sisi jalan mulai terpasang <a href='/blog/pemasangan-kansteen' class='text-[#1e88e5] hover:underline font-semibold'>kanstin beton</a> putih, yang nantinya menjadi batas sekaligus penjaga bentuk jalan.",
+          en: "Work starts by clearing the cut trees and debris and reshaping the ground. An excavator spreads and levels the red soil until it approaches the planned elevation, while workers prepare the road edges. White <a href='/blog/pemasangan-kansteen' class='text-[#1e88e5] hover:underline font-semibold'>concrete curbs (kanstin)</a> begin to go in along the sides, becoming both the boundary and the keeper of the road's shape.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Tanah dasar yang sudah rata harus dipadatkan sebelum lapisan berikutnya dipasang. Tanah yang tidak padat akan terus turun di bawah beban, dan efeknya baru terlihat di permukaan beberapa waktu kemudian.",
+          en: "The leveled subgrade must be compacted before the next layer goes on. Loose soil keeps settling under load, and the effects only show up on the surface some time later.",
+        },
+      },
+      {
+        type: "image",
+        src: "/proyek/proyek-cilangkap-2.webp",
+        alt: {
+          id: "Excavator meratakan tanah merah dan kanstin beton mulai dipasang di sisi jalan baru di Cilangkap",
+          en: "An excavator levels red soil while concrete curbs are installed along the edge of a new road in Cilangkap",
+        },
+        caption: {
+          id: "Excavator meratakan tanah merah, sementara kanstin beton mulai terpasang di sisi kiri jalan.",
+          en: "An excavator levels the red soil while concrete curbs begin to go in along the left side of the road.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Langkah 2: Menata Batu Belah sebagai Tulang Punggung Jalan",
+          en: "Step 2: Laying Broken Stone as the Backbone of the Road",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Jika tanah dasar adalah fondasinya, batu belah adalah rangkanya. Batu berukuran besar disebar dan ditata merata, lalu saling mengunci ketika dipadatkan. Lapisan inilah yang menanggung beban kendaraan dari atas dan menyebarkannya ke tanah di bawahnya.",
+          en: "If the subgrade is the foundation, broken stone is the skeleton. Large stones are spread and arranged evenly, then lock together once compacted. This layer carries the weight of vehicles from above and spreads it down into the ground below.",
+        },
+      },
+      {
+        type: "image",
+        src: "/proyek/proyek-cilangkap-3.webp",
+        alt: {
+          id: "Penghamparan batu belah sebagai lapis pondasi bawah jalan di Cilangkap",
+          en: "Spreading broken stone as the lower base layer of a road in Cilangkap",
+        },
+        caption: {
+          id: "Pekerja menata batu belah secara merata sebelum lapisan di atasnya ditutup.",
+          en: "Workers arrange the broken stone evenly before the layer above it is added.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Langkah 3: Mengunci Lapisan dengan Tandem Roller",
+          en: "Step 3: Locking the Layers with a Tandem Roller",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Setelah batu belah tertata, celah di antaranya diisi material yang lebih halus seperti split atau sirtu. Tandem roller kemudian bergerak berulang-ulang di atas permukaan, menekan material hingga rongga-rongga tertutup dan permukaan menjadi padat. Proses inilah yang mengubah tumpukan batu lepas menjadi satu kesatuan yang kokoh.",
+          en: "Once the stone is in place, the gaps between the pieces are filled with finer material such as split or sirtu. A tandem roller then passes over the surface again and again, pressing the material until the voids close and the surface firms up. This is the process that turns loose piles of stone into one solid, cohesive structure.",
+        },
+      },
+      {
+        type: "image",
+        src: "/proyek/proyek-cilangkap-4.webp",
+        alt: {
+          id: "Tandem roller memadatkan lapisan pondasi jalan di Cilangkap",
+          en: "A tandem roller compacts the road base layer in Cilangkap",
+        },
+        caption: {
+          id: "Tandem roller memadatkan lapisan batu yang sudah tertutup material halus.",
+          en: "A tandem roller compacts the stone layer after it has been covered with finer material.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Hasilnya seperti yang terlihat di foto utama: permukaan yang padat, rata, dan siap menerima tahap berikutnya. Bagi pemilik lahan, ini adalah saat jalan mulai terasa nyata. Bagi kami, inilah saat paling penting, ketika pekerjaan yang tak terlihat berubah menjadi fondasi yang bisa diandalkan.",
+          en: "The result looks like the main photo above: a dense, level surface ready for the next layer. For the landowner, this is when the road starts to feel real. For us, it is the most important moment, when work nobody sees becomes a foundation that can be relied on.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Mengapa Lapisan yang Tak Terlihat Justru Paling Penting",
+          en: "Why the Layers Nobody Sees Matter Most",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Begitu aspal hotmix terpasang, semua lapisan di bawahnya tertutup. Karena itu, kesalahan di pondasi sering baru terlihat bertahun-tahun kemudian, dalam bentuk retak, cekung, atau permukaan yang amblas. Memperbaiki permukaan jauh lebih mudah daripada memperbaiki apa yang ada di bawahnya, dan itulah alasan kami memperlakukan setiap lapisan bawah sebagai bagian terpenting dari proyek.",
+          en: "Once hotmix asphalt is laid, every layer underneath is hidden. That is why foundation mistakes often show up years later as cracks, dips, or sinking. Fixing a surface is far easier than fixing what lies beneath it, which is why we treat each lower layer as one of the most important parts of the project.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Pertanyaan yang Sering Diajukan",
+          en: "Frequently Asked Questions",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "<strong>Apakah tanah merah bisa langsung diaspal?</strong> Sebaiknya tidak. Tanah merah perlu diratakan, dipadatkan, dan dilapisi batu pondasi terlebih dahulu agar jalan tidak mudah amblas.",
+          en: "<strong>Can red soil be paved directly?</strong> It is not recommended. Red soil should first be leveled, compacted, and covered with a base layer so the road does not sink easily.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "<strong>Kenapa harus memakai batu belah?</strong> Batu belah membentuk rangka yang kuat dan saling mengunci saat dipadatkan. Lapisan ini membantu menyebarkan beban kendaraan sebelum sampai ke tanah dasar.",
+          en: "<strong>Why use broken stone?</strong> Broken stone forms a strong frame that locks together when compacted. This layer helps spread vehicle loads before they reach the subgrade.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "<strong>Apa yang perlu disiapkan sebelum membangun jalan baru?</strong> Tentukan dulu fungsi jalannya, apakah untuk perumahan, akses pabrik, atau jalan lingkungan. Lalu lakukan survei lokasi bersama kontraktor agar kondisi tanah dan elevasi bisa dinilai sejak awal.",
+          en: "<strong>What should be prepared before building a new road?</strong> Decide the road's purpose first, whether for housing, factory access, or neighborhood use. Then arrange a site survey with your contractor so soil conditions and elevation can be assessed from the start.",
+        },
+      },
+      {
+        type: "heading",
+        text: {
+          id: "Punya Akses yang Perlu Diperkeras di Cilangkap?",
+          en: "Have an Access Road to Build in Cilangkap?",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "PT Tri Abadi Makmur melayani pembangunan jalan perumahan, akses pabrik, dan jalan lingkungan di Cilangkap, Jakarta Timur, serta wilayah sekitarnya. Kami memulai dari pondasi yang kuat, lalu melanjutkan ke <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>pengaspalan hotmix</a> ketika struktur bawahnya sudah siap.",
+          en: "PT Tri Abadi Makmur builds residential roads, factory access routes, and neighborhood roads in Cilangkap, East Jakarta, and nearby areas. We start with a strong foundation and move on to <a href='/blog/biaya-aspal-per-meter' class='text-[#1e88e5] hover:underline font-semibold'>hotmix asphalt paving</a> once the structure beneath is ready.",
+        },
+      },
+      {
+        type: "paragraph",
+        text: {
+          id: "Ceritakan kondisi lahan Anda, dan kami bantu merancang langkah yang tepat. Hubungi kami melalui <a href='https://wa.me/6282258089367' target='_blank' rel='noopener noreferrer' class='text-[#1e88e5] hover:underline font-semibold'>WhatsApp</a> untuk survei lokasi dan penawaran harga yang sesuai dengan kebutuhan proyek Anda.",
+          en: "Tell us about your land and we will help you plan the right steps. Reach us on <a href='https://wa.me/6282258089367' target='_blank' rel='noopener noreferrer' class='text-[#1e88e5] hover:underline font-semibold'>WhatsApp</a> for a site survey and a price quote tailored to your project.",
+        },
+      },
+    ],
+  },
 ];
 
 export function getArticleBySlug(slug) {

@@ -38,7 +38,6 @@ function Reveal({
       opacity: visible ? 1 : 0,
       transform: visible ? "translateY(0)" : `translateY(${y}px)`,
       willChange: visible ? "auto" : "opacity, transform",
-      // paint dihapus saat visible supaya focus outline tidak ter-clip
       contain: visible ? "layout style" : "layout paint style",
     };
   }, [enabled, visible, duration, delay, y]);
@@ -267,6 +266,28 @@ function ArticleBody({ body, lang, priceGuide }) {
           );
         }
 
+        // ═══ FIX: RENDER GAMBAR TANPA REVEAL ═══
+        if (block.type === "image") {
+          const alt = pick(block.alt, lang) || "PT Tri Abadi Makmur";
+          const caption = pick(block.caption, lang);
+
+          return (
+            <figure key={`${block.type}-${i}`} className="my-6 sm:my-8">
+              <img
+                src={block.src}
+                alt={alt}
+                className="w-full h-auto rounded-xl shadow-md mb-3"
+              />
+              {caption && (
+                <figcaption className="text-sm text-slate-500 text-center italic">
+                  {caption}
+                </figcaption>
+              )}
+            </figure>
+          );
+        }
+        // ═══ END FIX ═══
+
         if (priceGuide && block.type === "price-list") {
           return (
             <div
@@ -320,7 +341,7 @@ function ArticleBody({ body, lang, priceGuide }) {
               ) : containsHtml ? (
                 <div
                   className="text-slate-700 leading-[1.9] sm:leading-[1.95] prose max-w-none w-full
-                             [&>p]:mb-5 [&>p:last-child]:mb-0"
+                             [&>p]:mb-5 [&>p:last-child]:mb-0 [&>figure]:my-6"
                   style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1rem)" }}
                   dangerouslySetInnerHTML={{ __html: text }}
                 />
